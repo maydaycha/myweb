@@ -35,7 +35,7 @@ class OauthController < ApplicationController
             user = Oauth.create( :name => 'maydaycha', :token => @access_token.token, :secret => @access_token.secret)
             # joe = User.new( :name => "Sad Joe" )        # not saved
         else
-            redirect_to 'http://0.0.0.0:3000'
+            redirect_to 'request.original_url'
         end
     end
 end
