@@ -60,4 +60,10 @@ Sun::Application.routes.draw do
   get    '/api' => "api#construct_access_token"
   get    '/getUsersBySearch' => "api#getUsersBySearch"
   get    '/getAccountDetails' => "api#getAccountDetails"
+
+  get    '/searchProjects' => "projects#searchProjects"
+  get    '/storeProjects' => "projects#storeProjects"
+  get    '/getProjectDetails' => "projects#getProjectDetails"
+  get    '/storeProjectsDetails' => "projects#storeProjectsDetails"
+
 end
