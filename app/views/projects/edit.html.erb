@@ -1,15 +1,33 @@
 <%= form_for @project, :url => { :controller => 'projects', :action => 'update', :id => @project } do |p| %>
-    <%= p.label :name, "Name: " %>
-    <%= @project.name %>
-    <%= p.text_field :name_chinese %>
-    <br>
-    <%= p.label :require_skills, "require_skills: " %>
-    <%= @project.require_skills %>
-    <%= p.text_field :require_skills_chinese %>
-    <br>
-    <%= p.label :description, "Description: " %>
-    <%= @project.description %>
-    <%= p.text_area :description_chinese %>
-
-    <%= p.submit "Update" %>
-    <% end %>
+<ul>
+    <li>
+        <%= p.label :name, "Name: " %>
+        <%= @project.name %>
+    </li>
+    <li>
+        <%= p.label :name_chinese, "Name_Chinese: " %>
+        <%= p.text_field :name_chinese %>
+    </li>
+</ul>
+<ul>
+    <li>
+        <%= p.label :require_skills, "require_skills: " %>
+        <%= @project.require_skills %>
+    </li>
+    <li>
+        <%= p.label :require_skills_chinese, "require_skills_chinese: " %>
+        <%= p.text_field :require_skills_chinese %>
+    </li>
+</ul>
+<ul>
+    <li>
+        <%= p.label :description, "Description: " %>
+        <%= @project.description %>
+    </li>
+    <li>
+        <%= p.label :description_chinese, "Description_chinese: " %>
+        <%= p.text_area :description_chinese %>
+    </li>
+</ul>
+<%= p.submit "Update" %>
+<% end %>
