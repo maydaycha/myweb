@@ -14,7 +14,8 @@ development:
   database: sun
   username: root
   password: root
-  host: localhost
+  # host: localhost
+  host: 140.113.73.28
   encoding: utf8
 
 # Warning: The database defined as "test" will be erased and
