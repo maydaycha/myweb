@@ -54,10 +54,17 @@ Sun::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :projects
 
-  get    '/oauth' => "oauth#oauth_process"
-  get    '/get_access_token' => "oauth#get_access_token"
-  get    '/api' => "api#construct_access_token"
-  get    '/getUsersBySearch' => "api#getUsersBySearch"
-  get    '/getAccountDetails' => "api#getAccountDetails"
+  # get    '/oauth' => "oauth#oauth_process"
+  # get    '/get_access_token' => "oauth#get_access_token"
+  # get    '/api' => "api#construct_access_token"
+  # get    '/getUsersBySearch' => "api#getUsersBySearch"
+  # get    '/getAccountDetails' => "api#getAccountDetails"
+
+  # get    '/searchProjects' => "projects#searchProjects"
+  # get    '/storeProjects' => "projects#storeProjects"
+  # get    '/getProjectDetails' => "projects#getProjectDetails"
+  get    '/storeProjectsDetails' => "projects#storeProjectsDetails"
+
 end

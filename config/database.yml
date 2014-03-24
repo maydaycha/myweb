@@ -11,7 +11,7 @@ development:
 
   # mysql
   adapter: mysql2
-  database: rails
+  database: sun
   username: root
   password: root
   host: localhost
@@ -27,9 +27,7 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql2
-  database: sun
-  username: root
-  password: root
-  host: 140.113.72.8
-  encoding: utf8
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000
