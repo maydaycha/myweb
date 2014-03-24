@@ -1,0 +1,10 @@
+<ul>
+    <li><%= @project.name %></li>
+    <%= @project.name_chinese %>
+    <li><%= simple_format(@project.require_skills) %></li>
+    <%= simple_format(@project.require_skills_chinese) %>
+    <li><%= simple_format(@project.description) %></li>
+    <%= simple_format(@project.description_chinese) %>
+</ul>
+
+<p><%= link_to 'Back to index', :controller => 'projects', :action => 'index' %></p>

@@ -1,0 +1,15 @@
+<%= form_for @project, :url => { :controller => 'projects', :action => 'update', :id => @project } do |p| %>
+    <%= p.label :name, "Name: " %>
+    <%= @project.name %>
+    <%= p.text_field :name_chinese %>
+    <br>
+    <%= p.label :require_skills, "require_skills: " %>
+    <%= @project.require_skills %>
+    <%= p.text_field :require_skills_chinese %>
+    <br>
+    <%= p.label :description, "Description: " %>
+    <%= @project.description %>
+    <%= p.text_area :description_chinese %>
+
+    <%= p.submit "Update" %>
+    <% end %>
