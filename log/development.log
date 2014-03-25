@@ -3196,3 +3196,123 @@ Processing by ProjectsController#edit as HTML
   [1m[35mProject Load (2.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 2 LIMIT 1
   Rendered projects/edit.html.erb within layouts/application (1.4ms)
 Completed 200 OK in 11ms (Views: 6.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-25 22:59:19 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (16.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (365.1ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (1236.8ms)
+Completed 200 OK in 1603ms (Views: 1112.9ms | ActiveRecord: 421.5ms)
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-25 22:59:21 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-25 22:59:22 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-25 22:59:22 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-25 22:59:22 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-25 22:59:22 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-25 22:59:22 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-25 22:59:22 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-25 22:59:22 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-25 22:59:22 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-25 22:59:22 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-25 22:59:22 +0800
+
+
+Started GET "/projects/152" for 127.0.0.1 at 2014-03-25 22:59:26 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"152"}
+  [1m[36mProject Load (20.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 152 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 63ms (Views: 40.6ms | ActiveRecord: 20.0ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2014-03-25 22:59:31 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (16.7ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 2 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25ms (Views: 6.5ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2014-03-25 22:59:36 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (16.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 2 LIMIT 1[0m
+  Rendered projects/edit.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 44ms (Views: 26.0ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/searchProjects?jobtype=translation" for 127.0.0.1 at 2014-03-25 23:51:01 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (16.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#searchProjects as HTML
+  Parameters: {"jobtype"=>"translation"}
+  [1m[35mOauth Load (40.8ms)[0m  SELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1
+Completed 200 OK in 4035ms (Views: 0.2ms | ActiveRecord: 92.8ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-25 23:51:22 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (374.6ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  Rendered projects/index.html.erb within layouts/application (640.2ms)
+Completed 200 OK in 705ms (Views: 274.8ms | ActiveRecord: 427.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-25 23:51:23 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-25 23:51:23 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-25 23:51:23 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-25 23:51:23 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-25 23:51:23 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-25 23:51:23 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-25 23:51:23 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-25 23:51:23 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-25 23:51:23 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-25 23:51:23 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-25 23:51:23 +0800
+
+
+Started GET "/searchProjects?jobtype=translation" for 127.0.0.1 at 2014-03-25 23:51:26 +0800
+Processing by ProjectsController#searchProjects as HTML
+  Parameters: {"jobtype"=>"translation"}
+  [1m[35mOauth Load (15.8ms)[0m  SELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1
+Completed 200 OK in 2223ms (Views: 0.1ms | ActiveRecord: 15.8ms)

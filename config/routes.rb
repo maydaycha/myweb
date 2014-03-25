@@ -66,8 +66,8 @@ Sun::Application.routes.draw do
   # get    '/storeProjects' => "projects#storeProjects"
   # get    '/getProjectDetails' => "projects#getProjectDetails"
 
-  # get    '/oauth' => "oauth#oauth_process"
-  # get    '/get_access_token' => "oauth#get_access_token"
+  get    '/oauth' => "oauth#oauth_process"
+  get    '/get_access_token' => "oauth#get_access_token"
   # get    '/api' => "api#construct_access_token"
   # get    '/getUsersBySearch' => "api#getUsersBySearch"
   # get    '/getAccountDetails' => "api#getAccountDetails"
