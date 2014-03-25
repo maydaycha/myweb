@@ -28,16 +28,13 @@ test:
   timeout: 5000
 
 production:
-<<<<<<< HEAD
   adapter: mysql2
   database: sun
   username: root
   password: root
   host: 140.113.73.28
   encoding: utf8
-=======
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
->>>>>>> 952af3e72537b2c3e53c0a017f93e110cd9e84a2
+  # adapter: sqlite3
+  # database: db/production.sqlite3
+  # pool: 5
+  # timeout: 5000

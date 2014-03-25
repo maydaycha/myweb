@@ -19,8 +19,14 @@ class ProjectsController < ApplicationController
     def update
         @project = Project.find(params[:id])
         @project.update(params.permit![:project])
-        # redirect_to project_path(@project)
-        redirect_to :action => :show, :id => @project
+        # redirect_to :action => :show, :id => @project
+        redirect_to project_path(@project)
+    end
+
+    def destroy
+        @project = Project.find(params[:id])
+        @project.destroy
+        redirect_to projects_path
     end
 
     def searchProjects
@@ -29,16 +35,6 @@ class ProjectsController < ApplicationController
         render :json => @content.body
     end
 
-    def storeProjects
-        @access_token = construct_access_token()
-        @content = @access_token.get("http://api.freelancer.com/Project/searchProjects.json?searchjobtypecsv=#{params[:jobtype]}")
-        hash = JSON.parse @content.body
-        # puts hash['json-result']['']
-        hash['json-result']['items'].each do |ele, index|
-            project = Project.create( :outside_id => ele['projectid'], :name => ele['projectname'], :url => ele['projecturl'], :budget => ele['bids'], :require_skills => ele['jobtypecsv'], :remain_time => ele['startdate'], :duration => ele['startdate'], :from_source => 'freelancer', :description => ele['projecturl'])
-        end
-        render :json => @content.body
-    end
 
     def getProjectDetails
      @access_token = construct_access_token()

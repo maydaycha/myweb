@@ -891,3 +891,2308 @@ Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 14:28:47 +0
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 14:28:47 +0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-24 15:03:29 +0800
+
+RuntimeError (YAML syntax error occurred while parsing /Users/Maydaycha/rails/sun/config/database.yml. Please note that YAML must be consistently indented using spaces. Tabs are not allowed. Error: (<unknown>): could not find expected ':' while scanning a simple key at line 31 column 1):
+  railties (4.0.3) lib/rails/application/configuration.rb:113:in `rescue in database_configuration'
+  railties (4.0.3) lib/rails/application/configuration.rb:103:in `database_configuration'
+  activerecord (4.0.3) lib/active_record/railtie.rb:175:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.0.3) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.0.3) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.0.3) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.0.3) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.0.3) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.0.3) lib/active_record/base.rb:322:in `<module:ActiveRecord>'
+  activerecord (4.0.3) lib/active_record/base.rb:22:in `<top (required)>'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:229:in `require'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:229:in `block in require'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:214:in `load_dependency'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:229:in `require'
+  activerecord (4.0.3) lib/active_record/schema_migration.rb:3:in `<top (required)>'
+  activerecord (4.0.3) lib/active_record/migration.rb:783:in `schema_migrations_table_name'
+  activerecord (4.0.3) lib/active_record/migration.rb:791:in `current_version'
+  activerecord (4.0.3) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.3) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.3) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__3430274923972207094__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-24 15:03:29 +0800
+
+RuntimeError (YAML syntax error occurred while parsing /Users/Maydaycha/rails/sun/config/database.yml. Please note that YAML must be consistently indented using spaces. Tabs are not allowed. Error: (<unknown>): could not find expected ':' while scanning a simple key at line 31 column 1):
+  railties (4.0.3) lib/rails/application/configuration.rb:113:in `rescue in database_configuration'
+  railties (4.0.3) lib/rails/application/configuration.rb:103:in `database_configuration'
+  activerecord (4.0.3) lib/active_record/railtie.rb:175:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.0.3) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.0.3) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.0.3) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.0.3) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.0.3) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.0.3) lib/active_record/base.rb:322:in `<module:ActiveRecord>'
+  activerecord (4.0.3) lib/active_record/base.rb:22:in `<top (required)>'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:229:in `require'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:229:in `block in require'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:214:in `load_dependency'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:229:in `require'
+  activerecord (4.0.3) lib/active_record/schema_migration.rb:3:in `<top (required)>'
+  activerecord (4.0.3) lib/active_record/migration.rb:783:in `schema_migrations_table_name'
+  activerecord (4.0.3) lib/active_record/migration.rb:791:in `current_version'
+  activerecord (4.0.3) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.3) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.3) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__3430274923972207094__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (22.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (33.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-24 15:03:59 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (129.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (0.6ms)
+Completed 200 OK in 22ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-24 15:04:06 +0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-24 15:04:06 +0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 15:04:06 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (93307.3ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (95139.9ms)
+Completed 200 OK in 95190ms (Views: 274.3ms | ActiveRecord: 94913.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 15:05:41 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 15:05:42 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 15:05:45 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 15:05:45 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 15:05:45 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 15:06:01 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 15:06:02 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 15:06:02 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 15:06:03 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 15:06:03 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 15:06:04 +0800
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-24 15:06:12 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (36.2ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/edit.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 51ms (Views: 12.6ms | ActiveRecord: 36.2ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-24 15:06:51 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (6129.7ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 6149ms (Views: 17.1ms | ActiveRecord: 6129.7ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-24 15:06:59 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (86.4ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 117ms (Views: 28.8ms | ActiveRecord: 86.4ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-24 15:07:04 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (119.9ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 128ms (Views: 6.5ms | ActiveRecord: 119.9ms)
+
+
+Started GET "/storeProjectsDetails?jobtype=Translation" for 127.0.0.1 at 2014-03-24 15:07:18 +0800
+Processing by ProjectsController#storeProjectsDetails as HTML
+  Parameters: {"jobtype"=>"Translation"}
+  [1m[36mOauth Load (5936.0ms)[0m  [1mSELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1[0m
+  [1m[35m (79.5ms)[0m  BEGIN
+  [1m[36mSQL (65.1ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('250,750', '2014-03-24 07:07:37', 'I love travelling and I would like to write about what I experience!', '2014-03-30 23:38:11', 'freelancer', 'Translate Something', 5709468, '2014-03-30 23:38:11', 'Article Rewriting, Articles, Copywriting, Translation', '2014-03-24 07:07:37', 'http://www.freelancer.com/projects/Articles-Copywriting/Translate-Something.5709468.html')[0m
+  [1m[35m (72.7ms)[0m  COMMIT
+  [1m[36m (1420.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (432.2ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 07:07:41', 'Greetings freelancers! Here is a description of the project:\r\n\r\nFrench children’s storybook / Age: 4-5 / Pages: 12-15 / Qty: 6 \r\nFrench children’s storybook / Age: 2-3 / Pages: 8-10 / Qty: 4\r\nLanguages needed: French & translated to English\r\nOffer: $150\r\nBids will be considered from writers with prior children’s writing experience who can provide samples.\r\nContent details will be provided after acceptance.', '2014-03-30 23:09:14', 'freelancer', 'French Writers ONLY! -- 2', 5709399, '2014-03-30 23:09:14', 'Book Writing, eBooks, Ghostwriting, Translation', '2014-03-24 07:07:41', 'http://www.freelancer.com/projects/Ghostwriting-Translation/French-Writers-ONLY.5709399.html')
+  [1m[36m (156.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (1430.7ms)[0m  BEGIN
+  [1m[36mSQL (169.9ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('8,15', '2014-03-24 07:07:44', 'I need somali translators for translation of audio files. Complete detail will be sent to the winning person.\r\nProject is long term. Expected monthly earning can be from $500 to $3000.\r\nsimple conversations.\r\nsimple conversational English required. \r\nbit familiarity with MS word. I will train.', '2014-03-30 22:41:58', 'freelancer', 'Translate Something', 5709333, '2014-03-30 22:41:58', 'Translation', '2014-03-24 07:07:44', 'http://www.freelancer.com/projects/Translation/Translate-Something.5709333.html')[0m
+  [1m[35m (3301.1ms)[0m  COMMIT
+  [1m[36m (70.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (8100.5ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 07:07:49', 'Greetings freelancers! Here is a description of the project:\r\n\r\nFrench children’s storybook / Age: 4-5 / Pages: 12-15 / Qty: 6 \r\nFrench children’s storybook / Age: 2-3 / Pages: 8-10 / Qty: 4\r\nLanguages needed: French & translated to English\r\nOffer: $150\r\nBids will be considered from writers with prior children’s writing experience who can provide samples.\r\nContent details will be provided after acceptance.', '2014-03-30 22:17:13', 'freelancer', 'French Writers ONLY!', 5709272, '2014-03-30 22:17:13', 'Book Writing, eBooks, Ghostwriting, Translation', '2014-03-24 07:07:49', 'http://www.freelancer.com/projects/Ghostwriting-Translation/French-Writers-ONLY.5709272.html')
+  [1m[36m (120.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (155.3ms)[0m  BEGIN
+  [1m[36mSQL (172.7ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 07:08:01', 'Greetings freelancers! Here is a description of the project:\r\n\r\nRussian children’s storybook / Age: 4-5 / Pages: 12-15 / Qty: 6 \r\nRussian children’s storybook / Age: 2-3 / Pages: 8-10 / Qty: 4\r\nLanguages needed: Russian & translated to English\r\nOffer: $150\r\nBids will be considered from writers with prior children’s writing experience who can provide samples.\r\nContent details will be provided after acceptance.', '2014-03-30 19:00:55', 'freelancer', 'Russian Writers ONLY!', 5708826, '2014-03-30 19:00:55', 'Book Writing, eBooks, Ghostwriting, Translation', '2014-03-24 07:08:01', 'http://www.freelancer.com/projects/Ghostwriting-Translation/Russian-Writers-ONLY.5708826.html')[0m
+  [1m[35m (188.4ms)[0m  COMMIT
+  [1m[36m (193.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (121.6ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('2,8', '2014-03-24 07:08:04', 'Spanish translator with English knowledge needed for long-term project\r\n\r\nThe freelancer has to be available DAILY and being able to handle seriously this project\r\n\r\nOnly spanish natives, NO agencies', '2014-03-30 16:21:05', 'freelancer', 'Long term work for Spanish translator', 5708404, '2014-03-30 16:21:05', 'English (UK), English (US), Spanish (Spain), Translation, Virtual Assistant', '2014-03-24 07:08:04', 'http://www.freelancer.com/projects/Translation-Virtual-Assistant/Long-term-work-for-Spanish.html')
+  [1m[36m (125.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (1445.7ms)[0m  BEGIN
+  [1m[36mSQL (2681.9ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('10,20', '2014-03-24 07:08:07', 'I am in the process of applying for a migration visa to Australia. I need to have my French birth certificate officially translated into English to a professionally qualified level and NAATI certified. I would translate it myself seeing as I am bilingual but I am not a professional translator and fear that it may be rejected otherwise.\r\n\r\nThe birth certificate itself is no longer than 150 words, and should take an experienced translator in this field no longer than an hour. \r\n\r\nPlease note that I will need to see official accreditation before accepting any bids.\r\n\r\nThanks!', '2014-03-30 15:57:20', 'freelancer', 'Translate Birth Certificate from French to English - must be NAATI certified', 5708337, '2014-03-30 15:57:20', 'French, Translation, Visa / Immigration', '2014-03-24 07:08:07', 'http://www.freelancer.com/projects/Translation-French/Translate-Birth-Certificate-from-French.html')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Mysql2::Error: This connection is still waiting for a result, try again once you have the result: COMMIT
+Completed   in 50641ms
+
+
+Started GET "/searchProjects?jobtype=Translation" for 127.0.0.1 at 2014-03-24 15:08:38 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (643.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#searchProjects as HTML
+  Parameters: {"jobtype"=>"Translation"}
+  [1m[35mOauth Load (134.8ms)[0m  SELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1
+Completed 200 OK in 4801ms (Views: 0.1ms | ActiveRecord: 463.4ms)
+
+
+Started GET "/searchProjects?jobtype=Translation" for 127.0.0.1 at 2014-03-24 15:08:48 +0800
+Processing by ProjectsController#searchProjects as HTML
+  Parameters: {"jobtype"=>"Translation"}
+  [1m[36mOauth Load (98.5ms)[0m  [1mSELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 3025ms (Views: 0.2ms | ActiveRecord: 98.5ms)
+
+
+Started GET "/searchProjects?jobtype=Translation" for 127.0.0.1 at 2014-03-24 15:08:52 +0800
+Processing by ProjectsController#searchProjects as HTML
+  Parameters: {"jobtype"=>"Translation"}
+  [1m[35mOauth Load (165.7ms)[0m  SELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1
+Completed 200 OK in 2669ms (Views: 0.1ms | ActiveRecord: 165.7ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 15:15:48 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (2405.3ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  Rendered projects/index.html.erb within layouts/application (2731.6ms)
+Completed 200 OK in 2805ms (Views: 256.1ms | ActiveRecord: 2547.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 15:15:52 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 15:15:52 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 15:15:52 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 15:15:53 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 15:15:53 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 15:15:53 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 15:15:53 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 15:15:53 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 15:15:53 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 15:15:53 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 15:15:53 +0800
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-24 15:15:55 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (37.8ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+ERROR: compiling _app_views_projects_edit_html_erb___2398954369660338892_70309165538980 RAISED /Users/Maydaycha/rails/sun/app/views/projects/edit.html.erb:29: syntax error, unexpected ':', expecting ')'
+...ext_area :description_chinese :width => '300px' );@output_bu...
+...                               ^
+Function body:           def _app_views_projects_edit_html_erb___2398954369660338892_70309165538980(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "projects/edit";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.append=  form_for @project, :url => { :controller => 'projects', :action => 'update', :id => @project } do |p| @output_buffer.safe_append='
+<ul>
+    <li>
+        ';@output_buffer.append=( p.label :name, "Name: " );@output_buffer.safe_append='
+        ';@output_buffer.append=( @project.name );@output_buffer.safe_append='
+    </li>
+    <li>
+        ';@output_buffer.append=( p.label :name_chinese, "Name_Chinese: " );@output_buffer.safe_append='
+        ';@output_buffer.append=( p.text_field :name_chinese );@output_buffer.safe_append='
+    </li>
+</ul>
+<ul>
+    <li>
+        ';@output_buffer.append=( p.label :require_skills, "require_skills: " );@output_buffer.safe_append='
+        ';@output_buffer.append=( @project.require_skills );@output_buffer.safe_append='
+    </li>
+    <li>
+        ';@output_buffer.append=( p.label :require_skills_chinese, "require_skills_chinese: " );@output_buffer.safe_append='
+        ';@output_buffer.append=( p.text_field :require_skills_chinese );@output_buffer.safe_append='
+    </li>
+</ul>
+<ul>
+    <li>
+        ';@output_buffer.append=( p.label :description, "Description: " );@output_buffer.safe_append='
+        ';@output_buffer.append=( @project.description );@output_buffer.safe_append='
+    </li>
+    <li>
+        ';@output_buffer.append=( p.label :description_chinese, "Description_chinese: " );@output_buffer.safe_append='
+        ';@output_buffer.append=( p.text_area :description_chinese :width => '300px' );@output_buffer.safe_append='
+    </li>
+</ul>
+';@output_buffer.append=( p.submit "Update" );@output_buffer.safe_append='
+'; end 
+@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:299:in `module_eval'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:299:in `compile'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:248:in `block in compile!'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:236:in `synchronize'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:236:in `compile!'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:142:in `block in render'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications.rb:161:in `instrument'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:141:in `render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications.rb:159:in `block in instrument'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications.rb:159:in `instrument'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/renderer.rb:23:in `render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/rendering.rb:97:in `render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/rendering.rb:16:in `render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/Library/Ruby/Gems/2.0.0/gems/activerecord-4.0.3/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/base.rb:189:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/callbacks.rb:403:in `_run__4554678568125357837__process_action__callbacks'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications.rb:159:in `block in instrument'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications.rb:159:in `instrument'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/activerecord-4.0.3/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/base.rb:136:in `process'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/rendering.rb:44:in `process'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal.rb:195:in `dispatch'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal.rb:231:in `block in action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/journey/router.rb:59:in `each'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/journey/router.rb:59:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/routing/route_set.rb:680:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/Library/Ruby/Gems/2.0.0/gems/activerecord-4.0.3/lib/active_record/query_cache.rb:36:in `call'
+/Library/Ruby/Gems/2.0.0/gems/activerecord-4.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/Library/Ruby/Gems/2.0.0/gems/activerecord-4.0.3/lib/active_record/migration.rb:369:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/callbacks.rb:373:in `_run__4257462093082618250__call__callbacks'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/rack/logger.rb:38:in `call_app'
+/Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/rack/logger.rb:20:in `block in call'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:25:in `tagged'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:67:in `tagged'
+/Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/rack/logger.rb:20:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/static.rb:64:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+/Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/engine.rb:511:in `call'
+/Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/application.rb:97:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered projects/edit.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 46ms
+
+ActionView::Template::Error (/Users/Maydaycha/rails/sun/app/views/projects/edit.html.erb:29: syntax error, unexpected ':', expecting ')'
+...ext_area :description_chinese :width => '300px' );@output_bu...
+...                               ^):
+    26:     </li>
+    27:     <li>
+    28:         <%= p.label :description_chinese, "Description_chinese: " %>
+    29:         <%= p.text_area :description_chinese :width => '300px' %>
+    30:     </li>
+    31: </ul>
+    32: <%= p.submit "Update" %>
+  actionpack (4.0.3) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.3) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.3) lib/action_view/template.rb:248:in `block in compile!'
+  actionpack (4.0.3) lib/action_view/template.rb:236:in `synchronize'
+  actionpack (4.0.3) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.3) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.3) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.3) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.3) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.3) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.3) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.3) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.3) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.3) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.3) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.3) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.3) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.3) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.3) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.3) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.3) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.3) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:403:in `_run__4554678568125357837__process_action__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.3) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.3) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__4257462093082618250__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.8ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-24 15:15:55 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (37.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+ERROR: compiling _app_views_projects_edit_html_erb___2398954369660338892_70309163155900 RAISED /Users/Maydaycha/rails/sun/app/views/projects/edit.html.erb:29: syntax error, unexpected ':', expecting ')'
+...ext_area :description_chinese :width => '300px' );@output_bu...
+...                               ^
+Function body:           def _app_views_projects_edit_html_erb___2398954369660338892_70309163155900(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "projects/edit";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.append=  form_for @project, :url => { :controller => 'projects', :action => 'update', :id => @project } do |p| @output_buffer.safe_append='
+<ul>
+    <li>
+        ';@output_buffer.append=( p.label :name, "Name: " );@output_buffer.safe_append='
+        ';@output_buffer.append=( @project.name );@output_buffer.safe_append='
+    </li>
+    <li>
+        ';@output_buffer.append=( p.label :name_chinese, "Name_Chinese: " );@output_buffer.safe_append='
+        ';@output_buffer.append=( p.text_field :name_chinese );@output_buffer.safe_append='
+    </li>
+</ul>
+<ul>
+    <li>
+        ';@output_buffer.append=( p.label :require_skills, "require_skills: " );@output_buffer.safe_append='
+        ';@output_buffer.append=( @project.require_skills );@output_buffer.safe_append='
+    </li>
+    <li>
+        ';@output_buffer.append=( p.label :require_skills_chinese, "require_skills_chinese: " );@output_buffer.safe_append='
+        ';@output_buffer.append=( p.text_field :require_skills_chinese );@output_buffer.safe_append='
+    </li>
+</ul>
+<ul>
+    <li>
+        ';@output_buffer.append=( p.label :description, "Description: " );@output_buffer.safe_append='
+        ';@output_buffer.append=( @project.description );@output_buffer.safe_append='
+    </li>
+    <li>
+        ';@output_buffer.append=( p.label :description_chinese, "Description_chinese: " );@output_buffer.safe_append='
+        ';@output_buffer.append=( p.text_area :description_chinese :width => '300px' );@output_buffer.safe_append='
+    </li>
+</ul>
+';@output_buffer.append=( p.submit "Update" );@output_buffer.safe_append='
+'; end 
+@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:299:in `module_eval'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:299:in `compile'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:248:in `block in compile!'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:236:in `synchronize'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:236:in `compile!'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:142:in `block in render'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications.rb:161:in `instrument'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/template.rb:141:in `render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications.rb:159:in `block in instrument'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications.rb:159:in `instrument'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_view/renderer/renderer.rb:23:in `render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/rendering.rb:97:in `render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/rendering.rb:16:in `render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/Library/Ruby/Gems/2.0.0/gems/activerecord-4.0.3/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/base.rb:189:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/callbacks.rb:403:in `_run__4554678568125357837__process_action__callbacks'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications.rb:159:in `block in instrument'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/notifications.rb:159:in `instrument'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/activerecord-4.0.3/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/base.rb:136:in `process'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/abstract_controller/rendering.rb:44:in `process'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal.rb:195:in `dispatch'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_controller/metal.rb:231:in `block in action'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/journey/router.rb:59:in `each'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/journey/router.rb:59:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/routing/route_set.rb:680:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/Library/Ruby/Gems/2.0.0/gems/activerecord-4.0.3/lib/active_record/query_cache.rb:36:in `call'
+/Library/Ruby/Gems/2.0.0/gems/activerecord-4.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/Library/Ruby/Gems/2.0.0/gems/activerecord-4.0.3/lib/active_record/migration.rb:369:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/callbacks.rb:373:in `_run__4257462093082618250__call__callbacks'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/rack/logger.rb:38:in `call_app'
+/Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/rack/logger.rb:20:in `block in call'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:25:in `tagged'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:67:in `tagged'
+/Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/rack/logger.rb:20:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/Library/Ruby/Gems/2.0.0/gems/activesupport-4.0.3/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/static.rb:64:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+/Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/engine.rb:511:in `call'
+/Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/application.rb:97:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/Library/Ruby/Gems/2.0.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered projects/edit.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (/Users/Maydaycha/rails/sun/app/views/projects/edit.html.erb:29: syntax error, unexpected ':', expecting ')'
+...ext_area :description_chinese :width => '300px' );@output_bu...
+...                               ^):
+    26:     </li>
+    27:     <li>
+    28:         <%= p.label :description_chinese, "Description_chinese: " %>
+    29:         <%= p.text_area :description_chinese :width => '300px' %>
+    30:     </li>
+    31: </ul>
+    32: <%= p.submit "Update" %>
+  actionpack (4.0.3) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.3) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.3) lib/action_view/template.rb:248:in `block in compile!'
+  actionpack (4.0.3) lib/action_view/template.rb:236:in `synchronize'
+  actionpack (4.0.3) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.3) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.3) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.3) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.3) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.3) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.3) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.3) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.3) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.3) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.3) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.3) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.3) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.3) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.3) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.3) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.3) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.3) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:403:in `_run__4554678568125357837__process_action__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.3) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.3) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__4257462093082618250__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-24 15:16:03 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (46.9ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/edit.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 62ms (Views: 13.3ms | ActiveRecord: 46.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 15:16:03 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 15:16:03 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 15:16:03 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:04 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:04 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 15:16:04 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:04 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:04 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:04 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:04 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:04 +0800
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-24 15:16:08 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (5407.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5471ms (Views: 61.0ms | ActiveRecord: 5407.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 15:16:14 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 15:16:14 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 15:16:14 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:14 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 15:16:14 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:14 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:14 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:14 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:14 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:14 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:14 +0800
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-24 15:16:47 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (404.4ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/edit.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 417ms (Views: 10.6ms | ActiveRecord: 404.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 15:16:48 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 15:16:48 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 15:16:48 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 15:16:48 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:48 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:48 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:48 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:48 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:48 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:49 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 15:16:49 +0800
+
+
+Started GET "/storeProjectsDetails?jobtype=Translation" for 127.0.0.1 at 2014-03-24 15:21:44 +0800
+Processing by ProjectsController#storeProjectsDetails as HTML
+  Parameters: {"jobtype"=>"Translation"}
+  [1m[36mOauth Load (153.5ms)[0m  [1mSELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1[0m
+  [1m[35m (166.1ms)[0m  BEGIN
+  [1m[36mSQL (276.8ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('250,750', '2014-03-24 07:21:50', 'I love travelling and I would like to write about what I experience!', '2014-03-30 23:38:11', 'freelancer', 'Translate Something', 5709468, '2014-03-30 23:38:11', 'Article Rewriting, Articles, Copywriting, Translation', '2014-03-24 07:21:50', 'http://www.freelancer.com/projects/Articles-Copywriting/Translate-Something.5709468.html')[0m
+  [1m[35m (89.0ms)[0m  COMMIT
+  [1m[36m (198.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (241.2ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 07:21:53', 'Greetings freelancers! Here is a description of the project:\r\n\r\nFrench children’s storybook / Age: 4-5 / Pages: 12-15 / Qty: 6 \r\nFrench children’s storybook / Age: 2-3 / Pages: 8-10 / Qty: 4\r\nLanguages needed: French & translated to English\r\nOffer: $150\r\nBids will be considered from writers with prior children’s writing experience who can provide samples.\r\nContent details will be provided after acceptance.', '2014-03-30 23:09:14', 'freelancer', 'French Writers ONLY! -- 2', 5709399, '2014-03-30 23:09:14', 'Book Writing, eBooks, Ghostwriting, Translation', '2014-03-24 07:21:53', 'http://www.freelancer.com/projects/Ghostwriting-Translation/French-Writers-ONLY.5709399.html')
+  [1m[36m (91.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (131.2ms)[0m  BEGIN
+  [1m[36mSQL (106.2ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('8,15', '2014-03-24 07:21:55', 'I need somali translators for translation of audio files. Complete detail will be sent to the winning person.\r\nProject is long term. Expected monthly earning can be from $500 to $3000.\r\nsimple conversations.\r\nsimple conversational English required. \r\nbit familiarity with MS word. I will train.', '2014-03-30 22:41:58', 'freelancer', 'Translate Something', 5709333, '2014-03-30 22:41:58', 'Translation', '2014-03-24 07:21:55', 'http://www.freelancer.com/projects/Translation/Translate-Something.5709333.html')[0m
+  [1m[35m (91.2ms)[0m  COMMIT
+  [1m[36m (114.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (178.2ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 07:21:57', 'Greetings freelancers! Here is a description of the project:\r\n\r\nFrench children’s storybook / Age: 4-5 / Pages: 12-15 / Qty: 6 \r\nFrench children’s storybook / Age: 2-3 / Pages: 8-10 / Qty: 4\r\nLanguages needed: French & translated to English\r\nOffer: $150\r\nBids will be considered from writers with prior children’s writing experience who can provide samples.\r\nContent details will be provided after acceptance.', '2014-03-30 22:17:13', 'freelancer', 'French Writers ONLY!', 5709272, '2014-03-30 22:17:13', 'Book Writing, eBooks, Ghostwriting, Translation', '2014-03-24 07:21:57', 'http://www.freelancer.com/projects/Ghostwriting-Translation/French-Writers-ONLY.5709272.html')
+  [1m[36m (106.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (56.0ms)[0m  BEGIN
+  [1m[36mSQL (76.9ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 07:21:59', 'Greetings freelancers! Here is a description of the project:\r\n\r\nRussian children’s storybook / Age: 4-5 / Pages: 12-15 / Qty: 6 \r\nRussian children’s storybook / Age: 2-3 / Pages: 8-10 / Qty: 4\r\nLanguages needed: Russian & translated to English\r\nOffer: $150\r\nBids will be considered from writers with prior children’s writing experience who can provide samples.\r\nContent details will be provided after acceptance.', '2014-03-30 19:00:55', 'freelancer', 'Russian Writers ONLY!', 5708826, '2014-03-30 19:00:55', 'Book Writing, eBooks, Ghostwriting, Translation', '2014-03-24 07:21:59', 'http://www.freelancer.com/projects/Ghostwriting-Translation/Russian-Writers-ONLY.5708826.html')[0m
+  [1m[35m (94.7ms)[0m  COMMIT
+  [1m[36m (202.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (166.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('2,8', '2014-03-24 07:22:01', 'Spanish translator with English knowledge needed for long-term project\r\n\r\nThe freelancer has to be available DAILY and being able to handle seriously this project\r\n\r\nOnly spanish natives, NO agencies', '2014-03-30 16:21:05', 'freelancer', 'Long term work for Spanish translator', 5708404, '2014-03-30 16:21:05', 'English (UK), English (US), Spanish (Spain), Translation, Virtual Assistant', '2014-03-24 07:22:01', 'http://www.freelancer.com/projects/Translation-Virtual-Assistant/Long-term-work-for-Spanish.html')
+  [1m[36m (98.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (58.6ms)[0m  BEGIN
+  [1m[36mSQL (102.4ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('10,20', '2014-03-24 07:22:03', 'I am in the process of applying for a migration visa to Australia. I need to have my French birth certificate officially translated into English to a professionally qualified level and NAATI certified. I would translate it myself seeing as I am bilingual but I am not a professional translator and fear that it may be rejected otherwise.\r\n\r\nThe birth certificate itself is no longer than 150 words, and should take an experienced translator in this field no longer than an hour. \r\n\r\nPlease note that I will need to see official accreditation before accepting any bids.\r\n\r\nThanks!', '2014-03-30 15:57:20', 'freelancer', 'Translate Birth Certificate from French to English - must be NAATI certified', 5708337, '2014-03-30 15:57:20', 'French, Translation, Visa / Immigration', '2014-03-24 07:22:03', 'http://www.freelancer.com/projects/Translation-French/Translate-Birth-Certificate-from-French.html')[0m
+  [1m[35m (72.5ms)[0m  COMMIT
+  [1m[36m (143.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (195.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('1500,12500', '2014-03-24 07:22:04', 'We have project in translate to Hindi from English. \r\nWe can pay Rs.3000-5000/ per book to translate. Submit the sample task to start working on this project. \r\nHere is the sample attached', '2014-03-30 15:36:40', 'freelancer', 'Translation work from Hindi to English', 5708265, '2014-03-30 15:36:40', 'Translation', '2014-03-24 07:22:04', 'http://www.freelancer.com/projects/Translation/Translation-work-from-Hindi-English.5708265.html')
+  [1m[36m (89.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (142.3ms)[0m  BEGIN
+  [1m[36mSQL (111.4ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('250,750', '2014-03-24 07:22:06', 'Searching professions translator from Italian to English. Must have excellent references and a grat experience', '2014-03-30 15:03:59', 'freelancer', 'Translate Something', 5708184, '2014-03-30 15:03:59', 'English (US), Italian, Translation', '2014-03-24 07:22:06', 'http://www.freelancer.com/projects/Translation-English-US/Translate-Something.5708184.html')[0m
+  [1m[35m (92.4ms)[0m  COMMIT
+  [1m[36m (124.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (209.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 07:22:07', 'I need a translation for chapter 16 and 37 of Schwartz\'s manual of surgery\r\n40 pages \r\n25000 words', '2014-03-30 14:54:52', 'freelancer', 'Translation of Schwartz\'s manual of surgery Chapter', 5708162, '2014-03-30 14:54:52', 'Academic Writing, Bulgarian, Translation', '2014-03-24 07:22:07', 'http://www.freelancer.com/projects/Academic-Writing-Translation/Translation-Schwartz-manual-surgery.html')
+  [1m[36m (98.9ms)[0m  [1mCOMMIT[0m
+Completed   in 24345ms
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-24 15:22:18 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (120.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (1.0ms)
+Completed 200 OK in 25ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 15:22:20 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (38035.7ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (38696.7ms)
+Completed 200 OK in 38726ms (Views: 225.8ms | ActiveRecord: 38498.0ms)
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 15:22:59 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 15:22:59 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 15:22:59 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 15:23:00 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 15:23:00 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 15:23:00 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 15:23:01 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 15:23:01 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 15:23:01 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 15:23:01 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 15:23:01 +0800
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-24 15:24:04 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (135.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/edit.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 151ms (Views: 13.1ms | ActiveRecord: 135.7ms)
+
+
+Started GET "/storeProjectsDetails" for 127.0.0.1 at 2014-03-24 23:22:47 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (16.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#storeProjectsDetails as HTML
+  [1m[35mOauth Load (15.9ms)[0m  SELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1
+  [1m[36m (15.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (32.6ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('12500,37500', '2014-03-24 15:22:57', 'I have data Entry work. Its simple typing work from JPG to Notepad.\r\n\r\nHere i attached sample file which you have to type in notepad.\r\n\r\n1) you have to type only. You can not use any online software, system software or Online file converter to do this work. If found any of these you will be not paid for any work and we will not give any work further.\r\n\r\n2) Your accuracy should meet minimum 75% below that your full work will be rejected and you will not be eligible to be paid for any work or get any work.\r\n\r\n3) Minimum 10 pages you have to do every day, Maximum you can do as much possible as you can.\r\n\r\n4) you need to submit your work every day.\r\n\r\n5) you will be paid withing 10-11 working days after submission of your work\r\n \r\n6) You have to pay no fees or no deposit to work with us its totally free but work should be done in time and should match with minimum accuracy of 75%.\r\n\r\n7) Any dispute regarding work rejected or regarding accuracy report depends on client policy. Client have all rights to stopping and rejection work.\r\n\r\n8) you will get your accuracy report regarding each work after 5-7 days of submission\r\n\r\n9) one page will contain maximum 65 lines.\r\n\r\n10) Price per page will be given below.\r\n\r\n Accuracy Rs. Per page\r\n 100% Rs. 45/per page + 3 rs per page as bonus.\r\n 90% - 99% Rs. 40 per page\r\n 85% - 89% Rs. 35 per page\r\n 80% - 84% Rs. 30 per page\r\n 75% - 79% Rs. 25 per page.\r\n \r\n Below 75% Accuracy your work will be rejected and you are not eligible to get payment and work. \r\n\r\nSo if you feed if you are fine with this terms we can mover forward.\r\n\r\nReply me with your acceptance if you are interested to work with us.', '2014-03-31 10:10:57', 'freelancer', 'Data entry', 5711676, '2014-03-31 10:10:57', 'Word', '2014-03-24 15:22:57', 'http://www.freelancer.com/projects/Word/Data-entry.5711676.html')
+  [1m[36m (71.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.5ms)[0m  BEGIN
+  [1m[36mSQL (16.7ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('10,30', '2014-03-24 15:22:58', 'designing artwork for the logo in different styles, colors, black and white drawings for the brand.', '2014-03-31 10:10:52', 'freelancer', 'I need some Graphic Design', 5711675, '2014-03-31 10:10:52', 'Graphic Design', '2014-03-24 15:22:58', 'http://www.freelancer.com/projects/Graphic-Design/need-some-Graphic-Design.5711675.html')[0m
+  [1m[35m (45.6ms)[0m  COMMIT
+Completed 500 Internal Server Error in 6568ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/projects_controller.rb:48:in `block in storeProjectsDetails'
+  app/controllers/projects_controller.rb:44:in `each'
+  app/controllers/projects_controller.rb:44:in `storeProjectsDetails'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (24.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (40.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 23:23:15 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (15.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (323.1ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (623.0ms)
+Completed 200 OK in 746ms (Views: 345.0ms | ActiveRecord: 376.7ms)
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 23:23:16 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 23:23:16 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 23:23:16 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 23:23:16 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 23:23:16 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 23:23:16 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 23:23:16 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 23:23:16 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 23:23:16 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 23:23:16 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 23:23:16 +0800
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-24 23:23:20 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (17.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/edit.html.erb within layouts/application (45.7ms)
+Completed 200 OK in 71ms (Views: 51.5ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/searchProjects?jobtype=translation" for 127.0.0.1 at 2014-03-24 23:39:53 +0800
+Processing by ProjectsController#searchProjects as HTML
+  Parameters: {"jobtype"=>"translation"}
+  [1m[35mOauth Load (16.4ms)[0m  SELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1
+Completed 200 OK in 5825ms (Views: 0.1ms | ActiveRecord: 67.4ms)
+
+
+Started GET "/storeProjectsDetails?jobtype=translation" for 127.0.0.1 at 2014-03-24 23:41:02 +0800
+Processing by ProjectsController#storeProjectsDetails as HTML
+  Parameters: {"jobtype"=>"translation"}
+  [1m[36mOauth Load (17.2ms)[0m  [1mSELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1[0m
+  [1m[35m (14.9ms)[0m  BEGIN
+  [1m[36mSQL (16.7ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('15,25', '2014-03-24 15:41:08', 'I will teach you spoken and written English through Skype. Mainly for communication purposes, but also a lot of new vocabulary, reading, writing, listening and speaking. Tailor-made lessons! - I always prepare my course for the particular student.', '2014-03-31 10:52:04', 'freelancer', 'I will teach you how to speak English correctly', 5711835, '2014-03-31 10:52:04', 'English (US), Translation', '2014-03-24 15:41:08', 'http://www.freelancer.com/projects/Translation-English-US/will-teach-you-how-speak.html')[0m
+  [1m[35m (51.1ms)[0m  COMMIT
+  [1m[36m (15.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('2,8', '2014-03-24 15:41:09', 'I need a human translator who speaks Japanese', '2014-03-31 10:17:57', 'freelancer', 'Translate Something -- 2', 5711693, '2014-03-31 10:17:57', 'Translation', '2014-03-24 15:41:09', 'http://www.freelancer.com/projects/Translation/Translate-Something.5711693.html')
+  [1m[36m (57.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.6ms)[0m  BEGIN
+  [1m[36mSQL (18.3ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('2,8', '2014-03-24 15:41:09', 'I need a human translator who speaks Japanese', '2014-03-31 10:14:06', 'freelancer', 'Translate Something', 5711682, '2014-03-31 10:14:06', 'Translation', '2014-03-24 15:41:09', 'http://www.freelancer.com/projects/Translation/Translate-Something.5711682.html')[0m
+  [1m[35m (35.4ms)[0m  COMMIT
+  [1m[36m (15.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (16.6ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:11', 'you need to translate any text or website from french or english to arabic, you can make the big deal with my skills', '2014-03-31 09:56:02', 'freelancer', 'Traduisez quelque chose', 5711606, '2014-03-31 09:56:02', 'Translation', '2014-03-24 15:41:11', 'http://www.freelancer.com/projects/Translation/Traduisez-quelque-chose.5711606.html')
+  [1m[36m (34.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.0ms)[0m  BEGIN
+  [1m[36mSQL (17.0ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:12', 'Se necesita una traducción del Español a Inglés un documento de 10 páginas aproximadamente.se trata de una traducción técnica sobre cemento, así que necesito a alguien que domine ambos idiomas.', '2014-03-31 09:19:25', 'freelancer', 'Español - Inglés 3000 palabras ASAP!', 5711456, '2014-03-31 09:19:25', 'Translation', '2014-03-24 15:41:12', 'http://www.freelancer.com/projects/Translation/Espa-Ingl-palabras-ASAP.html')[0m
+  [1m[35m (127.9ms)[0m  COMMIT
+  [1m[36m (15.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.6ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('2,8', '2014-03-24 15:41:13', 'Articles to be translated from English into Polish. Native speakers with good reviews preferred. Multiple translators will be selected for this project.', '2014-03-31 09:02:25', 'freelancer', 'Translation Project - (Polish)', 5711398, '2014-03-31 09:02:25', 'Translation', '2014-03-24 15:41:13', 'http://www.freelancer.com/projects/Translation/Translation-Project-Polish.5711398.html')
+  [1m[36m (42.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.5ms)[0m  BEGIN
+  [1m[36mSQL (16.7ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('2,8', '2014-03-24 15:41:14', 'looking for some one to teach English to a Spanish language speaker in the evenings or weekends', '2014-03-31 07:41:54', 'freelancer', 'a English teacher who knows Spanish', 5711093, '2014-03-31 07:41:54', 'Anything Goes, Data Entry, Translation', '2014-03-24 15:41:14', 'http://www.freelancer.com/projects/Translation/English-teacher-who-knows-Spanish.html')[0m
+  [1m[35m (41.5ms)[0m  COMMIT
+  [1m[36m (15.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (19.7ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('1500,3000', '2014-03-24 15:41:15', 'Andovar is looking for professional English>French Translators and Editors who have excellent knowledge in various subject fields including “marketing” to work with us on our on-going projects.\r\n\r\nRequirements:\r\n * Must be a native French speaker from any country with a good knowledge of standard European French.\r\n * Own a recent model computer with an internet connection\r\n * Willing to take a short translation test\r\n\r\n*** Important ***\r\nTo apply, please send the following information to us\r\nand put job code “(ADVR-AF)” in subject line of your email.\r\n\r\n 1. detailed CV in English\r\n 2. availability (full-time/part-time)\r\n 3. expected per-word rates for both translation and editing (in US Dollar)\r\n 4. CAT tool (if you use any)\r\n\r\nOnly shortlisted candidates will be notified.', '2014-03-31 07:38:27', 'freelancer', 'French Translators & Editors Required (ADVR-AF)', 5711083, '2014-03-31 07:38:27', 'Translation', '2014-03-24 15:41:15', 'http://www.freelancer.com/projects/Translation/French-Translators-Editors-Required-ADVR.html')
+  [1m[36m (53.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.1ms)[0m  BEGIN
+  [1m[36mSQL (17.3ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('15,25', '2014-03-24 15:41:16', 'We need to translate strings in an excel-table from English to Portuguese. \r\nAlso it\'s need to translate small descriptional text about our app.\r\nPlease find an attached files.\r\n\r\nRegards,\r\nVladimir\r\nskyhorseapps.com\r\n\r\nP.S. Information about our English library is here: \r\nhttps://itunes.apple.com/ru/app/home-library-free/id831546195', '2014-03-31 07:16:45', 'freelancer', 'Home Library App / Portuguese Localization', 5710996, '2014-03-31 07:16:45', 'Portuguese, Translation', '2014-03-24 15:41:16', 'http://www.freelancer.com/projects/Translation/Home-Library-App-Portuguese-Localization.html')[0m
+  [1m[35m (59.4ms)[0m  COMMIT
+  [1m[36m (15.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.9ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('8,15', '2014-03-24 15:41:17', 'Hi, Vítor!\nMy friend recommended you as good Portuguese interpreter.\nWe need to translate strings in an excel-table from English to Portuguese. \nAlso it\'s need to translate small descriptional text about our app.\nPlease find an attached files.\nHow much does it cost?\n\nRegards,\nVladimir Nevzorov\nskyhorseapps.com\n\nP.S. Information about our English library is here: https://itunes.apple.com/us/app/home-library/id682571762', '2014-03-31 07:12:46', 'freelancer', 'App Localization - open to bidding', 5710983, '2014-03-31 07:12:46', 'Translation', '2014-03-24 15:41:17', 'http://www.freelancer.com/projects/Translation/App-Localization-open-bidding.html')
+  [1m[36m (48.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.1ms)[0m  BEGIN
+  [1m[36mSQL (17.4ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:19', 'I am looking for someone to help transcribe/translate a one-page document from Old French to English. This job would require someone with proven experience of tackling Old French. \r\n\r\nPlease submit a \'rough\' quote when bidding. I am reasonably flexible on my budget.\r\n\r\nPlease note we are likely to hire based on experience, not speed. We will require a high quality transcription.', '2014-03-31 06:31:07', 'freelancer', 'Translate/Transcribe document from OLD FRENCH to ENGLISH', 5710822, '2014-03-31 06:31:07', 'English (UK), French, Transcription, Translation', '2014-03-24 15:41:19', 'http://www.freelancer.com/projects/Translation-English-UK/Translate-Transcribe-document-from-OLD.html')[0m
+  [1m[35m (69.5ms)[0m  COMMIT
+  [1m[36m (15.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (33.6ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:20', '1. Translate text. About 4100 words. Sales campaign. \r\n2. Translate text from video. 20 Minutes, watch video in right context etc. About 100 words.\r\n3. Localize text, make sure text is locally Ok, not just a straight translation.\r\n4. Come up with a name of the Campaign, which would be a translation from the English version, but localized.\r\n\r\nAfter we will be making a voice audio recording of the text, and then aligning the audio to the video. We would require you to check to see the video matches the Audio.', '2014-03-31 06:29:17', 'freelancer', 'Translate Something. Sales campaign, Norwegian.', 5710813, '2014-03-31 06:29:17', 'Internet Marketing, Norwegian, Translation', '2014-03-24 15:41:20', 'http://www.freelancer.com/projects/Internet-Marketing-Translation/Translate-Something-Sales-campaign.5710813.html')
+  [1m[36m (53.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.0ms)[0m  BEGIN
+  [1m[36mSQL (29.9ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('8,15', '2014-03-24 15:41:22', 'We have several documents to be translated from English to Turkish. It shouldn\'t take you more than a half day.', '2014-03-31 05:53:29', 'freelancer', 'Translate from English to Turkish', 5710679, '2014-03-31 05:53:29', 'English (UK), English (US), Translation, Turkish', '2014-03-24 15:41:22', 'http://www.freelancer.com/projects/Translation-English-US/Translate-from-English-Turkish.html')[0m
+  [1m[35m (43.7ms)[0m  COMMIT
+  [1m[36m (15.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.4ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('10,50', '2014-03-24 15:41:25', 'Se necesita una traducción del Inglés al Español ASAP aproximadamente 9000 palabras, 50 productos. no Google Translation por favor, \r\nse trata de una traducción técnica y muchos productos se repiten.', '2014-03-31 05:35:34', 'freelancer', 'English to Spanish 9000 words ASAP', 5710620, '2014-03-31 05:35:34', 'Academic Writing, English (UK), English (US), Spanish (Spain), Translation', '2014-03-24 15:41:25', 'http://www.freelancer.com/projects/Academic-Writing-Translation/English-Spanish-words-ASAP.html')
+  [1m[36m (45.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (22.4ms)[0m  BEGIN
+  [1m[36mSQL (18.0ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('8,30', '2014-03-24 15:41:28', 'Translate a text of 200 words from English to Swedish.', '2014-03-31 03:39:11', 'freelancer', 'Tralnslation from English to Swedish', 5710193, '2014-03-31 03:39:11', 'Translation', '2014-03-24 15:41:28', 'http://www.freelancer.com/projects/Translation/Tralnslation-from-English-Swedish.html')[0m
+  [1m[35m (36.2ms)[0m  COMMIT
+  [1m[36m (15.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.6ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:30', 'I am a born Israeli who lives currently in Canada and have been in the design and development business for over 7 years.\r\n\r\nI speak both Hebrew and English fluently, I also am able to create creative and unique logos/banners/flyer/anythingonyourmind =]\r\ni work hard and always communicate with my employer to the point where satisfaction is guaranteed.\r\n\r\nLooking forward to all job offers =]', '2014-03-31 03:36:33', 'freelancer', 'A Professional Designer/Translator seeking fun work =]', 5710170, '2014-03-31 03:36:33', 'Graphic Design, Translation', '2014-03-24 15:41:30', 'http://www.freelancer.com/projects/Graphic-Design-Translation/Professional-Designer-Translator-seeking.html')
+  [1m[36m (44.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.3ms)[0m  BEGIN
+  [1m[36mSQL (56.7ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('250,750', '2014-03-24 15:41:31', 'We will get a lot of projects along the new year 2014 to translate from English to German.\r\n\r\nPayment will be:\r\nnormal texts 0.02$ per word\r\n0.03$ < technical texts > 0.05$ per word\r\n\r\nOnly bid if your rates are within this range.\r\n\r\n- I will only hire MAXIMUM 2 translators\r\n- I will only hire translators that can work on DAILY basis, most of time and AVAILABLE to START AND DELIVER THE PROJECTS in a SHORT DEADLINE.\r\n\r\nThere will be thousands of words to translate so the works will be continued. \r\n\r\nONLY BID if you are a NATIVE & HAVE all the above characteristics.\r\n\r\nPlease write I CAN READ starting your bid if you read all.', '2014-03-31 03:30:03', 'freelancer', 'German translator for big oingoing projects during all 2014 -- 4', 5710145, '2014-03-31 03:30:03', 'Article Rewriting, English (US), German, Proofreading, Translation', '2014-03-24 15:41:31', 'http://www.freelancer.com/projects/Article-Rewriting-Translation/German-translator-for-big-oingoing.5710145.html')[0m
+  [1m[35m (43.6ms)[0m  COMMIT
+  [1m[36m (15.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (20.6ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('250,750', '2014-03-24 15:41:32', '[ Accepting bids from individuals only, teams will be ignored. ]\r\n\r\n1. We require a native level French speaker with a good understanding of I.T related terminology to translate several of our web pages, the total word count is approximately 2,700 but there is some duplication of content so the real amount of work will be a bit less. You\'ll need to be comfortable editing the html itself, as we expect the files to be delivered in the same format as you receive them.\r\n\r\n2. Stage 2 is translating the language file of our Mac Application and it\'s built in help page.\r\nProgrammatically the count is approximately 4,800 English words but this may change slightly (up or down) due to tweaks and changes.\r\n\r\nOnce the translations are complete, we\'ll build them into the product and you\'ll need to spot test for things such as cut off text or overlaps.\r\nSome translated strings may need to be tweaked if there is not enough space on the UI for the original version.\r\nYou will need to have access to an Intel based Macintosh running OS 10.7 or above (preferably 10.9) for this collaboration.\r\n\r\n Please explain your relevant experience and provide links to any previous translation projects, or if you have none then please translate the following text as a trial and send it along with your bid:\r\n\"Duplicate File Finder helps you regain disk space and reduce clutter by searching for files with identical content, irrespective of location or filename. Duplicate File Finder gives you the opportunity to review and select individual files for removal, but rest assured that in case of inadvertent deletion your files are recoverable from Mac OS\'s Trash until emptied.\"\r\n\r\nFreelancers who have been invited to bid do not need to send the above trial translation.\r\n\r\nLooking forward to your bids and working together!', '2014-03-31 03:01:19', 'freelancer', 'English to French translation of web pages and application', 5710054, '2014-03-31 03:01:19', 'French, Translation', '2014-03-24 15:41:32', 'http://www.freelancer.com/projects/Translation-French/English-French-translation-web-pages.html')
+  [1m[36m (59.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (16.0ms)[0m  BEGIN
+  [1m[36mSQL (18.9ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:33', '[ No teams or agents please ] We require a native level Spanish speaker with a good understanding of I.T related terminology to translate our application description which is approximately 500 words. Please explain your relevant experience and provide link to any previous translation projects, or if you have none then please translate the following text as a trial and send it along with your bid:\r\n\"Duplicate File Finder helps you regain disk space and reduce clutter by searching for files with identical content, irrespective of location or filename. Duplicate File Finder gives you the opportunity to review and select individual files for removal, but rest assured that in case of inadvertent deletion your files are recoverable from Mac OS\'s Trash until emptied.\"\r\n\r\nLooking forward to your bids, we\'ll eventually need to translate the whole application (it\'s big) as well as our website so this may lead to ongoing work/projects.', '2014-03-31 02:56:16', 'freelancer', 'English to Spanish translation of application description', 5710038, '2014-03-31 02:56:16', 'Spanish, Translation', '2014-03-24 15:41:33', 'http://www.freelancer.com/projects/Translation-Spanish/English-Spanish-translation-application.html')[0m
+  [1m[35m (63.3ms)[0m  COMMIT
+  [1m[36m (15.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (16.9ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:35', 'I need a content writter for our blog, who can translate english to swedish or write blog in swedish language. Every month, he/she will write 5 bolgs for our site.', '2014-03-31 02:48:46', 'freelancer', 'Write some Articles', 5710020, '2014-03-31 02:48:46', 'Article Rewriting, Articles, Blog, Swedish, Translation', '2014-03-24 15:41:35', 'http://www.freelancer.com/projects/Articles-Article-Rewriting/Write-some-Articles.5710020.html')
+  [1m[36m (50.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.4ms)[0m  BEGIN
+  [1m[36mSQL (101.5ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('2,8', '2014-03-24 15:41:36', 'I have a short Spanish script that I am using for a project and I need to verify if there is a certain \"quote\" in the script. I know where the quote should be. It\'s probably a 5 - 10 minute job', '2014-03-31 02:29:55', 'freelancer', 'Spanish script verified', 5709961, '2014-03-31 02:29:55', 'Proofreading, Spanish, Translation', '2014-03-24 15:41:36', 'http://www.freelancer.com/projects/Translation-Proofreading/Spanish-script-verified.html')[0m
+  [1m[35m (97.3ms)[0m  COMMIT
+  [1m[36m (15.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (16.7ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('250,750', '2014-03-24 15:41:38', 'I love travelling and I would like to write about what I experience!', '2014-03-30 23:38:11', 'freelancer', 'Translate Something', 5709468, '2014-03-30 23:38:11', 'Article Rewriting, Articles, Copywriting, Translation', '2014-03-24 15:41:38', 'http://www.freelancer.com/projects/Articles-Copywriting/Translate-Something.5709468.html')
+  [1m[36m (34.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (14.9ms)[0m  BEGIN
+  [1m[36mSQL (17.2ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:39', 'Greetings freelancers! Here is a description of the project:\r\n\r\nFrench children’s storybook / Age: 4-5 / Pages: 12-15 / Qty: 6 \r\nFrench children’s storybook / Age: 2-3 / Pages: 8-10 / Qty: 4\r\nLanguages needed: French & translated to English\r\nOffer: $150\r\nBids will be considered from writers with prior children’s writing experience who can provide samples.\r\nContent details will be provided after acceptance.', '2014-03-30 23:09:14', 'freelancer', 'French Writers ONLY! -- 2', 5709399, '2014-03-30 23:09:14', 'Book Writing, eBooks, Ghostwriting, Translation', '2014-03-24 15:41:39', 'http://www.freelancer.com/projects/Ghostwriting-Translation/French-Writers-ONLY.5709399.html')[0m
+  [1m[35m (54.5ms)[0m  COMMIT
+  [1m[36m (15.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.0ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('8,15', '2014-03-24 15:41:40', 'I need somali translators for translation of audio files. Complete detail will be sent to the winning person.\r\nProject is long term. Expected monthly earning can be from $500 to $3000.\r\nsimple conversations.\r\nsimple conversational English required. \r\nbit familiarity with MS word. I will train.', '2014-03-30 22:41:58', 'freelancer', 'Translate Something', 5709333, '2014-03-30 22:41:58', 'Translation', '2014-03-24 15:41:40', 'http://www.freelancer.com/projects/Translation/Translate-Something.5709333.html')
+  [1m[36m (48.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (14.8ms)[0m  BEGIN
+  [1m[36mSQL (17.4ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:42', 'Greetings freelancers! Here is a description of the project:\r\n\r\nFrench children’s storybook / Age: 4-5 / Pages: 12-15 / Qty: 6 \r\nFrench children’s storybook / Age: 2-3 / Pages: 8-10 / Qty: 4\r\nLanguages needed: French & translated to English\r\nOffer: $150\r\nBids will be considered from writers with prior children’s writing experience who can provide samples.\r\nContent details will be provided after acceptance.', '2014-03-30 22:17:13', 'freelancer', 'French Writers ONLY!', 5709272, '2014-03-30 22:17:13', 'Book Writing, eBooks, Ghostwriting, Translation', '2014-03-24 15:41:42', 'http://www.freelancer.com/projects/Ghostwriting-Translation/French-Writers-ONLY.5709272.html')[0m
+  [1m[35m (38.9ms)[0m  COMMIT
+  [1m[36m (14.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.9ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:43', 'Greetings freelancers! Here is a description of the project:\r\n\r\nRussian children’s storybook / Age: 4-5 / Pages: 12-15 / Qty: 6 \r\nRussian children’s storybook / Age: 2-3 / Pages: 8-10 / Qty: 4\r\nLanguages needed: Russian & translated to English\r\nOffer: $150\r\nBids will be considered from writers with prior children’s writing experience who can provide samples.\r\nContent details will be provided after acceptance.', '2014-03-30 19:00:55', 'freelancer', 'Russian Writers ONLY!', 5708826, '2014-03-30 19:00:55', 'Book Writing, eBooks, Ghostwriting, Translation', '2014-03-24 15:41:43', 'http://www.freelancer.com/projects/Ghostwriting-Translation/Russian-Writers-ONLY.5708826.html')
+  [1m[36m (79.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (17.2ms)[0m  BEGIN
+  [1m[36mSQL (17.1ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('2,8', '2014-03-24 15:41:44', 'Spanish translator with English knowledge needed for long-term project\r\n\r\nThe freelancer has to be available DAILY and being able to handle seriously this project\r\n\r\nOnly spanish natives, NO agencies', '2014-03-30 16:21:05', 'freelancer', 'Long term work for Spanish translator', 5708404, '2014-03-30 16:21:05', 'English (UK), English (US), Spanish (Spain), Translation, Virtual Assistant', '2014-03-24 15:41:44', 'http://www.freelancer.com/projects/Translation-Virtual-Assistant/Long-term-work-for-Spanish.html')[0m
+  [1m[35m (53.4ms)[0m  COMMIT
+  [1m[36m (16.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (18.0ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('10,20', '2014-03-24 15:41:45', 'I am in the process of applying for a migration visa to Australia. I need to have my French birth certificate officially translated into English to a professionally qualified level and NAATI certified. I would translate it myself seeing as I am bilingual but I am not a professional translator and fear that it may be rejected otherwise.\r\n\r\nThe birth certificate itself is no longer than 150 words, and should take an experienced translator in this field no longer than an hour. \r\n\r\nPlease note that I will need to see official accreditation before accepting any bids.\r\n\r\nThanks!', '2014-03-30 15:57:20', 'freelancer', 'Translate Birth Certificate from French to English - must be NAATI certified', 5708337, '2014-03-30 15:57:20', 'French, Translation, Visa / Immigration', '2014-03-24 15:41:45', 'http://www.freelancer.com/projects/Translation-French/Translate-Birth-Certificate-from-French.html')
+  [1m[36m (39.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (25.1ms)[0m  BEGIN
+  [1m[36mSQL (28.1ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('1500,12500', '2014-03-24 15:41:46', 'We have project in translate to Hindi from English. \r\nWe can pay Rs.3000-5000/ per book to translate. Submit the sample task to start working on this project. \r\nHere is the sample attached', '2014-03-30 15:36:40', 'freelancer', 'Translation work from Hindi to English', 5708265, '2014-03-30 15:36:40', 'Translation', '2014-03-24 15:41:46', 'http://www.freelancer.com/projects/Translation/Translation-work-from-Hindi-English.5708265.html')[0m
+  [1m[35m (90.8ms)[0m  COMMIT
+  [1m[36m (15.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (16.4ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('250,750', '2014-03-24 15:41:47', 'Searching professions translator from Italian to English. Must have excellent references and a grat experience', '2014-03-30 15:03:59', 'freelancer', 'Translate Something', 5708184, '2014-03-30 15:03:59', 'English (US), Italian, Translation', '2014-03-24 15:41:47', 'http://www.freelancer.com/projects/Translation-English-US/Translate-Something.5708184.html')
+  [1m[36m (74.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.1ms)[0m  BEGIN
+  [1m[36mSQL (17.2ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:48', 'I need a translation for chapter 16 and 37 of Schwartz\'s manual of surgery\r\n40 pages \r\n25000 words', '2014-03-30 14:54:52', 'freelancer', 'Translation of Schwartz\'s manual of surgery Chapter', 5708162, '2014-03-30 14:54:52', 'Academic Writing, Bulgarian, Translation', '2014-03-24 15:41:48', 'http://www.freelancer.com/projects/Academic-Writing-Translation/Translation-Schwartz-manual-surgery.html')[0m
+  [1m[35m (46.6ms)[0m  COMMIT
+  [1m[36m (16.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.8ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('10,30', '2014-03-24 15:41:49', 'I need to translate a bunch of words, sentences and short paragraphs from English to Korean. <1,500 words in total. I have already translated it using Google Translate to get you started.\r\n\r\nThe text is for a game I plan to release on Android and iPhone. An overview of the game can be found here: http://metneia.com/toilet-tussle/\r\n\r\nThe attached document contains the English text, notes on some translations to provide context, and the Google translation to help you get started. Note that there are hashes (#) that represent new-line markers for after it\'s translated.', '2014-03-30 11:25:46', 'freelancer', 'Translate Game Text to Korean', 5707540, '2014-03-30 11:25:46', 'Korean, Translation', '2014-03-24 15:41:49', 'http://www.freelancer.com/projects/Translation-Korean/Translate-Game-Text-Korean.html')
+  [1m[36m (40.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (16.9ms)[0m  BEGIN
+  [1m[36mSQL (18.9ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,50', '2014-03-24 15:41:50', '19 pagini cu cazuistica despre oferte ale agentilor economici, produse, contracte, contetatii, legislatie etc. de tradus din romana in engleza impecabila pana marti dimineata. Limbajul nu este complicat, insa trebuie verificati termenii, sa corespunda uzantelor limbii engleze britanice.', '2014-03-30 08:56:11', 'freelancer', 'Traducere din romana in engleza', 5707134, '2014-03-30 08:56:11', 'Translation', '2014-03-24 15:41:50', 'http://www.freelancer.com/projects/Translation-English-UK/Traducere-din-romana-engleza.html')[0m
+  [1m[35m (53.2ms)[0m  COMMIT
+  [1m[36m (14.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (21.2ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('250,1500', '2014-03-24 15:41:51', 'This is a fair simple project: We need a native english speaker to translate a novel, from italian to english language. The book is composed by around 153.000 words, but the Prologue and the first two chapters (13.000 words) have been already translated, which means that you only have to proofread and, most important, correct them. \r\n\r\nNO GOOGLE TRANSLATOR.\r\n\r\nThe book is written in a fairly simple language, since it\'s a first person point of view novel, told by a 14 years old girl, in past tense. The genre is the fantasy one.\r\n\r\nTo start this project, we need the selected freelancer to sign a non disclosure agreement, both within freelancer platform and via Certified Electronic Mail (PEC), ***BEFORE*** awarding you the project. In the agreement, which we will sent to you, you will clearly state your name, that you won\'t discuss or share our book with others, and - as a translator - that you do not have any right on the intellectual property of the book, even on the translation, which you are doing on our behalf, as a \"work made for hire\" (http://en.wikipedia.org/wiki/Work_for_hire)\r\n\r\nThe book will be sold through website platforms such as amazon. If they allow us, we will insert your name as translator for the English language.\r\n\r\nWithin this project, we also require your final impressions on the novel: what you liked, what you do not liked, what was good, if it\'s well written, if it can be improved etc. (at least 4.000 words, English or Italian is the same).\r\n\r\nMilestones will be created accordingly to cover 30.000 words.\r\n\r\nHappy bidding.', '2014-03-30 05:21:57', 'freelancer', 'Translate an original novel, from italian to english language (with NDA)', 5706627, '2014-03-30 05:21:57', 'English (UK), Italian, Translation', '2014-03-24 15:41:51', 'http://www.freelancer.com/projects/Translation-English-UK/Translate-original-novel-from-italian.html')
+  [1m[36m (49.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (26.9ms)[0m  BEGIN
+  [1m[36mSQL (18.5ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('2,8', '2014-03-24 15:41:53', 'Seeking talented and creative writer capable of rewriting travel and lifestyle articles from English to Bahasa Indonesia, in addition to developing original travel / lifestyle articles for e-publications, website, newsletters.\r\n\r\nSuccessful candidate will initially be retained in part time capacity, which may lead to full time based on performance. \r\n\r\nPrevious editorial experience for magazine, newspaper, lifestyle blog would be bonus. \r\n\r\nKnowledge of internet marketing and/ or on-line Indonesian community a bonus.\r\n\r\nCandidates should have samples of previous work for reference.', '2014-03-30 02:32:02', 'freelancer', 'Rewrite Articles (Eng-Bhsa Indo) / Create Content (Indonesian)', 5706268, '2014-03-30 02:32:02', 'Article Rewriting, Articles, Content Writing, Indonesian, Translation', '2014-03-24 15:41:53', 'http://www.freelancer.com/projects/Articles-Article-Rewriting/Rewrite-Articles-Eng-Bhsa-Indo.html')[0m
+  [1m[35m (70.0ms)[0m  COMMIT
+  [1m[36m (15.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (18.1ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:54', 'Hi there,\r\n\r\nI need these videos translated to Korean, with a voiceover.\r\nIf you would like to do all or some and can do it by the end of this weekend.\r\n\r\nThanks\r\n\r\n\r\nKaratbars Opportunity Summary by Steve Hoffman\r\nhttp://youtu.be/QoOSxkNANOg\r\n\r\nKaratbars International | How to Recruit in Karatbars | Fastest growing team!\r\nhttp://youtu.be/OqQaj1vyNZ8\r\n\r\nKIYOSAKI\'S VIEWS ON GOLD\r\nhttp://youtu.be/Qge_PKbggoY\r\n\r\nEarn $8,000 or More with Our Twelve Weeks to Financial Freedom Plan YouTube\r\nhttp://youtu.be/VsWgN5fHS0A\r\n\r\nKaratBars International Compensation Overview\r\nhttps://www.youtube.com/watch?v=ncnGdfKvHSE\r\n\r\nKaratbars International System Webinar by Joe Norman\r\nhttp://youtu.be/BIY_RkWhKwg\r\n\r\nKaratbars Offers the Best Referral Marketing Program for 2014\r\nhttp://youtu.be/wZScO-4H9Bo', '2014-03-29 15:04:27', 'freelancer', 'voiceovers in korean (ENG to KOR)', 5704917, '2014-03-29 15:04:27', 'Translation, Voice Talent', '2014-03-24 15:41:54', 'http://www.freelancer.com/projects/Translation-Voice-Talent/voiceovers-korean-ENG-KOR.html')
+  [1m[36m (53.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.0ms)[0m  BEGIN
+  [1m[36mSQL (48.3ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:41:55', 'i need translation English to German....word count 3500\r\n\r\ndeadline 1-2 days.\r\n\r\nno Google work please...Only natives are invited for this job.', '2014-03-29 13:43:44', 'freelancer', 'Translate Something English to German', 5704679, '2014-03-29 13:43:44', 'Translation', '2014-03-24 15:41:55', 'http://www.freelancer.com/projects/Translation/Translate-Something-English-German.html')[0m
+  [1m[35m (42.1ms)[0m  COMMIT
+  [1m[36m (15.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (31.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('10,30', '2014-03-24 15:41:57', '***this project is for PaulaMS only***\r\n\r\nIt is for keywording image numbers fin 4201 to 4400\r\n\r\nI have uploaded the file on the previous project.\r\n\r\nThe agreed price for this 200 images is $55', '2014-03-29 13:02:25', 'freelancer', 'Keywords 2013 - fin 4201 to 4400', 5704575, '2014-03-29 13:02:25', 'Copy Typing, Copywriting, English (UK), Translation', '2014-03-24 15:41:57', 'http://www.freelancer.com/projects/Copywriting-Translation/Keywords-fin.5704575.html')
+  [1m[36m (39.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.5ms)[0m  BEGIN
+  [1m[36mSQL (17.1ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('2,8', '2014-03-24 15:41:58', 'I want to translate the attached document form Uzbek / ўзбек тили / ўзбекча language to english or french or spanish or greek. It\'s your choise.\r\nNO google translate. I prefer individuals, but that\'s not mandatory.', '2014-03-29 11:46:08', 'freelancer', 'Uzbek / ўзбек тили / ўзбекча', 5704370, '2014-03-29 11:46:08', 'Translation', '2014-03-24 15:41:58', 'http://www.freelancer.com/projects/Translation/Uzbek.5704370.html')[0m
+  [1m[35m (51.1ms)[0m  COMMIT
+  [1m[36m (17.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (28.7ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('15,25', '2014-03-24 15:41:58', 'French has to be your native language and good reputation.\r\n\r\nThe translations are for articles, blogs etc.', '2014-03-29 11:25:29', 'freelancer', 'English / French Translater', 5704310, '2014-03-29 11:25:29', 'Article Rewriting, Translation', '2014-03-24 15:41:58', 'http://www.freelancer.com/projects/Article-Rewriting-Translation/English-French-Translater.html')
+  [1m[36m (45.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.2ms)[0m  BEGIN
+  [1m[36mSQL (21.0ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('1500,3000', '2014-03-24 15:41:59', 'Looking for EN <> ES interpreters (not translators) for potential upcoming projects in Cordoba (Argentina). Bidders please submit CV listing experience, references and approx hourly fee. Equipment not required.', '2014-03-29 10:08:56', 'freelancer', 'Interpretation Cordoba (Argentina)', 5704107, '2014-03-29 10:08:56', 'English (UK), English (US), Spanish, Translation', '2014-03-24 15:41:59', 'http://www.freelancer.com/projects/Translation-English-US/Interpretation-Cordoba-Argentina.html')[0m
+  [1m[35m (68.1ms)[0m  COMMIT
+  [1m[36m (15.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (19.9ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('2,6', '2014-03-24 15:42:01', 'Caut Traducător din Portugheză în Română (și invers) pentru o colaborare de lungă durată!\r\nTematica juridică (Acte procesuale: Sentințe, Rechizitorii, Comisii rogatorii, Încheieri, etc)!\r\nÎnainte de toate voi cere ca candidatul să facă o traducere scurtă al unui test (vezi documentul anexat). \r\nPlata se face pentru cuvinte traduse, la preț de 2 Euro pentru 250 de cuvinte traduse (este o pagină convențională).\r\n\r\nCondițiile de lucru / Cerințele înaintate:\r\n- Traducerile efectuate vor trece prin revizuire pentru verificarea calității. Menținerea calității bune va fi premiată;\r\n- Plata se va efectua în luna imediat următoare după luna în care au fost prestate serviciile;\r\n- Traducătorul va fi obligat să semneze un Acord de confidențialitate (informațiile traduse sunt confidențiale);\r\n- Traducătorul să aibă scaner, o programă pentru citirea documentelor în PDF, și pentru citirea/redactarea documentelor în docx/doc;\r\n- Traducătorul să păstreze formatarea originală a textului;\r\n- și altele.\r\nAdică, nimic nou, ceea ce se cere de fapt de la un traducător.\r\n\r\nAștept ofertele voastre. Traducerea testului este obligatorie. Testul are câteva alineate din C.P. Portughez.\r\n\r\nVă mulțumesc anticipat pentru timpul acordat!', '2014-03-29 07:16:05', 'freelancer', 'Traducerea din Portugheză în Română (documente juridice)', 5703644, '2014-03-29 07:16:05', 'Legal, Translation', '2014-03-24 15:42:01', 'http://www.freelancer.com/projects/Translation-Legal/Traducerea-din-Portughez-Rom-documente.html')
+  [1m[36m (40.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (16.2ms)[0m  BEGIN
+  [1m[36mSQL (30.8ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('2,6', '2014-03-24 15:42:02', 'Caut Traducător din Portugheză în Română (și invers) pentru o colaborare de lungă durată!\r\nTematica juridică (Acte procesuale: Sentințe, Rechizitorii, Comisii rogatorii, Încheieri, etc)!\r\nÎnainte de toate voi cere ca candidatul să facă o traducere scurtă al unui test (vezi documentul anexat). \r\nPlata se face pentru cuvinte traduse, la preț de 2 Euro pentru 250 de cuvinte traduse (este o pagină convențională).\r\n\r\nCondițiile de lucru / Cerințele înaintate:\r\n- Traducerile efectuate vor trece prin revizuire pentru verificarea calității. Menținerea calității bune va fi premiată;\r\n- Plata se va efectua în luna imediat următoare după luna în care au fost prestate serviciile;\r\n- Traducătorul va fi obligat să semneze un Acord de confidențialitate (informațiile traduse sunt confidențiale);\r\n- Traducătorul să aibă scaner, o programă pentru citirea documentelor în PDF, și pentru citirea/redactarea documentelor în docx/doc;\r\n- Traducătorul să păstreze formatarea originală a textului;\r\n- și altele.\r\n Adică, nimic nou, ceea ce se cere de fapt de la un traducător.\r\n\r\nAștept ofertele voastre. Traducerea testului este obligatorie. Testul are câteva alineate din C.P. Portughez.\r\n\r\nVă mulțumesc anticipat pentru timpul acordat!', '2014-03-29 06:23:25', 'freelancer', 'Traduzir Algo', 5703507, '2014-03-29 06:23:25', 'Translation', '2014-03-24 15:42:02', 'http://www.freelancer.com/projects/Translation-Legal/Traduzir-Algo.html')[0m
+  [1m[35m (41.4ms)[0m  COMMIT
+  [1m[36m (15.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (18.1ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:42:04', 'Hello people :)\r\n\r\nWe are about to launch an English version of www.designtraegulve.dk.. \r\n\r\nAnd are in need of someone who can translate the site from Danish to English..\r\n\r\n\r\nI you like, you can bid for either/or both:\r\n\r\nThe whole site - Without products\r\n\r\nThe whole site - With products\r\n\r\n\r\nKindly regards - P. J. Engel', '2014-03-29 04:55:11', 'freelancer', 'Translate website from Danish to English', 5703284, '2014-03-29 04:55:11', 'Article Rewriting, Danish, English (US), Translation', '2014-03-24 15:42:04', 'http://www.freelancer.com/projects/Article-Rewriting-Translation/Translate-website-from-Danish-English.html')
+  [1m[36m (43.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (14.9ms)[0m  BEGIN
+  [1m[36mSQL (19.1ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:42:05', 'Vignette Interactive, a multimedia production and software development company, is looking to hire a fixer for office management and to assist with business development here in Istanbul. Responsibilities include contact development, general office assistance, and correspondence with local partners.\r\n\r\nEssential skills include excellent written and spoken English, written and spoken Turkish, and the ability to interact well with clients and partners. Organizational skills are a must. Compensation is flexible depending on background and experience.', '2014-03-29 04:35:04', 'freelancer', 'Office development assistant', 5703253, '2014-03-29 04:35:04', 'English (US), Research, Translation, Turkish', '2014-03-24 15:42:05', 'http://www.freelancer.com/projects/Research-English-US/Office-development-assistant.html')[0m
+  [1m[35m (121.0ms)[0m  COMMIT
+  [1m[36m (15.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (16.9ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('25,50', '2014-03-24 15:42:07', 'We need girls for online dating. For every session of 30 minutes we will award you $20-30. Age should be between 18 - 40. Contact me as urgent as you can. Further details will be discussed to the awarded bidders.', '2014-03-29 03:50:22', 'freelancer', 'need skype models for online chatting new', 5703151, '2014-03-29 03:50:22', 'Anything Goes, Data Entry, Dating, Translation', '2014-03-24 15:42:07', 'http://www.freelancer.com/projects/Data-Entry-Translation/need-skype-models-for-online.5703151.html')
+  [1m[36m (42.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.1ms)[0m  BEGIN
+  [1m[36mSQL (16.9ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('55,55', '2014-03-24 15:42:08', '***this project is for PaulaMS only***\r\n\r\nIt is for keywording image numbers fin 4201 to 4400\r\n\r\nI have uploaded the file on the previous project.\r\n\r\nThe agreed price for this 200 images is $55', '2014-03-29 03:20:15', 'freelancer', 'Keywords 2013 - fin 4201 to 4400', 5703092, '2014-03-29 03:20:15', 'Copy Typing, Copywriting, English (UK), Translation', '2014-03-24 15:42:08', 'http://www.freelancer.com/projects/Copywriting-Translation/Keywords-fin.html')[0m
+  [1m[35m (51.6ms)[0m  COMMIT
+  [1m[36m (15.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('1500,12500', '2014-03-24 15:42:09', 'We have project in translate to Hindi from English. \r\nWe can pay Rs.3000-5000/ per book to translate. Submit the sample task to start working on this project. \r\nHere is the sample attached', '2014-03-29 01:55:07', 'freelancer', 'Translation work from Hindi to English', 5702914, '2014-03-29 01:55:07', 'Translation', '2014-03-24 15:42:09', 'http://www.freelancer.com/projects/Translation/Translation-work-from-Hindi-English.html')
+  [1m[36m (49.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (15.0ms)[0m  BEGIN
+  [1m[36mSQL (17.3ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:42:10', 'I\'m looking for a virtual assistant who will make video messages for me ( You will not be in front of the camera, you will be recording on-screen while talking). I will give you a script and directions on how to do this. I will also give you an video example on how it should be done. I\'m looking for a virtual assistant who have clear English, so I\'m looking for someone who have advance English. Screen-capture video tool is require for this project.', '2014-03-28 23:45:46', 'freelancer', 'I Need A Virtual Assistant To Help Me Record Video Messages', 5702660, '2014-03-28 23:45:46', 'English (UK), English (US), Translation, Video Services', '2014-03-24 15:42:10', 'http://www.freelancer.com/projects/Translation-Video-Services/Need-Virtual-Assistant-Help-Record.html')[0m
+  [1m[35m (36.6ms)[0m  COMMIT
+  [1m[36m (15.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.2ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `description`, `duration`, `from_source`, `name`, `outside_id`, `remain_time`, `require_skills`, `updated_at`, `url`) VALUES ('30,250', '2014-03-24 15:42:11', 'Need to add a universal translation solution for for spanish and french to this site:\r\nhttp://www.panamericantool.com/\r\n\r\nUsing a solution like :\r\nhttp://www.magentocommerce.com/magento-connect/pro-translate.html\r\nor\r\nhttp://www.magentocommerce.com/magento-connect/google-translate.html', '2014-03-28 19:32:14', 'freelancer', 'Need to add a complete translation solution to Magento site', 5702205, '2014-03-28 19:32:14', 'Magento, Translation', '2014-03-24 15:42:11', 'http://www.freelancer.com/projects/Translation-Magento/Need-add-complete-translation-solution.html')
+  [1m[36m (36.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 68353ms (Views: 0.1ms | ActiveRecord: 4633.8ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 23:57:04 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (342.5ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (732.7ms)
+Completed 200 OK in 740ms (Views: 341.9ms | ActiveRecord: 395.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 23:57:05 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 23:57:05 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 23:57:05 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:05 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 23:57:05 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:05 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:05 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:05 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:05 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:05 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:05 +0800
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-24 23:57:10 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (17.9ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/edit.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 49ms (Views: 28.6ms | ActiveRecord: 17.9ms)
+
+
+Started PATCH "/projects/1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n/3xTYsBoBSDok7mc0qnH1tyQ8mqv0GqyzDPOUIeVtQ=", "project"=>{"name_chinese"=>"qwe", "require_skills_chinese"=>"請問", "description_chinese"=>"而且瓦斯的"}, "commit"=>"Update", "id"=>"1"}
+  [1m[35mProject Load (17.4ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  [1m[36m (15.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (73.0ms)[0m  UPDATE `projects` SET `name_chinese` = 'qwe', `require_skills_chinese` = '請問', `description_chinese` = '而且瓦斯的', `updated_at` = '2014-03-24 15:57:17' WHERE `projects`.`id` = 1
+  [1m[36m (50.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1
+Completed 302 Found in 164ms (ActiveRecord: 155.5ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (16.8ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 37ms (Views: 18.4ms | ActiveRecord: 16.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 23:57:17 +0800
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 23:57:53 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (372.5ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  Rendered projects/index.html.erb within layouts/application (682.6ms)
+Completed 200 OK in 690ms (Views: 257.2ms | ActiveRecord: 430.4ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-24 23:57:56 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (16.9ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/edit.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 27ms (Views: 8.1ms | ActiveRecord: 16.9ms)
+
+
+Started PATCH "/projects/1" for 127.0.0.1 at 2014-03-24 23:58:01 +0800
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n/3xTYsBoBSDok7mc0qnH1tyQ8mqv0GqyzDPOUIeVtQ=", "project"=>{"name_chinese"=>"qweeqwe", "require_skills_chinese"=>"請問eqwe", "description_chinese"=>"而且瓦斯的eq"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mProject Load (17.4ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  [1m[35m (15.1ms)[0m  BEGIN
+  [1m[36mSQL (32.5ms)[0m  [1mUPDATE `projects` SET `name_chinese` = 'qweeqwe', `require_skills_chinese` = '請問eqwe', `description_chinese` = '而且瓦斯的eq', `updated_at` = '2014-03-24 15:58:01' WHERE `projects`.`id` = 1[0m
+  [1m[35m (39.1ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/projects
+Completed 302 Found in 109ms (ActiveRecord: 104.1ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 23:58:01 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (353.3ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  Rendered projects/index.html.erb within layouts/application (582.4ms)
+Completed 200 OK in 588ms (Views: 234.0ms | ActiveRecord: 353.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 23:58:02 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:02 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 23:58:02 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 23:58:02 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 23:58:02 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:02 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:02 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:02 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:02 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:02 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:02 +0800
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-24 23:58:03 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (17.0ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 26ms (Views: 7.6ms | ActiveRecord: 17.0ms)
+
+
+Started PATCH "/projects/1" for 127.0.0.1 at 2014-03-24 23:58:21 +0800
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n/3xTYsBoBSDok7mc0qnH1tyQ8mqv0GqyzDPOUIeVtQ=", "project"=>{"name_chinese"=>"qweeqwe", "require_skills_chinese"=>"請問eqwe", "description_chinese"=>"而且瓦斯的eq"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mProject Load (16.5ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  [1m[35m (15.2ms)[0m  BEGIN
+  [1m[36m (14.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1
+Completed 302 Found in 117ms (ActiveRecord: 100.6ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-24 23:58:21 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (16.6ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 26ms (Views: 7.3ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 23:58:21 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 23:58:22 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:22 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:22 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 23:58:22 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 23:58:22 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:22 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:22 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:22 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:22 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 23:58:22 +0800
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 23:58:23 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (351.3ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  Rendered projects/index.html.erb within layouts/application (538.5ms)
+Completed 200 OK in 574ms (Views: 222.3ms | ActiveRecord: 351.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 23:59:00 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (342.2ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (537.2ms)
+Completed 200 OK in 575ms (Views: 231.5ms | ActiveRecord: 342.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 23:59:01 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 23:59:01 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:01 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 23:59:01 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 23:59:01 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:01 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:01 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:01 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:01 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:01 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:01 +0800
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-24 23:59:03 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (17.4ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 26ms (Views: 6.9ms | ActiveRecord: 17.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 23:59:05 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (337.6ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (546.6ms)
+Completed 200 OK in 552ms (Views: 214.0ms | ActiveRecord: 337.6ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-24 23:59:11 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (16.8ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 5.1ms | ActiveRecord: 16.8ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 23:59:17 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (340.3ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (545.5ms)
+Completed 200 OK in 552ms (Views: 210.9ms | ActiveRecord: 340.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 23:59:49 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (337.2ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  Rendered projects/index.html.erb within layouts/application (593.1ms)
+Completed 200 OK in 642ms (Views: 248.6ms | ActiveRecord: 391.6ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-24 23:59:49 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-24 23:59:49 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-24 23:59:49 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:49 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:50 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-24 23:59:50 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:50 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:50 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:50 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:50 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-24 23:59:50 +0800
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-24 23:59:50 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (18.7ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 27ms (Views: 6.8ms | ActiveRecord: 18.7ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 23:59:52 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (360.2ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  Rendered projects/index.html.erb within layouts/application (572.4ms)
+Completed 200 OK in 578ms (Views: 216.6ms | ActiveRecord: 360.2ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-24 23:59:54 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (18.3ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 26ms (Views: 6.2ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-24 23:59:56 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (344.9ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  Rendered projects/index.html.erb within layouts/application (558.3ms)
+Completed 200 OK in 563ms (Views: 217.9ms | ActiveRecord: 344.9ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-25 00:01:17 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (367.4ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (661.7ms)
+Completed 200 OK in 699ms (Views: 261.1ms | ActiveRecord: 435.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-25 00:01:17 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-25 00:01:17 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-25 00:01:18 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-25 00:01:18 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-25 00:01:18 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-25 00:01:18 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-25 00:01:18 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-25 00:01:18 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-25 00:01:18 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-25 00:01:18 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-25 00:01:18 +0800
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-25 00:01:22 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (18.8ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 27ms (Views: 6.7ms | ActiveRecord: 18.8ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-25 00:01:31 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (336.4ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (552.7ms)
+Completed 200 OK in 558ms (Views: 221.3ms | ActiveRecord: 336.4ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-25 00:01:33 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (16.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 25ms (Views: 6.7ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-25 00:01:34 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (332.2ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (547.4ms)
+Completed 200 OK in 554ms (Views: 220.6ms | ActiveRecord: 332.2ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-25 00:01:36 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (16.6ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 4.9ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-25 00:01:37 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (345.0ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (589.8ms)
+Completed 200 OK in 595ms (Views: 249.4ms | ActiveRecord: 345.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-25 00:03:08 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (337.2ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  Rendered projects/index.html.erb within layouts/application (692.2ms)
+Completed 200 OK in 698ms (Views: 359.8ms | ActiveRecord: 337.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-25 00:03:09 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-25 00:03:09 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-25 00:03:09 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-25 00:03:09 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:09 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:09 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:09 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:09 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:09 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:10 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:10 +0800
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-25 00:03:19 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (349.3ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (597.8ms)
+Completed 200 OK in 635ms (Views: 284.2ms | ActiveRecord: 349.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-25 00:03:20 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-25 00:03:20 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-25 00:03:20 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:20 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-25 00:03:20 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:20 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:21 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:21 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:21 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:21 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:21 +0800
+
+
+Started DELETE "/projects/1" for 127.0.0.1 at 2014-03-25 00:03:22 +0800
+Processing by ProjectsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"n/3xTYsBoBSDok7mc0qnH1tyQ8mqv0GqyzDPOUIeVtQ=", "id"=>"1"}
+  [1m[36mProject Load (16.8ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  [1m[35m (14.8ms)[0m  BEGIN
+  [1m[36mSQL (54.2ms)[0m  [1mDELETE FROM `projects` WHERE `projects`.`id` = 1[0m
+  [1m[35m (74.6ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/projects
+Completed 302 Found in 165ms (ActiveRecord: 160.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-25 00:03:22 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (339.7ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  Rendered projects/index.html.erb within layouts/application (583.6ms)
+Completed 200 OK in 589ms (Views: 248.7ms | ActiveRecord: 339.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-25 00:03:23 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:23 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-25 00:03:23 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:23 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-25 00:03:23 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-25 00:03:23 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:23 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:23 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:23 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:23 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-25 00:03:23 +0800
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-25 20:43:03 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (21.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (103.5ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (327.8ms)
+Completed 200 OK in 445ms (Views: 306.8ms | ActiveRecord: 114.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-25 20:43:05 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-25 20:43:05 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-25 20:43:05 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-25 20:43:05 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-25 20:43:05 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-25 20:43:05 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-25 20:43:05 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-25 20:43:05 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-25 20:43:05 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-25 20:43:05 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-25 20:43:05 +0800
+
+
+Started PUT "/projects" for 127.0.0.1 at 2014-03-25 20:43:09 +0800
+
+ActionController::RoutingError (No route matches [PUT] "/projects"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (27.2ms)
+
+
+Started PUT "/projects" for 127.0.0.1 at 2014-03-25 20:44:07 +0800
+
+ActionController::RoutingError (No route matches [PUT] "/projects"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (14.6ms)
+
+
+Started PUT "/projects" for 127.0.0.1 at 2014-03-25 20:44:12 +0800
+
+ActionController::RoutingError (No route matches [PUT] "/projects"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (14.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-25 20:44:14 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (106.3ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  Rendered projects/index.html.erb within layouts/application (318.8ms)
+Completed 200 OK in 325ms (Views: 217.5ms | ActiveRecord: 106.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-25 20:44:14 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-25 20:44:14 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:14 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-25 20:44:14 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:14 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-25 20:44:14 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:14 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:14 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:14 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:14 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:14 +0800
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2014-03-25 20:44:18 +0800
+
+AbstractController::ActionNotFound (The action 'new' could not be found for ProjectsController):
+  actionpack (4.0.3) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.3) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__2134170858122157250__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.5ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2014-03-25 20:44:18 +0800
+
+AbstractController::ActionNotFound (The action 'new' could not be found for ProjectsController):
+  actionpack (4.0.3) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.3) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__2134170858122157250__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.4ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2014-03-25 20:44:32 +0800
+
+AbstractController::ActionNotFound (The action 'new' could not be found for ProjectsController):
+  actionpack (4.0.3) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.3) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__2134170858122157250__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-25 20:44:36 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (84.8ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (294.3ms)
+Completed 200 OK in 300ms (Views: 214.2ms | ActiveRecord: 84.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-25 20:44:37 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-25 20:44:37 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-25 20:44:37 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:37 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-25 20:44:37 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:37 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:37 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:37 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:37 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:37 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-25 20:44:37 +0800
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2014-03-25 20:48:15 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (3.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 2 LIMIT 1[0m
+  Rendered projects/edit.html.erb within layouts/application (47.8ms)
+Completed 200 OK in 59ms (Views: 53.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2014-03-25 20:58:32 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (2.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 2 LIMIT 1
+  Rendered projects/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 11ms (Views: 6.5ms | ActiveRecord: 2.5ms)
