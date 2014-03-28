@@ -73,7 +73,7 @@ Sun::Application.routes.draw do
   # get    '/getAccountDetails' => "api#getAccountDetails"
 
   get    '/searchProjects' => "projects#searchProjects"
-  # get    '/getProjectDetails' => "projects#getProjectDetails"
+  get    '/getProjectDetails' => "projects#getProjectDetails"
   get    '/storeProjectsDetails' => "projects#storeProjectsDetails"
 
 end
