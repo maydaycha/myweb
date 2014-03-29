@@ -58,3 +58,6 @@ gem 'mysql2'
 
 # for heroku
 gem 'rails_12factor', group: :production
+
+#ActiveRecord session 
+#gem 'activerecord-session_store', github: 'rails/activerecord-session_store'

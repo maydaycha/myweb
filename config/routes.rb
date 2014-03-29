@@ -55,6 +55,7 @@ Sun::Application.routes.draw do
   #     resources :products
   #   end
   resources :projects
+  resources :translators
 
   # get    '/oauth' => "oauth#oauth_process"
   # get    '/get_access_token' => "oauth#get_access_token"
@@ -75,5 +76,26 @@ Sun::Application.routes.draw do
   get    '/searchProjects' => "projects#searchProjects"
   get    '/getProjectDetails' => "projects#getProjectDetails"
   get    '/storeProjectsDetails' => "projects#storeProjectsDetails"
+  get    '/getCategoryJobList' => "projects#getCategoryJobList"
+
+
+# angular front end
+get    '/angular' => "angular#index"
+
+post    '/angular/create' => "angular#create"
+match "/angular/create" => "angular#create", via: :options
+
+get    '/angular/getJobCategory' => "angular#getJobCategory"
+
+get    '/angular/isLogin' => "angular#isLogin"
+post    '/angular/isLogin' => "angular#isLogin"
+match    '/angular/isLogin' => "angular#isLogin", via: :options
+
+post    '/angular/login' => "angular#login"
+match   "/angular/login" => "angular#login", via: :options
+
+get    '/angular/logout' => "angular#logout"
+
+get    '/angular/csrf_token' => "angular#csrf_token"
 
 end

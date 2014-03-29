@@ -1,0 +1,13 @@
+<ul>
+<% @translators.each do |translator| %>
+  <li>
+  <%= translator.id %>.
+  <%= translator.account %>
+  <%= link_to 'Show', :controller => 'translators', :action => 'show', :id => translator %>
+  <%= link_to 'Edit', :controller => 'translators', :action => 'edit', :id => translator %>
+  <%= link_to 'delete', translator_path(translator), :method => :delete %>
+  </li>
+<% end %>
+</ul>
+<%= link_to 'New translator', new_translator_path %>
+
