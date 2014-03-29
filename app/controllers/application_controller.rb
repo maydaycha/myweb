@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   def set_headers
-    headers['Access-Control-Allow-Origin'] = 'http://localhost'
+    headers['Access-Control-Allow-Origin'] = 'http://localhost, http://220.136.6.243'
     # headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD'
     headers['Access-Control-Allow-Headers'] = '*, x-requested-with, Content-Type, Accept, If-Modified-Since, If-None-Match, X-CSRF-Token'
     headers['Access-Control-Allow-Credentials'] = 'true'

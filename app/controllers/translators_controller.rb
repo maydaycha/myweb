@@ -76,7 +76,7 @@ class TranslatorsController < ApplicationController
     if @t
       if Digest::MD5.hexdigest(params[:password]) == @t['password']
         session[:account] = @t['account']
-        render :json => { :status => "success", :cookie => session, :token => form_authenticity_token }
+        render :json => { :status => "success", :session => session, :token => form_authenticity_token }
       else
         render :json => { :status => "fail", :reason => "password error" }
       end

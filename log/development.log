@@ -19597,3 +19597,25 @@ Processing by ProjectsController#get_project_by_translator as HTML
   [1m[36mTranslator Load (25.7ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
   [1m[35mProject Load (43.8ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1
 Completed 200 OK in 78ms (Views: 7.2ms | ActiveRecord: 69.5ms)
+
+
+Started OPTIONS "/api/translators/login" for 127.0.0.1 at 2014-03-30 03:56:40 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (45.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by TranslatorsController#login as */*
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (25.8ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1
+Completed 200 OK in 134ms (Views: 0.3ms | ActiveRecord: 107.8ms)
+
+
+Started POST "/api/translators/login" for 127.0.0.1 at 2014-03-30 03:56:41 +0800
+Processing by TranslatorsController#login as HTML
+  Parameters: {"account"=>"maydaycha", "password"=>"[FILTERED]"}
+  [1m[36mTranslator Load (26.9ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
+Completed 200 OK in 34ms (Views: 0.3ms | ActiveRecord: 26.9ms)
+
+
+Started GET "/api/translators/get_project_by_translator" for 127.0.0.1 at 2014-03-30 03:56:41 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (27.1ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+  [1m[36mProject Load (60.2ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 203ms (Views: 21.6ms | ActiveRecord: 176.9ms)
