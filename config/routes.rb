@@ -57,45 +57,51 @@ Sun::Application.routes.draw do
   resources :projects
   resources :translators
 
-  # get    '/oauth' => "oauth#oauth_process"
-  # get    '/get_access_token' => "oauth#get_access_token"
+  # get  '/oauth' => "oauth#oauth_process"
+  # get  '/get_access_token' => "oauth#get_access_token"
+  # get  '/api' => "api#construct_access_token"
+  # get  '/getUsersBySearch' => "api#getUsersBySearch"
+  # get  '/getAccountDetails' => "api#getAccountDetails"
+
+  # get  '/searchProjects' => "projects#searchProjects"
+  # get  '/storeProjects' => "projects#storeProjects"
+  # get  '/getProjectDetails' => "projects#getProjectDetails"
+
+  get  '/oauth' => "oauth#oauth_process"
+  get  '/get_access_token' => "oauth#get_access_token"
   # get    '/api' => "api#construct_access_token"
   # get    '/getUsersBySearch' => "api#getUsersBySearch"
   # get    '/getAccountDetails' => "api#getAccountDetails"
 
-  # get    '/searchProjects' => "projects#searchProjects"
-  # get    '/storeProjects' => "projects#storeProjects"
-  # get    '/getProjectDetails' => "projects#getProjectDetails"
-
-  get    '/oauth' => "oauth#oauth_process"
-  get    '/get_access_token' => "oauth#get_access_token"
-  # get    '/api' => "api#construct_access_token"
-  # get    '/getUsersBySearch' => "api#getUsersBySearch"
-  # get    '/getAccountDetails' => "api#getAccountDetails"
-
-  get    '/searchProjects' => "projects#searchProjects"
-  get    '/getProjectDetails' => "projects#getProjectDetails"
-  get    '/storeProjectsDetails' => "projects#storeProjectsDetails"
-  get    '/getCategoryJobList' => "projects#getCategoryJobList"
+  get  '/searchProjects' => "projects#searchProjects"
+  get  '/getProjectDetails' => "projects#getProjectDetails"
+  get  '/storeProjectsDetails' => "projects#storeProjectsDetails"
+  get  '/getCategoryJobList' => "projects#getCategoryJobList"
 
 
-# angular front end
-get    '/angular' => "angular#index"
 
-post    '/angular/create' => "angular#create"
-match "/angular/create" => "angular#create", via: :options
+  # angular front end
+  get  '/angular' => "angular#index"
 
-get    '/angular/getJobCategory' => "angular#getJobCategory"
+  post  '/angular/create' => "angular#create"
+  match "/angular/create" => "angular#create", via: :options
 
-get    '/angular/isLogin' => "angular#isLogin"
-post    '/angular/isLogin' => "angular#isLogin"
-match    '/angular/isLogin' => "angular#isLogin", via: :options
+  get  '/angular/getJobCategory' => "angular#getJobCategory"
 
-post    '/angular/login' => "angular#login"
-match   "/angular/login" => "angular#login", via: :options
+  get  '/angular/isLogin' => "angular#isLogin"
+  post  '/angular/isLogin' => "angular#isLogin"
+  match  '/angular/isLogin' => "angular#isLogin", via: :options
 
-get    '/angular/logout' => "angular#logout"
+  post  '/angular/login' => "angular#login"
+  match  "/angular/login" => "angular#login", via: :options
 
-get    '/angular/csrf_token' => "angular#csrf_token"
+  get  '/angular/logout' => "angular#logout"
+
+  get  '/angular/csrf_token' => "angular#csrf_token"
+
+  get  'angular/get_project_by_translator' => "projects#get_project_by_translator"
+
+  post 'project/update_project_from_angular' => "projects#update_project_from_angular"
+  match  'project/update_project_from_angular' => "projects#update_project_from_angular", via: :options
 
 end

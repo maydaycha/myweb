@@ -34,6 +34,29 @@ class AngularController < ApplicationController
     render :json => @category.to_json
   end
 
+
+  def login
+    @t = Translator.find_by_account(params[:account])
+    puts @t
+    puts params[:account]
+    if @t
+      if Digest::MD5.hexdigest(params[:password]) == @t['password']
+        session[:account] = @t['account']
+        render :json => { :status => "success", :cookie => session, :token => form_authenticity_token }
+      else
+        render :json => { :status => "fail", :reason => "password error" }
+      end
+    else
+      render :json => { :status => "fail", :reason => "not such account" }
+    end
+  end
+
+  def logout
+    session.delete(:account)
+    session.delete('account')
+    render :json => { :status => "success", :session => session[:account] }
+  end
+
   def isLogin
     puts "session"
     puts session[:account]
@@ -42,32 +65,6 @@ class AngularController < ApplicationController
     else
       render :json => { :status => "success", :isLogin => false, :account => session[:account]}
     end
-  end
-
-  def login
-    if session[:account]
-      render :json => { :status => "haved login", :session => session[:account]}
-    else
-      @t = Translator.find_by_account(params[:account])
-      puts @t
-      puts params[:account]
-      if @t
-        if Digest::MD5.hexdigest(params[:password]) == @t['password']
-          session[:account] = @t['account']
-          render :json => { :status => "success", :cookie => session, :token => form_authenticity_token }
-        else
-          render :json => { :status => "success", :reason => "password error" }
-        end
-      else
-        render :json => { :status => "success", :reason => "not such account" }
-      end
-    end
-  end
-
-  def logout
-    session.delete(:account)
-    session.delete('account')
-    render :json => { :status => "success", :session => session[:account] }
   end
 
   def csrf_token

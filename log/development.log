@@ -14565,3 +14565,1622 @@ Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms)
 Started GET "/angular/logout" for 127.0.0.1 at 2014-03-29 20:30:10 +0800
 Processing by AngularController#logout as HTML
 Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-29 21:34:45 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (25.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (26.3ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 145ms (Views: 0.1ms | ActiveRecord: 114.0ms)
+
+
+Started OPTIONS "/angular/isLogin" for 127.0.0.1 at 2014-03-29 21:34:48 +0800
+Processing by AngularController#isLogin as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angular/isLogin" for 127.0.0.1 at 2014-03-29 21:34:48 +0800
+Processing by AngularController#isLogin as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started OPTIONS "/angular/isLogin" for 127.0.0.1 at 2014-03-29 21:35:33 +0800
+Processing by AngularController#isLogin as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angular/isLogin" for 127.0.0.1 at 2014-03-29 21:35:33 +0800
+Processing by AngularController#isLogin as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/logout" for 127.0.0.1 at 2014-03-29 21:35:34 +0800
+Processing by AngularController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angular/isLogin" for 127.0.0.1 at 2014-03-29 21:35:35 +0800
+Processing by AngularController#isLogin as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/logout" for 127.0.0.1 at 2014-03-29 21:35:36 +0800
+Processing by AngularController#logout as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-29 21:35:42 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[36mTranslator Load (26.6ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1[0m
+Completed 200 OK in 125ms (Views: 0.3ms | ActiveRecord: 111.0ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-29 21:35:42 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"madyaycha", "password"=>"[FILTERED]"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-29 21:35:50 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (33.2ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 33.2ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-29 21:35:52 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"maydaycha", "password"=>"[FILTERED]"}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (26.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (25.0ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (26.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to DropSession (20140329133925)
+  [1m[35m (47.3ms)[0m  DROP TABLE `session`
+Mysql2::Error: Unknown table 'sun.session': DROP TABLE `session`
+  [1m[36mActiveRecord::SchemaMigration Load (128.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to DropSession (20140329133925)
+  [1m[35m (216.3ms)[0m  DROP TABLE `sessions`
+  [1m[36m (29.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (50.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140329133925')
+  [1m[36m (72.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (117.0ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/projects.json" for 127.0.0.1 at 2014-03-29 21:44:09 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (40.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#index as JSON
+  [1m[35mProject Load (244.1ms)[0m  SELECT `projects`.* FROM `projects`
+Completed 200 OK in 415ms (Views: 0.1ms | ActiveRecord: 340.7ms)
+
+
+Started GET "/projects.json" for 127.0.0.1 at 2014-03-29 21:44:29 +0800
+Processing by ProjectsController#index as JSON
+  [1m[36mProject Load (208.0ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+Completed 200 OK in 271ms (Views: 0.1ms | ActiveRecord: 208.0ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-29 21:44:51 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (25.1ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 120ms (Views: 0.1ms | ActiveRecord: 111.5ms)
+
+
+Started GET "/projects.json" for 127.0.0.1 at 2014-03-29 21:44:52 +0800
+Processing by ProjectsController#index as JSON
+  [1m[36mProject Load (203.8ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+Completed 200 OK in 234ms (Views: 0.1ms | ActiveRecord: 203.8ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-29 21:45:16 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (25.4ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 25.4ms)
+
+
+Started GET "/projects.json" for 127.0.0.1 at 2014-03-29 21:45:16 +0800
+Processing by ProjectsController#index as JSON
+  [1m[36mProject Load (197.5ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+Completed 200 OK in 258ms (Views: 0.1ms | ActiveRecord: 197.5ms)
+
+
+Started GET "/projects.json" for 127.0.0.1 at 2014-03-29 22:29:10 +0800
+Processing by ProjectsController#index as JSON
+  [1m[35mProject Load (200.1ms)[0m  SELECT `projects`.* FROM `projects`
+Completed 200 OK in 386ms (Views: 0.1ms | ActiveRecord: 283.1ms)
+
+
+Started GET "/get_project_by_translator" for 127.0.0.1 at 2014-03-29 22:36:08 +0800
+
+ActionController::RoutingError (No route matches [GET] "/get_project_by_translator"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (37.3ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-29 22:36:13 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/get_project_by_translator?traslator=1" for 127.0.0.1 at 2014-03-29 23:05:06 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  Parameters: {"traslator"=>"1"}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/get_project_by_translator?translator=1" for 127.0.0.1 at 2014-03-29 23:05:21 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  Parameters: {"translator"=>"1"}
+  [1m[36mProject Load (28.9ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1 LIMIT 1[0m
+Completed 200 OK in 173ms (Views: 0.3ms | ActiveRecord: 113.4ms)
+
+
+Started GET "/angular/get_project_by_translator?translator=1" for 127.0.0.1 at 2014-03-29 23:05:48 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  Parameters: {"translator"=>"1"}
+  [1m[35mProject Load (27.6ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1 LIMIT 1
+Completed 200 OK in 128ms (Views: 0.6ms | ActiveRecord: 112.6ms)
+
+
+Started GET "/angular/get_project_by_translator?translator=1" for 127.0.0.1 at 2014-03-29 23:06:48 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  Parameters: {"translator"=>"1"}
+  [1m[36mProject Load (150.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 254ms (Views: 17.9ms | ActiveRecord: 233.2ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-29 23:11:55 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.7ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+  [1m[36mProject Load (41.1ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 281ms (Views: 18.2ms | ActiveRecord: 249.1ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-29 23:12:04 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.9ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+  [1m[36mProject Load (40.3ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 74ms (Views: 6.0ms | ActiveRecord: 66.2ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-29 23:12:46 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (24.9ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 116ms (Views: 0.1ms | ActiveRecord: 108.9ms)
+
+
+Started OPTIONS "/angular/create" for 127.0.0.1 at 2014-03-29 23:13:04 +0800
+Processing by AngularController#create as */*
+Can't verify CSRF token authenticity
+  [1m[36mTranslator Load (25.4ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1[0m
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 25.4ms)
+
+
+Started POST "/angular/create" for 127.0.0.1 at 2014-03-29 23:13:05 +0800
+Processing by AngularController#create as HTML
+  Parameters: {"account"=>"sun02", "password"=>"[FILTERED]", "name"=>"邱耀慶", "category"=>3, "angular"=>{"account"=>"sun02", "password"=>"[FILTERED]", "name"=>"邱耀慶", "category"=>3}}
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (25.7ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun02' LIMIT 1
+  [1m[36m (24.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (42.8ms)[0m  INSERT INTO `translators` (`account`, `category`, `created_at`, `name`, `password`, `updated_at`) VALUES ('sun02', 3, '2014-03-29 15:13:05', '邱耀慶', '81dc9bdb52d04dc20036dbd8313ed055', '2014-03-29 15:13:05')
+  [1m[36m (62.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 162ms (Views: 0.2ms | ActiveRecord: 155.3ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-29 23:13:05 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (24.9ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 24.9ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-29 23:13:19 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[36mTranslator Load (25.1ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1[0m
+Completed 200 OK in 27ms (Views: 0.3ms | ActiveRecord: 25.1ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-29 23:13:19 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"sun02", "password"=>"[FILTERED]"}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-29 23:14:10 +0800
+
+SyntaxError (/Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:74: syntax error, unexpected keyword_end, expecting end-of-input):
+  activesupport (4.0.3) lib/active_support/dependencies.rb:424:in `load'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:424:in `block in load_file'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:616:in `new_constants_in'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:423:in `load_file'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:324:in `require_or_load'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:463:in `load_missing_constant'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:226:in `const_get'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:226:in `block in constantize'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `each'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `inject'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `constantize'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:535:in `get'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:566:in `constantize'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__2707392122428349063__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.3ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-29 23:15:18 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (27.1ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1
+Completed 200 OK in 112ms (Views: 0.2ms | ActiveRecord: 107.4ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-29 23:15:18 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"sun02", "password"=>"[FILTERED]"}
+  [1m[36mTranslator Load (27.8ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun02' LIMIT 1[0m
+Completed 200 OK in 36ms (Views: 0.3ms | ActiveRecord: 27.8ms)
+
+
+Started OPTIONS "/angular/isLogin" for 127.0.0.1 at 2014-03-29 23:15:27 +0800
+Processing by AngularController#isLogin as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angular/isLogin" for 127.0.0.1 at 2014-03-29 23:15:27 +0800
+Processing by AngularController#isLogin as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-29 23:15:37 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.8ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun02' LIMIT 1
+  [1m[36mProject Load (27.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 26[0m
+Completed 200 OK in 58ms (Views: 0.9ms | ActiveRecord: 53.5ms)
+
+
+Started OPTIONS "/angular/create" for 127.0.0.1 at 2014-03-29 23:16:24 +0800
+Processing by AngularController#create as */*
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (25.6ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 25.6ms)
+
+
+Started POST "/angular/create" for 127.0.0.1 at 2014-03-29 23:16:24 +0800
+Processing by AngularController#create as HTML
+  Parameters: {"account"=>"maydaycha", "password"=>"[FILTERED]", "name"=>"邱耀慶", "category"=>1, "angular"=>{"account"=>"maydaycha", "password"=>"[FILTERED]", "name"=>"邱耀慶", "category"=>1}}
+Can't verify CSRF token authenticity
+  [1m[36mTranslator Load (25.6ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
+  [1m[35m (24.3ms)[0m  BEGIN
+  [1m[36mSQL (25.3ms)[0m  [1mINSERT INTO `translators` (`account`, `category`, `created_at`, `name`, `password`, `updated_at`) VALUES ('maydaycha', 1, '2014-03-29 15:16:24', '邱耀慶', '81dc9bdb52d04dc20036dbd8313ed055', '2014-03-29 15:16:24')[0m
+  [1m[35m (57.5ms)[0m  COMMIT
+Completed 200 OK in 137ms (Views: 0.3ms | ActiveRecord: 132.7ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-29 23:16:24 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[36mProjectCategory Load (25.2ms)[0m  [1mSELECT id, name FROM `project_categories`[0m
+Completed 200 OK in 117ms (Views: 0.1ms | ActiveRecord: 108.3ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-29 23:16:58 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (25.5ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 25.5ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-29 23:16:59 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"maydaycha", "password"=>"[FILTERED]"}
+  [1m[36mTranslator Load (25.5ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 25.5ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-29 23:17:02 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.4ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+  [1m[36mProject Load (37.2ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 202ms (Views: 54.2ms | ActiveRecord: 146.5ms)
+
+
+Started OPTIONS "/angular/create" for 127.0.0.1 at 2014-03-29 23:17:21 +0800
+Processing by AngularController#create as */*
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (25.8ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 25.8ms)
+
+
+Started POST "/angular/create" for 127.0.0.1 at 2014-03-29 23:17:22 +0800
+Processing by AngularController#create as HTML
+  Parameters: {"account"=>"sun01", "password"=>"[FILTERED]", "name"=>"sun01", "category"=>3, "angular"=>{"account"=>"sun01", "password"=>"[FILTERED]", "name"=>"sun01", "category"=>3}}
+Can't verify CSRF token authenticity
+  [1m[36mTranslator Load (27.1ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35m (26.6ms)[0m  BEGIN
+  [1m[36mSQL (44.4ms)[0m  [1mINSERT INTO `translators` (`account`, `category`, `created_at`, `name`, `password`, `updated_at`) VALUES ('sun01', 3, '2014-03-29 15:17:22', 'sun01', '81dc9bdb52d04dc20036dbd8313ed055', '2014-03-29 15:17:22')[0m
+  [1m[35m (43.7ms)[0m  COMMIT
+Completed 200 OK in 146ms (Views: 0.2ms | ActiveRecord: 141.9ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-29 23:17:22 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[36mProjectCategory Load (26.4ms)[0m  [1mSELECT id, name FROM `project_categories`[0m
+Completed 200 OK in 30ms (Views: 0.2ms | ActiveRecord: 26.4ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-29 23:17:29 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (25.3ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 25.3ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-29 23:17:29 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"sun01", "password"=>"[FILTERED]"}
+  [1m[36mTranslator Load (25.5ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 25.5ms)
+
+
+Started OPTIONS "/angular/isLogin" for 127.0.0.1 at 2014-03-29 23:17:33 +0800
+Processing by AngularController#isLogin as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angular/isLogin" for 127.0.0.1 at 2014-03-29 23:17:33 +0800
+Processing by AngularController#isLogin as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-29 23:18:21 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.6ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (35.4ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 67ms (Views: 4.0ms | ActiveRecord: 61.0ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-29 23:19:00 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (130.3ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 132ms (Views: 0.1ms | ActiveRecord: 130.3ms)
+
+
+Started GET "/projects.json" for 127.0.0.1 at 2014-03-29 23:19:00 +0800
+Processing by ProjectsController#index as JSON
+  [1m[36mProject Load (189.6ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+Completed 200 OK in 219ms (Views: 0.1ms | ActiveRecord: 189.6ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-29 23:19:37 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.3ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (36.3ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 68ms (Views: 4.8ms | ActiveRecord: 61.6ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-29 23:21:05 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-29 23:21:37 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-29 23:23:56 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-29 23:24:06 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (24.9ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 115ms (Views: 0.1ms | ActiveRecord: 105.9ms)
+
+
+Started OPTIONS "/angular/isLogin" for 127.0.0.1 at 2014-03-29 23:24:08 +0800
+Processing by AngularController#isLogin as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angular/isLogin" for 127.0.0.1 at 2014-03-29 23:24:08 +0800
+Processing by AngularController#isLogin as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-29 23:37:39 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[36mProjectCategory Load (25.1ms)[0m  [1mSELECT id, name FROM `project_categories`[0m
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-29 23:37:52 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.5ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (34.9ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 252ms (Views: 18.9ms | ActiveRecord: 223.1ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-29 23:43:26 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (71.7ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (57.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 136ms (Views: 4.4ms | ActiveRecord: 129.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-29 23:45:04 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (1939.5ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (2010.3ms)
+Completed 200 OK in 2118ms (Views: 177.8ms | ActiveRecord: 1939.5ms)
+
+
+Started GET "/assets/angular.css?body=1" for 127.0.0.1 at 2014-03-29 23:45:06 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-29 23:45:07 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-29 23:45:07 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-29 23:45:07 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-29 23:45:07 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-29 23:45:08 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-29 23:45:08 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-29 23:45:08 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-29 23:45:08 +0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-03-29 23:45:08 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-29 23:45:08 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-29 23:45:08 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-29 23:45:08 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-29 23:45:08 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-29 23:45:08 +0800
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-29 23:45:11 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (28.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 48ms (Views: 18.8ms | ActiveRecord: 28.0ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-29 23:53:42 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (64.7ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 407ms (Views: 11.4ms | ActiveRecord: 342.8ms)
+
+
+Started GET "/projects/1/edit.json" for 127.0.0.1 at 2014-03-29 23:54:20 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (27.3ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 0.2ms | ActiveRecord: 27.3ms)
+
+
+Started GET "/projects/1/edit.json" for 127.0.0.1 at 2014-03-30 00:00:38 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (28.4ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 28.4ms)
+
+
+Started GET "/projects/1/edit.json" for 127.0.0.1 at 2014-03-30 00:00:53 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (28.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 28.7ms)
+
+
+Started GET "/projects/1/edit.json" for 127.0.0.1 at 2014-03-30 00:02:25 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (32.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 32.5ms)
+
+
+Started GET "/projects/1/edit.json" for 127.0.0.1 at 2014-03-30 00:02:39 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (27.6ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 27.6ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:02:51 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (28.4ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (152.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 276ms (Views: 5.5ms | ActiveRecord: 260.5ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:03:45 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.9ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (37.5ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 70ms (Views: 4.2ms | ActiveRecord: 63.3ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:03:49 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.4ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (39.9ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 71ms (Views: 4.3ms | ActiveRecord: 65.3ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:03:55 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.5ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (36.1ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 67ms (Views: 4.0ms | ActiveRecord: 61.6ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:03:55 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[35mProject Load (28.4ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 28.4ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:03:58 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (25.4ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (105.6ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 139ms (Views: 6.0ms | ActiveRecord: 131.0ms)
+
+
+Started GET "/projects/12/edit.json" for 127.0.0.1 at 2014-03-30 00:03:59 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mProject Load (125.2ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 12 LIMIT 1[0m
+Completed 200 OK in 127ms (Views: 0.1ms | ActiveRecord: 125.2ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:04:01 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (26.3ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (38.9ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 104ms (Views: 37.3ms | ActiveRecord: 65.3ms)
+
+
+Started GET "/projects/13/edit.json" for 127.0.0.1 at 2014-03-30 00:04:02 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"13"}
+  [1m[35mProject Load (28.9ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 13 LIMIT 1
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 28.9ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:04:04 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (27.6ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (37.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 71ms (Views: 4.5ms | ActiveRecord: 65.1ms)
+
+
+Started GET "/projects/14/edit.json" for 127.0.0.1 at 2014-03-30 00:04:05 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"14"}
+  [1m[36mProject Load (28.8ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 14 LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 28.8ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:04:07 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (27.4ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (36.2ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 70ms (Views: 4.6ms | ActiveRecord: 63.6ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:06:34 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (26.6ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 115ms (Views: 0.1ms | ActiveRecord: 106.6ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:06:47 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (25.7ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (36.1ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 69ms (Views: 4.9ms | ActiveRecord: 61.8ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:08:47 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[36mProjectCategory Load (25.2ms)[0m  [1mSELECT id, name FROM `project_categories`[0m
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 25.2ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-30 00:08:53 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (25.4ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1
+Completed 200 OK in 27ms (Views: 0.4ms | ActiveRecord: 25.4ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-30 00:08:53 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"sun02", "password"=>"[FILTERED]"}
+  [1m[36mTranslator Load (25.1ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun02' LIMIT 1[0m
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 25.1ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-30 00:08:59 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (25.5ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 25.5ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-30 00:08:59 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"sun01", "password"=>"[FILTERED]"}
+  [1m[36mTranslator Load (25.6ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 25.6ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:09:06 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (81.5ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 83ms (Views: 0.1ms | ActiveRecord: 81.5ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-30 00:09:13 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[36mTranslator Load (25.1ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1[0m
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 25.1ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-30 00:09:13 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"sun01", "password"=>"[FILTERED]"}
+  [1m[35mTranslator Load (25.4ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+Completed 200 OK in 27ms (Views: 0.3ms | ActiveRecord: 25.4ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:09:14 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (26.9ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (35.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 68ms (Views: 4.2ms | ActiveRecord: 62.3ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:09:26 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[36mProjectCategory Load (25.9ms)[0m  [1mSELECT id, name FROM `project_categories`[0m
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 25.9ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-30 00:09:31 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (27.0ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1
+Completed 200 OK in 29ms (Views: 0.2ms | ActiveRecord: 27.0ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-30 00:09:31 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"maydaycha", "password"=>"[FILTERED]"}
+  [1m[36mTranslator Load (26.0ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
+Completed 200 OK in 29ms (Views: 0.4ms | ActiveRecord: 26.0ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:09:31 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.3ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+  [1m[36mProject Load (38.5ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 71ms (Views: 5.4ms | ActiveRecord: 63.8ms)
+
+
+Started GET "/projects/1/edit.json" for 127.0.0.1 at 2014-03-30 00:09:44 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (27.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 27.5ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:09:46 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (25.5ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
+  [1m[35mProject Load (39.6ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1
+Completed 200 OK in 71ms (Views: 4.6ms | ActiveRecord: 65.2ms)
+
+
+Started GET "/projects/3/edit.json" for 127.0.0.1 at 2014-03-30 00:09:51 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (32.6ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 32.6ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:09:53 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.6ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+  [1m[36mProject Load (42.5ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 75ms (Views: 4.6ms | ActiveRecord: 68.1ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:10:01 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (26.3ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 26.3ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-30 00:10:06 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[36mTranslator Load (100.2ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1[0m
+Completed 200 OK in 102ms (Views: 0.2ms | ActiveRecord: 100.2ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-30 00:10:06 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"sun01", "password"=>"[FILTERED]"}
+  [1m[35mTranslator Load (55.6ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+Completed 200 OK in 57ms (Views: 0.3ms | ActiveRecord: 55.6ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:10:07 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (113.9ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (133.9ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 255ms (Views: 5.5ms | ActiveRecord: 247.7ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:12:55 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mProject Load (30.2ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1[0m
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 30.2ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:13:27 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[35mProject Load (29.8ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 29.8ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:28:20 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mProject Load (28.8ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1[0m
+Completed 200 OK in 130ms (Views: 0.1ms | ActiveRecord: 111.8ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:28:43 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.3ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (36.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 174ms (Views: 4.6ms | ActiveRecord: 158.3ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:28:48 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.6ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (37.9ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 69ms (Views: 4.0ms | ActiveRecord: 63.5ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:28:50 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[35mProject Load (28.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 28.5ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:29:13 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mProject Load (243.1ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1[0m
+Completed 200 OK in 245ms (Views: 0.1ms | ActiveRecord: 243.1ms)
+
+
+Started OPTIONS "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:29:27 +0800
+
+ActionController::RoutingError (No route matches [OPTIONS] "/project/update_project_from_angular"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (37.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (65.3ms)
+
+
+Started OPTIONS "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:30:29 +0800
+Processing by ProjectsController#update_project_from_angular as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:30:29 +0800
+Processing by ProjectsController#update_project_from_angular as HTML
+  Parameters: {"projectId"=>"11", "projectName"=>"您好嗎", "projectDescription"=>"您好嗎"}
+  [1m[35mProject Load (28.8ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1
+  [1m[36m (24.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (44.5ms)[0m  UPDATE `projects` SET `name_chinese` = '您好嗎', `description_chinese` = '您好嗎', `updated_at` = '2014-03-29 16:30:30' WHERE `projects`.`id` = 11
+  [1m[36m (59.8ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 259ms (Views: 0.3ms | ActiveRecord: 241.6ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:30:51 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (158.7ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (35.3ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 294ms (Views: 4.5ms | ActiveRecord: 278.3ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:30:55 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[35mProject Load (29.3ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 29.3ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:31:53 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mProject Load (29.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 29.0ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:32:07 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[35mProject Load (32.1ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 32.1ms)
+
+
+Started OPTIONS "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:32:26 +0800
+Processing by ProjectsController#update_project_from_angular as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:32:26 +0800
+Processing by ProjectsController#update_project_from_angular as HTML
+  Parameters: {"projectId"=>"11", "projectName"=>"您好嗎", "projectDescription"=>"您好嗎hihiiii"}
+  [1m[36mProject Load (28.8ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1[0m
+  [1m[35m (23.7ms)[0m  BEGIN
+  [1m[36mSQL (24.8ms)[0m  [1mUPDATE `projects` SET `description_chinese` = '您好嗎hihiiii', `updated_at` = '2014-03-29 16:32:26' WHERE `projects`.`id` = 11[0m
+  [1m[35m (50.9ms)[0m  COMMIT
+Completed 200 OK in 132ms (Views: 0.2ms | ActiveRecord: 128.3ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:35:14 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (25.8ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (37.0ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 70ms (Views: 5.3ms | ActiveRecord: 62.8ms)
+
+
+Started GET "/projects/12/edit.json" for 127.0.0.1 at 2014-03-30 00:35:59 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mProject Load (30.2ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 12 LIMIT 1[0m
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 30.2ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:36:01 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (26.2ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (35.1ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 105ms (Views: 42.1ms | ActiveRecord: 61.3ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:36:28 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.8ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (37.1ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 71ms (Views: 5.6ms | ActiveRecord: 62.9ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:36:43 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (27.2ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (38.6ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 72ms (Views: 4.5ms | ActiveRecord: 65.8ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:36:55 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.3ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (35.6ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 67ms (Views: 4.4ms | ActiveRecord: 60.9ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:37:01 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.8ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (35.4ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 67ms (Views: 4.3ms | ActiveRecord: 61.2ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:38:07 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (27.1ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (38.6ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 261ms (Views: 17.9ms | ActiveRecord: 232.2ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:38:08 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[35mProject Load (28.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 28.5ms)
+
+
+Started OPTIONS "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:38:10 +0800
+Processing by ProjectsController#update_project_from_angular as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:38:10 +0800
+Processing by ProjectsController#update_project_from_angular as HTML
+  Parameters: {"projectId"=>"11", "projectName"=>"您好嗎", "projectDescription"=>"您好嗎hihiiii"}
+  [1m[36mProject Load (35.3ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1[0m
+  [1m[35m (23.8ms)[0m  BEGIN
+  [1m[36mSQL (24.6ms)[0m  [1mUPDATE `projects` SET `is_translation` = 1, `updated_at` = '2014-03-29 16:38:10' WHERE `projects`.`id` = 11[0m
+  [1m[35m (56.0ms)[0m  COMMIT
+Completed 200 OK in 145ms (Views: 0.3ms | ActiveRecord: 139.7ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:38:16 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (25.7ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (39.6ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 73ms (Views: 5.7ms | ActiveRecord: 65.3ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:39:44 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (29.5ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (41.2ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 77ms (Views: 4.9ms | ActiveRecord: 70.7ms)
+
+
+Started GET "/projects/12/edit.json" for 127.0.0.1 at 2014-03-30 00:39:45 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mProject Load (29.3ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 12 LIMIT 1[0m
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 29.3ms)
+
+
+Started OPTIONS "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:39:57 +0800
+Processing by ProjectsController#update_project_from_angular as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:39:57 +0800
+Processing by ProjectsController#update_project_from_angular as HTML
+  Parameters: {"projectId"=>"12", "projectName"=>"測試okok", "projectDescription"=>"和哈哈哈和"}
+  [1m[35mProject Load (28.6ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 12 LIMIT 1
+  [1m[36m (24.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (27.0ms)[0m  UPDATE `projects` SET `name_chinese` = '測試okok', `description_chinese` = '和哈哈哈和', `is_translation` = 1, `updated_at` = '2014-03-29 16:39:57' WHERE `projects`.`id` = 12
+  [1m[36m (55.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 139ms (Views: 0.2ms | ActiveRecord: 135.2ms)
+
+
+Started GET "/projects/12/edit.json" for 127.0.0.1 at 2014-03-30 00:40:22 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"12"}
+  [1m[35mProject Load (27.8ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 12 LIMIT 1
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 27.8ms)
+
+
+Started OPTIONS "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:40:24 +0800
+Processing by ProjectsController#update_project_from_angular as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:40:24 +0800
+Processing by ProjectsController#update_project_from_angular as HTML
+  Parameters: {"projectId"=>"12", "projectName"=>"測試okok", "projectDescription"=>"和哈哈哈和"}
+  [1m[36mProject Load (27.4ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 12 LIMIT 1[0m
+  [1m[35m (23.9ms)[0m  BEGIN
+  [1m[36m (23.5ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 77ms (Views: 0.2ms | ActiveRecord: 74.8ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:40:24 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (26.0ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (39.8ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 73ms (Views: 4.8ms | ActiveRecord: 65.9ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:41:58 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (26.1ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (39.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 72ms (Views: 4.5ms | ActiveRecord: 65.8ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:42:09 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.5ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (38.5ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 71ms (Views: 4.6ms | ActiveRecord: 64.0ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:42:13 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[35mProject Load (32.8ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 32.8ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:42:17 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (25.6ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (41.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 73ms (Views: 4.7ms | ActiveRecord: 67.1ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:42:20 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mProject Load (36.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1[0m
+Completed 200 OK in 38ms (Views: 0.1ms | ActiveRecord: 36.0ms)
+
+
+Started GET "/projects/11/edit.json" for 127.0.0.1 at 2014-03-30 00:42:46 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"11"}
+  [1m[35mProject Load (29.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 11 LIMIT 1
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 29.5ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:42:47 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (176.6ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (154.4ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 337ms (Views: 4.7ms | ActiveRecord: 331.0ms)
+
+
+Started GET "/projects/13/edit.json" for 127.0.0.1 at 2014-03-30 00:42:50 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"13"}
+  [1m[36mProject Load (27.4ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 13 LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 27.4ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:42:57 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.9ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (38.3ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 71ms (Views: 5.4ms | ActiveRecord: 64.2ms)
+
+
+Started GET "/projects/13/edit.json" for 127.0.0.1 at 2014-03-30 00:42:59 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"13"}
+  [1m[35mProject Load (27.8ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 13 LIMIT 1
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 27.8ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:43:00 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (25.8ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (36.8ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 70ms (Views: 5.8ms | ActiveRecord: 62.6ms)
+
+
+Started GET "/projects/15/edit.json" for 127.0.0.1 at 2014-03-30 00:43:01 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"15"}
+  [1m[36mProject Load (29.5ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 15 LIMIT 1[0m
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 29.5ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:43:03 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (26.8ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (37.5ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 71ms (Views: 4.4ms | ActiveRecord: 64.3ms)
+
+
+Started GET "/projects/13/edit.json" for 127.0.0.1 at 2014-03-30 00:43:04 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"13"}
+  [1m[35mProject Load (28.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 13 LIMIT 1
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 28.5ms)
+
+
+Started OPTIONS "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:43:13 +0800
+Processing by ProjectsController#update_project_from_angular as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:43:13 +0800
+Processing by ProjectsController#update_project_from_angular as HTML
+  Parameters: {"projectId"=>"13", "projectName"=>"heloo", "projectDescription"=>"大聲道"}
+  [1m[36mProject Load (31.4ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 13 LIMIT 1[0m
+  [1m[35m (23.8ms)[0m  BEGIN
+  [1m[36mSQL (28.3ms)[0m  [1mUPDATE `projects` SET `name_chinese` = 'heloo', `description_chinese` = '大聲道', `is_translation` = 1, `updated_at` = '2014-03-29 16:43:13' WHERE `projects`.`id` = 13[0m
+  [1m[35m (60.1ms)[0m  COMMIT
+Completed 200 OK in 148ms (Views: 0.2ms | ActiveRecord: 143.6ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:43:13 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (25.9ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (36.2ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 99ms (Views: 35.3ms | ActiveRecord: 62.1ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:44:34 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (26.0ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (40.0ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 74ms (Views: 6.5ms | ActiveRecord: 66.0ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:45:32 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (26.2ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (37.4ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 70ms (Views: 5.1ms | ActiveRecord: 63.5ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:45:59 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (25.7ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (38.0ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 70ms (Views: 4.4ms | ActiveRecord: 63.6ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:46:05 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (30.7ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (41.4ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 79ms (Views: 5.2ms | ActiveRecord: 72.1ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:46:15 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (26.0ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (39.9ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 72ms (Views: 4.6ms | ActiveRecord: 65.9ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:48:01 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (26.2ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (35.0ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 69ms (Views: 5.1ms | ActiveRecord: 61.2ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:48:39 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (25.9ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (54.0ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 88ms (Views: 6.2ms | ActiveRecord: 79.9ms)
+
+
+Started GET "/angular/logout" for 127.0.0.1 at 2014-03-30 00:48:40 +0800
+Processing by AngularController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:48:40 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[36mProjectCategory Load (191.7ms)[0m  [1mSELECT id, name FROM `project_categories`[0m
+Completed 200 OK in 764ms (Views: 0.1ms | ActiveRecord: 756.2ms)
+
+
+Started OPTIONS "/angular/isLogin" for 127.0.0.1 at 2014-03-30 00:54:37 +0800
+Processing by AngularController#isLogin as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angular/isLogin" for 127.0.0.1 at 2014-03-30 00:54:37 +0800
+Processing by AngularController#isLogin as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/logout" for 127.0.0.1 at 2014-03-30 00:54:42 +0800
+Processing by AngularController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started OPTIONS "/angular/isLogin" for 127.0.0.1 at 2014-03-30 00:54:43 +0800
+Processing by AngularController#isLogin as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angular/isLogin" for 127.0.0.1 at 2014-03-30 00:54:43 +0800
+Processing by AngularController#isLogin as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:55:29 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (26.4ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 26.4ms)
+
+
+Started GET "/angular/logout" for 127.0.0.1 at 2014-03-30 00:55:30 +0800
+Processing by AngularController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started OPTIONS "/angular/isLogin" for 127.0.0.1 at 2014-03-30 00:55:31 +0800
+Processing by AngularController#isLogin as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angular/isLogin" for 127.0.0.1 at 2014-03-30 00:55:31 +0800
+Processing by AngularController#isLogin as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/logout" for 127.0.0.1 at 2014-03-30 00:55:33 +0800
+Processing by AngularController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angular/isLogin" for 127.0.0.1 at 2014-03-30 00:55:34 +0800
+Processing by AngularController#isLogin as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-30 00:55:43 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[36mTranslator Load (26.3ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1[0m
+Completed 200 OK in 29ms (Views: 0.2ms | ActiveRecord: 26.3ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-30 00:55:43 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"sun01", "password"=>"[FILTERED]"}
+  [1m[35mTranslator Load (25.8ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 25.8ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:55:43 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+Completed 200 OK in 45ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:55:50 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[36mProjectCategory Load (25.1ms)[0m  [1mSELECT id, name FROM `project_categories`[0m
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 25.1ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-30 00:55:55 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (25.7ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 25.7ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-30 00:55:55 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"sun01", "password"=>"[FILTERED]"}
+  [1m[36mTranslator Load (25.4ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 25.4ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:55:55 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.5ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+  [1m[36mProject Load (37.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2[0m
+Completed 200 OK in 69ms (Views: 4.7ms | ActiveRecord: 62.5ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:55:56 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (25.4ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 25.4ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:56:56 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[36mProjectCategory Load (25.1ms)[0m  [1mSELECT id, name FROM `project_categories`[0m
+Completed 200 OK in 132ms (Views: 0.1ms | ActiveRecord: 124.1ms)
+
+
+Started GET "/angular/logout" for 127.0.0.1 at 2014-03-30 00:56:56 +0800
+Processing by AngularController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started OPTIONS "/angular/isLogin" for 127.0.0.1 at 2014-03-30 00:56:57 +0800
+Processing by AngularController#isLogin as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/angular/isLogin" for 127.0.0.1 at 2014-03-30 00:56:58 +0800
+Processing by AngularController#isLogin as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-30 00:57:04 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[35mTranslator Load (26.9ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1
+Completed 200 OK in 112ms (Views: 0.2ms | ActiveRecord: 107.3ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-30 00:57:04 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"sun01", "password"=>"[FILTERED]"}
+  [1m[36mTranslator Load (26.0ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 26.0ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:57:37 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (25.6ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 25.6ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:57:48 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[36mProjectCategory Load (25.0ms)[0m  [1mSELECT id, name FROM `project_categories`[0m
+Completed 200 OK in 27ms (Views: 0.1ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:58:01 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/logout" for 127.0.0.1 at 2014-03-30 00:58:06 +0800
+Processing by AngularController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:58:06 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (26.7ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 26.7ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-30 00:58:22 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[36mTranslator Load (25.6ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1[0m
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 25.6ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-30 00:58:23 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"maydaycha", "password"=>"[FILTERED]"}
+  [1m[35mTranslator Load (25.6ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 25.6ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:58:23 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (25.6ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
+  [1m[35mProject Load (38.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1
+Completed 200 OK in 201ms (Views: 50.8ms | ActiveRecord: 146.8ms)
+
+
+Started GET "/projects/1/edit.json" for 127.0.0.1 at 2014-03-30 00:58:26 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (27.9ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 27.9ms)
+
+
+Started OPTIONS "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:58:35 +0800
+Processing by ProjectsController#update_project_from_angular as */*
+Can't verify CSRF token authenticity
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-30 00:58:36 +0800
+Processing by ProjectsController#update_project_from_angular as HTML
+  Parameters: {"projectId"=>"1", "projectName"=>"企鵝企鵝", "projectDescription"=>"企鵝王全文"}
+  [1m[35mProject Load (27.3ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  [1m[36m (26.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (25.3ms)[0m  UPDATE `projects` SET `name_chinese` = '企鵝企鵝', `description_chinese` = '企鵝王全文', `is_translation` = 1, `updated_at` = '2014-03-29 16:58:36' WHERE `projects`.`id` = 1
+  [1m[36m (57.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 141ms (Views: 0.2ms | ActiveRecord: 135.9ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:58:36 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (25.8ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+  [1m[36mProject Load (42.3ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 74ms (Views: 4.5ms | ActiveRecord: 68.1ms)
+
+
+Started GET "/angular/logout" for 127.0.0.1 at 2014-03-30 00:58:38 +0800
+Processing by AngularController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/angular/getJobCategory" for 127.0.0.1 at 2014-03-30 00:58:38 +0800
+Processing by AngularController#getJobCategory as HTML
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from getJobCategory at /Users/Maydaycha/rails/sun/app/controllers/angular_controller.rb:33)
+  [1m[35mProjectCategory Load (25.7ms)[0m  SELECT id, name FROM `project_categories`
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 25.7ms)
+
+
+Started OPTIONS "/angular/login" for 127.0.0.1 at 2014-03-30 00:58:42 +0800
+Processing by AngularController#login as */*
+Can't verify CSRF token authenticity
+  [1m[36mTranslator Load (25.4ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` IS NULL LIMIT 1[0m
+Completed 200 OK in 27ms (Views: 0.1ms | ActiveRecord: 25.4ms)
+
+
+Started POST "/angular/login" for 127.0.0.1 at 2014-03-30 00:58:42 +0800
+Processing by AngularController#login as HTML
+  Parameters: {"account"=>"maydaycha", "password"=>"[FILTERED]"}
+  [1m[35mTranslator Load (25.6ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 25.6ms)
+
+
+Started GET "/angular/get_project_by_translator" for 127.0.0.1 at 2014-03-30 00:58:42 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (25.4ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
+  [1m[35mProject Load (50.3ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1
+Completed 200 OK in 83ms (Views: 5.3ms | ActiveRecord: 75.8ms)
