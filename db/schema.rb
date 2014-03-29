@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329133925) do
+ActiveRecord::Schema.define(version: 20140329183532) do
 
   create_table "oauths", force: true do |t|
     t.string   "name"
@@ -33,8 +33,6 @@ ActiveRecord::Schema.define(version: 20140329133925) do
     t.string   "url"
     t.string   "budget"
     t.string   "require_skills"
-    t.datetime "remain_time"
-    t.datetime "duration"
     t.string   "from_source"
     t.text     "description"
     t.datetime "created_at"
@@ -45,6 +43,11 @@ ActiveRecord::Schema.define(version: 20140329133925) do
     t.integer  "project_category"
     t.integer  "is_translation",         default: 0
     t.integer  "translators",            default: 0
+    t.integer  "currency",               default: 0
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "currency_code"
+    t.float    "currency_exchangerate"
   end
 
   create_table "translators", force: true do |t|

@@ -1,10 +1,22 @@
 <ul>
-    <li><%= @project.name %></li>
+  <li>
+    Project name: <%= @project.name %><br>
     <%= @project.name_chinese %>
-    <li><%= simple_format(@project.require_skills) %></li>
+  </li>
+  <li>
+    Budget: <%= @project.currency_code  %><br>
+    min: <%=@project.budget.split(/,/)[0].to_f * @project.currency_exchangerate %><br>
+    max: <%=@project.budget.split(/,/)[1].to_f * @project.currency_exchangerate %>
+
+  </li>
+  <li>
+    Require skills: <%= simple_format(@project.require_skills) %>
     <%= simple_format(@project.require_skills_chinese) %>
-    <li><%= simple_format(@project.description) %></li>
+  </li>
+  <li>
+    Description: <%= simple_format(@project.description) %><br>
     <%= simple_format(@project.description_chinese) %>
+  </li>
 </ul>
 
 <p><%= link_to 'Back to index', :controller => 'projects', :action => 'index' %></p>

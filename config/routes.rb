@@ -81,25 +81,25 @@ Sun::Application.routes.draw do
 
 
   # angular front end
-  get  '/angular' => "angular#index"
+  get  '/api/translators' => "translators#index"
 
-  post  '/angular/create' => "angular#create"
-  match "/angular/create" => "angular#create", via: :options
+  post  '/api/translators/create' => "translators#create"
+  match "/api/translators/create" => "translators#create", via: :options
 
-  get  '/angular/getJobCategory' => "angular#getJobCategory"
+  get  '/api/translators/getJobCategory' => "translators#getJobCategory"
 
-  get  '/angular/isLogin' => "angular#isLogin"
-  post  '/angular/isLogin' => "angular#isLogin"
-  match  '/angular/isLogin' => "angular#isLogin", via: :options
+  get  '/api/translators/isLogin' => "translators#isLogin"
+  post  '/api/translators/isLogin' => "translators#isLogin"
+  match  '/api/translators/isLogin' => "translators#isLogin", via: :options
 
-  post  '/angular/login' => "angular#login"
-  match  "/angular/login" => "angular#login", via: :options
+  post  '/api/translators/login' => "translators#login"
+  match  "/api/translators/login" => "translators#login", via: :options
 
-  get  '/angular/logout' => "angular#logout"
+  get  '/api/translators/logout' => "translators#logout"
 
-  get  '/angular/csrf_token' => "angular#csrf_token"
+  get  '/api/translators/csrf_token' => "translators#csrf_token"
 
-  get  'angular/get_project_by_translator' => "projects#get_project_by_translator"
+  get  '/api/translators/get_project_by_translator' => "projects#get_project_by_translator"
 
   post 'project/update_project_from_angular' => "projects#update_project_from_angular"
   match  'project/update_project_from_angular' => "projects#update_project_from_angular", via: :options

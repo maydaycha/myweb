@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
 
     def index
         @projects = Project.all
+        # @projects.group("project_category")
         respond_to do |format|
             format.html # index.html.erb
             format.json { render :json => @projects.to_json }
@@ -76,7 +77,7 @@ class ProjectsController < ApplicationController
 
     def getProjectDetails
        @access_token = construct_access_token()
-       @content = @access_token.get("http://api.freelancer.com/Project/getProjectDetails.json?projectid=5709251")
+       @content = @access_token.get("http://api.freelancer.com/Project/getProjectDetails.json?projectid=5735881")
        render :json => @content.body
    end
 
@@ -84,13 +85,18 @@ class ProjectsController < ApplicationController
     @access_token = construct_access_token()
     @content = @access_token.get("http://api.freelancer.com/Project/searchProjects.json?searchjobtypecsv=#{params[:jobtype]}")
     hash = JSON.parse @content.body
+    skip = 0
     hash['json-result']['items'].each do |ele, index|
         @content = @access_token.get("http://api.freelancer.com/Project/getProjectDetails.json?projectid=#{ele['projectid']}")
         hash2 = JSON.parse @content.body
-        hash2 = hash2['json-result']
-        project = Project.create( :outside_id => hash2['id'], :name => hash2['name'], :url => hash2['url'], :budget => "#{hash2['budget']['min']},#{hash2['budget']['max']}", :require_skills => "#{hash2['jobs'].join(", ")}", :remain_time => hash2['end_date'], :duration => hash2['end_date'], :from_source => 'freelancer', :description => hash2['short_descr'], :project_category => hash2['jobsDetails'][0]['category_id'])
+        h = hash2['json-result']
+        begin
+            project = Project.create( :outside_id => h['id'], :name => h['name'], :url => h['url'], :budget => "#{h['budget']['min']},#{h['budget']['max']}", :require_skills => "#{h['jobs'].join(", ")}", :from_source => 'freelancer', :description => h['short_descr'], :project_category => h['jobsDetails'][0]['category_id'], :currency => h['currency'], :start_date => h['start_date'], :end_date => h['end_date'], :currency_code => h['currencyDetails']['code'], :currency_exchangerate => h['currencyDetails']['exchangerate'] )
+        rescue
+            skip += 1
+        end
     end
-    render :json => @content.body
+    render :json => { :status => "success", :skip => skip }
 end
 
 def getCategoryJobList
