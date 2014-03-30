@@ -1,0 +1,34 @@
+<div ng-show="!need_registrate" style="display: table; margin:50px auto;">
+  <h3>翻譯人員登入</h3>
+  <form ng-submit="login()">
+    <ul style="list-style-type: none; ">
+      <li><label for="account">Account: </label><input type="text" ng-model="account" id="account" required></li>
+      <li><label for="password">Password: </label><input type="password" ng-model="password" id="password" required></li>
+      <li><button> Login </button></li>
+    </ul>
+  </form>
+  <a href="" ng-click="goto_registrate()" style="margin-left: 20px;">註冊</a>
+</div>
+<button ng-click="test()">test</button>
+<button ng-click="isLogin()">isLogin</button>
+<button ng-click="logout()">logoout</button>
+
+<div ng-show="need_registrate" style="display: table; margin:50px auto;">
+  <h3>翻譯人員註冊</h3>
+
+  <form ng-submit="registrate()">
+    <ul style="list-style-type: none; ">
+      <li><label for="account">Account: </label><input type="text" ng-model="account" id="account" required></li>
+      <li><label for="password">Password: </label><input type="text" ng-model="password" id="password" required></li>
+      <li><label for="name">Name: </label><input type="text" ng-model="name" id="name" required></li>
+      <li>
+        <label for="category">category: </label>
+        <select ng-model="category" ng-options="j.name for j in jobCategories"></select>
+      </li>
+      <button> registrate </button>
+    </ul>
+  </form>
+
+
+  <!-- <button ng-click="getCSRF()">getCSRF</button> -->
+</div>

@@ -7,10 +7,11 @@ gem 'rails', '4.0.3'
 # Use sqlite3 as the database for Active Record
 group :development do
 	gem 'sqlite3'
+  # for heroku
+  gem 'rails_12factor'
 end
-group :production do
-	gem 'pg'
-end
+
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -56,10 +57,6 @@ gem 'oauth'
 #mysql2
 gem 'mysql2'
 
-# for heroku
-group :production do
-  gem 'rails_12factor'
-end
 
 #ActiveRecord session
 #gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
