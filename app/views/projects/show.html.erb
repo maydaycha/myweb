@@ -3,9 +3,8 @@
   <li>Project name(Chinese): <%= @project.name_chinese %></li>
 </ul>
 <ul>
-  <li>Budget: <%= @project.currency_code  %></li>
-  <li>min: <%=@project.budget.split(/,/)[0].to_f * @project.currency_exchangerate %></li>
-  <li>max: <%=@project.budget.split(/,/)[1].to_f * @project.currency_exchangerate %></li>
+  <li>Budget: <%= @project.currency_code  %>: <%= @project.budget.split(/,/)[0].to_f %> ~ <%= @project.budget.split(/,/)[1].to_f %></li>
+  <li>equals to => min: <%=@project.budget.split(/,/)[0].to_f * @project.currency_exchangerate %>, max: <%=@project.budget.split(/,/)[1].to_f * @project.currency_exchangerate %> USD</li>
 </ul>
 <ul>
   <li>Require skills: <%= @project.require_skills %><br></li>
