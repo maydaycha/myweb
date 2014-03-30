@@ -111,16 +111,10 @@ def getCategoryJobList
 end
 
 def wirte_job_to_csv
-    CSV.open( 'test.csv', 'w+' ) do |writer|
-        @projects = Project.all()
-        header = ["name", "description", "require_skills", "budget", "start_date", "end_date"]
-        writer << header
-        @projects.each do |p|
-            writer << [ p.name_chinese, p.description_chinese, p.require_skills_chinese, p.budget, p.start_date, p.end_date ]
-        end
+    @projects = Project.order(:id)
+    respond_to do |format|
+        format.html
+        format.csv { send_data @projects.to_csv, :type => "application/csv", :filename => "project_list.csv" }
     end
-    render :json => { :status => "success"}
 end
-
-
 end
