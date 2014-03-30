@@ -19619,3 +19619,222 @@ Processing by ProjectsController#get_project_by_translator as HTML
   [1m[35mTranslator Load (27.1ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
   [1m[36mProject Load (60.2ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
 Completed 200 OK in 203ms (Views: 21.6ms | ActiveRecord: 176.9ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-30 11:16:32 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (25.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (218.6ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (388.2ms)
+Completed 200 OK in 504ms (Views: 173.8ms | ActiveRecord: 307.1ms)
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-30 11:16:33 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-30 11:16:33 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-30 11:16:33 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-30 11:16:33 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-30 11:16:33 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-30 11:16:33 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-30 11:16:33 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-30 11:16:33 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-30 11:16:33 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-30 11:16:33 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-30 11:16:33 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-30 11:16:34 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-30 11:16:34 +0800
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-30 11:16:37 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (28.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 48ms (Views: 17.9ms | ActiveRecord: 28.0ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-30 11:17:35 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (36.3ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 47ms (Views: 7.8ms | ActiveRecord: 36.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-30 11:17:35 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-30 11:17:35 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-30 11:17:36 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-30 11:17:36 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-30 11:17:36 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-30 11:17:36 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-30 11:17:36 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-30 11:17:36 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-30 11:17:36 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-30 11:17:36 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-30 11:17:36 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-30 11:17:36 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-30 11:17:36 +0800
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (28.9ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 37ms (Views: 6.3ms | ActiveRecord: 28.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:23 +0800
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (28.9ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 38ms (Views: 7.3ms | ActiveRecord: 28.9ms)
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-30 11:19:48 +0800
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-30 11:19:49 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (201.6ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  Rendered projects/index.html.erb within layouts/application (271.2ms)
+Completed 200 OK in 277ms (Views: 74.6ms | ActiveRecord: 201.6ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-30 11:19:53 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (34.0ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/edit.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 60ms (Views: 24.4ms | ActiveRecord: 34.0ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-30 11:20:29 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (27.6ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 62ms (Views: 32.4ms | ActiveRecord: 27.6ms)
