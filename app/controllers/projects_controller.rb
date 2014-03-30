@@ -9,11 +9,12 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+    @category = ProjectCategory.all
     respond_to do |format|
-      format.html
+      format.html { render :html => [ @projects, @category ] }
       format.json { render :json => @projects.to_json }
+    end
   end
-end
 
 def show
     @project = Project.find(params[:id])
@@ -115,6 +116,12 @@ def wirte_job_to_csv
     respond_to do |format|
         format.html
         format.csv { send_data @projects.to_csv, :type => "application/csv", :filename => "project_list.csv" }
+        format.xls { send_data @projects.to_csv(col_sep: "\t") }
     end
 end
+
+  def download
+    content = "hi"
+    send_data content, :filename => "test.txt"
+  end
 end
