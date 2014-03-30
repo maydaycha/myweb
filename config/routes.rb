@@ -77,6 +77,7 @@ Sun::Application.routes.draw do
   get  '/getProjectDetails' => "projects#getProjectDetails"
   get  '/storeProjectsDetails' => "projects#storeProjectsDetails"
   get  '/getCategoryJobList' => "projects#getCategoryJobList"
+  get  '/wirte_job_to_csv' => "projects#wirte_job_to_csv"
 
 
 

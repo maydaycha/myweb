@@ -21,5 +21,6 @@ module Sun
     # config.i18n.default_locale = :de
 
     config.serve_static_assets = true
+    config.encoding = "utf-8"
   end
 end

@@ -14,4 +14,9 @@
   <li>Description: <%= @project.description %></li>
   <li>Description(Chinese): <%= @project.description_chinese %></li>
 </ul>
+<ul>
+  <li>start_date: <%= @project.start_date %></li>
+  <li>end_date: <%= @project.end_date %></li>
+  <li>Taiwan time zone: UTC + 8 hours</li>
+</ul>
 <p><%= link_to 'Back to index', projects_path %></p>

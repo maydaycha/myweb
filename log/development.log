@@ -21172,3 +21172,265 @@ ActionController::RoutingError (No route matches [GET] "/sun/app/lib/jquery-1.10
   Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
   Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
   Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (30.3ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-31 01:42:03 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (26.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (31.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 257ms (Views: 64.8ms | ActiveRecord: 126.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 01:42:04 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 01:42:04 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 01:42:04 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 01:42:04 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 01:42:04 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 01:42:04 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 01:42:04 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 01:42:04 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 01:42:04 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 01:42:04 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 01:42:05 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 01:42:05 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 01:42:05 +0800
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-31 01:45:02 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (27.5ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 34ms
+
+ActionView::Template::Error (wrong number of arguments (1 for 0)):
+    16: </ul>
+    17: <ul>
+    18:   <li>start_date: <%= @project.start_date + 8.hours %></li>
+    19:   <li>end_date: <%= @project.end_date 8.hours %></li>
+    20: </ul>
+    21: <p><%= link_to 'Back to index', projects_path %></p>
+  app/views/projects/show.html.erb:19:in `_app_views_projects_show_html_erb__2024038032314028688_70179264886240'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.6ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (39.2ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 49ms (Views: 7.5ms | ActiveRecord: 39.2ms)
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:10 +0800
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2014-03-31 01:45:57 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (30.5ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 39ms (Views: 6.5ms | ActiveRecord: 30.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 01:45:57 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 01:45:57 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:57 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 01:45:57 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 01:45:57 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 01:45:57 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:57 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:58 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:58 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:58 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:58 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:58 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 01:45:58 +0800
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 01:46:08 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (195.2ms)[0m  SELECT `projects`.* FROM `projects`
+  Rendered projects/index.html.erb within layouts/application (239.1ms)
+Completed 200 OK in 245ms (Views: 49.0ms | ActiveRecord: 195.2ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-31 01:46:22 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (27.4ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/edit.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 81ms (Views: 51.9ms | ActiveRecord: 27.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-31 02:26:16 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (25.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 26ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/wirte_job_to_csv" for 127.0.0.1 at 2014-03-31 02:26:27 +0800
+Processing by ProjectsController#wirte_job_to_csv as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/wirte_job_to_csv" for 127.0.0.1 at 2014-03-31 02:26:53 +0800
+Processing by ProjectsController#wirte_job_to_csv as HTML
+Completed 500 Internal Server Error in 4ms
+
+NameError (undefined local variable or method `file' for #<ProjectsController:0x007fc92afd69c0>):
+  app/controllers/projects_controller.rb:114:in `wirte_job_to_csv'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (40.4ms)
+
+
+Started GET "/wirte_job_to_csv" for 127.0.0.1 at 2014-03-31 02:27:09 +0800
+Processing by ProjectsController#wirte_job_to_csv as HTML
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `map' for "name, description, require_skills, budget, start_date, end_date":String):
+  app/controllers/projects_controller.rb:117:in `block in wirte_job_to_csv'
+  app/controllers/projects_controller.rb:114:in `wirte_job_to_csv'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.5ms)
+
+
+Started GET "/wirte_job_to_csv" for 127.0.0.1 at 2014-03-31 02:27:56 +0800
+Processing by ProjectsController#wirte_job_to_csv as HTML
+  [1m[35mProject Load (224.9ms)[0m  SELECT `projects`.* FROM `projects`
+Completed 500 Internal Server Error in 372ms
+
+NameError (undefined local variable or method `c' for #<ProjectsController:0x007fc92a197580>):
+  app/controllers/projects_controller.rb:119:in `block (2 levels) in wirte_job_to_csv'
+  app/controllers/projects_controller.rb:118:in `block in wirte_job_to_csv'
+  app/controllers/projects_controller.rb:114:in `wirte_job_to_csv'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)
+
+
+Started GET "/wirte_job_to_csv" for 127.0.0.1 at 2014-03-31 02:28:17 +0800
+Processing by ProjectsController#wirte_job_to_csv as HTML
+  [1m[36mProject Load (191.4ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+Completed 200 OK in 379ms (Views: 0.2ms | ActiveRecord: 283.1ms)
+
+
+Started GET "/wirte_job_to_csv" for 127.0.0.1 at 2014-03-31 02:40:38 +0800
+Processing by ProjectsController#wirte_job_to_csv as HTML
+  [1m[35mProject Load (200.2ms)[0m  SELECT `projects`.* FROM `projects`
+Completed 200 OK in 387ms (Views: 0.4ms | ActiveRecord: 284.6ms)
+
+
+Started GET "/wirte_job_to_csv" for 127.0.0.1 at 2014-03-31 02:43:38 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (24.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#wirte_job_to_csv as HTML
+  [1m[35mProject Load (217.1ms)[0m  SELECT `projects`.* FROM `projects`
+Completed 200 OK in 420ms (Views: 0.3ms | ActiveRecord: 302.1ms)
+
+
+Started GET "/wirte_job_to_csv" for 127.0.0.1 at 2014-03-31 02:44:10 +0800
+Processing by ProjectsController#wirte_job_to_csv as HTML
+  [1m[36mProject Load (184.2ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+Completed 200 OK in 362ms (Views: 0.2ms | ActiveRecord: 268.8ms)

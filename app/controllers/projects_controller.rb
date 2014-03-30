@@ -1,35 +1,35 @@
 require 'oauth_token'
 require 'json'
+require "csv"
 
 class ProjectsController < ApplicationController
-    include Token
+  include Token
 
-    before_filter :set_headers
+  before_filter :set_headers
 
-    def index
-        @projects = Project.all
-        # @projects.group("project_category")
-        respond_to do |format|
-            format.html # index.html.erb
-            format.json { render :json => @projects.to_json }
-        end
+  def index
+    @projects = Project.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => @projects.to_json }
+  end
+end
+
+def show
+    @project = Project.find(params[:id])
+end
+
+def edit
+    @project = Project.find(params[:id])
+    respond_to do |format|
+        format.html
+        format.json { render :json => @project.to_json }
     end
+end
 
-    def show
-        @project = Project.find(params[:id])
-    end
-
-    def edit
-        @project = Project.find(params[:id])
-        respond_to do |format|
-            format.html
-            format.json { render :json => @project.to_json }
-        end
-    end
-
-    def update
-        @project = Project.find(params[:id])
-        @project.update(params.permit![:project])
+def update
+    @project = Project.find(params[:id])
+    @project.update(params.permit![:project])
         # redirect_to :action => :show, :id => @project
         redirect_to project_path(@project)
     end
@@ -100,13 +100,27 @@ class ProjectsController < ApplicationController
 end
 
 def getCategoryJobList
-    @access_token = construct_access_token()
-    @content = @access_token.get("http://api.freelancer.com/Job/getCategoryJobList.json")
-    # hash = JSON.parse @content.body
-    # hash['json-result']['items']['category'].each do |ele, index|
-        # puts "#{ele['id']}, #{ele['name']}"
-        # project_category = ProjectCategory.create( :id => ele['id'], :name => ele['name'])
-    # end
-    render :json => @content.body
+  @access_token = construct_access_token()
+  @content = @access_token.get("http://api.freelancer.com/Job/getCategoryJobList.json")
+  # hash = JSON.parse @content.body
+  # hash['json-result']['items']['category'].each do |ele, index|
+    # puts "#{ele['id']}, #{ele['name']}"
+    # project_category = ProjectCategory.create( :id => ele['id'], :name => ele['name'])
+   # end
+   render :json => @content.body
 end
+
+def wirte_job_to_csv
+    CSV.open( 'test.csv', 'w+' ) do |writer|
+        @projects = Project.all()
+        header = ["name", "description", "require_skills", "budget", "start_date", "end_date"]
+        writer << header
+        @projects.each do |p|
+            writer << [ p.name_chinese, p.description_chinese, p.require_skills_chinese, p.budget, p.start_date, p.end_date ]
+        end
+    end
+    render :json => { :status => "success"}
+end
+
+
 end
