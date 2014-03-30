@@ -59,7 +59,6 @@ gem 'mysql2'
 # for heroku
 group :production do
   gem 'rails_12factor'
-  # gem 'rails_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 end
 
 #ActiveRecord session
