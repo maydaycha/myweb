@@ -23648,3 +23648,749 @@ Migrating to CreateUsers (20140331045055)
   [1m[36m (49.3ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (8.9ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
 >>>>>>> b2ef7ccd4a8c62b121043b5846717d269b5b9922
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-31 13:06:40 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (11.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (1.6ms)
+Completed 200 OK in 49ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 13:06:45 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (372.9ms)[0m  SELECT `projects`.* FROM `projects`
+  [1m[36mProjectCategory Load (12.2ms)[0m  [1mSELECT `project_categories`.* FROM `project_categories`[0m
+  Rendered projects/index.html.erb within layouts/application (568.9ms)
+Completed 200 OK in 638ms (Views: 161.1ms | ActiveRecord: 471.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 13:06:46 +0800
+
+
+Started GET "/excel_download.xls" for 127.0.0.1 at 2014-03-31 13:06:48 +0800
+Processing by ProjectsController#excel_download as XLS
+  [1m[35mProject Load (124.2ms)[0m  SELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC
+  Rendered projects/excel_download.xls.erb (146.9ms)
+Completed 200 OK in 150ms (Views: 24.6ms | ActiveRecord: 124.2ms)
+
+
+Started GET "/app/sun/transloator/login" for 127.0.0.1 at 2014-03-31 13:13:40 +0800
+
+ActionController::RoutingError (No route matches [GET] "/app/sun/transloator/login"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (66.8ms)
+
+
+Started GET "/app/sun/translator/login" for 127.0.0.1 at 2014-03-31 13:13:46 +0800
+
+ActionController::RoutingError (No route matches [GET] "/app/sun/translator/login"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (25.7ms)
+
+
+Started GET "/app/sun/translators/login" for 127.0.0.1 at 2014-03-31 13:13:49 +0800
+
+ActionController::RoutingError (No route matches [GET] "/app/sun/translators/login"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (23.1ms)
+
+
+Started GET "/sun/app/translators/login" for 127.0.0.1 at 2014-03-31 13:13:57 +0800
+
+ActionController::RoutingError (No route matches [GET] "/sun/app/translators/login"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (22.1ms)
+
+
+Started GET "/sun/app/translator/login" for 127.0.0.1 at 2014-03-31 13:14:00 +0800
+
+ActionController::RoutingError (No route matches [GET] "/sun/app/translator/login"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (23.1ms)
+
+
+Started GET "/sun/app/lib/jquery-1.10.2.min.map" for 127.0.0.1 at 2014-03-31 14:01:49 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (9.9ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (No route matches [GET] "/sun/app/lib/jquery-1.10.2.min.map"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (25.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (69.2ms)
+
+
+Started GET "/sun/app/translator/login" for 127.0.0.1 at 2014-03-31 14:04:28 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (11.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (No route matches [GET] "/sun/app/translator/login"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (34.8ms)
+
+
+Started GET "/sun/app/lib/jquery-1.10.2.min.map" for 127.0.0.1 at 2014-03-31 14:04:34 +0800
+
+ActionController::RoutingError (No route matches [GET] "/sun/app/lib/jquery-1.10.2.min.map"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (34.6ms)
+
+
+Started POST "/api/translators/login" for 127.0.0.1 at 2014-03-31 14:04:43 +0800
+Processing by TranslatorsController#login as HTML
+  Parameters: {"account"=>"sun01", "password"=>"[FILTERED]"}
+  [1m[35mTranslator Load (16.6ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1
+Completed 200 OK in 101ms (Views: 0.6ms | ActiveRecord: 64.7ms)
+
+
+Started GET "/api/translators/get_project_by_translator" for 127.0.0.1 at 2014-03-31 14:04:43 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (12.8ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'sun01' LIMIT 1[0m
+  [1m[35mProject Load (15.2ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 2
+Completed 200 OK in 36ms (Views: 1.4ms | ActiveRecord: 28.1ms)
+
+
+Started GET "/api/translators/logout" for 127.0.0.1 at 2014-03-31 14:04:47 +0800
+Processing by TranslatorsController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/translators/login" for 127.0.0.1 at 2014-03-31 14:04:50 +0800
+Processing by TranslatorsController#login as HTML
+  Parameters: {"account"=>"maydaycha", "password"=>"[FILTERED]"}
+  [1m[36mTranslator Load (12.6ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/api/translators/get_project_by_translator" for 127.0.0.1 at 2014-03-31 14:04:50 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (11.2ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+  [1m[36mProject Load (13.4ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 29ms (Views: 0.9ms | ActiveRecord: 24.6ms)
+
+
+Started GET "/api/translators/logout" for 127.0.0.1 at 2014-03-31 14:06:47 +0800
+Processing by TranslatorsController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/translators/login" for 127.0.0.1 at 2014-03-31 14:06:50 +0800
+Processing by TranslatorsController#login as HTML
+  Parameters: {"account"=>"maydaycha", "password"=>"[FILTERED]"}
+  [1m[35mTranslator Load (12.1ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/api/translators/get_project_by_translator" for 127.0.0.1 at 2014-03-31 14:06:50 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (11.8ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
+  [1m[35mProject Load (28.1ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1
+Completed 200 OK in 136ms (Views: 53.2ms | ActiveRecord: 79.9ms)
+
+
+Started GET "/projects/16/edit.json" for 127.0.0.1 at 2014-03-31 14:07:05 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"16"}
+  [1m[36mProject Load (14.0ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 16 LIMIT 1[0m
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 14.0ms)
+
+
+Started POST "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-31 14:07:42 +0800
+Processing by ProjectsController#update_project_from_angular as HTML
+  Parameters: {"projectId"=>"16", "projectName"=>"文字", "projectDescription"=>"測試"}
+  [1m[35mProject Load (14.4ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 16 LIMIT 1
+  [1m[36m (9.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (21.8ms)[0m  UPDATE `projects` SET `name_chinese` = '文字', `description_chinese` = '測試', `is_translation` = 1, `updated_at` = '2014-03-31 06:07:42' WHERE `projects`.`id` = 16
+  [1m[36m (46.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 135ms (Views: 0.3ms | ActiveRecord: 91.4ms)
+
+
+Started GET "/api/translators/get_project_by_translator" for 127.0.0.1 at 2014-03-31 14:07:42 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (13.8ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+  [1m[36mProject Load (26.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 58ms (Views: 14.3ms | ActiveRecord: 40.5ms)
+
+
+Started GET "/projects/16/edit.json" for 127.0.0.1 at 2014-03-31 14:07:46 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"16"}
+  [1m[35mProject Load (11.4ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 16 LIMIT 1
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 11.4ms)
+
+
+Started POST "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-31 14:07:48 +0800
+Processing by ProjectsController#update_project_from_angular as HTML
+  Parameters: {"projectId"=>"16", "projectName"=>"文字", "projectDescription"=>"測試"}
+  [1m[36mProject Load (11.3ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 16 LIMIT 1[0m
+  [1m[35m (9.0ms)[0m  BEGIN
+  [1m[36m (7.9ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 28.2ms)
+
+
+Started GET "/api/translators/get_project_by_translator" for 127.0.0.1 at 2014-03-31 14:07:48 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (11.2ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+  [1m[36mProject Load (29.1ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 82ms (Views: 38.9ms | ActiveRecord: 40.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 14:07:59 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (75.2ms)[0m  SELECT `projects`.* FROM `projects`
+  [1m[36mProjectCategory Load (16.6ms)[0m  [1mSELECT `project_categories`.* FROM `project_categories`[0m
+  Rendered projects/index.html.erb within layouts/application (213.0ms)
+Completed 200 OK in 277ms (Views: 145.4ms | ActiveRecord: 129.0ms)
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 14:07:59 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 14:07:59 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 14:07:59 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 14:07:59 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 14:07:59 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 14:07:59 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 14:07:59 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 14:07:59 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 14:07:59 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 14:07:59 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 14:08:00 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 14:08:00 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 14:08:00 +0800
+
+
+Started GET "/projects/16" for 127.0.0.1 at 2014-03-31 14:08:11 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mProject Load (11.6ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 16 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 27ms (Views: 13.2ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/projects/16/edit.json" for 127.0.0.1 at 2014-03-31 14:08:23 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"16"}
+  [1m[36mProject Load (11.8ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 16 LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 11.8ms)
+
+
+Started POST "/project/update_project_from_angular" for 127.0.0.1 at 2014-03-31 14:08:25 +0800
+Processing by ProjectsController#update_project_from_angular as HTML
+  Parameters: {"projectId"=>"16", "projectName"=>"文字", "projectDescription"=>"測試13123123"}
+  [1m[35mProject Load (10.4ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 16 LIMIT 1
+  [1m[36m (8.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (22.5ms)[0m  UPDATE `projects` SET `description_chinese` = '測試13123123', `updated_at` = '2014-03-31 06:08:25' WHERE `projects`.`id` = 16
+  [1m[36m (33.2ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 78ms (Views: 0.3ms | ActiveRecord: 74.2ms)
+
+
+Started GET "/api/translators/get_project_by_translator" for 127.0.0.1 at 2014-03-31 14:08:25 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (10.8ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+  [1m[36mProject Load (28.2ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 91ms (Views: 49.8ms | ActiveRecord: 39.0ms)
+
+
+Started GET "/projects/16" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mProject Load (13.9ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 16 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 24ms (Views: 8.3ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 14:08:28 +0800
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 14:10:38 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (79.2ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  [1m[35mProjectCategory Load (10.7ms)[0m  SELECT `project_categories`.* FROM `project_categories`
+  Rendered projects/index.html.erb within layouts/application (192.0ms)
+Completed 200 OK in 198ms (Views: 106.8ms | ActiveRecord: 89.9ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2014-03-31 14:10:40 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (29.2ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  Rendered projects/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 42ms (Views: 10.9ms | ActiveRecord: 29.2ms)
+
+
+Started GET "/projects/10/edit" for 127.0.0.1 at 2014-03-31 14:10:43 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mProject Load (10.9ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 10 LIMIT 1
+  Rendered projects/edit.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 22ms (Views: 8.0ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/projects/9" for 127.0.0.1 at 2014-03-31 14:10:46 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProject Load (29.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 9 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 38ms (Views: 6.5ms | ActiveRecord: 29.7ms)
+
+
+Started GET "/projects/10/edit" for 127.0.0.1 at 2014-03-31 14:10:49 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mProject Load (38.8ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 10 LIMIT 1
+  Rendered projects/edit.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 73ms (Views: 32.8ms | ActiveRecord: 38.8ms)
+
+
+Started GET "/projects/10" for 127.0.0.1 at 2014-03-31 14:10:51 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mProject Load (12.5ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 10 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 19ms (Views: 5.4ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/projects/14" for 127.0.0.1 at 2014-03-31 14:11:22 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mProject Load (14.1ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 14 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 23ms (Views: 7.5ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/projects/20" for 127.0.0.1 at 2014-03-31 14:11:28 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mProject Load (6342.4ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 20 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 6350ms (Views: 6.5ms | ActiveRecord: 6342.4ms)
+
+
+Started GET "/projects/20" for 127.0.0.1 at 2014-03-31 14:11:35 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mProject Load (11.2ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 20 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 6.5ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/projects/50" for 127.0.0.1 at 2014-03-31 14:11:36 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mProject Load (12.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 50 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 6.5ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/projects/48" for 127.0.0.1 at 2014-03-31 14:11:36 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[35mProject Load (12.1ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 48 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 42ms (Views: 28.0ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 14:13:08 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (74.5ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  [1m[35mProjectCategory Load (15.3ms)[0m  SELECT `project_categories`.* FROM `project_categories`
+  Rendered projects/index.html.erb within layouts/application (155.8ms)
+Completed 200 OK in 161ms (Views: 70.9ms | ActiveRecord: 89.8ms)
+
+
+Started GET "/projects/26" for 127.0.0.1 at 2014-03-31 14:13:10 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mProject Load (10.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 26 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 6.8ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/projects/22" for 127.0.0.1 at 2014-03-31 14:13:14 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[35mProject Load (11.4ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 22 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 48ms (Views: 35.3ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/projects/34" for 127.0.0.1 at 2014-03-31 14:13:17 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"34"}
+  [1m[36mProject Load (10.6ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 34 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 17ms (Views: 5.1ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/projects/38" for 127.0.0.1 at 2014-03-31 14:13:19 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[35mProject Load (14.3ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 38 LIMIT 1
+  Rendered projects/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 21ms (Views: 5.7ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/projects/44" for 127.0.0.1 at 2014-03-31 14:13:23 +0800
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mProject Load (10.8ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 44 LIMIT 1[0m
+  Rendered projects/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 6.6ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/projects/9/edit.json" for 127.0.0.1 at 2014-03-31 14:19:34 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"9"}
+  [1m[35mProject Load (30.1ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 9 LIMIT 1
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 30.1ms)
+
+
+Started GET "/api/translators/get_project_by_translator" for 127.0.0.1 at 2014-03-31 14:19:36 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (11.1ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
+  [1m[35mProject Load (54.5ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1
+Completed 200 OK in 105ms (Views: 37.4ms | ActiveRecord: 65.5ms)
+
+
+Started GET "/projects/10/edit.json" for 127.0.0.1 at 2014-03-31 14:19:38 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"10"}
+  [1m[36mProject Load (66.7ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 10 LIMIT 1[0m
+Completed 200 OK in 69ms (Views: 0.1ms | ActiveRecord: 66.7ms)
+
+
+Started GET "/api/translators/get_project_by_translator" for 127.0.0.1 at 2014-03-31 14:19:39 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[35mTranslator Load (92.5ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+  [1m[36mProject Load (206.8ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1[0m
+Completed 200 OK in 316ms (Views: 14.9ms | ActiveRecord: 299.3ms)
+
+
+Started GET "/projects/14/edit.json" for 127.0.0.1 at 2014-03-31 14:19:46 +0800
+Processing by ProjectsController#edit as JSON
+  Parameters: {"id"=>"14"}
+  [1m[35mProject Load (12.1ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 14 LIMIT 1
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/api/translators/get_project_by_translator" for 127.0.0.1 at 2014-03-31 14:19:50 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (21.9ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
+  [1m[35mProject Load (48.0ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1
+Completed 200 OK in 87ms (Views: 16.1ms | ActiveRecord: 69.9ms)
+
+
+Started GET "/projects/26/edit" for 127.0.0.1 at 2014-03-31 14:20:19 +0800
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mProject Load (60.6ms)[0m  [1mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 26 LIMIT 1[0m
+  Rendered projects/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 70ms (Views: 7.6ms | ActiveRecord: 60.6ms)
