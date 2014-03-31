@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331045055) do
+ActiveRecord::Schema.define(version: 20140331051010) do
 
   create_table "oauths", force: true do |t|
     t.string   "name"
@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(version: 20140331045055) do
     t.text     "detailed_introduction"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "social_login"
+    t.string   "social_id"
   end
 
 end
