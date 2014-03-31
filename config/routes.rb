@@ -79,23 +79,24 @@ Sun::Application.routes.draw do
   get  '/getCategoryJobList' => "projects#getCategoryJobList"
   get  '/wirte_job_to_csv' => "projects#wirte_job_to_csv"
   get  '/excel_download' => "projects#excel_download"
+  get  '/getPublicMessages/:project_id' => "projects#getPublicMessages"
 
 
 
-  # angular front end
+  # angular
   get  '/api/translators' => "translators#index"
 
   post  '/api/translators/create' => "translators#create"
-  match "/api/translators/create" => "translators#create", via: :options
+  # match "/api/translators/create" => "translators#create", via: :options
 
   get  '/api/translators/getJobCategory' => "translators#getJobCategory"
 
   get  '/api/translators/isLogin' => "translators#isLogin"
   post  '/api/translators/isLogin' => "translators#isLogin"
-  match  '/api/translators/isLogin' => "translators#isLogin", via: :options
+  # match  '/api/translators/isLogin' => "translators#isLogin", via: :options
 
   post  '/api/translators/login' => "translators#login"
-  match  "/api/translators/login" => "translators#login", via: :options
+  # match  "/api/translators/login" => "translators#login", via: :options
 
   get  '/api/translators/logout' => "translators#logout"
 
@@ -104,7 +105,7 @@ Sun::Application.routes.draw do
   get  '/api/translators/get_project_by_translator' => "projects#get_project_by_translator"
 
   post 'project/update_project_from_angular' => "projects#update_project_from_angular"
-  match  'project/update_project_from_angular' => "projects#update_project_from_angular", via: :options
+  # match  'project/update_project_from_angular' => "projects#update_project_from_angular", via: :options
 
 
   get '/test' => "users#test"
