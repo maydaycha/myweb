@@ -154,8 +154,13 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
   $scope.editPublicMessage = function(id) {
     var url = "/public_message/edit_via_project/" + id + ".json";
     $http.get(url).success( function(data) {
-      $scope.publicMessage = data.text;
-      console.log($scope.public_message);
+      console.log(data);
+      if ( data.status == 'success') {
+       $scope.publicMessage = data.data['text'];
+       console.log($scope.public_message);
+      } else {
+       $scope.publicMessage = false;
+      }
     });
   }
 

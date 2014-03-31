@@ -23,10 +23,14 @@ class ProjectPublicMessagesController < ApplicationController
 
 
   def edit_via_project
-    @message = ProjectPublicMessage.find_by_project_id(params[:project_id])
-    respond_to do |format|
-      format.html
-      format.json { render :json => @message.to_json }
+    begin
+      @message = ProjectPublicMessage.find_by_project_id(params[:project_id])
+      respond_to do |format|
+        format.html
+        format.json { render :json => { :status => "success", :data => @message } }
+      end
+    rescue
+      render :json => { :status => "fail" }
     end
   end
 
