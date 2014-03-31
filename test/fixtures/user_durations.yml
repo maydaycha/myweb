@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  start_at: 2014-03-31 09:58:20
+  is_head: false
+
+two:
+  user_id: 1
+  start_at: 2014-03-31 09:58:20
+  is_head: false

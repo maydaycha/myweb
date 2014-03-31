@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329183532) do
+ActiveRecord::Schema.define(version: 20140331045055) do
 
   create_table "oauths", force: true do |t|
     t.string   "name"
@@ -57,6 +57,48 @@ ActiveRecord::Schema.define(version: 20140329183532) do
     t.datetime "updated_at"
     t.string   "name"
     t.integer  "category",   default: 0
+  end
+
+  create_table "user_skill_categories", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "main_skill_id"
+    t.integer  "sub_skill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_skills", force: true do |t|
+    t.integer  "user_id"
+    t.string   "skill"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "phone"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "account"
+    t.string   "password"
+    t.string   "country_code"
+    t.string   "city"
+    t.integer  "from"
+    t.string   "how_to_know"
+    t.boolean  "receive_information"
+    t.integer  "siguup_step"
+    t.integer  "pay_per_hour"
+    t.integer  "zip_code"
+    t.binary   "picture"
+    t.boolean  "email_verified"
+    t.boolean  "phone_verified"
+    t.boolean  "payment_verified"
+    t.integer  "type"
+    t.datetime "last_login_at"
+    t.string   "brief_introduction"
+    t.text     "detailed_introduction"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

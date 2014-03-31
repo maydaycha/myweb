@@ -25,9 +25,9 @@ class TranslatorsController < ApplicationController
   end
 
   # def create
-    # @translator = Translator.new(params.permit![:translator])
-    # @translator.save
-    # redirect_to translators_url
+  # @translator = Translator.new(params.permit![:translator])
+  # @translator.save
+  # redirect_to translators_url
   # end
 
   def create
@@ -40,7 +40,7 @@ class TranslatorsController < ApplicationController
           :password => Digest::MD5.hexdigest(params[:password]),
           :name => params[:name],
           :category => params[:category]
-          )
+        )
         render :json => { :status => "success" }
       rescue
         render :json => { :status => "fail" }

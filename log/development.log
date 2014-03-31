@@ -22569,3 +22569,29 @@ Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 03:49:16
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 03:49:16 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (71.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUserDurations (20140331015820)
+  [1m[35m (676.3ms)[0m  CREATE TABLE `user_durations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `start_at` datetime, `is_head` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (15.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (20.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140331015820')
+  [1m[36m (63.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUserSkills (20140331015839)
+  [1m[35m (27.7ms)[0m  CREATE TABLE `user_skills` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `skill` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: Table 'user_skills' already exists: CREATE TABLE `user_skills` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `skill` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mActiveRecord::SchemaMigration Load (80.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUserSkills (20140331015839)
+  [1m[35m (899.8ms)[0m  CREATE TABLE `user_skills` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `skill` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (15.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (11.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140331015839')
+  [1m[36m (28.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUserSkillCategories (20140331015929)
+  [1m[35m (319.2ms)[0m  CREATE TABLE `user_skill_categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `main_skill_id` int(11), `sub_skill_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (8.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (10.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140331015929')
+  [1m[36m (48.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20140331045055)
+  [1m[35m (407.7ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255), `phone` varchar(255), `first_name` varchar(255), `last_name` varchar(255), `account` varchar(255), `password` varchar(255), `country_code` varchar(255), `city` varchar(255), `from` int(11), `how_to_know` varchar(255), `receive_information` tinyint(1), `siguup_step` int(11), `pay_per_hour` int(11), `zip_code` int(11), `picture` blob, `email_verified` tinyint(1), `phone_verified` tinyint(1), `payment_verified` tinyint(1), `type` int(11), `last_login_at` datetime, `brief_introduction` varchar(255), `detailed_introduction` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (9.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (12.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140331045055')
+  [1m[36m (49.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (8.9ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
