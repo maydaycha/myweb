@@ -31,10 +31,10 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @project.update(params.permit![:project])
-<<<<<<< HEAD
+    <<<<<<< HEAD
 =======
-    # redirect_to :action => :show, :id => @project
->>>>>>> b2ef7ccd4a8c62b121043b5846717d269b5b9922
+      # redirect_to :action => :show, :id => @project
+      >>>>>>> b2ef7ccd4a8c62b121043b5846717d269b5b9922
     redirect_to project_path(@project)
   end
 
@@ -81,11 +81,11 @@ class ProjectsController < ApplicationController
 
   def getProjectDetails
     @access_token = construct_access_token()
-<<<<<<< HEAD
+    <<<<<<< HEAD
     @content = @access_token.get("http://api.freelancer.com/Project/getProjectDetails.json?projectid=5739955")
 =======
-    @content = @access_token.get("http://api.freelancer.com/Project/getProjectDetails.json?projectid=5735881")
->>>>>>> b2ef7ccd4a8c62b121043b5846717d269b5b9922
+      @content = @access_token.get("http://api.freelancer.com/Project/getProjectDetails.json?projectid=5735881")
+    >>>>>>> b2ef7ccd4a8c62b121043b5846717d269b5b9922
     render :json => @content.body
   end
 
@@ -116,6 +116,23 @@ class ProjectsController < ApplicationController
     # project_category = ProjectCategory.create( :id => ele['id'], :name => ele['name'])
     # end
     render :json => @content.body
+  end
+
+  def wirte_job_to_csv
+    @projects = Project.order(:id)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @projects.to_csv, :type => "application/csv", :filename => "project_list.csv" }
+      format.xls { send_data @projects.to_csv(col_sep: "\t") }
+    end
+  end
+
+  def excel_download
+    @projects = Project.order(:id)
+    respond_to do |format|
+      format.html
+      format.xls
+    end
   end
 
 
