@@ -106,4 +106,6 @@ Sun::Application.routes.draw do
   post 'project/update_project_from_angular' => "projects#update_project_from_angular"
   match  'project/update_project_from_angular' => "projects#update_project_from_angular", via: :options
 
+
+  get '/test' => "users#test"
 end
