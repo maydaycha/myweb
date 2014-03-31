@@ -155,13 +155,13 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
     var url = "/public_message/edit_via_project/" + id + ".json";
     $http.get(url).success( function(data) {
       console.log(data);
-      if ( data.status == 'success') {
-       $scope.publicMessage = data.data['text'];
-       console.log($scope.public_message);
-      } else {
-       $scope.publicMessage = false;
-      }
-    });
+      if ( data.data != null ) {
+        if ( data.status == 'success') {
+         $scope.publicMessage = data.data.text;
+         console.log($scope.public_message);
+       }
+     }
+   });
   }
 
   $scope.updateProject = function (id) {
