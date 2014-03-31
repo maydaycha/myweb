@@ -2,6 +2,9 @@ myapp = angular.module('myApp.translators', []);
 
 myapp.controller('translatorsAccountController', [ '$scope', '$http', 'rails_server', '$route', '$location', function($scope, $http, rails, $route, $location){
 
+  $scope.test11 = function() {
+  }
+
   $scope.need_registrate = false;
 
   console.log(rails.development_server_host);
@@ -143,14 +146,16 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
       $scope.project = data;
       $scope.projectName = data.name_chinese;
       $scope.projectDescription = data.description_chinese;
+      $scope.projectId = data.outside_id;
+      $scope.editPublicMessage(data.outside_id);
     });
   }
 
   $scope.editPublicMessage = function(id) {
-    var url = "/project_public_messages/" + id + "/edit.json";
+    var url = "/public_message/edit_via_project/" + id + ".json";
     $http.get(url).success( function(data) {
-      console.log(data);
-      $scope.public_message = data;
+      $scope.publicMessage = data.text;
+      console.log($scope.public_message);
     });
   }
 
@@ -173,15 +178,44 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
       }}).
     success(function (data, status, headers, config) {
       console.log(data);
-      if (data.status == 'success')
+      if (data.status == 'success') {
+        $scope.updatePublicMessage($scope.projectId);
         $location.path( "/translators/project" );
+      }
       else
         alert("save error");
     }).error(function (data, status, headers, config) {
       console.log("error:" + data);
     });
-
   }
+
+  $scope.updatePublicMessage = function(projectId) {
+    var url = "/public_message/update_via_project";
+    var param = {
+      projectId: projectId,
+      text: $scope.publicMessage
+    };
+    $http({
+      method: 'post',
+      url: url,
+      data: $.param(param),
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-CSRF-TOKEN': getCookie("csrftoken")
+      }}).
+    success(function (data, status, headers, config) {
+      console.log(data);
+      if (data.status == 'success') {
+        // $location.path( "/translators/project" );
+      }
+      else
+        alert("save error");
+    }).error(function (data, status, headers, config) {
+      console.log("error:" + data);
+    });
+  }
+
 
   $scope.logout = function() {
     var url = "/api/translators/logout";

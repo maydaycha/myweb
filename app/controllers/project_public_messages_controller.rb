@@ -29,4 +29,28 @@ class ProjectPublicMessagesController < ApplicationController
       format.json { render :json => @message.to_json }
     end
   end
+
+  def update_via_project
+    if params[:text] && params[:projectId]
+      @message = ProjectPublicMessage.find_by_project_id(params[:projectId])
+      @message.text = params[:text]
+      @message.save
+      render :json => { :status => "success"}
+    else
+      render :json => { :status => "fail"}
+    end
+  end
+
+  def update_project_from_angular
+    if params[:projectName] && params[:projectDescription] && params[:projectId]
+      @p = Project.find(params[:projectId])
+      @p.name_chinese = params[:projectName]
+      @p.description_chinese = params[:projectDescription]
+      @p.is_translation = 1
+      @p.save
+      render :json => { :status => "success" }
+    else
+      render :json => { :status => "fail" }
+    end
+  end
 end

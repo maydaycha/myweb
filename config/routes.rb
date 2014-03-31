@@ -83,7 +83,8 @@ Sun::Application.routes.draw do
   get  '/getPublicMessages/:project_id' => "projects#getPublicMessages"
 
   # project_public_messages
-  get  '/edit_via_project/:project_id' => "project_public_messages#edit_via_project"
+  get  '/public_message/edit_via_project/:project_id' => "project_public_messages#edit_via_project"
+  post  '/public_message/update_via_project' => "project_public_messages#update_via_project"
 
 
 

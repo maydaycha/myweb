@@ -1,17 +1,20 @@
 <div>
   <h3>翻譯專案</h3>
   <form ng-submit="updateProject(project.id)">
+    <h4>Name:</h4>
     <ul>
-      <li>name: {{project.name}}</li>
-      <li>chinese_name: <input type="text" ng-model="projectName"></li>
+      <li>{{project.name}}</li>
+      <li><input type="text" ng-model="projectName"></li>
     </ul>
+    <h3>description:</h3>
     <ul>
-    <li>description: {{project.description}}</li>
-      <li>chinese_description: <textarea ng-model="projectDescription"></textarea></li>
+      <li>{{project.description}}</li>
+      <li><textarea ng-model="projectDescription"></textarea></li>
     </ul>
+    <h3>public message:</h3>
     <ul>
-      <li>public message: {{project.public_message}}</li>
-      <li>public message: <input type="text" ng-model="publicMessage"></li>
+      <li>{{publicMessage}}</li>
+      <li><textarea ng-model="publicMessage"></textarea>
     </ul>
     <button> save </button>
   </form>
