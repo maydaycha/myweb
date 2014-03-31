@@ -8,7 +8,7 @@ class TranslatorsController < ApplicationController
     @translators = Translator.all()
     respond_to do |format|
       format.html
-      format.json { render :json => {:name => "maydaycha"}, :callback => params[:callback] }
+      format.json { render :json => @translators.to_json, :callback => params[:callback] }
     end
   end
 

@@ -1,6 +1,6 @@
 <% @projects.group_by{|g| g.project_category }.each do |c, project| %>
 <ul style="list-style-type: none;">
-  <li><h3><%= c.to_i >= 99 ? @category[11].name : @category[c.to_i].name %></h3></li>
+  <li><h3><%= c.to_i >= 99 ? @category[11].name : @category[c.to_i-1].name %></h3></li>
   <% project.each do |p| %>
   <li>
     <ul>
@@ -15,6 +15,8 @@
   <% end %>
 </ul>
 <% end %>
-<!-- <%= link_to 'New project', :controller => 'projects', :action => 'new' %> -->
+<%= link_to 'Download xls', :controller => 'projects', :action => 'excel_download', :format => 'xls'  %>
+
+<!-- <%= link_to 'New project', :controller => 'projects', :action => 'new'%> -->
 <!-- <%= link_to 'New project', new_project_path %> -->
 

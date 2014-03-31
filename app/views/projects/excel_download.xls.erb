@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+<Worksheet ss:Name="Sheet1">
+  <Table>
+    <Row>
+      <Cell><Data ss:Type="String">Name</Data></Cell>
+      <Cell><Data ss:Type="String">Description</Data></Cell>
+      <Cell><Data ss:Type="String">Require Skills</Data></Cell>
+      <Cell><Data ss:Type="String">Budget</Data></Cell>
+      <Cell><Data ss:Type="String">Start Date</Data></Cell>
+      <Cell><Data ss:Type="String">End Date</Data></Cell>
+    </Row>
+    <% @projects.each do |p| %>
+    <Row>
+      <Cell><Data ss:Type="String"><%= p.name_chinese %></Data></Cell>
+      <Cell><Data ss:Type="String"><%= p.description_chinese %></Data></Cell>
+      <Cell><Data ss:Type="String"><%= p.require_skills_chinese %></Data></Cell>
+      <Cell><Data ss:Type="String"><%= p.budget.split(/,/)[0].to_f * p.currency_exchangerate %>, <%= p.budget.split(/,/)[1].to_f * p.currency_exchangerate %></Data></Cell>
+      <Cell><Data ss:Type="String"><%= p.start_date %></Data></Cell>
+      <Cell><Data ss:Type="String"><%= p.end_date %></Data></Cell>
+    </Row>
+    <% end %>
+  </Table>
+</Worksheet>
+</Workbook>

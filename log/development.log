@@ -22569,3 +22569,1053 @@ Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 03:49:16
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 03:49:16 +0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-31 09:37:07 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Library/Ruby/Gems/2.0.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 39ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/download" for 127.0.0.1 at 2014-03-31 09:37:09 +0800
+Processing by ProjectsController#download as HTML
+  [1m[35mProject Load (26.3ms)[0m  SELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC
+Completed 500 Internal Server Error in 59ms
+
+NoMethodError (undefined method `exchangerate' for #<Project:0x007ffe14e70a30>):
+  app/controllers/projects_controller.rb:128:in `block (2 levels) in download'
+  app/controllers/projects_controller.rb:127:in `block in download'
+  app/controllers/projects_controller.rb:125:in `download'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.6ms)
+
+
+Started GET "/download" for 127.0.0.1 at 2014-03-31 09:38:03 +0800
+Processing by ProjectsController#download as HTML
+  [1m[36mProject Load (30.9ms)[0m  [1mSELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC[0m
+  Rendered text template (0.0ms)
+Sent data project_list.csv (2.0ms)
+Completed 200 OK in 156ms (Views: 1.9ms | ActiveRecord: 46.6ms)
+
+
+Started GET "/download" for 127.0.0.1 at 2014-03-31 09:39:59 +0800
+Processing by ProjectsController#download as HTML
+  [1m[35mProject Load (36.1ms)[0m  SELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC
+  Rendered text template (0.0ms)
+Sent data project_list.csv (0.7ms)
+Completed 200 OK in 149ms (Views: 0.5ms | ActiveRecord: 47.3ms)
+
+
+Started GET "/download" for 127.0.0.1 at 2014-03-31 09:40:58 +0800
+Processing by ProjectsController#download as HTML
+  [1m[36mProject Load (22.5ms)[0m  [1mSELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC[0m
+  Rendered text template (0.0ms)
+Sent data project_list.csv (0.7ms)
+Completed 200 OK in 107ms (Views: 0.6ms | ActiveRecord: 35.5ms)
+
+
+Started GET "/download" for 127.0.0.1 at 2014-03-31 09:42:07 +0800
+Processing by ProjectsController#download as HTML
+  [1m[35mProject Load (30.2ms)[0m  SELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC
+  Rendered text template (0.0ms)
+Sent data project_list.csv (0.7ms)
+Completed 200 OK in 117ms (Views: 0.5ms | ActiveRecord: 41.9ms)
+
+
+Started GET "/csv_download" for 127.0.0.1 at 2014-03-31 09:51:27 +0800
+Processing by ProjectsController#csv_download as HTML
+Completed 500 Internal Server Error in 3ms
+
+ActionView::MissingTemplate (Missing template projects/csv_download, application/csv_download with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/Maydaycha/rails/sun/app/views"
+):
+  app/controllers/projects_controller.rb:124:in `csv_download'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (1.0ms)
+
+
+Started GET "/csv_download.csv" for 127.0.0.1 at 2014-03-31 09:51:45 +0800
+Processing by ProjectsController#csv_download as CSV
+  [1m[36mProject Load (24.1ms)[0m  [1mSELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC[0m
+  Rendered text template (0.0ms)
+Sent data  (0.7ms)
+Completed 200 OK in 227ms (Views: 0.5ms | ActiveRecord: 36.1ms)
+
+
+Started GET "/csv_download" for 127.0.0.1 at 2014-03-31 09:53:02 +0800
+Processing by ProjectsController#csv_download as HTML
+Completed 500 Internal Server Error in 3ms
+
+ActionView::MissingTemplate (Missing template projects/csv_download, application/csv_download with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/Maydaycha/rails/sun/app/views"
+):
+  app/controllers/projects_controller.rb:124:in `csv_download'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started GET "/csv_download" for 127.0.0.1 at 2014-03-31 09:53:04 +0800
+Processing by ProjectsController#csv_download as HTML
+Completed 500 Internal Server Error in 2ms
+
+ActionView::MissingTemplate (Missing template projects/csv_download, application/csv_download with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/Maydaycha/rails/sun/app/views"
+):
+  app/controllers/projects_controller.rb:124:in `csv_download'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started GET "/csv_download.csv" for 127.0.0.1 at 2014-03-31 09:53:11 +0800
+Processing by ProjectsController#csv_download as CSV
+  [1m[35mProject Load (25.2ms)[0m  SELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC
+  Rendered projects/csv_download.csv.erb (61.6ms)
+Completed 200 OK in 65ms (Views: 26.4ms | ActiveRecord: 37.1ms)
+
+
+Started GET "/csv_download.xls" for 127.0.0.1 at 2014-03-31 10:09:27 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (5.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProjectsController#csv_download as XLS
+  [1m[35mProject Load (31.0ms)[0m  SELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC
+  Rendered projects/csv_download.xls.erb (111.5ms)
+Completed 200 OK in 141ms (Views: 64.1ms | ActiveRecord: 51.6ms)
+
+
+Started GET "/csv_download.xsl" for 127.0.0.1 at 2014-03-31 10:11:39 +0800
+Processing by ProjectsController#csv_download as 
+Completed 406 Not Acceptable in 1ms
+
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  app/controllers/projects_controller.rb:124:in `csv_download'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.4ms)
+
+
+Started GET "/csv_download.xls" for 127.0.0.1 at 2014-03-31 10:11:46 +0800
+Processing by ProjectsController#csv_download as XLS
+  [1m[36mProject Load (33.4ms)[0m  [1mSELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC[0m
+  Rendered projects/csv_download.xls.erb (46.6ms)
+Completed 200 OK in 50ms (Views: 15.4ms | ActiveRecord: 33.4ms)
+
+
+Started GET "/csv_download.xsl" for 127.0.0.1 at 2014-03-31 10:21:32 +0800
+
+AbstractController::ActionNotFound (The action 'csv_download' could not be found for ProjectsController):
+  actionpack (4.0.3) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.3) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__3244517968247794187__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.7ms)
+
+
+Started GET "/excel_download.xsl" for 127.0.0.1 at 2014-03-31 10:21:39 +0800
+
+ActionController::RoutingError (No route matches [GET] "/excel_download.xsl"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (41.7ms)
+
+
+Started GET "/excel_download.xsl" for 127.0.0.1 at 2014-03-31 10:22:01 +0800
+Processing by ProjectsController#excel_download as 
+Completed 406 Not Acceptable in 2ms
+
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  app/controllers/projects_controller.rb:124:in `excel_download'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.4ms)
+
+
+Started GET "/excel_download.xls" for 127.0.0.1 at 2014-03-31 10:22:09 +0800
+Processing by ProjectsController#excel_download as XLS
+  [1m[35mProject Load (33.1ms)[0m  SELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC
+  Rendered projects/excel_download.xls.erb (72.0ms)
+Completed 200 OK in 75ms (Views: 28.2ms | ActiveRecord: 46.2ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 10:34:44 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (26.5ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  [1m[35mProjectCategory Load (2.8ms)[0m  SELECT `project_categories`.* FROM `project_categories`
+  Rendered projects/index.html.erb within layouts/application (122.2ms)
+Completed 200 OK in 252ms (Views: 161.6ms | ActiveRecord: 57.9ms)
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 10:34:45 +0800
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (26.0ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  [1m[35mProjectCategory Load (3.9ms)[0m  SELECT `project_categories`.* FROM `project_categories`
+  Rendered projects/index.html.erb within layouts/application (102.6ms)
+Completed 200 OK in 108ms (Views: 77.7ms | ActiveRecord: 29.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:07 +0800
+
+
+Started GET "/excel_download" for 127.0.0.1 at 2014-03-31 10:35:10 +0800
+Processing by ProjectsController#excel_download as HTML
+Completed 500 Internal Server Error in 1ms
+
+ArgumentError (too few arguments):
+  app/controllers/projects_controller.rb:124:in `format'
+  app/controllers/projects_controller.rb:124:in `excel_download'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.9ms)
+
+
+Started GET "/excel_download" for 127.0.0.1 at 2014-03-31 10:35:10 +0800
+Processing by ProjectsController#excel_download as HTML
+Completed 500 Internal Server Error in 1ms
+
+ArgumentError (too few arguments):
+  app/controllers/projects_controller.rb:124:in `format'
+  app/controllers/projects_controller.rb:124:in `excel_download'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (33.8ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  [1m[35mProjectCategory Load (19.2ms)[0m  SELECT `project_categories`.* FROM `project_categories`
+  Rendered projects/index.html.erb within layouts/application (546.1ms)
+Completed 200 OK in 609ms (Views: 135.5ms | ActiveRecord: 467.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 10:35:41 +0800
+
+
+Started GET "/excel_download" for 127.0.0.1 at 2014-03-31 10:35:44 +0800
+Processing by ProjectsController#excel_download as HTML
+Completed 500 Internal Server Error in 2ms
+
+ActionView::MissingTemplate (Missing template projects/excel_download, application/excel_download with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/Maydaycha/rails/sun/app/views"
+):
+  app/controllers/projects_controller.rb:124:in `excel_download'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.3ms)
+
+
+Started GET "/excel_download" for 127.0.0.1 at 2014-03-31 10:35:44 +0800
+Processing by ProjectsController#excel_download as HTML
+Completed 500 Internal Server Error in 2ms
+
+ActionView::MissingTemplate (Missing template projects/excel_download, application/excel_download with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/Maydaycha/rails/sun/app/views"
+):
+  app/controllers/projects_controller.rb:124:in `excel_download'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (146.5ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  [1m[35mProjectCategory Load (3.9ms)[0m  SELECT `project_categories`.* FROM `project_categories`
+  Rendered projects/index.html.erb within layouts/application (222.7ms)
+Completed 200 OK in 229ms (Views: 77.9ms | ActiveRecord: 150.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 10:36:33 +0800
+
+
+Started GET "/excel_download.xls" for 127.0.0.1 at 2014-03-31 10:36:36 +0800
+Processing by ProjectsController#excel_download as XLS
+  [1m[36mProject Load (31.0ms)[0m  [1mSELECT `projects`.* FROM `projects` ORDER BY `projects`.`id` ASC[0m
+  Rendered projects/excel_download.xls.erb (42.5ms)
+Completed 200 OK in 45ms (Views: 13.1ms | ActiveRecord: 31.0ms)
+
+
+Started POST "/api/translators/login" for 127.0.0.1 at 2014-03-31 10:56:21 +0800
+Processing by TranslatorsController#login as HTML
+  Parameters: {"account"=>"maydaycha", "password"=>"[FILTERED]"}
+  [1m[35mTranslator Load (2.5ms)[0m  SELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/api/translators/get_project_by_translator" for 127.0.0.1 at 2014-03-31 10:56:21 +0800
+Processing by ProjectsController#get_project_by_translator as HTML
+  [1m[36mTranslator Load (2.4ms)[0m  [1mSELECT `translators`.* FROM `translators` WHERE `translators`.`account` = 'maydaycha' LIMIT 1[0m
+  [1m[35mProject Load (5.6ms)[0m  SELECT `projects`.* FROM `projects` WHERE `projects`.`translators` = 1
+Completed 200 OK in 19ms (Views: 8.6ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/getProjectDetails" for 127.0.0.1 at 2014-03-31 10:59:50 +0800
+Processing by ProjectsController#getProjectDetails as HTML
+  [1m[36mOauth Load (3.0ms)[0m  [1mSELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 1026ms (Views: 0.2ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/getProjectDetails" for 127.0.0.1 at 2014-03-31 11:01:00 +0800
+Processing by ProjectsController#getProjectDetails as */*
+  [1m[35mOauth Load (2.9ms)[0m  SELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1
+Completed 200 OK in 1741ms (Views: 0.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/getProjectDetails" for 127.0.0.1 at 2014-03-31 11:01:38 +0800
+Processing by ProjectsController#getProjectDetails as */*
+  [1m[36mOauth Load (3.9ms)[0m  [1mSELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 1226ms (Views: 0.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (32.3ms)[0m  SELECT `projects`.* FROM `projects`
+  [1m[36mProjectCategory Load (3.1ms)[0m  [1mSELECT `project_categories`.* FROM `project_categories`[0m
+  Rendered projects/index.html.erb within layouts/application (118.5ms)
+Completed 200 OK in 125ms (Views: 88.3ms | ActiveRecord: 35.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 11:22:27 +0800
+
+
+Started GET "/storeProjectsDetails?jobtype=translation" for 127.0.0.1 at 2014-03-31 11:23:39 +0800
+Processing by ProjectsController#storeProjectsDetails as */*
+  Parameters: {"jobtype"=>"translation"}
+  [1m[35mOauth Load (9.2ms)[0m  SELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1
+  [1m[36m (2.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (55.7ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:23:46', 1, 'USD', 1.0, 'I need a press release to be translated in French, German, Spanish and Russian.\r\n\r\nYOU ARE BIDDING ONLY ON 1 LANGUAGE, specify in your bid you are translating it in which language.\r\n\r\nI need it NOW.', '2014-03-31 22:07:18', 'freelancer', 'Press Release', 5740795, 2, 'Translation', '2014-03-30 22:07:18', '2014-03-31 03:23:46', 'http://www.freelancer.com/projects/Translation/Press-Release.html')
+  [1m[36m (373.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.1ms)[0m  BEGIN
+  [1m[36mSQL (22.9ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:23:49', 8, 'EUR', 1.375125, 'Bonjour,\r\n\r\nDans le cadre d\'une migration Joomla v1.5 vers Joomla v3.2, nous avons besoin d\'une création de template graphiquement proche du site actuel (voir pièce-jointe).\r\n\r\nCe template devra respecter les grandes tendances graphiques du site actuel :\r\n- Bannière, \r\n- positionnement du logo,\r\n- respect des positions\r\n...\r\n\r\nLe template doit être en responsive web design.', '2014-04-06 22:06:56', 'freelancer', 'Pharmaceutical template', 5740793, 2, 'Translation', '2014-03-30 22:06:56', '2014-03-31 03:23:49', 'http://www.freelancer.com/projects/Translation/Pharmaceutical-template.html')[0m
+  [1m[35m (76.5ms)[0m  COMMIT
+  [1m[36m (2.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (18.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:23:50', 1, 'USD', 1.0, 'we need a Translator with graphic designing skills. Please only bid on this project if you have excellent knowledge on Arabic and English.', '2014-04-06 21:55:07', 'freelancer', 'Arabic Translator with graphic designing Skills', 5740772, 3, 'Graphic Design, Translation', '2014-03-30 21:55:07', '2014-03-31 03:23:50', 'http://www.freelancer.com/projects/Graphic-Design-Translation/Arabic-Translator-with-graphic-designing.5740772.html')
+  [1m[36m (25.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (64.9ms)[0m  BEGIN
+  [1m[36mSQL (100.8ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:23:52', 1, 'USD', 1.0, 'Translate documents from English to Spanish and vice versa. Retired federal employee of 35 years and am a native spanish speaker.', '2014-04-06 21:43:16', 'freelancer', 'A job as a translator', 5740740, 2, 'Translation', '2014-03-30 21:43:16', '2014-03-31 03:23:52', 'http://www.freelancer.com/projects/Translation/job-translator.html')[0m
+  [1m[35m (32.7ms)[0m  COMMIT
+  [1m[36m (2.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (26.0ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:23:53', 6, 'SGD', 0.79383, 'Translating 5 A4 pages of English Text to Japanese', '2014-04-06 20:38:05', 'freelancer', 'Translating text from English to Japanese', 5740566, 2, 'Translation', '2014-03-30 20:38:05', '2014-03-31 03:23:53', 'http://www.freelancer.com/projects/Translation/Translating-text-from-English-Japanese.html')
+  [1m[36m (27.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (5.4ms)[0m  BEGIN
+  [1m[36mSQL (13.3ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:23:55', 1, 'USD', 1.0, '[ Accepting bids from individuals only, teams will be ignored. ]\r\n\r\n1. We require a native level Spanish speaker with a good understanding of I.T related terminology to translate several of our web pages, the total word count is approximately 2,700 but there is some duplication of content so the real amount of work will be a bit less. You\'ll need to be comfortable editing the html itself, as we expect the files to be delivered in the same format as you receive them.\r\n\r\n2. Stage 2 is translating the language file of our Mac Application and it\'s built in help page.\r\nProgrammatically the count is approximately 4,800 English words but this may change slightly (up or down) due to tweaks and changes.\r\n\r\nOnce the translations are complete, we\'ll build them into the product and you\'ll need to spot test for things such as cut off text or overlaps.\r\nSome translated strings may need to be tweaked if there is not enough space on the UI for the original version.\r\nYou will need to have access to an Intel based Macintosh running OS 10.7 or above (preferably 10.9) for this collaboration.\r\n\r\nPlease explain your relevant experience and provide links to any previous translation projects, or if you have none then please translate the following text as a trial and send it along with your bid:\r\n\"Duplicate File Finder helps you regain disk space and reduce clutter by searching for files with identical content, irrespective of location or filename. Duplicate File Finder gives you the opportunity to review and select individual files for removal, but rest assured that in case of inadvertent deletion your files are recoverable from Mac OS\'s Trash until emptied.\"\r\n\r\nFreelancers who have been invited to bid do not need to send the above trial translation.\r\n\r\nLooking forward to your bids and working together!', '2014-04-06 19:28:12', 'freelancer', 'English to Spanish translation of web pages and whole application', 5740427, 10, 'English (US), Spanish, Translation', '2014-03-30 19:28:12', '2014-03-31 03:23:55', 'http://www.freelancer.com/projects/Translation-English-US/English-Spanish-translation-web-pages.html')[0m
+  [1m[35m (35.2ms)[0m  COMMIT
+  [1m[36m (2.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('15,25', '2014-03-31 03:23:57', 1, 'USD', 1.0, 'hi i need a translation from english to german its a simple translation of 1644 words its reviews on trip advisor i need them for my German website', '2014-04-06 17:29:49', 'freelancer', 'hi i need a translation from english to german - open to bidding', 5740185, 10, 'German, Translation', '2014-03-30 17:29:49', '2014-03-31 03:23:57', 'http://www.freelancer.com/projects/Translation-German/need-translation-from-english-german.5740185.html')
+  [1m[36m (15.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36mSQL (21.7ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:23:58', 1, 'USD', 1.0, 'Hello, \r\n\r\nMy website is currently only in French. I need someone to translate it to English. A milestone will be created. \r\n\r\nPour compléter projet, vous devez être en mesure de communiquer dans les deux langues sans difficultés ainsi d\'avoir une connaissance de base dans la création de site web. No coding is necessary, you simply need to know how to work your way through PHP webpages to translate the content. \r\n\r\nVoici ce que vous devez faire: \r\n\r\n1) Traduire le contenu du site internet de Français à Anglais (menu, description, etc.) \r\n2) Traduire les \'\'alt\'\' et \'\'title\'\' tags de Français à Anglais (pour le SEO) \r\n3) Traduire le nom des pages (les URL) et faire les changements nécessaires dans le site web \r\n4) Changez le nom des images de français à anglais et faire les changements nécessaires dans le site web \r\n5) Traduire les messages d\'erreurs générés par les codes PHP, JS, et CSS \r\n \r\nIf you are interested in this project, please place your bid and let us discuss. I have another website that needs translation from French to English so if you can do a good job, there\'s a second project on the way. \r\n\r\nWe can also work together long-term for other projects. \r\n\r\nMerci.', '2014-04-06 17:04:02', 'freelancer', 'Translate website from French to English', 5740133, 10, 'French, French (Canadian), HTML, Translation, Website Design', '2014-03-30 17:04:02', '2014-03-31 03:23:58', 'http://www.freelancer.com/projects/Website-Design-HTML.1/Translate-website-from-French-English.html')[0m
+  [1m[35m (27.0ms)[0m  COMMIT
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (15.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:24:00', 1, 'USD', 1.0, 'translate articles, research and report from english to arabic with very good expression and free of mistakes.', '2014-04-06 15:48:21', 'freelancer', 'Translate Something ', 5739961, 2, 'Translation', '2014-03-30 15:48:21', '2014-03-31 03:24:00', 'http://www.freelancer.com/projects/Translation/Translate-Something.5739961.html')
+  [1m[36m (24.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.4ms)[0m  BEGIN
+  [1m[36mSQL (15.4ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:24:01', 1, 'USD', 1.0, 'I have written book that I wish to be translated from English to Norwegian. (44537 words) Preferable by someone who lives in Oslo, Norway. But that is not a must, I\'m mostly concern about professionalism and effectiveness. If you are interested, please send me a message.\r\n\r\nKind regards', '2014-04-06 15:46:55', 'freelancer', 'Translate Something', 5739955, 2, 'Translation', '2014-03-30 15:46:55', '2014-03-31 03:24:01', 'http://www.freelancer.com/projects/Translation/Translate-Something.5739955.html')[0m
+  [1m[35m (29.7ms)[0m  COMMIT
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (42.7ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:24:03', 1, 'USD', 1.0, 'Hi,\r\nWe are looking for a content creator to create 250 questions about France and give at least 2 answers to each question. Below is an Example:\r\nI have 14 days to travel in England, which places do you think worth going? Should I go to Cotswold? \r\n•	Cotswold in highly recommended. It’s very beautiful. It’s worth visiting and I also recommend another major city in the north so you can get the perspective of city life in south and north.\r\n•	England is a great choice for Holiday. I spend 3 weeks in London and Liverpool and I visited a lot of places of interest such as Natural History Museum, Trafalgar Square and Buckingham Palace. Liverpool was a great place for understanding the culture and of course it’s the home of the Beatles.\r\n•	I hired a car and visited Cotswold, absolutely beautiful. But there is also other place to visit, such as the county of Kent which is known as the garden of England. It’s very beautiful and it’s only a short distance from central London. \r\n\r\n\r\nOur main focus is tourist attractions/Towns and cities.', '2014-04-06 15:18:03', 'freelancer', 'Tourism content writing - open to bidding', 5739870, 6, 'Advertising, Article Rewriting, English (UK), French, Translation', '2014-03-30 15:18:03', '2014-03-31 03:24:03', 'http://www.freelancer.com/projects/Advertising-Article-Rewriting/Tourism-content-writing-open-bidding.5739870.html')
+  [1m[36m (26.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (3.0ms)[0m  BEGIN
+  [1m[36mSQL (22.0ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('8,15', '2014-03-31 03:24:05', 1, 'USD', 1.0, 'Hello, I need the transcription of 3 hours of videos to be done in the srt format (with time codes). I\'m looking for good quality work at a reasonable price. The quality of videos is very good. Please mention your price for transcription of one hour of video with the bid.', '2014-04-06 14:14:46', 'freelancer', 'English transcription', 5739691, 10, 'English (UK), English (US), Transcription, Translation', '2014-03-30 14:14:46', '2014-03-31 03:24:05', 'http://www.freelancer.com/projects/Translation-English-US/English-transcription.html')[0m
+  [1m[35m (27.3ms)[0m  COMMIT
+  [1m[36m (2.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (7.5ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:24:07', 8, 'EUR', 1.375125, 'Translate some texts, articles from English into Russian and vice versa. Have been learning English for more then 10 years. Currently I studying at the Mikkeli University of Applied Sciences, Business Management', '2014-04-06 13:36:45', 'freelancer', 'Translate Something ', 5739578, 2, 'Translation', '2014-03-30 13:36:45', '2014-03-31 03:24:07', 'http://www.freelancer.com/projects/Translation/Translate-Something.5739578.html')
+  [1m[36m (47.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.2ms)[0m  BEGIN
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('750,1500', '2014-03-31 03:24:12', 1, 'USD', 1.0, 'ترجمة كتاب متخصص في الادارة \r\n630 صفحة', '2014-04-06 13:00:46', 'freelancer', 'ترجمة كتاب', 5739468, 2, 'Translation', '2014-03-30 13:00:46', '2014-03-31 03:24:12', 'http://www.freelancer.com/projects/Translation/5739468.html')[0m
+  [1m[35m (18.5ms)[0m  COMMIT
+  [1m[36m (2.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.1ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:24:14', 1, 'USD', 1.0, 'Hi,\r\n\r\nI need translation of 216 podcast scripts and 360 tweets. The podcasts will be recorded as audio. \r\nIf you are able to take this up please let me know what your charges are and send a sample translation of the first 3 tweets and the podcast script. The way of phrasing should be lively and interesting the way these are in English. For the tweets care needs to be taken that the characters in Urdu do not exceed 140 as that is the maximum limit allowed by twitter.\r\n\r\nHappy biding!\r\n\r\nRegards', '2014-04-06 12:34:38', 'freelancer', 'English - Urdu translation', 5739386, 2, 'Translation', '2014-03-30 12:34:38', '2014-03-31 03:24:14', 'http://www.freelancer.com/projects/Translation/English-Urdu-translation.5739386.html')
+  [1m[36m (25.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (1.9ms)[0m  BEGIN
+  [1m[36mSQL (7.6ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:24:15', 1, 'USD', 1.0, 'Hello! We need a professional translation from Russian into English. We are looking for a specialist in this area. Total there will be 3 pages of text. This text is written in Times New Roman 12 pt. Total number of words 653. This is the text of technical specifications for the site. Make your suggestions. I am interested in the cost per page for such a text. Example page attached to the post.', '2014-04-06 09:04:40', 'freelancer', 'Text translation', 5738788, 2, 'Translation', '2014-03-30 09:04:40', '2014-03-31 03:24:15', 'http://www.freelancer.com/projects/Translation/Text-translation.5738788.html')[0m
+  [1m[35m (20.3ms)[0m  COMMIT
+  [1m[36m (2.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.9ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('2,8', '2014-03-31 03:24:17', 1, 'USD', 1.0, 'Need some content to be translated from Hindi to English.', '2014-04-06 06:56:29', 'freelancer', 'Translate from Hindi to English.', 5738425, 2, 'Translation', '2014-03-30 06:56:29', '2014-03-31 03:24:17', 'http://www.freelancer.com/projects/Translation/Translate-from-Hindi-English.html')
+  [1m[36m (47.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.4ms)[0m  BEGIN
+  [1m[36mSQL (7.0ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('2,8', '2014-03-31 03:24:19', 1, 'USD', 1.0, 'This is an ONGOING project if you will be hired.\r\n\r\nI\'m looking for a freelancer who is knowledgeable in technical terms and can translate an English website to native Ukrainian.\r\n\r\nFor me to make sure that you are qualified for this project, I will be asking you to translate a sample article to native Ukrainian (Українська).\r\n\r\nRequirements:\r\n- Experience in site localization is an advantage\r\n- Native Ukranian (Українська) speaker\r\n- Background in translating words or phrases with HTML codes.\r\n- Knows the Freelancer site very well.\r\n- Can translate more than 500-1000 words per hour.\r\n- Must have sample works to provide.', '2014-04-06 05:40:53', 'freelancer', 'Website Translation from English to Ukranian (Українська) -- 2', 5738247, 2, 'Proofreading, Translation', '2014-03-30 05:40:53', '2014-03-31 03:24:19', 'http://www.freelancer.com/projects/Translation-Proofreading/Website-Translation-from-English.5738247.html')[0m
+  [1m[35m (32.8ms)[0m  COMMIT
+  [1m[36m (3.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:24:20', 1, 'USD', 1.0, 'Hi,\r\n\r\nA very small job of Korean to English.\r\n\r\nPl write if you have the necessary skill.\r\n\r\nRegards,\r\n\r\naes.', '2014-04-06 04:59:11', 'freelancer', 'Korean English job -- 2', 5738171, 2, 'Translation', '2014-03-30 04:59:11', '2014-03-31 03:24:20', 'http://www.freelancer.com/projects/Translation/Korean-English-job.5738171.html')
+  [1m[36m (23.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (3.4ms)[0m  BEGIN
+  [1m[36mSQL (3.7ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('8,15', '2014-03-31 03:24:22', 1, 'USD', 1.0, 'Hello,\r\nI\'m looking for native English persons, or Americans, or native English-speaking persons to give English classes through a French website that I have set up. There will be two different types of classes : written and spoken English for which I require highly skilled teachers, as well as conversation classes for which any native English speaking person may be welcome !\r\nYou will need to be interviewed in a first time and to follow a training course before starting any classes for this activity which should begin by mid March approximately.\r\nSo f you\'re interested in this job post leave your contact details.', '2014-04-06 04:51:16', 'freelancer', 'enseignant', 5738159, 3, 'Audio Services, Education & Tutoring, eLearning, Natural Language, Translation', '2014-03-30 04:51:16', '2014-03-31 03:24:22', 'http://www.freelancer.com/projects/Translation-Audio-Services/enseignant.html')[0m
+  [1m[35m (23.4ms)[0m  COMMIT
+  [1m[36m (3.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (8.8ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('2,2', '2014-03-31 03:24:24', 1, 'USD', 1.0, 'Writing an essay covering 4000 plus words on a complete taxi market analysis. Details will be provided to the selected bidder. No payment unless it is satisfied. My budget is $8. Thanks', '2014-04-06 04:46:27', 'freelancer', 'Writing an essay on a full taxi market analysis.', 5738150, 2, 'Academic Writing, Articles, Report Writing, Translation', '2014-03-30 04:46:27', '2014-03-31 03:24:24', 'http://www.freelancer.com/projects/Articles-Academic-Writing/Writing-essay-full-taxi-market.html')
+  [1m[36m (24.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.9ms)[0m  BEGIN
+  [1m[36mSQL (3.2ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('750,1500', '2014-03-31 03:24:25', 1, 'USD', 1.0, 'Wir suchen eine(n) Übersetzer/Übersetzerin mit Deutsch als Muttersprache. Die Ausgangssprache ist Spanisch. \r\n\r\nEs handelt sich um Artikel mit den Themen Alternative Medizin und Homöopathie. \r\n\r\nDie erste Phase umfasst 30 - 50 Artikel. \r\n\r\nGrundwissen in den genannten Themengebieten ist in jedem Fall ein Vorteil. Die Texte sind nicht \"ohne\". \r\n\r\nAls Anhang finden sie einen typischen Text, mit dem Sie sich einen Überblick über die Art der zu übersetzenden Texte machen können.\r\n\r\nWenn Sie der Meinung sind, dass Sie diese Texte übersetzen können, so setzen Sie sich bitte mit uns in Verbindung.', '2014-04-06 04:34:28', 'freelancer', 'ES -> DE: Artikel über Alternative Medizin und Homöopathie', 5738128, 2, 'Article Rewriting, German, Health, Spanish, Translation', '2014-03-30 04:34:28', '2014-03-31 03:24:25', 'http://www.freelancer.com/projects/Article-Rewriting-Translation/Artikel-ber-Alternative-Medizin-und.html')[0m
+  [1m[35m (22.3ms)[0m  COMMIT
+  [1m[36m (2.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (48.5ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:24:27', 1, 'USD', 1.0, 'Hello,\r\nI would like to find a freelancer who can:\r\n- Translate product listings (include titles, product\'s features, descriptions and keywords) from English to Italian. Most important parts are titles and keywords. \r\n- Only 44 products in total containing short sentences and short words and not long paragraphs. Some words are duplicate so you can translate once and then copy/paste. \r\n- During the translation process, if there are some Jewellery-related terms that you don\'t know or you are not sure about, feel free to ask me. I will explain, give you information and examples\r\n- I understand that translating word by word is difficult and not a good idea so for the keywords, for example, you can translate in a way that you think it\'s best for selling purpose and no need to translate word by word.\r\nSince I\'m looking for someone who speaks Italian fluently and understands about French market, only native Italian speakers please apply. \r\nMy budget is under $100.\r\nThank you', '2014-04-06 02:23:32', 'freelancer', 'Product listings translation from English to Italian', 5737840, 6, 'Advertising, Article Rewriting, Internet Marketing, Marketing, Translation', '2014-03-30 02:23:32', '2014-03-31 03:24:27', 'http://www.freelancer.com/projects/Internet-Marketing-Marketing/Product-listings-translation-from.html')
+  [1m[36m (66.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (3.4ms)[0m  BEGIN
+  [1m[36mSQL (7.5ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:24:28', 1, 'USD', 1.0, 'Hi. Need 3 Translator to do short translation for me. Only 560 words required. Non Technical It won\' take more than 2 hours of your time. I need \r\n\r\n*French\r\n*Chinese (Traditional)\r\n*Finnish\r\nSwedish \r\n\r\nPlease bid for 560 words. I will award project immediately. Thanks..!!', '2014-04-06 01:43:36', 'freelancer', 'Small Translation Project.', 5737761, 10, 'Finnish, French, Traditional Chinese (Taiwan), Translation', '2014-03-30 01:43:36', '2014-03-31 03:24:28', 'http://www.freelancer.com/projects/Translation-French/Small-Translation-Project.5737761.html')[0m
+  [1m[35m (19.1ms)[0m  COMMIT
+  [1m[36m (3.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:24:30', 1, 'USD', 1.0, 'Hi. Need 3 Translator to do short translation for me. Only 560 words required. Non Technical It won\' take more than 2 hours of your time. I need \r\n\r\n*French\r\n*Chinese (Traditional)\r\n*Finnish\r\nSwedish \r\n\r\nPlease bid for 560 words. I will award project immediately. Thanks..!!', '2014-04-06 00:40:54', 'freelancer', 'Small Translation Project.', 5737651, 10, 'Finnish, French, Traditional Chinese (Taiwan), Translation', '2014-03-30 00:40:54', '2014-03-31 03:24:30', 'http://www.freelancer.com/projects/Translation-French/Small-Translation-Project.html')
+  [1m[36m (42.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36mSQL (11.2ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('15,25', '2014-03-31 03:24:31', 1, 'USD', 1.0, 'Chinese - English -- Need interpreter and translator in Austin, Texas or San Antonio, Texas to interpret for a week in April 2014. Subject matter is real estate.\r\n\r\nInterpretation must be done in person.\r\n\r\nThanks', '2014-04-05 22:38:41', 'freelancer', 'interpreter', 5737462, 2, 'Translation', '2014-03-29 22:38:41', '2014-03-31 03:24:31', 'http://www.freelancer.com/projects/Translation/interpreter.5737462.html')[0m
+  [1m[35m (20.8ms)[0m  COMMIT
+  [1m[36m (2.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:24:32', 1, 'USD', 1.0, 'Hello I have about 3000 words to translate from Arabic to English , and 4000 from english to Arabic need high quality translator only, and low rate.', '2014-04-05 17:30:49', 'freelancer', 'translate Arabic to English - Repost - open to bidding', 5736853, 2, 'Translation', '2014-03-29 17:30:49', '2014-03-31 03:24:32', 'http://www.freelancer.com/projects/Translation/translate-Arabic-English-Repost-open.html')
+  [1m[36m (28.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (3.6ms)[0m  BEGIN
+  [1m[36mSQL (10.4ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:24:34', 1, 'USD', 1.0, 'We have around 11 pages of pdf documents to be translated in English', '2014-04-05 14:53:14', 'freelancer', 'Techno comercial translation', 5736506, 2, 'Translation', '2014-03-29 14:53:14', '2014-03-31 03:24:34', 'http://www.freelancer.com/projects/Translation/Techno-comercial-translation.html')[0m
+  [1m[35m (49.1ms)[0m  COMMIT
+  [1m[36m (2.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (6.6ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:24:36', 1, 'USD', 1.0, 'Hi, I am looking for several partners to rate and write simple & easy user reviews on gadgets/brands/online shops in Indonesia.\r\nThis will be used to help customers compare products/brands/shops.\r\nYou may refer to review sites like reviews.cnet.com, gsmarena.com, phonearena.com, etc.\r\n\r\nPlease read the following detail carefully, and please submit a sample as instructed below upon your bid.\r\n\r\n++Description++\r\nThis project comprises of two parts:\r\n1. RATING the topic 1 to 5 on several given points\r\n2. WRITING user reviews in Indonesian\r\n\r\n1. RATING\r\nRate gadgets and etc from 1 to 5 on points specified, such as [Design],[Portability],[Cost-effectiveness].(5 to 10 topics)\r\n\r\n2. WRITING user reviews in Indonesian\r\nWrite user reviews on the specified gadget/brand/shop from the consumer\'s point of view.\r\nIn detail, what you liked about it, what you didn\'t, your satifactory level and so on.\r\nI need real reviews.\r\n- Length - Title + 50-80 words review\r\n- Style - Does not have to be formal . Refer to websites and \"rewrite\" based on real experiences.\r\n_______________\r\nExample:(quoted from Bhinneka.com)\r\nHp yg BOROS\r\nHp ini boros batrey, kalah dengan Onyx II saya yg udah dihibahkan ke adek....lumayan lah Touch Screennya alus, tapi kalah ama Samsung Galaxy Tab II saya yg empuk punya...\r\n\r\nUntuk harga 6 jutaan, RIM terlalu mahal menjualnya, bahkan dengan Nokia 701 terbaru saja masih enakan Nokia E701...bedanya, BB punya BBM yg tak dimiliki yg lain, layar sentuhnya sangat mempermudah saat ber BBM.\r\n\r\nLumayan. Lebih ringan dari Onyx II namun lebih boros batrey, lebih tipis namun layarnya sama saja kusrasakan seperti di Onyx II. Bagi yg belum terlalu suka dengan harga mahal namun penggemar BB tunggu sampai nih barang turun...sekitar 5 taun ke depan wkwkwkwk...\r\n\r\nKalau dibandingin Android...jauhlah nih BB. Menang PIN doang...rekomended aja buat yg punya duit lebih. Lagian Nasionalisme kita berkurang jauh saat membelinya, karena RIM buka pabrik di Malingsia tak di Indon...meski konsmennya banyak di Indon. Memang RIM antek Yahudi....\r\n_______________\r\n\r\n++Quantity++\r\n300 sets of rating products & writing user reviews\r\n\r\n++Requirements++\r\nALL WRITTEN TEXT HAS TO PASS COPYSCAPE, TURNITIN OR OTHER TYPES OF PLAGIARISM TEST DATABASES.\r\no Native Indonesian writers only\r\no Write from an user\'s point of view\r\no Do not just list facts such as specifications.\r\no Correct and researched information\r\no No extra words or fillers\r\no Every review needs to be written in a different way, regardless of minor subject differences\r\no All rights to the written content become my property upon successful payment\r\no Include negative facts/opinions if possible. No need to praise the topic\r\n\r\n++Sample++\r\n[Topic]\r\n Apple iPhone 3GS 8GB\r\n1. Rating(1-5)\r\n Design\r\n Process Speed\r\n Display\r\n Portability\r\n Camera\r\n2. User review\r\n______________\r\n\r\nLooking forward to working with you.', '2014-04-05 14:44:10', 'freelancer', 'Rating Products & Writing User Reviews(300 sets) - 3 *Indonesians only -- 4', 5736483, 2, 'Ghostwriting, Report Writing, Research, Reviews, Translation', '2014-03-29 14:44:10', '2014-03-31 03:24:36', 'http://www.freelancer.com/projects/Ghostwriting-Translation/Rating-Products-Writing-User-Reviews.5736483.html')
+  [1m[36m (20.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.2ms)[0m  BEGIN
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:24:37', 1, 'USD', 1.0, 'Looking for Japanese translator for educational and personal documents Translation. We need to translate professional services profile in Japanese translation services. Native Japanese translators are well to apply for the job. \r\n\r\nSample is attached.', '2014-04-05 13:05:45', 'freelancer', 'Japanese translators wanted', 5736187, 10, 'English (US), Japanese, Translation', '2014-03-29 13:05:45', '2014-03-31 03:24:37', 'http://www.freelancer.com/projects/Translation-English-US/Japanese-translators-wanted.html')[0m
+  [1m[35m (27.2ms)[0m  COMMIT
+  [1m[36m (2.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.5ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('5000,false', '2014-03-31 03:24:39', 8, 'EUR', 1.375125, 'To Whom It May Concern,\r\n\r\nWe are a new translation agency aiming to have our business set up within a month and we are looking for an experienced salesperson with a background in translation that is able to: \r\n\r\n•	Carry out initial research to determine potential clients\r\n•	Make cold calls and attend face to face meetings with prospects\r\n•	Effectively communicate the values and benefits of working with our agency\r\n•	Develop strong, lasting relationships with new clients\r\n\r\nPlease get in touch with us detailing your experience and your business proposal.', '2014-04-05 11:29:52', 'freelancer', 'Translation Agency Salesperson', 5735881, 6, 'Sales, Translation', '2014-03-29 11:29:52', '2014-03-31 03:24:39', 'http://www.freelancer.com/projects/Sales-Translation/Translation-Agency-Salesperson.html')
+  [1m[36m (26.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('750,1500', '2014-03-31 03:24:41', 1, 'USD', 1.0, 'Urgent translation of Eng. to Korean legal document of 40K needed!', '2014-04-05 10:32:37', 'freelancer', 'Translate Something', 5735731, 2, 'Translation', '2014-03-29 10:32:37', '2014-03-31 03:24:41', 'http://www.freelancer.com/projects/Translation/Translate-Something.5735731.html')[0m
+  [1m[35m (27.4ms)[0m  COMMIT
+  [1m[36m (3.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.5ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:24:42', 1, 'USD', 1.0, 'Добрый день, уважаемые коллеги\n\nЯ ищу Анг-Рус-Анг переводчиков для долго временного соотрудничества. Если вы заинтересованны то оставьте свой контакт.\n\nСпасибо за внимание.', '2014-04-05 10:30:52', 'freelancer', 'Соотрудник/Переводчик - open to bidding', 5735718, 10, 'English (UK), Russian, Translation', '2014-03-29 10:30:52', '2014-03-31 03:24:42', 'http://www.freelancer.com/projects/Translation-English-UK/open-bidding.html')
+  [1m[36m (29.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (3.1ms)[0m  BEGIN
+  [1m[36mSQL (48.0ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('750,1500', '2014-03-31 03:24:43', 1, 'USD', 1.0, '20K legal Eng. to Korean document translation urgent!.', '2014-04-05 10:26:01', 'freelancer', 'Korean Translator', 5735704, 2, 'Translation', '2014-03-29 10:26:01', '2014-03-31 03:24:43', 'http://www.freelancer.com/projects/Translation/Korean-Translator.5735704.html')[0m
+  [1m[35m (20.3ms)[0m  COMMIT
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (33.0ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:24:45', 1, 'USD', 1.0, 'we need a Translator with graphic designing skills. Please only bid on this project if you have excellent knowledge on Arabic and English.', '2014-04-05 04:56:22', 'freelancer', 'Arabic Translator with graphic designing Skills', 5734683, 3, 'Graphic Design, Translation', '2014-03-29 04:56:22', '2014-03-31 03:24:45', 'http://www.freelancer.com/projects/Graphic-Design-Translation/Arabic-Translator-with-graphic-designing.html')
+  [1m[36m (27.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.4ms)[0m  BEGIN
+  [1m[36mSQL (6.4ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('2,8', '2014-03-31 03:24:47', 1, 'USD', 1.0, 'Hi\r\n\r\nI am looking for a relatively inexpensive people to transcribe audio into written text on a weekly or perhaps even daily basis.\r\n\r\nAll jobs are paid per AUDIO hour and not the time spent typing or transcribing.\r\n\r\nYou must have a good work ethic. I would expect a commitment to completing the jobs you are assigned on time.\r\n\r\nPlease bid based on Audio hour not typing hour.\r\n\r\nThank you for your bids!', '2014-04-05 04:36:50', 'freelancer', 'Translate Something', 5734640, 2, 'Translation', '2014-03-29 04:36:50', '2014-03-31 03:24:47', 'http://www.freelancer.com/projects/Translation/Translate-Something.5734640.html')[0m
+  [1m[35m (23.6ms)[0m  COMMIT
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (7.7ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('2500000,7500000', '2014-03-31 03:24:49', 15, 'IDR', 8.8e-05, 'INDONESIAN LANGUAGE required:\r\n\r\nPlanet Animal Indonesia is an ecommerce business dedicated to selling pet products online. Naturally, our assortment covers animal food products and pet accessories such as toys, gear, and other equipment. We are aiming to make all pet lovers happy by delivering the best animal products everywhere in Indonesia directly to your door. Our motto is Happy Cats and Dogs. We are an early stage startup which was founded in 2014 by an experienced team of young professionals with broad understanding in the pet and ecommerce industry. We would like to invite you to be the part of the exciting team.\r\n\r\nJob Description: \r\n- Uploading petshop products (e.g. dogfood and cat food) to various indonesian internet websites and marketplaces such as Lazada, Elevenia, Rakuten etc\r\n- Finding pictures of products online\r\n- Write short product description of each product or translate it from English to Bahasa Indonesia\r\n\r\n\r\nYour profile: \r\n-	You love pets or even have one yourself\r\n-	You are interested in eCommerce\r\n-	You are a student, recently graduated or already have working experience\r\n-	You have time to work full-time or part time\r\n-	You speak good English and Bahasa Indonesia to communicate to the international founders team\r\n-	You are highly driven, reliable and always looking for the next challenge\r\n-	You are curious, not resting until you find the solution to a problem\r\n-	You are fun to work with and a good team player\r\n\r\nPlease provide us with a portfolio of yours and let me know what questions you might have. \r\nIMPORTANT: Please reply using the phrase: \"We love cats and animals\" in your email to help us filter generic emails and show us that you have fully read our posting.', '2014-04-05 04:17:10', 'freelancer', 'INDONESIAN LANGUAGE requiered: Content writer for pet prodcucts for indonesian ecommerce pet shop', 5734581, 2, 'Articles, Product Descriptions, Research, Translation', '2014-03-29 04:17:10', '2014-03-31 03:24:49', 'http://www.freelancer.com/projects/Articles-Translation/INDONESIAN-LANGUAGE-requiered-Content.html')
+  [1m[36m (23.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.1ms)[0m  BEGIN
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:24:50', 1, 'USD', 1.0, 'Перевод на русский аннотаций к книгам на английском языке. Около 2000 книг. Срок исполнения до 15 апреля. 15 $ за 1000 знаков.', '2014-04-05 04:07:13', 'freelancer', 'Перевод аннотаций к книгам', 5734544, 2, 'Translation', '2014-03-29 04:07:13', '2014-03-31 03:24:50', 'http://www.freelancer.com/projects/Translation/5734544.html')[0m
+  [1m[35m (28.8ms)[0m  COMMIT
+  [1m[36m (313.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5084.1ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('15,25', '2014-03-31 03:24:51', 1, 'USD', 1.0, 'translate reviews of our company simple text from English to German', '2014-04-05 03:55:08', 'freelancer', 'Translate Something', 5734517, 2, 'Translation', '2014-03-29 03:55:08', '2014-03-31 03:24:51', 'http://www.freelancer.com/projects/Translation/Translate-Something.5734517.html')
+  [1m[36m (19.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.2ms)[0m  BEGIN
+  [1m[36mSQL (7.8ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:24:58', 1, 'USD', 1.0, 'Translate this Three Pages with Microsoft word format different three pages', '2014-04-05 03:50:34', 'freelancer', 'Translate My Tou Package with korean', 5734494, 2, 'Translation', '2014-03-29 03:50:34', '2014-03-31 03:24:58', 'http://www.freelancer.com/projects/Translation/Translate-Tou-Package-with-korean.html')[0m
+  [1m[35m (16.5ms)[0m  COMMIT
+  [1m[36m (2.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (6.7ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('600,1500', '2014-03-31 03:25:00', 11, 'INR', 0.01667, 'Dear All,\r\n\r\nWe have a work for translation of English content to Arabic,Kindly quote against the same.', '2014-04-05 03:01:31', 'freelancer', 'Translation of English to Arabic', 5734350, 2, 'Translation', '2014-03-29 03:01:31', '2014-03-31 03:25:00', 'http://www.freelancer.com/projects/Translation/Translation-English-Arabic.5734350.html')
+  [1m[36m (46.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.1ms)[0m  BEGIN
+  [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:25:01', 1, 'USD', 1.0, 'This is a test project - we are looking for long term partners.\r\n\r\nFor this project we need to create 50 forum profiles and make 1-2 posts in each.\r\n\r\n--- FORUM REQUIREMENTS -- \r\n1) The forums must be good quality with PR5+ and alexa rank of minimum 2.000.000\r\n2) Mobile Forums related ONLY (games, iPhone, Android)\r\n4) Not spammed forums! (must have human replies not spambot replies) \r\n5) Active forums ( must have daily replies ) \r\n\r\n------- IMPORTANT --------\r\n6) ALL forums should be related to Mobile Industry ONLY\r\n\r\nThe worker needs to translate given post from english to German (NO GOOGLE TRANSLATE or similar). The text to translate including topic is 69 words. Then needs to create an account in the forum and make 1 post.\r\n\r\nThe final report should be provided within maximum of 7 days and include the forum list, email and password to each forum. All profiles should be active! \r\n\r\nPlease mention word KUAMRAK in order to be sure that you have read the requirements. \r\n\r\nWe pay and accept ONLY full reports - no partial payments!\r\n\r\nWe pay 50$ per 50 posts in one language - slightly negotiable.', '2014-04-05 02:34:37', 'freelancer', 'Posts in German mobile games realted forums', 5734289, 2, 'Forum Posting, German, Translation', '2014-03-29 02:34:37', '2014-03-31 03:25:01', 'http://www.freelancer.com/projects/Translation-Forum-Posting/Posts-German-mobile-games-realted.html')[0m
+  [1m[35m (20.5ms)[0m  COMMIT
+  [1m[36m (2.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (20.0ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:25:04', 1, 'USD', 1.0, 'For this project we need to create 50 forum profiles and make 1-2 posts in each.\r\n\r\n--- FORUM REQUIREMENTS -- \r\n1) The forums must be good quality with PR5+ and alexa rank of minimum 2.000.000\r\n2) Mobile Forums related ONLY (games, iPhone, Android)\r\n4) Not spammed forums! (must have human replies not spambot replies) \r\n5) Active forums ( must have daily replies ) \r\n\r\n------- IMPORTANT --------\r\n6) ALL forums should be related to Mobile Industry ONLY\r\n\r\nThe worker needs to translate given post from english to French (NO GOOGLE TRANSLATE or similar). The text to translate including topic is 69 words. Then needs to create an account in the forum and make 1 post.\r\n\r\nThe final report should be provided within maximum of 7 days and include the forum list, email and password to each forum. All profiles should be active! \r\n\r\nPlease mention word KUAMRAK in order to be sure that you have read the requirements. \r\n\r\nWe pay and accept ONLY full reports - no partial payments!\r\n\r\nWe pay 50$ per 50 posts in one language - slightly negotiable.', '2014-04-05 02:33:22', 'freelancer', 'Posts in French mobile games realted forums', 5734285, 2, 'Forum Posting, French, Translation', '2014-03-29 02:33:22', '2014-03-31 03:25:04', 'http://www.freelancer.com/projects/Translation-Forum-Posting/Posts-French-mobile-games-realted.html')
+  [1m[36m (27.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (1.7ms)[0m  BEGIN
+  [1m[36mSQL (9.0ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:25:06', 3, 'AUD', 0.923688, 'essay 2000 words on health local framework. APA reference style', '2014-04-05 01:35:05', 'freelancer', '2000 word essay/ research report', 5734143, 2, 'Academic Writing, Report Writing, Technical Writing, Translation', '2014-03-29 01:35:05', '2014-03-31 03:25:06', 'http://www.freelancer.com/projects/Academic-Writing-Technical-Writing/word-essay-research-report.5734143.html')[0m
+  [1m[35m (21.0ms)[0m  COMMIT
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (10.4ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('1500,12500', '2014-03-31 03:25:07', 11, 'INR', 0.01667, 'We have project in translate to Hindi from English. \r\nWe can pay Rs.3000-5000/ per book to translate. Submit the sample task to start working on this project. \r\nHere is the sample attached', '2014-04-05 01:30:19', 'freelancer', 'Translation work from Hindi to English', 5734125, 2, 'Translation', '2014-03-29 01:30:19', '2014-03-31 03:25:07', 'http://www.freelancer.com/projects/Translation/Translation-work-from-Hindi-English.5734125.html')
+  [1m[36m (34.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36mSQL (17.3ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:25:09', 3, 'AUD', 0.923688, 'essay 2000 words on health local framework. APA reference style', '2014-04-05 00:02:24', 'freelancer', '2000 word essay/ research report', 5733957, 2, 'Academic Writing, Report Writing, Technical Writing, Translation', '2014-03-29 00:02:24', '2014-03-31 03:25:09', 'http://www.freelancer.com/projects/Academic-Writing-Technical-Writing/word-essay-research-report.html')[0m
+  [1m[35m (31.9ms)[0m  COMMIT
+  [1m[36m (1.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.7ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:25:11', 1, 'USD', 1.0, 'looking for professional translators, preferably native english speakers, as the job involves writing down phonetic transcriptions of foreign words, but using english pronunciation (more details below). The translations will be used in language learning application, so they have to be good-quality, with proofreading. I have a file exported from a database, which has the english words. I would like you to work on translating the phrases contained in this file.', '2014-04-04 20:14:24', 'freelancer', 'Translation and phonetic transcription from English to German', 5733523, 2, 'Translation', '2014-03-28 20:14:24', '2014-03-31 03:25:11', 'http://www.freelancer.com/projects/Translation/Translation-phonetic-transcription-from.html')
+  [1m[36m (91.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.8ms)[0m  BEGIN
+  [1m[36mSQL (5.3ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('15,25', '2014-03-31 03:25:12', 1, 'USD', 1.0, 'Chinese - English -- Need interpreter and translator in Austin, Texas or San Antonio, Texas to interpret for a week in April 2014. Subject matter is real estate.\r\n\r\nInterpretation must be done in person.\r\n\r\nThanks', '2014-04-04 20:04:28', 'freelancer', 'interpreter', 5733498, 2, 'Translation', '2014-03-28 20:04:28', '2014-03-31 03:25:12', 'http://www.freelancer.com/projects/Translation/interpreter.5733498.html')[0m
+  [1m[35m (398.1ms)[0m  COMMIT
+  [1m[36m (2.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (22.7ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:25:14', 1, 'USD', 1.0, 'Assistance in translating articles in german language newspapers from the early twenties from the cincinatti area. Need the titles to be read and looking for particular about certain subject, when title of articles are found according to topic then may need those articles translated .', '2014-04-04 19:32:37', 'freelancer', 'assistance with reading a german newspaper for school', 5733446, 2, 'Translation', '2014-03-28 19:32:37', '2014-03-31 03:25:14', 'http://www.freelancer.com/projects/Translation/assistance-with-reading-german-newspaper.html')
+  [1m[36m (27.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.2ms)[0m  BEGIN
+  [1m[36mSQL (5.2ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:25:16', 1, 'USD', 1.0, 'Translate 15,000 words from English to Spanish. Subject material is non-technical. Natural language. Non-fiction.', '2014-04-04 15:31:08', 'freelancer', 'Translate Something', 5732807, 2, 'Translation', '2014-03-28 15:31:08', '2014-03-31 03:25:16', 'http://www.freelancer.com/projects/Translation/Translate-Something.5732807.html')[0m
+  [1m[35m (33.9ms)[0m  COMMIT
+Completed 200 OK in 97229ms (Views: 0.3ms | ActiveRecord: 8583.6ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 11:25:16 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (168.0ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  [1m[35mProjectCategory Load (6.4ms)[0m  SELECT `project_categories`.* FROM `project_categories`
+  Rendered projects/index.html.erb within layouts/application (230.6ms)
+Completed 200 OK in 236ms (Views: 60.9ms | ActiveRecord: 174.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 11:27:24 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (18.7ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  [1m[35mProjectCategory Load (5.3ms)[0m  SELECT `project_categories`.* FROM `project_categories`
+  Rendered projects/index.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 60ms (Views: 35.3ms | ActiveRecord: 24.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 11:27:24 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 11:27:24 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 11:27:24 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 11:27:25 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 11:27:25 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 11:27:25 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 11:27:25 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 11:27:25 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 11:27:25 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 11:27:25 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 11:27:25 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 11:27:25 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 11:27:25 +0800
+
+
+Started GET "/storeProjectsDetails?jobtype=python" for 127.0.0.1 at 2014-03-31 11:27:56 +0800
+Processing by ProjectsController#storeProjectsDetails as */*
+  Parameters: {"jobtype"=>"python"}
+  [1m[36mOauth Load (3.8ms)[0m  [1mSELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1[0m
+  [1m[35m (8.6ms)[0m  BEGIN
+  [1m[36mSQL (16.1ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:28:02', 3, 'AUD', 0.923688, 'We need a Python script writer who is familiar with the use of Adobe Illustrator CS6.\r\n\r\nThe script will need grab text from a mysql file and place that text into a designated place in a Adobe illustrator file.\r\n\r\nThe text will have to stay within specific parameters that will be designated. The text must shrink in PT font size depending on how long the word is. The texts shape cannot be edited what so eve, it must keep it\'s original shape.\r\n\r\nPlease contact me to explain this project more clearly. \r\n\r\nI am contactable by Skype and via email. Message me for contact details.', '2014-04-06 20:50:54', 'freelancer', 'Automated Illustrator Programming Script', 5740600, 3, 'Illustrator, MySQL, Python, Script Install, Shell Script', '2014-03-30 20:50:54', '2014-03-31 03:28:02', 'http://www.freelancer.com/projects/MySQL-Illustrator/Automated-Illustrator-Programming-Script.html')[0m
+  [1m[35m (26.2ms)[0m  COMMIT
+  [1m[36m (2.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (16.7ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:28:04', 1, 'USD', 1.0, 'Currently working on writing a report on the various SQL injection tools available, trying to work with the tool BBQSQL (https://github.com/Neohapsis/bbqsql) now for blind injection but I am really struggling to integrate the custom tags the tool uses into an attack statement for table extraction or data from table extraction,Looking for someone to write me a custom server script with instructions on how to run the tool against it for a demonstration\r\n\r\n(will also accept a step by step tutorial of it working on any of the freely available test beds)', '2014-04-06 17:59:15', 'freelancer', 'BBQSQL Tool - Test Demo', 5740247, 1, 'PHP, Python, SQL', '2014-03-30 17:59:15', '2014-03-31 03:28:04', 'http://www.freelancer.com/projects/PHP-SQL/BBQSQL-Tool-Test-Demo.html')
+  [1m[36m (24.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36mSQL (21.4ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:28:09', 1, 'USD', 1.0, 'I need to get Maxoin (http://www.maxcoin.co.uk/) and Memorycoin(http://memorycoin.org/) working with Bitcoin-ABE(https://github.com/bitcoin-abe/bitcoin-abe).', '2014-04-06 16:30:23', 'freelancer', 'Get Bitcoin-ABE working with Maxcoin and MemoryCoin', 5740062, 1, 'Bitcoin, C++ Programming, Python, Software Architecture', '2014-03-30 16:30:23', '2014-03-31 03:28:09', 'http://www.freelancer.com/projects/Software-Architecture-CPlusPlus-Programming/Get-Bitcoin-ABE-working-with.html')[0m
+  [1m[35m (33.0ms)[0m  COMMIT
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (20.4ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('1500,3000', '2014-03-31 03:28:11', 8, 'EUR', 1.375125, 'Caut freelanceri PYTHON DEVELOPER in Romania. (just from Romania)\r\nProject Description\r\nThere are more projects in the pipeline, but the first one will be a desktop application written in Python that uses both local and remote databases and web services.\r\n \r\n \r\nDaily Activities\r\nParticipate in the architectural discussions\r\nDevelop and maintain modules for Python-based applications\r\nContinuously learn and improve technical abilities\r\nWrite documentation for the newly built or updated modules\r\nInteract with customers\r\n \r\nTechnical Requirements\r\nStrong experience with Python 2.7 or 3.x\r\nExperience with Qt (PyQt, PySide)\r\nExperience working with and developing Web Services\r\nDeep knowledge of OOP concepts\r\nKnowledge of modern software development standards, best practices and design patterns\r\nAbove average English language skills - both spoken and written\r\n \r\nSkills That Could Prove Useful\r\nAgile software development experience (SCRUM)\r\nAbility to write specifications based on customer interaction\r\nSoftware Architecture knowledge\r\n \r\nSoft Skills Requirements\r\nStrong analytical and reasoning skills\r\nDisciplined and responsible\r\nPro-active and goal oriented\r\nTeam spirit\r\n \r\nJob Benefits\r\nInteract with customers\r\nAttractive remuneration\r\nThe opportunity to take part in a young and dynamic team that is working in an internationally distributed environment\r\nAutonomy and flexibility\r\nRecognition of performance\r\nQuality-oriented working environment', '2014-04-06 15:07:45', 'freelancer', 'PYTHON DEVELOPER', 5739842, 1, 'C# Programming, Python', '2014-03-30 15:07:45', '2014-03-31 03:28:11', 'http://www.freelancer.com/projects/C-Sharp-Programming-Python/PYTHON-DEVELOPER.html')
+  [1m[36m (42.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36mSQL (69.4ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:28:13', 1, 'USD', 1.0, 'Hello,\r\n\r\nI am looking for a piece software, that i give as an input a certain internet domain, this piece of software needs to go through all the directory and file structure of that domain, and return all the publicly available XML files (that can be seen with browser permissions), This software can be written in either PHP/JAVA/Python...\r\n\r\nPlease in ur bid, specify\r\nProgramming language of choice for this project & Delivery time', '2014-04-06 13:17:58', 'freelancer', 'XML Web Crawler', 5739527, 1, 'Java, PHP, Python', '2014-03-30 13:17:58', '2014-03-31 03:28:13', 'http://www.freelancer.com/projects/PHP-Java/XML-Web-Crawler.html')[0m
+  [1m[35m (33.1ms)[0m  COMMIT
+  [1m[36m (5.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (6.4ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('750,1500', '2014-03-31 03:28:15', 1, 'USD', 1.0, 'I am looking for a real estate website, with the requirement of property database and also customer database 4 to 5 type of user ,main admin as the power to block view certain datas, chat system, like fb and also group chat system', '2014-04-06 13:15:52', 'freelancer', 'Real Estate Software', 5739519, 1, 'Javascript, MySQL, Python, Software Architecture', '2014-03-30 13:15:52', '2014-03-31 03:28:15', 'http://www.freelancer.com/projects/Software-Architecture-MySQL/Real-Estate-Software.html')
+  [1m[36m (18.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.1ms)[0m  BEGIN
+  [1m[36mSQL (21.7ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:28:16', 1, 'USD', 1.0, 'LiteCoin project.\r\n\r\n- Setup (LiteCoin) mining software.. on windows.\r\n- Support for (BitCoin) project.\r\n- improving the script.', '2014-04-06 10:46:00', 'freelancer', 'BitCoin/LiteCoin', 5739061, 1, 'C Programming, C++ Programming, Engineering, Linux, Python', '2014-03-30 10:46:00', '2014-03-31 03:28:16', 'http://www.freelancer.com/projects/C-Programming-Engineering/BitCoin-LiteCoin.html')[0m
+  [1m[35m (36.5ms)[0m  COMMIT
+  [1m[36m (2.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (15.6ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:28:17', 1, 'USD', 1.0, 'I want to implement routing protocols in ns-3 simulator. I need a coding for the routing protocols Aodv and DSDV.', '2014-03-31 02:19:06', 'freelancer', 'Performance evaluation of routing protocols in wireless networks', 5737787, 1, 'C Programming, Python', '2014-03-30 02:19:06', '2014-03-31 03:28:17', 'http://www.freelancer.com/projects/C-Programming-Python/Performance-evaluation-routing-protocols.html')
+  [1m[36m (27.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.3ms)[0m  BEGIN
+  [1m[36mSQL (12.1ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:28:19', 1, 'USD', 1.0, 'Hi,\r\n\r\nI need to pull information off the following websites:\r\n\r\nhttp://www.tastecard.co.uk\r\nhttp://www.tripadvisor.co.uk\r\n\r\nI need the crawler to do an initial download off the tastecard website of all the restaurants.\r\n\r\nThen it needs to look at the tripadvisor website and download all the reviews which relate to the restaurants on the tastecard website.\r\n\r\nThen it needs to check every day for :\r\n\r\n1) New reviews on the trip advisor website for the existing restaurant data set\r\n\r\n2) If a new restaurant is added to the tastecard website, the crawler downloads that restaurant. It then downloads the review on trip advisor.\r\n\r\nUltimately this data would feed into a website, so it would need to be stored in a way that allows it to be access by a website. \r\n\r\n\r\nLet me know if the requirements are clear enough and how long the programming would take to achieve this.\r\n\r\n\r\nThanks\r\nSumit\r\nSaS Technologies', '2014-04-06 02:15:22', 'freelancer', 'Data Scraping from 2 Websites', 5737816, 5, 'Data Mining, Data Processing, PHP, Python, Web Scraping', '2014-03-30 02:15:22', '2014-03-31 03:28:19', 'http://www.freelancer.com/projects/PHP-Web-Scraping/Data-Scraping-from-Websites.5737816.html')[0m
+  [1m[35m (65.7ms)[0m  COMMIT
+  [1m[36m (3.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (58.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('8,15', '2014-03-31 03:28:21', 1, 'USD', 1.0, 'There\'s enough cryptocoins out there already!!!\r\n\r\nHey, I agree, 100%. And sooooo many scams!\r\n\r\nWe are a mining pool, looking to create a cryptocurrency that actually has a basis\r\nand value. Something fixed to the real world, so its only value isn\'t, \r\nblah blah is worth xx BTC.\r\n\r\nNo more fiat crypto!\r\n\r\nWe have two coders, need one more to take some load off.\r\n\r\nI\'ve worked for Google. LA Times and AOL in their algo dev\r\nteams, database management and MIS.\r\n\r\nMy business partner currently works for a very large company\r\nthat deals with payments. But I can\'t mention which, because\r\nthey HATE CRYPTO!\r\n\r\nWe have a line on investment, but we are looking to speed up\r\ndevelopment to a beta stage.\r\n\r\nLet\'s hear what you got!', '2014-04-05 19:03:55', 'freelancer', 'Be part of the next Cryptocurrency!', 5737038, 5, 'Algorithm, Bitcoin, Cryptography, MySQL, Python', '2014-03-29 19:03:55', '2014-03-31 03:28:21', 'http://www.freelancer.com/projects/MySQL-Python/part-the-next-Cryptocurrency.html')
+  [1m[36m (20.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.1ms)[0m  BEGIN
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:28:22', 1, 'USD', 1.0, 'I have several zip files downloaded in a folder. The zip files have a repeatable name type (filename+date). I want the files to be unzipped using Python and loaded into a MySQL database. The zip files contain excel spreadsheets. Each spreadsheet has 14 tabs which require some manipulation such as deleting some lines and columns.\r\nThe zip file is attached to give an indication of the structure', '2014-04-05 18:45:30', 'freelancer', 'Unzip and Load', 5737004, 1, 'MySQL, Python', '2014-03-29 18:45:30', '2014-03-31 03:28:22', 'http://www.freelancer.com/projects/MySQL-Python/Unzip-Load.html')[0m
+  [1m[35m (28.7ms)[0m  COMMIT
+  [1m[36m (2.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:28:24', 1, 'USD', 1.0, 'I need a script that does the following\r\n\r\n1. Grabs subreddit data from Reddit (http://www.reddit.com/dev/api)\r\n 2. If a image on imgur, download image then reupload to Facebook page\r\n 3. Posts title of post as a status on fanpage and then either link to content or upload picture (https://developers.facebook.com/docs/graph-api/reference/page/)\r\n 4. Provide admin page to add more facebook accounts, add more pages/subreddits\r\n\r\n note:\r\n 1 subreddit connected to 1 fanpage\r\n 2 fanpage will be made prior to setting up auto-posting of content\r\n\r\nI prefer script to be coded in Python, Node.js or Ruby. PHP is a last resort.', '2014-04-05 18:12:39', 'freelancer', 'Custom FB & Reddit Script Needed', 5736934, 1, 'node.js, PHP, Python, Ruby, Ruby on Rails', '2014-03-29 18:12:39', '2014-03-31 03:28:24', 'http://www.freelancer.com/projects/PHP-Python/Custom-Reddit-Script-Needed.html')
+  [1m[36m (46.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36mSQL (5.1ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('15,25', '2014-03-31 03:28:26', 1, 'USD', 1.0, 'You are expert in Linux (FreeBsd, Debian...)...\r\n\r\nSometimes we make Installations on our servers with some Errors.. we need someone who can assist us and solve server sided problems..\r\n\r\nthe person must be reachable for us....\r\n\r\nwe need someone... who can work for us on hourly base..\r\n\r\neverytime we need help we will call you...... after you finish the job you tell us how many hours you spend for this job... and payment will be transfered directly..\r\n\r\n\r\nif you can work like this with us.. contact us please..', '2014-04-05 14:45:35', 'freelancer', 'Looking for a Linux - Administrator for some of our Projects', 5736485, 1, 'Linux, MySQL, Perl, PHP, Python', '2014-03-29 14:45:35', '2014-03-31 03:28:26', 'http://www.freelancer.com/projects/PHP-MySQL/Looking-for-Linux-Administrator-for.5736485.html')[0m
+  [1m[35m (39.8ms)[0m  COMMIT
+  [1m[36m (5.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (13.5ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('37500,75000', '2014-03-31 03:28:28', 11, 'INR', 0.01667, 'This is a web app which does configuration of Telecom Service provisioning server. \nTechnology stack: Client side - HTML5, jquery Server side - Python 3.4 with web frameworks.\nWe are looking for application to be developed in Python 3.4 only.\nWe need to this app to be a scalable app, which should support 1000 HTTP session, do you have good expertise in building scalable app using Django or Flask or Pyramid ?\nCan you call me to discuss further ?\n', '2014-04-05 13:31:54', 'freelancer', ' looking for the python application to be developed in 3.4 - open to bidding', 5736260, 1, 'Python', '2014-03-29 13:31:54', '2014-03-31 03:28:28', 'http://www.freelancer.com/projects/Python/looking-for-the-python-application.html')
+  [1m[36m (20.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.4ms)[0m  BEGIN
+  [1m[36mSQL (17.1ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:28:29', 1, 'USD', 1.0, 'I am looking for a Sikuli/Python automation expert to automate an online casino roulette table GUI for me. It shouldn\'t be a difficult job who is competent in Python language as I have several automation work to be done for the roulette game.\r\n\r\nIf you are interested, please reply back mentioning your experience with Sikuli automation, etc.\r\n\r\nThanks', '2014-04-05 12:37:45', 'freelancer', 'Sikuli Automation Expert', 5736108, 1, 'Python, Test Automation, Testing / QA', '2014-03-29 12:37:45', '2014-03-31 03:28:29', 'http://www.freelancer.com/projects/Python-Testing-QA/Sikuli-Automation-Expert.html')[0m
+  [1m[35m (42.1ms)[0m  COMMIT
+  [1m[36m (6.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.8ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:28:31', 1, 'USD', 1.0, 'hello i need a linux and python ezpert who can write some softwares for me for network traffic monitoring in python', '2014-04-05 11:47:41', 'freelancer', 'need a linux and python expert to write some software -- 2', 5735945, 1, 'Linux, Python', '2014-03-29 11:47:41', '2014-03-31 03:28:31', 'http://www.freelancer.com/projects/Linux-Python/need-linux-python-expert-write.5735945.html')
+  [1m[36m (321.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.6ms)[0m  BEGIN
+  [1m[36mSQL (8.8ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:28:33', 1, 'USD', 1.0, 'Project Description: \r\nI have designed a viable process for an alternative crypto-currency that requires altering a portion of the Litecoin code. The project will involve the use of the RAFT protocol implemented in C++ to securely transmit mining parameter information to other wallets for mining. I do not have the requisite experience/time to complete the project in the 2 week time span allotted. To be very specific:\r\n\r\nLook, I don\'t have much cash; this project is aimed at crypto-currency enthusiasts/hobbyists who have experience with the software or can figure out how it works relatively quick, but also have experience in networking and who would like to help an individual out, while creating something novel. There are places where I may receive help for free, but this is not one of those places: This job will allow me to gain a working relationship with the individual(s) I hire while still working as quickly as possible using instant messaging, phone calls, etc.\r\n\r\n-- pre - requisite experience with C++, and crypto-currency code (Scrypt based AND SHA-256, others are a plus), as well as advanced distributed networking consensus is required (RAFT, digital signatures, timestamps, etc) \r\n\r\n-- I require an instructor/team-leader/project manager capable of utilizing and of course teaching at least 2 other C++ programmers (myself included), so yes, this project, while it must be completed rather quickly, requires an intimate team ready to build a long-term business relationship. \r\n--YOU MAY INVITE WHOMEVER YOU WISH TO HELP YOU, PROVIDED YOU INTRODUCE THEM TO ME FIRST! The more the merrier, but hopefully working with people you know and trust and who can help you out of a bind that myself or my co-worker can\'t (and somehow, *gasp* Google can\'t help with either) will make reaching that 2 week deadline easier.\r\n\r\n-- Price negotiable, but you may be paid in crypto-currency or cash, and probably in the long term (I\'m a broke college student who happens to work for a new company that doesn\'t have that much cash flow). Please note that you will be receiving as much help as you wish on the project, to the point where you\'re role may be purely instructional if you wish it, with 2 others doing the coding and testing. But the compensation (what little I have) will reflect that.\r\n\r\n-- Your (our) team will have two weeks.', '2014-04-05 09:45:28', 'freelancer', 'Litecoin: software engineering integration', 5735540, 5, 'Algorithm, C++ Programming, Cryptography, Python, Software Architecture', '2014-03-29 09:45:28', '2014-03-31 03:28:33', 'http://www.freelancer.com/projects/Software-Architecture-CPlusPlus-Programming/Litecoin-software-engineering.html')[0m
+  [1m[35m (31.8ms)[0m  COMMIT
+  [1m[36m (9.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (32.0ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:28:35', 1, 'USD', 1.0, 'I need an experienced candidate or company, who are:\r\n\r\n1. Reliable, hard working and vastly experienced\r\n2. Can show their past work (ACTUAL)\r\n3. Can share their feedbacks from previous customers \r\n4. Can provide references from their previous customers\r\n\r\nPEOPLE WHO DO NOT HAVE THESE ATTRIBUTES PLEASE DO NOT BID.\r\n\r\nProject Description:\r\n\r\nWe have an in-house built system/open source system (written in pythoin) that will serve as the core of the business. We have some Items in our system that we need to list on multiple marketplaces like Amazon, Ebay, Rakuten, Sears etc. So wee need you to build an API which our system can call and then the API should be able to list the items on these marketplaces using individual API\'s of each marketplace. After listing the another API needed to be built which will download the orders received in the marketplace to our system. Third, API will upload tracking information against the order from our system to these marketplaces.\r\n\r\nFurther details will be discussed with the short listed candidates.', '2014-04-05 06:38:21', 'freelancer', 'Python Development, API Integrations and API Development', 5734996, 1, 'AJAX, Python, Software Architecture, Web Scraping, XML', '2014-03-29 06:38:21', '2014-03-31 03:28:35', 'http://www.freelancer.com/projects/Software-Architecture-AJAX/Python-Development-API-Integrations-API.html')
+  [1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (4.7ms)[0m  BEGIN
+  [1m[36mSQL (10.7ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,40', '2014-03-31 03:28:37', 1, 'USD', 1.0, 'We’re looking for a clean coding, Python developer with a fast workaround ethic to work on RebelMouse’s website and related platforms. RebelMouse is currently one of New York’s most exciting social media start-ups and it’s rolling out new products, customer expansion and site improvements at full tilt. As RebelMouse’s in-house Python Developer, this is your opportunity to become a key part of product development initiatives. You’ll be joining forces with RebelMouse’s globally distributed team of talented developers and designers to both keep the site user-friendly and modern while parallelly implementing new features and products. What’s more, developers are encouraged to think about the business, the ideas, and contribute to the product. RebelMouse has a very clear direction and feature set in mind, but there is always room for new ideas and discussion, as well as diverse engineering challenges to solve. Be a part of this continuing success story!\r\n\r\nRebelMouse is committed to finding a diverse set of developers to fuel its innovative culture. You will be working through PowerToFly, an organization for women by women, that works to build stronger companies through a network of top female tech talent. The ideal candidate will go through a two to six week paid trial to end up as a permanent part of the team while working through PowerToFly on a monthly retainer. Hours won’t be counted and you’ll have sick and vacation days that are paid every month.\r\n\r\nTypically this is what your task list would look like: \r\n-Build scalable web applications using Python \r\n-Write clean, well-performing (and test-driven) code\r\n-Work in tandem with RebelMouse’s development team to create platforms that serve rich and dynamic web sites\r\n-Optimize at every opportunity \r\n\r\n\r\nRequirements: \r\n-Strong Python experience \r\n-Great understanding of threads/processes, how it works in Python and Celery, how eventlet or other libs work\r\n-Experience with high load in multithreading environment \r\n-Experience with mysql/mongodb/redis\r\n-Experience building Twitter/Facebook/Instagram APIs\r\n-Django experience would be a plus\r\n-Basic working knowledge of HTML/CSS would be a plus\r\n-Ability to work well independently and within a team, strong discipline and self-management \r\n-Excellent communication skills — with a global team it’s essential that each member isn’t shy about communicating. You must be comfortable emailing and interacting digitally. We don’t require perfect grammar — what matters is that we transcend the physical distance between us to understand each other’s ideas.\r\nWillingness to offer feedback, ideas, and polite criticism on anything you think might be going wrong with the project\r\n\r\nWe especially encourage applicants from South America. However we are considering candidates from other locations.', '2014-04-05 04:11:32', 'freelancer', 'Sr Python Developer for one of the hottest startups in NYC - RebelMouse.com (Distributed) (South America)', 5734561, 1, 'Django, Engineering, MySQL, Python', '2014-03-29 04:11:32', '2014-03-31 03:28:37', 'http://www.freelancer.com/projects/MySQL-Engineering/Python-Developer-for-one-the.html')[0m
+  [1m[35m (53.6ms)[0m  COMMIT
+  [1m[36m (8.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (31.0ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,30', '2014-03-31 03:28:38', 1, 'USD', 1.0, 'Hi, I need Someone who can get data with emails from the three Sites provided.\r\n\r\n1) https://directory.osu.edu/findpeople.php\r\n\r\n2) https://secure.latech.edu/directory/index.php?tab=0\r\n\r\n3) http://google.ohio.edu/search?q=STD:a&client=peoplesearch_frontend&proxystylesheet=peoplesearch_frontend&ie=UTF-8&site=peoplesearch&access=p\r\n\r\nAs need to get all Students data with emails from the 3 University. As the Budget is $10 to $30 and one who can do this task for the budget only bid here. Also no time wasters please. Check the links and if you can get them perfectly as required only bid here.\r\n\r\nAs there are 30k to 50k Students at Each University provided.\r\n\r\nThanks', '2014-04-05 00:39:05', 'freelancer', 'Need an Expert Scrapper/ Programmer to get data from - Read Full Description', 5734031, 4, 'Excel, Java, PHP, Python, Web Scraping', '2014-03-29 00:39:05', '2014-03-31 03:28:38', 'http://www.freelancer.com/projects/PHP-Excel/Need-Expert-Scrapper-Programmer-get.html')
+  [1m[36m (38.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:28:40', 1, 'USD', 1.0, 'We need a program in the multi-label classification, where each example may belong to more than one class.', '2014-04-04 14:38:42', 'freelancer', 'Write some Software on machine learning in the area of multi-label classification', 5732619, 1, 'C++ Programming, Data Mining, Machine Learning, Matlab & Mathematica, Python', '2014-03-28 14:38:42', '2014-03-31 03:28:40', 'http://www.freelancer.com/projects/CPlusPlus-Programming-Python/Write-some-Software-machine-learning.html')[0m
+  [1m[35m (71.6ms)[0m  COMMIT
+  [1m[36m (9.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (15.4ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:28:41', 3, 'AUD', 0.923688, '1) parse/extract an email address that\'s contained in an incoming leadgen email\r\n2) send an autorespond email within 30 seconds to the extracted/parsed email \r\n\r\nall of this would need to be done via a corporate gmail/IMAP account.', '2014-04-04 12:08:59', 'freelancer', 'Write some Software', 5732030, 1, 'PHP, Python, Software Architecture', '2014-03-28 12:08:59', '2014-03-31 03:28:41', 'http://www.freelancer.com/projects/PHP-Software-Architecture/Write-some-Software.5732030.html')
+  [1m[36m (22.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.4ms)[0m  BEGIN
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:28:43', 1, 'USD', 1.0, 'I need a script of opencv\r\n\r\npeople counter\r\n\r\nthis is an example: https://www.youtube.com/watch?v=OWab2_ete7s\r\n\r\npreferably in python', '2014-04-04 04:18:21', 'freelancer', 'People Counter OPENCV', 5730205, 1, 'C++ Programming, Java, Python, Software Architecture', '2014-03-28 04:18:21', '2014-03-31 03:28:43', 'http://www.freelancer.com/projects/Software-Architecture-Java/People-Counter-OPENCV.html')[0m
+  [1m[35m (27.2ms)[0m  COMMIT
+  [1m[36m (7.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (12.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('450,750', '2014-03-31 03:28:45', 1, 'USD', 1.0, 'For POS terminal running on raspberry pi (linux) need a developer with experience in php serial\r\nto integrate my web based app to control (input / output) with serial hardware, such as printer, coin receptor and so on.\r\n\r\nAny other way for integration (such as using python) are also welcome', '2014-04-04 02:47:37', 'freelancer', 'PHP Serial hardware control code integration', 5729949, 5, 'Electronics, Linux, Microcontroller, PHP, Python', '2014-03-28 02:47:37', '2014-03-31 03:28:45', 'http://www.freelancer.com/projects/PHP-Linux/PHP-Serial-hardware-control-code.html')
+  [1m[36m (33.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (4.3ms)[0m  BEGIN
+  [1m[36mSQL (3.4ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('1500,12500', '2014-03-31 03:28:46', 11, 'INR', 0.01667, 'Hi,\r\n\r\nI am looking for a company to create online learning module for my company. That video will be our copyright . The audience will be students who will be going through the video and should have topics as small as 5-8 min length video. If topic is big should have breakup of the topic\r\nCurrently We are looking for \r\n1) Analytics\r\n2) Python \r\n\r\nThis will be a long term association above list is just start of it . these videos will be published on our website. I would prefer camptasia software to be used for this purpose, VIDEO SHOULD BE FRESH CREATED VIDEO.', '2014-04-04 02:13:21', 'freelancer', 'To create online videos for Different technologies', 5729848, 1, 'Analytics, Python, SEO', '2014-03-28 02:13:21', '2014-03-31 03:28:46', 'http://www.freelancer.com/projects/SEO-Python/create-online-videos-for-Different.5729848.html')[0m
+  [1m[35m (24.5ms)[0m  COMMIT
+  [1m[36m (3.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (24.6ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('8,15', '2014-03-31 03:28:48', 1, 'USD', 1.0, 'Hey I was working on this project of mine and there had been an hiccup. I wanted to know if you were willing to create this small python based program (in simple beginners format) within 30-40 mins. ', '2014-04-04 01:32:28', 'freelancer', '15-20 line python program - open to bidding', 5729693, 1, 'Python', '2014-03-28 01:32:28', '2014-03-31 03:28:48', 'http://www.freelancer.com/projects/Python/line-python-program-open-bidding.html')
+  [1m[36m (55.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.1ms)[0m  BEGIN
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:28:50', 1, 'USD', 1.0, 'I need someone that has knowledge of Python, i need them to create a custom Python Script. Furthermore, i need them to make a login connection (Connecting the sessions) between a PHP based CMS and DJANGO.\r\n\r\n\r\nThanks.', '2014-04-04 01:06:55', 'freelancer', 'Python, DB, PHP Expert Needed', 5729608, 1, 'Django, MySQL, PHP, PostgreSQL, Python', '2014-03-28 01:06:55', '2014-03-31 03:28:50', 'http://www.freelancer.com/projects/PHP-MySQL/Python-PHP-Expert-Needed.html')[0m
+  [1m[35m (26.5ms)[0m  COMMIT
+  [1m[36m (16.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (9.0ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('25,50', '2014-03-31 03:28:52', 1, 'USD', 1.0, 'We need a python guru to review, test and update a python script we are using to trigger advertising based on web-camera demographic detection. We also need to see if it is possible to embed Google Analytics tracking code to report in real-time what ads are triggered. We can give access to a complete system remotely for dev and debugging.', '2014-04-03 18:34:29', 'freelancer', 'Need python guru to improve script', 5728719, 1, 'Python', '2014-03-27 18:34:29', '2014-03-31 03:28:52', 'http://www.freelancer.com/projects/Python/Need-python-guru-improve-script.html')
+  [1m[36m (18.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (3.9ms)[0m  BEGIN
+  [1m[36mSQL (8.9ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('15,25', '2014-03-31 03:28:52', 1, 'USD', 1.0, 'hello, \nI have a really important project due in python. I finished most of it but have a problem with a particular function. I wanted to know if you are ready to do it. It should be around 20 lines of code. And I would be needing it in 30 mins time frame. ', '2014-04-03 16:58:13', 'freelancer', '20 lines of python code - open to bidding', 5728420, 1, 'Python', '2014-03-27 16:58:13', '2014-03-31 03:28:52', 'http://www.freelancer.com/projects/Python/lines-python-code-open-bidding.html')[0m
+  [1m[35m (24.7ms)[0m  COMMIT
+  [1m[36m (6.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (20.3ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:28:54', 1, 'USD', 1.0, 'Node.JS / Express REST Wrapper for Existing Service\r\n\r\n I found this great library for doing Forced Alignment. But it\'s wrapping the HTK library with command line Python. Still too messy and hard to integrate into our process. I want someone to write a simple Node/Express REST wrapper so that we can expose the functionality in a loosely coupled manner across the network or internet.\r\n\r\n \"Forced audio alignment\" is the process of taking a block of text and an audio reading of the same text and then figuring out where the two line up. Fortunately, the hard part is already taken care up by some excellent libraries such as HTK. \r\n\r\n And this Python tool provides a command line wrapper simplifying HTK:\r\n\r\n https://github.com/kylebgorman/Prosodylab-Aligner\r\n https://www.dropbox.com/sh/sj3c3eqq6b4odza/nT1nfT6tx0\r\n\r\n But all that command line Python stuff is still too local and messy. We want it wrapped with a nice clean REST API -- so that we can pass in and receive back JSON objects over the network. We\'ll probably be running it on a Mac desktop somewhere. We think it will be easiest to just use Node/Express to wrap the Python wrapper. But you take a look and decide if it would be easier to just wrap HTK directly.\r\n\r\n Note: \r\n \r\n* Audio alignment can take some processing time so we need some kind of promises-compatible alignment call with progress status in the API. Perhaps some queueing of some sort to allow for batch or multiple asynchronous calls.\r\n\r\n* If the alignment fails because of missing vocabulary, this should be saved and reported back. The API should support adding the missing vocabulary and training files, as the Python API does.\r\n\r\nSo, take a look at the Github project and let me know how you would implement this.', '2014-04-03 16:54:24', 'freelancer', 'Node.JS / Express REST Wrapper for Existing Service', 5728408, 1, 'Express JS, Javascript, node.js, Python', '2014-03-27 16:54:24', '2014-03-31 03:28:54', 'http://www.freelancer.com/projects/Javascript-Python/Node-Express-REST-Wrapper-for.html')
+  [1m[36m (25.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36mSQL (5.5ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:28:56', 1, 'USD', 1.0, 'HTML/CSS theme that needs to implement onto my own system (PHP/ASP/RUBY etc).\r\n\r\nThis theme is not installable as a Wordpress Theme, you need HTML/CSS knowledge to start working with this template.\r\n\r\nI have a Html/CSS/bootstrap/JS template that needs to be converted into a working system. I prefer python or PHP. I want this to be converted into a workable system, it is AJAX ready and I do not want to lose any of the bootstrap language so it still works on any device/computer. I am using http://themeforest.net/item/social-network-admin-website-template/6767145 template. If you have experience with this let me know. I understand it is an easy task, but I have beginners knowledge when it comes to web development. Thanks.', '2014-04-03 15:20:40', 'freelancer', 'Convert a Template to a Website', 5728067, 3, 'CSS, HTML, node.js, PHP, Python', '2014-03-27 15:20:40', '2014-03-31 03:28:56', 'http://www.freelancer.com/projects/PHP-HTML.1/Convert-Template-Website.5728067.html')[0m
+  [1m[35m (46.4ms)[0m  COMMIT
+  [1m[36m (15.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (25.0ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:29:00', 1, 'USD', 1.0, 'Hello, Need an Expert Scrapper / Programmer who can get data with emails from Zoominfo.com.\r\n\r\nAs the Site url is provided:- http://www.zoominfo.com/\r\n\r\nOnly serious Bidders who can do this task perfectly bid here.\r\n\r\nThanks', '2014-04-03 14:14:55', 'freelancer', 'Need an Expert Programmer who can get data from Zoominfo - Read Full Description. -- 2', 5727836, 1, 'HTML5, Java, PHP, Python, Web Scraping', '2014-03-27 14:14:55', '2014-03-31 03:29:00', 'http://www.freelancer.com/projects/PHP-HTML/Need-Expert-Programmer-who-can.5727836.html')
+  [1m[36m (23.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (7.7ms)[0m  BEGIN
+  [1m[36mSQL (11.6ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:29:02', 1, 'USD', 1.0, 'In the GUI environment of Raspberry Pi (with Raspian Linux), I have added and successfully run a python wordcloud script that takes some hard-coded text and generates a corresponding wordcloud as a graphic file. \r\n\r\nI\'m not familiar with how to use the existing pygame GUI library, looking for someone who is and can easily modify the existing code to divide screen between text entry area and graphic display area, prompt for/accept/use keyboard input (instead of current hard-coded text) as input to program, then display the wordcloud graphic (either by changing commands that currently draw the graphic file so they draw to the screen, or by displaying the graphic file that the current script generates).', '2014-04-03 13:47:26', 'freelancer', 'pygame connective scriptng', 5727716, 1, 'Python', '2014-03-27 13:47:26', '2014-03-31 03:29:02', 'http://www.freelancer.com/projects/Python/pygame-connective-scriptng.html')[0m
+  [1m[35m (97.5ms)[0m  COMMIT
+  [1m[36m (9.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (11.9ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:29:04', 1, 'USD', 1.0, 'Reddit.com Automation Software::: \r\n- Create accounts and store them in a .txt file username:password\r\n- Create the accounts per proxy so to not raise alarms, read proxies from file proxies.txt\r\n- Login with the .txt account creation file.\r\n- Comment spinner: {Great|Good|Super} job {buddy|friend|partner}!\r\n- Upvote bot (send upvotes to people based on URL); Log in via proxies + username:password txt file\r\n- Downvote bot (same as upvote, but with a downvote function)\r\n- More ideas coming soon..\r\n\r\nSoftware has to have authentication for resale. Please include room for updates as well (if reddit updates their coding)\r\n\r\n//// Please do not bid over $200. This is going to be a joint venture project. I have buyers lined up, we can earn profits together.', '2014-04-03 13:45:44', 'freelancer', 'Build a program for account automation - -', 5727707, 1, 'C# Programming, C++ Programming, Python, Software Architecture, SQL', '2014-03-27 13:45:44', '2014-03-31 03:29:04', 'http://www.freelancer.com/projects/Software-Architecture-C-Sharp-Programming/Build-program-for-account-automation.5727707.html')
+  [1m[36m (27.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (2.4ms)[0m  BEGIN
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('12,18', '2014-03-31 03:29:05', 8, 'EUR', 1.375125, 'I have installed OpenErp 8 (trunk) on Ubuntu13.1 VMware. It works fine except the import of CSV files to add products, contacts etc. The cvs file propably does not upload and the validate button does not get enabled. I think it has to do with permissions. I have the vmware in a zip of 2.6 gig. I am looking for an expert which can solve this problem but also for consultancy and support for the complete project. Please only respond if you have experience with OpenErp.', '2014-04-03 11:47:46', 'freelancer', 'OpenErp support', 5727163, 1, 'Python, Software Architecture', '2014-03-27 11:47:46', '2014-03-31 03:29:05', 'http://www.freelancer.com/projects/Software-Architecture-Python/OpenErp-support.html')[0m
+  [1m[35m (26.9ms)[0m  COMMIT
+  [1m[36m (11.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (15.1ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:29:07', 1, 'USD', 1.0, 'Please supply at least three sequence diagrams of the code attached with a report detailing each diagram with a very detailed explanation. More on sequence diagrams here: https://www.ibm.com/developerworks/rational/library/3101.html Please supply a very detailed explanation/report on how the python code generates and solves the Sudoku puzzles. Include the python code and pseudocode in the explanation. Explain what each part of the generation and solving code does. Please make this part at least 2000 words. This assignment is a continuation of this one: MAH100214_10336_19328 Word limit is minimum.', '2014-04-03 10:01:30', 'freelancer', '21873_Sudoku Sequence Diagrams & Solver', 5726644, 1, 'Python', '2014-03-27 10:01:30', '2014-03-31 03:29:07', 'http://www.freelancer.com/projects/Python/Sudoku-Sequence-Diagrams-Solver.html')
+  [1m[36m (48.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (10.5ms)[0m  BEGIN
+  [1m[36mSQL (19.0ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('2,10', '2014-03-31 03:29:08', 1, 'USD', 1.0, 'I\'m looking for a development and design team to overhaul design of my website and make it SEO friendly adding new designs and accounting integration.\r\n\r\nIt\'s currently coded using python/django so MUST HAVE DJANGO AND PYTHON EXPERIENCE\r\n\r\nLooking for a team with fantastic designers to help with redesign of the site.\r\n\r\nPlease provide examples of top designs you have achieved.', '2014-04-03 04:50:34', 'freelancer', 'Python / Django Expert', 5725487, 1, 'Django, Graphic Design, Python, Website Design', '2014-03-27 04:50:34', '2014-03-31 03:29:08', 'http://www.freelancer.com/projects/Graphic-Design-Website-Design/Python-Django-Expert.html')[0m
+  [1m[35m (33.2ms)[0m  COMMIT
+  [1m[36m (12.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (47.7ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('8,100', '2014-03-31 03:29:10', 8, 'EUR', 1.375125, 'The project involves writing a periodic monitoring GUI automation script, preferably using Python or any other programming language.\r\n\r\nThe script must periodically complete a web site form and press a buttons. If a specific message appears on the page, the script must send a text / email message with a specific content.\r\n\r\nDetails will be given upon request.\r\n\r\nProject should be completed and running within 24 hours max.', '2014-04-03 03:41:42', 'freelancer', 'Monitoring GUI automation script Software', 5725245, 1, 'Python, Software Architecture', '2014-03-27 03:41:42', '2014-03-31 03:29:10', 'http://www.freelancer.com/projects/Software-Architecture-Python/Monitoring-GUI-automation-script.html')
+  [1m[36m (48.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (6.5ms)[0m  BEGIN
+  [1m[36mSQL (25.7ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:29:12', 1, 'USD', 1.0, 'Hi guys,\r\nI need many email id and password. It\'s better if they are from well known domains(like gmail, yahoo, hotmail), but I can accept from other domains as well.\r\nA couple of points:\r\n1) I will be the owner of these emails not anyone else.\r\n2) I should be able to connect to them programmatically, like using IMAP or POP3. Just tell which me interfaces your email domain support.\r\n\r\n3) Give me your price for 10,000 emails. If you can even offer more than that, you can give the price for more as well. I need at most 50,000 emails.\r\n\r\n4) you can give me 1-2 emails for testing.\r\n\r\n5) I will fund full milestone for the project, then you give me the emails, after that I release milestone.', '2014-04-03 03:32:24', 'freelancer', 'Need 10,000 emails with password', 5725218, 6, 'Email Marketing, Java, PHP, Python, System Admin', '2014-03-27 03:32:24', '2014-03-31 03:29:12', 'http://www.freelancer.com/projects/PHP-Java/Need-emails-with-password.html')[0m
+  [1m[35m (44.0ms)[0m  COMMIT
+  [1m[36m (4.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (56.1ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('50,false', '2014-03-31 03:29:14', 1, 'USD', 1.0, '1. Design a forum for our business & game team\r\n2. Develop api(json) to our mobile app team', '2014-04-02 23:24:02', 'freelancer', 'Design Forum', 5724450, 3, 'Graphic Design, HTML, Nginx, Python, Website Design', '2014-03-26 23:24:02', '2014-03-31 03:29:14', 'http://www.freelancer.com/projects/Graphic-Design-Website-Design/Design-Forum.html')
+  [1m[36m (50.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (16.9ms)[0m  BEGIN
+  [1m[36mSQL (16.0ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('250,750', '2014-03-31 03:29:15', 1, 'USD', 1.0, 'Do you have any experience in XBMC add-on development? We need to develop an add-ons installer wizard for the XBMC media player and will also have lots of future projects for XBMC developers.', '2014-04-02 19:14:24', 'freelancer', 'XBMC Add-on Developer required', 5723783, 1, 'Python', '2014-03-26 19:14:24', '2014-03-31 03:29:15', 'http://www.freelancer.com/projects/Python/XBMC-Add-Developer-required.html')[0m
+  [1m[35m (26.2ms)[0m  COMMIT
+  [1m[36m (3.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.2ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('300,600', '2014-03-31 03:29:17', 1, 'USD', 1.0, 'We are in the middle of creating a crypto currency exchange site and we need an experienced developer or team to complete the development of the website.\r\n\r\nwe need the following functions implemented;\r\n\r\n\r\n Coin deposit function\r\n Coin withdrawal function\r\n trade crypto currencies\r\n coin transfer from user to user\r\n\r\nWe need the following APIs integrated and the above functions implemented for Bitcoin, Litecoin, peercoin, namecoin and one more coin.\r\n\r\nHere are samples of crypto currency exchange sites; https://www.cryptsy.com , http://bter.com', '2014-04-02 16:22:21', 'freelancer', 'create a crypto currency exchange site', 5723211, 1, '.NET, Bitcoin, Javascript, PHP, Python', '2014-03-26 16:22:21', '2014-03-31 03:29:17', 'http://www.freelancer.com/projects/PHP-Javascript/create-crypto-currency-exchange-site.html')
+  [1m[36m (51.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (23.8ms)[0m  BEGIN
+  [1m[36mSQL (9.0ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('8,15', '2014-03-31 03:29:20', 1, 'USD', 1.0, 'We are looking for freelancer with experience in working with OpenNLP to assist us in utilizing OpenNLP at our work. We can work hourly bid accordingly. We are looking to implement to train and pick up names of organizations, dates, and implement a sentiment analysis.', '2014-04-02 16:01:12', 'freelancer', 'OpenNLP freelancer with experience required', 5723121, 5, 'Engineering, Java, PHP, Python, Software Architecture', '2014-03-26 16:01:12', '2014-03-31 03:29:20', 'http://www.freelancer.com/projects/PHP-Software-Architecture/OpenNLP-freelancer-with-experience.html')[0m
+  [1m[35m (486.8ms)[0m  COMMIT
+  [1m[36m (12.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:29:22', 1, 'USD', 1.0, 'Reddit.com Automation Software::: \r\n- Create accounts and store them in a .txt file username:password\r\n- Create the accounts per proxy so to not raise alarms, read proxies from file proxies.txt\r\n- Login with the .txt account creation file.\r\n- Comment spinner: {Great|Good|Super} job {buddy|friend|partner}!\r\n- Upvote bot (send upvotes to people based on URL); Log in via proxies + username:password txt file\r\n- Downvote bot (same as upvote, but with a downvote function)\r\n- More ideas coming soon..\r\n\r\nSoftware has to have authentication for resale. Please include room for updates as well (if reddit updates their coding)', '2014-04-02 13:19:44', 'freelancer', 'Build a program for account automation -- 2', 5722473, 1, 'C# Programming, C++ Programming, Python, Software Architecture, SQL', '2014-03-26 13:19:44', '2014-03-31 03:29:22', 'http://www.freelancer.com/projects/Software-Architecture-C-Sharp-Programming/Build-program-for-account-automation.5722473.html')
+  [1m[36m (38.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (13.1ms)[0m  BEGIN
+  [1m[36mSQL (9.9ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:29:24', 1, 'USD', 1.0, 'Hi i have a xcel file company details big database.now i need to collect each company phone number.excel file company url available.i need to add excel file and run script then extract phone number for each web site url. SAMPLE excel file attached please check.(Y) column web site url available..when project done i will paid you.if not done no payment .ohh yes i will create a milestone also.', '2014-04-02 13:16:53', 'freelancer', 'I need to build a script which are extract phone number for web site url', 5722457, 3, 'ActionScript, C Programming, Python, Software Architecture, Web Scraping', '2014-03-26 13:16:53', '2014-03-31 03:29:24', 'http://www.freelancer.com/projects/Software-Architecture-Web-Scraping/need-build-script-which-are.html')[0m
+  [1m[35m (29.0ms)[0m  COMMIT
+  [1m[36m (5.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (23.9ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('1500,12500', '2014-03-31 03:29:26', 11, 'INR', 0.01667, 'Hi,\r\n\r\nI am looking for a company to create online learning module for my company. That video will be our copyright . The audience will be students who will be going through the video and should have topics as small as 5-8 min length video. If topic is big should have breakup of the topic\r\nCurrently We are looking for \r\n1) Analytics\r\n2) Python \r\n\r\nThis will be a long term association above list is just start of it . these videos will be published on our website. I would prefer camptasia software to be used for this purpose, VIDEO SHOULD BE FRESH CREATED VIDEO.', '2014-04-02 11:11:09', 'freelancer', 'To create online videos for Different technologies', 5721939, 1, 'Analytics, Python, SEO', '2014-03-26 11:11:09', '2014-03-31 03:29:26', 'http://www.freelancer.com/projects/SEO-Python/create-online-videos-for-Different.html')
+  [1m[36m (31.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (3.1ms)[0m  BEGIN
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:29:27', 1, 'USD', 1.0, 'I need video tutorials for topics related to computer security.', '2014-04-02 10:37:41', 'freelancer', 'computer security tutorials required', 5721806, 1, 'C Programming, Computer Security, Python, Shell Script, Web Security', '2014-03-26 10:37:41', '2014-03-31 03:29:27', 'http://www.freelancer.com/projects/C-Programming-Python/computer-security-tutorials-required.html')[0m
+  [1m[35m (26.8ms)[0m  COMMIT
+  [1m[36m (4.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (16.9ms)[0m  INSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('10,35', '2014-03-31 03:29:29', 1, 'USD', 1.0, 'FlyByUnicorn is the first global platform for finding, vetting and connecting accomplished female tech talent with companies that recognize how diversity and flexible work fuel innovation. We focus on building distributed and hybrid teams that produce superb results. We\'re a startup with a social mission and this post describes a bit how we work and what we offer to women: http://bit.ly/1jXLGBB\r\n\r\nWe’re looking for skilled and diligent senior Python developers to join FlyByUnicorn and work collaboratively on our website with our lead Python developer. We’ve just started to build the first version of the platform. We have a very clear direction and feature set in mind, but there is always room for new ideas and discussion. As we work in a distributed environment, you’ll be part of a truly global team.\r\n\r\nLocation: we’re accepting applications from all over the world, but preference will be given to people in the Americas timezone, and Asia (Far East Russia OK) timezone.\r\n\r\nTypically this is what your task list would look like: \r\n-Write clean, well-performing, test driven and fully commented code as you build a scalable website for FlyByUnicorn in Python \r\n-Help create a rich and dynamic website that performs a dual function; it will act as our online avatar as well as be our virtual workplace. \r\n-Work in tandem with our lead developer and front-end developer, releasing frontend and CMS features\r\n\r\nRequirements: \r\n-3+ years of Python experience\r\n-Extensive experience with Javascript \r\n-Experience with both SQL and NoSQL data stores, database design and tuning \r\n-Experience working on at least one high-traffic web site and / or a github account that speaks for itself \r\n-Skills in all tiers of the web application stack \r\n-Use of distributed version control tools such as Git \r\n-Knowledge of standard tools for optimizing and testing code\r\n-Excited by fast iterative development with multiple deployments per day\r\n-Experience designing, developing, and consuming RESTful APIs\r\n-Strong knowledge of object oriented programming and design patterns \r\n-Ability to work well independently and within a team, strong discipline and self-management \r\n-Excellent communication skills — with a global team it’s essential that each team member isn’t shy about communicating. You must be comfortable emailing and interacting digitally. We don’t require perfect grammar — what matters is that we transcend the physical distance between us to understand each other’s ideas', '2014-04-02 10:23:17', 'freelancer', 'Senior Python developer to help develop our startup website', 5721741, 1, 'CMS, NoSQL Couch & Mongo, Python, SQL', '2014-03-26 10:23:17', '2014-03-31 03:29:29', 'http://www.freelancer.com/projects/SQL-Python/Senior-Python-developer-help-develop.html')
+  [1m[36m (60.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (8.7ms)[0m  BEGIN
+  [1m[36mSQL (16.2ms)[0m  [1mINSERT INTO `projects` (`budget`, `created_at`, `currency`, `currency_code`, `currency_exchangerate`, `description`, `end_date`, `from_source`, `name`, `outside_id`, `project_category`, `require_skills`, `start_date`, `updated_at`, `url`) VALUES ('30,250', '2014-03-31 03:29:30', 1, 'USD', 1.0, 'I would like to deploy ERPNext onto EC2. I would like to make some customization to change the logo and remove certain unused modules.\r\n\r\nI would also need to make some product customization to allow for 3 tiered pricing.\r\nTiered Pricing: Allow for a single product to have 3 arbitrarily different pricing. There are no formulas linking the 3 pricing for each product so a universal discount applier will not work. The cashier must be able to select among the 3 pricing on the POS interface. Receipts and sales record must show the tier which a product was sold at and also the price it was sold at to allow for accurate cash tallying.\r\n\r\nThe database I would like to use is MySql.', '2014-04-02 10:16:06', 'freelancer', 'Deploy and customize ERPNext', 5721705, 1, 'Amazon Web Services, ERP, Python', '2014-03-26 10:16:06', '2014-03-31 03:29:30', 'http://www.freelancer.com/projects/Python-Amazon-Web-Services/Deploy-customize-ERPNext.html')[0m
+  [1m[35m (47.3ms)[0m  COMMIT
+Completed 200 OK in 94603ms (Views: 0.4ms | ActiveRecord: 3682.7ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 11:57:36 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (600.1ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  [1m[35mProjectCategory Load (9.5ms)[0m  SELECT `project_categories`.* FROM `project_categories`
+  Rendered projects/index.html.erb within layouts/application (720.2ms)
+Completed 200 OK in 729ms (Views: 118.3ms | ActiveRecord: 609.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 11:57:37 +0800
+
+
+Started GET "/projects" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (39.3ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
+  [1m[35mProjectCategory Load (7.2ms)[0m  SELECT `project_categories`.* FROM `project_categories`
+  Rendered projects/index.html.erb within layouts/application (132.8ms)
+Completed 200 OK in 139ms (Views: 92.0ms | ActiveRecord: 46.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/assets/oauth.css?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/assets/api.css?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/assets/translators.css?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/assets/api.js?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/assets/oauth.js?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/assets/translators.js?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-31 11:59:28 +0800
+
+
+Started GET "/getProjectDetails" for 127.0.0.1 at 2014-03-31 12:01:17 +0800
+Processing by ProjectsController#getProjectDetails as HTML
+  [1m[36mOauth Load (4.4ms)[0m  [1mSELECT `oauths`.* FROM `oauths` WHERE `oauths`.`name` = 'maydaycha' ORDER BY `oauths`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 2800ms (Views: 0.1ms | ActiveRecord: 20.0ms)
