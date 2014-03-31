@@ -27,3 +27,4 @@ class User < ActiveRecord::Base
   def self.signup_with_social
   end
 end
+

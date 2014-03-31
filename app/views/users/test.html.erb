@@ -1,0 +1,12 @@
+<%= form_tag "/test" do %>
+	First Name<%= text_field_tag :first_name %> <br>
+	Last Nmae<%= text_field_tag :last_name %> <br>
+	Email<%= text_field_tag :email %> <br>
+	Location<%= text_field_tag :country_code %> <br>
+	Account<%= text_field_tag :account %> <br>
+	Password<%= password_field_tag :password %> <br>
+	How to know<%= text_field_tag :how_to_know %> <br>
+	Receive Information<%= check_box_tag :how_to_know %> <br>
+	<%= recaptcha_tags %>
+	<%= submit_tag %>
+<% end %>
