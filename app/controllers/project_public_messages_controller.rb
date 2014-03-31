@@ -37,7 +37,7 @@ class ProjectPublicMessagesController < ApplicationController
   def update_via_project
     if params[:text] && params[:projectId]
       @message = ProjectPublicMessage.find_by_project_id(params[:projectId])
-      @message.text = params[:text]
+      @message.text_chinese = params[:text]
       @message.save
       render :json => { :status => "success"}
     else

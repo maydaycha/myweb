@@ -12,6 +12,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20140331162717) do
+
   create_table "oauths", force: true do |t|
     t.string   "name"
     t.string   "token"
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140331162717) do
     t.string   "attachmentlink"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "text_chinese"
   end
 
   create_table "projects", force: true do |t|

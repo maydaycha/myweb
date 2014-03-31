@@ -157,7 +157,8 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
       console.log(data);
       if ( data.data != null ) {
         if ( data.status == 'success') {
-         $scope.publicMessage = data.data.text;
+         $scope.originText = data.data.text;
+         $scope.publicMessage = data.data.text_chinese;
          console.log($scope.public_message);
        }
      }
@@ -196,6 +197,7 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
 
   $scope.updatePublicMessage = function(projectId) {
     var url = "/public_message/update_via_project";
+    console.log($scope.publicMessage);
     var param = {
       projectId: projectId,
       text: $scope.publicMessage

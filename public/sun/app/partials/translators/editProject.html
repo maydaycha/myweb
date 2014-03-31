@@ -12,8 +12,8 @@
       <li><textarea ng-model="projectDescription"></textarea></li>
     </ul>
     <ul ng-if="publicMessage!=null"><h3>public message:</h3>
-      <li>{{publicMessage}}</li>
-      <li><textarea ng-model="publicMessage"></textarea></li>
+      <li>{{originText}}</li>
+      <li><textarea ng-model="$parent.publicMessage"></textarea></li>
     </ul>
     <button> save </button>
   </form>
