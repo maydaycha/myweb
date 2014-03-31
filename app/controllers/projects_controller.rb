@@ -52,6 +52,12 @@ class ProjectsController < ApplicationController
       if @translator
         @projects = Project.where(:translators => @translator['id'])
         if @projects
+          @projects.each do |ele, index|
+            @public_message = ProjectPublicMessage.where(:project_id => ele['outside_id']).take
+            if @public_message
+              ele['public_message'] = @public_message
+            end
+          end
           render :json => { :status => "success", :data => @projects }
         end
       end
@@ -89,16 +95,46 @@ class ProjectsController < ApplicationController
     hash = JSON.parse @content.body
     skip = 0
     hash['json-result']['items'].each do |ele, index|
-      @content = @access_token.get("http://api.freelancer.com/Project/getProjectDetails.json?projectid=#{ele['projectid']}")
-      hash2 = JSON.parse @content.body
-      h = hash2['json-result']
+      @projectid = ele['projectid']
+      @content = @access_token.get("http://api.freelancer.com/Project/getProjectDetails.json?projectid=#{@projectid}")
+      h = JSON.parse(@content.body)['json-result']
       begin
-        project = Project.create( :outside_id => h['id'], :name => h['name'], :url => h['url'], :budget => "#{h['budget']['min']},#{h['budget']['max']}", :require_skills => "#{h['jobs'].join(", ")}", :from_source => 'freelancer', :description => h['short_descr'], :project_category => h['jobsDetails'][0]['category_id'], :currency => h['currency'], :start_date => h['start_date'], :end_date => h['end_date'], :currency_code => h['currencyDetails']['code'], :currency_exchangerate => h['currencyDetails']['exchangerate'] )
+        Project.create do |project|
+          project.outside_id = h['id']
+          project.name = h['name']
+          project.url = h['url']
+          project.budget = "#{h['budget']['min']}, #{h['budget']['max']}"
+          project.require_skills = "#{h['jobs'].join(", ")}"
+          project.from_source = 'freelancer'
+          project.description = h['short_descr']
+          project.project_category = h['jobsDetails'][0]['category_id']
+          project.currency = h['currency']
+          project.start_date = h['start_date']
+          project.end_date = h['end_date']
+          project.currency_code = h['currencyDetails']['code']
+          project.currency_exchangerate = h['currencyDetails']['exchangerate']
+        end
       rescue
         skip += 1
       end
+      puts "http://api.freelancer.com/Project/getPublicMessages.json?projectid=#{ele['projectid']}"
+      @content = @access_token.get("http://api.freelancer.com/Project/getPublicMessages.json?projectid=#{ele['projectid']}")
+      public_message = JSON.parse(@content.body)['json-result']
+      puts public_message
+      if public_message['count'] > 0
+        public_message['items'].each do |ele, index|
+          ProjectPublicMessage.create do |m|
+            m.project_id = @projectid
+            m.from_user_name = ele['fromusername']
+            m.from_user_id = ele['fromuserid']
+            m.datetime = ele['datetime']
+            m.text = ele['text']
+            m.attachmentlink = ele['attachmentlink']
+          end
+        end
+      end
     end
-    render :json => { :status => "success", :skip => skip }
+    render :json => { :status => "success", :skip => skip}
   end
 
   def getCategoryJobList
@@ -112,10 +148,10 @@ class ProjectsController < ApplicationController
     render :json => @content.body
   end
 
-  def getPublicMessages
+  def getPublicMessages()
     request_url = "http://api.freelancer.com/Project/getPublicMessages.json?projectid=#{params[:project_id]}"
     @content = @access_token.get(request_url)
-    render :json => @content.body
+    render :json => JSON.parse(@content.body)['json-result']
   end
 
 

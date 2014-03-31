@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_id: 1
+  from_user_name: MyString
+  from_user_id: 1
+  datetime: 2014-03-31 15:23:30
+  text: MyText
+  attachmentlink: MyString
+
+two:
+  project_id: 1
+  from_user_name: MyString
+  from_user_id: 1
+  datetime: 2014-03-31 15:23:30
+  text: MyText
+  attachmentlink: MyString
