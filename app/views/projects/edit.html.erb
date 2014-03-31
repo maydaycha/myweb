@@ -1,7 +1,7 @@
 <%= form_for @project, :url => { :controller => 'projects', :action => 'update', :id => @project } do |p| %>
 <ul>
+    <%= p.label :name, "Name: " %>
     <li>
-        <%= p.label :name, "Name: " %>
         <%= @project.name %>
     </li>
     <li>
@@ -10,8 +10,8 @@
     </li>
 </ul>
 <ul>
+    <%= p.label :require_skills, "require_skills: " %>
     <li>
-        <%= p.label :require_skills, "require_skills: " %>
         <%= @project.require_skills %>
     </li>
     <li>
@@ -20,14 +20,20 @@
     </li>
 </ul>
 <ul>
+    <%= p.label :description, "Description: " %>
     <li>
-        <%= p.label :description, "Description: " %>
         <%= @project.description %>
     </li>
     <li>
         <%= p.label :description_chinese, "Description_chinese: " %>
         <%= p.text_area :description_chinese %>
     </li>
+</ul>
+<ul>
+    <%= p.label :budget, "Budget: " %>
+    <li><%= @project.currency_code  %>: <%= @project.budget.split(/,/)[0].to_f %> ~ <%= @project.budget.split(/,/)[1].to_f %></li>
+    <li>equals to => min: <%=@project.budget.split(/,/)[0].to_f * @project.currency_exchangerate %>, max: <%=@project.budget.split(/,/)[1].to_f * @project.currency_exchangerate %> USD</li>
+    <li><%= p.text_field :budget %></li>
 </ul>
 <%= p.submit "Update" %>
 <% end %>

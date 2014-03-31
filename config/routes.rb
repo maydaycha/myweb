@@ -81,6 +81,7 @@ Sun::Application.routes.draw do
   get  '/wirte_job_to_csv' => "projects#wirte_job_to_csv"
   get  '/excel_download' => "projects#excel_download"
   get  '/getPublicMessages/:project_id' => "projects#getPublicMessages"
+  get  'project/update_budget' => "projects#update_budget"
 
   # project_public_messages
   get  '/public_message/edit_via_project/:project_id' => "project_public_messages#edit_via_project"

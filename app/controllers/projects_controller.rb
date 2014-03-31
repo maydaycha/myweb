@@ -41,6 +41,16 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  def update_budget
+    if @projects = Project.where(:project_category => params[:c])
+      @projects.each do |ele, index|
+        ele.budget = "#{ ele.budget.split(/,/)[0].to_i + params[:new_budget].to_i}, #{ ele.budget.split(/,/)[1].to_i + params[:new_budget].to_i}"
+        ele.save
+      end
+    end
+    render :json => { :data => params[:new_budget] , :category => params[:c] }
+  end
+
   def get_access_token
     @access_token = construct_access_token
   end

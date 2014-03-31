@@ -1,6 +1,14 @@
+<h2 style="color:red;"> Project from Freelacer </h2>
 <% @projects.group_by{|g| g.project_category }.each do |c, project| %>
 <ul style="list-style-type: none;">
-  <li><h3><%= c.to_i >= 99 ? @category[11].name : @category[c.to_i-1].name %></h3></li>
+  <form action="project/update_budget">
+    <li><h3><%= c.to_i >= 99 ? @category[11].name : @category[c.to_i-1].name %></h3></li>
+    <input type="hidden" name="c" value="<%= c.to_i %>">
+    <li>
+      增加金額：<input type="text" name="new_budget">
+      <input type="submit" value="set">
+    </li>
+  </form>
   <% project.each do |p| %>
   <li>
     <ul>
@@ -9,6 +17,9 @@
         <%= link_to 'Show', :controller => 'projects', :action => 'show', :id => p %>
         <%= link_to 'Edit', :controller => 'projects', :action => 'edit', :id => p %>
         <%= link_to 'delete', project_path(p), :method => :delete %>
+        <% if p.is_translation == 1 %>
+        <span style="color:red; margin-left: 10px;">translated</span>
+        <% end %>
       </li>
     </ul>
   </li>
