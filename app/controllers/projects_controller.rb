@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   include Token
 
   before_filter :set_headers
+  before_filter :get_access_token
 
   def index
     @projects = Project.all
@@ -40,6 +41,10 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  def get_access_token
+    @access_token = construct_access_token
+  end
+
   def get_project_by_translator
     puts session[:account]
     if session[:account]
@@ -69,20 +74,17 @@ class ProjectsController < ApplicationController
   end
 
   def searchProjects
-    @access_token = construct_access_token()
     @content = @access_token.get("http://api.freelancer.com/Project/searchProjects.json?searchjobtypecsv=#{params[:jobtype]}")
     render :json => @content.body
   end
 
 
   def getProjectDetails
-    @access_token = construct_access_token()
     @content = @access_token.get("http://api.freelancer.com/Project/getProjectDetails.json?projectid=5739955")
     render :json => @content.body
   end
 
   def storeProjectsDetails
-    @access_token = construct_access_token()
     @content = @access_token.get("http://api.freelancer.com/Project/searchProjects.json?searchjobtypecsv=#{params[:jobtype]}")
     hash = JSON.parse @content.body
     skip = 0
@@ -110,6 +112,14 @@ class ProjectsController < ApplicationController
     render :json => @content.body
   end
 
+  def getPublicMessages
+    request_url = "http://api.freelancer.com/Project/getPublicMessages.json?projectid=#{params[:project_id]}"
+    @content = @access_token.get(request_url)
+    render :json => @content.body
+  end
+
+
+
   def wirte_job_to_csv
     @projects = Project.order(:id)
     respond_to do |format|
@@ -126,7 +136,6 @@ class ProjectsController < ApplicationController
       format.xls
     end
   end
-
 
 
 end
