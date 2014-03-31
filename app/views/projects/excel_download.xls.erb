@@ -13,6 +13,7 @@ xmlns:html="http://www.w3.org/TR/REC-html40">
       <Cell><Data ss:Type="String">Budget</Data></Cell>
       <Cell><Data ss:Type="String">Start Date</Data></Cell>
       <Cell><Data ss:Type="String">End Date</Data></Cell>
+      <Cell><Data ss:Type="String">Source</Data></Cell>
     </Row>
     <% @projects.each do |p| %>
     <Row>
@@ -22,6 +23,7 @@ xmlns:html="http://www.w3.org/TR/REC-html40">
       <Cell><Data ss:Type="String"><%= p.budget.split(/,/)[0].to_f * p.currency_exchangerate %>, <%= p.budget.split(/,/)[1].to_f * p.currency_exchangerate %></Data></Cell>
       <Cell><Data ss:Type="String"><%= p.start_date %></Data></Cell>
       <Cell><Data ss:Type="String"><%= p.end_date %></Data></Cell>
+      <Cell><Data ss:Type="String"><%= p.from_source %></Data></Cell>
     </Row>
     <% end %>
   </Table>
