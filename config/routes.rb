@@ -56,6 +56,7 @@ Sun::Application.routes.draw do
   #   end
   resources :projects
   resources :translators
+  resources :project_public_messages
 
   # get  '/oauth' => "oauth#oauth_process"
   # get  '/get_access_token' => "oauth#get_access_token"
@@ -80,6 +81,9 @@ Sun::Application.routes.draw do
   get  '/wirte_job_to_csv' => "projects#wirte_job_to_csv"
   get  '/excel_download' => "projects#excel_download"
   get  '/getPublicMessages/:project_id' => "projects#getPublicMessages"
+
+  # project_public_messages
+  get  '/edit_via_project/:project_id' => "project_public_messages#edit_via_project"
 
 
 

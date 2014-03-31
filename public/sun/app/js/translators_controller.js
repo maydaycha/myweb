@@ -146,6 +146,14 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
     });
   }
 
+  $scope.editPublicMessage = function(id) {
+    var url = "/project_public_messages/" + id + "/edit.json";
+    $http.get(url).success( function(data) {
+      console.log(data);
+      $scope.public_message = data;
+    });
+  }
+
   $scope.updateProject = function (id) {
     var url = "/project/update_project_from_angular";
     var param = {
@@ -186,6 +194,7 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
 
   if ($routeParams.projectId) {
     $scope.editProject($routeParams.projectId);
+    $scope.editPublicMessage($routeParams.projectId);
   } else {
    $scope.getProjectListByTranslator();
  }
