@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331162717) do
+ActiveRecord::Schema.define(version: 20140401170831) do
+
+  create_table "facebooks", force: true do |t|
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "oauths", force: true do |t|
     t.string   "name"

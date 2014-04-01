@@ -1,5 +1,7 @@
 Sun::Application.routes.draw do
-  get "oauth/index"
+  get '/facebook/index'=>'facebook#index'
+  get '/auth/:provider/callback' => 'facebook#create'
+  get 'oauth/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

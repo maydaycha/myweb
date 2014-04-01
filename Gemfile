@@ -66,3 +66,11 @@ gem 'mysql2'
 
 gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 gem "recaptcha", :require => "recaptcha/rails"
+
+
+
+# facebook
+gem 'omniauth'
+gem 'omniauth-facebook','1.4.0'
+gem 'certified'
+gem 'thin'

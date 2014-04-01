@@ -12,15 +12,5 @@ module Token
     })
     @user = Oauth.where( :name => 'maydaycha').first
     @access_token = OAuth::AccessToken.new(@consumer, @user['token'], @user['secret'])
-    # if @user
-    # @token = OAuth::AccessToken.new(@user['token'], @user['secret'])
-    # puts @token.inspect
-    # puts @user.inspect
-    # puts @token
-    # @content = @access_token.get('http://api.freelancer.com/User/getUserDetails.json?username=LibraMa')
-    # render :json => @content.body
-    # else
-    # render :json => { :status => "fail" }
-    # end
   end
 end
