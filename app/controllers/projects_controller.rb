@@ -183,5 +183,16 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def set_word_count
+    @projects = Project.order(:id)
+    @projects.each do |p|
+      name_word_count = p.name.gsub(/[(,) ]/," ").split(/ /).delete_if {|item| item == '' }
+      description_word_count = p.description.gsub(/[(,) ]/," ").split(/ /).delete_if {|item| item == '' }
+      p.word_count = name_word_count.length + description_word_count.length
+      p.save
+    end
+    render :json => { :name_count => "123", :data => @temp }
+  end
+
 
 end

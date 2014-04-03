@@ -117,4 +117,6 @@ Sun::Application.routes.draw do
 
 
   get '/test' => "users#test"
+
+  get '/set_word_count' => 'projects#set_word_count'
 end

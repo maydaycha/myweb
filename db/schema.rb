@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401170831) do
+ActiveRecord::Schema.define(version: 20140403035322) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140401170831) do
     t.string   "currency_code"
     t.float    "currency_exchangerate"
     t.text     "public_message"
+    t.integer  "word_count",             default: 0
   end
 
   create_table "simple_captcha_data", force: true do |t|
