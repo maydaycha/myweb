@@ -2,9 +2,6 @@ myapp = angular.module('myApp.translators', []);
 
 myapp.controller('translatorsAccountController', [ '$scope', '$http', 'rails_server', '$route', '$location', function($scope, $http, rails, $route, $location){
 
-  $scope.test11 = function() {
-  }
-
   $scope.need_registrate = false;
 
   console.log(rails.development_server_host);
@@ -120,11 +117,12 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
   // rails.development_server_host;
 
   $scope.getProjectList = function() {
-    $http.get("/api/translators/getJobCategory").success(function(data) {
+    var url = "/api/translators/getJobCategory";
+    $http.get(url).success(function(data) {
       console.log(data);
       $scope.jobCategories = data;
     });
-    var url = "/projects.json";
+    url = "/projects.json";
     $http.get(url).success(function(data) {
       console.log(data);
       $scope.projects = data;
@@ -139,30 +137,31 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
     });
   }
 
-  $scope.editProject = function (id) {
-    var url = "/projects/" + id + "/edit.json";
+  $scope.test = function(){
+    alert("hi");
+  }
+
+  $scope.getProjectAndPublicMessage = function() {
+    var url = "/projects/" + $routeParams.projectId + "/edit.json";
     $http.get(url, {withCredentials : true}).success( function(data) {
       console.log(data);
       $scope.project = data;
       $scope.projectName = data.name_chinese;
       $scope.projectDescription = data.description_chinese;
       $scope.projectId = data.outside_id;
-      $scope.editPublicMessage(data.outside_id);
-    });
-  }
 
-  $scope.editPublicMessage = function(id) {
-    var url = "/public_message/edit_via_project/" + id + ".json";
-    $http.get(url).success( function(data) {
-      console.log(data);
-      if ( data.data != null ) {
-        if ( data.status == 'success') {
-         $scope.originText = data.data.text;
-         $scope.publicMessage = data.data.text_chinese;
-         console.log($scope.public_message);
+      url = "/public_message/edit_via_project/" + $scope.projectId + ".json";
+      $http.get(url).success( function(data) {
+        console.log(data);
+        if ( data.data != null ) {
+          if ( data.status == 'success') {
+           $scope.originText = data.data.text;
+           $scope.publicMessage = data.data.text_chinese;
+           console.log($scope.public_message);
+         }
        }
-     }
-   });
+     });
+    });
   }
 
   $scope.updateProject = function (id) {
@@ -223,7 +222,6 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
     });
   }
 
-
   $scope.logout = function() {
     var url = "/api/translators/logout";
     // , {withCredentials : true}
@@ -232,13 +230,5 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
       $location.path("/translators/login")
     });
   }
-
-  if ($routeParams.projectId) {
-    $scope.editProject($routeParams.projectId);
-    $scope.editPublicMessage($routeParams.projectId);
-  } else {
-   $scope.getProjectListByTranslator();
- }
-
 
 }]);

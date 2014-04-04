@@ -3,8 +3,8 @@ require 'csv'
 class Project < ActiveRecord::Base
   has_many :project_public_message
 
-  attr_accessor :translator_name
-  attr_accessor :public_messages
+  # attr_accessor :translator_name
+  attr_accessor :have_public_message
 
   #class method
   def self.to_csv( options = {} )
@@ -19,6 +19,10 @@ class Project < ActiveRecord::Base
   #instance method
   def has_public_mesage?
     ProjectPublicMessage.where(:project_id => self.outside_id).limit(1).size > 0
+  end
+
+  def has_public_mesage_two?
+    return { :status => ProjectPublicMessage.where(:project_id => self.outside_id).limit(1).size > 0 }
   end
 
   def get_public_message

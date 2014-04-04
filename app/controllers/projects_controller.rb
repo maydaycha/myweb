@@ -12,14 +12,22 @@ class ProjectsController < ApplicationController
     @projects = Project.all
     @category = ProjectCategory.all
     @translators = Translator.all
+    @project_list = []
+    @projects.each do |p|
+      @project_list << JSON::parse(p.to_json).merge("have_public_message" => p.has_public_mesage?)
+    end
     respond_to do |format|
       format.html { render :html => [ @projects, @category] }
-      format.json { render :json => @projects.to_json }
+      format.json { render :json => @project_list.as_json }
     end
   end
 
   def show
     @project = Project.find(params[:id])
+    @translators = Translator.all
+    respond_to do |format|
+      format.json { render :json => @project.as_json }
+    end
   end
 
   def edit
@@ -56,20 +64,20 @@ class ProjectsController < ApplicationController
     @access_token = construct_access_token
   end
 
+
   def get_project_by_translator
     puts session[:account]
     if session[:account]
-      @translator = Translator.find_by_account(session[:account])
-      if @translator
-        @projects = Project.where(:translators => @translator['id'])
-        if @projects
+      if @translator = Translator.find_by_account(session[:account])
+        if @projects = Project.where(:translators => @translator['id'])
+          @project_list = []
           @projects.each do |ele, index|
-            @public_message = ProjectPublicMessage.where(:project_id => ele['outside_id']).take
-            if @public_message
+            if @public_message = ProjectPublicMessage.where(:project_id => ele['outside_id']).take
               ele['public_message'] = @public_message
             end
+            @project_list << JSON::parse(ele.to_json).merge("have_public_message" => ele.has_public_mesage?)
           end
-          render :json => { :status => "success", :data => @projects }
+          render :json => { :status => "success", :data => @project_list }
         end
       end
     else

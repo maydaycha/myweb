@@ -29,6 +29,9 @@
   padding: 0;
 }
 
-tr:nth-child(even){
-  background-color: gray;
+/*tr:nth-child(even){*/
+  /*background-color: gray;*/
+/*}*/
+.test_1{
+ background-color: rgb(182, 178, 178);
 }
