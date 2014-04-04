@@ -1,22 +1,38 @@
 <ul>
-  <li>Project name: <%= @project.name %><br></li>
-  <li>Project name(Chinese): <%= @project.name_chinese %></li>
+    <il>Name:</il>
+    <ul>
+        <li><%= @project.name %></li>
+        <li><%= @project.name_chinese %></li>
+    </ul>
 </ul>
 <ul>
-  <li>Budget: <%= @project.currency_code  %>: <%= @project.budget.split(/,/)[0].to_f %> ~ <%= @project.budget.split(/,/)[1].to_f %></li>
-  <li>equals to => min: <%=@project.budget.split(/,/)[0].to_f * @project.currency_exchangerate %>, max: <%=@project.budget.split(/,/)[1].to_f * @project.currency_exchangerate %> USD</li>
+    <il>require_skills: </il>
+    <ul>
+        <li><%= @project.require_skills %></li>
+        <li><%= @project.require_skills_chinese %></li>
+    </ul>
 </ul>
 <ul>
-  <li>Require skills: <%= @project.require_skills %><br></li>
-  <li>Require skills(Chinese): <%= @project.require_skills_chinese %></li>
+    <li>Description: </li>
+    <ul>
+        <li><%= @project.description %></li>
+        <li><%= @project.description_chinese %></li>
+    </ul>
 </ul>
+<% if @project.has_public_mesage? %>
 <ul>
-  <li>Description: <%= @project.description %></li>
-  <li>Description(Chinese): <%= @project.description_chinese %></li>
+    <li>Public message</li>
+    <ul>
+        <% @project.get_public_message.each do |m| %>
+        <li><%= m.text %></li>
+        <% end %>
+    </ul>
 </ul>
+<% end %>
 <ul>
-  <li>start_date: <%= @project.start_date %></li>
-  <li>end_date: <%= @project.end_date %></li>
-  <li>Taiwan time zone: UTC + 8 hours</li>
+    <li>budget: </li>
+    <ul>
+        <li>origin => <%= @project.currency_code  %>: <%= @project.budget.split(/,/)[0].to_f %> ~ <%= @project.budget.split(/,/)[1].to_f %></li>
+        <li>equals to => min: <%=@project.budget.split(/,/)[0].to_f * @project.currency_exchangerate %>, max: <%=@project.budget.split(/,/)[1].to_f * @project.currency_exchangerate %> USD</li>
+    </ul>
 </ul>
-<p><%= link_to 'Back to index', projects_path %></p>

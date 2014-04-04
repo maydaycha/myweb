@@ -9,21 +9,40 @@
       <input type="submit" value="set">
     </li>
   </form>
-  <% project.each do |p| %>
-  <li>
-    <ul>
-      <li>
-        <%= p.name %>
-        <%= link_to 'Show', :controller => 'projects', :action => 'show', :id => p %>
-        <%= link_to 'Edit', :controller => 'projects', :action => 'edit', :id => p %>
-        <%= link_to 'delete', project_path(p), :method => :delete %>
-        <% if p.is_translation == 1 %>
-        <span style="color:red; margin-left: 10px;">translated</span>
-        <% end %>
-      </li>
-    </ul>
-  </li>
-  <% end %>
+  <table border="1" style="min-width:100%;">
+    <thead>
+      <tr style="background-color: rgb(31, 214, 163);">
+        <th>Project Name</th>
+        <th>Action</th>
+        <th>Pulbic Message?</th>
+        <th>Translator Name</th>
+        <th>Translated?</th>
+      </tr>
+    </thead>
+    <% project.each do |p| %>
+    <tr>
+        <td style="width:500px;"><%= p.name %></td>
+        <td style="width:150px; text-align: center;">
+          <%= link_to 'Show', :controller => 'projects', :action => 'show', :id => p %>
+          <%= link_to 'Edit', :controller => 'projects', :action => 'edit', :id => p %>
+          <%= link_to 'delete', project_path(p), :method => :delete %>
+        </td>
+        <td style="text-align: center;">
+          <% if p.has_public_mesage? %>
+          <span style="color:green; ">has public message </span>
+          <% end %>
+        </td>
+        <td style="text-align: center;">
+          <span><i><%= p.get_translator_name %></i></span>
+        </td>
+        <td style="text-align: center;">
+          <% if p.has_translated? %>
+          <span style="color:red; margin-left: 10px;">translated</span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </ul>
 <% end %>
 <%= link_to 'Download xls', :controller => 'projects', :action => 'excel_download', :format => 'xls'  %>

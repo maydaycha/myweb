@@ -1,7 +1,12 @@
 # encoding: UTF-8
 require 'csv'
 class Project < ActiveRecord::Base
+  has_many :project_public_message
 
+  attr_accessor :translator_name
+  attr_accessor :public_messages
+
+  #class method
   def self.to_csv( options = {} )
     CSV.generate(options) do |csv|
       csv << column_names
@@ -9,6 +14,23 @@ class Project < ActiveRecord::Base
         csv << product.attributes.values_at(*column_names)
       end
     end
+  end
+
+  #instance method
+  def has_public_mesage?
+    ProjectPublicMessage.where(:project_id => self.outside_id).limit(1).size > 0
+  end
+
+  def get_public_message
+    ProjectPublicMessage.where(:project_id => self.outside_id)
+  end
+
+  def has_translated?
+    self.is_translation > 0
+  end
+
+  def get_translator_name
+    Translator.find_by_id(self.translators) ? Translator.find(self.translators).name : "dont have translator"
   end
 
 end

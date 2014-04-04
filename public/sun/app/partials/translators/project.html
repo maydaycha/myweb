@@ -5,11 +5,10 @@
     <li>
       <a href="#/translators/project/{{p.id}}">{{p.name}}</a>
       <span ng-show="p.is_translation==1" style="color:red;">edited</span>
-      <span>word_count: </span>
+      <span>word_count: {{p.word_count}}</span>
     </li>
   </ul>
 </div>
-
 <div style="position:absolute; right:50px; top:0px;">
   <h4><a href="" ng-click="logout()">logout</a></h4>
 </div>

@@ -1,39 +1,57 @@
 <%= form_for @project, :url => { :controller => 'projects', :action => 'update', :id => @project } do |p| %>
 <ul>
-    <%= p.label :name, "Name: " %>
-    <li>
-        <%= @project.name %>
-    </li>
-    <li>
-        <%= p.label :name_chinese, "Name_Chinese: " %>
-        <%= p.text_field :name_chinese %>
-    </li>
+    <il><%= p.label :name, "Name: " %></il>
+    <ul>
+        <li>
+            <%= @project.name %>
+        </li>
+        <li>
+            <%= p.label :name_chinese, "Name_Chinese: " %>
+            <%= p.text_field :name_chinese %>
+        </li>
+    </ul>
 </ul>
 <ul>
-    <%= p.label :require_skills, "require_skills: " %>
-    <li>
-        <%= @project.require_skills %>
-    </li>
-    <li>
-        <%= p.label :require_skills_chinese, "require_skills_chinese: " %>
-        <%= p.text_field :require_skills_chinese %>
-    </li>
+    <il><%= p.label :require_skills, "require_skills: " %></il>
+    <ul>
+        <li>
+            <%= @project.require_skills %>
+        </li>
+        <li>
+            <%= p.label :require_skills_chinese, "require_skills_chinese: " %>
+            <%= p.text_field :require_skills_chinese %>
+        </li>
+    </ul>
 </ul>
 <ul>
-    <%= p.label :description, "Description: " %>
-    <li>
-        <%= @project.description %>
-    </li>
-    <li>
-        <%= p.label :description_chinese, "Description_chinese: " %>
-        <%= p.text_area :description_chinese %>
-    </li>
+    <li><%= p.label :description, "Description: " %></li>
+    <ul>
+        <li>
+            <%= @project.description %>
+        </li>
+        <li>
+            <%= p.label :description_chinese, "Description_chinese: " %>
+            <%= p.text_area :description_chinese %>
+        </li>
+    </ul>
 </ul>
+<% if @project.has_public_mesage? %>
 <ul>
-    <%= p.label :budget, "Budget: " %>
-    <li><%= @project.currency_code  %>: <%= @project.budget.split(/,/)[0].to_f %> ~ <%= @project.budget.split(/,/)[1].to_f %></li>
-    <li>equals to => min: <%=@project.budget.split(/,/)[0].to_f * @project.currency_exchangerate %>, max: <%=@project.budget.split(/,/)[1].to_f * @project.currency_exchangerate %> USD</li>
-    <li><%= p.text_field :budget %></li>
+    <li>Public message</li>
+    <ul>
+        <% @project.get_public_message.each do |m| %>
+        <li><%= m.text %></li>
+        <% end %>
+    </ul>
+</ul>
+<% end %>
+<ul>
+    <li><%= p.label :budget, "Budget: " %></li>
+    <ul>
+        <li><%= @project.currency_code  %>: <%= @project.budget.split(/,/)[0].to_f %> ~ <%= @project.budget.split(/,/)[1].to_f %></li>
+        <li>equals to => min: <%=@project.budget.split(/,/)[0].to_f * @project.currency_exchangerate %>, max: <%=@project.budget.split(/,/)[1].to_f * @project.currency_exchangerate %> USD</li>
+        <li><%= p.text_field :budget %></li>
+    </ul>
 </ul>
 <%= p.submit "Update" %>
 <% end %>

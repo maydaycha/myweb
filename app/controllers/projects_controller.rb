@@ -11,8 +11,9 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
     @category = ProjectCategory.all
+    @translators = Translator.all
     respond_to do |format|
-      format.html { render :html => [ @projects, @category ] }
+      format.html { render :html => [ @projects, @category] }
       format.json { render :json => @projects.to_json }
     end
   end
