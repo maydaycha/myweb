@@ -35,15 +35,9 @@ class TranslatorsController < ApplicationController
     if Translator.find_by_account(params[:account])
       render :json => { :status => "fail", :reason => "duplicate" }
     else
-      begin
-        @translator = Translator.create(
-          :account => params[:account],
-          :password => Digest::MD5.hexdigest(params[:password]),
-          :name => params[:name],
-          :category => params[:category]
-        )
+      if Translator.signup!(params[:account], params[:password], params[:name], params[:category])
         render :json => { :status => "success" }
-      rescue
+      else
         render :json => { :status => "fail" }
       end
     end
@@ -70,10 +64,9 @@ class TranslatorsController < ApplicationController
 
 
   def login
-    puts params[:account]
-    if Translator.find_by_account(params[:account])
-      if Digest::MD5.hexdigest(params[:password]) == @t['password']
-        session[:account] = @t['account']
+    if @translator = Translator.find_by_account(params[:account])
+      if Digest::MD5.hexdigest(params[:password]) == @translator['password']
+        session[:account] = @translator['account']
         render :json => { :status => "success", :session => session, :token => form_authenticity_token }
       else
         render :json => { :status => "fail", :reason => "password error" }
@@ -82,6 +75,7 @@ class TranslatorsController < ApplicationController
       render :json => { :status => "fail", :reason => "not such account" }
     end
   end
+
 
   def logout
     session.delete(:account)

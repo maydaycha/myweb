@@ -4,6 +4,7 @@ require "csv"
 class ProjectsController < ApplicationController
 
   before_filter :set_headers
+  # before_action :set_headers
 
   def index
     @projects = Project.all

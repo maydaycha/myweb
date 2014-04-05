@@ -27,7 +27,7 @@ myapp.controller('translatorsAccountController', [ '$scope', '$http', 'rails_ser
     };
     var url = "/api/translators/create";
     $http.post(url, param).success( function (data) {
-      console.log(data)
+      // console.log(data)
       if (data.status == 'success') {
         $route.reload();
       } else {
