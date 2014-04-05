@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403035322) do
+ActiveRecord::Schema.define(version: 20140404183107) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20140403035322) do
   end
 
   create_table "project_public_messages", force: true do |t|
-    t.integer  "project_id",     null: false
+    t.integer  "project_id",                 null: false
     t.string   "from_user_name"
     t.integer  "from_user_id"
     t.datetime "datetime"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140403035322) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "text_chinese"
+    t.integer  "word_count",     default: 0
   end
 
   create_table "projects", force: true do |t|

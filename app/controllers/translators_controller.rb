@@ -1,4 +1,5 @@
 require 'digest/md5'
+
 class TranslatorsController < ApplicationController
 
   # skip_before_filter :verify_authenticity_token
@@ -63,17 +64,14 @@ class TranslatorsController < ApplicationController
 
 
   def getJobCategory
-    # set_headers
     @category = ProjectCategory.all(:select => "id, name")
     render :json => @category.to_json
   end
 
 
   def login
-    @t = Translator.find_by_account(params[:account])
-    puts @t
     puts params[:account]
-    if @t
+    if Translator.find_by_account(params[:account])
       if Digest::MD5.hexdigest(params[:password]) == @t['password']
         session[:account] = @t['account']
         render :json => { :status => "success", :session => session, :token => form_authenticity_token }
@@ -87,7 +85,6 @@ class TranslatorsController < ApplicationController
 
   def logout
     session.delete(:account)
-    session.delete('account')
     render :json => { :status => "success", :session => session[:account] }
   end
 

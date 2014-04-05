@@ -57,4 +57,14 @@ class ProjectPublicMessagesController < ApplicationController
       render :json => { :status => "fail" }
     end
   end
+
+  def set_word_count
+    @messges = ProjectPublicMessage.order(:id)
+    @messges.each do |m|
+      content =  m.text.gsub(/[(,) ]/," ").split(/ /).delete_if {|item| item == '' }
+      m.word_count = content.length
+      m.save
+    end
+    render :json => { :name_count => "123", :data => @temp }
+  end
 end

@@ -1,7 +1,10 @@
 Sun::Application.routes.draw do
-  get '/facebook/index'=>'facebook#index'
-  get '/auth/:provider/callback' => 'facebook#create'
+  get "sessions/create"
+  get "sessions/destroy"
+  get '/facebook/index'=>'third_party_login#index'
+  get '/auth/facebook/callback' => 'third_party_login#create'
   get 'oauth/index'
+  get '/auth/google_oauth2/callback' => 'third_party_login#google_create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -66,7 +69,6 @@ Sun::Application.routes.draw do
   # get  '/getUsersBySearch' => "api#getUsersBySearch"
   # get  '/getAccountDetails' => "api#getAccountDetails"
 
-  # get  '/searchProjects' => "projects#searchProjects"
   # get  '/storeProjects' => "projects#storeProjects"
   # get  '/getProjectDetails' => "projects#getProjectDetails"
 
@@ -76,7 +78,6 @@ Sun::Application.routes.draw do
   # get    '/getUsersBySearch' => "api#getUsersBySearch"
   # get    '/getAccountDetails' => "api#getAccountDetails"
 
-  get  '/searchProjects' => "projects#searchProjects"
   get  '/getProjectDetails' => "projects#getProjectDetails"
   get  '/storeProjectsDetails' => "projects#storeProjectsDetails"
   get  '/getCategoryJobList' => "projects#getCategoryJobList"
@@ -119,4 +120,11 @@ Sun::Application.routes.draw do
   get '/test' => "users#test"
 
   get '/set_word_count' => 'projects#set_word_count'
+  get '/message/set_word_count' => 'project_public_messages#set_word_count'
+
+  # freelancer api
+  get  '/freelancer/searchProjects' => "freelancer#searchProjects"
+  get  '/freelancer/getProjectDetails' => "freelancer#getProjectDetails"
+  get  '/freelancer/storeProjectsDetails' => "freelancer#storeProjectsDetails"
+  get  '/freelancer/getCategoryJobList' => "freelancer#getCategoryJobList"
 end
