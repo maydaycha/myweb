@@ -1,9 +1,9 @@
 Sun::Application.routes.draw do
+  get '/email' => 'users#send_mail'
   # get "sessions/create"
   # get "sessions/destroy"
-  get '/facebook/index'=>'third_party_login#index'
-  get '/auth/facebook/callback' => 'third_party_login#create'
-  # get 'oauth/index'
+  get '/facebook/index' => 'third_party_login#index'
+  get '/auth/facebook/callback' => 'third_party_login#facebook_create'
   get '/auth/google_oauth2/callback' => 'third_party_login#google_create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -102,6 +102,7 @@ Sun::Application.routes.draw do
 
   get  '/api/translators/isLogin' => "translators#isLogin"
   post  '/api/translators/isLogin' => "translators#isLogin"
+  # post  '/api/translators/isLogin' => "translators#isLogin"
   # match  '/api/translators/isLogin' => "translators#isLogin", via: :options
 
   post  '/api/translators/login' => "translators#login"
@@ -127,4 +128,7 @@ Sun::Application.routes.draw do
   get  '/freelancer/getProjectDetails' => "freelancer#getProjectDetails"
   get  '/freelancer/storeProjectsDetails' => "freelancer#storeProjectsDetails"
   get  '/freelancer/getCategoryJobList' => "freelancer#getCategoryJobList"
+
+  # users
+  get '/users/login' => 'users#login'
 end

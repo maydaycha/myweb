@@ -137,10 +137,6 @@ myapp.controller('TranslatorsProjectController', [ '$scope', '$http', 'rails_ser
     });
   }
 
-  $scope.test = function(){
-    alert("hi");
-  }
-
   $scope.getProjectAndPublicMessage = function() {
     var url = "/projects/" + $routeParams.projectId + "/edit.json";
     $http.get(url, {withCredentials : true}).success( function(data) {

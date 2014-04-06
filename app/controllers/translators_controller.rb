@@ -3,7 +3,7 @@ require 'digest/md5'
 class TranslatorsController < ApplicationController
 
   # skip_before_filter :verify_authenticity_token
-  before_filter :set_headers
+  before_action :set_headers
 
   def index
     @translators = Translator.all()

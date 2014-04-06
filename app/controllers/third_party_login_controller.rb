@@ -1,6 +1,6 @@
 class ThirdPartyLoginController < ApplicationController
 
-  def create
+  def facebook_create
     puts params[:provider]
     auth_hash = request.env['omniauth.auth']
     if auth_hash
@@ -17,6 +17,8 @@ class ThirdPartyLoginController < ApplicationController
     else
       render :json => { :status => "fail", :reason => "cant access your info" }
     end
+    user_info = auth_hash['info']
+    User.signup_with_social(user_info['first_name'], user_info['last_name'], user_info['email'], '500', user_info['email'], 'facebook', auth_hash['uid'])
     render :json => { :status => "success", :user_info => auth_hash }
   end
 
