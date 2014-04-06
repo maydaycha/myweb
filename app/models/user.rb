@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  validates_presence_of :first_name, :last_name, :email, :country_code
+  validates_presence_of :first_name, :last_name, :email
+  validates_presence_of :country_code, :message => "你的 Email 重複了"
 
   validates_format_of :email, :with => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
 
@@ -16,23 +17,32 @@ class User < ActiveRecord::Base
   end
 
   def self.signup(first_name, last_name, email, country_code, account, password, how_to_know, receive_information)
-    User.create! do |user|
-      user.first_name = first_name
-      user.last_name = last_name
-      user.email = email
-
+    begin
+      User.create! do |user|
+        user.first_name = first_name
+        user.last_name = last_name
+        user.email = email
+      end
+      return { status: "success" }
+    rescue ActiveRecord::RecordInvalid => e
+      return { status: "fail", message: e.message }
     end
   end
 
   def self.signup_with_social( first_name, last_name, email, country_code, account, social_login, social_id )
-    User.create do |user|
-      user.first_name = first_name
-      user.last_name = last_name
-      user.email = email
-      user.country_code = country_code
-      user.account = account
-      user.social_login = social_login
-      user.social_id = social_id
+    begin
+      User.create! do |user|
+        user.first_name = first_name
+        user.last_name = last_name
+        user.email = email
+        user.country_code = country_code
+        user.account = account
+        user.social_login = social_login
+        user.social_id = social_id
+      end
+      return { status: "success" }
+    rescue ActiveRecord::RecordInvalid => e
+      return { status: "fail", message: e.message }
     end
   end
 

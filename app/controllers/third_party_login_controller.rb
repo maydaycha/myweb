@@ -18,8 +18,15 @@ class ThirdPartyLoginController < ApplicationController
       render :json => { :status => "fail", :reason => "cant access your info" }
     end
     user_info = auth_hash['info']
-    User.signup_with_social(user_info['first_name'], user_info['last_name'], user_info['email'], '500', user_info['email'], 'facebook', auth_hash['uid'])
-    render :json => { :status => "success", :user_info => auth_hash }
+    message = User.signup_with_social(user_info['first_name'], user_info['last_name'], user_info['email'])
+    puts message
+    puts message['status']
+    puts message['message']
+    if message['status'] != 'success'
+      render :json => message
+    else
+      render :json => { :status => "success", :user_info => auth_hash }
+    end
   end
 
 
