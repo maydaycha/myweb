@@ -35,7 +35,8 @@ class TranslatorsController < ApplicationController
     if Translator.find_by_account(params[:account])
       render :json => { :status => "fail", :reason => "duplicate" }
     else
-      if Translator.signup!(params[:account], params[:password], params[:name], params[:category])
+      category = 1
+      if Translator.signup!(params[:account], params[:password], params[:name], category)
         render :json => { :status => "success" }
       else
         render :json => { :status => "fail" }
