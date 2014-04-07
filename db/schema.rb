@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20140404183107) do
   end
 
   create_table "project_public_messages", force: true do |t|
-    t.integer  "project_id",                 null: false
+    t.integer  "project_id"
     t.string   "from_user_name"
     t.integer  "from_user_id"
     t.datetime "datetime"
@@ -71,15 +71,6 @@ ActiveRecord::Schema.define(version: 20140404183107) do
     t.integer  "word_count",             default: 0
   end
 
-  create_table "simple_captcha_data", force: true do |t|
-    t.string   "key",        limit: 40
-    t.string   "value",      limit: 6
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
-
   create_table "translators", force: true do |t|
     t.string   "account"
     t.string   "password"
@@ -87,6 +78,14 @@ ActiveRecord::Schema.define(version: 20140404183107) do
     t.datetime "updated_at"
     t.string   "name"
     t.integer  "category",   default: 0
+  end
+
+  create_table "user_durations", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "start_at"
+    t.boolean  "is_head"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_skill_categories", force: true do |t|

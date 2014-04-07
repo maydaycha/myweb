@@ -11,6 +11,19 @@ class FreelancerController < ApplicationController
     @access_token = construct_access_token
   end
 
+  def getUsersBySearch
+    @access_token = construct_access_token()
+    @content = @access_token.get('http://api.freelancer.com/User/getUserDetails.json?username=LibraMa')
+    puts "test"
+    render :json => @content.body
+  end
+
+  def getAccountDetails
+    @access_token = construct_access_token()
+    @content = @access_token.get('http://api.freelancer.com/Profile/getAccountDetails.json')
+    render :json => @content.body
+  end
+
   def searchProjects
     content = @access_token.get("http://api.freelancer.com/Project/searchProjects.json?searchjobtypecsv=#{params[:jobtype]}")
     render :json => content.body

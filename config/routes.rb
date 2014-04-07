@@ -1,10 +1,5 @@
 Sun::Application.routes.draw do
-  get '/email' => 'users#send_mail'
-  # get "sessions/create"
-  # get "sessions/destroy"
-  get '/facebook/index' => 'third_party_login#index'
-  get '/auth/facebook/callback' => 'third_party_login#facebook_create'
-  get '/auth/google_oauth2/callback' => 'third_party_login#google_create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -59,63 +54,41 @@ Sun::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :projects
-  resources :translators
-  resources :project_public_messages
+  # freelancer api
+  namespace :freelancer do
+    get  'searchProjects'
+    get  'getProjectDetails'
+    get  'storeProjectsDetails'
+    get  'getCategoryJobList'
+    get 'getAccountDetails'
+    get 'getUsersBySearch'
+  end
+resources :projects
+  namespace :projects do
+    get  'wirte_job_to_csv'
+    get  'excel_download'
+    get  'update_budget'
+  end
 
-  # get  '/oauth' => "oauth#oauth_process"
-  # get  '/get_access_token' => "oauth#get_access_token"
-  # get  '/api' => "api#construct_access_token"
-  # get  '/getUsersBySearch' => "api#getUsersBySearch"
-  # get  '/getAccountDetails' => "api#getAccountDetails"
+  namespace :translators do
+    get 'login'
+  end
 
-  # get  '/storeProjects' => "projects#storeProjects"
-  # get  '/getProjectDetails' => "projects#getProjectDetails"
-
-  get  '/oauth' => "oauth#oauth_process"
-  get  '/get_access_token' => "oauth#get_access_token"
-  # get    '/api' => "api#construct_access_token"
-  # get    '/getUsersBySearch' => "api#getUsersBySearch"
-  # get    '/getAccountDetails' => "api#getAccountDetails"
-
-  get  '/getProjectDetails' => "projects#getProjectDetails"
-  get  '/storeProjectsDetails' => "projects#storeProjectsDetails"
-  get  '/getCategoryJobList' => "projects#getCategoryJobList"
-  get  '/wirte_job_to_csv' => "projects#wirte_job_to_csv"
-  get  '/excel_download' => "projects#excel_download"
-  get  '/getPublicMessages/:project_id' => "projects#getPublicMessages"
-  get  'project/update_budget' => "projects#update_budget"
+  namespace :oauth do
+    get 'oauth_process'
+    get 'get_access_token'
+  end
 
   # project_public_messages
-  get  '/public_message/edit_via_project/:project_id' => "project_public_messages#edit_via_project"
-  post  '/public_message/update_via_project' => "project_public_messages#update_via_project"
+  # get  '/public_message/edit_via_project/:project_id' => "project_public_messages#edit_via_project"
+  # post  '/public_message/update_via_project' => "project_public_messages#update_via_project"
+
+  namespace :project_public_messages do
+    # get 'edit_via_project/:project_id'
+    get 'update_via_project'
+  end
 
 
-
-  # angular
-  get  '/api/translators' => "translators#index"
-
-  post  '/api/translators/create' => "translators#create"
-  # match "/api/translators/create" => "translators#create", via: :options
-
-  get  '/api/translators/getJobCategory' => "translators#getJobCategory"
-
-  get  '/api/translators/isLogin' => "translators#isLogin"
-  post  '/api/translators/isLogin' => "translators#isLogin"
-  # post  '/api/translators/isLogin' => "translators#isLogin"
-  # match  '/api/translators/isLogin' => "translators#isLogin", via: :options
-
-  post  '/api/translators/login' => "translators#login"
-  # match  "/api/translators/login" => "translators#login", via: :options
-
-  get  '/api/translators/logout' => "translators#logout"
-
-  get  '/api/translators/csrf_token' => "translators#csrf_token"
-
-  get  '/api/translators/get_project_by_translator' => "projects#get_project_by_translator"
-
-  post 'project/update_project_from_angular' => "projects#update_project_from_angular"
-  # match  'project/update_project_from_angular' => "projects#update_project_from_angular", via: :options
 
 
   get '/test' => "users#test"
@@ -123,12 +96,15 @@ Sun::Application.routes.draw do
   get '/set_word_count' => 'projects#set_word_count'
   get '/message/set_word_count' => 'project_public_messages#set_word_count'
 
-  # freelancer api
-  get  '/freelancer/searchProjects' => "freelancer#searchProjects"
-  get  '/freelancer/getProjectDetails' => "freelancer#getProjectDetails"
-  get  '/freelancer/storeProjectsDetails' => "freelancer#storeProjectsDetails"
-  get  '/freelancer/getCategoryJobList' => "freelancer#getCategoryJobList"
 
   # users
   get '/users/login' => 'users#login'
+
+
+  # test
+  get '/email' => 'users#send_mail'
+  get '/facebook/index' => 'third_party_login#index'
+  get '/auth/facebook/callback' => 'third_party_login#facebook_create'
+  get '/auth/google_oauth2/callback' => 'third_party_login#google_create'
+
 end

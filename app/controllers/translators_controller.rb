@@ -64,19 +64,20 @@ class TranslatorsController < ApplicationController
   end
 
 
+  # def login
+  #   if @translator = Translator.find_by_account(params[:account])
+  #     if Digest::MD5.hexdigest(params[:password]) == @translator['password']
+  #       session[:account] = @translator['account']
+  #       render :json => { :status => "success", :session => session, :token => form_authenticity_token }
+  #     else
+  #       render :json => { :status => "fail", :reason => "password error" }
+  #     end
+  #   else
+  #     render :json => { :status => "fail", :reason => "not such account" }
+  #   end
+  # end
   def login
-    if @translator = Translator.find_by_account(params[:account])
-      if Digest::MD5.hexdigest(params[:password]) == @translator['password']
-        session[:account] = @translator['account']
-        render :json => { :status => "success", :session => session, :token => form_authenticity_token }
-      else
-        render :json => { :status => "fail", :reason => "password error" }
-      end
-    else
-      render :json => { :status => "fail", :reason => "not such account" }
-    end
   end
-
 
   def logout
     session.delete(:account)

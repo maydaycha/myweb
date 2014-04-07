@@ -1,0 +1,8 @@
+<%= form_for @translator, :url => translators_path do |f| %>
+    <%= f.label :account, "Account" %>
+    <%= f.text_field :account %>
+
+    <%= f.label :password, "Password" %>
+    <%= f.text_field :password %>
+    <%= f.submit "Create" %>
+<% end %>
