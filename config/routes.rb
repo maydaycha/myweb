@@ -1,5 +1,6 @@
 Sun::Application.routes.draw do
-  get '/email' => 'users#send_mail'
+  
+  # get '/email' => 'users#send_mail'
   # get "sessions/create"
   # get "sessions/destroy"
   get '/facebook/index' => 'third_party_login#index'
@@ -118,7 +119,7 @@ Sun::Application.routes.draw do
   # match  'project/update_project_from_angular' => "projects#update_project_from_angular", via: :options
 
 
-  get '/test' => "users#test"
+  # get '/test' => "users#test"
 
   get '/set_word_count' => 'projects#set_word_count'
   get '/message/set_word_count' => 'project_public_messages#set_word_count'
@@ -129,6 +130,6 @@ Sun::Application.routes.draw do
   get  '/freelancer/storeProjectsDetails' => "freelancer#storeProjectsDetails"
   get  '/freelancer/getCategoryJobList' => "freelancer#getCategoryJobList"
 
-  # users
-  get '/users/login' => 'users#login'
+  root to: "users#index"
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
 end

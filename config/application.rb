@@ -22,5 +22,7 @@ module Sun
 
     config.serve_static_assets = true
     config.encoding = "utf-8"
+    
+    config.assets.initialize_on_precompile = false
   end
 end

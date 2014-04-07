@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404183107) do
+ActiveRecord::Schema.define(version: 20140407073440) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20140404183107) do
   end
 
   create_table "project_public_messages", force: true do |t|
-    t.integer  "project_id",                 null: false
+    t.integer  "project_id"
     t.string   "from_user_name"
     t.integer  "from_user_id"
     t.datetime "datetime"
@@ -71,15 +71,6 @@ ActiveRecord::Schema.define(version: 20140404183107) do
     t.integer  "word_count",             default: 0
   end
 
-  create_table "simple_captcha_data", force: true do |t|
-    t.string   "key",        limit: 40
-    t.string   "value",      limit: 6
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
-
   create_table "translators", force: true do |t|
     t.string   "account"
     t.string   "password"
@@ -87,6 +78,14 @@ ActiveRecord::Schema.define(version: 20140404183107) do
     t.datetime "updated_at"
     t.string   "name"
     t.integer  "category",   default: 0
+  end
+
+  create_table "user_durations", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "start_at"
+    t.boolean  "is_head"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_skill_categories", force: true do |t|
@@ -105,32 +104,36 @@ ActiveRecord::Schema.define(version: 20140404183107) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "phone"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "account"
-    t.string   "password"
-    t.string   "country_code"
-    t.string   "city"
-    t.integer  "from"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.integer  "failed_attempts",        default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
+    t.string   "account",                             null: false
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
+    t.string   "country_code",                        null: false
     t.string   "how_to_know"
     t.boolean  "receive_information"
-    t.integer  "siguup_step"
-    t.integer  "pay_per_hour"
-    t.integer  "zip_code"
-    t.binary   "picture"
-    t.boolean  "email_verified"
-    t.boolean  "phone_verified"
-    t.boolean  "payment_verified"
-    t.integer  "type"
-    t.datetime "last_login_at"
-    t.string   "brief_introduction"
-    t.text     "detailed_introduction"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "social_login"
-    t.string   "social_id"
   end
+
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
 
 end

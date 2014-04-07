@@ -27,4 +27,8 @@ class UsersController < ApplicationController
     render :json => { status: "success"}
   end
 
+  def index
+    
+  end
+
 end

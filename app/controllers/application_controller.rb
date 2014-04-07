@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
   def set_headers
     # headers['Access-Control-Allow-Origin'] = 'http://140.113.72.8'
@@ -11,6 +12,16 @@ class ApplicationController < ActionController::Base
     headers['Access-Control-Allow-Headers'] = '*, x-requested-with, Content-Type, Accept, If-Modified-Since, If-None-Match, X-CSRF-Token'
     headers['Access-Control-Allow-Credentials'] = 'true'
     # headers['Access-Control-Max-Age'] = '86400'
+  end
+
+
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:account, :first_name, :last_name, :country_code, :email, :password, :password_confirmation, :remember_me, :how_to_know, :receive_information) }
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :account, :password, :remember_me) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:account, :email, :password, :password_confirmation, :current_password) }
   end
 
 end

@@ -1,12 +1,18 @@
 class User < ActiveRecord::Base
-  validates_presence_of :first_name, :last_name, :email
-  validates_presence_of :country_code, :message => "你的 Email 重複了"
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
+  
+  attr_accessor :login
 
-  validates_format_of :email, :with => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
-
-  has_many :user_skill_category
-  has_many :user_skill
-  has_many :user_duration
+  validates_presence_of :first_name, :message => "姓氏未填寫"
+  validates_presence_of :last_name, :message => "名字未填寫"
+  validates_presence_of :country_code, :message => "地區未選取"
+  validates_presence_of :email, :message => "Email未填寫"
+  validates_presence_of :account, :message => "帳號未填寫"
+  validates_uniqueness_of :email, :message => "Email重複了"
+  validates_uniqueness_of :account, :message => "帳號重複了"
 
   def self.has_email?(email)
     self.where(:email => email).limit(1).size > 0
@@ -16,45 +22,11 @@ class User < ActiveRecord::Base
     self.where(:account => account).limit(1).size > 0
   end
 
-  def self.signup(first_name, last_name, email, country_code, account, password, how_to_know, receive_information)
-    begin
-      User.create! do |user|
-        user.first_name = first_name
-        user.last_name = last_name
-        user.email = email
-      end
-      return { status: "success" }
-    rescue ActiveRecord::RecordInvalid => e
-      return { status: "fail", message: e.message }
-    end
+  def login=(login)
+    @login = login
   end
 
-  def self.signup_with_social( first_name, last_name, email, country_code, account, social_login, social_id )
-    begin
-      User.create! do |user|
-        user.first_name = first_name
-        user.last_name = last_name
-        user.email = email
-        user.country_code = country_code
-        user.account = account
-        user.social_login = social_login
-        user.social_id = social_id
-      end
-      return { status: "success" }
-    rescue ActiveRecord::RecordInvalid => e
-      return { status: "fail", message: e.message }
-    end
+  def login
+    @login || self.username
   end
-
-  def self.login(account, password)
-    if user = User.find_by_account(account)
-      return true if user.password == password
-    end
-    return false
-  end
-
-  def setProfile
-  end
-
-
 end
