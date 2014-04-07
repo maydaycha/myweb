@@ -79,4 +79,7 @@ Sun::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  #  prevent asset pipeline may break some of your AngularJS code due to renaming.
+  config.assets.js_compressor = Uglifier.new(mangle: false)
 end

@@ -39,4 +39,6 @@ Sun::Application.configure do
     :user_name => "maydaycha@sun-innovation.com",
     :password => "a047226657"
   }
+
+  config.assets.js_compressor = Uglifier.new(mangle: false)
 end
