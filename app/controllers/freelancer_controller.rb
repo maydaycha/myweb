@@ -82,13 +82,12 @@ class FreelancerController < ApplicationController
   end
 
   def getCategoryJobList
-    @access_token = construct_access_token()
     content = @access_token.get("http://api.freelancer.com/Job/getCategoryJobList.json")
-    # hash = JSON.parse content.body
-    # hash['json-result']['items']['category'].each do |ele, index|
-    # puts "#{ele['id']}, #{ele['name']}"
-    # project_category = ProjectCategory.create( :id => ele['id'], :name => ele['name'])
-    # end
+    hash = JSON.parse content.body
+    hash['json-result']['items']['category'].each do |ele, index|
+    puts "#{ele['id']}, #{ele['name']}"
+    project_category = ProjectCategory.create( :id => ele['id'], :name => ele['name'])
+    end
     render :json => content.body
   end
 

@@ -3,20 +3,18 @@ require "csv"
 
 class ProjectsController < ApplicationController
 
-  before_filter :set_headers
-  # before_action :set_headers
+  before_action :set_headers
 
   def index
     @projects = Project.all
-    # @category = ProjectCategory.all
-    # @translators = Translator.all
+    @category = ProjectCategory.all
+    @translators = Translator.all
     @project_list = []
-    @projects.each do |p|
-      @project_list << JSON::parse(p.to_json).merge("have_public_message" => p.has_public_mesage?)
-    end
+    # @projects.each do |p|
+    # @project_list << JSON::parse(p.to_json).merge("have_public_message" => p.has_public_mesage?)
+    # end
     respond_to do |format|
-      format.html { render :html => [ @projects] }
-      format.json { render :json => @project_list.as_json }
+      format.html { render :html => [ @projects, @category, @translators] }
     end
   end
 
