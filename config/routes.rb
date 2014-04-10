@@ -68,6 +68,10 @@ Sun::Application.routes.draw do
     get 'getUsersBySearch'
   end
 
+  namespace :odesks do
+    get 'search_jobs'
+  end
+
   namespace :projects do
     get 'wirte_job_to_csv'
     get 'excel_download'
@@ -87,10 +91,10 @@ Sun::Application.routes.draw do
   end
   resources :translators
 
-  namespace :oauth do
-    get 'oauth_process'
-    get 'get_access_token'
-  end
+
+  get 'oauth_start/:source' => 'oauth#oauth_start', :as => :oauth_start
+  get 'get_access_token/:source' => 'oauth#get_access_token', :as => :get_access_token
+
 
   namespace :project_public_messages do
     get 'edit_via_project/:project_id' => 'project_public_messages#edit_via_project'

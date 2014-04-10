@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407073440) do
+ActiveRecord::Schema.define(version: 20140410033837) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140407073440) do
     t.string   "secret"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "source"
   end
 
   create_table "project_categories", force: true do |t|

@@ -1,25 +1,23 @@
-require 'oauth_token'
+# require 'oauth_token'
 require 'json'
 
 class FreelancerController < ApplicationController
-  include Token
+  # include Token
 
   before_filter :get_access_token
   before_filter :set_headers
 
   def get_access_token
-    @access_token = construct_access_token
+    @access_token = Oauth.construct_access_token('freelancer')
   end
 
   def getUsersBySearch
-    @access_token = construct_access_token()
     @content = @access_token.get('http://api.freelancer.com/User/getUserDetails.json?username=LibraMa')
     puts "test"
     render :json => @content.body
   end
 
   def getAccountDetails
-    @access_token = construct_access_token()
     @content = @access_token.get('http://api.freelancer.com/Profile/getAccountDetails.json')
     render :json => @content.body
   end

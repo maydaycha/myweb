@@ -1,0 +1,35 @@
+<div style="display:table; margin:50px auto;">
+    <h2>翻譯列表</h2>
+    <span>翻譯人員：<%= Translator.find(session[:transator_id]).name %></span>
+    <%= link_to "Logout", translators_logout_path, class: 'logout' %>
+    <table style="width:1000px;">
+        <thead style="background-color: rgb(112, 197, 236);">
+            <th style="width:220px;">name</th>
+            <th>public message</th>
+            <th>translate stauts</th>
+            <th>word count</th>
+            <th>datetime</th>
+        </thead>
+        <% @projects.each do |p| %>
+        <tr>
+            <td><%= link_to p.name, translators_edit_project_path(:id => p.id) %></td>
+            <td>
+                <% if p.has_public_mesage? %>
+                <span style="color:green;">has message</span>
+                <% end %>
+            </td>
+            <td>
+                <% if p.is_translation != 0 %>
+                <span style="color:red;">translated</span>
+                <% end %>
+            </td>
+            <td><%= p.word_count %></td>
+            <td><%= p.created_at.to_s.split("U")[0] %></td>
+        </tr>
+        <% end %>
+        <tr>
+            <td colspan="3"></td>
+            <td>total words: <%= Project.get_total_words(@projects) %></td>
+        </tr>
+    </table>
+</div>

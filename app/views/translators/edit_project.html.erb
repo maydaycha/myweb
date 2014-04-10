@@ -1,0 +1,30 @@
+<div style="display:table; margin:0 auto;">
+  <h3>翻譯專案</h3>
+  <%= form_for @project, url: translators_update_project_and_message_path do |f| %>
+  <%= f.hidden_field :id, :value => @project.id %>
+  <h4>Name:</h4>
+  <ul>
+      <li><%= @project.name %></li>
+      <li><%= f.text_field :name_chinese, autofocus: true %></li>
+  </ul>
+
+  <h3>Description:</h3>
+  <ul>
+      <li><%= @project.description %></li>
+      <li><%= f.text_area :description_chinese %></li>
+  </ul>
+
+  <% if @project.has_public_mesage? %>
+  <h3>Public message:</h3>
+  <% @project.get_public_message.each do |m| %>
+  <ul>
+      <li><%= m.text %></li>
+      <li><%= f.text_area :public_message %></li>
+  </ul>
+  <% end %>
+  <% end %>
+  <%= f.submit "save" %>
+  <% end %>
+</div>
+
+

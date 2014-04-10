@@ -7,7 +7,7 @@ class TranslatorsController < ApplicationController
 
 
   def index
-    @translators = Translator.all()
+    @translators = Translator.all
     respond_to do |format|
       format.html
       format.json { render :json => @translators.to_json, :callback => params[:callback] }
@@ -117,7 +117,6 @@ class TranslatorsController < ApplicationController
   def csrf_token
     render :json => { :status => "success" , :csrfmiddlewaretoken => form_authenticity_token }, :callback => params[:callback]
   end
-
 
 
 end
