@@ -1,8 +1,16 @@
-<%= form_for @translator, :url => translators_path do |f| %>
+<div style="display:table; margin:50px auto;">
+    <%= form_for @translator, :url => translators_path do |f| %>
     <%= f.label :account, "Account" %>
     <%= f.text_field :account %>
 
     <%= f.label :password, "Password" %>
     <%= f.text_field :password %>
+
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+
+    <%= select :project_category, "id", ProjectCategory.all.collect { |p| [ p.name, p.id ] }  %>
+
     <%= f.submit "Create" %>
-<% end %>
+    <% end %>
+</div>

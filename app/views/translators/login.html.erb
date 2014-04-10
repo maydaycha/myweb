@@ -1,8 +1,13 @@
-<%= form_for @translator, :url => translators_path do |f| %>
-    <%= f.label :account, "Account" %>
-    <%= f.text_field :account %>
+<div style="display: table; margin:50px auto;">
+<%= form_tag translators_authentication_path do %>
+    <%= label :account, "Account" %>
+    <%= text_field_tag :account %>
 
-    <%= f.label :password, "Password" %>
-    <%= f.text_field :password %>
-    <%= f.submit "Create" %>
+    <%= label :password, "Password" %>
+    <%= password_field_tag :password %>
+    <br>
+    <%= submit_tag "Login" %>
+    <hr>
+    <%= link_to "Sign Up", new_translator_path, :method => :get %>
 <% end %>
+</div>

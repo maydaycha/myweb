@@ -16,14 +16,17 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def self.get_total_words(projects)
+    sum = 0
+    projects.each do |p| sum += p.word_count end
+    return sum
+  end
+
   #instance method
   def has_public_mesage?
     ProjectPublicMessage.where(:project_id => self.outside_id).limit(1).size > 0
   end
 
-  def has_public_mesage_two?
-    return { :status => ProjectPublicMessage.where(:project_id => self.outside_id).limit(1).size > 0 }
-  end
 
   def get_public_message
     ProjectPublicMessage.where(:project_id => self.outside_id)
@@ -36,5 +39,6 @@ class Project < ActiveRecord::Base
   def get_translator_name
     Translator.find_by_id(self.translators) ? Translator.find(self.translators).name : "dont have translator"
   end
+
 
 end

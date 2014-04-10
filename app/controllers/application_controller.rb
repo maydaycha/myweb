@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     # headers['Access-Control-Max-Age'] = '86400'
   end
 
+  def is_admin?
+    return session[:admin] != nil
+  end
+
 
 
   protected

@@ -1,3 +1,19 @@
 // Place all the styles related to the translators controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+th {
+    // padding-left: 50px;
+    width:80px;
+}
+tr td {
+    // padding-left: 50px;
+    text-align: center;
+}
+
+.logout{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}

@@ -5,6 +5,7 @@ class TranslatorsController < ApplicationController
   # skip_before_filter :verify_authenticity_token
   before_action :set_headers
 
+
   def index
     @translators = Translator.all()
     respond_to do |format|
@@ -13,42 +14,39 @@ class TranslatorsController < ApplicationController
     end
   end
 
+
   def show
     @translator = Translator.find(params[:id])
   end
+
 
   def edit
     @translator = Translator.find(params[:id])
   end
 
+
   def new
     @translator = Translator.new
   end
 
-  # def create
-  # @translator = Translator.new(params.permit![:translator])
-  # @translator.save
-  # redirect_to translators_url
-  # end
 
   def create
-    if Translator.find_by_account(params[:account])
-      render :json => { :status => "fail", :reason => "duplicate" }
+    @translator = params[:translator]
+    if Translator.find_by_account(@translator[:account])
+      redirect_to new_translator_path, :alert => "dupicate"
     else
-      category = 1
-      if Translator.signup!(params[:account], params[:password], params[:name], category)
-        render :json => { :status => "success" }
-      else
-        render :json => { :status => "fail" }
-      end
+      Translator.signup!(@translator['account'], @translator['password'], @translator['name'], params['project_category']['id'])
+      redirect_to translators_login_path
     end
   end
+
 
   def update
     @translator = Translator.find(params[:id])
     @translator.update(params.permit![:translator])
     redirect_to translator_path(@translator)
   end
+
 
   def destroy
     @translator = Translator.find(params[:id])
@@ -57,44 +55,69 @@ class TranslatorsController < ApplicationController
   end
 
 
-
   def getJobCategory
     @category = ProjectCategory.all(:select => "id, name")
     render :json => @category.to_json
   end
 
 
-  # def login
-  #   if @translator = Translator.find_by_account(params[:account])
-  #     if Digest::MD5.hexdigest(params[:password]) == @translator['password']
-  #       session[:account] = @translator['account']
-  #       render :json => { :status => "success", :session => session, :token => form_authenticity_token }
-  #     else
-  #       render :json => { :status => "fail", :reason => "password error" }
-  #     end
-  #   else
-  #     render :json => { :status => "fail", :reason => "not such account" }
-  #   end
-  # end
+  def projects
+    checkLogin
+    if @projects = Project.where(:translators => session[:transator_id])
+    end
+  end
+
+
   def login
   end
 
-  def logout
-    session.delete(:account)
-    render :json => { :status => "success", :session => session[:account] }
+
+  def authentication
+    if @translator = Translator.find_by_account(params[:account])
+      session[:transator_id] = @translator.id
+      return redirect_to( @translator.password == Digest::MD5.hexdigest(params[:password]) ? translators_projects_path : translators_login_path)
+    end
+    redirect_to translators_login_path
   end
 
-  def isLogin
-    puts "session"
-    puts session[:account]
-    if session[:account]
-      render :json => { :status => "success", :isLogin => true, :account => session[:account]}
-    else
-      render :json => { :status => "success", :isLogin => false, :account => session[:account]}
-    end
+
+  def logout
+    session.delete(:transator_id)
+    redirect_to translators_login_path
   end
+
+
+  def checkLogin
+    return redirect_to translators_login_path if session[:transator_id] == nil
+  end
+
+
+  def edit_project
+    checkLogin
+    @project = Project.find(params[:id])
+  end
+
+
+  def update_project_and_message
+    checkLogin
+    @project = Project.find(params[:project][:id])
+    @project.name_chinese = params[:project][:name_chinese]
+    @project.description_chinese = params[:project][:description_chinese]
+    @project.is_translation = 1
+    @project.save
+    if params[:project][:public_message]
+      @public_message = ProjectPublicMessage.find_by_project_id(@project.outside_id)
+      @public_message.text_chinese = params[:project][:public_message]
+      @public_message.save
+    end
+    redirect_to translators_projects_path
+  end
+
 
   def csrf_token
     render :json => { :status => "success" , :csrfmiddlewaretoken => form_authenticity_token }, :callback => params[:callback]
   end
+
+
+
 end

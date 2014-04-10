@@ -1,4 +1,7 @@
 Sun::Application.routes.draw do
+  get "admins/index"
+  get "admins/login"
+  get "admins/authenticaiotn"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,41 +56,47 @@ Sun::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+
   # freelancer api
   namespace :freelancer do
-    get  'searchProjects'
-    get  'getProjectDetails'
-    get  'storeProjectsDetails'
-    get  'getCategoryJobList'
+    get 'searchProjects'
+    get 'getProjectDetails'
+    get 'storeProjectsDetails'
+    get 'getCategoryJobList'
     get 'getAccountDetails'
     get 'getUsersBySearch'
   end
-resources :projects
+
   namespace :projects do
-    get  'wirte_job_to_csv'
-    get  'excel_download'
-    get  'update_budget'
+    get 'wirte_job_to_csv'
+    get 'excel_download'
+    get 'update_budget'
+    get 'set_word_count'
   end
+  resources :projects
+
 
   namespace :translators do
     get 'login'
+    get 'logout'
+    post 'authentication'
+    get 'projects'
+    get 'edit_project'
+    patch 'update_project_and_message'
   end
+  resources :translators
 
   namespace :oauth do
     get 'oauth_process'
     get 'get_access_token'
   end
 
-  # project_public_messages
-  # get  '/public_message/edit_via_project/:project_id' => "project_public_messages#edit_via_project"
-  # post  '/public_message/update_via_project' => "project_public_messages#update_via_project"
-
   namespace :project_public_messages do
-    # get 'edit_via_project/:project_id'
+    get 'edit_via_project/:project_id' => 'project_public_messages#edit_via_project'
     get 'update_via_project'
   end
 
-  get '/set_word_count' => 'projects#set_word_count'
   get '/message/set_word_count' => 'project_public_messages#set_word_count'
 
   # test maydaycha

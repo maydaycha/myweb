@@ -20,10 +20,6 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @translators = Translator.all
-    respond_to do |format|
-      format.json { render :json => @project.as_json }
-    end
   end
 
   def edit
