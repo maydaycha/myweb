@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
+
 
   layout :layout_by_resource
 
@@ -21,6 +23,13 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def set_locale
+    logger.info "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
+    I18n.locale = extract_locale_from_accept_language_header
+    # I18n.locale = 'es'
+    logger.info "* Locale set to '#{I18n.locale}'"
+  end
+
 
   protected
 
@@ -36,6 +45,16 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :first_name, :last_name, :country_code, :time_zone, :email, :password, :password_confirmation, :remember_me, :how_to_know, :receive_information) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
+  end
+
+
+
+
+  private
+
+  def extract_locale_from_accept_language_header
+    # request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+    request.env['HTTP_ACCEPT_LANGUAGE'].split(/,/)[0]
   end
 
 end

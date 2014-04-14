@@ -114,6 +114,15 @@ ActiveRecord::Schema.define(version: 20140414075207) do
     t.datetime "updated_at"
   end
 
+  create_table "user_translations", force: true do |t|
+    t.integer  "user_id"
+    t.string   "language"
+    t.text     "description_in_short"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description_in_detail"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -142,6 +151,9 @@ ActiveRecord::Schema.define(version: 20140414075207) do
     t.binary   "picture"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description_in_short"
+    t.text     "description_in_detail"
+    t.string   "time_zone",              default: "UTC"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
