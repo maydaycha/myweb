@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  layout :layout_by_resource
+
   def set_headers
     # headers['Access-Control-Allow-Origin'] = 'http://140.113.72.8'
     headers['Access-Control-Allow-Origin'] = 'http://localhost'
@@ -22,8 +24,16 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def layout_by_resource
+    if devise_controller?
+      "user"
+    else
+      "application"
+    end
+  end
+
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:account, :first_name, :last_name, :country_code, :email, :password, :password_confirmation, :remember_me, :how_to_know, :receive_information) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:account, :first_name, :last_name, :country_code, :time_zone, :email, :password, :password_confirmation, :remember_me, :how_to_know, :receive_information) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :account, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:account, :email, :password, :password_confirmation, :current_password) }
   end

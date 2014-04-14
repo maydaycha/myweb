@@ -111,5 +111,7 @@ Sun::Application.routes.draw do
 
   # test scott
   root to: "users#index"
+
   devise_for :users, :controllers => { registrations: 'users/registrations' }
+
 end

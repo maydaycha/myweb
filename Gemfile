@@ -60,20 +60,19 @@ gem 'mysql2'
 # ActiveRecord session
 #gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
-# gem 'rmagick', '2.13.2'
-
 gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 gem "recaptcha", :require => "recaptcha/rails"
 
-
-# facebook
-gem 'omniauth'
-gem 'omniauth-facebook','1.4.0'
 gem 'certified'
 gem 'thin'
 
-# google
+gem 'omniauth'
+gem 'omniauth-facebook','1.4.0'
 gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'omniauth-weibo-oauth2'
 
 gem 'devise'
 gem 'bcrypt'
+
+gem 'country_select'
+gem 'carmen-rails'

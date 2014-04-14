@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
   
-  attr_accessor :login
-
   validates_presence_of :first_name, :message => "姓氏未填寫"
   validates_presence_of :last_name, :message => "名字未填寫"
   validates_presence_of :country_code, :message => "地區未選取"
@@ -22,11 +20,4 @@ class User < ActiveRecord::Base
     self.where(:account => account).limit(1).size > 0
   end
 
-  def login=(login)
-    @login = login
-  end
-
-  def login
-    @login || self.username
-  end
 end
