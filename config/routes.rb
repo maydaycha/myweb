@@ -106,12 +106,15 @@ Sun::Application.routes.draw do
   # test maydaycha
   get '/email' => 'users#send_mail'
   get '/facebook/index' => 'third_party_login#index'
-  get '/auth/facebook/callback' => 'third_party_login#facebook_create'
   get '/auth/google_oauth2/callback' => 'third_party_login#google_create'
 
   # test scott
   root to: "users#index"
 
   devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks" }
+
+  devise_scope :user do
+    get 'new2', to: 'users/registrations#new2', :as => :new2_user_registration
+  end
 
 end

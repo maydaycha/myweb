@@ -11,9 +11,8 @@
 <% end %>
 </ul>
 <%= link_to 'New translator', new_translator_path %>
-<span><a href="/auth/facebook">facebook login</a></span>
+<li><%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %></li>
 <span><a href="/auth/google_oauth2">google login</a></span>
-<button onclick="test()">ettt</button>
 
 
 <h3>{{test}}</h3>

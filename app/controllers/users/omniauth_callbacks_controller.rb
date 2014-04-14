@@ -20,8 +20,13 @@ class Users::OmniauthCallbacksController < ApplicationController
       flash[:notice] = "Authentication successful."
       sign_in_and_redirect current_user
     else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
+      session["devise:provider"] = request.env["omniauth.auth"]["provider"]
+      session["devise:uid"] = request.env["omniauth.auth"]["uid"]
+      session["devise:info"] = request.env["omniauth.auth"]["info"]
+      session["devise:token"] = request.env["omniauth.auth"]["credentials"]["token"]
+      redirect_to new2_user_registration_path
+
+
       # user = User.new
       # user.first_name = omni['extra']['raw_info'].first_name
       # user.last_name = omni['extra']['raw_info'].last_name
@@ -41,6 +46,6 @@ class Users::OmniauthCallbacksController < ApplicationController
   end
 
   def google_oauth2
-  	
+    return render :json => { content: request.env["omniauth.auth"] }
   end
 end

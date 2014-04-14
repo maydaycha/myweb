@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable,
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
-  
+
   validates_presence_of :first_name, :message => "姓氏未填寫"
   validates_presence_of :last_name, :message => "名字未填寫"
   validates_presence_of :country_code, :message => "地區未選取"
@@ -24,9 +24,9 @@ class User < ActiveRecord::Base
   end
 
   def apply_omniauth(omni)
-    user_authentications.build(:provider => omni['provider'], 
-                               :uid => omni['uid'], 
-                               :token => omni['credentials'].token, 
+    user_authentications.build(:provider => omni['provider'],
+                               :uid => omni['uid'],
+                               :token => omni['credentials'].token,
                                :token_secret => omni['credentials'].secret)
   end
 
@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   def password_required?
     (user_authentications.empty? || !password.blank?) && super #&& provider.blank?
   end
-  
+
   def update_with_password(params, *options)
     if encrypted_password.blank?
       update_attributes(params, *options)
