@@ -4,16 +4,16 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label :first_name %><br />
-  <%= f.text_field :first_name, autofocus: true %></div>  
+  <%= f.text_field :first_name, autofocus: true %></div>
 
   <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>  
+  <%= f.text_field :last_name %></div>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email%></div>
 
   <div><%= f.label :country_code %><br />
-  <%= f.country_select :country_code %></div>
+  <%= f.localized_country_select :country_code %></div>
 
   <div>Time_zone<br />
   <%= f.time_zone_select :time_zone %></div>

@@ -75,5 +75,12 @@ gem 'omniauth-weibo-oauth2'
 gem 'devise'
 gem 'bcrypt'
 
-gem 'country_select'
+# gem 'country_select'
+gem 'localized_country_select', '>= 0.9.8'
 gem 'carmen-rails'
+gem 'nokogiri' # for get country from CLDR
+
+gem 'i18n-timezones'
+gem 'i18n-country-translations'
+
+
