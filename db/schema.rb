@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414031110) do
+ActiveRecord::Schema.define(version: 20140414050337) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -104,6 +104,15 @@ ActiveRecord::Schema.define(version: 20140414031110) do
     t.datetime "updated_at"
   end
 
+  create_table "user_translations", force: true do |t|
+    t.integer  "user_id"
+    t.string   "language"
+    t.text     "description_in_short"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description_in_detail"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -130,6 +139,8 @@ ActiveRecord::Schema.define(version: 20140414031110) do
     t.boolean  "receive_information"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description_in_short"
+    t.text     "description_in_detail"
     t.string   "time_zone",              default: "UTC"
   end
 
