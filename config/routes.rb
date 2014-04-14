@@ -112,6 +112,6 @@ Sun::Application.routes.draw do
   # test scott
   root to: "users#index"
 
-  devise_for :users, :controllers => { registrations: 'users/registrations' }
+  devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks" }
 
 end

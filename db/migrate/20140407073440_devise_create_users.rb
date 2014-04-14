@@ -31,12 +31,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime :locked_at
 
       # self-defined
-      t.string :account, null:false, :unique => true
+      t.string :username, null:false, :unique => true
       t.string :first_name, null: false
       t.string :last_name, null: false
       t.string :country_code, null: false
+      t.string :time_zone, :limit => 255, :default => "UTC"
       t.string :how_to_know
       t.boolean :receive_information
+
+      t.binary :picture
 
       t.timestamps
     end

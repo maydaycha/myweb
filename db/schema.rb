@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414031110) do
+ActiveRecord::Schema.define(version: 20140414075207) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -81,6 +81,16 @@ ActiveRecord::Schema.define(version: 20140414031110) do
     t.integer  "category",   default: 0
   end
 
+  create_table "user_authentications", force: true do |t|
+    t.string   "user_id",      null: false
+    t.string   "provider",     null: false
+    t.string   "uid",          null: false
+    t.string   "token"
+    t.string   "token_secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_durations", force: true do |t|
     t.integer  "user_id"
     t.datetime "start_at"
@@ -122,15 +132,16 @@ ActiveRecord::Schema.define(version: 20140414031110) do
     t.integer  "failed_attempts",        default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "account",                                null: false
+    t.string   "username",                               null: false
     t.string   "first_name",                             null: false
     t.string   "last_name",                              null: false
     t.string   "country_code",                           null: false
+    t.string   "time_zone",              default: "UTC"
     t.string   "how_to_know"
     t.boolean  "receive_information"
+    t.binary   "picture"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "time_zone",              default: "UTC"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
