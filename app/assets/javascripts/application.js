@@ -1,3 +1,4 @@
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -15,6 +16,7 @@
 //= require turbolinks
 
 
+
 // angular js
 //= require lib/angular.min
 //= require lib/angular-route.min
@@ -24,3 +26,4 @@
 
 
 
+//= require_tree .

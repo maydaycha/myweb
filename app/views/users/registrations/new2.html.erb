@@ -1,44 +1,214 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div>First Name: <%= resource.first_name %><br />
-  <%= f.hidden_field :first_name, autofocus: true %></div>
-
-  <div>Last Name: <%= resource.last_name %><br />
-  <%= f.hidden_field :last_name %></div>
-
-  <div>Email: <%= resource.email %><br />
-  <%= f.hidden_field :email%></div>
-
-  <div><%= f.label :country_code %><br />
-  <%= f.localized_country_select :country_code %></div>
-
-  <div>Time_zone<br />
-  <%= f.time_zone_select :time_zone %></div>
-
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username %></div>
-
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.label :how_to_know %><br />
-  <%= f.text_field :how_to_know %></div>
-
-  <div><%= :receive_information %><%= f.check_box_tag :receive_information %></div><br>
-
-  <div><%= recaptcha_tags %></div>
-
-  <div><%= f.submit "Sign up" %></div>
 
 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+  <title>快樂工作</title>
+
+</head>
+<body>
+  <!-- BEGIN NAVBAR -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+        <i class="fa fa-search"></i>
+      </button>
+      <a class="navbar-brand" href="index.html"><img class="navbar-logo" src="/assets/logo208.png" alt="快樂工作"></a>
+    </div>
+    <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+      <div class="navbar-search">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li><a href="login.html">會員登入</a></li>
+        <li><a href="sign_up.html">免費註冊</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- END NAVBAR -->
+  <!-- BEGIN PAGE -->
+  <div class="page-content">
+    <!-- BEGIN MODAL -->
+    <div class="modal fade" id="rule" tabindex="-1" role="rule" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">使用條約</h4>
+          </div>
+          <div class="modal-body">
+           使用條約使用條約使用條約使用條約使用條約使用條約使用條約使用條約使用條約
+         </div>
+         <div class="modal-footer">
+          <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- END MODAL -->
+  <h1 class="title">免費建立個人帳號</h1>
+
+  <!-- BEGIN MAIN CONTENT -->
+  <div class="main-content">
+    <!-- /.modal -->
+    <!-- BRGIN FORM -->
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "signUp-form", id: "signUp-form"}) do |f| %>
+    <div class="form-group alert alert-danger display-hide">
+      請檢查您輸入的資料
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <div class="input-icon right">
+          <i class="fa"></i>
+          <span class="form-control"><%= resource.first_name %></span>
+          <%= f.hidden_field :first_name, autofocus: true %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <span class="form-control"><%= resource.last_name %></span>
+        <%= f.hidden_field :last_name %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+        <div class="input-icon right">
+          <i class="fa"></i>
+          <span class="form-control"><%= resource.email %> </span>
+          <%= f.hidden_field :email%>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+        <!-- <input type="text" class="form-control" name="location" placeholder="所在地區"> -->
+        <%= f.localized_country_select :country_code, class: "form-control", placeholder: "所在地區" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+        <!-- <input type="text" class="form-control" name="location" placeholder="所在地區"> -->
+        <%= f.time_zone_select :time_zone %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
+        <div class="input-icon right">
+          <i class="fa"></i>
+          <!-- <input type="text" class="form-control" name="username" placeholder="使用者帳號" data-isEmpty="請輸入帳號" data-isError="帳號長度不足" data-isExists="帳戶名稱已經有人使用"> -->
+          <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號" %>
+          <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+        <div class="input-icon right">
+          <i class="fa"></i>
+          <!-- <input type="password" class="form-control" name="password" placeholder="設定密碼" data-isEmpty="請輸入密碼" data-isError="密碼長度不足"> -->
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", name: "password", placeholder: "設定密碼" %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group recommend">
+      <div class="input-icon right">
+        <i class="fa fa-info-circle" data-original-title="如果您是透過朋友推薦得知本網站，建議您填寫朋友姓名。"></i>
+        <!-- <input type="text" class="form-control" name="recommend" placeholder="從何處得知網站訊息？"> -->
+        <%= f.text_field :how_to_know, class: "form-control", name: "recommend", placeholder: "從何處得知網站訊息? " %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-icon right">
+        <i class="fa"></i>
+        <input type="text" class="form-control" name="verification" placeholder="輸入以下識別碼" data-isEmpty="請輸入識別碼" data-isError="錯誤! 請輸入正確的識別碼">
+        <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
+      </div>
+    </div>
+    <div class="form-group imageVerification">
+      <img src="/assets/u44.png" alt="">
+      <p>未確保您不是惡意註冊，請輸入左方顯示的英文單字。</p>
+      <div class="clear"></div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> 我想收到關於網站最新的資訊及動態，若您不想收到類似訊息，請取消勾選。
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div><%= f.submit "我要註冊", class: "btn" %></div>
+    </div>
+    <p class="rule">完成註冊代表您同意本網站的<a data-toggle="modal" href="#rule">使用條約</a>及隱私權條款。</p>
+
+    <% end %>
+    <!-- END FORM -->
+  </div>
+  <!-- END MAIN CONTENT -->
+</div>
+<!-- END PAGE -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+  <img class="footer-logo" src="/assets/logo103.png" alt="">
+  <div class="footer-nav">
+    <a href="about.html">關於我們</a>
+    <span class="bar">|</span>
+    <a href="rule.html">隱私條款</a>
+    <span class="bar">|</span>
+    <a href="rule.html">使用條款</a>
+  </ul>
+</div>
+
+<script type="text/javascript" src="../javascript/script.js"></script>
+<script type="text/javascript" src="../javascript/page/freelancer_sign_up.js"></script>
 
 
-<% end %>
+<script>
+  jQuery(document).ready(function() {
+   Web.init();
+   SingUp.init();
+ });
+</script>
 
-<%= render "users/shared/links" %>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

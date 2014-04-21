@@ -26,10 +26,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new2
     build_resource({
-                     first_name: session["devise:info"]["first_name"],
-                     last_name: session["devise:info"]["last_name"],
-                     email: session["devise:info"]["email"],
-                     picture: session["devise:info"]["image"]
+     first_name: session["devise:info"]["first_name"],
+     last_name: session["devise:info"]["last_name"],
+     email: session["devise:info"]["email"],
+     picture: session["devise:info"]["image"],
     })
     # @first_name = session["devise.info"]["first_name"]
     # self.first_name = session["devise.info"]["first_name"]

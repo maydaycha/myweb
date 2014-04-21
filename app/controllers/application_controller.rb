@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
 
-  layout :layout_by_resource
+  # layout :layout_by_resource
+  layout false
 
   def set_headers
     # headers['Access-Control-Allow-Origin'] = 'http://140.113.72.8'

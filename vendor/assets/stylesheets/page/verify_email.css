@@ -1,0 +1,12 @@
+.box {
+  padding: 10px;
+}
+.box .image img {
+  width: 100%;
+}
+.box .content .point {
+  color: #E15E41;
+}
+.box .content .btn {
+  margin-top: 10px;
+}
