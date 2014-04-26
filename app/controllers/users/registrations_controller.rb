@@ -2,10 +2,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   layout 'user'
 
   def create
-    if verify_recaptcha
+    # if verify_recaptcha
+    if true
       super
       session[:omniauth] = nil unless @user.new_record?
-      @user.user_authentications.create!(:provider => session["devise:provider"], :uid => session['devise:uid'], :token => session["devise:token"], :token_secret => "")
+      @user.user_authentications.create!(:provider => session["devise:provider"], :uid => session['devise:uid'], :token => session["devise:token"], :token_secret => "") if session["devise:provider"] != nil
     else
       build_resource(sign_up_params)
       clean_up_passwords(resource)
@@ -14,6 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new
     end
   end
+
 
   def build_resource(*args)
     super
@@ -30,9 +32,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      last_name: session["devise:info"]["last_name"],
      email: session["devise:info"]["email"],
      picture: session["devise:info"]["image"],
-    })
-    # @first_name = session["devise.info"]["first_name"]
-    # self.first_name = session["devise.info"]["first_name"]
+     })
     render template: "users/registrations/new2"
   end
 end

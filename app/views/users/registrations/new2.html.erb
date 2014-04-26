@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,7 +70,9 @@
   <div class="main-content">
     <!-- /.modal -->
     <!-- BRGIN FORM -->
+
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "signUp-form", id: "signUp-form"}) do |f| %>
+
     <div class="form-group alert alert-danger display-hide">
       請檢查您輸入的資料
     </div>
@@ -83,18 +83,19 @@
         <div class="input-icon right">
           <i class="fa"></i>
           <span class="form-control"><%= resource.first_name %></span>
-          <%= f.hidden_field :first_name, autofocus: true %>
+          <%= f.hidden_field :first_name %>
         </div>
       </div>
     </div>
-    <div class="form-group">
 
+    <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-user"></i></span>
         <span class="form-control"><%= resource.last_name %></span>
         <%= f.hidden_field :last_name %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
@@ -105,13 +106,15 @@
         </div>
       </div>
     </div>
+
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-flag"></i></span>
         <!-- <input type="text" class="form-control" name="location" placeholder="所在地區"> -->
-        <%= f.localized_country_select :country_code, class: "form-control", placeholder: "所在地區" %>
+        <%= f.localized_country_select :country_code, placeholder: "所在地區" %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-flag"></i></span>
@@ -119,6 +122,7 @@
         <%= f.time_zone_select :time_zone %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
@@ -130,16 +134,18 @@
         </div>
       </div>
     </div>
+
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
         <div class="input-icon right">
           <i class="fa"></i>
           <!-- <input type="password" class="form-control" name="password" placeholder="設定密碼" data-isEmpty="請輸入密碼" data-isError="密碼長度不足"> -->
-          <%= f.password_field :password, autocomplete: "off", class: "form-control", name: "password", placeholder: "設定密碼" %>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "設定密碼" %>
         </div>
       </div>
     </div>
+
     <div class="form-group recommend">
       <div class="input-icon right">
         <i class="fa fa-info-circle" data-original-title="如果您是透過朋友推薦得知本網站，建議您填寫朋友姓名。"></i>
@@ -147,6 +153,7 @@
         <%= f.text_field :how_to_know, class: "form-control", name: "recommend", placeholder: "從何處得知網站訊息? " %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="input-icon right">
         <i class="fa"></i>
@@ -154,11 +161,13 @@
         <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
       </div>
     </div>
+
     <div class="form-group imageVerification">
       <img src="/assets/u44.png" alt="">
       <p>未確保您不是惡意註冊，請輸入左方顯示的英文單字。</p>
       <div class="clear"></div>
     </div>
+
     <div class="form-group">
       <div class="checkbox">
         <label>
@@ -166,9 +175,11 @@
         </label>
       </div>
     </div>
+
     <div class="form-group">
       <div><%= f.submit "我要註冊", class: "btn" %></div>
     </div>
+
     <p class="rule">完成註冊代表您同意本網站的<a data-toggle="modal" href="#rule">使用條約</a>及隱私權條款。</p>
 
     <% end %>
@@ -177,6 +188,7 @@
   <!-- END MAIN CONTENT -->
 </div>
 <!-- END PAGE -->
+
 <!-- BEGIN FOOTER -->
 <div class="footer">
   <img class="footer-logo" src="/assets/logo103.png" alt="">

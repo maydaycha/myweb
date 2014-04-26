@@ -1,46 +1,3 @@
-<!-- <h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :first_name %><br />
-  <%= f.text_field :first_name, autofocus: true %></div>
-
-  <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email%></div>
-
-  <div><%= f.label :country_code %><br />
-  <%= f.localized_country_select :country_code %></div>
-
-  <div>Time_zone<br />
-  <%= f.time_zone_select :time_zone %></div>
-
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username %></div>
-
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.label :how_to_know %><br />
-  <%= f.text_field :how_to_know %></div>
-
-  <div><%= :receive_information %><%= f.check_box_tag :receive_information %></div><br>
-
-  <div><%= recaptcha_tags %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "users/shared/links" %>
-
--->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,65 +65,56 @@
   </div>
   <!-- END MODAL -->
   <h1 class="title">免費建立個人帳號</h1>
-  <div class="social">
-    <div class="box">
-      <p class="social-text">您也可以使用其他OpenID快速註冊</p>
-      <ul class="social-icons">
-        <li>
-          <li><%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "facebook" %></li>
-        </li>
-        <li>
-          <li><%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus" %></li>
-        </li>
-        <li>
-          <a class="yahoo" data-original-title="Yahoo!" href="#">
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+
   <!-- BEGIN MAIN CONTENT -->
   <div class="main-content">
     <!-- /.modal -->
     <!-- BRGIN FORM -->
+
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "signUp-form", id: "signUp-form"}) do |f| %>
+
     <div class="form-group alert alert-danger display-hide">
       請檢查您輸入的資料
     </div>
 
     <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
         <div class="input-icon right">
           <i class="fa"></i>
-          <%= f.text_field :first_name, autofocus: true, class: 'form-control', placeholder: "姓" %>
+          <%= f.text_field :first_name, class: "form-control", placeholder: "姓" %>
         </div>
       </div>
     </div>
-    <div class="form-group">
 
+    <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-        <%= f.text_field :last_name, class: "form-control", placeholder: "名字" %>
+        <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
+        <div class="input-icon right">
+          <i class="fa"></i>
+          <%= f.text_field :last_name, class: "form-control", placeholder: "名" %>
+        </div>
       </div>
     </div>
+
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
         <div class="input-icon right">
           <i class="fa"></i>
-          <%= f.email_field :email, class: "form-control", placeholder: "電子郵件"%>
-
+          <%= f.email_field :email, class: "form-control", placeholder: "Email"%>
         </div>
       </div>
     </div>
+
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-flag"></i></span>
         <!-- <input type="text" class="form-control" name="location" placeholder="所在地區"> -->
-        <%= f.localized_country_select :country_code, class: "form-control", placeholder: "所在地區" %>
+        <%= f.localized_country_select :country_code, placeholder: "所在地區" %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-flag"></i></span>
@@ -174,6 +122,7 @@
         <%= f.time_zone_select :time_zone %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
@@ -185,16 +134,18 @@
         </div>
       </div>
     </div>
+
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
         <div class="input-icon right">
           <i class="fa"></i>
           <!-- <input type="password" class="form-control" name="password" placeholder="設定密碼" data-isEmpty="請輸入密碼" data-isError="密碼長度不足"> -->
-          <%= f.password_field :password, autocomplete: "off", class: "form-control", name: "password", placeholder: "設定密碼" %>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "設定密碼" %>
         </div>
       </div>
     </div>
+
     <div class="form-group recommend">
       <div class="input-icon right">
         <i class="fa fa-info-circle" data-original-title="如果您是透過朋友推薦得知本網站，建議您填寫朋友姓名。"></i>
@@ -202,6 +153,7 @@
         <%= f.text_field :how_to_know, class: "form-control", name: "recommend", placeholder: "從何處得知網站訊息? " %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="input-icon right">
         <i class="fa"></i>
@@ -209,11 +161,13 @@
         <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
       </div>
     </div>
+
     <div class="form-group imageVerification">
       <img src="/assets/u44.png" alt="">
       <p>未確保您不是惡意註冊，請輸入左方顯示的英文單字。</p>
       <div class="clear"></div>
     </div>
+
     <div class="form-group">
       <div class="checkbox">
         <label>
@@ -221,10 +175,11 @@
         </label>
       </div>
     </div>
+
     <div class="form-group">
-      <!-- <input class="btn" type="submit" class="form-control" value="我要註冊"> -->
       <div><%= f.submit "我要註冊", class: "btn" %></div>
     </div>
+
     <p class="rule">完成註冊代表您同意本網站的<a data-toggle="modal" href="#rule">使用條約</a>及隱私權條款。</p>
 
     <% end %>
@@ -233,6 +188,7 @@
   <!-- END MAIN CONTENT -->
 </div>
 <!-- END PAGE -->
+
 <!-- BEGIN FOOTER -->
 <div class="footer">
   <img class="footer-logo" src="/assets/logo103.png" alt="">
@@ -259,4 +215,3 @@
 
 </body>
 </html>
-
