@@ -1,6 +1,6 @@
 var EditCategory = function(){
 	var initSelectClass = function() {
-        $('.class-form input[type=checkbox][name=class]').on('change', function(){
+        $(".class-form input[type=checkbox][name='class[]']").on('change', function(){
             $(this).removeClass('active');
             if($(this).prop('checked')){
                 $(this).addClass('active');
@@ -14,7 +14,7 @@ var EditCategory = function(){
     var initFormSubmit = function(){
         $('.class-form').on('submit',function(e){
             var count = 0;
-            $('.class-form input[type=checkbox][name=class]').each(function(i, e) {
+            $(".class-form input[type=checkbox][name='class[]']").each(function(i, e) {
                 if($(this).prop('checked')){
                     count++;
                 }

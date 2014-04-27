@@ -1,5 +1,4 @@
 var Web = function(){
-    console.log("web");
 	var initContentHeight = function(){
 		contentHeight();
 		setTimeout(contentHeight,50);
@@ -8,8 +7,6 @@ var Web = function(){
 	    });
 	}
 	function contentHeight(){
-        console.log("content height");
-        console.log($(window).height());
 		var val = $(window).height();
 		val = val - $('.navbar').outerHeight();
 		val = val - $('.footer').outerHeight();

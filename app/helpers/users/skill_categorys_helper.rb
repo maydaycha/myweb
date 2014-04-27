@@ -1,0 +1,2 @@
+module Users::SkillCategorysHelper
+end

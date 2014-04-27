@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-        <meta content="" name="description"/>
-        <meta content="" name="author"/>
-        <title>快樂工作</title>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title>快樂工作</title>
 
-        <!-- BEGIN STYLE -->
-        <!-- BEGIN 核心樣式 -->
-        <link rel="stylesheet" href="../../../plugins/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="../../../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
         <!--[if gte IE 9]>
         <style type="text/css">
         .gradient {
@@ -99,7 +99,7 @@
                                     <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#contact-portlet1">
                                         <i class="fa fa-pencil-square-o"></i>
                                     </a>
-                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet1">
+                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet1" onclick="update_basic_info()">
                                         <i class="fa fa-floppy-o"></i>
                                     </a>
                                 </div>
@@ -109,22 +109,22 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">姓名</label>
                                         <div class="col-md-10">
-                                        <p class="form-control-static view"><%= @user.first_name %> <%= @user.last_name%></p>
-                                            <input type="text" name="name" class="form-control edit" placeholder="姓名" value="Chris Chou">
+                                            <p class="form-control-static view" id="fullname"><%= @user.first_name %> <%= @user.last_name%></p>
+                                            <input type="text" name="name" class="form-control edit" placeholder="姓名" value="<%= @user.first_name %> <%= @user.last_name%>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人圖像</label>
                                         <div class="col-md-10">
                                             <img src="../../../img/staff.png" class="avatar">
-                                            <input type="file" name="image" class="form-control edit">
+                                            <input type="file" name="image" class="form-control edit" id="profile_img" onchange="upload_img()">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">電子郵件</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view"><%= @user.email%></p>
-                                            <input type="text" name="email" class="form-control edit" placeholder="電子郵件" value="Chris.Chou@sun-innovation.com">
+                                            <p class="form-control-static view" id="email"><%= @user.email%></p>
+                                            <input type="text" name="email" class="form-control edit" placeholder="電子郵件" value="<%= @user.email%>">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -146,7 +146,7 @@
                                     <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#contact-portlet2">
                                         <i class="fa fa-pencil-square-o"></i>
                                     </a>
-                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet2">
+                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet2" onclick="update_location()">
                                         <i class="fa fa-floppy-o"></i>
                                     </a>
                                 </div>
@@ -156,7 +156,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">時區</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view"><%= @user.time_zone %></p>
+                                            <p class="form-control-static view" id="time_zone"><%= @user.time_zone %></p>
                                             <select name="timeZone" class="form-control edit">
                                                 <option value="-12">UTC-12 Baker Island Time</option>
                                                 <option value="-11">UTC-11 Niue Time, Samoa Standard Time</option>
@@ -204,7 +204,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">國家</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view"><%= @user.country_code %></p>
+                                            <p class="form-control-static view" id="country"><%= @user.country_code %></p>
                                             <select name="country" class="form-control edit">
                                                 <option value="Afghanistan">Afghanistan 阿富汗</option>
                                                 <option value="Albania">Albania 阿爾巴尼亞</option>
@@ -480,8 +480,8 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">姓名</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view"><%= @user.first_name %> <%= @user.last_name %></p>
-                                            <input type="text" name="name" class="form-control edit" placeholder="姓名" value="Chris Chou">
+                                            <p class="form-control-static view" id="fullname2"><%= @user.first_name %> <%= @user.last_name %></p>
+                                            <input type="text" name="name" class="form-control edit" placeholder="姓名" value="<%= @user.first_name %> <%= @user.last_name %>">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -494,8 +494,8 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">電子郵件</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view"><%= @user.email %></p>
-                                            <input type="text" name="email" class="form-control edit" placeholder="電子郵件" value="Chris.Chou@sun-innovation.com">
+                                            <p class="form-control-static view" id="email2"><%= @user.email %></p>
+                                            <input type="text" name="email" class="form-control edit" placeholder="電子郵件" value="<%= @user.email %>">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -503,257 +503,257 @@
                                         <div class="col-md-10">
                                             <p class="form-control-static view">$<%= @user.hourly_pay%> / HR</p>
                                             <div class="input-group edit">
-                                                <input type="text" name="money" class="form-control text-right" placeholder="每小時工資" value="10">
+                                                <input type="text" name="money" class="form-control text-right" placeholder="每小時工資" value="<%= @user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                     / HR
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                                   / HR
+                                               </span>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </form>
+                           </div>
+                       </div>
+                       <div class="portlet box light-grey show-view" id="profile-portlet2">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                專業類別
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet2">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </a>
+                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet2">
+                                    <i class="fa fa-floppy-o"></i>
+                                </a>
                             </div>
                         </div>
-                        <div class="portlet box light-grey show-view" id="profile-portlet2">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    專業類別
+                        <div class="portlet-body">
+                            <form action="#" id="contact-form1" class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">主類別</label>
+                                    <div class="col-md-10">
+                                        <p class="form-control-static view">IT、軟體</p>
+                                        <select name="mainClass" id="" class="edit form-control">
+                                            <option>IT、軟體</option>
+                                            <option>翻譯、寫作</option>
+                                            <option>設計、創意服務</option>
+                                            <option>行銷、業務</option>
+                                            <option>行政、客戶服務</option>
+                                            <option>商業、會計、法務</option>
+                                            <option>工程、科學</option>
+                                            <option>專業諮商</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="tools">
-                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet2">
-                                        <i class="fa fa-pencil-square-o"></i>
-                                    </a>
-                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet2">
-                                        <i class="fa fa-floppy-o"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="portlet-body">
-                                <form action="#" id="contact-form1" class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">主類別</label>
-                                        <div class="col-md-10">
-                                            <p class="form-control-static view">IT、軟體</p>
-                                            <select name="mainClass" id="" class="edit form-control">
-                                                <option>IT、軟體</option>
-                                                <option>翻譯、寫作</option>
-                                                <option>設計、創意服務</option>
-                                                <option>行銷、業務</option>
-                                                <option>行政、客戶服務</option>
-                                                <option>商業、會計、法務</option>
-                                                <option>工程、科學</option>
-                                                <option>專業諮商</option>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">子類別</label>
+                                    <div class="col-md-10">
+                                        <p class="form-control-static view">社群網路經營, 搜尋引擎最佳化</p>
+                                        <div class="edit">
+                                            <select name="subClass" id="subClass_select2" class="form-control select2" multiple>
+                                                <option selected>社群網路經營</option>
+                                                <option selected>搜尋引擎最佳化</option>
+                                                <option>公共關係經營</option>
+                                                <option>電子郵件行銷</option>
+                                                <option>電話行銷</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">子類別</label>
-                                        <div class="col-md-10">
-                                            <p class="form-control-static view">社群網路經營, 搜尋引擎最佳化</p>
-                                            <div class="edit">
-                                                <select name="subClass" id="subClass_select2" class="form-control select2" multiple>
-                                                    <option selected>社群網路經營</option>
-                                                    <option selected>搜尋引擎最佳化</option>
-                                                    <option>公共關係經營</option>
-                                                    <option>電子郵件行銷</option>
-                                                    <option>電話行銷</option>
-                                                </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="portlet box light-grey show-view" id="profile-portlet3">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                技能
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet3">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </a>
+                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet3" onclick="update_skill()">
+                                    <i class="fa fa-floppy-o"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <p class="form-control-static view" id="skill"><%= @user.skill %></p>
+                            <form action="#" id="contact-form1" class="form-horizontal edit" role="form">
+                                <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= @user.skill %>"/>
+                                <p class="help-block">
+                                    如果您欲新增更多的技能。您必須完成下列項目：<br>
+                                    1. 工作經歷　2. 教育程度　3. 作品集
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="portlet box light-grey show-view" id="profile-portlet4">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                工作經歷
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet4">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </a>
+                                <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#experience-modal">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet4">
+                                    <i class="fa fa-floppy-o"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <table class="table" id="experience-table">
+                                <tr>
+                                    <th>起</th>
+                                    <th>訖</th>
+                                    <th>公司</th>
+                                    <th>職位/職責</th>
+                                    <th class="edit">刪除</th>
+                                </tr>
+                                <tr>
+                                    <td>2014/03/01</td>
+                                    <td>2100/12/31</td>
+                                    <td>盈碩科技</td>
+                                    <td>萬年底層程式設計師學徒</td>
+                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>
+                                </tr>
+                            </table>
+                            <div class="modal fade" id="experience-modal" tabindex="-1" role="experience-modal" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">新增工作經歷</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                    <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                    <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="organization" class="form-control" placeholder="公司">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="office" class="form-control" placeholder="職位/職責">
                                             </div>
                                         </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" id="btn-addExperience">新增</button>
+                                            <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                                        </div>
                                     </div>
-                                </form>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
                             </div>
                         </div>
-                        <div class="portlet box light-grey show-view" id="profile-portlet3">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    技能
-                                </div>
-                                <div class="tools">
-                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet3">
-                                        <i class="fa fa-pencil-square-o"></i>
-                                    </a>
-                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet3">
-                                        <i class="fa fa-floppy-o"></i>
-                                    </a>
-                                </div>
+                    </div>
+                    <div class="portlet box light-grey show-view" id="profile-portlet5">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                教育程度
                             </div>
-                            <div class="portlet-body">
-                                <p class="form-control-static view">技能一,技能二,技能三</p>
-                                <form action="#" id="contact-form1" class="form-horizontal edit" role="form">
-                                    <input id="skill-tags" type="text" class="form-control tags" value="技能一,技能二,技能三"/>
-                                    <p class="help-block">
-                                        如果您欲新增更多的技能。您必須完成下列項目：<br>
-                                        1. 工作經歷　2. 教育程度　3. 作品集
-                                    </p>
-                                </form>
+                            <div class="tools">
+                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet5">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </a>
+                                <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#education-modal">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet5">
+                                    <i class="fa fa-floppy-o"></i>
+                                </a>
                             </div>
                         </div>
-                        <div class="portlet box light-grey show-view" id="profile-portlet4">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    工作經歷
-                                </div>
-                                <div class="tools">
-                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet4">
-                                        <i class="fa fa-pencil-square-o"></i>
-                                    </a>
-                                    <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#experience-modal">
-                                        <i class="fa fa-plus"></i>
-                                    </a>
-                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet4">
-                                        <i class="fa fa-floppy-o"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="portlet-body">
-                                <table class="table" id="experience-table">
-                                    <tr>
-                                        <th>起</th>
-                                        <th>訖</th>
-                                        <th>公司</th>
-                                        <th>職位/職責</th>
-                                        <th class="edit">刪除</th>
-                                    </tr>
-                                    <tr>
-                                        <td>2014/03/01</td>
-                                        <td>2100/12/31</td>
-                                        <td>盈碩科技</td>
-                                        <td>萬年底層程式設計師學徒</td>
-                                        <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>
-                                    </tr>
-                                </table>
-                                <div class="modal fade" id="experience-modal" tabindex="-1" role="experience-modal" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">新增工作經歷</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="start" class="form-control" placeholder="起" readonly>
-                                                        <span class="input-group-btn">
-                                                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="end" class="form-control" placeholder="訖" readonly>
-                                                        <span class="input-group-btn">
-                                                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" name="organization" class="form-control" placeholder="公司">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" name="office" class="form-control" placeholder="職位/職責">
+                        <div class="portlet-body">
+                            <table class="table" id="education-table">
+                                <tr>
+                                    <th>起</th>
+                                    <th>訖</th>
+                                    <th>學校</th>
+                                    <th>系所/專長</th>
+                                    <th class="edit">刪除</th>
+                                </tr>
+                                <tr>
+                                    <td>2007/08/01</td>
+                                    <td>2011/06/30</td>
+                                    <td>國立台南大學</td>
+                                    <td>數位學習科技學系</td>
+                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>
+                                </tr>
+                            </table>
+                            <div class="modal fade" id="education-modal" tabindex="-1" role="education-modal" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">新增教育程度</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                    <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                    </span>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" id="btn-addExperience">新增</button>
-                                                <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                                            <div class="form-group">
+                                                <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                    <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="organization" class="form-control" placeholder="學校">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="office" class="form-control" placeholder="系所/專長">
                                             </div>
                                         </div>
-                                        <!-- /.modal-content -->
-                                    </div>
-                                    <!-- /.modal-dialog -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portlet box light-grey show-view" id="profile-portlet5">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    教育程度
-                                </div>
-                                <div class="tools">
-                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet5">
-                                        <i class="fa fa-pencil-square-o"></i>
-                                    </a>
-                                    <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#education-modal">
-                                        <i class="fa fa-plus"></i>
-                                    </a>
-                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet5">
-                                        <i class="fa fa-floppy-o"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="portlet-body">
-                                <table class="table" id="education-table">
-                                    <tr>
-                                        <th>起</th>
-                                        <th>訖</th>
-                                        <th>學校</th>
-                                        <th>系所/專長</th>
-                                        <th class="edit">刪除</th>
-                                    </tr>
-                                    <tr>
-                                        <td>2007/08/01</td>
-                                        <td>2011/06/30</td>
-                                        <td>國立台南大學</td>
-                                        <td>數位學習科技學系</td>
-                                        <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>
-                                    </tr>
-                                </table>
-                                <div class="modal fade" id="education-modal" tabindex="-1" role="education-modal" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">新增教育程度</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="start" class="form-control" placeholder="起" readonly>
-                                                        <span class="input-group-btn">
-                                                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="end" class="form-control" placeholder="訖" readonly>
-                                                        <span class="input-group-btn">
-                                                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" name="organization" class="form-control" placeholder="學校">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" name="office" class="form-control" placeholder="系所/專長">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" id="btn-addEducation">新增</button>
-                                                <button type="button" class="btn default" data-dismiss="modal">關閉</button>
-                                            </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" id="btn-addEducation">新增</button>
+                                            <button type="button" class="btn default" data-dismiss="modal">關閉</button>
                                         </div>
-                                        <!-- /.modal-content -->
                                     </div>
-                                    <!-- /.modal-dialog -->
+                                    <!-- /.modal-content -->
                                 </div>
+                                <!-- /.modal-dialog -->
                             </div>
                         </div>
-                        <div class="portlet box light-grey show-view" id="profile-portlet6">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    作品集
-                                </div>
-                                <div class="tools">
-                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet6">
-                                        <i class="fa fa-pencil-square-o"></i>
-                                    </a>
-                                    <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#works-modal">
-                                        <i class="fa fa-plus"></i>
-                                    </a>
-                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">
-                                        <i class="fa fa-floppy-o"></i>
-                                    </a>
-                                </div>
+                    </div>
+                    <div class="portlet box light-grey show-view" id="profile-portlet6">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                作品集
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet6">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </a>
+                                <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#works-modal">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">
+                                    <i class="fa fa-floppy-o"></i>
+                                </a>
+                            </div>
                             <div class="modal fade" id="works-modal" tabindex="-1" role="education-modal" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -772,6 +772,7 @@
                                                 <form action="plugins/dropzone/upload.php" class="dropzone dz-clickable" id="addWorks-file">
                                                     <div class="dz-default dz-message"><span>上傳檔案</span></div>
                                                 </form>
+
                                                 <p class="help-block">上傳檔案/文件</p>
                                             </div>
                                             <div class="form-group">
@@ -826,120 +827,253 @@
                                 </div>
                                 <!-- /.modal-dialog -->
                             </div>
-                            </div>
-                            <div class="portlet-body">
-                                <form action="#" id="contact-form1" class="form-horizontal" role="form">
-                                    尚未新增作品集
-                                </form>
-                            </div>
                         </div>
-                        <div class="portlet box light-grey show-view" id="profile-portlet7">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    相關證照
-                                </div>
-                                <div class="tools">
-                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet7">
-                                        <i class="fa fa-pencil-square-o"></i>
-                                    </a>
-                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">
-                                        <i class="fa fa-floppy-o"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="portlet-body">
-                                <form action="#" id="contact-form1" class="form-horizontal" role="form">
-                                    尚未新增相關證照
-                                </form>
-                            </div>
+                        <div class="portlet-body">
+                            <form action="#" id="contact-form1" class="form-horizontal" role="form">
+                                尚未新增作品集
+                            </form>
                         </div>
                     </div>
-                    <div class="tab-pane" id="password">
-                        <div class="portlet box light-grey show-view" id="password-portlet">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    變更密碼
-                                </div>
-                                <div class="tools">
-                                    <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
-                                        <i class="fa fa-floppy-o"></i>
-                                    </a>
-                                </div>
+                    <div class="portlet box light-grey show-view" id="profile-portlet7">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                相關證照
                             </div>
-                            <div class="portlet-body">
-                                <form action="#" id="contact-form1" class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">舊密碼</label>
-                                        <div class="col-md-10">
-                                            <input type="password" name="oldPassword" class="form-control">
-                                            <p class="help-block">
-                                                如果您想要變更您的密碼，請先輸入您的舊密碼
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">新密碼</label>
-                                        <div class="col-md-10">
-                                            <input type="password" name="newPassword" class="form-control">
-                                            <p class="help-block">
-                                                密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">再次輸入新密碼</label>
-                                        <div class="col-md-10">
-                                            <input type="password" name="checkPassword" class="form-control">
-                                        </div>
-                                    </div>
-                                </form>
+                            <div class="tools">
+                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet7">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </a>
+                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">
+                                    <i class="fa fa-floppy-o"></i>
+                                </a>
                             </div>
+                        </div>
+                        <div class="portlet-body">
+                            <form action="#" id="contact-form1" class="form-horizontal" role="form">
+                                尚未新增相關證照
+                            </form>
                         </div>
                     </div>
                 </div>
-                <!-- BEGIN END CONTENT -->
-           </div>
-            <!-- END MAIN CONTENT -->
+                <div class="tab-pane" id="password">
+                    <div class="portlet box light-grey show-view" id="password-portlet">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                變更密碼
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
+                                    <i class="fa fa-floppy-o"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <form action="#" id="contact-form1" class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">舊密碼</label>
+                                    <div class="col-md-10">
+                                        <input type="password" name="oldPassword" class="form-control">
+                                        <p class="help-block">
+                                            如果您想要變更您的密碼，請先輸入您的舊密碼
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">新密碼</label>
+                                    <div class="col-md-10">
+                                        <input type="password" name="newPassword" class="form-control">
+                                        <p class="help-block">
+                                            密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">再次輸入新密碼</label>
+                                    <div class="col-md-10">
+                                        <input type="password" name="checkPassword" class="form-control">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- BEGIN END CONTENT -->
         </div>
-        <!-- END PAGE -->
-        <!-- BEGIN FOOTER -->
-        <div class="footer">
-            <img class="footer-logo" src="../../../img/logo103.png" alt="">
-            <div class="footer-nav">
-                <a href="about.html">關於我們</a>
-                <span class="bar">|</span>
-                <a href="rule.html">隱私條款</a>
-                <span class="bar">|</span>
-                <a href="rule.html">使用條款</a>
-            </ul>
-        </div>
-        <!-- END FOOTER -->
+        <!-- END MAIN CONTENT -->
+    </div>
+    <!-- END PAGE -->
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+        <img class="footer-logo" src="../../../img/logo103.png" alt="">
+        <div class="footer-nav">
+            <a href="about.html">關於我們</a>
+            <span class="bar">|</span>
+            <a href="rule.html">隱私條款</a>
+            <span class="bar">|</span>
+            <a href="rule.html">使用條款</a>
+        </ul>
+    </div>
+    <!-- END FOOTER -->
 
-        <!-- BEGIN JAVASCRIPTS -->
-        <!-- BEGIN 核心插件 -->
+    <!-- BEGIN JAVASCRIPTS -->
+    <!-- BEGIN 核心插件 -->
         <!--[if lt IE 9]>
             <script src="plugins/html5shiv.min.js"></script>
             <script src="plugins/respond.min.js"></script>
-        <![endif]-->
+            <![endif]-->
 
-        <script src="../../../plugins/jquery-1.11.0.min.js"></script>
-        <script src="../../../plugins/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
-        <!-- END 核心插件 -->
-        <!-- BEGIN 頁面插件 -->
-        <script src="../../../plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
-        <script src="../../../plugins/select2/select2.min.js"></script>
-        <script src="../../../plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-        <script src="../../../plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
-        <script src="../../../plugins/dropzone/dropzone.js"></script>
-        <!-- END 頁面插件 -->
-        <script type="text/javascript" src="../../../js/script.js"></script>
-        <script type="text/javascript" src="../../../js/page/personal_profile.js"></script>
-        <script>
-            jQuery(document).ready(function() {
-               Web.init();
-               PersonalProfile.init();
-            });
+            <script src="../../../plugins/jquery-1.11.0.min.js"></script>
+            <script src="../../../plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="../../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
+            <!-- END 核心插件 -->
+            <!-- BEGIN 頁面插件 -->
+            <script src="../../../plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+            <script src="../../../plugins/select2/select2.min.js"></script>
+            <script src="../../../plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+            <script src="../../../plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+            <script src="../../../plugins/dropzone/dropzone.js"></script>
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="../../../js/script.js"></script>
+            <script type="text/javascript" src="../../../js/page/personal_profile.js"></script>
+            <script>
+                jQuery(document).ready(function() {
+                 Web.init();
+                 PersonalProfile.init();
+             });
+
+         </script>
+
+         <script>
+
+            var upload_img = function() {
+                var profile_img = document.getElementById("profile_img");
+                console.log(profile_img.files);
+                var fileSize = profile_img.files[0]['size'];
+                console.log(fileSize);
+                var file = profile_img.files[0];
+
+                var fd = new FormData();
+                fd.append('profile_img', file);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('put', '/ajax_upload_img', true);
+
+                xhr.setRequestHeader("X-File-Name", file.name);
+                xhr.setRequestHeader("X-File-Size", file.size);
+
+                xhr.onload = function() {
+                    if (this.status == 200) {
+                        console.log(this.response);
+                // var resp = JSON.parse(this.response);
+                // console.log('Server got:', resp);
+                // var image = document.createElement('img');
+                // image.src = resp.dataUrl;
+                // document.body.appendChild(image);
+            };
+        };
+
+        xhr.send(file);
+
+    }
+
+    var update_basic_info = function() {
+                // console.log($("#contact-form1 input[name='name']").val());
+                // console.log($("#contact-form1 input[name='image']")[0].files);
+                // console.log($("#contact-form1 input[name='email']").val());
+
+                var obj = {
+                    request: "update_basic_info",
+                    name: $("#contact-form1 input[name='name']").val(),
+                    // image: $("#contact-form1 input[name='image']")[0].files,
+                    email: $("#contact-form1 input[name='email']").val()
+                };
+                // console.log(obj);
+
+                $.ajax({
+                    url: "/ajax_updae",
+                    type: "get",
+                    dataType: "json",
+                    data: obj,
+                    success: function(data) {
+                        console.log(data);
+                        $("#fullname").text(data.first_name + " " + data.last_name);
+                        $("#email").text(obj.email);
+                        $("#fullname2").text(data.first_name + " " + data.last_name);
+                        $("#email2").text(obj.email);
+                    },
+                    error: function(data) {
+                        console.log("error");
+                        console.log(data);
+                    }
+                });
+
+            }
+
+            var update_location = function() {
+                var obj = {
+                    request: "update_location",
+                    timeZone: $("#contact-form2 select[name='timeZone']").val(),
+                    country: $("#contact-form2 select[name='country']").val(),
+                };
+                console.log(obj);
+                $.ajax({
+                    url: "/ajax_updae",
+                    type: "get",
+                    dataType: "json",
+                    data: obj,
+                    success: function(data) {
+                        console.log(data);
+                        $("#time_zone").html(obj.timeZone);
+                        $("#country").html(obj.country);
+                    },
+                    error: function(data) {
+                        console.log("error");
+                        console.log(data);
+                    }
+                });
+
+            }
+
+            var update_account = function() {
+
+            }
+
+            var update_category = function() {
+
+            }
+
+            var update_skill = function() {
+                var obj = {
+                    request: "update_skill",
+                    skill: $("#contact-form1 input[name='skill']").val(),
+                };
+                console.log(obj);
+                $.ajax({
+                    url: "/ajax_updae",
+                    type: "get",
+                    dataType: "json",
+                    data: obj,
+                    success: function(data) {
+                        console.log(data);
+                        $("#skill").html(obj.skill);
+                    },
+                    error: function(data) {
+                        console.log("error");
+                        console.log(data);
+                    }
+                });
+            }
+
+            var update_protfolio = function() {
+
+            }
+
+            var certification = function() {
+
+            }
+
+
         </script>
         <!-- END JAVASCRIPTS -->
         <!-- BEGIN PIE -->
@@ -957,4 +1091,4 @@
         <![endif]-->
         <!-- END PIE -->
     </body>
-</html>
+    </html>

@@ -1,7 +1,7 @@
 var EditProfile = function(){
 	var initSelectClass = function() {
-        $('.class-form input[type=radio][name=class]').on('change', function(){
-            $('.class-form input[type=radio][name=class]').removeClass('active');
+        $(".class-form input[type=radio][name='user_skill_category[main_skill_id]']").on('change', function(){
+            $(".class-form input[type=radio][name='user_skill_category[main_skill_id]']").removeClass('active');
             $(this).addClass('active');
             this.blur();
         });
@@ -9,14 +9,14 @@ var EditProfile = function(){
     var initFormSubmit = function(){
         $('.class-form').on('submit',function(e){
             var count = 0;
-            $('.class-form input[type=radio][name=class]').each(function(i, e) {
+            $(".class-form input[type=radio][name='user_skill_category[main_skill_id]']").each(function(i, e) {
                 if($(this).prop('checked')){
                     count++;
                 }
             });
             if(count<=0){
                 e.preventDefault();
-                var text = $('.class-form').attr('data-isEmpty');
+                var text = $('.class-form').attr('data-isempty');
                 bootbox.alert(text);
             }
         });

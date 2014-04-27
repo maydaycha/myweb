@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427065004) do
+ActiveRecord::Schema.define(version: 20140427194045) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20140427065004) do
   create_table "user_skill_categories", force: true do |t|
     t.integer  "user_id"
     t.integer  "main_skill_id"
-    t.integer  "sub_skill_id"
+    t.string   "sub_skill_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20140427065004) do
     t.string   "skill"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_skill_category_id"
   end
 
   create_table "user_translations", force: true do |t|
@@ -155,7 +156,7 @@ ActiveRecord::Schema.define(version: 20140427065004) do
     t.text     "review"
     t.string   "image"
     t.integer  "worker_type"
-    t.integer  "skill"
+    t.string   "skill"
     t.float    "hourly_pay"
     t.string   "city"
     t.integer  "zip"

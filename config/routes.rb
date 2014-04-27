@@ -110,14 +110,19 @@ Sun::Application.routes.draw do
 
   namespace :users do
     resources :profiles
+    resources :skills
+    resources :skill_categorys
   end
 
+  # get 'users/profiles/:id/edit2' => 'users/profiles#edit2', as: :edit2_users_profile
+  get 'ajax_updae' => 'users/profiles#ajax_updae'
+  put 'ajax_upload_img' => 'users/profiles#ajax_upload_img'
 
 
   # test scott
   root to: "users#index"
 
-  devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks"}
+  devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks" }
 
   devise_scope :user do
     get 'new2', to: 'users/registrations#new2', :as => :new2_user_registration
