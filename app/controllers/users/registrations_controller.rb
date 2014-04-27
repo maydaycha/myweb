@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  layout 'user'
+  # layout 'user'
 
   def create
     # if verify_recaptcha
@@ -35,4 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      })
     render template: "users/registrations/new2"
   end
+
+
+
 end

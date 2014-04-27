@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :message => "帳號重複了"
 
   has_many :user_authentications
+  has_one :user_skill
 
   def self.has_email?(email)
     self.where(:email => email).limit(1).size > 0

@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
-
   # layout :layout_by_resource
   layout false
+
 
   def set_headers
     # headers['Access-Control-Allow-Origin'] = 'http://140.113.72.8'
@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
     headers['Access-Control-Allow-Credentials'] = 'true'
     # headers['Access-Control-Max-Age'] = '86400'
   end
+
 
   def is_admin?
     return session[:admin] != nil
@@ -32,6 +33,11 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def after_sign_in_path_for
+    print "call?"
+    redirect_to "http://www.google.com"
+  end
+
 
 
   protected
@@ -43,6 +49,7 @@ class ApplicationController < ActionController::Base
       "application"
     end
   end
+
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :first_name, :last_name, :country_code, :time_zone, :email, :password, :password_confirmation, :remember_me, :how_to_know, :receive_information, :token, :picture) }

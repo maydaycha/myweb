@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414131201) do
+ActiveRecord::Schema.define(version: 20140427065004) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -151,8 +151,14 @@ ActiveRecord::Schema.define(version: 20140414131201) do
     t.binary   "picture"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description_in_short"
-    t.text     "description_in_detail"
+    t.string   "introduction"
+    t.text     "review"
+    t.string   "image"
+    t.integer  "worker_type"
+    t.integer  "skill"
+    t.float    "hourly_pay"
+    t.string   "city"
+    t.integer  "zip"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

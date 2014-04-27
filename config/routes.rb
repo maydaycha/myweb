@@ -104,14 +104,20 @@ Sun::Application.routes.draw do
   get '/message/set_word_count' => 'project_public_messages#set_word_count'
 
   # test maydaycha
-  get '/email' => 'users#send_mail'
-  get '/facebook/index' => 'third_party_login#index'
-  get '/auth/google_oauth2/callback' => 'third_party_login#google_create'
+  # get '/email' => 'users#send_mail'
+  # get '/facebook/index' => 'third_party_login#index'
+  # get '/auth/google_oauth2/callback' => 'third_party_login#google_create'
+
+  namespace :users do
+    resources :profiles
+  end
+
+
 
   # test scott
   root to: "users#index"
 
-  devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks"}
 
   devise_scope :user do
     get 'new2', to: 'users/registrations#new2', :as => :new2_user_registration
