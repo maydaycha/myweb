@@ -1,7 +1,6 @@
 <h2>Sign in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= resource.to_json %>
   <div><%= f.label :username %><br />
   <%= f.text_field :username, autofocus: true %></div>
 
