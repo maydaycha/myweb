@@ -57,7 +57,10 @@ class Users::ProfilesController < ApplicationController
       @user.skill = params[:skill]
       @user.save
       render json: @user
+    when "profile_img"
+      render json: params
     end
+
   end
 
 
