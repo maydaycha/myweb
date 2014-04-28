@@ -122,10 +122,17 @@ Sun::Application.routes.draw do
   # test scott
   root to: "users#index"
 
-  devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks" }
+  devise_for :users, :controllers => {
+    registrations: 'users/registrations',
+    omniauth_callbacks: "users/omniauth_callbacks",
+    confirmations: "users/confirmations"
+  }
 
   devise_scope :user do
     get 'new2', to: 'users/registrations#new2', :as => :new2_user_registration
+    get 'users/verify_email', to: 'users/registrations#verify_email', :as => :verify_user_registration
+    get 'users/sign_up_check_email', to: 'users#check_email'
+    get 'users/sign_up_check_username', to: 'users#check_username'
   end
 
 end

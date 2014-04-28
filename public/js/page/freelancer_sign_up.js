@@ -15,26 +15,33 @@ var SingUp = function(){
             focusInvalid: false, // do not focus the last invalid input
             ignore: "",
             rules: {
-            	surname: {
+            	"user[first_name]": {
                     required: true
             	},
-                email: {
-                    required: true,
-                    email: true
+                "user[last_name]": {
+                    required: true
                 },
-                username: {
+                "user[email]": {
+                    required: true,
+                    email: true,
+                    myEmail: true 
+                },
+                "user[country_code]": {
+                    required: true
+                },
+                "user[username]": {
                 	minlength: 6,
                     required: true,
                     myUsername: true
                 },
-                password: {
+                "user[password]": {
                 	minlength: 6,
                     required: true
                 },
-                verification: {
-                    required: true,
-                    myImgVerification: true
-                },
+                // verification: {
+                //     required: true,
+                //     myImgVerification: true
+                // },
             },
 
             invalidHandler: function (event, validator) { //display error alert on form submit
