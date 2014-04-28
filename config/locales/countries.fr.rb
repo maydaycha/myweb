@@ -1,6 +1,5 @@
 #encoding: UTF-8
 { :fr => {
-
     :countries => {
 			:AC => "Île de l’AscensionÎle de l'Ascension",
 			:AD => "Andorre",

@@ -17,13 +17,23 @@ class Users::SkillCategorysController < ApplicationController
     @user_skill_category = UserSkillCategory.new(params.permit![:user_skill_category])
     @user_skill_category.user_id = @user.id
     @user_skill_category.save
-    redirect_to  edit_users_skill_category_path(@user_skill_category)
-    # render :edit
+    @category =  ["IT", "engineeringScience", "designCreativeWork", "salesMarketing", "administrativeCustomerServices",  "businessAccountingLegal", "writingTranslation", "consulting" ]
+    index = params["user_skill_category"]["main_skill_id"].to_i - 1
+    @main_category = "main_skill_category.#{@category[index]}"
+    @sub_category = "sub_skill_category.#{@category[index]}"
+    # edit_users_skill_category_path(@user_skill_category, @category)
+    edit(@user_skill_category, @main_category, @sub_category)
   end
 
-  def edit
-    @user_skill_category = UserSkillCategory.find(params[:id])
+
+  def edit(user_skill_category, main_category, sub_category)
+    # @user_skill_category = UserSkillCategory.find(params[:id])
+    @user_skill_category = user_skill_category
+    @main_category = main_category
+    @sub_category = sub_category
+    render "edit"
   end
+
 
   def update
     @user_skill_category = UserSkillCategory.find(params[:id])
@@ -31,6 +41,6 @@ class Users::SkillCategorysController < ApplicationController
     @user_skill_category.save
     # render json: {content: params[:class], session: session}
     @user = User.find("1")
-    redirect_to new_users_profile_path
+    redirect_to edit_users_profile_path(@user)
   end
 end

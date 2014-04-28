@@ -20,4 +20,150 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello31: "Hello world"
+  main_skill_category:
+    IT: "IT & Software"
+    engineeringScience: "Engineering and Science"
+    designCreativeWork: "Design and Creative Work"
+    salesMarketing: "Sales and Marketing"
+    administrativeCustomerServices: "Administrative and Customer Services"
+    businessAccountingLegal: "Business, Accounting and Legal"
+    writingTranslation: "Writing and Translation"
+    consulting: "Consulting"
+
+  sub_skill_category:
+    IT: [
+    {name: "Programming", title: "nothing"},
+    {name: "Program Testing/Debugging", title: "nothing"},
+    {name: "E-commerce", title: "nothing"},
+    {name: "Web Site Development", title: "nothing"},
+    {name: "Web Site Planning", title: "nothing"},
+    {name: "Web Site Quality Assurance", title: "nothing"},
+    {name: "Web Application Software", title: "nothing"},
+    {name: "Mobile Application Software", title: "nothing"},
+    {name: "Software Interface ", title: "nothing"},
+    {name: "Utility Software", title: "nothing"},
+    {name: "Entertainment Software ", title: "nothing"},
+    {name: "Scripting Language", title: "nothing"},
+    {name: "Plug-in Program", title: "nothing"},
+    {name: "IT Project Management", title: "nothing"},
+    {name: "VoIP", title: "nothing"},
+    {name: "Information System Architecture", title: "nothing"},
+    {name: "Information System Management", title: "nothing"},
+    {name: "Information System Implementation", title: "nothing"},
+    {name: "Management Information System", title: "nothing"},
+    {name: "Other – IT & Software", title: "nothing"}]
+
+    engineeringScience: [
+    {name: "Data Mining & Analysis", title: ""},
+    {name: "CAD / CAM", title: ""},
+    {name: "Manufacturing Engineering", title: ""},
+    {name: "Manufacturing Development", title: ""},
+    {name: "Industrial Engineering", title: ""},
+    {name: "Chemical Engineering", title: ""},
+    {name: "Materials Engineering", title: ""},
+    {name: "Electrical Engineering", title: ""},
+    {name: "Mechanical Engineering", title: ""},
+    {name: "Biological Engineering", title: ""},
+    {name: "Engineering Statistics", title: ""},
+    {name: "Quality Engineering", title: ""},
+    {name: "Design Engineering", title: ""},
+    {name: "Engineering Management", title: ""},
+    {name: "Mathematics", title: ""},
+    {name: "Physics", title: ""},
+    {name: "Chemistry", title: ""},
+    {name: "Others-Science & Engineering", title: ""}]
+
+    designCreativeWork: [
+    {name: "Graphic Design", title: ""},
+    {name: "Logo & CIS Design", title: ""},
+    {name: "Visual Design", title: ""},
+    {name: "Drawing", title: ""},
+    {name: "Printed Matters", title: ""},
+    {name: "Photography ", title: ""},
+    {name: "CAD", title: ""},
+    {name: "3D Design", title: ""},
+    {name: "Audio Production", title: ""},
+    {name: "Video Production", title: ""},
+    {name: "Voice Acting", title: ""},
+    {name: "Animation", title: ""},
+    {name: "Templates Design", title: ""},
+    {name: "Web Design", title: ""},
+    {name: "User Interface Design", title: ""},
+    {name: "Fashion Design", title: ""},
+    {name: "Industrial Design", title: ""},
+    {name: "Other - Design & Creative Work", title: ""}]
+
+
+
+    salesMarketing: [
+    {name: "Sales Promotion", title: ""},
+    {name: "E-mail & Internet Marketing", title: ""},
+    {name: "Telemarketing", title: ""},
+    {name: "SEO/SEM", title: ""},
+    {name: "Social Media Marketing", title: ""},
+    {name: "Customer & Media Relations", title: ""},
+    {name: "Business Proposal & Strategy", title: ""},
+    {name: "Marketing Research ", title: ""},
+    {name: "Lead Generation", title: ""},
+    {name: "Other - Sales & Marketing", title: ""}]
+
+
+
+    administrativeCustomerServices: [
+    {name: "Typing & Data Entry", title: ""},
+    {name: "IT Assistant", title: ""},
+    {name: "Executive Assistant", title: ""},
+    {name: "Accounting Assistant", title: ""},
+    {name: "Business Correspondence", title: ""},
+    {name: "Transcription Services", title: ""},
+    {name: "On-line Customer Service", title: ""},
+    {name: "Field Support", title: ""},
+    {name: "Invoicing & Order Processing ", title: ""},
+    {name: "Inventory Assistant", title: ""},
+    {name: "Other – Administrative & Customer Support", title: ""}]
+
+    businessAccountingLegal: [
+    {name: "Accounting Services", title: ""},
+    {name: "Computerized Bookkeeping", title: ""},
+    {name: "Financial Compensation", title: ""},
+    {name: "Financial Services ", title: ""},
+    {name: "Financial Planning & Forecast", title: ""},
+    {name: "Financial Statement", title: ""},
+    {name: "Procurement Process ", title: ""},
+    {name: "Legal Affairs", title: ""},
+    {name: "Intellectual Property Protection", title: ""},
+    {name: "Project Management", title: ""},
+    {name: "Human Resources ", title: ""},
+    {name: "Hiring", title: ""},
+    {name: "Actuarial Analysis", title: ""},
+    {name: "Other - Business Services", title: ""}]
+
+
+    writingTranslation: [
+    {name: "Blog Writing", title: ""},
+    {name: "Ghost Writing", title: ""},
+    {name: "Copywriting", title: ""},
+    {name: "Content Writing", title: ""},
+    {name: "Editorial Writing", title: ""},
+    {name: "Online Journalism", title: ""},
+    {name: "Technical Documentation", title: ""},
+    {name: "Literature Review", title: ""},
+    {name: "Translation & Interpretation", title: ""},
+    {name: "Other - Writing & Translatio", title: ""}]
+
+    consulting: [
+    {name: "Legal Consultant", title: ""},
+    {name: "Travel Consultant", title: ""},
+    {name: "Immigrant Consultant", title: ""},
+    {name: "Technical Consultant", title: ""},
+    {name: "Culinary Consultant", title: ""},
+    {name: "Language & Communication Consultant", title: ""},
+    {name: "Marketing Consultatant", title: ""},
+    {name: "Business Consultant", title: ""},
+    {name: "Commercial Consultant", title: ""},
+    {name: "Consulting Analyst", title: ""},
+    {name: "Services Consultant", title: ""},
+    {name: "Other - Consulant", title: ""}]
+
+
