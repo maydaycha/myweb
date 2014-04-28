@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+        <title>快樂工作</title>
+        
+        <!-- BEGIN STYLE -->
+        <!-- BEGIN 核心樣式 -->
+        <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <!-- END STYLE -->
+    </head>
+    <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                    <i class="fa fa-search"></i>
+                </button>
+                <a class="navbar-brand" href="/"><img class="navbar-logo" src="img/logo208.png" alt="快樂工作"></a>
+            </div>
+            <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+                <div class="navbar-search">
+                    <div class="input-group">
+                        <!-- <input type="text" class="form-control" placeholder="搜尋您需要的人才"> -->
+                        <span class="input-group-btn">
+                            <!-- <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button> -->
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <% if user_signed_in? %>
+                        <li><a href="login.html">會員登出</a></li>
+                    <% else %>
+                        <li><a href="login.html">會員登入</a></li>
+                        <li><a href="sign_up.html">免費註冊</a></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <!-- END NAVBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <!-- BEGIN MAIN CONTENT -->
+            <div class="main-content">
+                <pre>
+<%= t(:about)%>
+                </pre>
+            </div>
+            <!-- END MAIN CONTENT -->
+        </div>
+        <!-- END PAGE -->
+        <!-- BEGIN FOOTER -->
+        <div class="footer">
+            <img class="footer-logo" src="img/logo103.png" alt="">
+            <div class="footer-nav">
+                <a href="about.html">關於我們</a>
+                <span class="bar">|</span>
+                <a href="rule.html">隱私條款</a>
+                <span class="bar">|</span>
+                <a href="rule.html">使用條款</a>
+            </ul>
+        </div>
+        <!-- END FOOTER -->
+        
+        <!-- BEGIN JAVASCRIPTS -->
+        <!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="plugins/jquery-1.11.0.min.js"></script>
+        <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <!-- END 核心插件 -->
+        <!-- BEGIN 頁面插件 -->
+        <!-- END 頁面插件 -->
+        <script type="text/javascript" src="js/script.js"></script>
+        <!--<script type="text/javascript" src="js/page/index.js"></script>-->
+        <script>
+            jQuery(document).ready(function() {    
+               Web.init();
+               //Index.init();
+            });
+        </script>
+        <!-- END JAVASCRIPTS -->
+        <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+    </body>
+</html>

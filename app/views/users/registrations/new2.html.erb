@@ -29,16 +29,8 @@
   <link rel="stylesheet" type="text/css" href="../../css/page/freelancer_sign_up.css">
   <link rel="shortcut icon" href="favicon.ico"/>
   <!-- END STYLE -->
-
-
 </head>
 <body>
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
   <!-- BEGIN NAVBAR -->
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-header">
@@ -52,22 +44,22 @@
       <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
         <i class="fa fa-search"></i>
       </button>
-      <a class="navbar-brand" href="index.html"><img class="navbar-logo" src="/assets/logo208.png" alt="快樂工作"></a>
+      <a class="navbar-brand" href="../"><img class="navbar-logo" src="/assets/logo208.png" alt="快樂工作"></a>
     </div>
     <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
       <div class="navbar-search">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+          <!-- <input type="text" class="form-control" placeholder="搜尋您需要的人才"> -->
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+            <!-- <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button> -->
           </span>
         </div>
       </div>
     </div>
     <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
       <ul class="nav navbar-nav">
-        <li><a href="login.html">會員登入</a></li>
-        <li><a href="sign_up.html">免費註冊</a></li>
+        <li><a href="sign_in">會員登入</a></li>
+        <li><a href="sign_up">免費註冊</a></li>
       </ul>
     </div>
   </div>
@@ -94,6 +86,29 @@
   </div>
   <!-- END MODAL -->
   <h1 class="title">免費建立個人帳號</h1>
+  <div class="social">
+    <div class="box">
+      <p class="social-text">您也可以使用其他OpenID快速註冊</p>
+      <ul class="social-icons">
+        <li>
+          <!-- <a class="facebook" data-original-title="facebook" href="#"> -->
+          <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "facebook", data:{original:{title:"facebook"}} %>
+          </a>
+        </li>
+        <li>
+          <!-- <a class="googleplus" data-original-title="Goole Plus" href="#"> -->
+          <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
+          </a>
+        </li>
+        <li>
+          <!-- <a class="yahoo" data-original-title="Yahoo!" href="#"> -->
+          <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "yahoo", data:{original:{title:"Yahoo!"}} %>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
 
   <!-- BEGIN MAIN CONTENT -->
   <div class="main-content">
@@ -106,22 +121,32 @@
       請檢查您輸入的資料
     </div>
 
+    <div>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert form-group alert-danger"><%= alert %></p>
+    <% end %>
+    </div>
+
     <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
         <div class="input-icon right">
           <i class="fa"></i>
-          <span class="form-control"><%= resource.first_name %></span>
-          <%= f.hidden_field :first_name %>
+          <%= f.text_field :first_name, class: "form-control", placeholder: "姓" %>
         </div>
       </div>
     </div>
 
     <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-        <span class="form-control"><%= resource.last_name %></span>
-        <%= f.hidden_field :last_name %>
+        <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
+        <div class="input-icon right">
+          <i class="fa"></i>
+          <%= f.text_field :last_name, class: "form-control", placeholder: "名" %>
+        </div>
       </div>
     </div>
 
@@ -130,8 +155,7 @@
         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
         <div class="input-icon right">
           <i class="fa"></i>
-          <span class="form-control"><%= resource.email %> </span>
-          <%= f.hidden_field :email%>
+          <%= f.email_field :email, class: "form-control", placeholder: "Email"%>
         </div>
       </div>
     </div>
@@ -139,16 +163,14 @@
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-flag"></i></span>
-        <!-- <input type="text" class="form-control" name="location" placeholder="所在地區"> -->
-        <%= f.localized_country_select :country_code, placeholder: "所在地區" %>
+        <%= f.localized_country_select :country_code, [], {:include_blank => '所在地區'}, {:class => 'form-control'} %>
       </div>
     </div>
 
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-flag"></i></span>
-        <!-- <input type="text" class="form-control" name="location" placeholder="所在地區"> -->
-        <%= f.time_zone_select :time_zone %>
+        <%= f.time_zone_select :time_zone, nil, {}, {:class => 'form-control'} %>
       </div>
     </div>
 
@@ -158,7 +180,7 @@
         <div class="input-icon right">
           <i class="fa"></i>
           <!-- <input type="text" class="form-control" name="username" placeholder="使用者帳號" data-isEmpty="請輸入帳號" data-isError="帳號長度不足" data-isExists="帳戶名稱已經有人使用"> -->
-          <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號" %>
+          <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號", "data-isEmpty" => "請輸入帳號", "data-isError" => "帳號長度不足", "data-isExists" => "帳戶名稱已經有人使用"%>
           <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
         </div>
       </div>
@@ -186,14 +208,17 @@
     <div class="form-group">
       <div class="input-icon right">
         <i class="fa"></i>
-        <input type="text" class="form-control" name="verification" placeholder="輸入以下識別碼" data-isEmpty="請輸入識別碼" data-isError="錯誤! 請輸入正確的識別碼">
+        <!-- <input type="text" class="form-control" name="verification" placeholder="輸入以下識別碼" data-isEmpty="請輸入識別碼" data-isError="錯誤! 請輸入正確的識別碼"> -->
         <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
       </div>
     </div>
 
     <div class="form-group imageVerification">
-      <img src="/assets/u44.png" alt="">
-      <p>未確保您不是惡意註冊，請輸入左方顯示的英文單字。</p>
+      <!-- <img src="/assets/u44.png" alt=""> -->
+      <div>
+        <p>未確保您不是惡意註冊，請輸入下方顯示的英文單字。</p>
+      </div>
+      <%= recaptcha_tags :display => { :theme => "clean" }, :ajax => true %>
       <div class="clear"></div>
     </div>
 
@@ -229,6 +254,7 @@
     <a href="rule.html">使用條款</a>
   </ul>
 </div>
+
 <!-- END FOOTER -->
 
 <!-- BEGIN JAVASCRIPTS -->
@@ -249,6 +275,7 @@
             <script type="text/javascript" src="../../js/script.js"></script>
             <script type="text/javascript" src="../../js/page/freelancer_sign_up.js"></script>
 
+
             <script>
               jQuery(document).ready(function() {
                Web.init();
@@ -259,12 +286,3 @@
 
          </body>
          </html>
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,6 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
   def after_resending_confirmation_instructions_path_for(resource_name)
-  	verify_user_registration_path(resource_name) if is_navigational_format?
+  	verify_user_registration_path(email: self.resource.email) if is_navigational_format?
   end
 
   # The path used after confirmation.
