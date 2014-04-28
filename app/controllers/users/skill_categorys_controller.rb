@@ -1,4 +1,6 @@
 class Users::SkillCategorysController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
   end
 

@@ -126,9 +126,9 @@ Sun::Application.routes.draw do
   # post 'ajax_updae' => 'users/profiles#ajax_updae'
   # post 'profile/ajax_upload_img' => 'users/profiles#ajax_upload_img'
 
-
-  # test scott
   root to: "index#index"
+  get 'about' => 'index#about', :as => :index_about
+  get 'rule' => 'index#rule', :as => :index_rule
 
   devise_for :users, :controllers => {
     registrations: 'users/registrations',

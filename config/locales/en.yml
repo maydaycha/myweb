@@ -21,6 +21,15 @@
 
 en:
   hello31: "Hello world"
+  about: |
+    Sun Innovation Corporation Co. Ltd. is the e-commerce company registered in Taiwan. The website TeleworkTM is established by Sun Innovation Corporation Co. Ltd. The web is registered on Taiwan and is going to be registered on China. As the growth of the domestic demand, the market of outsourcing to western countries is growing in Chinese-speaking areas. We will help the freelancers or SOHO in western countries to expand the business scope to Chinese-speaking areas with least communication barrier.
+    TeleworkTM will offer you the telework opportunities and help the communication between you and the employer in order to make the contract. You can work at home or elsewhere in the world, and deliver the required result to the employer thru TeleworkTM. All of the information and the messages that delivered to you will be shown in your language and you can reply in your language as well. The employer has to pay to start the contract, the payment will be escrowed. If the milestone on the contract is reached or the contract is complete, the payment will be released to the employee thru the internet services, like Paypal.
+    
+    The website is ready for recruiting new members now. It is free. You are cordially invited to register. If you have any questions, comments or suggestions, please e-mail to service@sun-innovation.com . Again, you can e-mail us in your language and we will reply you in your language as well. We look forward to hearing from you.
+
+  rule: |
+    Fixed Now
+
   main_skill_category:
     IT: "IT & Software"
     engineeringScience: "Engineering and Science"

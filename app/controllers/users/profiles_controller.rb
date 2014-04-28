@@ -1,4 +1,5 @@
 class Users::ProfilesController < ApplicationController
+  before_action :authenticate_user!
 
   protect_from_forgery :except => :ajax_upload_img
 

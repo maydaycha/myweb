@@ -43,23 +43,25 @@
                 <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
                     <i class="fa fa-search"></i>
                 </button>
-                <a class="navbar-brand" href="../../index.html"><img class="navbar-logo" src="../../img/logo208.png" alt="快樂工作"></a>
+                <a class="navbar-brand" href="/"><img class="navbar-logo" src="../../img/logo208.png" alt="快樂工作"></a>
             </div>
             <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
                 <div class="navbar-search">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                        <!-- <input type="text" class="form-control" placeholder="搜尋您需要的人才"> -->
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                            <!-- <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button> -->
                         </span>
                     </div>
                 </div>
             </div>
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
-                <ul class="nav navbar-nav">
-                    <li><a href="../../login.html">會員登入</a></li>
-                    <li><a href="../../sign_up.html">免費註冊</a></li>
-                </ul>
+                <% if user_signed_in? %>
+                    <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                    <li><%= link_to "會員登入", new_user_session_path %></li>
+                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                <% end %>
             </div>
         </div>
         <!-- END NAVBAR -->
@@ -94,11 +96,11 @@
         <div class="footer">
             <img class="footer-logo" src="../../img/logo103.png" alt="">
             <div class="footer-nav">
-                <a href="../../about.html">關於我們</a>
+                <%= link_to "關於我們", index_about_path %>
                 <span class="bar">|</span>
-                <a href="../../rule.html">隱私條款</a>
+                <%= link_to "隱私條款", index_rule_path %>
                 <span class="bar">|</span>
-                <a href="../../rule.html">使用條款</a>
+                <%= link_to "使用條款", index_rule_path %>
             </ul>
         </div>
         <!-- END FOOTER -->
