@@ -2,8 +2,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # layout 'user'
 
   def create
-    # if verify_recaptcha
-    if true
+    if verify_recaptcha
+    # if true
       super
       session[:omniauth] = nil unless @user.new_record?
       @user.user_authentications.create!(:provider => session["devise:provider"], :uid => session['devise:uid'], :token => session["devise:token"], :token_secret => "") if session["devise:provider"] != nil
@@ -16,6 +16,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def verify_email
+    print "======="
+    print params.to_json
+    print "======="
+    @email = params[:email]
+    render template: "users/registrations/verify_email"
+  end
+
+  def after_inactive_sign_up_path_for(user)
+    verify_user_registration_path(email: user.email)
+  end
 
   def build_resource(*args)
     super
@@ -24,7 +35,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #   @user.valid?
     # end
   end
-
 
   def new2
     build_resource({
@@ -35,7 +45,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
      })
     render template: "users/registrations/new2"
   end
-
-
 
 end

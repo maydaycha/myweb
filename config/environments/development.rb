@@ -37,7 +37,7 @@ Sun::Application.configure do
     :port => 25,
     :domain => "secureserver.net",
     :user_name => "maydaycha@sun-innovation.com",
-    :password => ""
+    :password => "a047226657"
   }
 
   config.assets.js_compressor = Uglifier.new(mangle: false)

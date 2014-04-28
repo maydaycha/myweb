@@ -46,7 +46,7 @@
       <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
         <i class="fa fa-search"></i>
       </button>
-      <a class="navbar-brand" href="index.html"><img class="navbar-logo" src="/assets/logo208.png" alt="快樂工作"></a>
+      <a class="navbar-brand" href="../"><img class="navbar-logo" src="/assets/logo208.png" alt="快樂工作"></a>
     </div>
     <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
       <div class="navbar-search">
@@ -60,8 +60,8 @@
     </div>
     <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
       <ul class="nav navbar-nav">
-        <li><a href="login.html">會員登入</a></li>
-        <li><a href="sign_up.html">免費註冊</a></li>
+        <li><a href="sign_in">會員登入</a></li>
+        <li><a href="sign_up">免費註冊</a></li>
       </ul>
     </div>
   </div>
@@ -123,6 +123,15 @@
       請檢查您輸入的資料
     </div>
 
+    <div>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert form-group alert-danger"><%= alert %></p>
+    <% end %>
+    </div>
+
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
@@ -156,16 +165,14 @@
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-flag"></i></span>
-        <!-- <input type="text" class="form-control" name="location" placeholder="所在地區"> -->
-        <%= f.localized_country_select :country_code, placeholder: "所在地區" %>
+        <%= f.localized_country_select :country_code, [], {:include_blank => '所在地區'}, {:class => 'form-control'} %>
       </div>
     </div>
 
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-flag"></i></span>
-        <!-- <input type="text" class="form-control" name="location" placeholder="所在地區"> -->
-        <%= f.time_zone_select :time_zone %>
+        <%= f.time_zone_select :time_zone, nil, {}, {:class => 'form-control'} %>
       </div>
     </div>
 
@@ -175,7 +182,7 @@
         <div class="input-icon right">
           <i class="fa"></i>
           <!-- <input type="text" class="form-control" name="username" placeholder="使用者帳號" data-isEmpty="請輸入帳號" data-isError="帳號長度不足" data-isExists="帳戶名稱已經有人使用"> -->
-          <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號" %>
+          <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號", "data-isEmpty" => "請輸入帳號", "data-isError" => "帳號長度不足", "data-isExists" => "帳戶名稱已經有人使用"%>
           <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
         </div>
       </div>
@@ -203,14 +210,17 @@
     <div class="form-group">
       <div class="input-icon right">
         <i class="fa"></i>
-        <input type="text" class="form-control" name="verification" placeholder="輸入以下識別碼" data-isEmpty="請輸入識別碼" data-isError="錯誤! 請輸入正確的識別碼">
+        <!-- <input type="text" class="form-control" name="verification" placeholder="輸入以下識別碼" data-isEmpty="請輸入識別碼" data-isError="錯誤! 請輸入正確的識別碼"> -->
         <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
       </div>
     </div>
 
     <div class="form-group imageVerification">
-      <img src="/assets/u44.png" alt="">
-      <p>未確保您不是惡意註冊，請輸入左方顯示的英文單字。</p>
+      <!-- <img src="/assets/u44.png" alt=""> -->
+      <div>
+        <p>未確保您不是惡意註冊，請輸入下方顯示的英文單字。</p>
+      </div>
+      <%= recaptcha_tags :display => { :theme => "clean" }, :ajax => true %>
       <div class="clear"></div>
     </div>
 
