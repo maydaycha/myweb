@@ -1,4 +1,5 @@
 class Users::ProfilesController < ApplicationController
+  before_action :authenticate_user!
 
   def index
   end
@@ -66,7 +67,14 @@ class Users::ProfilesController < ApplicationController
 
 
   def ajax_upload_img
-    render json: {c: params}
+    file_name = params[:profile_img].original_filename
+    # return render json: {name: params[:profile_img].original_filename}
+    directory = "public/upload"
+    path = File.join(directory, name)
+    File.open(path, "wb") { |f| f.write(params["profile_img"].tempfile.read) }
+    # flash[:notice] = "File uploaded"
+    # redirect_to "/upload/new"
+    render json: {c: "status"}
   end
 
 end

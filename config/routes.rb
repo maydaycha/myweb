@@ -112,6 +112,10 @@ Sun::Application.routes.draw do
     resources :profiles
     resources :skills
     resources :skill_categorys
+    namespace :profiles do
+      post 'ajax_upload_img'
+      post 'ajax_updae'
+    end
   end
 
   namespace :index do
@@ -119,12 +123,12 @@ Sun::Application.routes.draw do
   end
 
   # get 'users/profiles/:id/edit2' => 'users/profiles#edit2', as: :edit2_users_profile
-  get 'ajax_updae' => 'users/profiles#ajax_updae'
-  put 'ajax_upload_img' => 'users/profiles#ajax_upload_img'
+  # post 'ajax_updae' => 'users/profiles#ajax_updae'
+  # post 'profile/ajax_upload_img' => 'users/profiles#ajax_upload_img'
 
   root to: "index#index"
-  get 'about' => 'index#about'
-  get 'rule' => 'index#rule'
+  get 'about' => 'index#about', :as => :index_about
+  get 'rule' => 'index#rule', :as => :index_rule
 
   devise_for :users, :controllers => {
     registrations: 'users/registrations',

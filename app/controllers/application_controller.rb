@@ -38,6 +38,10 @@ class ApplicationController < ActionController::Base
     new_users_skill_category_path
   end
 
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
+  end
+
   protected
 
   def layout_by_resource
