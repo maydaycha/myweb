@@ -62,8 +62,8 @@
             </div>
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><a href="login.html">會員登入</a></li>
-                    <li><a href="sign_up.html">免費註冊</a></li>
+                    <!-- <li><a href="login.html">會員登入</a></li> -->
+                    <!-- <li><a href="sign_up.html">免費註冊</a></li> -->
                 </ul>
             </div>
         </div>
@@ -956,14 +956,15 @@
                 console.log(fileSize);
                 var file = profile_img.files[0];
 
-                var fd = new FormData();
-                fd.append('profile_img', file);
+                // var fd = new FormData();
+                // fd.append('profile_img', file);
 
                 var xhr = new XMLHttpRequest();
-                xhr.open('put', '/ajax_upload_img', true);
+                xhr.open('post', '/users/profiles/ajax_upload_img', true);
 
                 xhr.setRequestHeader("X-File-Name", file.name);
                 xhr.setRequestHeader("X-File-Size", file.size);
+                xhr.setRequestHeader("X-File-Type", file.type);
 
                 xhr.onload = function() {
                     if (this.status == 200) {
@@ -973,12 +974,10 @@
                 // var image = document.createElement('img');
                 // image.src = resp.dataUrl;
                 // document.body.appendChild(image);
-            };
-        };
-
-        xhr.send(file);
-
-    }
+                    };
+                };
+                xhr.send(file);
+            }
 
     var update_basic_info = function() {
                 // console.log($("#contact-form1 input[name='name']").val());
@@ -994,8 +993,8 @@
                 // console.log(obj);
 
                 $.ajax({
-                    url: "/ajax_updae",
-                    type: "get",
+                    url: "/users/profiles/ajax_updae",
+                    type: "post",
                     dataType: "json",
                     data: obj,
                     success: function(data) {
@@ -1021,8 +1020,8 @@
                 };
                 console.log(obj);
                 $.ajax({
-                    url: "/ajax_updae",
-                    type: "get",
+                    url: "/users/profiles/ajax_updae",
+                    type: "post",
                     dataType: "json",
                     data: obj,
                     success: function(data) {
@@ -1053,8 +1052,8 @@
                 };
                 console.log(obj);
                 $.ajax({
-                    url: "/ajax_updae",
-                    type: "get",
+                    url: "/users/profiles/ajax_updae",
+                    type: "post",
                     dataType: "json",
                     data: obj,
                     success: function(data) {
