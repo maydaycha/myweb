@@ -1,6 +1,8 @@
 class Users::ProfilesController < ApplicationController
   before_action :authenticate_user!
 
+  protect_from_forgery :except => :ajax_upload_img
+
   def index
   end
 
@@ -67,14 +69,13 @@ class Users::ProfilesController < ApplicationController
 
 
   def ajax_upload_img
-    file_name = params[:profile_img].original_filename
-    # return render json: {name: params[:profile_img].original_filename}
+    @user = User.find(session[:user_id])
+    file_name = @user.username + "." + request.headers['X-File-Type'].split("/")[1]
     directory = "public/upload"
-    path = File.join(directory, name)
-    File.open(path, "wb") { |f| f.write(params["profile_img"].tempfile.read) }
-    # flash[:notice] = "File uploaded"
-    # redirect_to "/upload/new"
-    render json: {c: "status"}
+    path = directory + "/" + file_name
+    File.open(path, "w+") { |f| f.puts(request.body) }
+    # File.open(path, "w+"){ |somefile| somefile.puts params[:profile_img][:tempfiles].read }
+    render json: {c: request.body}
   end
 
 end
