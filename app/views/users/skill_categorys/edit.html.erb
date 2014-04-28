@@ -79,16 +79,14 @@
                         <%= form_for @user_skill_category, url: users_skill_category_path(@user_skill_category), method: :put, html: {class: "class-form", data: {isempty: "請選擇一個專長類別"}} do |f| %>
                         <div class="col-md-3 col-xs-4 image">
                             <img src="../../../img/class/class_1.png" alt="IT、軟體">
-                            <p>IT、軟體</p>
-
-
+                            <p><%= t(@main_category.to_s) %></p>
                         </div>
                         <div class="col-md-9 col-xs-8 content">
                             <p class="title">您是哪一種 <span class="point"><%= t(@main_category.to_s) %></span> 人員？</p>
                             <% t(@sub_category.to_s).each_with_index do |cate, index| %>
                             <div class="item">
                                 <input type="checkbox" name="class[]" value="<%= index+1 %>" id="class<%= index+1 %>">
-                                <label for="class1" data-original-title="<%= cate['title']%>">
+                                <label for="class<%= index+1 %>">
                                     <%= cate['name'] %>
                                 </label>
                             </div>
@@ -138,12 +136,12 @@
             <script type="text/javascript" src="../../../js/page/edit_category.js"></script>
             <script>
                 jQuery(document).ready(function() {
-                 Web.init();
-                 EditCategory.init();
-             });
-         </script>
-         <!-- END JAVASCRIPTS -->
-         <!-- BEGIN PIE -->
+                   Web.init();
+                   EditCategory.init();
+               });
+           </script>
+           <!-- END JAVASCRIPTS -->
+           <!-- BEGIN PIE -->
         <!--[if lte IE 9]>
         <script type="text/javascript" src="../../../plugins/PIE-1.0.0/PIE.js"></script>
         <script src="../../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
