@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_locale
+  before_action :set_locale, :protect
 
   # layout :layout_by_resource
   layout false
@@ -63,6 +63,17 @@ class ApplicationController < ActionController::Base
   def extract_locale_from_accept_language_header
     # request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
     request.env['HTTP_ACCEPT_LANGUAGE'].split(/,/)[0]
+  end
+
+  def protect
+    @ips = ['125.227.181.61', '140.113.73.55', '127.0.0.1']
+    puts request.remote_ip
+    if not @ips.include? request.remote_ip
+      # Check for your subnet stuff here, for example
+      # if not request.remote_ip.include?('127.0,0')
+      render :text => "You are unauthorized"
+      return
+    end
   end
 
 end
