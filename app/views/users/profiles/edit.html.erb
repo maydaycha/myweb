@@ -61,10 +61,10 @@
         <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
             <ul class="nav navbar-nav">
                 <% if user_signed_in? %>
-                    <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
                 <% else %>
-                    <li><%= link_to "會員登入", new_user_session_path %></li>
-                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                <li><%= link_to "會員登入", new_user_session_path %></li>
+                <li><%= link_to "免費註冊", index_sign_up_path %></li>
                 <% end %>
             </ul>
         </div>
@@ -93,9 +93,9 @@
                                         <li>
                                             <a href="#tab1" data-toggle="tab" class="step">
                                                 <span class="number">
-                                                   1
-                                               </span>
-                                               <span class="desc">
+                                                 1
+                                             </span>
+                                             <span class="desc">
                                                 <i class="fa fa-check"></i> 自我介紹
                                             </span>
                                         </a>
@@ -103,9 +103,9 @@
                                     <li>
                                         <a href="#tab2" data-toggle="tab" class="step">
                                             <span class="number">
-                                               2
-                                           </span>
-                                           <span class="desc">
+                                             2
+                                         </span>
+                                         <span class="desc">
                                             <i class="fa fa-check"></i> 經歷及技能
                                         </span>
                                     </a>
@@ -113,9 +113,9 @@
                                 <li>
                                     <a href="#tab3" data-toggle="tab" class="step active">
                                         <span class="number">
-                                           3
-                                       </span>
-                                       <span class="desc">
+                                         3
+                                     </span>
+                                     <span class="desc">
                                         <i class="fa fa-check"></i> 完成編輯
                                     </span>
                                 </a>
@@ -160,12 +160,12 @@
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                     <!--  <input type="radio" name="status" data-title="我們是小於5人的工作室"> -->
-                                                     <%= f.radio_button :worker_type, "3", data: {title: "我們是小於5人的工作室" } %>
-                                                     我們是小於5人的工作室
-                                                 </label>
-                                             </div>
-                                             <div class="radio">
+                                                       <!--  <input type="radio" name="status" data-title="我們是小於5人的工作室"> -->
+                                                       <%= f.radio_button :worker_type, "3", data: {title: "我們是小於5人的工作室" } %>
+                                                       我們是小於5人的工作室
+                                                   </label>
+                                               </div>
+                                               <div class="radio">
                                                 <label>
                                                     <!-- <input type="radio" name="status" data-title="我們是大於5人的工作室"> -->
                                                     <%= f.radio_button :worker_type, "4", data: {title: "我們是大於5人的工作室" } %>
@@ -243,14 +243,14 @@
                                                     <%= f.text_field :hourly_pay, class: "form-control text-right", placeholder: "每小時工資", id: "hourly_pay", data: {isEmpty: "請輸入期望的工資"} %>
                                                 </div>
                                                 <span class="input-group-addon">
-                                                   / HR
-                                               </span>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                           <div class=" portlet box light-grey">
+                                                 / HR
+                                             </span>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class=" portlet box light-grey">
                             <div class="portlet-title">
                                 <div class="caption">
                                     所在位置
@@ -533,7 +533,7 @@
                             <div class="portlet-body">
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <p class="form-control-static" data-display="user[status]">
+                                        <p class="form-control-static" data-display="user[worker_type]">
                                         </p>
                                     </div>
                                 </div>
@@ -549,7 +549,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2">個人圖像</label>
                                     <div class="col-md-10">
-                                    <img src="../../../img/staff.png" class="avatar" id="blah2">
+                                        <img src="../../../img/staff.png" class="avatar" id="blah2">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -684,9 +684,9 @@
 
     <script>
         jQuery(document).ready(function() {
-         Web.init();
-         CreateProfile.init();
-     });
+           Web.init();
+           CreateProfile.init();
+       });
 
         function readURL(input) {
             if (input.files && input.files[0]) {

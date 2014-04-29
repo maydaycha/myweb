@@ -58,10 +58,10 @@
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
-                        <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                    <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
                     <% else %>
-                        <li><%= link_to "會員登入", new_user_session_path %></li>
-                        <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                    <li><%= link_to "會員登入", new_user_session_path %></li>
+                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
                     <% end %>
                 </ul>
             </div>

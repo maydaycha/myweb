@@ -124,7 +124,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人圖像</label>
                                         <div class="col-md-10">
-                                            <img src="../../../img/staff.png" class="avatar" id="blah1">
+                                            <img src="<%= (@user.image != nil) ? @user.image :  '../../../img/staff.png' %>" class="avatar" id="blah1">
                                             <input type="file" name="image" class="form-control edit" id="profile_img" onchange="readURL(this)">
                                         </div>
                                     </div>
@@ -497,7 +497,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人圖像</label>
                                         <div class="col-md-10">
-                                            <img src="../../../img/staff.png" class="avatar">
+                                            <img src="<%= (@user.image != nil) ? @user.image :  '../../../img/staff.png' %>" class="avatar">
                                             <input type="file" name="image" class="form-control edit">
                                         </div>
                                     </div>

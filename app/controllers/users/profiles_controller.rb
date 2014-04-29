@@ -23,10 +23,9 @@ class Users::ProfilesController < ApplicationController
 
 
   def update
-    @user = User.find(params[:id])
-    @user.update(params.permit![:user])
-    # redirect_to edit2event_path(@user)
-    # render json: {content: @user}
+    current_user.update(params.permit![:user])
+    # return render json: params
+    @user = current_user
     render :show
   end
 
@@ -39,8 +38,9 @@ class Users::ProfilesController < ApplicationController
 
 
   def show
-    puts current_user.to_json
-    @user = User.find(current_user['id'])
+    # puts current_user.to_json
+    # return render json: current_user
+    @user = current_user
   end
 
 
@@ -78,7 +78,7 @@ class Users::ProfilesController < ApplicationController
     directory = "public/upload"
     path = directory + "/" + file_name
 
-    @user.image = path
+    @user.image = path.split('public')[1]
     @user.save
     puts path
 
