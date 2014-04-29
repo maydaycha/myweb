@@ -84,7 +84,7 @@
                     <div id="form_wizard_1">
                         <div class="form">
                             <!-- <form action="#" class="form-horizontal" id="submit_form"> -->
-                            <%= form_for @user, url: users_profile_path(@user), method: :put, html: {class: "form-horizontal", id: "submit_form"} do |f| %>
+                            <%= form_for current_user, url: users_profile_path(current_user), method: :put, html: {class: "form-horizontal", id: "submit_form"} do |f| %>
                             <div class="field">
                             </div>
                             <div class="form-wizard">
@@ -187,7 +187,8 @@
                                         <label class="col-md-2 control-label">新增圖像</label>
                                         <div class="col-md-10">
                                             <img src="../../../img/staff.png" class="avatar" id="blah1">
-                                            <input type="file" name="image" class="form-control edit" onchange="readURL(this)">
+                                            <!-- <input type="file" name="image" class="form-control edit" onchange="readURL(this)"> -->
+                                            <%= f.file_field :image, name: "image", class: "form-control edit", onchange: "readURL(this)" %>
                                             <p class="help-block">
                                                 一張好的相片可以增加雇主或是客戶對您的第一印象，提升您專業形象更能為您曾家被雇用的機會喔!
                                             </p>

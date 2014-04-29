@@ -1,6 +1,6 @@
 class Users::SkillCategorysController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
   end
 
@@ -8,24 +8,33 @@ class Users::SkillCategorysController < ApplicationController
   end
 
   def new
-    @user_skill_category = UserSkillCategory.new
+    if not params[:user_skill_category]
+      render template: "users/skill_categorys/new"
+    else
+      new2(params[:user_skill_category])
+    end
   end
 
-  def create
-    # need find user from session
-    # return render json: {content: params[:user_skill_category]}
-    @user = User.find("1")
-    session[:user_id] = @user.id
-    @user_skill_category = UserSkillCategory.new(params.permit![:user_skill_category])
-    @user_skill_category.user_id = @user.id
-    @user_skill_category.save
+  def new2(user_skill_category)
     @category =  ["IT", "engineeringScience", "designCreativeWork", "salesMarketing", "administrativeCustomerServices",  "businessAccountingLegal", "writingTranslation", "consulting" ]
     index = params["user_skill_category"]["main_skill_id"].to_i - 1
     @main_category = "main_skill_category.#{@category[index]}"
     @sub_category = "sub_skill_category.#{@category[index]}"
-    # edit_users_skill_category_path(@user_skill_category, @category)
-    edit(@user_skill_category, @main_category, @sub_category)
+    render "new2", locals: { user_skill_category_id: params[:user_skill_category]['main_skill_id'] }
   end
+
+  def create
+    params[:class].each do |c|
+      @user_skill_category = UserSkillCategory.new
+      @user_skill_category.main_skill_id = params[:user_skill_category_id]
+      @user_skill_category.sub_skill_id = c
+      @user_skill_category.user_id = current_user.id
+      @user_skill_category.save
+    end
+    redirect_to edit_users_profile_path(current_user)
+  end
+
+
 
 
   def edit(user_skill_category, main_category, sub_category)

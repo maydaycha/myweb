@@ -80,7 +80,7 @@
                 <div class="class">
                     <div class="row">
                         <!-- <form action="edit_category.html" class="class-form" data-isEmpty="請選擇一個專長類別"> -->
-                        <%= form_for @user_skill_category, url: users_skill_categorys_path, html: {class: "class-form", data: {isEmpty: "請選擇一個專長類別"}} do |f| %>
+                        <%= form_for :user_skill_category, url: new_users_skill_category_path, method: :get, html: {class: "class-form", data: {isEmpty: "請選擇一個專長類別"}} do |f| %>
                         <div class="col-md-3 col-sm-4 col-xs-6 item">
                             <!-- <input type="radio" id="class1" name="class"> -->
                             <%= f.radio_button :main_skill_id, "1", id: "class1" %>

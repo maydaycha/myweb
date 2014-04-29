@@ -89,15 +89,16 @@
             <div class="main-content">
                 <!-- BEGIN TABS -->
                 <ul class="nav nav-tabs nav-justified">
-                    <li class="active"><a href="#contact" data-toggle="tab">我的連絡資訊</a></li>
-                    <li><a href="#profile" data-toggle="tab">我的個人資料</a></li>
+                    <!-- <li class="active"><a href="#contact" data-toggle="tab">我的連絡資訊</a></li> -->
+                    <li class="active"><a href="#profile" data-toggle="tab">我的個人資料</a></li>
                     <li><a href="#password" data-toggle="tab">變更密碼</a></li>
                 </ul>
                 <!-- END TABS -->
 
                 <!-- BEGIN TAB CONTENT -->
                 <div class="tab-content">
-                    <div class="tab-pane active" id="contact">
+                    <!-- <div class="tab-pane active" id="contact"> -->
+                    <div class="tab-pane" id="contact">
                         <div class="portlet box light-grey show-view" id="contact-portlet1">
                             <div class="portlet-title">
                                 <div class="caption">
@@ -117,22 +118,22 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">姓名</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id="fullname"><%= @user.first_name %> <%= @user.last_name%></p>
-                                            <input type="text" name="name" class="form-control edit" placeholder="姓名" value="<%= @user.first_name %> <%= @user.last_name%>">
+                                            <p class="form-control-static view" id="fullname"><%= current_user.first_name %> <%= current_user.last_name%></p>
+                                            <input type="text" name="name" class="form-control edit" placeholder="姓名" value="<%= current_user.first_name %> <%= current_user.last_name%>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人圖像</label>
                                         <div class="col-md-10">
-                                            <img src="<%= (@user.image != nil) ? @user.image :  '../../../img/staff.png' %>" class="avatar" id="blah1">
-                                            <input type="file" name="image" class="form-control edit" id="profile_img" onchange="readURL(this)">
+                                            <img src="<%= (current_user.image != nil) ? current_user.image :  '../../../img/staff.png' %>" class="avatar" id="blah1">
+                                            <input type="file" name="image" class="form-control edit" id="profile_img1" onchange="readURL(this)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">電子郵件</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id="email"><%= @user.email%></p>
-                                            <input type="text" name="email" class="form-control edit" placeholder="電子郵件" value="<%= @user.email%>">
+                                            <p class="form-control-static view" id="email"><%= current_user.email%></p>
+                                            <input type="text" name="email" class="form-control edit" placeholder="電子郵件" value="<%= current_user.email%>">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -143,7 +144,7 @@
                                         </div>
                                     </div>
                                 </form>
-                                <button onclick="update_basic_info()">save</button>
+                                <button onclick="update_basic_info(1)">save</button>
                                 <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet1" onclick="update_basic_info()"> -->
                             </div>
                         </div>
@@ -166,7 +167,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">時區</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id="time_zone"><%= @user.time_zone %></p>
+                                            <p class="form-control-static view" id="time_zone"><%= current_user.time_zone %></p>
                                             <select name="timeZone" class="form-control edit">
                                                 <option value="-12">UTC-12 Baker Island Time</option>
                                                 <option value="-11">UTC-11 Niue Time, Samoa Standard Time</option>
@@ -214,7 +215,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">國家</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id="country"><%= @user.country_code %></p>
+                                            <p class="form-control-static view" id="country"><%= current_user.country_code %></p>
                                             <select name="country" class="form-control edit">
                                                 <option value="Afghanistan">Afghanistan 阿富汗</option>
                                                 <option value="Albania">Albania 阿爾巴尼亞</option>
@@ -458,7 +459,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="profile">
+                    <div class="tab-pane active" id="profile">
                         <div class="portlet box light-grey show-view" id="profile-portlet1">
                             <div class="portlet-title">
                                 <div class="caption">
@@ -474,11 +475,11 @@
                                 </div>
                             </div>
                             <div class="portlet-body">
-                                <form action="#" id="contact-form1" class="form-horizontal" role="form">
+                                <form action="#" id="contact-form2" class="form-horizontal" role="form">
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人簡述</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view"><%= @user.introduction %></p>
+                                            <p class="form-control-static view"><%= current_user.introduction %></p>
                                             <label class="radio-inline edit">
                                                 <input type="radio" name="status" checked> 最認真負責的自由工作者
                                             </label>
@@ -490,41 +491,41 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">姓名</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id="fullname2"><%= @user.first_name %> <%= @user.last_name %></p>
-                                            <input type="text" name="name" class="form-control edit" placeholder="姓名" value="<%= @user.first_name %> <%= @user.last_name %>">
+                                            <p class="form-control-static view" id="fullname2"><%= current_user.first_name %> <%= current_user.last_name %></p>
+                                            <input type="text" name="name" class="form-control edit" placeholder="姓名" value="<%= current_user.first_name %> <%= current_user.last_name %>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人圖像</label>
                                         <div class="col-md-10">
-                                            <img src="<%= (@user.image != nil) ? @user.image :  '../../../img/staff.png' %>" class="avatar">
-                                            <input type="file" name="image" class="form-control edit">
+                                            <img src="<%= (current_user.image != nil) ? current_user.image :  '../../../img/staff.png' %>" class="avatar" id="blah2">
+                                            <input type="file" name="image" class="form-control edit" id="profile_img2" onchange="readURL(this)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">電子郵件</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id="email2"><%= @user.email %></p>
-                                            <input type="text" name="email" class="form-control edit" placeholder="電子郵件" value="<%= @user.email %>">
+                                            <p class="form-control-static view" id="email2"><%= current_user.email %></p>
+                                            <input type="text" name="email" class="form-control edit" placeholder="電子郵件" value="<%= current_user.email %>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">每小時工資</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view">$<%= @user.hourly_pay%> / HR</p>
+                                            <p class="form-control-static view">$<%= current_user.hourly_pay%> / HR</p>
                                             <div class="input-group edit">
-                                                <input type="text" name="money" class="form-control text-right" placeholder="每小時工資" value="<%= @user.hourly_pay%>">
+                                                <input type="text" name="money" class="form-control text-right" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                 / HR
-                                             </span>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </form>
-
-                         </div>
-                     </div>
-                     <div class="portlet box light-grey show-view" id="profile-portlet2">
+                                                   / HR
+                                               </span>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </form>
+                               <button onclick="update_basic_info(2)">save</button>
+                           </div>
+                       </div>
+                       <div class="portlet box light-grey show-view" id="profile-portlet2">
                         <div class="portlet-title">
                             <div class="caption">
                                 專業類別
@@ -589,9 +590,9 @@
                             </div>
                         </div>
                         <div class="portlet-body">
-                            <p class="form-control-static view" id="skill"><%= @user.skill %></p>
+                            <p class="form-control-static view" id="skill"><%= current_user.skill %></p>
                             <form action="#" id="contact-form1" class="form-horizontal edit" role="form">
-                                <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= @user.skill %>"/>
+                                <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.skill %>"/>
                                 <p class="help-block">
                                     如果您欲新增更多的技能。您必須完成下列項目：<br>
                                     1. 工作經歷　2. 教育程度　3. 作品集
@@ -617,6 +618,7 @@
                             </div>
                         </div>
                         <div class="portlet-body">
+                        <% if current_user.user_experiences %>
                             <table class="table" id="experience-table">
                                 <tr>
                                     <th>起</th>
@@ -625,14 +627,19 @@
                                     <th>職位/職責</th>
                                     <th class="edit">刪除</th>
                                 </tr>
+                                <% current_user.user_experiences.each do |e| %>
                                 <tr>
-                                    <td>2014/03/01</td>
-                                    <td>2100/12/31</td>
-                                    <td>盈碩科技</td>
-                                    <td>萬年底層程式設計師學徒</td>
-                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>
+                                    <td><%= e.start_date %></td>
+                                    <td><%= e.end_date %></td>
+                                    <td><%= e.organization %></td>
+                                    <td><%= e.office %></td>
+                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="remove_experience(<%= e.id %>)">刪除</button></td>
                                 </tr>
+                                <% end %>
                             </table>
+                            <% else %>
+                                尚未新增工作經歷
+                            <% end %>
                             <div class="modal fade" id="experience-modal" tabindex="-1" role="experience-modal" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -692,6 +699,7 @@
                             </div>
                         </div>
                         <div class="portlet-body">
+                            <% if current_user.user_educations %>
                             <table class="table" id="education-table">
                                 <tr>
                                     <th>起</th>
@@ -700,14 +708,19 @@
                                     <th>系所/專長</th>
                                     <th class="edit">刪除</th>
                                 </tr>
+                                <% current_user.user_educations.each do |e| %>
                                 <tr>
-                                    <td>2007/08/01</td>
-                                    <td>2011/06/30</td>
-                                    <td>國立台南大學</td>
-                                    <td>數位學習科技學系</td>
-                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>
+                                    <td><%= e.start_date %></td>
+                                    <td><%= e.end_date %></td>
+                                    <td><%= e.school %></td>
+                                    <td><%= e.department %></td>
+                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="remove_education(<%= e.id %>);">刪除</button></td>
                                 </tr>
+                                <% end %>
                             </table>
+                            <% else %>
+                            尚未新增教育程度
+                            <% end %>
                             <div class="modal fade" id="education-modal" tabindex="-1" role="education-modal" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -950,26 +963,27 @@
 
             <script>
                 jQuery(document).ready(function() {
-                   Web.init();
-                   PersonalProfile.init();
-               });
+                 Web.init();
+                 PersonalProfile.init();
+             });
 
-           </script>
+         </script>
 
-           <script>
+         <script>
 
-              var readURL = function(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        $('#blah1').attr('src', e.target.result).width(150).height(200);
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
+          var readURL = function(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = $("#"+input.id).prev();
+                    $("#"+img[0].id).attr('src', e.target.result).width(150).height(200);
+                };
+                reader.readAsDataURL(input.files[0]);
             }
+        }
 
-            function upload_img(){
-                var profile_img = document.getElementById("profile_img");
+        function upload_img(form_num){
+            var profile_img = document.getElementById("profile_img" + form_num);
                 // var fileSize = profile_img.files[0]['size'];
                 var file = profile_img.files[0];
 
@@ -991,14 +1005,13 @@
                 xhr.send(fd);
             }
 
-            var update_basic_info = function() {
+            var update_basic_info = function(form_num) {
                 var obj = {
                     request: "update_basic_info",
-                    name: $("#contact-form1 input[name='name']").val(),
-                    email: $("#contact-form1 input[name='email']").val()
+                    name: $("#contact-form" + form_num + " input[name='name']").val(),
+                    email: $("#contact-form" + form_num + " input[name='email']").val()
                 };
                 console.log(obj);
-
                 $.ajax({
                     url: "/users/profiles/ajax_updae",
                     type: "post",
@@ -1010,7 +1023,7 @@
                         $("#email").text(obj.email);
                         $("#fullname2").text(data.first_name + " " + data.last_name);
                         $("#email2").text(obj.email);
-                        upload_img();
+                        upload_img(form_num);
                     },
                     error: function(data) {
                         console.log("error");
@@ -1045,13 +1058,13 @@
 
             }
 
-            var update_account = function() {
+            // var update_account = function() {
 
-            }
+            // }
 
-            var update_category = function() {
+            // var update_category = function() {
 
-            }
+            // }
 
             var update_skill = function() {
                 var obj = {
@@ -1067,6 +1080,50 @@
                     success: function(data) {
                         console.log(data);
                         $("#skill").html(obj.skill);
+                    },
+                    error: function(data) {
+                        console.log("error");
+                        console.log(data);
+                    }
+                });
+            }
+
+            var remove_experience = function(id) {
+                obj = {
+                    request: "update_experience",
+                    act: "remove",
+                    id: id
+                };
+                $.ajax({
+                    url: "/users/profiles/ajax_updae",
+                    type: "post",
+                    dataType: "json",
+                    data: obj,
+                    async: false,
+                    success: function(data) {
+                        console.log(data);
+                    },
+                    error: function(data) {
+                        console.log("error");
+                        console.log(data);
+                    }
+                });
+            }
+
+            var remove_education = function(id) {
+                obj = {
+                    request: "update_education",
+                    act: "remove",
+                    id: id
+                };
+                $.ajax({
+                    url: "/users/profiles/ajax_updae",
+                    type: "post",
+                    dataType: "json",
+                    data: obj,
+                    async: false,
+                    success: function(data) {
+                        console.log(data);
                     },
                     error: function(data) {
                         console.log("error");

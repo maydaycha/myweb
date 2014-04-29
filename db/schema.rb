@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427194045) do
+ActiveRecord::Schema.define(version: 20140429151538) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -95,6 +95,39 @@ ActiveRecord::Schema.define(version: 20140427194045) do
     t.integer  "user_id"
     t.datetime "start_at"
     t.boolean  "is_head"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_educations", force: true do |t|
+    t.string   "school"
+    t.string   "department"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_experiences", force: true do |t|
+    t.string   "organization"
+    t.string   "office"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_portfolios", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "path"
+    t.string   "url"
+    t.date     "complete_time"
+    t.integer  "user_skill_category_id"
+    t.integer  "user_skill_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

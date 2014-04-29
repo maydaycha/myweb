@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
 
   has_many :user_authentications
   has_one :user_skill
+  has_many :user_educations
+  has_many :user_experiences
 
   def self.has_email?(email)
     self.where(:email => email).limit(1).size > 0

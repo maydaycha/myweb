@@ -21,52 +21,54 @@ class Users::ProfilesController < ApplicationController
   end
 
 
-
   def update
-    current_user.update(params.permit![:user])
     # return render json: params
-    @user = current_user
-    render :show
+    current_user.update!(params.permit![:user])
+    file_type = params[:image].content_type.split("/")[1]
+    path = "/upload/#{current_user.username}.#{file_type}"
+    File.open("public#{path}", 'wb'){ |f| f << open(params[:image].tempfile).read }
+    current_user.image = path
+    current_user.save
+    redirect_to users_profile_path(current_user)
   end
-
-  # def edit2
-  # @user = User.find(session[:user_id])
-  # end
-
-  # def update2
-  # end
 
 
   def show
-    # puts current_user.to_json
-    # return render json: current_user
-    @user = current_user
   end
 
 
   def ajax_updae
-    @user = User.find(current_user['id'])
     case params[:request]
     when "update_basic_info"
-      @user.first_name = params[:name].split(/ /)[0]
-      @user.last_name = params[:name].split(/ /)[1]
-      @user.email = params[:email]
-      # @user.email = "maydaychaaaa@gmail.com"
-      @user.save
-
-      puts @user.to_json
-      render json: @user
+      current_user.first_name = params[:name].split(/ /)[0]
+      current_user.last_name = params[:name].split(/ /)[1]
+      current_user.email = params[:email]
+      current_user.save
+      puts current_user.to_json
+      render json: current_user
     when "update_location"
-      @user.time_zone = params[:timeZone]
-      @user.country_code = params[:country]
-      @user.save
-      render json: @user
+      current_user.time_zone = params[:timeZone]
+      current_user.country_code = params[:country]
+      current_user.save
+      render json: current_user
     when "update_skill"
-      @user.skill = params[:skill]
-      @user.save
-      render json: @user
-    when "profile_img"
-      render json: params
+      current_user.skill = params[:skill]
+      current_user.save
+      render json: current_user
+    when "update_experience"
+      if params[:act] == "add"
+        current_user.user_experiences.create!(organization: params[:organization], office: params[:office], start_date: params[:start_date], end_date: params[:end_date])
+      else
+        UserExperience.destroy(params[:id])
+      end
+      render json: current_user.user_experiences
+    when "update_education"
+      if params[:act] == "add"
+        current_user.user_educations.create!(school: params[:school], department: params[:department], start_date: params[:start_date], end_date: params[:end_date])
+      else
+        UserEducation.destroy(params[:id])
+      end
+      render json: current_user.user_educations
     end
   end
 
@@ -77,17 +79,12 @@ class Users::ProfilesController < ApplicationController
     file_name = @user.username + "." + request.headers['X-File-Type'].split("/")[1]
     directory = "public/upload"
     path = directory + "/" + file_name
-
     @user.image = path.split('public')[1]
     @user.save
     puts path
-
     File.open(path, "wb") do |f|
       f << open(params["profile_img"].tempfile).read
     end
-
-
-
     render json: @user
   end
 
