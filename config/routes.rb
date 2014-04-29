@@ -115,6 +115,7 @@ Sun::Application.routes.draw do
     namespace :profiles do
       post 'ajax_upload_img'
       post 'ajax_updae'
+      post 'upload_img'
     end
   end
 
