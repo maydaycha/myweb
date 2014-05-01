@@ -145,6 +145,9 @@
                                     </div>
                                 </form>
                                 <button onclick="update_basic_info(1)">save</button>
+                                <div class="pull-right" style="margin:20px 16px 0 0;">
+                                    <button onclikc="javascript:;"  class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#contact-portlet1">儲存</button>
+                                </div>
                                 <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet1" onclick="update_basic_info()"> -->
                             </div>
                         </div>
@@ -469,13 +472,13 @@
                                     <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet1">
                                         <i class="fa fa-pencil-square-o"></i>
                                     </a>
-                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1">
-                                        <i class="fa fa-floppy-o"></i>
-                                    </a>
+                                    <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1"> -->
+                                    <!-- <i class="fa fa-floppy-o"></i> -->
+                                    <!-- </a> -->
                                 </div>
                             </div>
                             <div class="portlet-body">
-                                <form action="#" id="contact-form2" class="form-horizontal" role="form">
+                                <form action="javascript: return false;" id="contact-form2" class="form-horizontal" role="form">
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人簡述</label>
                                         <div class="col-md-10">
@@ -512,20 +515,23 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">每小時工資</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view">$<%= current_user.hourly_pay%> / HR</p>
+                                            <p class="form-control-static view"  id="money2">$<%= current_user.hourly_pay%> / HR</p>
                                             <div class="input-group edit">
-                                                <input type="text" name="money" class="form-control text-right" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
+                                                <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                   / HR
-                                               </span>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </form>
-                               <button onclick="update_basic_info(2)">save</button>
-                           </div>
-                       </div>
-                       <div class="portlet box light-grey show-view" id="profile-portlet2">
+                                                 / HR
+                                             </span>
+                                         </div>
+                                     </div>
+                                     <div class="pull-right" style="margin:20px 16px 0 0;">
+                                        <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet1">儲存</button>
+                                        <button class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1">取消</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="portlet box light-grey show-view" id="profile-portlet2">
                         <div class="portlet-title">
                             <div class="caption">
                                 專業類別
@@ -584,21 +590,28 @@
                                 <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet3">
                                     <i class="fa fa-pencil-square-o"></i>
                                 </a>
-                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet3" onclick="update_skill()">
-                                    <i class="fa fa-floppy-o"></i>
-                                </a>
+                                <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet3" onclick="update_skill()"> -->
+                                <!-- <i class="fa fa-floppy-o"></i> -->
+                                <!-- </a> -->
                             </div>
                         </div>
                         <div class="portlet-body">
                             <p class="form-control-static view" id="skill"><%= current_user.skill %></p>
-                            <form action="#" id="contact-form1" class="form-horizontal edit" role="form">
+                            <form action="javascript: return false;" id="contact-form1" class="form-horizontal edit" role="form">
                                 <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.skill %>"/>
+                                <div class="pull-right" style="margin:20px 16px 0 0;">
+                                    <button onclick="update_skill()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet3">儲存</button>
+                                    <button class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet3">取消</button>
+                                </div>
                                 <p class="help-block">
                                     如果您欲新增更多的技能。您必須完成下列項目：<br>
                                     1. 工作經歷　2. 教育程度　3. 作品集
                                 </p>
+
                             </form>
+
                         </div>
+
                     </div>
                     <div class="portlet box light-grey show-view" id="profile-portlet4">
                         <div class="portlet-title">
@@ -618,7 +631,7 @@
                             </div>
                         </div>
                         <div class="portlet-body">
-                        <% if current_user.user_experiences %>
+                            <% if current_user.user_experiences %>
                             <table class="table" id="experience-table">
                                 <tr>
                                     <th>起</th>
@@ -633,13 +646,16 @@
                                     <td><%= e.end_date %></td>
                                     <td><%= e.organization %></td>
                                     <td><%= e.office %></td>
-                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="remove_experience(<%= e.id %>)">刪除</button></td>
+                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: experience_delete_list.push({id:<%= e.id %>})">刪除</button></td>
                                 </tr>
                                 <% end %>
+
                             </table>
                             <% else %>
-                                尚未新增工作經歷
+                            尚未新增工作經歷
                             <% end %>
+
+
                             <div class="modal fade" id="experience-modal" tabindex="-1" role="experience-modal" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -678,8 +694,14 @@
                                     <!-- /.modal-content -->
                                 </div>
                                 <!-- /.modal-dialog -->
+
+                            </div>
+                            <div class="pull-right" style="margin:20px 16px 0 0;">
+                                <button onclick="update_experience()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet4">儲存</button>
+                                <button class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet4">取消</button>
                             </div>
                         </div>
+
                     </div>
                     <div class="portlet box light-grey show-view" id="profile-portlet5">
                         <div class="portlet-title">
@@ -693,9 +715,9 @@
                                 <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#education-modal">
                                     <i class="fa fa-plus"></i>
                                 </a>
-                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet5">
-                                    <i class="fa fa-floppy-o"></i>
-                                </a>
+                                <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet5"> -->
+                                <!-- <i class="fa fa-floppy-o"></i> -->
+                                <!-- </a> -->
                             </div>
                         </div>
                         <div class="portlet-body">
@@ -714,7 +736,7 @@
                                     <td><%= e.end_date %></td>
                                     <td><%= e.school %></td>
                                     <td><%= e.department %></td>
-                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="remove_education(<%= e.id %>);">刪除</button></td>
+                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: education_delete_list.push({id:<%= e.id %>})">刪除</button></td>
                                 </tr>
                                 <% end %>
                             </table>
@@ -760,6 +782,10 @@
                                 </div>
                                 <!-- /.modal-dialog -->
                             </div>
+                        </div>
+                        <div class="pull-right" style="margin:20px 16px 0 0;">
+                            <button onclick="update_education()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet5">儲存</button>
+                            <button class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet5">取消</button>
                         </div>
                     </div>
                     <div class="portlet box light-grey show-view" id="profile-portlet6">
@@ -946,6 +972,12 @@
             <script src="plugins/html5shiv.min.js"></script>
             <script src="plugins/respond.min.js"></script>
             <![endif]-->
+            <script>
+                var education_add_list = [];
+                var education_delete_list = [];
+                var experience_add_list = [];
+                var experience_delete_list = [];
+            </script>
 
             <script src="../../../plugins/jquery-1.11.0.min.js"></script>
             <script src="../../../plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -963,27 +995,39 @@
 
             <script>
                 jQuery(document).ready(function() {
-                 Web.init();
-                 PersonalProfile.init();
-             });
+                   Web.init();
+                   PersonalProfile.init();
+               });
 
-         </script>
+           </script>
 
-         <script>
+           <script>
 
-          var readURL = function(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    var img = $("#"+input.id).prev();
-                    $("#"+img[0].id).attr('src', e.target.result).width(150).height(200);
-                };
-                reader.readAsDataURL(input.files[0]);
+               $(function(){
+                $(".prevent").click(function(event){
+                    event.preventDefault();
+                });
+
+            });
+               var test = function() {
+                console.log("test");
             }
-        }
 
-        function upload_img(form_num){
-            var profile_img = document.getElementById("profile_img" + form_num);
+
+
+            var readURL = function(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var img = $("#"+input.id).prev();
+                        $("#"+img[0].id).attr('src', e.target.result).width(150).height(200);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            function upload_img(form_num){
+                var profile_img = document.getElementById("profile_img" + form_num);
                 // var fileSize = profile_img.files[0]['size'];
                 var file = profile_img.files[0];
 
@@ -1009,7 +1053,8 @@
                 var obj = {
                     request: "update_basic_info",
                     name: $("#contact-form" + form_num + " input[name='name']").val(),
-                    email: $("#contact-form" + form_num + " input[name='email']").val()
+                    email: $("#contact-form" + form_num + " input[name='email']").val(),
+                    money: $("#contact-form" + form_num + " input[name='money']").val()
                 };
                 console.log(obj);
                 $.ajax({
@@ -1019,10 +1064,11 @@
                     data: obj,
                     success: function(data) {
                         console.log(data);
-                        $("#fullname").text(data.first_name + " " + data.last_name);
-                        $("#email").text(obj.email);
+                        // $("#fullname").text(data.first_name + " " + data.last_name);
+                        // $("#email").text(obj.email);
                         $("#fullname2").text(data.first_name + " " + data.last_name);
-                        $("#email2").text(obj.email);
+                        $("#email2").text(data.email);
+                        $("#money2").text(data.hourly_pay);
                         upload_img(form_num);
                     },
                     error: function(data) {
@@ -1088,63 +1134,66 @@
                 });
             }
 
-            var remove_experience = function(id) {
-                obj = {
-                    request: "update_experience",
-                    act: "remove",
-                    id: id
-                };
-                $.ajax({
-                    url: "/users/profiles/ajax_updae",
-                    type: "post",
-                    dataType: "json",
-                    data: obj,
-                    async: false,
-                    success: function(data) {
-                        console.log(data);
-                    },
-                    error: function(data) {
-                        console.log("error");
-                        console.log(data);
-                    }
-                });
-            }
+            var update_experience = function() {
+                var request_obj = {
+                 request: "update_experience",
+                 experience_add_list: experience_add_list,
+                 experience_delete_list: experience_delete_list
+             }
+             console.log(request_obj);
+             $.ajax({
+                url: "/users/profiles/ajax_updae",
+                type: "post",
+                dataType: "json",
+                data: JSON.stringify(request_obj),
+                contentType: 'application/json',
+                success: function(data) {
+                    console.log(data);
+                    experience_add_list = [];
+                    experience_delete_list = [];
+                },
+                error: function(data) {
+                    console.log("error");
+                }
+            });
+         }
 
-            var remove_education = function(id) {
-                obj = {
-                    request: "update_education",
-                    act: "remove",
-                    id: id
-                };
-                $.ajax({
-                    url: "/users/profiles/ajax_updae",
-                    type: "post",
-                    dataType: "json",
-                    data: obj,
-                    async: false,
-                    success: function(data) {
-                        console.log(data);
-                    },
-                    error: function(data) {
-                        console.log("error");
-                        console.log(data);
-                    }
-                });
-            }
+         var update_education = function() {
+            var request_obj = {
+                request: "update_education",
+                education_add_list: education_add_list,
+                education_delete_list: education_delete_list
+            };
+            $.ajax({
+                url: "/users/profiles/ajax_updae",
+                type: "post",
+                dataType: "json",
+                data: JSON.stringify(request_obj),
+                contentType: 'application/json',
+                success: function(data) {
+                    console.log(data);
+                    education_add_list = [];
+                    education_delete_list = [];
+                },
+                error: function(data) {
+                    console.log("error");
+                }
+            });
+        }
 
-            var update_protfolio = function() {
+        var update_protfolio = function() {
 
-            }
+        }
 
-            var certification = function() {
+        var certification = function() {
 
-            }
+        }
 
 
 
-        </script>
-        <!-- END JAVASCRIPTS -->
-        <!-- BEGIN PIE -->
+    </script>
+    <!-- END JAVASCRIPTS -->
+    <!-- BEGIN PIE -->
         <!--[if lte IE 9]>
         <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
         <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>

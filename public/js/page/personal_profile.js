@@ -1,4 +1,5 @@
 var PersonalProfile = function(){
+
 	var initEditSaveBtnTip = function(){
 		$('.tool-edit,.tool-save,.tool-add').tooltip({'container': 'body'});
 		$('.tool-edit').on('click',function(){
@@ -49,7 +50,13 @@ var PersonalProfile = function(){
 			tr.append(td3);
 			tr.append(td4);
 			tr.append(td5);
-			update_experience($('#experience-modal input[name=start]').val(), $('#experience-modal input[name=end]').val(), $('#experience-modal input[name=organization]').val(), $('#experience-modal input[name=office]').val(), "add");
+			var obj = {
+				start_date: $('#experience-modal input[name=start]').val(),
+				end_date: $('#experience-modal input[name=end]').val(),
+				organization: $('#experience-modal input[name=organization]').val(),
+				office: $('#experience-modal input[name=office]').val()
+			};
+			experience_add_list.push(obj);
 			$('#experience-table').append(tr);
 			$('#experience-modal input[name=start]').val('');
 			$('#experience-modal input[name=end]').val('');
@@ -57,86 +64,49 @@ var PersonalProfile = function(){
 			$('#experience-modal input[name=office]').val('');
 			initExperienceTable();
 		});
-	}
+}
 
-	var initEducationTable = function(){
-		$('#education-table .btn-delete').off('click');
-		$('#education-table .btn-delete').on('click',function(){
-			$(this).parent().parent().remove();
-		});
-	}
-	var initAddEducation = function(){
-		$('#btn-addEducation').on('click',function(){
-			var tr = $('<tr></tr>');
-			var td1 = $('<td></td>');
-			var td2 = $('<td></td>');
-			var td3 = $('<td></td>');
-			var td4 = $('<td></td>');
-			var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
-			td1.append($('#education-modal input[name=start]').val());
-			td2.append($('#education-modal input[name=end]').val());
-			td3.append($('#education-modal input[name=organization]').val());
-			td4.append($('#education-modal input[name=office]').val());
-			tr.append(td1);
-			tr.append(td2);
-			tr.append(td3);
-			tr.append(td4);
-			tr.append(td5);
-			update_education($('#education-modal input[name=start]').val(), $('#education-modal input[name=end]').val(), $('#education-modal input[name=organization]').val(), $('#education-modal input[name=office]').val(), "add");
-			$('#education-table').append(tr);
-			$('#education-modal input[name=start]').val('');
-			$('#education-modal input[name=end]').val('');
-			$('#education-modal input[name=organization]').val('');
-			$('#education-modal input[name=office]').val('');
-			initEducationTable();
-		});
-	}
-
-	function update_experience(start, end, organization, office, action) {
+var initEducationTable = function(){
+	$('#education-table .btn-delete').off('click');
+	$('#education-table .btn-delete').on('click',function(){
+		$(this).parent().parent().remove();
+	});
+}
+var initAddEducation = function(){
+	$('#btn-addEducation').on('click',function(){
+		var tr = $('<tr></tr>');
+		var td1 = $('<td></td>');
+		var td2 = $('<td></td>');
+		var td3 = $('<td></td>');
+		var td4 = $('<td></td>');
+		var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
+		td1.append($('#education-modal input[name=start]').val());
+		td2.append($('#education-modal input[name=end]').val());
+		td3.append($('#education-modal input[name=organization]').val());
+		td4.append($('#education-modal input[name=office]').val());
+		tr.append(td1);
+		tr.append(td2);
+		tr.append(td3);
+		tr.append(td4);
+		tr.append(td5);
 		var obj = {
-			request: "update_experience",
-			act: action,
-			start_date: start,
-			end_date: end,
-			organization: organization,
-			office: office
+			start_date: $('#education-modal input[name=start]').val(),
+			end_date: $('#education-modal input[name=end]').val(),
+			school: $('#education-modal input[name=organization]').val(),
+			department: $('#education-modal input[name=office]').val()
 		};
-		$.ajax({
-			url: "/users/profiles/ajax_updae",
-			type: "post",
-			dataType: "json",
-			data: obj,
-			success: function(data) {
-				console.log(data);
-			},
-			error: function(data) {
-				console.log("error");
-			}
-		});
-	}
+		education_add_list.push(obj);
+		console.log(education_add_list);
+		$('#education-table').append(tr);
+		$('#education-modal input[name=start]').val('');
+		$('#education-modal input[name=end]').val('');
+		$('#education-modal input[name=organization]').val('');
+		$('#education-modal input[name=office]').val('');
+		initEducationTable();
+	});
+}
 
-	function update_education(start, end, organization, office, action) {
-		var obj = {
-			request: "update_education",
-			act: action,
-			start_date: start,
-			end_date: end,
-			school: organization,
-			department: office
-		};
-		$.ajax({
-			url: "/users/profiles/ajax_updae",
-			type: "post",
-			dataType: "json",
-			data: obj,
-			success: function(data) {
-				console.log(data);
-			},
-			error: function(data) {
-				console.log("error");
-			}
-		});
-	}
+
 
 
 

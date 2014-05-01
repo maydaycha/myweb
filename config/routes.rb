@@ -1,7 +1,5 @@
 Sun::Application.routes.draw do
-  get "admins/index"
-  get "admins/login"
-  get "admins/authenticaiotn"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -56,6 +54,12 @@ Sun::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+
+
+  get "admins/index"
+  get "admins/login"
+  get "admins/authenticaiotn"
 
 
   # freelancer api
