@@ -54,7 +54,8 @@ var PersonalProfile = function(){
 				start_date: $('#experience-modal input[name=start]').val(),
 				end_date: $('#experience-modal input[name=end]').val(),
 				organization: $('#experience-modal input[name=organization]').val(),
-				office: $('#experience-modal input[name=office]').val()
+				office: $('#experience-modal input[name=office]').val(),
+				description: $('#experience-modal textarea[name=description]').val()
 			};
 			experience_add_list.push(obj);
 			$('#experience-table').append(tr);
@@ -62,6 +63,7 @@ var PersonalProfile = function(){
 			$('#experience-modal input[name=end]').val('');
 			$('#experience-modal input[name=organization]').val('');
 			$('#experience-modal input[name=office]').val('');
+			$('#experience-modal textarea[name=description]').val('');
 			initExperienceTable();
 		});
 }
@@ -93,7 +95,8 @@ var initAddEducation = function(){
 			start_date: $('#education-modal input[name=start]').val(),
 			end_date: $('#education-modal input[name=end]').val(),
 			school: $('#education-modal input[name=organization]').val(),
-			department: $('#education-modal input[name=office]').val()
+			department: $('#education-modal input[name=office]').val(),
+			description: $('#education-modal textarea[name=description]').val()
 		};
 		education_add_list.push(obj);
 		console.log(education_add_list);
@@ -102,6 +105,7 @@ var initAddEducation = function(){
 		$('#education-modal input[name=end]').val('');
 		$('#education-modal input[name=organization]').val('');
 		$('#education-modal input[name=office]').val('');
+		$('#education-modal textarea[name=description]').val('');
 		initEducationTable();
 	});
 }

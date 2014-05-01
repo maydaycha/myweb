@@ -31,6 +31,7 @@
         <!-- BEGIN 主題樣式 -->
         <!-- END 主題樣式 -->
         <link rel="stylesheet" type="text/css" href="../../../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/alert.css">
         <link rel="stylesheet" type="text/css" href="../../../css/page/personal_profile.css">
         <link rel="shortcut icon" href="favicon.ico"/>
         <!-- END STYLE -->
@@ -77,12 +78,21 @@
         <!-- BEGIN PAGE -->
         <div class="page-content">
             <h1 class="title">個人設定</h1>
-            <p class="subtitle">完整的個人資訊能增加您接案的機會，建議您優先處理以下項目</p>
-            <ul class="subtitle">
-                <li class="point">1. 教育程度</li>
-                <li class="point">2. 工作經歷</li>
-                <li class="point">3. 作品集</li>
-            </ul>
+            <div class="container alert-warning alert-bordered" >
+                <div class="row">
+                    <div class="col-md-11 col-sm-11" style="padding-top:25px;">
+                        <p class="subtitle">完整的個人資訊能增加您接案的機會，建議您優先處理以下項目</p>
+                        <ul class="subtitle">
+                            <li class="point">1. 教育程度</li>
+                            <li class="point">2. 工作經歷</li>
+                            <li class="point">3. 作品集</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-1 col-sm-1" style=" text-align:right; padding-top:35px; padding-left:5px;">
+                        <button type="button" class="btn btn-alert"><i class="fa fa-3x fa-times-circle-o"></i></button>
+                    </div>
+                </div>
+            </div>
 
             <!-- BEGIN MAIN CONTENT -->
 
@@ -577,6 +587,9 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="pull-right" style="margin:20px 16px 0 0;">
+                                        <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet2">儲存</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -599,7 +612,7 @@
                             <p class="form-control-static view" id="skill"><%= current_user.skill %></p>
                             <form action="javascript: return false;" id="contact-form1" class="form-horizontal edit" role="form">
                                 <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.skill %>"/>
-                                <div class="pull-right" style="margin:20px 16px 0 0;">
+                                <div class="pull-right" style="margin:8px 0px 0 0;">
                                     <button onclick="update_skill()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet3">儲存</button>
                                     <button class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet3">取消</button>
                                 </div>
@@ -655,7 +668,10 @@
                             尚未新增工作經歷
                             <% end %>
 
-
+                            <div class=" text-right">
+                                <button onclick="update_experience()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet4">儲存</button>
+                                <button class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet4">取消</button>
+                            </div>
                             <div class="modal fade" id="experience-modal" tabindex="-1" role="experience-modal" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -685,6 +701,9 @@
                                             <div class="form-group">
                                                 <input type="text" name="office" class="form-control" placeholder="職位/職責">
                                             </div>
+                                            <div class="form-group">
+                                                <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" id="btn-addExperience">新增</button>
@@ -696,10 +715,7 @@
                                 <!-- /.modal-dialog -->
 
                             </div>
-                            <div class="pull-right" style="margin:20px 16px 0 0;">
-                                <button onclick="update_experience()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet4">儲存</button>
-                                <button class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet4">取消</button>
-                            </div>
+
                         </div>
 
                     </div>
@@ -772,6 +788,7 @@
                                             <div class="form-group">
                                                 <input type="text" name="office" class="form-control" placeholder="系所/專長">
                                             </div>
+                                            <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" id="btn-addEducation">新增</button>
@@ -882,92 +899,98 @@
                             <form action="#" id="contact-form1" class="form-horizontal" role="form">
                                 尚未新增作品集
                             </form>
+                            <div class=" text-right">
+                             <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="portlet box light-grey show-view" id="profile-portlet7">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            相關證照
+                        </div>
+                        <div class="tools">
+                            <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet7">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </a>
+                            <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">
+                                <i class="fa fa-floppy-o"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="portlet box light-grey show-view" id="profile-portlet7">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                相關證照
-                            </div>
-                            <div class="tools">
-                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet7">
-                                    <i class="fa fa-pencil-square-o"></i>
-                                </a>
-                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">
-                                    <i class="fa fa-floppy-o"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <form action="#" id="contact-form1" class="form-horizontal" role="form">
-                                尚未新增相關證照
-                            </form>
-                        </div>
+                    <div class="portlet-body">
+                        <form action="#" id="contact-form1" class="form-horizontal" role="form">
+                            尚未新增相關證照
+                        </form>
+                        <div class=" text-right">
+                           <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="tab-pane" id="password">
+            <div class="portlet box light-grey show-view" id="password-portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        變更密碼
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
+                            <i class="fa fa-floppy-o"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="tab-pane" id="password">
-                    <div class="portlet box light-grey show-view" id="password-portlet">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                變更密碼
-                            </div>
-                            <div class="tools">
-                                <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
-                                    <i class="fa fa-floppy-o"></i>
-                                </a>
+                <div class="portlet-body">
+                    <form action="#" id="contact-form1" class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">舊密碼</label>
+                            <div class="col-md-10">
+                                <input type="password" name="oldPassword" class="form-control">
+                                <p class="help-block">
+                                    如果您想要變更您的密碼，請先輸入您的舊密碼
+                                </p>
                             </div>
                         </div>
-                        <div class="portlet-body">
-                            <form action="#" id="contact-form1" class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">舊密碼</label>
-                                    <div class="col-md-10">
-                                        <input type="password" name="oldPassword" class="form-control">
-                                        <p class="help-block">
-                                            如果您想要變更您的密碼，請先輸入您的舊密碼
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">新密碼</label>
-                                    <div class="col-md-10">
-                                        <input type="password" name="newPassword" class="form-control">
-                                        <p class="help-block">
-                                            密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">再次輸入新密碼</label>
-                                    <div class="col-md-10">
-                                        <input type="password" name="checkPassword" class="form-control">
-                                    </div>
-                                </div>
-                            </form>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">新密碼</label>
+                            <div class="col-md-10">
+                                <input type="password" name="newPassword" class="form-control">
+                                <p class="help-block">
+                                    密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">再次輸入新密碼</label>
+                            <div class="col-md-10">
+                                <input type="password" name="checkPassword" class="form-control">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!-- BEGIN END CONTENT -->
         </div>
-        <!-- END MAIN CONTENT -->
     </div>
-    <!-- END PAGE -->
-    <!-- BEGIN FOOTER -->
-    <div class="footer">
-        <img class="footer-logo" src="../../../img/logo103.png" alt="">
-        <div class="footer-nav">
-            <%= link_to "關於我們", index_about_path %>
-            <span class="bar">|</span>
-            <%= link_to "隱私條款", index_rule_path %>
-            <span class="bar">|</span>
-            <%= link_to "使用條款", index_rule_path %>
-        </ul>
-    </div>
-    <!-- END FOOTER -->
+    <!-- BEGIN END CONTENT -->
+</div>
+<!-- END MAIN CONTENT -->
+</div>
+<!-- END PAGE -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <img class="footer-logo" src="../../../img/logo103.png" alt="">
+    <div class="footer-nav">
+        <%= link_to "關於我們", index_about_path %>
+        <span class="bar">|</span>
+        <%= link_to "隱私條款", index_rule_path %>
+        <span class="bar">|</span>
+        <%= link_to "使用條款", index_rule_path %>
+    </ul>
+</div>
+<!-- END FOOTER -->
 
-    <!-- BEGIN JAVASCRIPTS -->
-    <!-- BEGIN 核心插件 -->
+<!-- BEGIN JAVASCRIPTS -->
+<!-- BEGIN 核心插件 -->
         <!--[if lt IE 9]>
             <script src="plugins/html5shiv.min.js"></script>
             <script src="plugins/respond.min.js"></script>

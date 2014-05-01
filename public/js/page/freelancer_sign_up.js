@@ -24,7 +24,7 @@ var SingUp = function(){
                 "user[email]": {
                     required: true,
                     email: true,
-                    myEmail: true 
+                    myEmail: true
                 },
                 "user[country_code]": {
                     required: true
@@ -36,8 +36,12 @@ var SingUp = function(){
                 },
                 "user[password]": {
                 	minlength: 6,
-                    required: true
+                    required: true,
                 },
+                "user[password_check]": {
+                    required: true,
+                    myPasswordMatch: true
+                }
                 // verification: {
                 //     required: true,
                 //     myImgVerification: true

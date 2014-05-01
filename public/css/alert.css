@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*ALERT Style*/
+.alert-bordered{
+	border-radius:10px;
+	max-width:1000px;
+	}
+	
+.btn-alert{
+	color:#E05D3F;
+	border:0px;
+	background:none;
+	}
+.btn-alert:hover{
+	color:#B24938;
+	}
+.btn-alert:active{
+	color:#B24938;
+	}
+.btn-alert:focus{
+	color:#B24938;
+	}

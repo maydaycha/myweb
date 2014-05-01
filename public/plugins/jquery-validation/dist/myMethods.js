@@ -22,6 +22,8 @@ jQuery.validator.addMethod("myImgVerification", function(value, element) {
 }, "image verification error");
 
 jQuery.validator.addMethod("myEmail", function(value, element) {
+    console.log(value);
+    console.log(element);
 	var result;
 	$.ajax({
 		url: "/users/sign_up_check_email",
@@ -36,5 +38,13 @@ jQuery.validator.addMethod("myEmail", function(value, element) {
         },
         async: false
     });
+    console.log("email: " + result);
     return !result;
 }, "Email already exists");
+
+
+jQuery.validator.addMethod("myPasswordMatch", function(value, element) {
+    var result = true;
+    if( value == $("input[name='user[password]'").val() ) result = false;
+    return !result;
+}, "password not match");

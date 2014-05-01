@@ -61,10 +61,10 @@
     <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
-            <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
         <% else %>
-            <li><%= link_to "會員登入", new_user_session_path %></li>
-            <li><%= link_to "免費註冊", index_sign_up_path %></li>
+        <li><%= link_to "會員登入", new_user_session_path %></li>
+        <li><%= link_to "免費註冊", index_sign_up_path %></li>
         <% end %>
       </ul>
     </div>
@@ -99,153 +99,164 @@
         <li>
           <!-- <a class="facebook" data-original-title="facebook" href="#"> -->
           <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "facebook", data:{original:{title:"facebook"}} %>
-          </a>
-        </li>
-        <li>
-          <!-- <a class="googleplus" data-original-title="Goole Plus" href="#"> -->
-          <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
-          </a>
-        </li>
-        <li>
-          <!-- <a class="yahoo" data-original-title="Yahoo!" href="#"> -->
-          <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "yahoo", data:{original:{title:"Yahoo!"}} %>
-          </a>
-        </li>
-      </ul>
+        </a>
+      </li>
+      <li>
+        <!-- <a class="googleplus" data-original-title="Goole Plus" href="#"> -->
+        <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
+      </a>
+    </li>
+    <li>
+      <!-- <a class="yahoo" data-original-title="Yahoo!" href="#"> -->
+      <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "yahoo", data:{original:{title:"Yahoo!"}} %>
+    </a>
+  </li>
+</ul>
+</div>
+</div>
+
+
+<!-- BEGIN MAIN CONTENT -->
+<div class="main-content">
+  <!-- /.modal -->
+  <!-- BRGIN FORM -->
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "signUp-form", id: "signUp-form"}) do |f| %>
+
+  <div class="form-group alert alert-danger display-hide">
+    請檢查您輸入的資料
+  </div>
+
+  <div>
+    <% # if notice %>
+    <!-- <p class="alert alert-success"><%= notice %></p> -->
+    <% # end %>
+    <% if alert %>
+    <p class="alert form-group alert-danger"><%= alert %></p>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
+      <div class="input-icon right">
+        <i class="fa"></i>
+        <%= f.text_field :first_name, class: "form-control", placeholder: "姓" %>
+      </div>
     </div>
   </div>
 
-
-  <!-- BEGIN MAIN CONTENT -->
-  <div class="main-content">
-    <!-- /.modal -->
-    <!-- BRGIN FORM -->
-
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "signUp-form", id: "signUp-form"}) do |f| %>
-
-    <div class="form-group alert alert-danger display-hide">
-      請檢查您輸入的資料
-    </div>
-
-    <div>
-    <% # if notice %>
-      <!-- <p class="alert alert-success"><%= notice %></p> -->
-    <% # end %>
-    <% if alert %>
-      <p class="alert form-group alert-danger"><%= alert %></p>
-    <% end %>
-    </div>
-
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
-        <div class="input-icon right">
-          <i class="fa"></i>
-          <%= f.text_field :first_name, class: "form-control", placeholder: "姓" %>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
-        <div class="input-icon right">
-          <i class="fa"></i>
-          <%= f.text_field :last_name, class: "form-control", placeholder: "名" %>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-        <div class="input-icon right">
-          <i class="fa"></i>
-          <%= f.email_field :email, class: "form-control", placeholder: "Email"%>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-flag"></i></span>
-        <%= f.localized_country_select :country_code, [], {:include_blank => '所在地區'}, {:class => 'form-control'} %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-flag"></i></span>
-        <%= f.time_zone_select :time_zone, nil, {}, {:class => 'form-control'} %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
-        <div class="input-icon right">
-          <i class="fa"></i>
-          <!-- <input type="text" class="form-control" name="username" placeholder="使用者帳號" data-isEmpty="請輸入帳號" data-isError="帳號長度不足" data-isExists="帳戶名稱已經有人使用"> -->
-          <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號", "data-isEmpty" => "請輸入帳號", "data-isError" => "帳號長度不足", "data-isExists" => "帳戶名稱已經有人使用"%>
-          <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-        <div class="input-icon right">
-          <i class="fa"></i>
-          <!-- <input type="password" class="form-control" name="password" placeholder="設定密碼" data-isEmpty="請輸入密碼" data-isError="密碼長度不足"> -->
-          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "設定密碼" %>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group recommend">
-      <div class="input-icon right">
-        <i class="fa fa-info-circle" data-original-title="如果您是透過朋友推薦得知本網站，建議您填寫朋友姓名。"></i>
-        <!-- <input type="text" class="form-control" name="recommend" placeholder="從何處得知網站訊息？"> -->
-        <%= f.text_field :how_to_know, class: "form-control", name: "recommend", placeholder: "從何處得知網站訊息? " %>
-      </div>
-    </div>
-
-    <div class="form-group">
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
       <div class="input-icon right">
         <i class="fa"></i>
-        <!-- <input type="text" class="form-control" name="verification" placeholder="輸入以下識別碼" data-isEmpty="請輸入識別碼" data-isError="錯誤! 請輸入正確的識別碼"> -->
+        <%= f.text_field :last_name, class: "form-control", placeholder: "名" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+      <div class="input-icon right">
+        <i class="fa"></i>
+        <%= f.email_field :email, class: "form-control", placeholder: "Email"%>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+      <%= f.localized_country_select :country_code, [], {:include_blank => '所在地區'}, {:class => 'form-control'} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+      <%= f.time_zone_select :time_zone, nil, {}, {:class => 'form-control'} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
+      <div class="input-icon right">
+        <i class="fa"></i>
+        <!-- <input type="text" class="form-control" name="username" placeholder="使用者帳號" data-isEmpty="請輸入帳號" data-isError="帳號長度不足" data-isExists="帳戶名稱已經有人使用"> -->
+        <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號", "data-isEmpty" => "請輸入帳號", "data-isError" => "帳號長度不足", "data-isExists" => "帳戶名稱已經有人使用"%>
         <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
       </div>
     </div>
-
-    <div class="form-group imageVerification">
-      <!-- <img src="/assets/u44.png" alt=""> -->
-      <div>
-        <p>未確保您不是惡意註冊，請輸入下方顯示的英文單字。</p>
-      </div>
-      <%= recaptcha_tags :display => { :theme => "clean" }, :ajax => true %>
-      <div class="clear"></div>
-    </div>
-
-    <div class="form-group">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> 我想收到關於網站最新的資訊及動態，若您不想收到類似訊息，請取消勾選。
-        </label>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div><%= f.submit "我要註冊", class: "btn" %></div>
-    </div>
-
-    <p class="rule">完成註冊代表您同意本網站的<a data-toggle="modal" href="#rule">使用條約</a>及隱私權條款。</p>
-
-    <% end %>
-    <!-- END FORM -->
   </div>
-  <!-- END MAIN CONTENT -->
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+      <div class="input-icon right">
+        <i class="fa"></i>
+        <!-- <input type="password" class="form-control" name="password" placeholder="設定密碼" data-isEmpty="請輸入密碼" data-isError="密碼長度不足"> -->
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "設定密碼", data: {isEmpty: "請輸入密碼", isError: "密碼長度不足"} %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+      <div class="input-icon right">
+        <i class="fa"></i>
+        <!-- <input type="password" class="form-control" name="password" placeholder="設定密碼" data-isEmpty="請輸入密碼" data-isError="密碼長度不足"> -->
+        <%= f.password_field :password_check, autocomplete: "off", class: "form-control", placeholder: "請再一次輸入密碼" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group recommend">
+    <div class="input-icon right">
+      <i class="fa fa-info-circle" data-original-title="如果您是透過朋友推薦得知本網站，建議您填寫朋友姓名。"></i>
+      <!-- <input type="text" class="form-control" name="recommend" placeholder="從何處得知網站訊息？"> -->
+      <%= f.text_field :how_to_know, class: "form-control", name: "recommend", placeholder: "從何處得知網站訊息? " %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-icon right">
+      <i class="fa"></i>
+      <!-- <input type="text" class="form-control" name="verification" placeholder="輸入以下識別碼" data-isEmpty="請輸入識別碼" data-isError="錯誤! 請輸入正確的識別碼"> -->
+      <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
+    </div>
+  </div>
+
+  <div class="form-group imageVerification">
+    <!-- <img src="/assets/u44.png" alt=""> -->
+    <div>
+      <p>未確保您不是惡意註冊，請輸入下方顯示的英文單字。</p>
+    </div>
+    <%= recaptcha_tags :display => { :theme => "clean" }, :ajax => true %>
+    <div class="clear"></div>
+  </div>
+
+  <div class="form-group">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> 我想收到關於網站最新的資訊及動態，若您不想收到類似訊息，請取消勾選。
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div><%= f.submit "我要註冊", class: "btn" %></div>
+  </div>
+
+  <p class="rule">完成註冊代表您同意本網站的<a data-toggle="modal" href="#rule">使用條約</a>及隱私權條款。</p>
+
+  <% end %>
+  <!-- END FORM -->
+</div>
+<!-- END MAIN CONTENT -->
 </div>
 <!-- END PAGE -->
 

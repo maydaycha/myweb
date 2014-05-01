@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429151538) do
+ActiveRecord::Schema.define(version: 20140501122449) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20140429151538) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description", limit: 1000
   end
 
   create_table "user_experiences", force: true do |t|
@@ -117,6 +118,7 @@ ActiveRecord::Schema.define(version: 20140429151538) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description",  limit: 1000
   end
 
   create_table "user_portfolios", force: true do |t|
