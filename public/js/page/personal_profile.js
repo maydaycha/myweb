@@ -13,9 +13,29 @@ var PersonalProfile = function(){
 			portlet.addClass('show-view');
 		});
 	}
+	var data = ['tel','net'];
 	var initSkillTags = function(){
 		$('#skill-tags').tagsInput({
-			width: 'auto'
+			width: 'auto',
+			autocomplete_url:'http://127.0.0.1:3000/skills/autocomplete',
+			// autocomplete:{
+			// 	source: function(request, response) {
+			// 		$.ajax({
+			// 			url: "http://127.0.0.1:3000/skills/autocomplete",
+			// 			dataType: "json",
+			// 			data: JSON.stringify({ postalcode_startsWith: request.term }),
+			// 			contentType: 'application/json',
+			// 			success: function(data) {
+			// 				response( $.map( data.postalCodes, function( item ) {
+			// 					return {
+			// 						label: item.countryCode + "-" + item.placeName,
+			// 						value: item.postalCode
+			// 					}
+			// 				}));
+			// 			}
+			// 		})
+			// 	}
+			// }
 		});
 	}
 	var initSubClassSelect2 = function(){

@@ -64,16 +64,7 @@ class FreelancerController < ApplicationController
       public_message = JSON.parse(content.body)['json-result']
       puts public_message
       if public_message['count'] > 0
-        public_message['items'].each do |ele, index|
-          ProjectPublicMessage.create do |m|
-            m.project_id = @projectid
-            m.from_user_name = ele['fromusername']
-            m.from_user_id = ele['fromuserid']
-            m.datetime = ele['datetime']
-            m.text = ele['text']
-            m.attachmentlink = ele['attachmentlink']
-          end
-        end
+        public_message['items'].each{ |ele| ProjectPublicMessage.create!(project_id: @projectid, from_user_name: ele['fromusername'], from_user_id: ele['fromuserid'], datetime: ele['datetime'], text: ele['text'], attachmentlink: ele['attachmentlink']) }
       end
     end
     render :json => { :status => "success", :skip => skip}
@@ -83,8 +74,8 @@ class FreelancerController < ApplicationController
     content = @access_token.get("http://api.freelancer.com/Job/getCategoryJobList.json")
     hash = JSON.parse content.body
     hash['json-result']['items']['category'].each do |ele, index|
-    puts "#{ele['id']}, #{ele['name']}"
-    project_category = ProjectCategory.create( :id => ele['id'], :name => ele['name'])
+      puts "#{ele['id']}, #{ele['name']}"
+      project_category = ProjectCategory.create( :id => ele['id'], :name => ele['name'])
     end
     render :json => content.body
   end

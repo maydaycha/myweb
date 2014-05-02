@@ -83,4 +83,6 @@ gem 'nokogiri' # for get country from CLDR
 gem 'i18n-timezones'
 gem 'i18n-country-translations'
 
+gem "spreadsheet"
+
 

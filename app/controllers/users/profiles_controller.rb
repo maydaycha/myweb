@@ -72,7 +72,6 @@ class Users::ProfilesController < ApplicationController
   end
 
 
-
   def ajax_upload_img
     file_name = current_user.username + "." + request.headers['X-File-Type'].split("/")[1]
     directory = "public/upload"

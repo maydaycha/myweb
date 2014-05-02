@@ -8,7 +8,7 @@
     <meta content="" name="author"/>
     <title>快樂工作</title>
 
-
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script> -->
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
     <link rel="stylesheet" href="../../../plugins/bootstrap/css/bootstrap.min.css">
@@ -22,6 +22,7 @@
         <![endif]-->
         <!-- END 核心樣式 -->
         <!-- BEGIN 頁面插件樣式 -->
+        <link rel="stylesheet" href="../../../plugins/jquery-autocomplete/jquery.autocomplete.css">
         <link rel="stylesheet" href="../../../plugins/jquery-tags-input/jquery.tagsinput.css">
         <link rel="stylesheet" href="../../../plugins/select2/select2.css">
         <link rel="stylesheet" href="../../../plugins/select2/select2-metronic.css">
@@ -76,6 +77,9 @@
         <!-- END NAVBAR -->
 
         <!-- BEGIN PAGE -->
+
+
+
         <div class="page-content">
             <h1 class="title">個人設定</h1>
             <div class="container alert-warning alert-bordered" >
@@ -529,11 +533,11 @@
                                             <div class="input-group edit">
                                                 <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                 / HR
-                                             </span>
-                                         </div>
-                                     </div>
-                                     <div class="pull-right" style="margin:20px 16px 0 0;">
+                                                   / HR
+                                               </span>
+                                           </div>
+                                       </div>
+                                       <div class="pull-right" style="margin:20px 16px 0 0;">
                                         <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet1">儲存</button>
                                         <button class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1">取消</button>
                                     </div>
@@ -562,14 +566,14 @@
                                     <div class="col-md-10">
                                         <p class="form-control-static view">IT、軟體</p>
                                         <select name="mainClass" id="" class="edit form-control">
-                                            <option>IT、軟體</option>
-                                            <option>翻譯、寫作</option>
-                                            <option>設計、創意服務</option>
-                                            <option>行銷、業務</option>
-                                            <option>行政、客戶服務</option>
-                                            <option>商業、會計、法務</option>
-                                            <option>工程、科學</option>
-                                            <option>專業諮商</option>
+                                            <option><%= t("main_skill_category.IT") %></option>
+                                            <option><%= t('main_skill_category.engineeringScience') %></option>
+                                            <option><%= t('main_skill_category.designCreativeWork') %></option>
+                                            <option><%= t('main_skill_category.salesMarketing') %></option>
+                                            <option><%= t('main_skill_category.administrativeCustomerServices') %></option>
+                                            <option><%= t('main_skill_category.businessAccountingLegal') %></option>
+                                            <option><%= t('main_skill_category.writingTranslation') %></option>
+                                            <option><%= t('main_skill_category.consulting') %></option>
                                         </select>
                                     </div>
                                 </div>
@@ -581,7 +585,7 @@
                                             <select name="subClass" id="subClass_select2" class="form-control select2" multiple>
                                                 <option selected>社群網路經營</option>
                                                 <option selected>搜尋引擎最佳化</option>
-                                                <option>公共關係經營</option>
+                                                <option >公共關係經營</option>
                                                 <option>電子郵件行銷</option>
                                                 <option>電話行銷</option>
                                             </select>
@@ -608,12 +612,13 @@
                                 <!-- </a> -->
                             </div>
                         </div>
-                        <div class="portlet-body">
+                        <div class="portlet-body" ng-init="skill_list = <%= t(:skills) %>">
                             <p class="form-control-static view" id="skill"><%= current_user.skill %></p>
                             <form action="javascript: return false;" id="contact-form1" class="form-horizontal edit" role="form">
                                 <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.skill %>"/>
                                 <div class="pull-right" style="margin:8px 0px 0 0;">
                                     <button onclick="update_skill()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet3">儲存</button>
+
                                     <button class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet3">取消</button>
                                 </div>
                                 <p class="help-block">
@@ -900,11 +905,11 @@
                                 尚未新增作品集
                             </form>
                             <div class=" text-right">
-                             <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="portlet box light-grey show-view" id="profile-portlet7">
+                               <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="portlet box light-grey show-view" id="profile-portlet7">
                     <div class="portlet-title">
                         <div class="caption">
                             相關證照
@@ -923,12 +928,12 @@
                             尚未新增相關證照
                         </form>
                         <div class=" text-right">
-                           <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <div class="tab-pane" id="password">
+                         <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="tab-pane" id="password">
             <div class="portlet box light-grey show-view" id="password-portlet">
                 <div class="portlet-title">
                     <div class="caption">
@@ -1002,12 +1007,15 @@
                 var experience_delete_list = [];
             </script>
 
-            <script src="../../../plugins/jquery-1.11.0.min.js"></script>
+            <script src="../../../plugins/jquery-1.7.2.js"></script>
+            <!-- <script src="../../../plugins/jquery-1.11.0.min.js"></script> -->
             <script src="../../../plugins/bootstrap/js/bootstrap.min.js"></script>
             <script src="../../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
             <!-- END 核心插件 -->
             <!-- BEGIN 頁面插件 -->
-            <script src="../../../plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+            <script src="../../../plugins/jquery-autocomplete/jquery.autocomplete.pack.js"></script>
+            <script src="../../../plugins/jquery-autocomplete/jquery.autocomplete.js"></script>
+            <script src="../../../plugins/jquery-tags-input/jquery.tagsinput.js"></script>
             <script src="../../../plugins/select2/select2.min.js"></script>
             <script src="../../../plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
             <script src="../../../plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
@@ -1018,21 +1026,34 @@
 
             <script>
                 jQuery(document).ready(function() {
-                   Web.init();
-                   PersonalProfile.init();
-               });
+                 Web.init();
+                 PersonalProfile.init();
+             });
 
-           </script>
+         </script>
 
-           <script>
+         <script>
 
-               $(function(){
+             $(function(){
+
                 $(".prevent").click(function(event){
                     event.preventDefault();
                 });
 
+                $("#search_skill tr").hover( function() {
+                    $(this).css('color','#ffffff');
+                }, function() {
+                  $(this).css('color','#000000');
+              });
+
+                $("#search_skill tr").click( function() {
+                    console.log($(this).children("td").text());
+                    $("#search").val($(this).children("td").text());
+                });
+
+
             });
-               var test = function() {
+             var test = function() {
                 console.log("test");
             }
 
@@ -1159,12 +1180,12 @@
 
             var update_experience = function() {
                 var request_obj = {
-                 request: "update_experience",
-                 experience_add_list: experience_add_list,
-                 experience_delete_list: experience_delete_list
-             }
-             console.log(request_obj);
-             $.ajax({
+                   request: "update_experience",
+                   experience_add_list: experience_add_list,
+                   experience_delete_list: experience_delete_list
+               }
+               console.log(request_obj);
+               $.ajax({
                 url: "/users/profiles/ajax_updae",
                 type: "post",
                 dataType: "json",
@@ -1179,9 +1200,9 @@
                     console.log("error");
                 }
             });
-         }
+           }
 
-         var update_education = function() {
+           var update_education = function() {
             var request_obj = {
                 request: "update_education",
                 education_add_list: education_add_list,
@@ -1210,6 +1231,10 @@
 
         var certification = function() {
 
+        }
+
+        function see_this(sel) {
+            console.log(sel);
         }
 
 

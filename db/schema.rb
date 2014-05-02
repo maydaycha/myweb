@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501122449) do
+ActiveRecord::Schema.define(version: 20140502153317) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -70,6 +70,12 @@ ActiveRecord::Schema.define(version: 20140501122449) do
     t.float    "currency_exchangerate"
     t.text     "public_message"
     t.integer  "word_count",             default: 0
+  end
+
+  create_table "skills", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "translators", force: true do |t|

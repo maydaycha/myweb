@@ -123,6 +123,8 @@ Sun::Application.routes.draw do
     end
   end
 
+  get 'skills/autocomplete' => 'skills#autocomplete'
+
   namespace :index do
     get "sign_up"
   end

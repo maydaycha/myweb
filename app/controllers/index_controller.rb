@@ -9,5 +9,5 @@ class IndexController < ApplicationController
   end
 
   def rule
-  end 
+  end
 end

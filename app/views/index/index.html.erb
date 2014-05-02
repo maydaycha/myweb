@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-        <meta content="" name="description"/>
-        <meta content="" name="author"/>
-        <title>快樂工作</title>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title>快樂工作</title>
 
-        <!-- BEGIN STYLE -->
-        <!-- BEGIN 核心樣式 -->
-        <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
         <!--[if gte IE 9]>
         <style type="text/css">
         .gradient {
@@ -60,11 +60,11 @@
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
-                        <li><%= link_to "個人設定", users_profile_path(current_user)  %></li>
-                        <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                    <li><%= link_to "個人設定", users_profile_path(current_user)  %></li>
+                    <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
                     <% else %>
-                        <li><%= link_to "會員登入", new_user_session_path %></li>
-                        <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                    <li><%= link_to "會員登入", new_user_session_path %></li>
+                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
                     <% end %>
                 </ul>
             </div>
@@ -124,6 +124,7 @@
             </div>
             <!-- END SWIPER -->
             <!-- BEGIN LOGIN -->
+            <% if not current_user %>
             <div class="login">
                 <p class="title">免費註冊，即刻使用</p>
                 <form action="" class="login-form">
@@ -160,6 +161,7 @@
                     <p class="title">免費註冊，即刻使用</p>
                 </a>
             </div>
+            <% end %>
             <!-- END LOGIN -->
             <!-- BEGIN CLASS -->
             <div class="class">
@@ -447,25 +449,25 @@
         <!--[if lt IE 9]>
             <script src="../../plugins/html5shiv.min.js"></script>
             <script src="../../plugins/respond.min.js"></script>
-        <![endif]-->
+            <![endif]-->
 
-        <script src="../../plugins/jquery-1.11.0.min.js"></script>
-        <script src="../../plugins/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
-        <!-- END 核心插件 -->
-        <!-- BEGIN 頁面插件 -->
-        <script src="../../plugins/swiper-master/js/idangerous.swiper-2.1.min.js"></script>
-        <!-- END 頁面插件 -->
-        <script type="text/javascript" src="../../js/script.js"></script>
-        <script type="text/javascript" src="../../js/page/index.js"></script>
-        <script>
-            jQuery(document).ready(function() {
-               Web.init();
-               Index.init();
-            });
-        </script>
-        <!-- END JAVASCRIPTS -->
-        <!-- BEGIN PIE -->
+            <script src="../../plugins/jquery-1.11.0.min.js"></script>
+            <script src="../../plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
+            <!-- END 核心插件 -->
+            <!-- BEGIN 頁面插件 -->
+            <script src="../../plugins/swiper-master/js/idangerous.swiper-2.1.min.js"></script>
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="../../js/script.js"></script>
+            <script type="text/javascript" src="../../js/page/index.js"></script>
+            <script>
+                jQuery(document).ready(function() {
+                 Web.init();
+                 Index.init();
+             });
+         </script>
+         <!-- END JAVASCRIPTS -->
+         <!-- BEGIN PIE -->
         <!--[if lte IE 9]>
         <script type="text/javascript" src="../../plugins/PIE-1.0.0/PIE.js"></script>
         <script src="../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
@@ -480,4 +482,4 @@
         <![endif]-->
         <!-- END PIE -->
     </body>
-</html>
+    </html>
