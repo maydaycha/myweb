@@ -17,9 +17,8 @@ class Users::SkillCategorysController < ApplicationController
 
   def new2(user_skill_category)
     @category =  ["IT", "engineeringScience", "designCreativeWork", "salesMarketing", "administrativeCustomerServices",  "businessAccountingLegal", "writingTranslation", "consulting" ]
-    index = params["user_skill_category"]["main_skill_id"].to_i - 1
-    @main_category = "main_skill_category.#{@category[index]}"
-    @sub_category = "sub_skill_category.#{@category[index]}"
+    index = params["user_skill_category"]["main_skill_id"].to_i
+    @category_index = index
     render "new2", locals: { user_skill_category_id: params[:user_skill_category]['main_skill_id'] }
   end
 
@@ -31,6 +30,8 @@ class Users::SkillCategorysController < ApplicationController
       @user_skill_category.user_id = current_user.id
       @user_skill_category.save
     end
+    current_user.step = 1
+    current_user.save
     redirect_to edit_users_profile_path(current_user)
   end
 

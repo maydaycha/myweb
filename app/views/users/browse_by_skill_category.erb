@@ -1,0 +1,25 @@
+<%= form_for :users, url: users_search_result_path(:users, :users), method: :get do |f|%>
+<div>
+    <h2>依照類別流覽人才</h2>
+    <% t(:main_skill_category).each_with_index do |m, index| %>
+    <h3 onclick="show('group<%= index %>')" ><%= m['name'] %></h3>
+    <ul id="group<%= index %>" style="display: none;">
+        <% t(:sub_skill_category)[index].each_with_index do |s, index2| %>
+        <li><%= link_to s['name'], users_search_result_path(index, index2) %></li>
+        <% end %>
+    </ul>
+    <% end %>
+</div>
+<div>
+    <%= f.text_field :seach, placeholder: "搜尋" %>
+    <%= f.submit "search" %>
+
+</div>
+<% end %>
+<script src="../../../plugins/jquery-1.7.2.js"></script>
+<script>
+    var show = function(id) {
+        if( $("#"+id).css('display') == 'none' ) $("#"+id).show();
+        else $("#"+id).hide();
+    }
+</script>

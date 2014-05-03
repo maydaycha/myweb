@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   has_many :user_authentications
   has_one :user_skill
+  has_many :user_skill_categories
   has_many :user_educations
   has_many :user_experiences
 

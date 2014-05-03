@@ -1,0 +1,8 @@
+<div>
+    <%= @user.to_json %>
+    <ul>
+        <li>name: <%= @user.first_name + @user.last_name%></li>
+        <li>intro: <%= @user.introduction %></li>
+        <li>image: <img src="<%= @user.image %>" style="width:200px; height:200px;"></li>
+    </ul>
+</div>

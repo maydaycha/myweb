@@ -79,7 +79,6 @@
         <!-- BEGIN PAGE -->
 
 
-
         <div class="page-content">
             <h1 class="title">個人設定</h1>
             <div class="container alert-warning alert-bordered" >
@@ -533,11 +532,11 @@
                                             <div class="input-group edit">
                                                 <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                   / HR
-                                               </span>
-                                           </div>
-                                       </div>
-                                       <div class="pull-right" style="margin:20px 16px 0 0;">
+                                                 / HR
+                                             </span>
+                                         </div>
+                                     </div>
+                                     <div class="pull-right" style="margin:20px 16px 0 0;">
                                         <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet1">儲存</button>
                                         <button class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1">取消</button>
                                     </div>
@@ -561,26 +560,25 @@
                         </div>
                         <div class="portlet-body">
                             <form action="#" id="contact-form1" class="form-horizontal" role="form">
+                                <% @skill_main_categoies.each do |s| %>
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">主類別</label>
                                     <div class="col-md-10">
-                                        <p class="form-control-static view">IT、軟體</p>
-                                        <select name="mainClass" id="" class="edit form-control">
-                                            <option><%= t("main_skill_category.IT") %></option>
-                                            <option><%= t('main_skill_category.engineeringScience') %></option>
-                                            <option><%= t('main_skill_category.designCreativeWork') %></option>
-                                            <option><%= t('main_skill_category.salesMarketing') %></option>
-                                            <option><%= t('main_skill_category.administrativeCustomerServices') %></option>
-                                            <option><%= t('main_skill_category.businessAccountingLegal') %></option>
-                                            <option><%= t('main_skill_category.writingTranslation') %></option>
-                                            <option><%= t('main_skill_category.consulting') %></option>
+                                        <p class="form-control-static view"><%= t(:main_skill_category)[s.main_skill_id]['name'] %></p>
+                                        <select name="mainClass" class="edit form-control">
+                                            <% t(:main_skill_category).each_with_index do |e, index| %>
+                                            <option value="<%= index %>"><%= e['name'] %></option>
+                                            <% end %>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">子類別</label>
                                     <div class="col-md-10">
-                                        <p class="form-control-static view">社群網路經營, 搜尋引擎最佳化</p>
+                                        <!-- <p class="form-control-static view">社群網路經營, 搜尋引擎最佳化</p> -->
+                                        <p class="form-control-static view">
+                                            <%= current_user.user_skill_categories.where(:main_skill_id => s.main_skill_id).map { |f| t(:sub_skill_category)[s.main_skill_id.to_i][f.sub_skill_id.to_i]['name'] }.join ', ' %>
+                                        </p>
                                         <div class="edit">
                                             <select name="subClass" id="subClass_select2" class="form-control select2" multiple>
                                                 <option selected>社群網路經營</option>
@@ -595,6 +593,7 @@
                                         <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet2">儲存</button>
                                     </div>
                                 </div>
+                                <% end %>
                             </form>
                         </div>
                     </div>
@@ -905,11 +904,11 @@
                                 尚未新增作品集
                             </form>
                             <div class=" text-right">
-                               <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="portlet box light-grey show-view" id="profile-portlet7">
+                             <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="portlet box light-grey show-view" id="profile-portlet7">
                     <div class="portlet-title">
                         <div class="caption">
                             相關證照
@@ -928,12 +927,12 @@
                             尚未新增相關證照
                         </form>
                         <div class=" text-right">
-                         <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="tab-pane" id="password">
+                           <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="tab-pane" id="password">
             <div class="portlet box light-grey show-view" id="password-portlet">
                 <div class="portlet-title">
                     <div class="caption">
@@ -1026,15 +1025,15 @@
 
             <script>
                 jQuery(document).ready(function() {
-                 Web.init();
-                 PersonalProfile.init();
-             });
+                   Web.init();
+                   PersonalProfile.init();
+               });
 
-         </script>
+           </script>
 
-         <script>
+           <script>
 
-             $(function(){
+               $(function(){
 
                 $(".prevent").click(function(event){
                     event.preventDefault();
@@ -1053,7 +1052,7 @@
 
 
             });
-             var test = function() {
+               var test = function() {
                 console.log("test");
             }
 
@@ -1180,12 +1179,12 @@
 
             var update_experience = function() {
                 var request_obj = {
-                   request: "update_experience",
-                   experience_add_list: experience_add_list,
-                   experience_delete_list: experience_delete_list
-               }
-               console.log(request_obj);
-               $.ajax({
+                 request: "update_experience",
+                 experience_add_list: experience_add_list,
+                 experience_delete_list: experience_delete_list
+             }
+             console.log(request_obj);
+             $.ajax({
                 url: "/users/profiles/ajax_updae",
                 type: "post",
                 dataType: "json",
@@ -1200,9 +1199,9 @@
                     console.log("error");
                 }
             });
-           }
+         }
 
-           var update_education = function() {
+         var update_education = function() {
             var request_obj = {
                 request: "update_education",
                 education_add_list: education_add_list,

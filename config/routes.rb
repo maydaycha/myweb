@@ -123,19 +123,28 @@ Sun::Application.routes.draw do
     end
   end
 
+  #test
+  get 'users/profiles/show_image/:id' => 'users/profiles#show_image'
   get 'skills/autocomplete' => 'skills#autocomplete'
 
   namespace :index do
     get "sign_up"
   end
 
-  # get 'users/profiles/:id/edit2' => 'users/profiles#edit2', as: :edit2_users_profile
-  # post 'ajax_updae' => 'users/profiles#ajax_updae'
-  # post 'profile/ajax_upload_img' => 'users/profiles#ajax_upload_img'
 
   root to: "index#index"
   get 'about' => 'index#about', :as => :index_about
   get 'rule' => 'index#rule', :as => :index_rule
+
+
+  namespace :users do
+    get 'browse_by_skill_category'
+  end
+
+  scope :users do
+    get 'search_result/:main/:sub' => "users#search_result", :as => :users_search_result
+    get 'detail/:id' => "users#detail", :as => :users_detail
+  end
 
   devise_for :users, :controllers => {
     registrations: 'users/registrations',

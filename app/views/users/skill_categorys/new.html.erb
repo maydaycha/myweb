@@ -83,74 +83,74 @@
                         <%= form_for :user_skill_category, url: new_users_skill_category_path, method: :get, html: {class: "class-form", data: {isEmpty: "請選擇一個專長類別"}} do |f| %>
                         <div class="col-md-3 col-sm-4 col-xs-6 item">
                             <!-- <input type="radio" id="class1" name="class"> -->
-                            <%= f.radio_button :main_skill_id, "1", id: "class1" %>
+                            <%= f.radio_button :main_skill_id, "0", id: "class1" %>
                             <label for="class1">
                                 <img src="../../../img/class/class_1.png" alt="IT、軟體">
                                 <!-- <p>IT、軟體</p> -->
-                                <p><%= t "main_skill_category.IT" %></p>
+                                <p><%= t(:"main_skill_category")[0]['name'] %></p>
                             </label>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6 item">
                             <!-- <input type="radio" id="class7" name="class"> -->
-                            <%= f.radio_button :main_skill_id, "2", id: "class7"%>
+                            <%= f.radio_button :main_skill_id, "1", id: "class7"%>
                             <label for="class7">
                                 <img src="../../../img/class/class_11.png" alt="工程、科學">
                                 <!-- <p>工程、科學</p> -->
-                                <p><%= t "main_skill_category.engineeringScience" %></p>
+                                <p><%= t(:"main_skill_category")[1]['name'] %></p>
                             </label>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6 item">
                             <!-- <input type="radio" id="class3" name="class"> -->
-                            <%= f.radio_button :main_skill_id, "3", id: "class3" %>
+                            <%= f.radio_button :main_skill_id, "2", id: "class3" %>
                             <label for="class3">
                                 <img src="../../../img/class/class_2.png" alt="設計、創意服務">
                                 <!-- <p>設計、創意服務</p> -->
-                                <p><%= t "main_skill_category.designCreativeWork" %></p>
+                                <p><%= t(:"main_skill_category")[2]['name'] %></p>
                             </label>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6 item">
                             <!-- <input type="radio" id="class4" name="class"> -->
-                            <%= f.radio_button :main_skill_id, "4", id: "class4" %>
+                            <%= f.radio_button :main_skill_id, "3", id: "class4" %>
                             <label for="class4">
                                 <img src="../../../img/class/class_9.png" alt="行銷、業務">
                                 <!-- <p>行銷、業務</p> -->
-                                <p><%= t "main_skill_category.salesMarketing" %></p>
+                                <p><%= t(:"main_skill_category")[3]['name'] %></p>
                             </label>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6 item">
                             <!-- <input type="radio" id="class5" name="class"> -->
-                            <%= f.radio_button :main_skill_id, "5", id: "class5" %>
+                            <%= f.radio_button :main_skill_id, "4", id: "class5" %>
                             <label for="class5">
                                 <img src="../../../img/class/class_6.png" alt="行政、客戶服務">
                                 <!-- <p>行政、客戶服務</p> -->
-                                <p><%= t "main_skill_category.administrativeCustomerServices" %></p>
+                                <p><%= t(:"main_skill_category")[4]['name'] %></p>
                             </label>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6 item">
                             <!-- <input type="radio" id="class6" name="class"> -->
-                            <%= f.radio_button :main_skill_id, "6", id: "class6" %>
+                            <%= f.radio_button :main_skill_id, "5", id: "class6" %>
                             <label for="class6">
                                 <img src="../../../img/class/class_10.png" alt="商業、會計、法務">
                                 <!-- <p>商業、會計、法務</p> -->
-                                <p><%= t "main_skill_category.businessAccountingLegal" %></p>
+                                <p><%= t(:"main_skill_category")[5]['name'] %></p>
                             </label>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6 item">
                             <!-- <input type="radio" id="class2" name="class"> -->
-                            <%= f.radio_button :main_skill_id, "7", id: "class2" %>
+                            <%= f.radio_button :main_skill_id, "6", id: "class2" %>
                             <label for="class2">
                                 <img src="../../../img/class/class_5.png" alt="翻譯、寫作">
                                 <!-- <p>翻譯、寫作</p> -->
-                                <p><%= t "main_skill_category.writingTranslation" %></p>
+                                <p><%= t(:"main_skill_category")[6]['name'] %></p>
                             </label>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6 item">
                             <!-- <input type="radio" id="class8" name="class"> -->
-                            <%= f.radio_button :main_skill_id, "8", id: "class8" %>
+                            <%= f.radio_button :main_skill_id, "7", id: "class8" %>
                             <label for="class8">
                                 <img src="../../../img/class/class_12.png" alt="專業諮商">
                                 <!-- <p>專業諮商</p> -->
-                                <p><%= t "main_skill_category.consulting" %></p>
+                                <p><%= t(:"main_skill_category")[7]['name'] %></p>
                             </label>
                         </div>
                         <div class="btns">

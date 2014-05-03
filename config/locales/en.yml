@@ -24,25 +24,24 @@ en:
   about: |
     Sun Innovation Corporation Co. Ltd. is the e-commerce company registered in Taiwan. The website TeleworkTM is established by Sun Innovation Corporation Co. Ltd. The web is registered on Taiwan and is going to be registered on China. As the growth of the domestic demand, the market of outsourcing to western countries is growing in Chinese-speaking areas. We will help the freelancers or SOHO in western countries to expand the business scope to Chinese-speaking areas with least communication barrier.
     TeleworkTM will offer you the telework opportunities and help the communication between you and the employer in order to make the contract. You can work at home or elsewhere in the world, and deliver the required result to the employer thru TeleworkTM. All of the information and the messages that delivered to you will be shown in your language and you can reply in your language as well. The employer has to pay to start the contract, the payment will be escrowed. If the milestone on the contract is reached or the contract is complete, the payment will be released to the employee thru the internet services, like Paypal.
-    
+
     The website is ready for recruiting new members now. It is free. You are cordially invited to register. If you have any questions, comments or suggestions, please e-mail to service@sun-innovation.com . Again, you can e-mail us in your language and we will reply you in your language as well. We look forward to hearing from you.
 
   rule: |
     Fixed Now
 
-  main_skill_category:
-    IT: "IT & Software"
-    engineeringScience: "Engineering and Science"
-    designCreativeWork: "Design and Creative Work"
-    salesMarketing: "Sales and Marketing"
-    administrativeCustomerServices: "Administrative and Customer Services"
-    businessAccountingLegal: "Business, Accounting and Legal"
-    writingTranslation: "Writing and Translation"
-    consulting: "Consulting"
+  main_skill_category: [
+    {name: "IT & Software"},
+    {name: "Engineering and Science"},
+    {name: "Design and Creative Work"},
+    {name: "Sales and Marketing"},
+    {name: "Administrative and Customer Services"},
+    {name: "Business, Accounting and Legal"},
+    {name: "Writing and Translation"},
+    {name: "Consulting"}]
 
-  sub_skill_category:
-    IT: [
-    {name: "Programming", title: "nothing"},
+  sub_skill_category: [
+    [{name: "Programming", title: "nothing"},
     {name: "Program Testing/Debugging", title: "nothing"},
     {name: "E-commerce", title: "nothing"},
     {name: "Web Site Development", title: "nothing"},
@@ -61,10 +60,9 @@ en:
     {name: "Information System Management", title: "nothing"},
     {name: "Information System Implementation", title: "nothing"},
     {name: "Management Information System", title: "nothing"},
-    {name: "Other – IT & Software", title: "nothing"}]
+    {name: "Other – IT & Software", title: "nothing"}],
 
-    engineeringScience: [
-    {name: "Data Mining & Analysis", title: ""},
+    [{name: "Data Mining & Analysis", title: ""},
     {name: "CAD / CAM", title: ""},
     {name: "Manufacturing Engineering", title: ""},
     {name: "Manufacturing Development", title: ""},
@@ -81,10 +79,9 @@ en:
     {name: "Mathematics", title: ""},
     {name: "Physics", title: ""},
     {name: "Chemistry", title: ""},
-    {name: "Others-Science & Engineering", title: ""}]
+    {name: "Others-Science & Engineering", title: ""}],
 
-    designCreativeWork: [
-    {name: "Graphic Design", title: ""},
+    [{name: "Graphic Design", title: ""},
     {name: "Logo & CIS Design", title: ""},
     {name: "Visual Design", title: ""},
     {name: "Drawing", title: ""},
@@ -101,12 +98,11 @@ en:
     {name: "User Interface Design", title: ""},
     {name: "Fashion Design", title: ""},
     {name: "Industrial Design", title: ""},
-    {name: "Other - Design & Creative Work", title: ""}]
+    {name: "Other - Design & Creative Work", title: ""}],
 
 
 
-    salesMarketing: [
-    {name: "Sales Promotion", title: ""},
+    [{name: "Sales Promotion", title: ""},
     {name: "E-mail & Internet Marketing", title: ""},
     {name: "Telemarketing", title: ""},
     {name: "SEO/SEM", title: ""},
@@ -115,12 +111,11 @@ en:
     {name: "Business Proposal & Strategy", title: ""},
     {name: "Marketing Research ", title: ""},
     {name: "Lead Generation", title: ""},
-    {name: "Other - Sales & Marketing", title: ""}]
+    {name: "Other - Sales & Marketing", title: ""}],
 
 
 
-    administrativeCustomerServices: [
-    {name: "Typing & Data Entry", title: ""},
+    [{name: "Typing & Data Entry", title: ""},
     {name: "IT Assistant", title: ""},
     {name: "Executive Assistant", title: ""},
     {name: "Accounting Assistant", title: ""},
@@ -130,10 +125,9 @@ en:
     {name: "Field Support", title: ""},
     {name: "Invoicing & Order Processing ", title: ""},
     {name: "Inventory Assistant", title: ""},
-    {name: "Other – Administrative & Customer Support", title: ""}]
+    {name: "Other – Administrative & Customer Support", title: ""}],
 
-    businessAccountingLegal: [
-    {name: "Accounting Services", title: ""},
+    [{name: "Accounting Services", title: ""},
     {name: "Computerized Bookkeeping", title: ""},
     {name: "Financial Compensation", title: ""},
     {name: "Financial Services ", title: ""},
@@ -146,11 +140,10 @@ en:
     {name: "Human Resources ", title: ""},
     {name: "Hiring", title: ""},
     {name: "Actuarial Analysis", title: ""},
-    {name: "Other - Business Services", title: ""}]
+    {name: "Other - Business Services", title: ""}],
 
 
-    writingTranslation: [
-    {name: "Blog Writing", title: ""},
+    [{name: "Blog Writing", title: ""},
     {name: "Ghost Writing", title: ""},
     {name: "Copywriting", title: ""},
     {name: "Content Writing", title: ""},
@@ -159,10 +152,9 @@ en:
     {name: "Technical Documentation", title: ""},
     {name: "Literature Review", title: ""},
     {name: "Translation & Interpretation", title: ""},
-    {name: "Other - Writing & Translatio", title: ""}]
+    {name: "Other - Writing & Translatio", title: ""}],
 
-    consulting: [
-    {name: "Legal Consultant", title: ""},
+    [{name: "Legal Consultant", title: ""},
     {name: "Travel Consultant", title: ""},
     {name: "Immigrant Consultant", title: ""},
     {name: "Technical Consultant", title: ""},
@@ -174,5 +166,6 @@ en:
     {name: "Consulting Analyst", title: ""},
     {name: "Services Consultant", title: ""},
     {name: "Other - Consulant", title: ""}]
+    ]
 
 

@@ -8,7 +8,6 @@ class Users::ProfilesController < ApplicationController
   end
 
   def new
-    # @user = User.find(session[:user_id])
   end
 
   def create
@@ -24,16 +23,20 @@ class Users::ProfilesController < ApplicationController
   def update
     # return render json: params
     current_user.update!(params.permit![:user])
-    file_type = params[:image].content_type.split("/")[1]
-    path = "/upload/#{current_user.username}.#{file_type}"
-    File.open("public#{path}", 'wb'){ |f| f << open(params[:image].tempfile).read }
-    current_user.image = path
+    if params[:image]
+      file_type = params[:image].content_type.split("/")[1]
+      path = "/upload/#{current_user.username}.#{file_type}"
+      File.open("public#{path}", 'wb'){ |f| f << open(params[:image].tempfile).read }
+      current_user.image = path
+    end
+    current_user.step = 2
     current_user.save
     redirect_to users_profile_path(current_user)
   end
 
 
   def show
+    @skill_main_categoies = current_user.user_skill_categories.uniq_by(&:main_skill_id)
   end
 
 
@@ -76,10 +79,17 @@ class Users::ProfilesController < ApplicationController
     file_name = current_user.username + "." + request.headers['X-File-Type'].split("/")[1]
     directory = "public/upload"
     path = directory + "/" + file_name
-    current_user.image = path.split('public')[1]
+    current_user.picture = path.split('public')[1]
+    # current_user.picture = open(params["profile_img"].tempfile).read
     current_user.save
     File.open(path, "wb"){ |f| f << open(params["profile_img"].tempfile).read }
     render json: @user
+  end
+
+
+  def show_image
+    @user = User.find(params[:id])
+    send_data @user.picture, :type => 'image/png', :disposition => 'inline'
   end
 
 end

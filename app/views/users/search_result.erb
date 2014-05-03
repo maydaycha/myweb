@@ -1,0 +1,15 @@
+<div>
+    <span>共有 <%= @users.size %> 個搜尋結果</span>
+    <% @users.each do |user| %>
+    <ul>
+        <li><img src="<%= user.image %>" style="height:200px; width:200px;"/></li>
+        <li><%= link_to user.first_name+user.last_name, users_detail_path(user) %></li>
+        <li>introduction: <%= user.introduction %></li>
+        <li>skills: <%= user.skill %></li>
+        <li>hourly_pay: <%= user.hourly_pay %></li>
+        <li>country: <%= t("countries."+user.country_code) %></li>
+
+    </ul>
+    <hr>
+    <% end %>
+</div>

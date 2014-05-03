@@ -62,19 +62,27 @@ zh-TW:
 
     Telework保留修改隱私權政策內容之權利，若有修改時，我們不會個別通知，但會於本網站上公佈新修改之內容。如有任何疑問，歡迎至客服中心反應，我們將儘速為您處理。
 
-  main_skill_category:
-    IT: "IT & 軟體"
-    engineeringScience: "工程 & 科學"
-    designCreativeWork: "設計 & 創意"
-    salesMarketing: "業務 & 行銷"
-    administrativeCustomerServices: "行政總務 & 客戶服務"
-    businessAccountingLegal: "商業、會計 & 法務"
-    writingTranslation: "寫作 & 翻譯"
-    consulting: "專業諮詢"
+  main_skill_category: [
+    {name: "IT & 軟體"},
+    {name: "工程 & 科學"},
+    {name: "設計 & 創意"},
+    {name: "業務 & 行銷"},
+    {name: "行政總務 & 客戶服務"},
+    {name: "商業、會計 & 法務"},
+    {name: "寫作 & 翻譯"},
+    {name: "專業諮詢"}]
 
-  sub_skill_category:
-    IT: [
-    {name: "程式設計", title: "補充文字"},
+    # IT: "IT & 軟體"
+    # engineeringScience: "工程 & 科學"
+    # designCreativeWork: "設計 & 創意"
+    # salesMarketing: "業務 & 行銷"
+    # administrativeCustomerServices: "行政總務 & 客戶服務"
+    # businessAccountingLegal: "商業、會計 & 法務"
+    # writingTranslation: "寫作 & 翻譯"
+    # consulting: "專業諮詢"
+
+  sub_skill_category: [
+    [{name: "程式設計", title: "補充文字"},
     {name: "程式測試/除錯", title: "補充文字"},
     {name: "電子商務平台", title: "補充文字"},
     {name: "網站開發", title: "補充文字"},
@@ -93,10 +101,9 @@ zh-TW:
     {name: "資訊系統管理", title: "補充文字"},
     {name: "資訊系統佈建", title: "補充文字"},
     {name: "企業資訊系統管理", title: "補充文字"},
-    {name: "其他 - 資訊科技及軟體", title: "補充文字"}]
+    {name: "其他 - 資訊科技及軟體", title: "補充文字"}],
 
-    engineeringScience: [
-    {name: "資料探勘 & 分析", title: "補充文字"},
+    [{name: "資料探勘 & 分析", title: "補充文字"},
     {name: "CAD / CAM 工程開發", title: "補充文字"},
     {name: "生產工程", title: "補充文字"},
     {name: "生產開發", title: "補充文字"},
@@ -113,10 +120,9 @@ zh-TW:
     {name: "數學", title: "補充文字"},
     {name: "物理", title: "補充文字"},
     {name: "化學", title: "補充文字"},
-    {name: "其他 - 工程與科學", title: "補充文字"}]
+    {name: "其他 - 工程與科學", title: "補充文字"}],
 
-    designCreativeWork: [
-    {name: "圖像設計", title: "補充文字"},
+    [{name: "圖像設計", title: "補充文字"},
     {name: "Logo & 企業識別設計", title: "補充文字"},
     {name: "視覺設計", title: "補充文字"},
     {name: "繪圖", title: "補充文字"},
@@ -133,10 +139,9 @@ zh-TW:
     {name: "使用者介面設計", title: "補充文字"},
     {name: "服飾設計", title: "補充文字"},
     {name: "工業設計", title: "補充文字"},
-    {name: "其他 - 設計與創意", title: "補充文字"}]
+    {name: "其他 - 設計與創意", title: "補充文字"}],
 
-    salesMarketing: [
-    {name: "促銷", title: "補充文字"},
+    [{name: "促銷", title: "補充文字"},
     {name: "電子郵件及網路行銷", title: "補充文字"},
     {name: "電話行銷", title: "補充文字"},
     {name: "搜尋引擎優化與行銷", title: "補充文字"},
@@ -145,10 +150,9 @@ zh-TW:
     {name: "商業計畫與策略", title: "補充文字"},
     {name: "市場研究", title: "補充文字"},
     {name: "業務推廣", title: "補充文字"},
-    {name: "其他 - 業務 & 行銷", title: "補充文字"}]
+    {name: "其他 - 業務 & 行銷", title: "補充文字"}],
 
-    administrativeCustomerServices: [
-    {name: "打字及數據輸入", title: "補充文字"},
+    [{name: "打字及數據輸入", title: "補充文字"},
     {name: "資訊助理", title: "補充文字"},
     {name: "業務助理", title: "補充文字"},
     {name: "會計助理", title: "補充文字"},
@@ -158,10 +162,9 @@ zh-TW:
     {name: "外地支援、到場服務", title: "補充文字"},
     {name: "報價單、訂單處理", title: "補充文字"},
     {name: "庫存處理", title: "補充文字"},
-    {name: "其他 - 行政總務 & 客戶服務", title: "補充文字"}]
+    {name: "其他 - 行政總務 & 客戶服務", title: "補充文字"}],
 
-    businessAccountingLegal: [
-    {name: "會計服務", title: "補充文字"},
+    [{name: "會計服務", title: "補充文字"},
     {name: "電腦帳務系統", title: "補充文字"},
     {name: "薪資", title: "補充文字"},
     {name: "財務服務", title: "補充文字"},
@@ -174,10 +177,9 @@ zh-TW:
     {name: "人力資源", title: "補充文字"},
     {name: "人員招募", title: "補充文字"},
     {name: "精算", title: "補充文字"},
-    {name: "其他 - 商業服務", title: "補充文字"}]
+    {name: "其他 - 商業服務", title: "補充文字"}],
 
-    writingTranslation: [
-    {name: "部落格專文寫作", title: "補充文字"},
+    [{name: "部落格專文寫作", title: "補充文字"},
     {name: "代筆、代寫", title: "補充文字"},
     {name: "推文寫作", title: "補充文字"},
     {name: "文案創作", title: "補充文字"},
@@ -186,10 +188,9 @@ zh-TW:
     {name: "技術文件寫作", title: "補充文字"},
     {name: "文獻報告總結", title: "補充文字"},
     {name: "翻譯、口譯", title: "補充文字"},
-    {name: "其他 - 寫作 & 翻譯", title: "補充文字"}]
+    {name: "其他 - 寫作 & 翻譯", title: "補充文字"}],
 
-    consulting: [
-    {name: "法律顧問", title: "補充文字"},
+    [{name: "法律顧問", title: "補充文字"},
     {name: "旅遊顧問", title: "補充文字"},
     {name: "移民與留學顧問", title: "補充文字"},
     {name: "科技顧問", title: "補充文字"},
@@ -201,3 +202,4 @@ zh-TW:
     {name: "顧問分析", title: "補充文字"},
     {name: "服務顧問", title: "補充文字"},
     {name: "其他 - 顧問", title: "補充文字"}]
+    ]
