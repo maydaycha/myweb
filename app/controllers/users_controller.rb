@@ -17,9 +17,12 @@ class UsersController < ApplicationController
 
   def search_result
     @users = UserSkillCategory.where(main_skill_id: params[:main], sub_skill_id: params[:sub]).map{ |m| User.find(m.user_id) }
+    @users = Kaminari.paginate_array(@users).page(params[:page]).per(1)
   end
 
   def detail
     @user = User.find(params[:id])
   end
+
+
 end
