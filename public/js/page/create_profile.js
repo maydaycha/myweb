@@ -165,7 +165,8 @@ var CreateProfile = function(){
     }
     var initSkillTags = function(){
 		$('#skill-tags').tagsInput({
-            width: 'auto'
+            width: 'auto',
+            autocomplete_url:'http://127.0.0.1:3000/skills/autocomplete'
         });
 	}
     var initShowTip = function(){

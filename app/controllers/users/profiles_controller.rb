@@ -21,7 +21,12 @@ class Users::ProfilesController < ApplicationController
 
 
   def update
-    # return render json: params
+    current_user.user_skills.destroy_all if !current_user.user_skills.empty?
+    if current_user.user_skills.empty?
+      foeign_skills = []
+      params[:user][:user_skills].split(",").each{|e| foeign_skills << current_user.user_skills.create!(name: e) }
+    end
+    params[:user][:user_skills] = foeign_skills
     current_user.update!(params.permit![:user])
     if params[:image]
       file_type = params[:image].content_type.split("/")[1]
@@ -57,8 +62,8 @@ class Users::ProfilesController < ApplicationController
       render json: current_user
 
     when "update_skill"
-      current_user.skill = params[:skill]
-      current_user.save
+      current_user.user_skills.destroy_all if not current_user.user_skills.empty?
+      params[:skill].split(",").each{ |e| current_user.user_skills.create!(name: e) }
       render json: current_user
 
     when "update_experience"

@@ -532,11 +532,11 @@
                                             <div class="input-group edit">
                                                 <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                 / HR
-                                             </span>
-                                         </div>
-                                     </div>
-                                     <div class="pull-right" style="margin:20px 16px 0 0;">
+                                                   / HR
+                                               </span>
+                                           </div>
+                                       </div>
+                                       <div class="pull-right" style="margin:20px 16px 0 0;">
                                         <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet1">儲存</button>
                                         <button class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1">取消</button>
                                     </div>
@@ -612,19 +612,17 @@
                             </div>
                         </div>
                         <div class="portlet-body" ng-init="skill_list = <%= t(:skills) %>">
-                            <p class="form-control-static view" id="skill"><%= current_user.skill %></p>
+                            <p class="form-control-static view" id="skill"><%= current_user.user_skills.map{|e| e.name}.join(", ") %></p>
                             <form action="javascript: return false;" id="contact-form1" class="form-horizontal edit" role="form">
-                                <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.skill %>"/>
+                                <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>"/>
                                 <div class="pull-right" style="margin:8px 0px 0 0;">
                                     <button onclick="update_skill()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet3">儲存</button>
-
                                     <button class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet3">取消</button>
                                 </div>
                                 <p class="help-block">
                                     如果您欲新增更多的技能。您必須完成下列項目：<br>
                                     1. 工作經歷　2. 教育程度　3. 作品集
                                 </p>
-
                             </form>
 
                         </div>
@@ -904,11 +902,11 @@
                                 尚未新增作品集
                             </form>
                             <div class=" text-right">
-                             <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="portlet box light-grey show-view" id="profile-portlet7">
+                               <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="portlet box light-grey show-view" id="profile-portlet7">
                     <div class="portlet-title">
                         <div class="caption">
                             相關證照
@@ -927,12 +925,12 @@
                             尚未新增相關證照
                         </form>
                         <div class=" text-right">
-                           <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <div class="tab-pane" id="password">
+                         <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="tab-pane" id="password">
             <div class="portlet box light-grey show-view" id="password-portlet">
                 <div class="portlet-title">
                     <div class="caption">
@@ -1025,15 +1023,15 @@
 
             <script>
                 jQuery(document).ready(function() {
-                   Web.init();
-                   PersonalProfile.init();
-               });
+                 Web.init();
+                 PersonalProfile.init();
+             });
 
-           </script>
+         </script>
 
-           <script>
+         <script>
 
-               $(function(){
+             $(function(){
 
                 $(".prevent").click(function(event){
                     event.preventDefault();
@@ -1052,7 +1050,7 @@
 
 
             });
-               var test = function() {
+             var test = function() {
                 console.log("test");
             }
 
@@ -1179,12 +1177,12 @@
 
             var update_experience = function() {
                 var request_obj = {
-                 request: "update_experience",
-                 experience_add_list: experience_add_list,
-                 experience_delete_list: experience_delete_list
-             }
-             console.log(request_obj);
-             $.ajax({
+                   request: "update_experience",
+                   experience_add_list: experience_add_list,
+                   experience_delete_list: experience_delete_list
+               }
+               console.log(request_obj);
+               $.ajax({
                 url: "/users/profiles/ajax_updae",
                 type: "post",
                 dataType: "json",
@@ -1199,9 +1197,9 @@
                     console.log("error");
                 }
             });
-         }
+           }
 
-         var update_education = function() {
+           var update_education = function() {
             var request_obj = {
                 request: "update_education",
                 education_add_list: education_add_list,

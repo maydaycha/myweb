@@ -13,7 +13,7 @@ var PersonalProfile = function(){
 			portlet.addClass('show-view');
 		});
 	}
-	var data = ['tel','net'];
+
 	var initSkillTags = function(){
 		$('#skill-tags').tagsInput({
 			width: 'auto',

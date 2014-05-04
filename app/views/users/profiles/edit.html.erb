@@ -21,6 +21,7 @@
     <![endif]-->
     <!-- END 核心樣式 -->
     <!-- BEGIN 頁面插件樣式 -->
+    <link rel="stylesheet" href="../../../plugins/jquery-autocomplete/jquery.autocomplete.css">
     <link rel="stylesheet" href="../../../plugins/select2/select2-metronic.css">
     <link rel="stylesheet" href="../../../plugins/select2/select2.css">
     <link rel="stylesheet" href="../../../plugins/jquery-tags-input/jquery.tagsinput.css">
@@ -216,7 +217,7 @@
                                         <label class="col-md-2 control-label">技能專長</label>
                                         <div class="col-md-10">
                                             <!-- <input id="skill-tags" name="skill" type="text" class="form-control tags" value=""/> -->
-                                            <%= f.text_field :skill, class: "form-control tags", id: "skill-tags" %>
+                                            <%= f.text_field :user_skills, class: "form-control tags", id: "skill-tags", value: current_user.user_skills.empty? ? "" : current_user.user_skills.map {|e| e.name}.join(",") %>
                                             <p class="help-block">
                                                 建議您輸入技能專長，例如CSS, HTML Coding。
                                             </p>
@@ -669,14 +670,18 @@
     <script src="plugins/respond.min.js"></script>
     <![endif]-->
 
-    <script src="../../../plugins/jquery-1.11.0.min.js"></script>
+    <script src="../../../plugins/jquery-1.7.2.js"></script>
+    <!-- <script src="../../../plugins/jquery-1.11.0.min.js"></script> -->
     <script src="../../../plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
     <!-- END 核心插件 -->
     <!-- BEGIN 頁面插件 -->
     <script src="../../../plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
     <script src="../../../plugins/select2/select2.min.js"></script>
     <script type="text/javascript" src="../../../plugins/jquery-validation/dist/jquery.validate.js"></script>
     <script type="text/javascript" src="../../../plugins/jquery-validation/dist/myMethods.js"></script>
+    <script src="../../../plugins/jquery-autocomplete/jquery.autocomplete.pack.js"></script>
+    <script src="../../../plugins/jquery-autocomplete/jquery.autocomplete.js"></script>
     <script src="../../../plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
     <script src="../../../plugins/bootbox/bootbox.min.js"></script>
     <!-- END 頁面插件 -->

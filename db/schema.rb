@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140503132347) do
+ActiveRecord::Schema.define(version: 20140504092015) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -150,10 +150,9 @@ ActiveRecord::Schema.define(version: 20140503132347) do
 
   create_table "user_skills", force: true do |t|
     t.integer  "user_id"
-    t.string   "skill"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_skill_category_id"
   end
 
   create_table "user_translations", force: true do |t|
@@ -197,7 +196,6 @@ ActiveRecord::Schema.define(version: 20140503132347) do
     t.text     "review"
     t.string   "image"
     t.integer  "worker_type"
-    t.string   "skill"
     t.float    "hourly_pay"
     t.string   "city"
     t.integer  "zip"
