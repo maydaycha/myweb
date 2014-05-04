@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable,
-  :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+    :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable,
+    :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
   validates_presence_of :first_name, :message => "姓氏未填寫"
   validates_presence_of :last_name, :message => "名字未填寫"
@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :user_skill_categories
   has_many :user_educations
   has_many :user_experiences
+  has_many :user_favorites
 
   def self.has_email?(email)
     self.where(:email => email).limit(1).size > 0
@@ -29,9 +30,9 @@ class User < ActiveRecord::Base
 
   def apply_omniauth(omni)
     user_authentications.build(:provider => omni['provider'],
-     :uid => omni['uid'],
-     :token => omni['credentials'].token,
-     :token_secret => omni['credentials'].secret)
+                               :uid => omni['uid'],
+                               :token => omni['credentials'].token,
+                               :token_secret => omni['credentials'].secret)
   end
 
   def self.find_for_facebook_oauth(auth)

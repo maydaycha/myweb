@@ -4,5 +4,51 @@
         <li>name: <%= @user.first_name + @user.last_name%></li>
         <li>intro: <%= @user.introduction %></li>
         <li>image: <img src="<%= @user.image %>" style="width:200px; height:200px;"></li>
+        <li id="add" >加到最愛: <button onclick="add_to_favorite(<%= @user.id %>)">加到最愛</button></li>
+        <li id="remove" >移除最愛: <button onclick="remove_from_favorite(<%= @user.id %>)">移除最愛</button></li>
     </ul>
+    <%= current_user.to_json%>
 </div>
+
+<script src="../../../plugins/jquery-1.7.2.js"></script>
+<script>
+    var add_to_favorite = function(id) {
+        var request_obj = { user_id: id };
+        $.ajax({
+            url: "/users/add_to_favorite",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
+                console.log(data);
+                $("#add").hide();
+                $("#remove").show();
+            },
+            error: function(data) {
+                console.log("error");
+            }
+        });
+    }
+
+    var remove_from_favorite = function(id) {
+        var request_obj = { user_id: id };
+        $.ajax({
+            url: "/users/remove_from_favorite",
+            type: "delete",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
+                console.log(data);
+                $("#add").show();
+                $("#remove").hide();
+            },
+            error: function(data) {
+                console.log("error");
+            }
+        });
+    }
+
+
+</script>

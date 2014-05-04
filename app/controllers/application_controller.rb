@@ -36,7 +36,14 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(user)
-    new_users_skill_category_path
+    "http://www.google.com"
+    if current_user.step == 1
+      edit_users_profile_path(user)
+    elsif current_user.step == 2
+      root_path
+    else
+      new_users_skill_category_path
+    end
   end
 
   def after_sign_out_path_for(resource_or_scope)

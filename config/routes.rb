@@ -125,7 +125,10 @@ Sun::Application.routes.draw do
 
   #test
   get 'users/profiles/show_image/:id' => 'users/profiles#show_image'
+
+
   get 'skills/autocomplete' => 'skills#autocomplete'
+
 
   namespace :index do
     get "sign_up"
@@ -139,6 +142,8 @@ Sun::Application.routes.draw do
 
   namespace :users do
     get 'browse_by_skill_category'
+    post 'add_to_favorite'
+    delete 'remove_from_favorite'
   end
 
   scope :users do

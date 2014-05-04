@@ -82,8 +82,6 @@
                     <div class="row">
                         <!-- <form action="create_profile.html" class="class-form" data-isEmpty="請選擇一個專長類別"> -->
                         <%= form_for :user_skill_category, url: users_skill_categorys_path, html: {class: "class-form", data: {isempty: "請選擇一個專長類別"}} do |f| %>
-                        <!-- <%= f.text_field :user_skill_category_id, value: user_skill_category_id %> -->
-                        <input type="text" value="<%= user_skill_category_id %>" name="user_skill_category_id">
                         <div class="col-md-3 col-xs-4 image">
                             <img src="../../../img/class/class_1.png" alt="IT、軟體">
                             <p><%= t("main_skill_category")[@category_index]['name'] %></p>
