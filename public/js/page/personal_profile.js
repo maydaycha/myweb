@@ -44,6 +44,50 @@ var PersonalProfile = function(){
 			allowClear: true
 		});
 	}
+	var initSubClassSelect3 = function(){
+		$('#subClass_select3').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+	var initSubClassSelect4 = function(){
+		$('#subClass_select4').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+	var initSubClassSelect5 = function(){
+		$('#subClass_select5').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+	var initSubClassSelect6 = function(){
+		$('#subClass_select6').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+	var initSubClassSelect7 = function(){
+		$('#subClass_select7').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+	var initSubClassSelect8 = function(){
+		$('#subClass_select8').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+	var initSubClassSelect9 = function(){
+		$('#subClass_select9').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+
+
 	var initExperienceTable = function(){
 		$('#experience-table .btn-delete').off('click');
 		$('#experience-table .btn-delete').on('click',function(){
@@ -61,6 +105,9 @@ var PersonalProfile = function(){
 			var td3 = $('<td></td>');
 			var td4 = $('<td></td>');
 			var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
+			if($('#experience-modal input[name=start]').val() == "") {
+				return;
+			}
 			td1.append($('#experience-modal input[name=start]').val());
 			td2.append($('#experience-modal input[name=end]').val());
 			td3.append($('#experience-modal input[name=organization]').val());
@@ -85,6 +132,8 @@ var PersonalProfile = function(){
 			$('#experience-modal input[name=office]').val('');
 			$('#experience-modal textarea[name=description]').val('');
 			initExperienceTable();
+			console.log("test");
+			$("#experience-modal").modal('toggle');
 		});
 }
 
@@ -102,6 +151,9 @@ var initAddEducation = function(){
 		var td3 = $('<td></td>');
 		var td4 = $('<td></td>');
 		var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
+		if($('#education-modal input[name=start]').val() == "") {
+			return;
+		}
 		td1.append($('#education-modal input[name=start]').val());
 		td2.append($('#education-modal input[name=end]').val());
 		td3.append($('#education-modal input[name=organization]').val());
@@ -127,6 +179,7 @@ var initAddEducation = function(){
 		$('#education-modal input[name=office]').val('');
 		$('#education-modal textarea[name=description]').val('');
 		initEducationTable();
+		$("#education-modal").modal('toggle');
 	});
 }
 
@@ -140,6 +193,13 @@ return {
 		initEditSaveBtnTip();
 		initSkillTags();
 		initSubClassSelect2();
+		initSubClassSelect3();
+		initSubClassSelect4();
+		initSubClassSelect5();
+		initSubClassSelect6();
+		initSubClassSelect7();
+		initSubClassSelect8();
+		initSubClassSelect9();
 		initExperienceTable();
 		initAddExperience();
 		initEducationTable();

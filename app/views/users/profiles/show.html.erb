@@ -533,11 +533,11 @@
                                             <div class="input-group edit">
                                                 <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                   / HR
-                                               </span>
-                                           </div>
-                                       </div>
-                                       <div class="pull-right" style="margin:20px 16px 0 0;">
+                                                 / HR
+                                             </span>
+                                         </div>
+                                     </div>
+                                     <div class="pull-right" style="margin:20px 16px 0 0;">
                                         <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet1">儲存</button>
                                         <button class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1">取消</button>
                                     </div>
@@ -566,7 +566,7 @@
                                     <label class="col-md-2 control-label">主類別</label>
                                     <div class="col-md-10">
                                         <p class="form-control-static view"><%= t(:main_skill_category)[s.main_skill_id]['name'] %></p>
-                                        <select name="mainClass" class="edit form-control">
+                                        <select name="mainClass" class="edit form-control" id="main_class">
                                             <% t(:main_skill_category).each_with_index do |e, index| %>
                                             <option value="<%= index %>"><%= e['name'] %></option>
                                             <% end %>
@@ -581,13 +581,13 @@
                                             <%= current_user.user_skill_categories.where(:main_skill_id => s.main_skill_id).map { |f| t(:sub_skill_category)[s.main_skill_id.to_i][f.sub_skill_id.to_i]['name'] }.join ', ' %>
                                         </p>
                                         <div class="edit">
-                                            <select name="subClass" id="subClass_select2" class="form-control select2" multiple>
-                                                <option selected>社群網路經營</option>
-                                                <option selected>搜尋引擎最佳化</option>
-                                                <option >公共關係經營</option>
-                                                <option>電子郵件行銷</option>
-                                                <option>電話行銷</option>
+                                            <% t(:sub_skill_category).each_with_index do |x, index|%>
+                                            <select name="subClass" id="subClass_select<%= index + 2%>" class="form-control select2 control_sub_calss<%= index %>" multiple>
+                                                <% x.each do |y| %>
+                                                    <option><%= y['name'] %></option>
+                                                <% end %>
                                             </select>
+                                            <% end %>
                                         </div>
                                     </div>
                                     <div class="pull-right" style="margin:20px 16px 0 0;">
@@ -862,7 +862,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select name="subClass" class="form-control select2">
+                                                <select name="subClass" class="form-control select2" >
                                                     <option selected>子類別</option>
                                                     <option>社群網路經營</option>
                                                     <option>搜尋引擎最佳化</option>
@@ -902,11 +902,11 @@
                                 尚未新增作品集
                             </form>
                             <div class=" text-right">
-                               <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="portlet box light-grey show-view" id="profile-portlet7">
+                             <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="portlet box light-grey show-view" id="profile-portlet7">
                     <div class="portlet-title">
                         <div class="caption">
                             相關證照
@@ -925,58 +925,58 @@
                             尚未新增相關證照
                         </form>
                         <div class=" text-right">
-                         <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
-                     </div>
-                 </div>
-             </div>
-             <div class="text-center">
-                <a href="/" class="btn btn-danger">資料填寫完成回到首頁</a>
-             </div>
-         </div>
-         <div class="tab-pane" id="password">
-            <div class="portlet box light-grey show-view" id="password-portlet">
-                <div class="portlet-title">
-                    <div class="caption">
-                        變更密碼
-                    </div>
-                    <div class="tools">
-                        <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
-                            <i class="fa fa-floppy-o"></i>
-                        </a>
+                            <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
+                        </div>
                     </div>
                 </div>
-                <div class="portlet-body">
-                    <form action="#" id="contact-form1" class="form-horizontal" role="form">
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">舊密碼</label>
-                            <div class="col-md-10">
-                                <input type="password" name="oldPassword" class="form-control">
-                                <p class="help-block">
-                                    如果您想要變更您的密碼，請先輸入您的舊密碼
-                                </p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">新密碼</label>
-                            <div class="col-md-10">
-                                <input type="password" name="newPassword" class="form-control">
-                                <p class="help-block">
-                                    密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
-                                </p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">再次輸入新密碼</label>
-                            <div class="col-md-10">
-                                <input type="password" name="checkPassword" class="form-control">
-                            </div>
-                        </div>
-                    </form>
+                <div class="text-center">
+                    <a href="index.html" class="btn btn-danger">資料填寫完成回到首頁</a>
                 </div>
             </div>
+            <div class="tab-pane" id="password">
+    <div class="portlet box light-grey show-view" id="password-portlet">
+        <div class="portlet-title">
+            <div class="caption">
+                變更密碼
+            </div>
+            <div class="tools">
+                <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
+                    <i class="fa fa-floppy-o"></i>
+                </a>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <form action="#" id="contact-form1" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">舊密碼</label>
+                    <div class="col-md-10">
+                        <input type="password" name="oldPassword" class="form-control">
+                        <p class="help-block">
+                            如果您想要變更您的密碼，請先輸入您的舊密碼
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">新密碼</label>
+                    <div class="col-md-10">
+                        <input type="password" name="newPassword" class="form-control">
+                        <p class="help-block">
+                            密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">再次輸入新密碼</label>
+                    <div class="col-md-10">
+                        <input type="password" name="checkPassword" class="form-control">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-    <!-- BEGIN END CONTENT -->
+</div>
+</div>
+<!-- BEGIN END CONTENT -->
 </div>
 <!-- END MAIN CONTENT -->
 </div>
@@ -1028,15 +1028,29 @@
 
             <script>
                 jQuery(document).ready(function() {
-                 Web.init();
-                 PersonalProfile.init();
-             });
+                   Web.init();
+                   PersonalProfile.init();
+                   for(var i = 1; i < 8; i++) {
+                    $(".control_sub_calss"+i).hide();
+                   }
 
-         </script>
+                   $("#main_class").change(function() {
+                    console.log($(this).val());
+                    for(var i=0; i < 8; i++) {
+                        if( i == $(this).val()){
+                            $(".control_sub_calss"+i).show();
+                        } else {
+                            $(".control_sub_calss"+i).hide();
+                        }
+                    }
+                })
+               });
 
-         <script>
+           </script>
 
-             $(function(){
+           <script>
+
+               $(function(){
 
                 $(".prevent").click(function(event){
                     event.preventDefault();
@@ -1055,7 +1069,7 @@
 
 
             });
-             var test = function() {
+               var test = function() {
                 console.log("test");
             }
 
@@ -1182,12 +1196,12 @@
 
             var update_experience = function() {
                 var request_obj = {
-                   request: "update_experience",
-                   experience_add_list: experience_add_list,
-                   experience_delete_list: experience_delete_list
-               }
-               console.log(request_obj);
-               $.ajax({
+                 request: "update_experience",
+                 experience_add_list: experience_add_list,
+                 experience_delete_list: experience_delete_list
+             }
+             console.log(request_obj);
+             $.ajax({
                 url: "/users/profiles/ajax_updae",
                 type: "post",
                 dataType: "json",
@@ -1202,9 +1216,9 @@
                     console.log("error");
                 }
             });
-           }
+         }
 
-           var update_education = function() {
+         var update_education = function() {
             var request_obj = {
                 request: "update_education",
                 education_add_list: education_add_list,
