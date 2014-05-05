@@ -1,25 +1,159 @@
-<%= form_for :users, url: users_search_result_path(:users, :users), method: :get do |f|%>
-<div>
-    <h2>依照類別流覽人才</h2>
-    <% t(:main_skill_category).each_with_index do |m, index| %>
-    <h3 onclick="show('group<%= index %>')" ><%= m['name'] %></h3>
-    <ul id="group<%= index %>" style="display: none;">
-        <% t(:sub_skill_category)[index].each_with_index do |s, index2| %>
-        <li><%= link_to s['name'], users_search_result_path(index, index2) %></li>
-        <% end %>
-    </ul>
-    <% end %>
-</div>
-<div>
-    <%= f.text_field :seach, placeholder: "搜尋" %>
-    <%= f.submit "search" %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+        <title>快樂工作</title>
+        
+        <!-- BEGIN STYLE -->
+        <!-- BEGIN 核心樣式 -->
+        <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="/css/expanding_list.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <!--<link rel="stylesheet/less" type="text/css" href="/less/page/index.less">-->
+        <link rel="shortcut icon" href="/favicon.ico"/>
+        <!-- END STYLE -->
+    </head>
+    <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                    <i class="fa fa-search"></i>
+                </button>
+                <a class="navbar-brand" href="/index.html"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
+            </div>
+            <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+                <div class="navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <% if user_signed_in? %>
+                    <li><%= link_to "個人設定", users_profile_path(current_user)  %></li>
+                    <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                    <% else %>
+                    <li><%= link_to "會員登入", new_user_session_path %></li>
+                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <!-- END NAVBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <h1 class="title">依照類別瀏覽人才</h1>
+            <div class="main-content"> <!--main-content-->
+                <div class="row">
+                        <div class="col-md-12">
+                                <% t(:main_skill_category).each_with_index do |m, index| %>
+                                    <% if index == 0 or index == 4 %>
+                                        <div class="row panel-box" ><!--樹狀圖 ROW 01&02 Expanding list-->
+                                    <% end %>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-info" >
+                                            <div class="panel-heading ">
+                                            <h3 class="panel-title" ><%= m['name'] %></h3> 
+                                            <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
+                                            </div>
+                                            <ul class="panel-body list-group" style="display: block;">
+                                                <% t(:sub_skill_category)[index].each_with_index do |s, index2| %>
+                                                <li class="list-group-item clickable"><%= link_to s['name'], users_search_result_path(index, index2) %></li>
+                                                <% end %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <% if index == 3 or index == 7 %>
+                                        </div> <!--END 樹狀圖 ROW 01&02-->
+                                    <% end %>
+                                <% end %>
+                            
+                        </div>
+                        <div class=""><!--樹狀圖 保留空間-->
+                        </div>
+                </div>
+            </div> <!--END main-content-->
+        </div>
+        <!-- END PAGE -->
+        <!-- BEGIN FOOTER -->
+       <div class="footer">
+            <img class="footer-logo" src="/img/logo103.png" alt="">
+            <div class="footer-nav">
+                <%= link_to "關於我們", index_about_path %>
+                <span class="bar">|</span>
+                <%= link_to "隱私條款", index_rule_path %>
+                <span class="bar">|</span>
+                <%= link_to "使用條款", index_rule_path %>
+                <span class="bar">|</span>
+                <%= link_to "聯絡客服", index_contact_path %>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+        
+        <!-- BEGIN JAVASCRIPTS -->
+        <!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="/plugins/html5shiv.min.js"></script>
+            <script src="/plugins/respond.min.js"></script>
+        <![endif]-->
 
-</div>
-<% end %>
-<script src="/plugins/jquery-1.7.2.js"></script>
-<script>
-    var show = function(id) {
-        if( $("#"+id).css('display') == 'none' ) $("#"+id).show();
-        else $("#"+id).hide();
-    }
-</script>
+        <script src="/plugins/jquery-1.11.0.min.js"></script>
+        <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <!-- END 核心插件 -->
+        <!-- BEGIN 頁面插件 -->
+        <!-- END 頁面插件 -->
+        <script type="text/javascript" src="/js/script.js"></script>
+        <!--<script type="text/javascript" src="/js/page/index.js"></script>-->
+        <script>
+            jQuery(document).ready(function() {    
+               Web.init();
+               //Index.init();
+            });
+        </script>
+        <!-- END JAVASCRIPTS -->
+        <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="/plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+        <script type="text/javascript" src="/js/expanding_list.js"></script>
+    </body>
+</html>
