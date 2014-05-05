@@ -58,10 +58,10 @@
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
-                        <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                    <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
                     <% else %>
-                        <li><%= link_to "會員登入", new_user_session_path %></li>
-                        <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                    <li><%= link_to "會員登入", new_user_session_path %></li>
+                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
                     <% end %>
                 </ul>
             </div>
@@ -82,6 +82,7 @@
                     <div class="row">
                         <!-- <form action="create_profile.html" class="class-form" data-isEmpty="請選擇一個專長類別"> -->
                         <%= form_for :user_skill_category, url: users_skill_categorys_path, html: {class: "class-form", data: {isempty: "請選擇一個專長類別"}} do |f| %>
+                        <input type="hidden" value="<%= user_skill_category_id %>" name="user_skill_category_id">
                         <div class="col-md-3 col-xs-4 image">
                             <img src="../../../img/class/class_1.png" alt="IT、軟體">
                             <p><%= t("main_skill_category")[@category_index]['name'] %></p>
@@ -141,12 +142,12 @@
             <script type="text/javascript" src="../../../js/page/edit_category.js"></script>
             <script>
                 jQuery(document).ready(function() {
-                   Web.init();
-                   EditCategory.init();
-               });
-           </script>
-           <!-- END JAVASCRIPTS -->
-           <!-- BEGIN PIE -->
+                 Web.init();
+                 EditCategory.init();
+             });
+         </script>
+         <!-- END JAVASCRIPTS -->
+         <!-- BEGIN PIE -->
         <!--[if lte IE 9]>
         <script type="text/javascript" src="../../../plugins/PIE-1.0.0/PIE.js"></script>
         <script src="../../../plugins/jquery-placeholder/jquery.placeholder.js"></script>

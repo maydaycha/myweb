@@ -8,4 +8,5 @@ class SkillsController < ApplicationController
     skills.each{ |e| return_string += "#{e.name}\n"} if skills
     render :text => return_string
   end
+
 end
