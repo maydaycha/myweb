@@ -11,4 +11,7 @@ class IndexController < ApplicationController
 
   def rule
   end
+
+  def contact
+  end
 end

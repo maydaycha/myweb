@@ -24,8 +24,8 @@
 
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
-    <link rel="stylesheet" href="../../../plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
         <!--[if gte IE 9]>
         <style type="text/css">
         .gradient {
@@ -38,10 +38,10 @@
         <!-- END 頁面插件樣式 -->
         <!-- BEGIN 主題樣式 -->
         <!-- END 主題樣式 -->
-        <link rel="stylesheet" type="text/css" href="../../../css/style.css">
-        <link rel="stylesheet" href="../../../css/socialIcons.css">
-        <link rel="stylesheet" type="text/css" href="../../../css/page/employer_sign_up.css">
-        <link rel="shortcut icon" href="../../../favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" href="/css/socialIcons.css">
+        <link rel="stylesheet" type="text/css" href="/css/page/employer_sign_up.css">
+        <link rel="shortcut icon" href="/favicon.ico"/>
         <!-- END STYLE -->
     </head>
     <body>
@@ -58,7 +58,7 @@
                 <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
                     <i class="fa fa-search"></i>
                 </button>
-                <a class="navbar-brand" href="../../../index.html"><img class="navbar-logo" src="../../../img/logo208.png" alt="快樂工作"></a>
+                <a class="navbar-brand" href="/index.html"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
             </div>
             <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
                 <!-- <div class="navbar-search">
@@ -110,15 +110,15 @@
                 <p class="social-text">您也可以使用其他OpenID登入</p>
                 <ul class="social-icons">
                     <li>
-                        <a class="facebook" data-original-title="facebook" href="../../../#">
+                        <a class="facebook" data-original-title="facebook" href="/#">
                         </a>
                     </li>
                     <li>
-                        <a class="googleplus" data-original-title="Goole Plus" href="../../../#">
+                        <a class="googleplus" data-original-title="Goole Plus" href="/#">
                         </a>
                     </li>
                     <li>
-                        <a class="yahoo" data-original-title="Yahoo!" href="../../../#">
+                        <a class="yahoo" data-original-title="Yahoo!" href="/#">
                         </a>
                     </li>
                 </ul>
@@ -128,8 +128,8 @@
         <div class="main-content">
             <!-- BEGIN TABS -->
             <ul class="nav nav-tabs nav-justified">
-                <li class="active"><a href="../../../#personal" data-toggle="tab">登入個人帳戶</a></li>
-                <li><a href="../../../#company" data-toggle="tab">登入企業帳戶</a></li>
+                <li class="active"><a href="#personal" data-toggle="tab">自由工作者登入帳戶</a></li>
+                <!-- <li><a href="/#company" data-toggle="tab">登入企業帳戶</a></li> -->
             </ul>
             <!-- END TABS -->
 
@@ -175,8 +175,8 @@
                         </div>
                         <% end %>
                     </div>
+
                     <div class="form-group">
-                        <!-- <input class="btn" type="submit" value="登入"> -->
                         <%= f.submit "登入", class: "btn" %>
                     </div>
                     <!-- </form> -->
@@ -213,7 +213,7 @@
                                 </label>
                             </div>
                             <div class=" col-md-10 right" style="text-align:right; padding-right:0px;">
-                                <a href="../../../#">忘記密碼</a>
+                                <a href="/#">忘記密碼</a>
                             </div>
                         </div>
                         <div class="form-group">
@@ -231,13 +231,15 @@
     <!-- END PAGE -->
     <!-- BEGIN FOOTER -->
     <div class="footer">
-        <img class="footer-logo" src="../../../img/logo103.png" alt="">
+        <img class="footer-logo" src="/img/logo103.png" alt="">
         <div class="footer-nav">
             <%= link_to "關於我們", index_about_path %>
             <span class="bar">|</span>
             <%= link_to "隱私條款", index_rule_path %>
             <span class="bar">|</span>
             <%= link_to "使用條款", index_rule_path %>
+            <span class="bar">|</span>
+            <%= link_to "聯絡客服", index_contact_path %>
         </div>
     </div>
     <!-- END FOOTER -->
@@ -245,19 +247,19 @@
     <!-- BEGIN JAVASCRIPTS -->
     <!-- BEGIN 核心插件 -->
         <!--[if lt IE 9]>
-            <script src="../../../plugins/html5shiv.min.js"></script>
-            <script src="../../../plugins/respond.min.js"></script>
+            <script src="/plugins/html5shiv.min.js"></script>
+            <script src="/plugins/respond.min.js"></script>
             <![endif]-->
 
-            <script src="../../../plugins/jquery-1.11.0.min.js"></script>
-            <script src="../../../plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="/plugins/jquery-1.11.0.min.js"></script>
+            <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
             <!-- END 核心插件 -->
             <!-- BEGIN 頁面插件 -->
-            <script type="text/javascript" src="../../../plugins/jquery-validation/dist/jquery.validate.js"></script>
-            <script type="text/javascript" src="../../../plugins/jquery-validation/dist/myMethods.js"></script>
+            <script type="text/javascript" src="/plugins/jquery-validation/dist/jquery.validate.js"></script>
+            <script type="text/javascript" src="/plugins/jquery-validation/dist/myMethods.js"></script>
             <!-- END 頁面插件 -->
-            <script type="text/javascript" src="../../../js/script.js"></script>
-            <script type="text/javascript" src="../../../js/page/employer_sign_up.js"></script>
+            <script type="text/javascript" src="/js/script.js"></script>
+            <script type="text/javascript" src="/js/page/employer_sign_up.js"></script>
             <script>
                 jQuery(document).ready(function() {
                  Web.init();
@@ -267,8 +269,8 @@
          <!-- END JAVASCRIPTS -->
          <!-- BEGIN PIE -->
         <!--[if lte IE 9]>
-        <script type="text/javascript" src="../../../plugins/PIE-1.0.0/PIE.js"></script>
-        <script src="../../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script type="text/javascript" src="/plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
         <script>
         $(function() {
             $('input, textarea').placeholder();

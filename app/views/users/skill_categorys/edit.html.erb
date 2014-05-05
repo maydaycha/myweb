@@ -10,8 +10,8 @@
 
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
-    <link rel="stylesheet" href="../../../plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
         <!--[if gte IE 9]>
         <style type="text/css">
         .gradient {
@@ -24,9 +24,9 @@
         <!-- END 頁面插件樣式 -->
         <!-- BEGIN 主題樣式 -->
         <!-- END 主題樣式 -->
-        <link rel="stylesheet" type="text/css" href="../../../css/style.css">
-        <link rel="stylesheet" type="text/css" href="../../../css/page/edit_category.css">
-        <link rel="shortcut icon" href="../../../favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/page/edit_category.css">
+        <link rel="shortcut icon" href="/favicon.ico"/>
         <!-- END STYLE -->
     </head>
     <body>
@@ -43,7 +43,7 @@
                 <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
                     <i class="fa fa-search"></i>
                 </button>
-                <a class="navbar-brand" href="/"><img class="navbar-logo" src="../../../img/logo208.png" alt="快樂工作"></a>
+                <a class="navbar-brand" href="/"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
             </div>
             <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
                 <!-- <div class="navbar-search">
@@ -82,7 +82,7 @@
                         <!-- <form action="create_profile.html" class="class-form" data-isEmpty="請選擇一個專長類別"> -->
                         <%= form_for @user_skill_category, url: users_skill_category_path(@user_skill_category), method: :put, html: {class: "class-form", data: {isempty: "請選擇一個專長類別"}} do |f| %>
                         <div class="col-md-3 col-xs-4 image">
-                            <img src="../../../img/class/class_1.png" alt="IT、軟體">
+                            <img src="/img/class/class_1.png" alt="IT、軟體">
                             <p><%= t(@main_category.to_s) %></p>
                         </div>
                         <div class="col-md-9 col-xs-8 content">
@@ -111,13 +111,15 @@
         <!-- END PAGE -->
         <!-- BEGIN FOOTER -->
         <div class="footer">
-            <img class="footer-logo" src="../../../img/logo103.png" alt="">
+            <img class="footer-logo" src="/img/logo103.png" alt="">
             <div class="footer-nav">
                 <%= link_to "關於我們", index_about_path %>
                 <span class="bar">|</span>
                 <%= link_to "隱私條款", index_rule_path %>
                 <span class="bar">|</span>
                 <%= link_to "使用條款", index_rule_path %>
+                <span class="bar">|</span>
+                <%= link_to "聯絡客服", index_contact_path %>
             </ul>
         </div>
         <!-- END FOOTER -->
@@ -125,19 +127,19 @@
         <!-- BEGIN JAVASCRIPTS -->
         <!-- BEGIN 核心插件 -->
         <!--[if lt IE 9]>
-            <script src="../../../plugins/html5shiv.min.js"></script>
-            <script src="../../../plugins/respond.min.js"></script>
+            <script src="/plugins/html5shiv.min.js"></script>
+            <script src="/plugins/respond.min.js"></script>
             <![endif]-->
 
-            <script src="../../../plugins/jquery-1.11.0.min.js"></script>
-            <script src="../../../plugins/bootstrap/js/bootstrap.min.js"></script>
-            <script src="../../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
+            <script src="/plugins/jquery-1.11.0.min.js"></script>
+            <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
             <!-- END 核心插件 -->
             <!-- BEGIN 頁面插件 -->
-            <script src="../../../plugins/bootbox/bootbox.min.js"></script>
+            <script src="/plugins/bootbox/bootbox.min.js"></script>
             <!-- END 頁面插件 -->
-            <script type="text/javascript" src="../../../js/script.js"></script>
-            <script type="text/javascript" src="../../../js/page/edit_category.js"></script>
+            <script type="text/javascript" src="/js/script.js"></script>
+            <script type="text/javascript" src="/js/page/edit_category.js"></script>
             <script>
                 jQuery(document).ready(function() {
                    Web.init();
@@ -147,8 +149,8 @@
            <!-- END JAVASCRIPTS -->
            <!-- BEGIN PIE -->
         <!--[if lte IE 9]>
-        <script type="text/javascript" src="../../../plugins/PIE-1.0.0/PIE.js"></script>
-        <script src="../../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script type="text/javascript" src="/plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
         <script>
         $(function() {
             $('input, textarea').placeholder();

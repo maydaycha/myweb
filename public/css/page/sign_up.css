@@ -1,31 +1,40 @@
+/* line 1, ../../scss/page/sign_up.scss */
 .status {
   margin: 30px 0;
 }
+/* line 3, ../../scss/page/sign_up.scss */
 .status a {
   width: 300px;
   display: block;
   margin: auto;
   color: #000;
 }
+/* line 8, ../../scss/page/sign_up.scss */
 .status a img {
   width: 100%;
 }
+/* line 11, ../../scss/page/sign_up.scss */
 .status a .btn {
   width: 100%;
 }
+/* line 14, ../../scss/page/sign_up.scss */
 .status a .hover {
   display: none;
 }
+/* line 17, ../../scss/page/sign_up.scss */
 .status a:hover {
   color: #000;
   text-decoration: none;
 }
+/* line 20, ../../scss/page/sign_up.scss */
 .status a:hover .default {
   display: none;
 }
+/* line 23, ../../scss/page/sign_up.scss */
 .status a:hover .hover {
   display: block;
 }
-.status a button {
+/* line 27, ../../scss/page/sign_up.scss */
+.status a span.btn {
   margin: 10px auto;
 }

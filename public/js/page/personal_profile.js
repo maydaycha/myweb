@@ -17,7 +17,7 @@ var PersonalProfile = function(){
 	var initSkillTags = function(){
 		$('#skill-tags').tagsInput({
 			width: 'auto',
-			autocomplete_url:'http://127.0.0.1:3000/skills/autocomplete',
+			autocomplete_url:'/skills/autocomplete',
 			// autocomplete:{
 			// 	source: function(request, response) {
 			// 		$.ajax({

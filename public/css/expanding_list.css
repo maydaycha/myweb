@@ -1,0 +1,40 @@
+.clickable
+{
+    cursor: pointer;
+}
+
+.clickable .fa
+{
+	color: rgba(170,170,170,1.00);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px
+}
+
+.panel-heading span
+{
+    margin-top: -23px;
+    font-size: 15px;
+    margin-right: -9px;
+}
+a.clickable { color: inherit; }
+a.clickable:hover { text-decoration:none; }
+
+ul
+{
+list-style-type: none;
+padding: 0px;
+margin: 0px;
+}
+
+.main-content{
+	min-height:600px;
+	}
+.panel-box{
+	margin:10px;
+	}
+	
+	
+.panel-warning ul li a{
+	color: hsla(30,100%,50%,1.00);
+	}

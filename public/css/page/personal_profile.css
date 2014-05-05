@@ -1,72 +1,115 @@
+/* line 1, ../../scss/page/personal_profile.scss */
 ul.subtitle {
   list-style-type: none;
   text-align: center;
 }
+/* line 4, ../../scss/page/personal_profile.scss */
 ul.subtitle > li {
   display: inline-block;
   margin: 10px;
   font-size: 24px;
 }
+/* line 9, ../../scss/page/personal_profile.scss */
 ul.subtitle .point {
   color: #E05D3F;
 }
+
+/* line 13, ../../scss/page/personal_profile.scss */
 .nav-tabs.nav-justified {
   width: 100%;
   max-width: 950px;
   margin: 0 auto -1px auto;
 }
+/* line 17, ../../scss/page/personal_profile.scss */
 .nav-tabs.nav-justified > li {
   display: table-cell;
   width: 1%;
 }
+/* line 20, ../../scss/page/personal_profile.scss */
 .nav-tabs.nav-justified > li.active {
   border-top: #E69801 3px solid;
 }
+/* line 22, ../../scss/page/personal_profile.scss */
 .nav-tabs.nav-justified > li.active > a {
   border-bottom: 1px solid #ddd;
   border-radius: 4px 4px 0 0;
   margin-bottom: 0;
 }
-.nav-tabs.nav-justified > li.active > a,
-.nav-tabs.nav-justified > li.active > a:hover,
-.nav-tabs.nav-justified > li.active > a:focus {
+/* line 28, ../../scss/page/personal_profile.scss */
+.nav-tabs.nav-justified > li.active > a, .nav-tabs.nav-justified > li.active > a:hover, .nav-tabs.nav-justified > li.active > a:focus {
   border-bottom-color: #fff;
 }
+
 @media (max-width: 768px) {
+  /* line 36, ../../scss/page/personal_profile.scss */
   .nav-tabs.nav-justified {
     margin: 0 auto -6px auto;
   }
 }
+/* line 40, ../../scss/page/personal_profile.scss */
 .tab-content {
   border: #DDDDDD thin solid;
   width: 100%;
   max-width: 950px;
   margin: auto;
 }
+/* line 45, ../../scss/page/personal_profile.scss */
 .tab-content .tab-pane {
   padding: 10px;
 }
+
+/* line 50, ../../scss/page/personal_profile.scss */
 .portlet.box > .portlet-title {
   padding: 10px 10px 5px 10px;
 }
+/* line 52, ../../scss/page/personal_profile.scss */
 .portlet.box > .portlet-title > .caption {
   margin: 0;
 }
+/* line 55, ../../scss/page/personal_profile.scss */
 .portlet.box > .portlet-title .tools {
   margin: 0;
 }
+/* line 57, ../../scss/page/personal_profile.scss */
 .portlet.box > .portlet-title .tools i {
   color: #FFF;
   font-size: 20px;
   margin-top: -5px;
 }
+
+/* line 66, ../../scss/page/personal_profile.scss */
 .show-view .edit {
   display: none !important;
 }
+
+/* line 71, ../../scss/page/personal_profile.scss */
 .show-edit .view {
   display: none !important;
 }
+
+/* line 75, ../../scss/page/personal_profile.scss */
 .avatar {
   max-width: 150px;
   padding: 7px 0;
 }
+
+/* line 79, ../../scss/page/personal_profile.scss */
+.dropzone {
+  min-height: 120px;
+}
+
+/* line 82, ../../scss/page/personal_profile.scss */
+.modal-title {
+  color: #000;
+}
+
+
+
+
+/*編輯BTN*/
+
+.tools a{
+	color:white;
+	text-decoration:none;
+	font-weight:bold;
+	}

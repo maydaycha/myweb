@@ -138,6 +138,7 @@ Sun::Application.routes.draw do
   root to: "index#index"
   get 'about' => 'index#about', :as => :index_about
   get 'rule' => 'index#rule', :as => :index_rule
+  get 'contact' => 'index#contact', :as => :index_contact
 
 
   namespace :users do
