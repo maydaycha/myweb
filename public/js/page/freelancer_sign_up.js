@@ -56,7 +56,8 @@ var SingUp = function(){
             errorPlacement: function (error, element) { // render error placement for each input type
             	var text;
             	if(error.text()=='This field is required.'){
-            		text = form.find('input[name='+error.attr('for')+']').attr('data-isEmpty');
+                    console.log(error.attr('for'));
+            		text = form.find('input[name='+error.attr('for')+']').attr('data-isempty');
             		error.text(text);
             	}
             	else if(error.text()=='Account already exists'){

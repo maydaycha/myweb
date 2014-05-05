@@ -44,7 +44,7 @@
       <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
         <i class="fa fa-search"></i>
       </button>
-      <a class="navbar-brand" href="/"><img class="navbar-logo" src="/assets/logo208.png" alt="快樂工作"></a>
+      <a class="navbar-brand" href="/"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
     </div>
     <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
       <!-- <div class="navbar-search">
@@ -78,8 +78,10 @@
             <h4 class="modal-title">使用條約</h4>
           </div>
           <div class="modal-body">
-           <%= t(:rules)%>
-         </div>
+          <pre>
+<%= t(:rule)%>
+           </pre>
+          </div>
          <div class="modal-footer">
           <button type="button" class="btn default" data-dismiss="modal">關閉</button>
         </div>
@@ -260,7 +262,7 @@
 
 <!-- BEGIN FOOTER -->
 <div class="footer">
-  <img class="footer-logo" src="/assets/logo103.png" alt="">
+  <img class="footer-logo" src="/img/logo103.png" alt="">
   <div class="footer-nav">
     <%= link_to "關於我們", index_about_path %>
     <span class="bar">|</span>

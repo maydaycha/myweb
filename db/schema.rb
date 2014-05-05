@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504180823) do
+ActiveRecord::Schema.define(version: 20140505183432) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -93,6 +93,17 @@ ActiveRecord::Schema.define(version: 20140504180823) do
     t.string   "uid",          null: false
     t.string   "token"
     t.string   "token_secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_certifications", force: true do |t|
+    t.string   "name"
+    t.string   "source"
+    t.string   "link"
+    t.string   "get_time"
+    t.string   "description", limit: 1000
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

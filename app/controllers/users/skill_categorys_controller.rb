@@ -23,6 +23,7 @@ class Users::SkillCategorysController < ApplicationController
   end
 
   def create
+    current_user.user_skill_categories.destroy_all if not current_user.user_skill_categories.empty?
     params[:class].each do |c|
       @user_skill_category = UserSkillCategory.new
       @user_skill_category.main_skill_id = params[:user_skill_category_id]

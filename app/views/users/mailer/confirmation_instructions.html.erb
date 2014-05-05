@@ -12,8 +12,8 @@
         <tr>
             <td align="center" bgcolor="#1C567F" style="padding: 30px 0 30px 0;">
                 <!-- <img src="/img/mail/ok.png" alt="img" width="220" height="220" style="display: block;" /> -->
-                <%= image_tag "http://telwowrk.herokuapp.com/img/mail/ok.png", alt: "img", width: "220", height: "220", style: "display: block;"%>
-                <h1 style="color:white;"><%= @email %> 恭喜你完成註冊</h1>
+                <%= image_tag "/img/mail/ok.png", alt: "img", width: "220", height: "220", style: "display: block;"%>
+                <h1 style="color:white;"><span style="color:#268CCF;"><%= @email %></span>> 恭喜你完成註冊</h1>
 
                 <!-- // BEGIN CALL-TO-ACTION BLOCK -->
                 <table border="0" cellpadding="0" cellspacing="0" width="520" id="callToActionBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
@@ -21,7 +21,7 @@
                         <td align="center" valign="top" class="callToActionContent" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;color: #FFFFFF;font-size: 16px;line-height: 150%;padding-bottom: 40px;text-align: center;">
                             <h3 style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;color: #FFFFFF;font-size: 30px;font-weight: 100;line-height: 115%;text-align: center;">親愛的會員您好:</h3>
                             <br>
-                            感謝您的註冊，請點擊下列聯結，已確定您的Email信箱
+                            感謝您的註冊，請點擊下列連結，確定您的Email信箱
                             <br />
                             *如果您無法打開此連結,請複製以上連結，到您的瀏覽器，以完成啟用。
                             <a href="#" target="_blank" title="square gallery" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;display: block;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;color: #FFFFFF;font-size: 16px;line-height: 150%;padding-bottom: 10px;text-align: center;text-decoration: none;">www.telework.com</a>
@@ -45,11 +45,11 @@
 
         <tr>
             <td bgcolor="#404040" align="center" valign="top" id="footerContainer" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 40px;">
-             <!-- // BEGIN FOOTER BLOCK -->
-             <table border="0" cellpadding="0" cellspacing="0" width="600" id="footerBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+               <!-- // BEGIN FOOTER BLOCK -->
+               <table border="0" cellpadding="0" cellspacing="0" width="600" id="footerBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
 
                 <tr>
-                    <img src="http://telwowrk.herokuapp.com/img/mail/logo103.png" style="display: block; margin-bottom:10px;" />
+                    <%= link_to image_tag("/img/mail/logo103.png", style: "display: block; margin-bottom:10px;"), root_path %>
                     <td align="center" valign="top" class="footerContent" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;color: #AAAAAA;font-size: 13px;line-height: 150%;padding-bottom: 40px;">
                         <%= link_to "關於我們", index_about_url, :style => "color:#FFFFFF; text-decoration:none;" %>
                         <span class="bar">|</span>

@@ -2,7 +2,7 @@ require 'open-uri'
 class Users::ProfilesController < ApplicationController
   before_action :authenticate_user!
 
-  protect_from_forgery except: [:ajax_upload_img, :ajax_updae]
+  protect_from_forgery except: [:ajax_upload_img, :ajax_updae, :get_sub_category]
 
   def index
   end
@@ -28,15 +28,19 @@ class Users::ProfilesController < ApplicationController
     end
     params[:user][:user_skills] = foeign_skills
     current_user.update!(params.permit![:user])
+    # if params[:image]
+    #   file_type = params[:image].content_type.split("/")[1]
+    #   path = "/upload/#{current_user.username}.#{file_type}"
+    #   File.open("public#{path}", 'wb'){ |f| f << open(params[:image].tempfile).read }
+    #   current_user.image = path
+    # end
     if params[:image]
-      file_type = params[:image].content_type.split("/")[1]
-      path = "/upload/#{current_user.username}.#{file_type}"
-      File.open("public#{path}", 'wb'){ |f| f << open(params[:image].tempfile).read }
-      current_user.image = path
+      current_user.picture = open(params[:image].tempfile).read
     end
     current_user.step = 2
     current_user.save
-    redirect_to users_profile_path(current_user)
+    # redirect_to users_profile_path(current_user)
+    redirect_to root_path
   end
 
 
@@ -75,24 +79,41 @@ class Users::ProfilesController < ApplicationController
       params[:education_add_list].each{ |e| current_user.user_educations.create!(school: e[:school], department: e[:department], start_date: e[:start_date], end_date: e[:end_date], description: e[:description])} if not params[:education_add_list].nil?
       params[:education_delete_list].each{ |e| UserEducation.destroy(e[:id]) } if not params[:education_delete_list].nil?
       render json: current_user.user_educations
-    end
 
+    when "update_category"
+      current_user.user_skill_categories.destroy_all if not current_user.user_skill_categories.empty?
+      params[:sub_category].each do |e|
+        current_user.user_skill_categories.create!(main_skill_id: params[:main_category], sub_skill_id: e)
+      end
+      render json: current_user.user_skill_categories
+
+    when "update_certification"
+      params[:certificate_add_list].each{ |e| current_user.user_certifications.create!(name: e[:name], source: e[:source], link: e[:link], get_time: e[:get_time], description: e[:description]) } unless params[:certificate_add_list].nil?
+      params[:certificate_delete_list].each{ |e| UserCertification.destroy(e[:id]) } unless params[:certificate_delete_list].nil?
+      render json: current_user.user_certifications
+
+    when "get_sub_category"
+      render json: t(:sub_skill_category)[params[:main_category_id].to_i]
+    end
   end
 
 
   def ajax_upload_img
-    file_name = current_user.username + "." + request.headers['X-File-Type'].split("/")[1]
-    directory = "public/upload"
-    path = directory + "/" + file_name
-    current_user.picture = path.split('public')[1]
+    # file_name = current_user.username + "." + request.headers['X-File-Type'].split("/")[1]
+    # directory = "public/upload"
+    # path = directory + "/" + file_name
+    # current_user.picture = path.split('public')[1]
     # current_user.picture = open(params["profile_img"].tempfile).read
+    # current_user.save
+    # File.open(path, "wb"){ |f| f << open(params["profile_img"].tempfile).read }
+    current_user.picture = open(params[:profile_img].tempfile).read
     current_user.save
-    File.open(path, "wb"){ |f| f << open(params["profile_img"].tempfile).read }
     render json: @user
   end
 
 
   def show_image
+    puts "test"
     @user = User.find(params[:id])
     send_data @user.picture, :type => 'image/png', :disposition => 'inline'
   end

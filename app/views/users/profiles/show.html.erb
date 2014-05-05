@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="tools">
                                     <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#contact-portlet1">
-                                        <i class="fa fa-pencil-square-o"></i>
+                                        <i class="fa fa-pencil-square-o"></i>編輯
                                     </a>
                                     <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet1">
                                         <i class="fa fa-floppy-o"></i>
@@ -139,7 +139,8 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人圖像</label>
                                         <div class="col-md-10">
-                                            <img src="<%= (current_user.image != nil) ? current_user.image :  '/img/staff.png' %>" class="avatar" id="blah1">
+                                            <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id) %>
+                                            <!-- <img src="<%= (current_user.image != nil) ? current_user.image :  '/img/staff.png' %>" class="avatar" id="blah1"> -->
                                             <input type="file" name="image" class="form-control edit" id="profile_img1" onchange="readURL(this)">
                                         </div>
                                     </div>
@@ -172,7 +173,7 @@
                                 </div>
                                 <div class="tools">
                                     <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#contact-portlet2">
-                                        <i class="fa fa-pencil-square-o"></i>
+                                        <i class="fa fa-pencil-square-o"></i>編輯
                                     </a>
                                     <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet2" onclick="update_location()">
                                         <i class="fa fa-floppy-o"></i>
@@ -484,7 +485,7 @@
                                 </div>
                                 <div class="tools">
                                     <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet1">
-                                        <i class="fa fa-pencil-square-o"></i>
+                                        <i class="fa fa-pencil-square-o"></i>編輯
                                     </a>
                                     <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1"> -->
                                     <!-- <i class="fa fa-floppy-o"></i> -->
@@ -496,7 +497,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人簡述</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view"><%= current_user.introduction %></p>
+                                            <p class="form-control-static view">最認真負責的自由工作者</p>
                                             <label class="radio-inline edit">
                                                 <input type="radio" name="status" checked> 最認真負責的自由工作者
                                             </label>
@@ -514,8 +515,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人圖像</label>
-                                        <div class="col-md-10">
-                                            <img src="<%= (current_user.image != nil) ? current_user.image :  '/img/staff.png' %>" class="avatar" id="blah2">
+                                        <div class="col-md-10 divcss5">
+                                            <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id), id: "blah1"%>
                                             <input type="file" name="image" class="form-control edit" id="profile_img2" onchange="readURL(this)">
                                         </div>
                                     </div>
@@ -552,7 +553,7 @@
                             </div>
                             <div class="tools">
                                 <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet2">
-                                    <i class="fa fa-pencil-square-o"></i>
+                                    <i class="fa fa-pencil-square-o"></i>編輯
                                 </a>
                                 <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet2">
                                     <i class="fa fa-floppy-o"></i>
@@ -565,10 +566,15 @@
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">主類別</label>
                                     <div class="col-md-10">
-                                        <p class="form-control-static view"><%= t(:main_skill_category)[s.main_skill_id]['name'] %></p>
+                                        <p class="form-control-static view" id="main_category"><%= t(:main_skill_category)[s.main_skill_id]['name'] %></p>
+
                                         <select name="mainClass" class="edit form-control" id="main_class">
                                             <% t(:main_skill_category).each_with_index do |e, index| %>
+                                            <% if current_user.user_skill_categories.first.main_skill_id == index %>
+                                            <option value="<%= index %>" selected><%= e['name'] %></option>
+                                            <% else %>
                                             <option value="<%= index %>"><%= e['name'] %></option>
+                                            <% end %>
                                             <% end %>
                                         </select>
                                     </div>
@@ -576,22 +582,23 @@
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">子類別</label>
                                     <div class="col-md-10">
-                                        <!-- <p class="form-control-static view">社群網路經營, 搜尋引擎最佳化</p> -->
-                                        <p class="form-control-static view">
+                                        <p class="form-control-static view" id="sub_category">
                                             <%= current_user.user_skill_categories.where(:main_skill_id => s.main_skill_id).map { |f| t(:sub_skill_category)[s.main_skill_id.to_i][f.sub_skill_id.to_i]['name'] }.join ', ' %>
                                         </p>
                                         <div class="edit">
-                                            <% t(:sub_skill_category).each_with_index do |x, index|%>
-                                            <select name="subClass" id="subClass_select<%= index + 2%>" class="form-control select2 control_sub_calss<%= index %>" multiple>
-                                                <% x.each do |y| %>
-                                                    <option><%= y['name'] %></option>
+                                            <select name="subClass" id="subClass_select2" class="form-control select2" multiple>
+                                                <% t(:sub_skill_category)[s.main_skill_id].each_with_index do |x, i|%>
+                                                <% if current_user.user_skill_categories.map{ |m| m.sub_skill_id.to_i }.include? i %>
+                                                <option value="<%= i %>" selected><%= x['name'] %></option>
+                                                <% else%>
+                                                <option value="<%= i %>"><%= x['name'] %></option>
+                                                <% end %>
                                                 <% end %>
                                             </select>
-                                            <% end %>
                                         </div>
                                     </div>
                                     <div class="pull-right" style="margin:20px 16px 0 0;">
-                                        <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet2">儲存</button>
+                                        <button onclick="update_category()"  class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet2">儲存</button>
                                     </div>
                                 </div>
                                 <% end %>
@@ -605,7 +612,7 @@
                             </div>
                             <div class="tools">
                                 <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet3">
-                                    <i class="fa fa-pencil-square-o"></i>
+                                    <i class="fa fa-pencil-square-o"></i>編輯
                                 </a>
                                 <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet3" onclick="update_skill()"> -->
                                 <!-- <i class="fa fa-floppy-o"></i> -->
@@ -636,7 +643,7 @@
                             </div>
                             <div class="tools">
                                 <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet4">
-                                    <i class="fa fa-pencil-square-o"></i>
+                                    <i class="fa fa-pencil-square-o"></i>編輯
                                 </a>
                                 <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#experience-modal">
                                     <i class="fa fa-plus"></i>
@@ -728,7 +735,7 @@
                             </div>
                             <div class="tools">
                                 <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet5">
-                                    <i class="fa fa-pencil-square-o"></i>
+                                    <i class="fa fa-pencil-square-o"></i>編輯
                                 </a>
                                 <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#education-modal">
                                     <i class="fa fa-plus"></i>
@@ -814,7 +821,7 @@
                             </div>
                             <div class="tools">
                                 <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet6">
-                                    <i class="fa fa-pencil-square-o"></i>
+                                    <i class="fa fa-pencil-square-o"></i>編輯
                                 </a>
                                 <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#works-modal">
                                     <i class="fa fa-plus"></i>
@@ -913,7 +920,10 @@
                         </div>
                         <div class="tools">
                             <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet7">
-                                <i class="fa fa-pencil-square-o"></i>
+                                <i class="fa fa-pencil-square-o"></i> 編輯
+                            </a>
+                            <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#certificate-modal">
+                                <i class="fa fa-plus"></i>
                             </a>
                             <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">
                                 <i class="fa fa-floppy-o"></i>
@@ -921,64 +931,117 @@
                         </div>
                     </div>
                     <div class="portlet-body">
-                        <form action="#" id="contact-form1" class="form-horizontal" role="form">
-                            尚未新增相關證照
-                        </form>
+                        <table class="table" id="certificate-table">
+                            <tr>
+                                <th>證照</th>
+                                <th>來源</th>
+                                <th>連結</th>
+                                <th>獲得時間</th>
+                                <th class="edit">刪除</th>
+                            </tr>
+                            <% current_user.user_certifications.each do |e| %>
+                                <tr>
+                                    <td><%= e.name %></td>
+                                    <td><%= e.source %></td>
+                                    <td><%= e.link %></td>
+                                    <td><%= e.get_time %></td>
+                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: certificate_delete_list.push({id:<%= e.id %>})">刪除</button></td>
+                                </tr>
+                            <% end %>
+                        </table>
                         <div class=" text-right">
-                            <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
+                            <button onclick="update_certification()"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
+                        </div>
+                        <div class="modal fade" id="certificate-modal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">新增相關證照</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="form-group">
+                                            <input type="text" name="certificate" class="form-control" placeholder="證照名稱">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="cer-source" class="form-control" placeholder="證照來源">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="cer-link" class="form-control" placeholder="證照連結">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                <input type="text" name="start" class="form-control" placeholder="獲得證照時間" readonly>
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea name="work-description" class="form-control" rows="5" placeholder="說明"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" id="btn-addCertificate">新增</button>
+                                        <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
                         </div>
                     </div>
                 </div>
                 <div class="text-center">
-                    <a href="index.html" class="btn btn-danger">資料填寫完成回到首頁</a>
+                    <a href="/" class="btn btn-danger">資料填寫完成回到首頁</a>
                 </div>
             </div>
             <div class="tab-pane" id="password">
-    <div class="portlet box light-grey show-view" id="password-portlet">
-        <div class="portlet-title">
-            <div class="caption">
-                變更密碼
-            </div>
-            <div class="tools">
-                <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
-                    <i class="fa fa-floppy-o"></i>
-                </a>
+                <div class="portlet box light-grey show-view" id="password-portlet">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            變更密碼
+                        </div>
+                        <div class="tools">
+                            <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
+                                <i class="fa fa-floppy-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <form action="#" id="contact-form1" class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">舊密碼</label>
+                                <div class="col-md-10">
+                                    <input type="password" name="oldPassword" class="form-control">
+                                    <p class="help-block">
+                                        如果您想要變更您的密碼，請先輸入您的舊密碼
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">新密碼</label>
+                                <div class="col-md-10">
+                                    <input type="password" name="newPassword" class="form-control">
+                                    <p class="help-block">
+                                        密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">再次輸入新密碼</label>
+                                <div class="col-md-10">
+                                    <input type="password" name="checkPassword" class="form-control">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="portlet-body">
-            <form action="#" id="contact-form1" class="form-horizontal" role="form">
-                <div class="form-group">
-                    <label class="col-md-2 control-label">舊密碼</label>
-                    <div class="col-md-10">
-                        <input type="password" name="oldPassword" class="form-control">
-                        <p class="help-block">
-                            如果您想要變更您的密碼，請先輸入您的舊密碼
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-2 control-label">新密碼</label>
-                    <div class="col-md-10">
-                        <input type="password" name="newPassword" class="form-control">
-                        <p class="help-block">
-                            密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-2 control-label">再次輸入新密碼</label>
-                    <div class="col-md-10">
-                        <input type="password" name="checkPassword" class="form-control">
-                    </div>
-                </div>
-            </form>
-        </div>
+        <!-- BEGIN END CONTENT -->
     </div>
-</div>
-</div>
-<!-- BEGIN END CONTENT -->
-</div>
-<!-- END MAIN CONTENT -->
+    <!-- END MAIN CONTENT -->
 </div>
 <!-- END PAGE -->
 <!-- BEGIN FOOTER -->
@@ -998,266 +1061,332 @@
 
 <!-- BEGIN JAVASCRIPTS -->
 <!-- BEGIN 核心插件 -->
-        <!--[if lt IE 9]>
-            <script src="plugins/html5shiv.min.js"></script>
-            <script src="plugins/respond.min.js"></script>
-            <![endif]-->
-            <script>
-                var education_add_list = [];
-                var education_delete_list = [];
-                var experience_add_list = [];
-                var experience_delete_list = [];
-            </script>
+<!--[if lt IE 9]>
+<script src="plugins/html5shiv.min.js"></script>
+<script src="plugins/respond.min.js"></script>
+<![endif]-->
 
-            <script src="/plugins/jquery-1.7.2.js"></script>
-            <!-- <script src="/plugins/jquery-1.11.0.min.js"></script> -->
-            <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
-            <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
-            <!-- END 核心插件 -->
-            <!-- BEGIN 頁面插件 -->
-            <script src="/plugins/jquery-autocomplete/jquery.autocomplete.pack.js"></script>
-            <script src="/plugins/jquery-autocomplete/jquery.autocomplete.js"></script>
-            <script src="/plugins/jquery-tags-input/jquery.tagsinput.js"></script>
-            <script src="/plugins/select2/select2.min.js"></script>
-            <script src="/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-            <script src="/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
-            <script src="/plugins/dropzone/dropzone.js"></script>
-            <!-- END 頁面插件 -->
-            <script type="text/javascript" src="/js/script.js"></script>
-            <script type="text/javascript" src="/js/page/personal_profile.js"></script>
+<script>
+    var education_add_list = [];
+    var education_delete_list = [];
+    var experience_add_list = [];
+    var experience_delete_list = [];
+    var certificate_add_list = [];
+    var certificate_delete_list = [];
+</script>
 
-            <script>
-                jQuery(document).ready(function() {
-                   Web.init();
-                   PersonalProfile.init();
-                   for(var i = 1; i < 8; i++) {
-                    $(".control_sub_calss"+i).hide();
-                   }
+<script src="/plugins/jquery-1.7.2.js"></script>
+<!-- <script src="/plugins/jquery-1.11.0.min.js"></script> -->
+<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+<!-- END 核心插件 -->
+<!-- BEGIN 頁面插件 -->
+<script src="/plugins/jquery-autocomplete/jquery.autocomplete.pack.js"></script>
+<script src="/plugins/jquery-autocomplete/jquery.autocomplete.js"></script>
+<script src="/plugins/jquery-tags-input/jquery.tagsinput.js"></script>
+<script src="/plugins/select2/select2.min.js"></script>
+<script src="/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+<script src="/plugins/dropzone/dropzone.js"></script>
+<!-- END 頁面插件 -->
+<script type="text/javascript" src="/js/script.js"></script>
+<script type="text/javascript" src="/js/page/personal_profile.js"></script>
 
-                   $("#main_class").change(function() {
-                    console.log($(this).val());
-                    for(var i=0; i < 8; i++) {
-                        if( i == $(this).val()){
-                            $(".control_sub_calss"+i).show();
-                        } else {
-                            $(".control_sub_calss"+i).hide();
-                        }
-                    }
-                })
-               });
+<script>
+    jQuery(document).ready(function() {
+       Web.init();
+       PersonalProfile.init();
+       for(var i = 1; i < 8; i++) {
+        $(".control_sub_calss"+i).hide();
+    }
 
-           </script>
+    $("#main_class").change(function() {
+        console.log($(this).val());
+        var request_obj = {
+            request: "get_sub_category",
+            main_category_id: $(this).val()
+        };
 
-           <script>
+        $(".select2-search-choice").remove();
 
-               $(function(){
+        $.ajax({
+            url: "/users/profiles/ajax_updae",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
+                console.log(data);
+                $("#subClass_select2 option").remove();
+                var select = $("#subClass_select2");
+                for(var key in data) {
+                   select.append($("<option></option>").attr("value", key).text(data[key].name));
+               }
+           },
+           error: function(data) {
+            console.log("error");
+        }
+    });
+    })
+});
 
-                $(".prevent").click(function(event){
-                    event.preventDefault();
-                });
+</script>
 
-                $("#search_skill tr").hover( function() {
-                    $(this).css('color','#ffffff');
-                }, function() {
-                  $(this).css('color','#000000');
-              });
+<script>
 
-                $("#search_skill tr").click( function() {
-                    console.log($(this).children("td").text());
-                    $("#search").val($(this).children("td").text());
-                });
+   $(function(){
+
+    $(".prevent").click(function(event){
+        event.preventDefault();
+    });
+
+    $("#search_skill tr").hover( function() {
+        $(this).css('color','#ffffff');
+    }, function() {
+      $(this).css('color','#000000');
+  });
+
+    $("#search_skill tr").click( function() {
+        console.log($(this).children("td").text());
+        $("#search").val($(this).children("td").text());
+    });
 
 
+});
+   var test = function() {
+    console.log("test");
+}
+
+
+
+var readURL = function(input) {
+    console.log(input.files);
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var img = $("#"+input.id).prev();
+            console.log(test);
+            console.log(img[0].id);
+            $("#"+img[0].id).attr('src', e.target.result).width(150).height(200);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function upload_img(form_num){
+    var profile_img = document.getElementById("profile_img" + form_num);
+    var file = profile_img.files[0];
+
+    var fd = new FormData();
+    fd.append('profile_img', file);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('post', '/users/profiles/ajax_upload_img', true);
+
+    xhr.setRequestHeader("X-File-Name", file.name);
+    xhr.setRequestHeader("X-File-Size", file.size);
+    xhr.setRequestHeader("X-File-Type", file.type);
+    xhr.onload = function() {
+        if (this.status == 200) {
+            console.log("upload file success");
+        };
+    };
+    xhr.send(fd);
+}
+
+var update_basic_info = function(form_num) {
+    var obj = {
+        request: "update_basic_info",
+        name: $("#contact-form" + form_num + " input[name='name']").val(),
+        email: $("#contact-form" + form_num + " input[name='email']").val(),
+        money: $("#contact-form" + form_num + " input[name='money']").val()
+    };
+    console.log(obj);
+    $.ajax({
+        url: "/users/profiles/ajax_updae",
+        type: "post",
+        dataType: "json",
+        data: obj,
+        success: function(data) {
+            console.log(data);
+            $("#fullname2").text(data.first_name + " " + data.last_name);
+            $("#email2").text(data.email);
+            $("#money2").text(data.hourly_pay);
+            upload_img(form_num);
+        },
+        error: function(data) {
+            console.log("error");
+            console.log(data);
+        }
+    });
+
+}
+
+var update_location = function() {
+    var obj = {
+        request: "update_location",
+        timeZone: $("#contact-form2 select[name='timeZone']").val(),
+        country: $("#contact-form2 select[name='country']").val(),
+    };
+    console.log(obj);
+    $.ajax({
+        url: "/users/profiles/ajax_updae",
+        type: "post",
+        dataType: "json",
+        data: obj,
+        success: function(data) {
+            console.log(data);
+            $("#time_zone").html(obj.timeZone);
+            $("#country").html(obj.country);
+        },
+        error: function(data) {
+            console.log("error");
+            console.log(data);
+        }
+    });
+
+}
+
+
+var update_category = function() {
+    var main_class = $("#contact-form1 select[name=mainClass]").val();
+    console.log(main_class);
+    console.log($("#contact-form1 select[id=subClass_select2]").val());
+    var obj = {
+        request: "update_category",
+        main_category: $("#contact-form1 select[name=mainClass]").val(),
+        sub_category: $("#contact-form1 select[id=subClass_select2]").val()
+    };
+    $.ajax({
+        url: "/users/profiles/ajax_updae",
+        type: "post",
+        dataType: "json",
+        data: obj,
+        success: function(data) {
+            console.log(data);
+            $('#main_category').html($("#main_class option:selected").text());
+            $('#sub_category').html($("#subClass_select2 option:selected").text());
+            var str = "";
+            $("#subClass_select2 option:selected").each(function () {
+                console.log($(this).text());
+                str += $(this).text() + ", ";
             });
-               var test = function() {
-                console.log("test");
-            }
-
-
-
-            var readURL = function(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        var img = $("#"+input.id).prev();
-                        $("#"+img[0].id).attr('src', e.target.result).width(150).height(200);
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-
-            function upload_img(form_num){
-                var profile_img = document.getElementById("profile_img" + form_num);
-                // var fileSize = profile_img.files[0]['size'];
-                var file = profile_img.files[0];
-
-                var fd = new FormData();
-                fd.append('profile_img', file);
-
-                var xhr = new XMLHttpRequest();
-                xhr.open('post', '/users/profiles/ajax_upload_img', true);
-
-                xhr.setRequestHeader("X-File-Name", file.name);
-                xhr.setRequestHeader("X-File-Size", file.size);
-                xhr.setRequestHeader("X-File-Type", file.type);
-                xhr.onload = function() {
-                    if (this.status == 200) {
-                        // console.log(this.response);
-                        console.log("upload file success");
-                    };
-                };
-                xhr.send(fd);
-            }
-
-            var update_basic_info = function(form_num) {
-                var obj = {
-                    request: "update_basic_info",
-                    name: $("#contact-form" + form_num + " input[name='name']").val(),
-                    email: $("#contact-form" + form_num + " input[name='email']").val(),
-                    money: $("#contact-form" + form_num + " input[name='money']").val()
-                };
-                console.log(obj);
-                $.ajax({
-                    url: "/users/profiles/ajax_updae",
-                    type: "post",
-                    dataType: "json",
-                    data: obj,
-                    success: function(data) {
-                        console.log(data);
-                        // $("#fullname").text(data.first_name + " " + data.last_name);
-                        // $("#email").text(obj.email);
-                        $("#fullname2").text(data.first_name + " " + data.last_name);
-                        $("#email2").text(data.email);
-                        $("#money2").text(data.hourly_pay);
-                        upload_img(form_num);
-                    },
-                    error: function(data) {
-                        console.log("error");
-                        console.log(data);
-                    }
-                });
-
-            }
-
-            var update_location = function() {
-                var obj = {
-                    request: "update_location",
-                    timeZone: $("#contact-form2 select[name='timeZone']").val(),
-                    country: $("#contact-form2 select[name='country']").val(),
-                };
-                console.log(obj);
-                $.ajax({
-                    url: "/users/profiles/ajax_updae",
-                    type: "post",
-                    dataType: "json",
-                    data: obj,
-                    success: function(data) {
-                        console.log(data);
-                        $("#time_zone").html(obj.timeZone);
-                        $("#country").html(obj.country);
-                    },
-                    error: function(data) {
-                        console.log("error");
-                        console.log(data);
-                    }
-                });
-
-            }
-
-            // var update_account = function() {
-
-            // }
-
-            // var update_category = function() {
-
-            // }
-
-            var update_skill = function() {
-                var obj = {
-                    request: "update_skill",
-                    skill: $("#contact-form1 input[name='skill']").val(),
-                };
-                console.log(obj);
-                $.ajax({
-                    url: "/users/profiles/ajax_updae",
-                    type: "post",
-                    dataType: "json",
-                    data: obj,
-                    success: function(data) {
-                        console.log(data);
-                        $("#skill").html(obj.skill);
-                    },
-                    error: function(data) {
-                        console.log("error");
-                        console.log(data);
-                    }
-                });
-            }
-
-            var update_experience = function() {
-                var request_obj = {
-                 request: "update_experience",
-                 experience_add_list: experience_add_list,
-                 experience_delete_list: experience_delete_list
-             }
-             console.log(request_obj);
-             $.ajax({
-                url: "/users/profiles/ajax_updae",
-                type: "post",
-                dataType: "json",
-                data: JSON.stringify(request_obj),
-                contentType: 'application/json',
-                success: function(data) {
-                    console.log(data);
-                    experience_add_list = [];
-                    experience_delete_list = [];
-                },
-                error: function(data) {
-                    console.log("error");
-                }
-            });
-         }
-
-         var update_education = function() {
-            var request_obj = {
-                request: "update_education",
-                education_add_list: education_add_list,
-                education_delete_list: education_delete_list
-            };
-            $.ajax({
-                url: "/users/profiles/ajax_updae",
-                type: "post",
-                dataType: "json",
-                data: JSON.stringify(request_obj),
-                contentType: 'application/json',
-                success: function(data) {
-                    console.log(data);
-                    education_add_list = [];
-                    education_delete_list = [];
-                },
-                error: function(data) {
-                    console.log("error");
-                }
-            });
+            str = str.substring(0, str.length - 2);
+            $('#sub_category').html(str);
+        },
+        error: function(data) {
+            console.log("error");
+            console.log(data);
         }
+    });
+}
 
-        var update_protfolio = function() {
-
+var update_skill = function() {
+    var obj = {
+        request: "update_skill",
+        skill: $("#contact-form1 input[name='skill']").val(),
+    };
+    console.log(obj);
+    $.ajax({
+        url: "/users/profiles/ajax_updae",
+        type: "post",
+        dataType: "json",
+        data: obj,
+        success: function(data) {
+            console.log(data);
+            $("#skill").html(obj.skill);
+        },
+        error: function(data) {
+            console.log("error");
+            console.log(data);
         }
+    });
+}
 
-        var certification = function() {
+var update_experience = function() {
+    var request_obj = {
+     request: "update_experience",
+     experience_add_list: experience_add_list,
+     experience_delete_list: experience_delete_list
+ }
+ console.log(request_obj);
+ $.ajax({
+    url: "/users/profiles/ajax_updae",
+    type: "post",
+    dataType: "json",
+    data: JSON.stringify(request_obj),
+    contentType: 'application/json',
+    success: function(data) {
+        console.log(data);
+        experience_add_list = [];
+        experience_delete_list = [];
+    },
+    error: function(data) {
+        console.log("error");
+    }
+});
+}
 
+var update_education = function() {
+    var request_obj = {
+        request: "update_education",
+        education_add_list: education_add_list,
+        education_delete_list: education_delete_list
+    };
+    $.ajax({
+        url: "/users/profiles/ajax_updae",
+        type: "post",
+        dataType: "json",
+        data: JSON.stringify(request_obj),
+        contentType: 'application/json',
+        success: function(data) {
+            console.log(data);
+            education_add_list = [];
+            education_delete_list = [];
+        },
+        error: function(data) {
+            console.log("error");
         }
+    });
+}
 
-        function see_this(sel) {
-            console.log(sel);
+var update_protfolio = function() {
+
+}
+
+var update_certification = function() {
+    var request_obj = {
+        request: "update_certification",
+        certificate_add_list: certificate_add_list,
+        certificate_delete_list: certificate_delete_list
+    };
+    console.log(request_obj);
+    $.ajax({
+        url: "/users/profiles/ajax_updae",
+        type: "post",
+        dataType: "json",
+        data: JSON.stringify(request_obj),
+        contentType: 'application/json',
+        success: function(data) {
+            console.log(data);
+            certificate_add_list = [];
+            certificate_delete_list = [];
+        },
+        error: function(data) {
+            console.log("error");
         }
+    });
+}
+
+function see_this(sel) {
+    console.log(sel);
+}
 
 
 
-    </script>
-    <!-- END JAVASCRIPTS -->
-    <!-- BEGIN PIE -->
+</script>
+<!-- END JAVASCRIPTS -->
+<!-- BEGIN PIE -->
         <!--[if lte IE 9]>
         <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
         <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>

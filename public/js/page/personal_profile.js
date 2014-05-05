@@ -17,25 +17,7 @@ var PersonalProfile = function(){
 	var initSkillTags = function(){
 		$('#skill-tags').tagsInput({
 			width: 'auto',
-			autocomplete_url:'/skills/autocomplete',
-			// autocomplete:{
-			// 	source: function(request, response) {
-			// 		$.ajax({
-			// 			url: "http://127.0.0.1:3000/skills/autocomplete",
-			// 			dataType: "json",
-			// 			data: JSON.stringify({ postalcode_startsWith: request.term }),
-			// 			contentType: 'application/json',
-			// 			success: function(data) {
-			// 				response( $.map( data.postalCodes, function( item ) {
-			// 					return {
-			// 						label: item.countryCode + "-" + item.placeName,
-			// 						value: item.postalCode
-			// 					}
-			// 				}));
-			// 			}
-			// 		})
-			// 	}
-			// }
+			autocomplete_url:'/skills/autocomplete'
 		});
 	}
 	var initSubClassSelect2 = function(){
@@ -184,6 +166,51 @@ var initAddEducation = function(){
 }
 
 
+var initCertificateTable = function(){
+	$('#certificate-table .btn-delete').off('click');
+	$('#certificate-table .btn-delete').on('click',function(){
+		$(this).parent().parent().remove();
+	});
+}
+var initAddCertificate = function(){
+	$('#btn-addCertificate').on('click', function(){
+		console.log("clicj");
+		var tr = $('<tr></tr>');
+		var td1 = $('<td></td>');
+		var td2 = $('<td></td>');
+		var td3 = $('<td></td>');
+		var td4 = $('<td></td>');
+		var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
+		td1.append($('#certificate-modal input[name=certificate]').val());
+		td2.append($('#certificate-modal input[name=cer-source]').val());
+		td3.append($('#certificate-modal input[name=cer-link]').val());
+		td4.append($('#certificate-modal input[name=start]').val());
+		tr.append(td1);
+		tr.append(td2);
+		tr.append(td3);
+		tr.append(td4);
+		tr.append(td5);
+		var obj = {
+			name: $('#certificate-modal input[name=certificate]').val(),
+			source: $('#certificate-modal input[name=cer-source]').val(),
+			link: $('#certificate-modal input[name=cer-link]').val(),
+			get_time: $('#certificate-modal input[name=start]').val(),
+			description: $('#certificate-modal textarea[name=work-description]').val()
+		};
+		certificate_add_list.push(obj);
+		console.log(certificate_add_list);
+		$('#certificate-table').append(tr);
+		$('#certificate-modal input[name=certificate]').val('');
+		$('#certificate-modal input[name=cer-source]').val('');
+		$('#certificate-modal input[name=cer-link]').val('');
+		$('#certificate-modal input[name=start]').val('');
+		$('#certificate-modal textarea[name=work-description]').val('');
+		initCertificateTable();
+		$("#certificate-modal").modal('toggle');
+	});
+}
+
+
 
 
 
@@ -204,7 +231,8 @@ return {
 		initAddExperience();
 		initEducationTable();
 		initAddEducation();
-
+		initCertificateTable();
+		initAddCertificate();
 	}
 }
 }();

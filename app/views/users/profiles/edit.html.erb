@@ -184,7 +184,7 @@
                                 <div class="portlet-body">
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">新增圖像</label>
-                                        <div class="col-md-9">
+                                        <div class="col-md-9 divcss5">
                                             <img src="/img/staff.png" class="avatar" id="blah1">
                                             <!-- <input type="file" name="image" class="form-control edit" onchange="readURL(this)"> -->
                                             <%= f.file_field :image, name: "image", class: "form-control edit", onchange: "readURL(this)" %>
@@ -237,13 +237,13 @@
                                         <label class="col-md-2 control-label">每小時工資(美金)</label>
                                         <div class="col-md-10">
                                             <div class="input-group">
-                                                <div class="input-icon left">
-                                                    <i class="fa"></i>
+                                            <%= f.text_field :hourly_pay, class: "form-control text-left", placeholder: "每小時工資(美金)", id: "hourly_pay", data: {isEmpty: "請輸入期望的工資"} %>
+                                                <!-- <div class="input-icon left"> -->
+                                                    <!-- <i class="fa"></i> -->
                                                     <!-- <input type="text" class="form-control text-right" name="money" placeholder="每小時工資" data-isEmpty="請輸入期望的工資"> -->
-                                                    <%= f.text_field :hourly_pay, class: "form-control text-left", placeholder: "每小時工資", id: "hourly_pay", data: {isEmpty: "請輸入期望的工資"} %>
-                                                </div>
+                                                <!-- </div> -->
                                                 <span class="input-group-addon">
-                                                 / HR
+                                                 USD /HR
                                              </span>
                                          </div>
                                      </div>
@@ -569,7 +569,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2">技能專長</label>
                                     <div class="col-md-10">
-                                        <p class="form-control-static" data-display="user[skill]">
+                                        <p class="form-control-static" data-display="user[user_skills]">
                                         </p>
                                     </div>
                                 </div>
@@ -697,10 +697,11 @@
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
                 reader.onload = function (e) {
-                    $('#blah1').attr('src', e.target.result).width(150).height(200);
-                    $('#blah2').attr('src', e.target.result).width(150).height(200);
+                    // $('#blah1').attr('src', e.target.result).width(150).height(200);
+                    // $('#blah2').attr('src', e.target.result).width(150).height(200);
+                    $('#blah1').attr('src', e.target.result);
+                    $('#blah2').attr('src', e.target.result);
                 };
 
                 reader.readAsDataURL(input.files[0]);
