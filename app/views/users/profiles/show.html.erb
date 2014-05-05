@@ -532,11 +532,11 @@
                                             <div class="input-group edit">
                                                 <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                   / HR
-                                               </span>
-                                           </div>
-                                       </div>
-                                       <div class="pull-right" style="margin:20px 16px 0 0;">
+                                                 / HR
+                                             </span>
+                                         </div>
+                                     </div>
+                                     <div class="pull-right" style="margin:20px 16px 0 0;">
                                         <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet1">儲存</button>
                                         <button class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1">取消</button>
                                     </div>
@@ -565,7 +565,7 @@
                                     <label class="col-md-2 control-label">主類別</label>
                                     <div class="col-md-10">
                                         <p class="form-control-static view"><%= t(:main_skill_category)[s.main_skill_id]['name'] %></p>
-                                        <select name="mainClass" class="edit form-control">
+                                        <select name="mainClass" class="edit form-control" id="main_class">
                                             <% t(:main_skill_category).each_with_index do |e, index| %>
                                             <option value="<%= index %>"><%= e['name'] %></option>
                                             <% end %>
@@ -583,7 +583,7 @@
                                             <select name="subClass" id="subClass_select2" class="form-control select2" multiple>
                                                 <option selected>社群網路經營</option>
                                                 <option selected>搜尋引擎最佳化</option>
-                                                <option >公共關係經營</option>
+                                                <option>公共關係經營</option>
                                                 <option>電子郵件行銷</option>
                                                 <option>電話行銷</option>
                                             </select>
@@ -861,7 +861,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select name="subClass" class="form-control select2">
+                                                <select name="subClass" class="form-control select2" >
                                                     <option selected>子類別</option>
                                                     <option>社群網路經營</option>
                                                     <option>搜尋引擎最佳化</option>
@@ -901,11 +901,11 @@
                                 尚未新增作品集
                             </form>
                             <div class=" text-right">
-                               <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="portlet box light-grey show-view" id="profile-portlet7">
+                             <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="portlet box light-grey show-view" id="profile-portlet7">
                     <div class="portlet-title">
                         <div class="caption">
                             相關證照
@@ -924,15 +924,15 @@
                             尚未新增相關證照
                         </form>
                         <div class=" text-right">
-                         <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
-                     </div>
-                 </div>
-             </div>
-             <div class="text-center">
+                           <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
+                       </div>
+                   </div>
+               </div>
+               <div class="text-center">
                 <a href="index.html" class="btn btn-danger">資料填寫完成回到首頁</a>
-             </div>
-         </div>
-         <div class="tab-pane" id="password">
+            </div>
+        </div>
+        <div class="tab-pane" id="password">
             <div class="portlet box light-grey show-view" id="password-portlet">
                 <div class="portlet-title">
                     <div class="caption">
@@ -1027,15 +1027,25 @@
 
             <script>
                 jQuery(document).ready(function() {
-                 Web.init();
-                 PersonalProfile.init();
-             });
+                   Web.init();
+                   PersonalProfile.init();
+                   $("#main_class").change(function() {
+                    console.log($(this).val());
+                    for(var i=0; i < 8; i++) {
+                        if( i == $(this).val()){
+                            $("#subclass_"+i).show();
+                        } else {
+                            $("#subclass_"+i).hide();
+                        }
+                    }
+                })
+               });
 
-         </script>
+           </script>
 
-         <script>
+           <script>
 
-             $(function(){
+               $(function(){
 
                 $(".prevent").click(function(event){
                     event.preventDefault();
@@ -1054,7 +1064,7 @@
 
 
             });
-             var test = function() {
+               var test = function() {
                 console.log("test");
             }
 
@@ -1181,12 +1191,12 @@
 
             var update_experience = function() {
                 var request_obj = {
-                   request: "update_experience",
-                   experience_add_list: experience_add_list,
-                   experience_delete_list: experience_delete_list
-               }
-               console.log(request_obj);
-               $.ajax({
+                 request: "update_experience",
+                 experience_add_list: experience_add_list,
+                 experience_delete_list: experience_delete_list
+             }
+             console.log(request_obj);
+             $.ajax({
                 url: "/users/profiles/ajax_updae",
                 type: "post",
                 dataType: "json",
@@ -1201,9 +1211,9 @@
                     console.log("error");
                 }
             });
-           }
+         }
 
-           var update_education = function() {
+         var update_education = function() {
             var request_obj = {
                 request: "update_education",
                 education_add_list: education_add_list,

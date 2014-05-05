@@ -61,6 +61,9 @@ var PersonalProfile = function(){
 			var td3 = $('<td></td>');
 			var td4 = $('<td></td>');
 			var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
+			if($('#experience-modal input[name=start]').val() == "") {
+				return;
+			}
 			td1.append($('#experience-modal input[name=start]').val());
 			td2.append($('#experience-modal input[name=end]').val());
 			td3.append($('#experience-modal input[name=organization]').val());
@@ -85,6 +88,8 @@ var PersonalProfile = function(){
 			$('#experience-modal input[name=office]').val('');
 			$('#experience-modal textarea[name=description]').val('');
 			initExperienceTable();
+			console.log("test");
+			$("#experience-modal").modal('toggle');
 		});
 }
 
@@ -102,6 +107,9 @@ var initAddEducation = function(){
 		var td3 = $('<td></td>');
 		var td4 = $('<td></td>');
 		var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
+		if($('#education-modal input[name=start]').val() == "") {
+			return;
+		}
 		td1.append($('#education-modal input[name=start]').val());
 		td2.append($('#education-modal input[name=end]').val());
 		td3.append($('#education-modal input[name=organization]').val());
@@ -127,6 +135,7 @@ var initAddEducation = function(){
 		$('#education-modal input[name=office]').val('');
 		$('#education-modal textarea[name=description]').val('');
 		initEducationTable();
+		$("#education-modal").modal('toggle');
 	});
 }
 
