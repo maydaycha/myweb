@@ -44,6 +44,50 @@ var PersonalProfile = function(){
 			allowClear: true
 		});
 	}
+	var initSubClassSelect3 = function(){
+		$('#subClass_select3').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+	var initSubClassSelect4 = function(){
+		$('#subClass_select4').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+	var initSubClassSelect5 = function(){
+		$('#subClass_select5').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+	var initSubClassSelect6 = function(){
+		$('#subClass_select6').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+	var initSubClassSelect7 = function(){
+		$('#subClass_select7').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+	var initSubClassSelect8 = function(){
+		$('#subClass_select8').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+	var initSubClassSelect9 = function(){
+		$('#subClass_select9').select2({
+			placeholder: "Select a State",
+			allowClear: true
+		});
+	}
+
+
 	var initExperienceTable = function(){
 		$('#experience-table .btn-delete').off('click');
 		$('#experience-table .btn-delete').on('click',function(){
@@ -149,6 +193,13 @@ return {
 		initEditSaveBtnTip();
 		initSkillTags();
 		initSubClassSelect2();
+		initSubClassSelect3();
+		initSubClassSelect4();
+		initSubClassSelect5();
+		initSubClassSelect6();
+		initSubClassSelect7();
+		initSubClassSelect8();
+		initSubClassSelect9();
 		initExperienceTable();
 		initAddExperience();
 		initEducationTable();
