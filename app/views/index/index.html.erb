@@ -96,7 +96,7 @@
             <!-- END MODAL -->
             <!-- BEGIN SWIPER -->
             <div class="swiper-1">
-                <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a> 
+                <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a>
                 <a class="arrow-right arrow " href="#"><i class="fa fa-angle-right"></i></a>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -112,7 +112,7 @@
                         <div class="swiper-slide">
                             <div class="content-slide">
                                 <img src="img/swiper/swiper3.jpg" alt="img">
-                                 <div class="text">
+                                <div class="text">
                                     <p class="title" style="color:black;"><strong>遠距工作</strong></p>
                                     <p class="content">讓工作和世界接軌</p>
                                 </div>
@@ -121,7 +121,7 @@
                         <div class="swiper-slide">
                             <div class="content-slide">
                                 <img src="img/swiper/swiper2.jpg" alt="img">
-                                 <div class="text">
+                                <div class="text">
                                     <p class="title" style="color:black;"><strong>快樂工作</strong></p>
                                     <p class="content">讓您快樂接案</p>
                                 </div>
@@ -135,17 +135,20 @@
             <!-- BEGIN LOGIN -->
             <div class="login">
                 <p class="title">免費註冊，即刻使用</p>
-                <form action="" class="login-form">
+                <!-- <form action="" class="login-form"> -->
+                <%= form_for :user, url: new_user_registration_path, method: :get, html: {class: "login-form"} do |f|%>
                     <div class="input-icon">
                         <i class="fa fa-user"></i>
-                        <input type="text" class="form-control" placeholder="Username">
+                        <!-- <input type="text" class="form-control" placeholder="Username"> -->
+                        <%= f.text_field :username, name: "username", class: "form-control", placeholder: "Username"%>
                     </div>
                     <div class="input-icon">
                         <i class="fa fa-lock"></i>
                         <input type="text" class="form-control" placeholder="Password">
                     </div>
                     <input type="submit" class="btn" value="註冊會員">
-                </form>
+                <% end %>
+                <!-- </form> -->
                 <div class="social">
                     <p class="social-text">使用OPEN ID快速註冊</p>
                     <ul class="social-icons">
@@ -231,30 +234,30 @@
                 </div> -->
             </div>
             <!-- END CLASS -->
-            
-            
-            
-            
-            
+
+
+
+
+
             <!-- BEGIN WORKS -->
-           <div class="works">
+            <div class="works">
                 <ul class="nav nav-tabs nav-justified">
                     <li class="active">
                         <a href="#work1" data-toggle="tab" style="font-size:1.5em; font-weight:bold;">
                             我是雇主，想找遠距工作人才
                         </a>
-                        
+
                     </li>
                     <li>
                         <a href="#work2" data-toggle="tab" style="font-size:1.5em; font-weight:bold;">
                             我是遠距工作者，想要找案件
                         </a>
-                        
+
                     </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="work1">
-                        <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a> 
+                        <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a>
                         <a class="arrow-right arrow " href="#"><i class="fa fa-angle-right"></i></a>
                         <div class="cover"></div>
                         <div class="tabs">
@@ -341,7 +344,7 @@
                         </div>
                     </div>
                     <div class="tab-pane active" id="work2">
-                        <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a> 
+                        <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a>
                         <a class="arrow-right arrow " href="#"><i class="fa fa-angle-right"></i></a>
                         <div class="cover"></div>
                         <div class="tabs">
@@ -410,12 +413,12 @@
                 </div>
             </div>
             <!-- END WORKS -->
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
             <div class="marpad"> <!--TABBED SLIDER-->
                 <div id="custom_carousel" class="carousel slide" data-ride="carousel" data-interval="2500">
                     <div class="controls">
@@ -438,8 +441,8 @@
                                         <div class="tab-slider-tex02 hidden-lg hidden-md"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
                                     </div>
                                 </div>
-                            </div>            
-                        </div> 
+                            </div>
+                        </div>
                         <div class="item">
                             <div class="container-fluid">
                                 <div class="row">
@@ -451,120 +454,120 @@
                                         <div class="tab-slider-tex02 hidden-lg hidden-md"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
                                     </div>
                                 </div>
-                            </div>            
-                        </div> 
+                            </div>
+                        </div>
                         <div class="item">
                             <div class="container-fluid">
-                                 <div class="row">
-                                    <div class="col-md-3 col-xs-3 hidden-md hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework03.jpg"></div>
-                                    <div class="col-xs-3 hidden-lg  marpad img-dark"><img src="img/teleworklife/telework03.jpg" style="position:relative; margin-left: -360px;"></div>
-                                    <div class="col-md-5 col-xs-9 pull-right">
-                                       <div class="tab-slider-tex hidden-sm hidden-xs"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
-                                       <div class="tab-slider-tex02 hidden-lg hidden-md"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
-                                    </div>
-                                </div>
-                            </div>           
-                        </div> 
-                        <div class="item">
-                            <div class="container-fluid">
-                                 <div class="row">
-                                   <div class="col-md-3 col-xs-3 hidden-md hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework04.jpg"></div>
-                                   <div class="col-xs-3 hidden-lg marpad hidden-xs hidden-sm"><img src="img/teleworklife/telework04.jpg" style="position:relative; margin-left: -160px;"></div>
-                                    <div class="col-xs-3 hidden-lg hidden-md  marpad img-dark"><img src="img/teleworklife/telework04.jpg" style="position:relative; margin-left: -160px;"></div>
-                                    <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
-                                        <div class="tab-slider-tex hidden-sm hidden-xs"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
-                                        <div class="tab-slider-tex02 hidden-lg hidden-md"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
-                                    </div>
-                                </div>
-                            </div>           
-                        </div> 
-                    <!-- End Item -->
+                               <div class="row">
+                                <div class="col-md-3 col-xs-3 hidden-md hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework03.jpg"></div>
+                                <div class="col-xs-3 hidden-lg  marpad img-dark"><img src="img/teleworklife/telework03.jpg" style="position:relative; margin-left: -360px;"></div>
+                                <div class="col-md-5 col-xs-9 pull-right">
+                                 <div class="tab-slider-tex hidden-sm hidden-xs"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
+                                 <div class="tab-slider-tex02 hidden-lg hidden-md"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="item">
+                    <div class="container-fluid">
+                       <div class="row">
+                         <div class="col-md-3 col-xs-3 hidden-md hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework04.jpg"></div>
+                         <div class="col-xs-3 hidden-lg marpad hidden-xs hidden-sm"><img src="img/teleworklife/telework04.jpg" style="position:relative; margin-left: -160px;"></div>
+                         <div class="col-xs-3 hidden-lg hidden-md  marpad img-dark"><img src="img/teleworklife/telework04.jpg" style="position:relative; margin-left: -160px;"></div>
+                         <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
+                            <div class="tab-slider-tex hidden-sm hidden-xs"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
+                            <div class="tab-slider-tex02 hidden-lg hidden-md"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
+                        </div>
                     </div>
-                    <!-- End Carousel Inner -->
-                    
-                </div>
-                <!-- End Carousel -->
-            </div><!--END TABBED SLIDER-->
-            
-            
-            
-            
-            
-            <!-- BEGIN DOWN -->
-            <div class="row down" style="margin-bottom:0px; padding-bottom:0px;">
-                <div class="box employer">
-                    <p class="title">
-                        雇主一二三
-                        <!--<img src="img/works/title_arrow.png" alt="img">-->
-                    </p>
-                    <table class="content">
-                        <tr>
-                            <td class="padding" rowspan="2"></td>
-                            <td class="item"><img src="img/works/employer_1.png" alt="img"></td>
-                            <td class="arrow"><img src="img/works/employer_arrow.png" alt="img"></td>
-                            <td class="item"><img src="img/works/employer_2.png" alt="img"></td>
-                            <td class="arrow"><img src="img/works/employer_arrow.png" alt="img"></td>
-                            <td class="item"><img src="img/works/employer_3.png" alt="img"></td>
-                            <td class="padding" rowspan="2"></td>
-                        </tr>
-                        <tr>
-                            <td class="text">刊登案件</td>
-                            <td></td>
-                            <td class="text">選才訂約</td>
-                            <td></td>
-                            <td class="text">依約付款</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="box staff">
-                    <p class="title">
-                        接案一二三
-                        <!--<img src="img/works/title_arrow.png" alt="img">-->
-                    </p>
-                    <table class="content">
-                        <tr>
-                            <td class="padding" rowspan="2"></td>
-                            <td class="item"><img src="img/works/staff_1.png" alt="img"></td>
-                            <td class="arrow"><img src="img/works/staff_arrow.png" alt="img"></td>
-                            <td class="item"><img src="img/works/staff_2.png" alt="img"></td>
-                            <td class="arrow"><img src="img/works/staff_arrow.png" alt="img"></td>
-                            <td class="item"><img src="img/works/staff_3.png" alt="img"></td>
-                            <td class="padding" rowspan="2"></td>
-                        </tr>
-                        <tr>
-                            <td class="text">尋找案件</td>
-                            <td></td>
-                            <td class="text">選案訂約</td>
-                            <td></td>
-                            <td class="text">依約收款</td>
-                        </tr>
-                    </table>
                 </div>
             </div>
-            <!-- END DOWN -->
-            
-            
-             
-            
+            <!-- End Item -->
         </div>
-        <!-- END PAGE -->
-        <!-- BEGIN FOOTER -->
-        <div class="footer">
-            <img class="footer-logo" src="/img/logo103.png" alt="">
-            <div class="footer-nav">
-                <%= link_to "關於我們", index_about_path %>
-                <span class="bar">|</span>
-                <%= link_to "隱私條款", index_rule_path %>
-                <span class="bar">|</span>
-                <%= link_to "使用條款", index_rule_path %>
-                <span class="bar">|</span>
-                <%= link_to "聯絡客服", index_contact_path %>
-            </ul>
-        </div>
-        <!-- END FOOTER -->
+        <!-- End Carousel Inner -->
 
-        <!-- BEGIN JAVASCRIPTS -->
-        <!-- BEGIN 核心插件 -->
+    </div>
+    <!-- End Carousel -->
+</div><!--END TABBED SLIDER-->
+
+
+
+
+
+<!-- BEGIN DOWN -->
+<div class="row down" style="margin-bottom:0px; padding-bottom:0px;">
+    <div class="box employer">
+        <p class="title">
+            雇主一二三
+            <!--<img src="img/works/title_arrow.png" alt="img">-->
+        </p>
+        <table class="content">
+            <tr>
+                <td class="padding" rowspan="2"></td>
+                <td class="item"><img src="img/works/employer_1.png" alt="img"></td>
+                <td class="arrow"><img src="img/works/employer_arrow.png" alt="img"></td>
+                <td class="item"><img src="img/works/employer_2.png" alt="img"></td>
+                <td class="arrow"><img src="img/works/employer_arrow.png" alt="img"></td>
+                <td class="item"><img src="img/works/employer_3.png" alt="img"></td>
+                <td class="padding" rowspan="2"></td>
+            </tr>
+            <tr>
+                <td class="text">刊登案件</td>
+                <td></td>
+                <td class="text">選才訂約</td>
+                <td></td>
+                <td class="text">依約付款</td>
+            </tr>
+        </table>
+    </div>
+    <div class="box staff">
+        <p class="title">
+            接案一二三
+            <!--<img src="img/works/title_arrow.png" alt="img">-->
+        </p>
+        <table class="content">
+            <tr>
+                <td class="padding" rowspan="2"></td>
+                <td class="item"><img src="img/works/staff_1.png" alt="img"></td>
+                <td class="arrow"><img src="img/works/staff_arrow.png" alt="img"></td>
+                <td class="item"><img src="img/works/staff_2.png" alt="img"></td>
+                <td class="arrow"><img src="img/works/staff_arrow.png" alt="img"></td>
+                <td class="item"><img src="img/works/staff_3.png" alt="img"></td>
+                <td class="padding" rowspan="2"></td>
+            </tr>
+            <tr>
+                <td class="text">尋找案件</td>
+                <td></td>
+                <td class="text">選案訂約</td>
+                <td></td>
+                <td class="text">依約收款</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- END DOWN -->
+
+
+
+
+</div>
+<!-- END PAGE -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <img class="footer-logo" src="/img/logo103.png" alt="">
+    <div class="footer-nav">
+        <%= link_to "關於我們", index_about_path %>
+        <span class="bar">|</span>
+        <%= link_to "隱私條款", index_rule_path %>
+        <span class="bar">|</span>
+        <%= link_to "使用條款", index_rule_path %>
+        <span class="bar">|</span>
+        <%= link_to "聯絡客服", index_contact_path %>
+    </ul>
+</div>
+<!-- END FOOTER -->
+
+<!-- BEGIN JAVASCRIPTS -->
+<!-- BEGIN 核心插件 -->
         <!--[if lt IE 9]>
             <script src="/plugins/html5shiv.min.js"></script>
             <script src="/plugins/respond.min.js"></script>
@@ -581,12 +584,12 @@
             <script type="text/javascript" src="/js/page/index.js"></script>
             <script>
                 jQuery(document).ready(function() {
-                 Web.init();
-                 Index.init();
-             });
-         </script>
-         <!-- END JAVASCRIPTS -->
-         <!-- BEGIN PIE -->
+                   Web.init();
+                   Index.init();
+               });
+           </script>
+           <!-- END JAVASCRIPTS -->
+           <!-- BEGIN PIE -->
         <!--[if lte IE 9]>
         <script type="text/javascript" src="/plugins/PIE-1.0.0/PIE.js"></script>
         <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
