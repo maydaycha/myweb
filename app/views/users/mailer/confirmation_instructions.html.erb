@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,22 +48,28 @@
                <!-- // BEGIN FOOTER BLOCK -->
                <table border="0" cellpadding="0" cellspacing="0" width="600" id="footerBlock" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
 
-                <tr>
-                    <img src="http://telwowrk.herokuapp.com/img/mail/logo103.png" style="display: block; margin-bottom:10px;" />
-                    <td align="center" valign="top" class="footerContent" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;color: #AAAAAA;font-size: 13px;line-height: 150%;padding-bottom: 40px;"><a href="#" style="color:#FFFFFF; text-decoration:none;">關於我們</a><span> | </span><a href="#" style="color:#FFFFFF; text-decoration:none;">隱私條款</a><span> | </span><a href="#" style="color:#FFFFFF; text-decoration:none;">使用條款</a></td>
-                </tr>
+                    <tr>
+                        <img src="http://telwowrk.herokuapp.com/img/mail/logo103.png" style="display: block; margin-bottom:10px;" />
+                        <td align="center" valign="top" class="footerContent" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;color: #AAAAAA;font-size: 13px;line-height: 150%;padding-bottom: 40px;">
+                            <%= link_to "關於我們", index_about_url, :style => "color:#FFFFFF; text-decoration:none;" %>
+                            <span class="bar">|</span>
+                            <%= link_to "隱私條款", index_rule_url, :style => "color:#FFFFFF; text-decoration:none;" %>
+                            <span class="bar">|</span>
+                            <%= link_to "使用條款", index_rule_url, :style => "color:#FFFFFF; text-decoration:none;" %>
+                        </td>
+                    </tr>
 
-                                           <!-- <td align="center" valign="top" class="footerContent" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;color: #AAAAAA;font-size: 13px;line-height: 150%;padding-bottom: 40px;">
+                       <!-- <td align="center" valign="top" class="footerContent" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;color: #AAAAAA;font-size: 13px;line-height: 150%;padding-bottom: 40px;">
 
-                                                <a href="#" target="_blank" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #D83826;text-decoration: none;">unsubscribe from list</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" target="_blank" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #D83826;text-decoration: none;">set email preferences</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" target="_blank" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #D83826;text-decoration: none;">view in browser</a>
-                                            </td>// -->
-                                        </tr>
-                                    </table>
-                                    <!-- END FOOTER BLOCK // -->
-                                </td>
-                            </tr>
-                        </table>
+                            <a href="#" target="_blank" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #D83826;text-decoration: none;">unsubscribe from list</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" target="_blank" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #D83826;text-decoration: none;">set email preferences</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" target="_blank" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #D83826;text-decoration: none;">view in browser</a>
+                        </td>// -->
+                    </tr>
+                </table>
+                <!-- END FOOTER BLOCK // -->
+            </td>
+        </tr>
+    </table>
 
-                    </body>
+</body>
 
-                    </html>
+</html>

@@ -88,11 +88,11 @@ var SingUp = function(){
                 icon.removeClass("fa-warning").addClass("fa-check");
             },
 
-            submitHandler: function (form) {
-                error.hide();
-                form.off('submit');
-                form.submit();
-            }
+            // submitHandler: function (form) {
+            //     error.hide();
+            //     form.off('submit');
+            //     form.submit();
+            // }
         });
     }
 

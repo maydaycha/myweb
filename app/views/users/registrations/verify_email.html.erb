@@ -81,7 +81,7 @@
                         <p>啟用信件已傳送到 <span class="point"><%= @email %></span></p>
                         <!-- <a href="../../../#" class="btn btn-warning">我沒收到啟用信件，需要重新寄送郵件</a> -->
                         <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-                            <%= link_to "糟糕，我輸入的電子信箱有誤", new_confirmation_path(resource_name), :class=>"btn btn-danger" %>
+                            <%= link_to "我沒有收到啟用信件，需要重新寄送郵件", new_confirmation_path(resource_name), :class=>"btn btn-danger" %>
                         <% end -%>
                         
                     </div>

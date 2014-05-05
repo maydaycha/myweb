@@ -5,9 +5,9 @@ jQuery.validator.addMethod("myUsername", function(value, element) {
 	else{
 		return true;
 	}
-}, "Account already exists");
+}, "帳號已經重複");
 
 jQuery.validator.addMethod("myImgVerification", function(value, element) {
 	var verification='vsdee';
 	return value.toLowerCase() == verification.toLowerCase();
-}, "image verification error");
+}, "認證碼錯誤");
