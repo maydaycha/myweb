@@ -14,12 +14,12 @@ jQuery.validator.addMethod("myUsername", function(value, element) {
         async: false
     });
     return !result;
-}, "Account already exists");
+}, "帳號已經存在");
 
 jQuery.validator.addMethod("myImgVerification", function(value, element) {
 	var verification='vsdee';
 	return value.toLowerCase() == verification.toLowerCase();
-}, "image verification error");
+}, "驗證碼錯誤");
 
 jQuery.validator.addMethod("myEmail", function(value, element) {
     console.log(value);
@@ -40,11 +40,11 @@ jQuery.validator.addMethod("myEmail", function(value, element) {
     });
     console.log("email: " + result);
     return !result;
-}, "Email already exists");
+}, "Email已經存在");
 
 
 jQuery.validator.addMethod("myPasswordMatch", function(value, element) {
     var result = true;
     if( value == $("input[name='user[password]'").val() ) result = false;
     return !result;
-}, "password not match");
+}, "密碼不一致");
