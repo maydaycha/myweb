@@ -1,7 +1,7 @@
 var SingUp = function(){
     console.log("sign");
 	var formValidation = function() {
-        var recommendIcon = $('#signUp-form input[name=recommend]').parent('.input-icon').children('i');
+        var recommendIcon = $("#signUp-form input[name='user[how_to_know]']").parent('.input-icon').children('i');
         console.log("test" + recommendIcon.tooltip());
         recommendIcon.tooltip({'container': 'body'});
 

@@ -36,7 +36,6 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(user)
-    "http://www.google.com"
     if current_user.step == 1
       edit_users_profile_path(user)
     elsif current_user.step == 2
