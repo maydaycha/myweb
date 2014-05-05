@@ -28,8 +28,9 @@ var SingUp = function(){
                 },
                 "user[country_code]": {
                     required: true
-                },
-                "user[username]": {
+                },"user[time_zone]": {
+                    required: true
+                },"user[username]": {
                 	minlength: 6,
                     required: true,
                     myUsername: true

@@ -1,7 +1,7 @@
 jQuery.validator.addMethod("myUsername", function(value, element) {
 	var result;
 	$.ajax({
-		url: "/users/sign_up_check_username",
+		url: "/users/check_username",
 		type: "get",
 		dataType: "json",
 		data: {username: value},
@@ -26,7 +26,7 @@ jQuery.validator.addMethod("myEmail", function(value, element) {
     console.log(element);
 	var result;
 	$.ajax({
-		url: "/users/sign_up_check_email",
+		url: "/users/check_email",
 		type: "get",
 		dataType: "json",
 		data: {email: value},
