@@ -125,6 +125,7 @@ Sun::Application.routes.draw do
 
   #test
   get 'users/profiles/show_image/:id' => 'users/profiles#show_image'
+  get 'import_from_csv' => 'skills#import_from_csv'
 
 
   get 'skills/autocomplete' => 'skills#autocomplete'

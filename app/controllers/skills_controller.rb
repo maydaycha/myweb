@@ -9,4 +9,8 @@ class SkillsController < ApplicationController
     render :text => return_string
   end
 
+  def import_from_csv
+    Skill.import_from_csv
+  end
+
 end
