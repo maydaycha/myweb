@@ -71,7 +71,7 @@
         <div class="page-content">
             <!-- BEGIN TITLE -->
             <h1 class="title">認證完成，歡迎您 <span class="white-space-nowrap"><span class="point"><%= current_user.first_name + current_user.last_name %></span>！</span></h1>
-            <p class="subtitle">請繼續完成您的自由工作者帳戶設定</p>
+            <p class="subtitle">請繼續完成您的遠距工作者帳戶設定</p>
             <!-- END TITLE -->
             <!-- BEGIN MAIN CONTENT -->
             <div class="main-content">
@@ -85,7 +85,7 @@
                             <!-- <input type="radio" id="class1" name="class"> -->
                             <%= f.radio_button :main_skill_id, "0", id: "class1" %>
                             <label for="class1">
-                                <img src="../../../img/class/class_1.png" alt="IT、軟體">
+                                <img src="../../../img/class/class_1.jpg" alt="IT、軟體">
                                 <!-- <p>IT、軟體</p> -->
                                 <p><%= t(:"main_skill_category")[0]['name'] %></p>
                             </label>
@@ -94,7 +94,7 @@
                             <!-- <input type="radio" id="class7" name="class"> -->
                             <%= f.radio_button :main_skill_id, "1", id: "class7"%>
                             <label for="class7">
-                                <img src="../../../img/class/class_11.png" alt="工程、科學">
+                                <img src="../../../img/class/class_2.jpg" alt="工程、科學">
                                 <!-- <p>工程、科學</p> -->
                                 <p><%= t(:"main_skill_category")[1]['name'] %></p>
                             </label>
@@ -103,7 +103,7 @@
                             <!-- <input type="radio" id="class3" name="class"> -->
                             <%= f.radio_button :main_skill_id, "2", id: "class3" %>
                             <label for="class3">
-                                <img src="../../../img/class/class_2.png" alt="設計、創意服務">
+                                <img src="../../../img/class/class_3.jpg" alt="設計、創意服務">
                                 <!-- <p>設計、創意服務</p> -->
                                 <p><%= t(:"main_skill_category")[2]['name'] %></p>
                             </label>
@@ -112,7 +112,7 @@
                             <!-- <input type="radio" id="class4" name="class"> -->
                             <%= f.radio_button :main_skill_id, "3", id: "class4" %>
                             <label for="class4">
-                                <img src="../../../img/class/class_9.png" alt="行銷、業務">
+                                <img src="../../../img/class/class_4.jpg" alt="行銷、業務">
                                 <!-- <p>行銷、業務</p> -->
                                 <p><%= t(:"main_skill_category")[3]['name'] %></p>
                             </label>
@@ -121,7 +121,7 @@
                             <!-- <input type="radio" id="class5" name="class"> -->
                             <%= f.radio_button :main_skill_id, "4", id: "class5" %>
                             <label for="class5">
-                                <img src="../../../img/class/class_6.png" alt="行政、客戶服務">
+                                <img src="../../../img/class/class_5.jpg" alt="行政、客戶服務">
                                 <!-- <p>行政、客戶服務</p> -->
                                 <p><%= t(:"main_skill_category")[4]['name'] %></p>
                             </label>
@@ -130,7 +130,7 @@
                             <!-- <input type="radio" id="class6" name="class"> -->
                             <%= f.radio_button :main_skill_id, "5", id: "class6" %>
                             <label for="class6">
-                                <img src="../../../img/class/class_10.png" alt="商業、會計、法務">
+                                <img src="../../../img/class/class_6.jpg" alt="商業、會計、法務">
                                 <!-- <p>商業、會計、法務</p> -->
                                 <p><%= t(:"main_skill_category")[5]['name'] %></p>
                             </label>
@@ -139,7 +139,7 @@
                             <!-- <input type="radio" id="class2" name="class"> -->
                             <%= f.radio_button :main_skill_id, "6", id: "class2" %>
                             <label for="class2">
-                                <img src="../../../img/class/class_5.png" alt="翻譯、寫作">
+                                <img src="../../../img/class/class_7.jpg" alt="翻譯、寫作">
                                 <!-- <p>翻譯、寫作</p> -->
                                 <p><%= t(:"main_skill_category")[6]['name'] %></p>
                             </label>
@@ -148,7 +148,7 @@
                             <!-- <input type="radio" id="class8" name="class"> -->
                             <%= f.radio_button :main_skill_id, "7", id: "class8" %>
                             <label for="class8">
-                                <img src="../../../img/class/class_12.png" alt="專業諮商">
+                                <img src="../../../img/class/class_8.jpg" alt="專業諮商">
                                 <!-- <p>專業諮商</p> -->
                                 <p><%= t(:"main_skill_category")[7]['name'] %></p>
                             </label>
@@ -174,6 +174,8 @@
                 <%= link_to "隱私條款", index_rule_path %>
                 <span class="bar">|</span>
                 <%= link_to "使用條款", index_rule_path %>
+                <span class="bar">|</span>
+                <%= link_to "聯絡客服", index_contact_path %>
             </ul>
         </div>
         <!-- END FOOTER -->

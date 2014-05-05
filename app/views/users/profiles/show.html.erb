@@ -611,7 +611,7 @@
                                 <!-- </a> -->
                             </div>
                         </div>
-                        <div class="portlet-body" ng-init="skill_list = <%= t(:skills) %>">
+                        <div class="portlet-body" ng-init="skill_list = <%= t(:skills) %>"
                             <p class="form-control-static view" id="skill"><%= current_user.user_skills.map{|e| e.name}.join(", ") %></p>
                             <form action="javascript: return false;" id="contact-form1" class="form-horizontal edit" role="form">
                                 <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>"/>
@@ -719,7 +719,6 @@
                             </div>
 
                         </div>
-
                     </div>
                     <div class="portlet box light-grey show-view" id="profile-portlet5">
                         <div class="portlet-title">
@@ -929,6 +928,9 @@
                      </div>
                  </div>
              </div>
+             <div class="text-center">
+                <a href="index.html" class="btn btn-danger">資料填寫完成回到首頁</a>
+             </div>
          </div>
          <div class="tab-pane" id="password">
             <div class="portlet box light-grey show-view" id="password-portlet">
@@ -987,6 +989,8 @@
         <%= link_to "隱私條款", index_rule_path %>
         <span class="bar">|</span>
         <%= link_to "使用條款", index_rule_path %>
+        <span class="bar">|</span>
+        <%= link_to "聯絡客服", index_contact_path %>
     </ul>
 </div>
 <!-- END FOOTER -->

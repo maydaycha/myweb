@@ -17,7 +17,9 @@
 	}
 .btn-alert:active{
 	color:#B24938;
+	outline:none;
 	}
 .btn-alert:focus{
 	color:#B24938;
+	outline:none;
 	}

@@ -46,7 +46,7 @@
       <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
         <i class="fa fa-search"></i>
       </button>
-      <a class="navbar-brand" href="../"><img class="navbar-logo" src="/assets/logo208.png" alt="快樂工作"></a>
+      <a class="navbar-brand" href="../"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
     </div>
     <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
       <!-- <div class="navbar-search">
@@ -138,7 +138,7 @@
 
   <div class="form-group">
     <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
+      <span class="input-group-addon"><i class="fa fa-user"></i></span>
       <div class="input-icon right">
         <i class="fa"></i>
         <%= f.text_field :first_name, class: "form-control", placeholder: "姓" %>
@@ -148,10 +148,10 @@
 
   <div class="form-group">
     <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
+      <span class="input-group-addon"><i class="fa fa-user"></i></span>
       <div class="input-icon right">
         <i class="fa"></i>
-        <%= f.text_field :last_name, class: "form-control", placeholder: "名" %>
+        <%= f.text_field :last_name, class: "form-control", placeholder: "名字" %>
       </div>
     </div>
   </div>
@@ -161,7 +161,7 @@
       <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
       <div class="input-icon right">
         <i class="fa"></i>
-        <%= f.email_field :email, class: "form-control", placeholder: "Email"%>
+        <%= f.email_field :email, class: "form-control", placeholder: "電子郵件"%>
       </div>
     </div>
   </div>
@@ -186,7 +186,7 @@
       <div class="input-icon right">
         <i class="fa"></i>
         <!-- <input type="text" class="form-control" name="username" placeholder="使用者帳號" data-isEmpty="請輸入帳號" data-isError="帳號長度不足" data-isExists="帳戶名稱已經有人使用"> -->
-        <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號", "data-isEmpty" => "請輸入帳號", "data-isError" => "帳號長度不足", "data-isExists" => "帳戶名稱已經有人使用"%>
+        <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號", "data-isEmpty" => "請使用字母數字，做為您的使用者帳號", "data-isError" => "帳號長度不足六個字元", "data-isExists" => "帳戶名稱已經有人使用"%>
         <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
       </div>
     </div>
@@ -198,7 +198,7 @@
       <div class="input-icon right">
         <i class="fa"></i>
         <!-- <input type="password" class="form-control" name="password" placeholder="設定密碼" data-isEmpty="請輸入密碼" data-isError="密碼長度不足"> -->
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "設定密碼", data: {isEmpty: "請輸入密碼", isError: "密碼長度不足"} %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "設定密碼", data: {isEmpty: "密碼至少要有六個字元，不包含*/!~等特殊符號", isError: "密碼至少要有六個字元，不包含*/!~等特殊符號"} %>
       </div>
     </div>
   </div>
@@ -251,7 +251,7 @@
     <div><%= f.submit "我要註冊", class: "btn" %></div>
   </div>
 
-  <p class="rule">完成註冊代表您同意本網站的<a data-toggle="modal" href="#rule">使用條約</a>及隱私權條款。</p>
+  <p class="rule">完成註冊代表您同意本網站的<a data-toggle="modal" href="#rule">使用條約</a>及<a data-toggle="modal" href="#rule">隱私權條款</a>。</p>
 
   <% end %>
   <!-- END FORM -->
@@ -269,6 +269,8 @@
     <%= link_to "隱私條款", index_rule_path %>
     <span class="bar">|</span>
     <%= link_to "使用條款", index_rule_path %>
+    <span class="bar">|</span>
+    <%= link_to "聯絡客服", index_contact_path %>
   </ul>
 </div>
 

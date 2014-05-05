@@ -71,7 +71,7 @@
         <div class="page-content">
             <!-- BEGIN TITLE -->
             <h1 class="title">認證完成，歡迎您 <span class="white-space-nowrap"><span class="point"><%= current_user.first_name + current_user.last_name %></span>！</span></h1>
-            <p class="subtitle">請繼續完成您的自由工作者帳戶設定</p>
+            <p class="subtitle">請繼續完成您的遠距工作者帳戶設定</p>
             <!-- END TITLE -->
             <!-- BEGIN MAIN CONTENT -->
             <div class="main-content">
@@ -120,6 +120,8 @@
                 <%= link_to "隱私條款", index_rule_path %>
                 <span class="bar">|</span>
                 <%= link_to "使用條款", index_rule_path %>
+                <span class="bar">|</span>
+                <%= link_to "聯絡客服", index_contact_path %>
             </ul>
         </div>
         <!-- END FOOTER -->
