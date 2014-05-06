@@ -153,12 +153,12 @@
                     <p class="social-text">使用OPEN ID快速註冊</p>
                     <ul class="social-icons">
                         <li>
-                            <a class="facebook" data-original-title="facebook" href="#">
-                            </a>
+                            <!-- <a class="facebook" data-original-title="facebook" href="#"></a> -->
+                            <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "facebook", data:{original:{title:"facebook"}} %>
                         </li>
                         <li>
-                            <a class="googleplus" data-original-title="Goole Plus" href="#">
-                            </a>
+                            <!-- <a class="googleplus" data-original-title="Goole Plus" href="#"></a> -->
+                            <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
                         </li>
                         <li>
                             <a class="yahoo" data-original-title="Yahoo!" href="#">

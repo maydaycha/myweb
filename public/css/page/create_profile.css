@@ -155,7 +155,9 @@ Form wizard
   }
 }
 
-
+.ac_results {
+  width: auto !important;
+}
 
 .divcss5{
   /*border:1px solid #000;*/

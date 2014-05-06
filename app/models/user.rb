@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :user_experiences
   has_many :user_favorites
   has_many :user_certifications
+  has_many :user_portfolios
 
   def self.has_email?(email)
     self.where(:email => email).limit(1).size > 0

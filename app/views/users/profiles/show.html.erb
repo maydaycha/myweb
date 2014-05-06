@@ -551,9 +551,21 @@
                             <div class="caption">
                                 專業類別
                             </div>
-                            <div class="tools">
+                            <!-- <div class="tools">
                                 <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet2">
                                     <i class="fa fa-pencil-square-o"></i>編輯
+                                </a>
+                                <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#education-modal">
+                                    <i class="fa fa-floppy-o"></i>
+                                </a>
+                            </div> -->
+
+                            <div class="tools">
+                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet2">
+                                    <i class="fa fa-pencil-square-o"></i> 編輯
+                                </a>
+                                <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#experience-modal">
+                                    <i class="fa fa-plus"></i>
                                 </a>
                                 <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet2">
                                     <i class="fa fa-floppy-o"></i>
@@ -599,6 +611,44 @@
                                     </div>
                                     <div class="pull-right" style="margin:20px 16px 0 0;">
                                         <button onclick="update_category()"  class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet2">儲存</button>
+                                    </div>
+                                    <div class="modal fade" id="experience-modal" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">新增專業類別</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <select name="mainClass" class="edit form-control" id="main_class3">
+                                                            <% t(:main_skill_category).each_with_index do |e, index| %>
+                                                            <option value="<%= index %>"><%= e['name'] %></option>
+                                                            <% end %>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-10">
+                                                            <p class="form-control-static view" id="sub_category3"></p>
+                                                            <div class="edit">
+                                                                <select name="subClass" id="subClass_select3" class="form-control select2" multiple>
+                                                                    <option selected>tets</option>
+                                                                    <option selected>12</option>
+                                                                    <option>ds</option>
+                                                                    <option>qe</option>
+                                                                    <option>fs</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" id="btn-addExperience">新增</button>
+                                                    <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
                                     </div>
                                 </div>
                                 <% end %>
@@ -766,7 +816,7 @@
                                 <% end %>
                             </table>
                             <div class="text-right">
-                                <button onclick="update_experience()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet5">儲存</button>
+                                <button onclick="update_education()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet5">儲存</button>
                                 <button class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet5">取消</button>
                             </div>
                             <% else %>
@@ -821,7 +871,7 @@
                             </div>
                             <div class="tools">
                                 <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet6">
-                                    <i class="fa fa-pencil-square-o"></i>編輯
+                                    <i class="fa fa-pencil-square-o"></i> 編輯
                                 </a>
                                 <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#works-modal">
                                     <i class="fa fa-plus"></i>
@@ -830,7 +880,7 @@
                                     <i class="fa fa-floppy-o"></i>
                                 </a>
                             </div>
-                            <div class="modal fade" id="works-modal" tabindex="-1" role="education-modal" aria-hidden="true">
+                            <div class="modal fade" id="works-modal" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -848,7 +898,6 @@
                                                 <form action="plugins/dropzone/upload.php" class="dropzone dz-clickable" id="addWorks-file">
                                                     <div class="dz-default dz-message"><span>上傳檔案</span></div>
                                                 </form>
-
                                                 <p class="help-block">上傳檔案/文件</p>
                                             </div>
                                             <div class="form-group">
@@ -856,30 +905,17 @@
                                                 <p class="help-block">上傳縮圖</p>
                                             </div>
                                             <div class="form-group">
-                                                <select name="mainClass" class="form-control">
-                                                    <option selected>主類別</option>
-                                                    <option>IT、軟體</option>
-                                                    <option>翻譯、寫作</option>
-                                                    <option>設計、創意服務</option>
-                                                    <option>行銷、業務</option>
-                                                    <option>行政、客戶服務</option>
-                                                    <option>商業、會計、法務</option>
-                                                    <option>工程、科學</option>
-                                                    <option>專業諮商</option>
+                                                <select name="mainClass" class="form-control", id="work_main_class">
+                                                    <option value="-1" selected>主類別</option>
+                                                    <% t(:main_skill_category).each_with_index do |e, index| %>
+                                                    <option value="<%= index %>"><%= e['name'] %></option>
+                                                    <% end %>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select name="subClass" class="form-control select2" >
-                                                    <option selected>子類別</option>
-                                                    <option>社群網路經營</option>
-                                                    <option>搜尋引擎最佳化</option>
-                                                    <option>公共關係經營</option>
-                                                    <option>電子郵件行銷</option>
-                                                    <option>電話行銷</option>
+                                                <select name="subClass" class="form-control select2" id="work_subClass_select2">
+                                                    <option value="-1" selected>子類別</option>
                                                 </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" name="organization" class="form-control" placeholder="作品網址">
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
@@ -890,11 +926,11 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input id="addWorks-skill-tags" type="text" class="form-control tags" placeholder="技能" value=""/>
+                                                <input id="addWorks-skill-tags" name="skill" type="text" class="form-control tags" placeholder="技能" value=""/>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" id="btn-addEducation">新增</button>
+                                            <button type="button" class="btn btn-primary" id="btn-addWorks">新增</button>
                                             <button type="button" class="btn default" data-dismiss="modal">關閉</button>
                                             <p class="help-block">請確保您有此作品的著作權</p>
                                         </div>
@@ -905,11 +941,63 @@
                             </div>
                         </div>
                         <div class="portlet-body">
-                            <form action="#" id="contact-form1" class="form-horizontal" role="form">
-                                尚未新增作品集
-                            </form>
-                            <div class=" text-right">
-                             <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
+                            <div class="row profile" name="works_section">
+                             <div class="col-md-5">
+                                 <div class="row">
+                                     <div class="col-sm-4 title"><h4>作品名稱</h4><p>2014/06/30</p></div>
+                                     <div class="col-sm-8 text"><p style="font-size:1.2em;">行銷業務/社群網站經營</p><p class="form-control-static">技能一,技能二,技能三</p></div>
+                                 </div>
+                                 <hr>
+                                 <div><p>(作品描述)不注線月馬裡元看以有戰目。馬獨行放了；新也時笑，做政夫文水一中處一能自回待在下新子</p></div>
+                             </div>
+                             <div class="col-md-7">
+                                 <div class="row">
+                                     <div class="col-sm-6"><img class="img-responsive" src="/img/class/class_6.jpg" alt="img"></div>
+                                     <div class="col-sm-6"><img class="img-responsive"  src="/img/class/class_5.jpg" alt="img"></div>
+                                 </div>
+                             </div>
+                         </div>
+                         <hr>
+                         <div class="row profile" name="works_section">
+                             <div class="col-md-5">
+                                 <div class="row">
+                                     <div class="col-sm-4 title"><h4>作品名稱</h4><p>2014/06/30</p></div>
+                                     <div class="col-sm-8 text"><p style="font-size:1.2em;">行銷業務/社群網站經營</p><p class="form-control-static">技能一,技能二,技能三</p></div>
+                                 </div>
+                                 <hr>
+                                 <div><p>(作品描述)不注線月馬裡元看以有戰目。馬獨行放了；新也時笑，做政夫文水一中處一能自回待在下新子</p></div>
+                             </div>
+                             <div class="col-md-7">
+                                 <div class="row">
+                                     <div class="col-sm-6"><img class="img-responsive" src="/img/class/class_1.jpg" alt="img"></div>
+                                     <div class="col-sm-6"><img class="img-responsive"  src="/img/class/class_2.jpg" alt="img"></div>
+                                 </div>
+                             </div>
+                         </div>
+                         <% current_user.user_portfolios.each do |e|%>
+                         <hr>
+                         <div class="row profile" name="works_section">
+                             <div class="col-md-5">
+                                 <div class="row">
+                                     <div class="col-sm-4 title"><h4><%= e.name %></h4><p><%= e.date %></p></div>
+                                     <div class="col-sm-8 text"><p style="font-size:1.2em;"><%= t(:main_skill_category)[e.main_skill_id.to_i]['name'] %>/<%= t(:sub_skill_category)[e.main_skill_id.to_i][e.sub_skill_id.to_i]['name'] %></p><p class="form-control-static"><%= e.skill %></p></div>
+                                 </div>
+                                 <hr>
+                                 <div><p><%= e.description %></p></div>
+                             </div>
+                             <div class="col-md-7">
+                                 <div class="row">
+                                     <div class="col-sm-6"><img class="img-responsive" src="/img/class/class_1.jpg" alt="img"></div>
+                                     <div class="col-sm-6"><img class="img-responsive"  src="/img/class/class_2.jpg" alt="img"></div>
+                                 </div>
+                             </div>
+                         </div>
+                         <% end %>
+
+
+
+                         <div class="text-right">
+                             <button onClick="update_portfolio()"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
                          </div>
                      </div>
                  </div>
@@ -935,18 +1023,19 @@
                             <tr>
                                 <th>證照</th>
                                 <th>來源</th>
-                                <th>連結</th>
                                 <th>獲得時間</th>
+                                <th>描述</th>
+
                                 <th class="edit">刪除</th>
                             </tr>
                             <% current_user.user_certifications.each do |e| %>
-                                <tr>
-                                    <td><%= e.name %></td>
-                                    <td><%= e.source %></td>
-                                    <td><%= e.link %></td>
-                                    <td><%= e.get_time %></td>
-                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: certificate_delete_list.push({id:<%= e.id %>})">刪除</button></td>
-                                </tr>
+                            <tr>
+                                <td><%= e.name %></td>
+                                <td><%= e.source %></td>
+                                <td><%= e.get_time %></td>
+                                <td><%= e.description %></td>
+                                <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: certificate_delete_list.push({id:<%= e.id %>})">刪除</button></td>
+                            </tr>
                             <% end %>
                         </table>
                         <div class=" text-right">
@@ -961,13 +1050,10 @@
                                     <div class="modal-body">
 
                                         <div class="form-group">
-                                            <input type="text" name="certificate" class="form-control" placeholder="證照名稱">
+                                            <input type="text" name="certificate" class="form-control" placeholder="證照">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" name="cer-source" class="form-control" placeholder="證照來源">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="cer-link" class="form-control" placeholder="證照連結">
+                                            <input type="text" name="cer-source" class="form-control" placeholder="來源">
                                         </div>
                                         <div class="form-group">
                                             <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
@@ -978,7 +1064,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <textarea name="work-description" class="form-control" rows="5" placeholder="說明"></textarea>
+                                            <textarea name="work-description" class="form-control" rows="5" placeholder="描述"></textarea>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -1073,6 +1159,8 @@
     var experience_delete_list = [];
     var certificate_add_list = [];
     var certificate_delete_list = [];
+    var works_add_list = [];
+    var works_delete_list = [];
 </script>
 
 <script src="/plugins/jquery-1.7.2.js"></script>
@@ -1127,7 +1215,44 @@
             console.log("error");
         }
     });
-    })
+    });
+
+
+    $("#work_main_class").change( function() {
+        console.log($(this).val());
+
+        if ($(this).val() < 0) {
+            $("#work_subClass_select2 option").remove();
+            $("#work_subClass_select2").append($("<option></option>").attr("value", -1).text("子類別"));
+            return;
+        }
+
+        var request_obj = {
+            request: "get_sub_category",
+            main_category_id: $(this).val()
+        };
+
+        $.ajax({
+            url: "/users/profiles/ajax_updae",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
+                console.log(data);
+                $("#work_subClass_select2 option").remove();
+                var select = $("#work_subClass_select2");
+                for(var key in data) {
+                   select.append($("<option></option>").attr("value", key).text(data[key].name));
+               }
+           },
+           error: function(data) {
+            console.log("error");
+        }
+    });
+    });
+
+
 });
 
 </script>
@@ -1350,7 +1475,28 @@ var update_education = function() {
     });
 }
 
-var update_protfolio = function() {
+var update_portfolio = function() {
+    var request_obj = {
+        request: "update_portfolio",
+        works_add_list: works_add_list,
+        works_delete_list: works_delete_list
+    };
+    console.log(request_obj);
+    $.ajax({
+        url: "/users/profiles/ajax_updae",
+        type: "post",
+        dataType: "json",
+        data: JSON.stringify(request_obj),
+        contentType: 'application/json',
+        success: function(data) {
+            console.log(data);
+            works_add_list = [];
+            works_delete_list = [];
+        },
+        error: function(data) {
+            console.log("error");
+        }
+    });
 
 }
 

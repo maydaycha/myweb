@@ -183,8 +183,8 @@ var initAddCertificate = function(){
 		var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
 		td1.append($('#certificate-modal input[name=certificate]').val());
 		td2.append($('#certificate-modal input[name=cer-source]').val());
-		td3.append($('#certificate-modal input[name=cer-link]').val());
-		td4.append($('#certificate-modal input[name=start]').val());
+		td3.append($('#certificate-modal input[name=start]').val());
+		td4.append($('#certificate-modal input[name=work-description]').val());
 		tr.append(td1);
 		tr.append(td2);
 		tr.append(td3);
@@ -193,7 +193,6 @@ var initAddCertificate = function(){
 		var obj = {
 			name: $('#certificate-modal input[name=certificate]').val(),
 			source: $('#certificate-modal input[name=cer-source]').val(),
-			link: $('#certificate-modal input[name=cer-link]').val(),
 			get_time: $('#certificate-modal input[name=start]').val(),
 			description: $('#certificate-modal textarea[name=work-description]').val()
 		};
@@ -202,7 +201,6 @@ var initAddCertificate = function(){
 		$('#certificate-table').append(tr);
 		$('#certificate-modal input[name=certificate]').val('');
 		$('#certificate-modal input[name=cer-source]').val('');
-		$('#certificate-modal input[name=cer-link]').val('');
 		$('#certificate-modal input[name=start]').val('');
 		$('#certificate-modal textarea[name=work-description]').val('');
 		initCertificateTable();
@@ -211,7 +209,34 @@ var initAddCertificate = function(){
 }
 
 
+var initAddWorks = function() {
+	$("#btn-addWorks").on('click', function() {
+		var obj = {
+			name: $("#works-modal input[name=title]").val(),
+			description: $("#works-modal textarea[name=description]").val(),
+			main_skill_id: $("#work_main_class").val(),
+			sub_skill_id: $("#work_subClass_select2").val(),
+			date: $("#works-modal input[name=start]").val(),
+			skill: $("#works-modal input[name=skill]").val()
+		}
+		works_add_list.push(obj);
+		var main_class_text = $("#work_main_class option:selected").text();
+		var sub_class_text = $("#work_subClass_select2 option:selected").text();
+		console.log(works_add_list);
 
+		$("#works-modal input[name=title]").val('');
+		$("#works-modal textarea[name=description]").val('');
+		$("#work_main_class").val('');
+		$("#work_subClass_select2").val('');
+		$("#works-modal input[name=start]").val('');
+		$("#works-modal input[name=skill]").val('');
+		$("#works-modal").modal('toggle');
+
+		// 圖片目前寫死
+		var content ="<hr><div class='row profile'> <div class='col-md-5'> <div class='row'> <div class='col-sm-4 title'><h4>"+obj.title+"</h4><p>"+obj.date+"</p></div> <div class='col-sm-8 text'><p style='font-size:1.2em;'>"+main_class_text+"/"+sub_class_text+"</p><p class='form-control-static'>"+obj.skill+"</p></div> </div> <hr> <div><p>"+obj.description+"</p></div></div><div class='col-md-7'><div class='row'><div class='col-sm-6'><img class='img-responsive' src='/img/class/class_6.jpg' alt='img'></div><div class='col-sm-6'><img class='img-responsive'  src='/img/class/class_5.jpg' alt='img'></div></div></div></div>";
+		$(".row.profile:last").after(content);
+	});
+}
 
 
 
@@ -233,6 +258,7 @@ return {
 		initAddEducation();
 		initCertificateTable();
 		initAddCertificate();
+		initAddWorks();
 	}
 }
 }();

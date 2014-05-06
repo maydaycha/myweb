@@ -88,9 +88,14 @@ class Users::ProfilesController < ApplicationController
       render json: current_user.user_skill_categories
 
     when "update_certification"
-      params[:certificate_add_list].each{ |e| current_user.user_certifications.create!(name: e[:name], source: e[:source], link: e[:link], get_time: e[:get_time], description: e[:description]) } unless params[:certificate_add_list].nil?
+      params[:certificate_add_list].each{ |e| current_user.user_certifications.create!(name: e[:name], source: e[:source], get_time: e[:get_time], description: e[:description]) } unless params[:certificate_add_list].nil?
       params[:certificate_delete_list].each{ |e| UserCertification.destroy(e[:id]) } unless params[:certificate_delete_list].nil?
       render json: current_user.user_certifications
+
+    when 'update_portfolio'
+      params[:works_add_list].each{ |e| current_user.user_portfolios.create!(name: e[:name], description: e[:description], date: e[:date], main_skill_id: e[:main_skill_id], sub_skill_id: e[:sub_skill_id], skill: e[:skill]) } unless params[:works_add_list].nil?
+      params[:works_delete_list].each{ |e| UserPortfolio.destroy(e[:id]) } unless params[:works_delete_list].nil?
+      render json: current_user.user_portfolios
 
     when "get_sub_category"
       render json: t(:sub_skill_category)[params[:main_category_id].to_i]

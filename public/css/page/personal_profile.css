@@ -115,6 +115,15 @@ ul.subtitle .point {
   }
 
 
+/*編輯profile*/
+.profile{ margin-top:30px; margin:15px 0 15px 0; padding:15px 0 15px 0; background-color:hsla(185,34%,79%,0.08);}
+
+.profile .title{ line-height:60%;}
+
+.profile .text{line-height:95%; padding-top:12px;}
+
+
+
 
 .ac_results {
   width: auto !important;

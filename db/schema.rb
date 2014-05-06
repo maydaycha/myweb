@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505183432) do
+ActiveRecord::Schema.define(version: 20140506142655) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -100,7 +100,6 @@ ActiveRecord::Schema.define(version: 20140505183432) do
   create_table "user_certifications", force: true do |t|
     t.string   "name"
     t.string   "source"
-    t.string   "link"
     t.string   "get_time"
     t.string   "description", limit: 1000
     t.integer  "user_id"
@@ -148,14 +147,15 @@ ActiveRecord::Schema.define(version: 20140505183432) do
   create_table "user_portfolios", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "path"
-    t.string   "url"
-    t.date     "complete_time"
-    t.integer  "user_skill_category_id"
-    t.integer  "user_skill_id"
+    t.date     "date"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "main_skill_id"
+    t.integer  "sub_skill_id"
+    t.binary   "picture1"
+    t.binary   "picture2"
+    t.string   "skill"
   end
 
   create_table "user_skill_categories", force: true do |t|
