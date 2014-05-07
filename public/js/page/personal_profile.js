@@ -20,8 +20,15 @@ var PersonalProfile = function(){
 			autocomplete_url:'/skills/autocomplete'
 		});
 	}
+
+	var initAddWorksSkillTags = function(){
+		$('#addWorks-skill-tags').tagsInput({
+			width: 'auto',
+			autocomplete_url:'/skills/autocomplete'
+		});
+	}
 	var initSubClassSelect2 = function(){
-		$('#subClass_select2').select2({
+		$('.subClass_select2').select2({
 			placeholder: "Select a State",
 			allowClear: true
 		});
@@ -81,15 +88,20 @@ var PersonalProfile = function(){
 			autoclose: true
 		});
 		$('#btn-addExperience').on('click',function(){
+			if($('#experience-modal input[name=start]').val() == "") {
+				alert('請填寫工作開始時間');
+				return;
+			} else if($('#experience-modal input[name=organization]').val() == "" && $('#experience-modal input[name=office]').val() == ""){
+				alert('公司 職位/職責 需填選至少一個');
+				return;
+			}
+
 			var tr = $('<tr></tr>');
 			var td1 = $('<td></td>');
 			var td2 = $('<td></td>');
 			var td3 = $('<td></td>');
 			var td4 = $('<td></td>');
 			var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
-			if($('#experience-modal input[name=start]').val() == "") {
-				return;
-			}
 			td1.append($('#experience-modal input[name=start]').val());
 			td2.append($('#experience-modal input[name=end]').val());
 			td3.append($('#experience-modal input[name=organization]').val());
@@ -127,15 +139,24 @@ var initEducationTable = function(){
 }
 var initAddEducation = function(){
 	$('#btn-addEducation').on('click',function(){
+		if($('#education-modal input[name=start]').val() == "") {
+			alert('請填寫教育開始時間');
+			return;
+		} else if($('#education-modal input[name=organization]').val() == "") {
+			alert('請填寫學校');
+			return;
+		} else if($('#education-modal input[name=office]').val() == "") {
+			alert('請填寫系所/專長');
+			return;
+		}
+
 		var tr = $('<tr></tr>');
 		var td1 = $('<td></td>');
-		var td2 = $('<td></td>');
+		var td2	 = $('<td></td>');
 		var td3 = $('<td></td>');
 		var td4 = $('<td></td>');
 		var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
-		if($('#education-modal input[name=start]').val() == "") {
-			return;
-		}
+
 		td1.append($('#education-modal input[name=start]').val());
 		td2.append($('#education-modal input[name=end]').val());
 		td3.append($('#education-modal input[name=organization]').val());
@@ -174,7 +195,10 @@ var initCertificateTable = function(){
 }
 var initAddCertificate = function(){
 	$('#btn-addCertificate').on('click', function(){
-		console.log("clicj");
+		if($('#certificate-modal input[name=certificate]').val() == "") {
+			alert('請填寫證照名稱');
+			return;
+		}
 		var tr = $('<tr></tr>');
 		var td1 = $('<td></td>');
 		var td2 = $('<td></td>');
@@ -211,6 +235,20 @@ var initAddCertificate = function(){
 
 var initAddWorks = function() {
 	$("#btn-addWorks").on('click', function() {
+		console.log($('#works-modal input[name=subClass]').val());
+		if($('#works-modal input[name=title]').val() == "") {
+			alert('請填寫作品名稱');
+			return;
+		} else if($('#works-modal input[name=description]').val() == "") {
+			alert('請填寫作品描述');
+			return;
+		} else if($('#works-modal select[name=mainClass]').val() == -1) {
+			alert('請填寫主類別');
+			return;
+		}  else if($('#works-modal select[name=subClass]').val() == -1) {
+			alert('請填寫子類別');
+			return;
+		}
 		var obj = {
 			name: $("#works-modal input[name=title]").val(),
 			description: $("#works-modal textarea[name=description]").val(),
@@ -244,6 +282,7 @@ return {
 	init:function(){
 		initEditSaveBtnTip();
 		initSkillTags();
+		initAddWorksSkillTags();
 		initSubClassSelect2();
 		initSubClassSelect3();
 		initSubClassSelect4();

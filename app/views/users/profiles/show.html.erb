@@ -139,7 +139,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人圖像</label>
                                         <div class="col-md-10">
-                                            <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id) %>
+                                            <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id)%>
                                             <!-- <img src="<%= (current_user.image != nil) ? current_user.image :  '/img/staff.png' %>" class="avatar" id="blah1"> -->
                                             <input type="file" name="image" class="form-control edit" id="profile_img1" onchange="readURL(this)">
                                         </div>
@@ -516,7 +516,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人圖像</label>
                                         <div class="col-md-10 divcss5">
-                                            <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id), id: "blah1"%>
+                                            <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id), id: "blah1" %>
                                             <input type="file" name="image" class="form-control edit" id="profile_img2" onchange="readURL(this)">
                                         </div>
                                     </div>
@@ -540,7 +540,7 @@
                                      </div>
                                      <div class="pull-right" style="margin:20px 16px 0 0;">
                                         <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet1">儲存</button>
-                                        <button class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1">取消</button>
+                                        <button onclick="cancel_basic_info()" class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet1">取消</button>
                                     </div>
                                 </div>
                             </form>
@@ -564,94 +564,74 @@
                                 <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet2">
                                     <i class="fa fa-pencil-square-o"></i> 編輯
                                 </a>
-                                <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#experience-modal">
+                                <a onclick="addCategoryList()" class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#category-modal">
                                     <i class="fa fa-plus"></i>
                                 </a>
-                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet2">
+                                <a href="javascript:;" onclick="update_category()" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet2">
                                     <i class="fa fa-floppy-o"></i>
                                 </a>
                             </div>
                         </div>
+
                         <div class="portlet-body">
                             <form action="#" id="contact-form1" class="form-horizontal" role="form">
-                                <% @skill_main_categoies.each do |s| %>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">主類別</label>
-                                    <div class="col-md-10">
-                                        <p class="form-control-static view" id="main_category"><%= t(:main_skill_category)[s.main_skill_id]['name'] %></p>
+                                <span id="category-list">
+                                    <% @skill_category_first = false %>
+                                    <% @skill_main_categoies.each do |s| %>
+                                    <span class="category_delete_container">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">主類別</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static view main_category"><%= t(:main_skill_category)[s.main_skill_id]['name'] %></p>
 
-                                        <select name="mainClass" class="edit form-control" id="main_class">
-                                            <% t(:main_skill_category).each_with_index do |e, index| %>
-                                            <% if current_user.user_skill_categories.first.main_skill_id == index %>
-                                            <option value="<%= index %>" selected><%= e['name'] %></option>
-                                            <% else %>
-                                            <option value="<%= index %>"><%= e['name'] %></option>
-                                            <% end %>
-                                            <% end %>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">子類別</label>
-                                    <div class="col-md-10">
-                                        <p class="form-control-static view" id="sub_category">
-                                            <%= current_user.user_skill_categories.where(:main_skill_id => s.main_skill_id).map { |f| t(:sub_skill_category)[s.main_skill_id.to_i][f.sub_skill_id.to_i]['name'] }.join ', ' %>
-                                        </p>
-                                        <div class="edit">
-                                            <select name="subClass" id="subClass_select2" class="form-control select2" multiple>
-                                                <% t(:sub_skill_category)[s.main_skill_id].each_with_index do |x, i|%>
-                                                <% if current_user.user_skill_categories.map{ |m| m.sub_skill_id.to_i }.include? i %>
-                                                <option value="<%= i %>" selected><%= x['name'] %></option>
-                                                <% else%>
-                                                <option value="<%= i %>"><%= x['name'] %></option>
-                                                <% end %>
-                                                <% end %>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="pull-right" style="margin:20px 16px 0 0;">
-                                        <button onclick="update_category()"  class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet2">儲存</button>
-                                    </div>
-                                    <div class="modal fade" id="experience-modal" tabindex="-1" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">新增專業類別</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <select name="mainClass" class="edit form-control" id="main_class3">
-                                                            <% t(:main_skill_category).each_with_index do |e, index| %>
-                                                            <option value="<%= index %>"><%= e['name'] %></option>
-                                                            <% end %>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-md-10">
-                                                            <p class="form-control-static view" id="sub_category3"></p>
-                                                            <div class="edit">
-                                                                <select name="subClass" id="subClass_select3" class="form-control select2" multiple>
-                                                                    <option selected>tets</option>
-                                                                    <option selected>12</option>
-                                                                    <option>ds</option>
-                                                                    <option>qe</option>
-                                                                    <option>fs</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary" id="btn-addExperience">新增</button>
-                                                    <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                                                <div class="edit" class="input-group"> 
+                                                    <select name="mainClass" class="form-control main_class">
+                                                        <% t(:main_skill_category).each_with_index do |e, index| %>
+                                                        <% if s.main_skill_id == index %>
+                                                        <option value="<%= index %>" selected><%= e['name'] %></option>
+                                                        <% else %>
+                                                        <option value="<%= index %>"><%= e['name'] %></option>
+                                                        <% end %>
+                                                        <% end %>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <!-- /.modal-content -->
+                                            <% if @skill_category_first %>
+                                            <div class="col-md-1">
+                                                <div class="edit">
+                                                    <button type="button" class="btn btn-danger btn-xs btn-delete"onclick="$(this).parent().parent().parent().parent().remove();">刪除</button>
+                                                </div>
+                                            </div>
+                                            <% end %>
+                                            <% @skill_category_first = true %>
                                         </div>
-                                        <!-- /.modal-dialog -->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">子類別</label>
+                                            <div class="col-md-10">
+                                                <p class="form-control-static view sub_category">
+                                                    <%= current_user.user_skill_categories.where(:main_skill_id => s.main_skill_id).map { |f| t(:sub_skill_category)[s.main_skill_id.to_i][f.sub_skill_id.to_i]['name'] }.join ', ' %>
+                                                </p>
+                                                <div class="edit">
+                                                    <select name="subClass" class="form-control select2 subClass_select2" multiple>
+                                                        <% t(:sub_skill_category)[s.main_skill_id].each_with_index do |x, i|%>
+                                                        <% if current_user.user_skill_categories.map{ |m| "#{m.main_skill_id.to_i} #{m.sub_skill_id.to_i}" }.include? "#{s.main_skill_id} #{i}" %>
+                                                        <option value="<%= i %>" selected><%= x['name'] %></option>
+                                                        <% else%>
+                                                        <option value="<%= i %>"><%= x['name'] %></option>
+                                                        <% end %>
+                                                        <% end %>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <% end %>
+                                </span>
+                                <div class="form-group">
+                                    <div class="pull-right" style="margin:0 16px 0 0;">
+                                        <button onclick="update_category()"  class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet2">儲存</button>
                                     </div>
                                 </div>
-                                <% end %>
                             </form>
                         </div>
                     </div>
@@ -698,7 +678,7 @@
                                 <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#experience-modal">
                                     <i class="fa fa-plus"></i>
                                 </a>
-                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet4">
+                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet4" onclick="update_experience()">
                                     <i class="fa fa-floppy-o"></i>
                                 </a>
                             </div>
@@ -928,6 +908,8 @@
                                             <div class="form-group">
                                                 <input id="addWorks-skill-tags" name="skill" type="text" class="form-control tags" placeholder="技能" value=""/>
                                             </div>
+
+                                            
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" id="btn-addWorks">新增</button>
@@ -1188,34 +1170,7 @@
         $(".control_sub_calss"+i).hide();
     }
 
-    $("#main_class").change(function() {
-        console.log($(this).val());
-        var request_obj = {
-            request: "get_sub_category",
-            main_category_id: $(this).val()
-        };
-
-        $(".select2-search-choice").remove();
-
-        $.ajax({
-            url: "/users/profiles/ajax_updae",
-            type: "post",
-            dataType: "json",
-            data: JSON.stringify(request_obj),
-            contentType: 'application/json',
-            success: function(data) {
-                console.log(data);
-                $("#subClass_select2 option").remove();
-                var select = $("#subClass_select2");
-                for(var key in data) {
-                   select.append($("<option></option>").attr("value", key).text(data[key].name));
-               }
-           },
-           error: function(data) {
-            console.log("error");
-        }
-    });
-    });
+    $(".main_class").change(main_class_change);
 
 
     $("#work_main_class").change( function() {
@@ -1292,7 +1247,7 @@ var readURL = function(input) {
             var img = $("#"+input.id).prev();
             console.log(test);
             console.log(img[0].id);
-            $("#"+img[0].id).attr('src', e.target.result).width(150).height(200);
+            $("#"+img[0].id).attr('src', e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
     }
@@ -1347,6 +1302,93 @@ var update_basic_info = function(form_num) {
 
 }
 
+var addCategoryList = function(){
+    if ($('.category_delete_container').size() > 3)
+        return 0;
+    
+    var span = $('<span class="category_delete_container"><span>');
+    var div1 = $('<div class="form-group"><label class="col-md-2 control-label">主類別</label><div>');
+    var div1_div1 = $('<div class="col-md-9"></div>')
+    var p = $('<p class="form-control-static view main_category"><%= t(:main_skill_category)[0]["name"] %></p>')
+    var div_main = $('<div class="edit" class="input-group"></div>');
+    var main_select = $('<select name="mainClass" class="form-control main_class"><select>');
+    <% t(:main_skill_category).each_with_index do |e, index| %>
+        main_select.append('<option value="<%= index %>"><%= e['name'] %></option>');
+    <% end %>
+    div_main.append(main_select);
+    div1_div1.append(p);
+    div1_div1.append(div_main);
+    var div1_div2 = $('<div class="col-md-1"><div class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete"onclick="$(this).parent().parent().parent().parent().remove();">刪除</button></div></div>');
+    div1.append(div1_div1);
+    div1.append(div1_div2);
+
+    var div2 = $('<div class="form-group"><div>');
+    var div2_label = $('<label class="col-md-2 control-label">子類別</label>');
+    var div2_div = $('<div class="col-md-10"></div>');
+    var div2_p = $('<p class="form-control-static view sub_category"><%= t(:sub_skill_category)[0][0]['name'] %></p>');
+    var div2_sub = $('<div class="edit"><div>');
+    var sub_select = $('<select name="subClass" class="form-control select2 subClass_select2" multiple></select');
+
+    <% t(:sub_skill_category)[0].each_with_index do |x, i|%>
+        sub_select.append('<option value="<%= i %>"><%= x['name'] %></option>');
+    <% end %>
+
+    div2_sub.append(sub_select);
+    div2_div.append(div2_p);
+    div2_div.append(div2_sub);
+    div2.append(div2_label);
+    div2.append(div2_div);
+
+    span.append(div1);
+    span.append(div2);
+    
+    $('#category-list').append(span);
+
+    sub_select.select2({
+        placeholder: "Select a State",
+        allowClear: true
+    });
+
+    main_select.change(main_class_change);
+}
+
+var main_class_change = function(){
+    console.log('.main_class');
+    var parent = $(this).parent().parent().parent().parent();
+    var request_obj = {
+        request: "get_sub_category",
+        main_category_id: $(this).val()
+    };
+
+    console.log(parent);
+
+    $(parent).find(".select2-search-choice").remove();
+
+    $.ajax({
+        url: "/users/profiles/ajax_updae",
+        type: "post",
+        dataType: "json",
+        data: JSON.stringify(request_obj),
+        contentType: 'application/json',
+        success: function(data) {
+            console.log(data);
+            $(parent).find('select.subClass_select2 option').remove();
+            var select = $(parent).find('select.subClass_select2');
+            console.log(select);
+            for(var key in data) {
+               select.append($("<option></option>").attr("value", key).text(data[key].name));
+           }
+       },
+       error: function(data) {
+        console.log("error");
+        }
+    })
+}
+
+var cancel_basic_info = function(){
+    $('#blah1').attr("src", "<%= image_path url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id) %>");
+}
+
 var update_location = function() {
     var obj = {
         request: "update_location",
@@ -1374,14 +1416,32 @@ var update_location = function() {
 
 
 var update_category = function() {
-    var main_class = $("#contact-form1 select[name=mainClass]").val();
-    console.log(main_class);
-    console.log($("#contact-form1 select[id=subClass_select2]").val());
     var obj = {
         request: "update_category",
-        main_category: $("#contact-form1 select[name=mainClass]").val(),
-        sub_category: $("#contact-form1 select[id=subClass_select2]").val()
-    };
+        data: []
+    }
+    
+    $(".main_class").each(function( index ) {
+        var parent = $(this).parent().parent().parent().parent();
+        
+        obj.data.push({
+            main_category: $(this).val(),
+            sub_category: parent.find('select.subClass_select2').val()
+        });
+
+        var str = "";
+        parent.find('select.subClass_select2 option:selected').each(function () {
+            str += $(this).text() + ", ";
+            
+        });
+        str = str.substring(0, str.length - 2);
+
+        parent.find('.main_category').html($(this).find('option:selected').text())
+        parent.find('.sub_category').html(str);
+    });
+
+    console.log(obj);
+
     $.ajax({
         url: "/users/profiles/ajax_updae",
         type: "post",
@@ -1389,15 +1449,6 @@ var update_category = function() {
         data: obj,
         success: function(data) {
             console.log(data);
-            $('#main_category').html($("#main_class option:selected").text());
-            $('#sub_category').html($("#subClass_select2 option:selected").text());
-            var str = "";
-            $("#subClass_select2 option:selected").each(function () {
-                console.log($(this).text());
-                str += $(this).text() + ", ";
-            });
-            str = str.substring(0, str.length - 2);
-            $('#sub_category').html(str);
         },
         error: function(data) {
             console.log("error");

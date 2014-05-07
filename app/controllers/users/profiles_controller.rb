@@ -82,8 +82,18 @@ class Users::ProfilesController < ApplicationController
 
     when "update_category"
       current_user.user_skill_categories.destroy_all if not current_user.user_skill_categories.empty?
-      params[:sub_category].each do |e|
-        current_user.user_skill_categories.create!(main_skill_id: params[:main_category], sub_skill_id: e)
+
+      used = {}
+      params[:data].each do |index, item|
+        item[:sub_category].each do |e|
+          if !used[item[:main_category]]
+            used[item[:main_category]] = {}
+          end
+          if !used[item[:main_category]][e]
+            used[item[:main_category]][e] = true
+            current_user.user_skill_categories.create!(main_skill_id: item[:main_category], sub_skill_id: e)
+          end
+        end
       end
       render json: current_user.user_skill_categories
 
@@ -118,9 +128,14 @@ class Users::ProfilesController < ApplicationController
 
 
   def show_image
-    puts "test"
-    @user = User.find(params[:id])
-    send_data @user.picture, :type => 'image/png', :disposition => 'inline'
+    # @user = User.find(params[:id])
+
+    if current_user.picture == nil
+      puts "z"
+      render :text => open("public/img/staff.png", "rb").read
+    else
+      send_data current_user.picture, :type => 'image/png', :disposition => 'inline'
+    end
   end
 
 end
