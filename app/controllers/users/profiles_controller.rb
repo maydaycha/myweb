@@ -2,7 +2,7 @@ require 'open-uri'
 class Users::ProfilesController < ApplicationController
   before_action :authenticate_user!
 
-  protect_from_forgery except: [:ajax_upload_img, :ajax_updae, :get_sub_category]
+  protect_from_forgery except: [:ajax_upload_img, :ajax_updae, :get_sub_category, :upload_portfolio_picture]
 
   def index
   end
@@ -103,9 +103,22 @@ class Users::ProfilesController < ApplicationController
       render json: current_user.user_certifications
 
     when 'update_portfolio'
-      current_user.user_portfolios.create!(name: params[:name], description: params[:description], date: params[:date], main_skill_id: params[:main_skill_id], sub_skill_id: params[:sub_skill_id], skill: params[:skill], document: open(params[:document].tempfile).read)
+      new_portfolio_list = []
+      @p = current_user.user_portfolios.create! do |e|
+        e.name = params[:name]
+        e.description = params[:description]
+        e.date = params[:date]
+        e.main_skill_id = params[:main_skill_id]
+        e.sub_skill_id = params[:sub_skill_id]
+        e.skill = params[:skill]
+        e.document = open(params[:document].tempfile).read unless (params[:document].is_a? String)
+        e.picture1 = open(params[:file][0].tempfile).read if (params[:file].size > 0)
+        e.picture2 = open(params[:file][1].tempfile).read if (params[:file].size > 1)
+      end
+      new_portfolio_list << @p
+
       # params[:works_delete_list].each{ |e| UserPortfolio.destroy(e[:id]) } unless params[:works_delete_list].nil?
-      render json: current_user.user_portfolios
+      render json: new_portfolio_list
 
     when "get_sub_category"
       render json: t(:sub_skill_category)[params[:main_category_id].to_i]
@@ -121,15 +134,32 @@ class Users::ProfilesController < ApplicationController
     render json: @user
   end
 
+  def upload_portfolio_picture
+    render json: params
+  end
+
 
   def show_image
-    # @user = User.find(params[:id])
-
     if current_user.picture == nil
-      puts "z"
       render :text => open("public/img/staff.png", "rb").read
     else
       send_data current_user.picture, :type => 'image/png', :disposition => 'inline'
+    end
+  end
+
+  def show_portfolio_image1
+    if current_user.user_portfolios[params[:index].to_i].picture1 == nil
+      render :text => open("public/img/staff.png", "rb").read
+    else
+      send_data current_user.user_portfolios[params[:index].to_i].picture1, :type => 'image/png', :disposition => 'inline'
+    end
+  end
+
+  def show_portfolio_image2
+    if current_user.user_portfolios[params[:index].to_i].picture2 == nil
+      render :text => open("public/img/staff.png", "rb").read
+    else
+      send_data current_user.user_portfolios[params[:index].to_i].picture2, :type => 'image/png', :disposition => 'inline'
     end
   end
 

@@ -208,35 +208,35 @@ var initAddWorks = function() {
 			return;
 		}
 		var fd = new FormData();
-		fd.append('document', $("#works-modal input[name=thumbnail]")[0].files[0]);
-		fd.append('name', $("#works-modal input[name=title]").val());
-		fd.append('description', $("#works-modal textarea[name=description]").val());
-		fd.append('main_skill_id', $("#work_main_class").val());
-		fd.append('sub_skill_id', $("#work_subClass_select2").val());
-		fd.append('date', $("#works-modal input[name=start]").val());
-		fd.append('skill', $("#works-modal input[name=skill]").val());
-		fd.append('request', "update_portfolio");
+		// fd.append('document', $("#works-modal input[name=thumbnail]")[0].files[0]);
+		// fd.append('name', $("#works-modal input[name=title]").val());
+		// fd.append('description', $("#works-modal textarea[name=description]").val());
+		// fd.append('main_skill_id', $("#work_main_class").val());
+		// fd.append('sub_skill_id', $("#work_subClass_select2").val());
+		// fd.append('date', $("#works-modal input[name=start]").val());
+		// fd.append('skill', $("#works-modal input[name=skill]").val());
+		// fd.append('request', "update_portfolio");
 
-		// var obj = {
-		// 	name: $("#works-modal input[name=title]").val(),
-		// 	description: $("#works-modal textarea[name=description]").val(),
-		// 	main_skill_id: $("#work_main_class").val(),
-		// 	sub_skill_id: $("#work_subClass_select2").val(),
-		// 	date: $("#works-modal input[name=start]").val(),
-		// 	skill: $("#works-modal input[name=skill]").val(),
-		// 	document: fd
-		// }
-		works_add_list.push(fd);
+		// // var obj = {
+		// // 	name: $("#works-modal input[name=title]").val(),
+		// // 	description: $("#works-modal textarea[name=description]").val(),
+		// // 	main_skill_id: $("#work_main_class").val(),
+		// // 	sub_skill_id: $("#work_subClass_select2").val(),
+		// // 	date: $("#works-modal input[name=start]").val(),
+		// // 	skill: $("#works-modal input[name=skill]").val(),
+		// // 	document: fd
+		// // }
+		// works_add_list.push(fd);
 		var main_class_text = $("#work_main_class option:selected").text();
 		var sub_class_text = $("#work_subClass_select2 option:selected").text();
 		console.log(works_add_list);
 
-		$("#works-modal input[name=title]").val('');
-		$("#works-modal textarea[name=description]").val('');
-		$("#work_main_class").val('');
-		$("#work_subClass_select2").val('');
-		$("#works-modal input[name=start]").val('');
-		$("#works-modal input[name=skill]").val('');
+		// $("#works-modal input[name=title]").val('');
+		// $("#works-modal textarea[name=description]").val('');
+		// $("#work_main_class").val('');
+		// $("#work_subClass_select2").val('');
+		// $("#works-modal input[name=start]").val('');
+		// $("#works-modal input[name=skill]").val('');
 		$("#works-modal").modal('toggle');
 
 		// 圖片目前寫死
@@ -244,6 +244,8 @@ var initAddWorks = function() {
 		$(".row.profile:last").after(content);
 	});
 }
+
+
 
 
 return {
@@ -259,6 +261,7 @@ return {
 		initCertificateTable();
 		initAddCertificate();
 		initAddWorks();
+
 	}
 }
 }();

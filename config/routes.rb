@@ -120,12 +120,16 @@ Sun::Application.routes.draw do
       post 'ajax_upload_img'
       post 'ajax_updae'
       post 'upload_img'
+      post 'upload_portfolio_picture'
+      get 'upload_portfolio_picture'
     end
   end
 
   #test
   get 'users/profiles/show_image/:id' => 'users/profiles#show_image'
   get 'import_from_csv' => 'skills#import_from_csv'
+  get 'users/profiles/show_portfolio_image1/:index' => 'users/profiles#show_portfolio_image1'
+  get 'users/profiles/show_portfolio_image2/:index' => 'users/profiles#show_portfolio_image2'
 
 
   get 'skills/autocomplete' => 'skills#autocomplete'
@@ -162,7 +166,7 @@ Sun::Application.routes.draw do
   devise_scope :user do
     get 'users/new2', to: 'users/registrations#new2', :as => :new2_user_registration
     get 'users/verify_email', to: 'users/registrations#verify_email', :as => :verify_user_registration
-    
+
   end
 
 end
