@@ -75,8 +75,8 @@ Sun::Application.configure do
     :address => "smtpout.secureserver.net",
     :port => 25,
     :domain => "secureserver.net",
-    :user_name => "maydaycha@sun-innovation.com",
-    :password => "a047226657"
+    :user_name => "noreply-telework-account-verification@sun-innovation.com",
+    :password => "sun123456"
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
