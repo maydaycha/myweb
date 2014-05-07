@@ -103,24 +103,19 @@ class Users::ProfilesController < ApplicationController
       render json: current_user.user_certifications
 
     when 'update_portfolio'
-      params[:works_add_list].each{ |e| current_user.user_portfolios.create!(name: e[:name], description: e[:description], date: e[:date], main_skill_id: e[:main_skill_id], sub_skill_id: e[:sub_skill_id], skill: e[:skill]) } unless params[:works_add_list].nil?
-      params[:works_delete_list].each{ |e| UserPortfolio.destroy(e[:id]) } unless params[:works_delete_list].nil?
+      current_user.user_portfolios.create!(name: params[:name], description: params[:description], date: params[:date], main_skill_id: params[:main_skill_id], sub_skill_id: params[:sub_skill_id], skill: params[:skill], document: open(params[:document].tempfile).read)
+      # params[:works_delete_list].each{ |e| UserPortfolio.destroy(e[:id]) } unless params[:works_delete_list].nil?
       render json: current_user.user_portfolios
 
     when "get_sub_category"
       render json: t(:sub_skill_category)[params[:main_category_id].to_i]
+    else
+      render json: params
     end
   end
 
 
   def ajax_upload_img
-    # file_name = current_user.username + "." + request.headers['X-File-Type'].split("/")[1]
-    # directory = "public/upload"
-    # path = directory + "/" + file_name
-    # current_user.picture = path.split('public')[1]
-    # current_user.picture = open(params["profile_img"].tempfile).read
-    # current_user.save
-    # File.open(path, "wb"){ |f| f << open(params["profile_img"].tempfile).read }
     current_user.picture = open(params[:profile_img].tempfile).read
     current_user.save
     render json: @user

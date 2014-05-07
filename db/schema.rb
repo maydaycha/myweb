@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506142655) do
+ActiveRecord::Schema.define(version: 20140507162814) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 20140506142655) do
     t.binary   "picture1"
     t.binary   "picture2"
     t.string   "skill"
+    t.binary   "document"
   end
 
   create_table "user_skill_categories", force: true do |t|

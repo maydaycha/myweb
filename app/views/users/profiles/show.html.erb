@@ -534,11 +534,11 @@
                                             <div class="input-group edit">
                                                 <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                 / HR
-                                             </span>
-                                         </div>
-                                     </div>
-                                     <div class="pull-right" style="margin:20px 16px 0 0;">
+                                                   / HR
+                                               </span>
+                                           </div>
+                                       </div>
+                                       <div class="pull-right" style="margin:20px 16px 0 0;">
                                         <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet1">儲存</button>
                                         <button onclick="cancel_basic_info()" class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet1">取消</button>
                                     </div>
@@ -584,7 +584,7 @@
                                             <div class="col-md-9">
                                                 <p class="form-control-static view main_category"><%= t(:main_skill_category)[s.main_skill_id]['name'] %></p>
 
-                                                <div class="edit" class="input-group"> 
+                                                <div class="edit" class="input-group">
                                                     <select name="mainClass" class="form-control main_class">
                                                         <% t(:main_skill_category).each_with_index do |e, index| %>
                                                         <% if s.main_skill_id == index %>
@@ -875,7 +875,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <!--<input type="file" name="file" class="form-control">-->
-                                                <form action="plugins/dropzone/upload.php" class="dropzone dz-clickable" id="addWorks-file">
+                                                <form action="/users/profiles/ajax_updae" method="post" class="dropzone dz-clickable" id="addWorks-file">
                                                     <div class="dz-default dz-message"><span>上傳檔案</span></div>
                                                 </form>
                                                 <p class="help-block">上傳檔案/文件</p>
@@ -909,7 +909,7 @@
                                                 <input id="addWorks-skill-tags" name="skill" type="text" class="form-control tags" placeholder="技能" value=""/>
                                             </div>
 
-                                            
+
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" id="btn-addWorks">新增</button>
@@ -924,66 +924,66 @@
                         </div>
                         <div class="portlet-body">
                             <div class="row profile" name="works_section">
-                             <div class="col-md-5">
-                                 <div class="row">
-                                     <div class="col-sm-4 title"><h4>作品名稱</h4><p>2014/06/30</p></div>
-                                     <div class="col-sm-8 text"><p style="font-size:1.2em;">行銷業務/社群網站經營</p><p class="form-control-static">技能一,技能二,技能三</p></div>
-                                 </div>
-                                 <hr>
-                                 <div><p>(作品描述)不注線月馬裡元看以有戰目。馬獨行放了；新也時笑，做政夫文水一中處一能自回待在下新子</p></div>
-                             </div>
-                             <div class="col-md-7">
-                                 <div class="row">
-                                     <div class="col-sm-6"><img class="img-responsive" src="/img/class/class_6.jpg" alt="img"></div>
-                                     <div class="col-sm-6"><img class="img-responsive"  src="/img/class/class_5.jpg" alt="img"></div>
-                                 </div>
-                             </div>
-                         </div>
-                         <hr>
-                         <div class="row profile" name="works_section">
-                             <div class="col-md-5">
-                                 <div class="row">
-                                     <div class="col-sm-4 title"><h4>作品名稱</h4><p>2014/06/30</p></div>
-                                     <div class="col-sm-8 text"><p style="font-size:1.2em;">行銷業務/社群網站經營</p><p class="form-control-static">技能一,技能二,技能三</p></div>
-                                 </div>
-                                 <hr>
-                                 <div><p>(作品描述)不注線月馬裡元看以有戰目。馬獨行放了；新也時笑，做政夫文水一中處一能自回待在下新子</p></div>
-                             </div>
-                             <div class="col-md-7">
-                                 <div class="row">
-                                     <div class="col-sm-6"><img class="img-responsive" src="/img/class/class_1.jpg" alt="img"></div>
-                                     <div class="col-sm-6"><img class="img-responsive"  src="/img/class/class_2.jpg" alt="img"></div>
-                                 </div>
-                             </div>
-                         </div>
-                         <% current_user.user_portfolios.each do |e|%>
-                         <hr>
-                         <div class="row profile" name="works_section">
-                             <div class="col-md-5">
-                                 <div class="row">
-                                     <div class="col-sm-4 title"><h4><%= e.name %></h4><p><%= e.date %></p></div>
-                                     <div class="col-sm-8 text"><p style="font-size:1.2em;"><%= t(:main_skill_category)[e.main_skill_id.to_i]['name'] %>/<%= t(:sub_skill_category)[e.main_skill_id.to_i][e.sub_skill_id.to_i]['name'] %></p><p class="form-control-static"><%= e.skill %></p></div>
-                                 </div>
-                                 <hr>
-                                 <div><p><%= e.description %></p></div>
-                             </div>
-                             <div class="col-md-7">
-                                 <div class="row">
-                                     <div class="col-sm-6"><img class="img-responsive" src="/img/class/class_1.jpg" alt="img"></div>
-                                     <div class="col-sm-6"><img class="img-responsive"  src="/img/class/class_2.jpg" alt="img"></div>
-                                 </div>
-                             </div>
-                         </div>
-                         <% end %>
+                               <div class="col-md-5">
+                                   <div class="row">
+                                       <div class="col-sm-4 title"><h4>作品名稱</h4><p>2014/06/30</p></div>
+                                       <div class="col-sm-8 text"><p style="font-size:1.2em;">行銷業務/社群網站經營</p><p class="form-control-static">技能一,技能二,技能三</p></div>
+                                   </div>
+                                   <hr>
+                                   <div><p>(作品描述)不注線月馬裡元看以有戰目。馬獨行放了；新也時笑，做政夫文水一中處一能自回待在下新子</p></div>
+                               </div>
+                               <div class="col-md-7">
+                                   <div class="row">
+                                       <div class="col-sm-6"><img class="img-responsive" src="/img/class/class_6.jpg" alt="img"></div>
+                                       <div class="col-sm-6"><img class="img-responsive"  src="/img/class/class_5.jpg" alt="img"></div>
+                                   </div>
+                               </div>
+                           </div>
+                           <hr>
+                           <div class="row profile" name="works_section">
+                               <div class="col-md-5">
+                                   <div class="row">
+                                       <div class="col-sm-4 title"><h4>作品名稱</h4><p>2014/06/30</p></div>
+                                       <div class="col-sm-8 text"><p style="font-size:1.2em;">行銷業務/社群網站經營</p><p class="form-control-static">技能一,技能二,技能三</p></div>
+                                   </div>
+                                   <hr>
+                                   <div><p>(作品描述)不注線月馬裡元看以有戰目。馬獨行放了；新也時笑，做政夫文水一中處一能自回待在下新子</p></div>
+                               </div>
+                               <div class="col-md-7">
+                                   <div class="row">
+                                       <div class="col-sm-6"><img class="img-responsive" src="/img/class/class_1.jpg" alt="img"></div>
+                                       <div class="col-sm-6"><img class="img-responsive"  src="/img/class/class_2.jpg" alt="img"></div>
+                                   </div>
+                               </div>
+                           </div>
+                           <% current_user.user_portfolios.each do |e|%>
+                           <hr>
+                           <div class="row profile" name="works_section">
+                               <div class="col-md-5">
+                                   <div class="row">
+                                       <div class="col-sm-4 title"><h4><%= e.name %></h4><p><%= e.date %></p></div>
+                                       <div class="col-sm-8 text"><p style="font-size:1.2em;"><%= t(:main_skill_category)[e.main_skill_id.to_i]['name'] %>/<%= t(:sub_skill_category)[e.main_skill_id.to_i][e.sub_skill_id.to_i]['name'] %></p><p class="form-control-static"><%= e.skill %></p></div>
+                                   </div>
+                                   <hr>
+                                   <div><p><%= e.description %></p></div>
+                               </div>
+                               <div class="col-md-7">
+                                   <div class="row">
+                                       <div class="col-sm-6"><img class="img-responsive" src="/img/class/class_1.jpg" alt="img"></div>
+                                       <div class="col-sm-6"><img class="img-responsive"  src="/img/class/class_2.jpg" alt="img"></div>
+                                   </div>
+                               </div>
+                           </div>
+                           <% end %>
 
 
 
-                         <div class="text-right">
-                             <button onClick="update_portfolio()"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="portlet box light-grey show-view" id="profile-portlet7">
+                           <div class="text-right">
+                               <button onClick="update_portfolio()"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="portlet box light-grey show-view" id="profile-portlet7">
                     <div class="portlet-title">
                         <div class="caption">
                             相關證照
@@ -1164,9 +1164,9 @@
 
 <script>
     jQuery(document).ready(function() {
-       Web.init();
-       PersonalProfile.init();
-       for(var i = 1; i < 8; i++) {
+     Web.init();
+     PersonalProfile.init();
+     for(var i = 1; i < 8; i++) {
         $(".control_sub_calss"+i).hide();
     }
 
@@ -1198,10 +1198,10 @@
                 $("#work_subClass_select2 option").remove();
                 var select = $("#work_subClass_select2");
                 for(var key in data) {
-                   select.append($("<option></option>").attr("value", key).text(data[key].name));
-               }
-           },
-           error: function(data) {
+                 select.append($("<option></option>").attr("value", key).text(data[key].name));
+             }
+         },
+         error: function(data) {
             console.log("error");
         }
     });
@@ -1214,7 +1214,7 @@
 
 <script>
 
-   $(function(){
+ $(function(){
 
     $(".prevent").click(function(event){
         event.preventDefault();
@@ -1233,7 +1233,7 @@
 
 
 });
-   var test = function() {
+ var test = function() {
     console.log("test");
 }
 
@@ -1245,7 +1245,6 @@ var readURL = function(input) {
         var reader = new FileReader();
         reader.onload = function (e) {
             var img = $("#"+input.id).prev();
-            console.log(test);
             console.log(img[0].id);
             $("#"+img[0].id).attr('src', e.target.result);
         };
@@ -1253,8 +1252,30 @@ var readURL = function(input) {
     }
 }
 
-function upload_img(form_num){
-    var profile_img = document.getElementById("profile_img" + form_num);
+function upload_img(form_num) {
+    var profile_img = document.getElementById("profile_img"+ form_num);
+    var file = profile_img.files[0];
+    console.log("test");
+    console.log(file);
+    var fd = new FormData();
+    fd.append('profile_img', file);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('post', '/users/profiles/ajax_upload_img', true);
+
+    xhr.setRequestHeader("X-File-Name", file.name);
+    xhr.setRequestHeader("X-File-Size", file.size);
+    xhr.setRequestHeader("X-File-Type", file.type);
+    xhr.onload = function() {
+        if (this.status == 200) {
+            console.log("upload file success");
+        };
+    };
+    xhr.send(fd);
+}
+
+function upload_document() {
+    var profile_img = document.getElementById("profile_img"+ form_num);
     var file = profile_img.files[0];
 
     var fd = new FormData();
@@ -1272,6 +1293,7 @@ function upload_img(form_num){
         };
     };
     xhr.send(fd);
+
 }
 
 var update_basic_info = function(form_num) {
@@ -1305,7 +1327,7 @@ var update_basic_info = function(form_num) {
 var addCategoryList = function(){
     if ($('.category_delete_container').size() > 3)
         return 0;
-    
+
     var span = $('<span class="category_delete_container"><span>');
     var div1 = $('<div class="form-group"><label class="col-md-2 control-label">主類別</label><div>');
     var div1_div1 = $('<div class="col-md-9"></div>')
@@ -1313,7 +1335,7 @@ var addCategoryList = function(){
     var div_main = $('<div class="edit" class="input-group"></div>');
     var main_select = $('<select name="mainClass" class="form-control main_class"><select>');
     <% t(:main_skill_category).each_with_index do |e, index| %>
-        main_select.append('<option value="<%= index %>"><%= e['name'] %></option>');
+    main_select.append('<option value="<%= index %>"><%= e['name'] %></option>');
     <% end %>
     div_main.append(main_select);
     div1_div1.append(p);
@@ -1330,7 +1352,7 @@ var addCategoryList = function(){
     var sub_select = $('<select name="subClass" class="form-control select2 subClass_select2" multiple></select');
 
     <% t(:sub_skill_category)[0].each_with_index do |x, i|%>
-        sub_select.append('<option value="<%= i %>"><%= x['name'] %></option>');
+    sub_select.append('<option value="<%= i %>"><%= x['name'] %></option>');
     <% end %>
 
     div2_sub.append(sub_select);
@@ -1341,7 +1363,7 @@ var addCategoryList = function(){
 
     span.append(div1);
     span.append(div2);
-    
+
     $('#category-list').append(span);
 
     sub_select.select2({
@@ -1376,13 +1398,13 @@ var main_class_change = function(){
             var select = $(parent).find('select.subClass_select2');
             console.log(select);
             for(var key in data) {
-               select.append($("<option></option>").attr("value", key).text(data[key].name));
-           }
-       },
-       error: function(data) {
+             select.append($("<option></option>").attr("value", key).text(data[key].name));
+         }
+     },
+     error: function(data) {
         console.log("error");
-        }
-    })
+    }
+})
 }
 
 var cancel_basic_info = function(){
@@ -1420,10 +1442,10 @@ var update_category = function() {
         request: "update_category",
         data: []
     }
-    
+
     $(".main_class").each(function( index ) {
         var parent = $(this).parent().parent().parent().parent();
-        
+
         obj.data.push({
             main_category: $(this).val(),
             sub_category: parent.find('select.subClass_select2').val()
@@ -1432,7 +1454,7 @@ var update_category = function() {
         var str = "";
         parent.find('select.subClass_select2 option:selected').each(function () {
             str += $(this).text() + ", ";
-            
+
         });
         str = str.substring(0, str.length - 2);
 
@@ -1481,12 +1503,12 @@ var update_skill = function() {
 
 var update_experience = function() {
     var request_obj = {
-     request: "update_experience",
-     experience_add_list: experience_add_list,
-     experience_delete_list: experience_delete_list
- }
- console.log(request_obj);
- $.ajax({
+       request: "update_experience",
+       experience_add_list: experience_add_list,
+       experience_delete_list: experience_delete_list
+   }
+   console.log(request_obj);
+   $.ajax({
     url: "/users/profiles/ajax_updae",
     type: "post",
     dataType: "json",
@@ -1526,30 +1548,75 @@ var update_education = function() {
     });
 }
 
+// var update_portfolio = function() {
+//     var request_obj = {
+//         request: "update_portfolio",
+//         works_add_list: works_add_list,
+//         works_delete_list: works_delete_list
+//     };
+//     console.log(request_obj);
+//     $.ajax({
+//         url: "/users/profiles/ajax_updae",
+//         type: "post",
+//         dataType: "json",
+//         data: JSON.stringify(request_obj),
+//         contentType: 'application/json',
+//         success: function(data) {
+//             console.log(data);
+//             works_add_list = [];
+//             works_delete_list = [];
+//         },
+//         error: function(data) {
+//             console.log("error");
+//         }
+//     });
+
+// }
+
 var update_portfolio = function() {
-    var request_obj = {
-        request: "update_portfolio",
-        works_add_list: works_add_list,
-        works_delete_list: works_delete_list
-    };
-    console.log(request_obj);
-    $.ajax({
-        url: "/users/profiles/ajax_updae",
-        type: "post",
-        dataType: "json",
-        data: JSON.stringify(request_obj),
-        contentType: 'application/json',
-        success: function(data) {
+
+    for(var key in works_add_list) {
+        $.ajax({
+          url: '/users/profiles/ajax_updae',
+          data: works_add_list[key],
+          processData: false,
+          contentType: false,
+          type: 'POST',
+          async: false,
+          success: function(data){
             console.log(data);
-            works_add_list = [];
-            works_delete_list = [];
-        },
-        error: function(data) {
-            console.log("error");
-        }
-    });
+            console.log(works_add_list);
+            }
+        });
+    }
+    works_add_list = [];
+    if(request_obj.works_delete_list.length > 0 ) {
+        var request_obj = {
+            request: "update_portfolio",
+            works_delete_list: works_delete_list
+        };
+        $.ajax({
+            url: "/users/profiles/ajax_updae",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
+                console.log(data);
+                works_delete_list = [];
+            },
+            error: function(data) {
+                console.log("error");
+            }
+        });
+    }
 
 }
+
+
+
+
+
 
 var update_certification = function() {
     var request_obj = {

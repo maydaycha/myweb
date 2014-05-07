@@ -27,55 +27,13 @@ var PersonalProfile = function(){
 			autocomplete_url:'/skills/autocomplete'
 		});
 	}
+
 	var initSubClassSelect2 = function(){
 		$('.subClass_select2').select2({
 			placeholder: "Select a State",
 			allowClear: true
 		});
 	}
-	var initSubClassSelect3 = function(){
-		$('#subClass_select3').select2({
-			placeholder: "Select a State",
-			allowClear: true
-		});
-	}
-	var initSubClassSelect4 = function(){
-		$('#subClass_select4').select2({
-			placeholder: "Select a State",
-			allowClear: true
-		});
-	}
-	var initSubClassSelect5 = function(){
-		$('#subClass_select5').select2({
-			placeholder: "Select a State",
-			allowClear: true
-		});
-	}
-	var initSubClassSelect6 = function(){
-		$('#subClass_select6').select2({
-			placeholder: "Select a State",
-			allowClear: true
-		});
-	}
-	var initSubClassSelect7 = function(){
-		$('#subClass_select7').select2({
-			placeholder: "Select a State",
-			allowClear: true
-		});
-	}
-	var initSubClassSelect8 = function(){
-		$('#subClass_select8').select2({
-			placeholder: "Select a State",
-			allowClear: true
-		});
-	}
-	var initSubClassSelect9 = function(){
-		$('#subClass_select9').select2({
-			placeholder: "Select a State",
-			allowClear: true
-		});
-	}
-
 
 	var initExperienceTable = function(){
 		$('#experience-table .btn-delete').off('click');
@@ -249,15 +207,26 @@ var initAddWorks = function() {
 			alert('請填寫子類別');
 			return;
 		}
-		var obj = {
-			name: $("#works-modal input[name=title]").val(),
-			description: $("#works-modal textarea[name=description]").val(),
-			main_skill_id: $("#work_main_class").val(),
-			sub_skill_id: $("#work_subClass_select2").val(),
-			date: $("#works-modal input[name=start]").val(),
-			skill: $("#works-modal input[name=skill]").val()
-		}
-		works_add_list.push(obj);
+		var fd = new FormData();
+		fd.append('document', $("#works-modal input[name=thumbnail]")[0].files[0]);
+		fd.append('name', $("#works-modal input[name=title]").val());
+		fd.append('description', $("#works-modal textarea[name=description]").val());
+		fd.append('main_skill_id', $("#work_main_class").val());
+		fd.append('sub_skill_id', $("#work_subClass_select2").val());
+		fd.append('date', $("#works-modal input[name=start]").val());
+		fd.append('skill', $("#works-modal input[name=skill]").val());
+		fd.append('request', "update_portfolio");
+
+		// var obj = {
+		// 	name: $("#works-modal input[name=title]").val(),
+		// 	description: $("#works-modal textarea[name=description]").val(),
+		// 	main_skill_id: $("#work_main_class").val(),
+		// 	sub_skill_id: $("#work_subClass_select2").val(),
+		// 	date: $("#works-modal input[name=start]").val(),
+		// 	skill: $("#works-modal input[name=skill]").val(),
+		// 	document: fd
+		// }
+		works_add_list.push(fd);
 		var main_class_text = $("#work_main_class option:selected").text();
 		var sub_class_text = $("#work_subClass_select2 option:selected").text();
 		console.log(works_add_list);
@@ -271,11 +240,10 @@ var initAddWorks = function() {
 		$("#works-modal").modal('toggle');
 
 		// 圖片目前寫死
-		var content ="<hr><div class='row profile'> <div class='col-md-5'> <div class='row'> <div class='col-sm-4 title'><h4>"+obj.title+"</h4><p>"+obj.date+"</p></div> <div class='col-sm-8 text'><p style='font-size:1.2em;'>"+main_class_text+"/"+sub_class_text+"</p><p class='form-control-static'>"+obj.skill+"</p></div> </div> <hr> <div><p>"+obj.description+"</p></div></div><div class='col-md-7'><div class='row'><div class='col-sm-6'><img class='img-responsive' src='/img/class/class_6.jpg' alt='img'></div><div class='col-sm-6'><img class='img-responsive'  src='/img/class/class_5.jpg' alt='img'></div></div></div></div>";
+		var content ="<hr><div class='row profile'> <div class='col-md-5'> <div class='row'> <div class='col-sm-4 title'><h4>"+obj.name+"</h4><p>"+obj.date+"</p></div> <div class='col-sm-8 text'><p style='font-size:1.2em;'>"+main_class_text+"/"+sub_class_text+"</p><p class='form-control-static'>"+obj.skill+"</p></div> </div> <hr> <div><p>"+obj.description+"</p></div></div><div class='col-md-7'><div class='row'><div class='col-sm-6'><img class='img-responsive' src='/img/class/class_6.jpg' alt='img'></div><div class='col-sm-6'><img class='img-responsive'  src='/img/class/class_5.jpg' alt='img'></div></div></div></div>";
 		$(".row.profile:last").after(content);
 	});
 }
-
 
 
 return {
@@ -284,13 +252,6 @@ return {
 		initSkillTags();
 		initAddWorksSkillTags();
 		initSubClassSelect2();
-		initSubClassSelect3();
-		initSubClassSelect4();
-		initSubClassSelect5();
-		initSubClassSelect6();
-		initSubClassSelect7();
-		initSubClassSelect8();
-		initSubClassSelect9();
 		initExperienceTable();
 		initAddExperience();
 		initEducationTable();
