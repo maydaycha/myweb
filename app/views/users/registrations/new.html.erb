@@ -99,23 +99,17 @@
       <p class="social-text">您也可以使用其他OpenID快速註冊</p>
       <ul class="social-icons">
         <li>
-          <!-- <a class="facebook" data-original-title="facebook" href="#"> -->
           <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "facebook", data:{original:{title:"facebook"}} %>
-        </a>
-      </li>
-      <li>
-        <!-- <a class="googleplus" data-original-title="Goole Plus" href="#"> -->
-        <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
-      </a>
-    </li>
-    <li>
-      <!-- <a class="yahoo" data-original-title="Yahoo!" href="#"> -->
-      <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "yahoo", data:{original:{title:"Yahoo!"}} %>
-    </a>
-  </li>
-</ul>
-</div>
-</div>
+        </li>
+        <li>
+          <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
+        </li>
+        <li>
+          <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "yahoo", data:{original:{title:"Yahoo!"}} %>
+        </li>
+      </ul>
+    </div>
+  </div>
 
 
 <!-- BEGIN MAIN CONTENT -->

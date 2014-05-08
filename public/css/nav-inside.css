@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/**********
+.navbar-default .navbar-nav > li > a:hover {
+  	color: #b4cca7;
+}
+
+.navbar-default .navbar-nav > li > a:active{
+	background-color:white;
+}
+.navbar-default .navbar-nav > li > a:focus {
+	background-color:white;
+	}
+	
+.navbar-default .navbar-nav > li > a:visited{
+	background-color:white;
+}	
+.navbar-default .navbar-nav > li .active{
+	background-color:hsla(0,0%,100%,1.00); color:#777;
+}	
+
+**********/

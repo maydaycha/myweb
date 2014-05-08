@@ -14,6 +14,33 @@ var Index = function(){
 			e.preventDefault()
 			mySwiper.swipeNext()
 		})
+		if(getIEVersion()>5){
+			onTime();
+		}
+		function onTime(){
+			var ontimeValue = $('.swiper-1 .swiper-slide .content-slide').width()/2;
+			$('.swiper-1 .swiper-slide .content-slide img').css('left',ontimeValue+'px')
+			setTimeout(onTime,100);
+		}
+	}
+	function getIEVersion()
+	{
+		var rv = -1;
+		if (navigator.appName == 'Microsoft Internet Explorer')
+		{
+			var ua = navigator.userAgent;
+			var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+			if (re.exec(ua) != null)
+				rv = parseFloat( RegExp.$1 );
+		}
+		else if (navigator.appName == 'Netscape')
+		{
+			var ua = navigator.userAgent;
+			var re  = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");  //for IE 11
+			if (re.exec(ua) != null)
+				rv = parseFloat( RegExp.$1 );
+		}
+		return rv;
 	}
 	var worksSwiper1;
 	var worksSwiper2;
@@ -26,7 +53,7 @@ var Index = function(){
 			e.preventDefault()
 			$("#work1 .tabs .active").removeClass('active')
 			$(this).addClass('active')
-			worksSwiper1.swipeTo( $(this).index()/2 )
+			worksSwiper1.swipeTo( $(this).parent().index()/2 )
 		})
 		$("#work1 .tabs a").click(function(e){
 			e.preventDefault()
@@ -51,7 +78,7 @@ var Index = function(){
 			e.preventDefault()
 			$("#work2 .tabs .active").removeClass('active')
 			$(this).addClass('active')
-			worksSwiper2.swipeTo( $(this).index()/2 )
+			worksSwiper2.swipeTo( $(this).parent().index()/2 )
 		})
 		$("#work2 .tabs a").click(function(e){
 			e.preventDefault()

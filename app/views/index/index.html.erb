@@ -21,14 +21,14 @@
         <![endif]-->
         <!-- END 核心樣式 -->
         <!-- BEGIN 頁面插件樣式 -->
-        <link rel="stylesheet" href="/plugins/swiper-master/css/idangerous.swiper.css">
+        <link rel="stylesheet" href="/plugins/swiper-master/dist/idangerous.swiper.css">
         <!-- END 頁面插件樣式 -->
         <!-- BEGIN 主題樣式 -->
         <!-- END 主題樣式 -->
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" href="css/socialIcons.css">
-        <link rel="stylesheet" type="text/css" href="/css/page/index.css">
-        <link rel="stylesheet" type="text/css" href="/css/Tabbed_Slider_Carousel.css">
+        <link rel="stylesheet" type="text/css" href="css/page/index.css">
+        <link rel="stylesheet" type="text/css" href="css/Tabbed_Slider_Carousel.css">
         <link rel="shortcut icon" href="favicon.ico"/>
         <!-- END STYLE -->
     </head>
@@ -43,9 +43,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                <!-- <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
                     <i class="fa fa-search"></i>
-                </button>
+                </button> -->
                 <a class="navbar-brand" href="/"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
             </div>
             <!-- <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
@@ -79,13 +79,13 @@
                     <div class="modal-content">
                         <div class="modal-body">
                             <div class="form-group">
-                                <a href="freelancer_sign_up.html" class="btn btn-primary btn-lg">最適合您的案件都在這，立即免費註冊！</a>
+                                <%= link_to "最適合您的案件都在這，立即免費註冊！", new_user_registration_path, class: "btn btn-primary btn-lg" %>
                             </div>
                             <div class="form-group">
-                                <a href="freelancer_sign_up.html" class="btn btn-success btn-lg">找到對的人才，事倍功半！</a>
+                                <%= link_to "找到對的人才，事倍功半！", new_user_registration_path, class: "btn btn-success btn-lg" %>
                             </div>
                             <div class="form-group">
-                                <a href="freelancer_sign_up.html" class="btn btn-info btn-lg disabled">好事就快發生，即將上線！</a>
+                                <%= link_to "好事就快發生，即將上線！", new_user_registration_path, class: "btn btn-info btn-lg disabled" %>
                             </div>
                         </div>
                     </div>
@@ -568,40 +568,55 @@
 
 <!-- BEGIN JAVASCRIPTS -->
 <!-- BEGIN 核心插件 -->
-        <!--[if lt IE 9]>
-            <script src="/plugins/html5shiv.min.js"></script>
-            <script src="/plugins/respond.min.js"></script>
-            <![endif]-->
+<!--[if lt IE 9]>
+    <script src="plugins/html5shiv.min.js"></script>
+    <script src="plugins/respond.min.js"></script>
+<![endif]-->
 
-            <script src="/plugins/jquery-1.11.0.min.js"></script>
-            <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
-            <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
-            <!-- END 核心插件 -->
-            <!-- BEGIN 頁面插件 -->
-            <script src="/plugins/swiper-master/js/idangerous.swiper-2.1.min.js"></script>
-            <!-- END 頁面插件 -->
-            <script type="text/javascript" src="/js/script.js"></script>
-            <script type="text/javascript" src="/js/page/index.js"></script>
-            <script>
-                jQuery(document).ready(function() {
-                   Web.init();
-                   Index.init();
-               });
-           </script>
-           <!-- END JAVASCRIPTS -->
-           <!-- BEGIN PIE -->
-        <!--[if lte IE 9]>
-        <script type="text/javascript" src="/plugins/PIE-1.0.0/PIE.js"></script>
-        <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
-        <script>
-        $(function() {
-            $('input, textarea').placeholder();
-            $('.class .item p,.class .item img').each(function() {
-                PIE.attach(this);
-            });
-        });
-        </script>
-        <![endif]-->
-        <!-- END PIE -->
-    </body>
-    </html>
+<script src="plugins/jquery-1.11.0.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+<!-- END 核心插件 -->
+<!-- BEGIN 頁面插件 -->
+<script src="plugins/swiper-master/dist/idangerous.swiper-2.4.min.js"></script>
+<!-- END 頁面插件 -->
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/page/index.js"></script>
+<script>
+    jQuery(document).ready(function() {    
+       Web.init();
+       Index.init();
+    });
+</script>
+
+
+<script>
+    // JavaScript Document
+
+$(document).ready(function(ev){
+    $('#custom_carousel').on('slide.bs.carousel', function (evt) {
+      $('#custom_carousel .controls li.active').removeClass('active');
+      $('#custom_carousel .controls li:eq('+$(evt.relatedTarget).index()+')').addClass('active');
+    })
+});
+
+</script>
+
+
+<!-- END JAVASCRIPTS -->
+<!-- BEGIN PIE -->
+<!--[if lte IE 9]>
+<script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+<script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+<script>
+$(function() {
+    $('input, textarea').placeholder();
+    $('.class .item p,.class .item img').each(function() {
+        PIE.attach(this);
+    });
+});
+</script>
+<![endif]-->
+<!-- END PIE -->
+</body>
+</html>

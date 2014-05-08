@@ -20,8 +20,8 @@ var Web = function(){
 
         if (el) {
             if ($('body').hasClass('page-header-fixed')) {
-                pos = pos - $('.header').height();
-            }
+                pos = pos - $('.header').height(); 
+            }            
             pos = pos + (offeset ? offeset : -1 * el.height());
         }
 

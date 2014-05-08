@@ -99,9 +99,12 @@ body {
 }
 /* line 82, ../scss/style.scss */
 .navbar-default .navbar-collapse {
-  background-color: #000;
+  background-color: black;
   border: none;
 }
+
+
+
 /* line 87, ../scss/style.scss */
 .navbar-default .navbar-collapse-search .navbar-search {
   padding: 10px 0;
@@ -307,7 +310,8 @@ p.subtitle {
 /* line 248, ../scss/style.scss */
 .main-content {
   max-width: 1000px;
-  width: 90%;
+  /*width: 90%;*/
+  width:100%;
   margin: 30px auto;
   padding: 30px 10px;
   background-color: #FFF;
@@ -793,4 +797,55 @@ Box portlet
 .marpad{
 	margin:0px;
 	padding:0px;
+	}
+	
+.navbar-default .navbar-nav>li>a:focus{
+	color:hsla(0,0%,100%,1.00);
+	}
+.navbar-default .navbar-nav>li>a:hover{
+	color:#B4CCA7;
+	}
+
+@media (min-width: 768px) {
+/*drop down menu*/
+
+.dropdown-menu>li>a {
+    color:#428bca;
+}
+.dropdown ul.dropdown-menu {
+    border-radius:4px;
+    box-shadow:none;
+    margin-top:20px;
+    width:300px;
+	padding:20px 0px;
+}
+.dropdown ul.dropdown-menu:before {
+    content: "";
+    border-bottom: 10px solid #fff;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    z-index: 10;
+}
+.dropdown ul.dropdown-menu:after {
+    content: "";
+    border-bottom: 12px solid #ccc;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    position: absolute;
+    top: -12px;
+    right: 14px;
+    z-index: 9;
+}
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    background-color: transparent;
+	color:hsla(0,0%,100%,1.00);
+    border-color: #428BCA;
+}
+	
+.text-overflow{
+	white-space:nowrap; width:15em; overflow:hidden;text-overflow:ellipsis;
 	}

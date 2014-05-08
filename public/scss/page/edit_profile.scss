@@ -1,0 +1,80 @@
+.class{
+	width: 100%;
+	overflow: hidden;
+	.row{
+		margin-right: 0;
+		margin-left: 0;
+	}
+	.item{
+		margin-top: 20px;
+		padding: 0 10px;
+		input[type=radio]{
+			display: block;
+			height: 15px;
+			margin-bottom: -15px;
+			position: absolute;
+			top: -2000px;
+		}
+		label{
+			cursor: pointer;
+			display: block;
+			img{
+				width: 100%;
+				display: block;
+				border-radius: 10px 10px 0 0;
+				opacity: 0.8;
+			}
+			&:hover img{
+				opacity: 1;
+			}
+			span{
+				display: block;
+				background-color: #EFEFEF;
+				border-radius: 0 0 10px 10px;
+				line-height: 90px;
+				height: 90px;
+				text-align: center;
+				color: #E05E3E;
+				font-size: 16px;
+				overflow: hidden;
+			}
+		}
+		input[type=radio].active + label{
+			img{
+				opacity: 1;
+			}
+			p{
+				background-color: #B7DDF0;
+			}
+		} 
+	}
+	.btns{
+		clear: both;
+		padding: 20px 10px 10px 10px;
+		.right{
+			float: right;
+		}
+		.left{
+			float: left;
+		}
+	}
+}
+
+@media (max-width: 1200px){
+	.class .item span{
+		line-height: 70px;
+		height: 70px;
+	}
+}
+@media (max-width: 992px){
+	.class .item span{
+		line-height: 70px;
+		height: 75px;
+	}
+}
+@media (max-width: 768px){
+	.class .item span{
+		line-height: 70px;
+		height: 70px;
+	}
+}
