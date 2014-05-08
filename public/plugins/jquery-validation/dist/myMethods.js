@@ -1,4 +1,5 @@
 jQuery.validator.addMethod("myUsername", function(value, element) {
+    var result;
 	$.ajax({
 		url: "/users/check_username",
 		type: "get",
@@ -6,13 +7,13 @@ jQuery.validator.addMethod("myUsername", function(value, element) {
 		data: {username: value},
         success: function(data) {
             result = data.status
-            return !result;
         },
         error: function(data) {
             console.log(data);
         },
         async: false
     });
+    return !result;
 }, "帳號已經存在");
 
 jQuery.validator.addMethod("myImgVerification", function(value, element) {
