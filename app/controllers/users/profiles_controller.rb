@@ -31,8 +31,8 @@ class Users::ProfilesController < ApplicationController
     current_user.picture = open(params[:image].tempfile).read if params[:image]
     current_user.step = 2
     current_user.save
-    # redirect_to users_profile_path(current_user)
-    redirect_to root_path
+    redirect_to users_profile_path(current_user)
+    # redirect_to root_path
   end
 
 

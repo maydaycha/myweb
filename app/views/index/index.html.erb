@@ -168,9 +168,10 @@
                 </div>
             </div>
             <div class="login_min">
-                <a href="register.html">
-                    <p class="title">免費註冊，即刻使用</p>
-                </a>
+                <%= link_to(new_user_registration_path) do %>
+                  <p class="title">免費註冊，即刻使用</p>
+                <% end %>
+                
             </div>
             <!-- END LOGIN -->
             <!-- BEGIN CLASS -->
