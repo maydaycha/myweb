@@ -1140,7 +1140,7 @@
 
 
 
-// console.log(Dropzone);
+//// console.log(Dropzone);
 
 
 
@@ -1155,7 +1155,7 @@ $(".main_class").change(main_class_change);
 
 
 $("#work_main_class").change( function() {
-    console.log($(this).val());
+    //console.log($(this).val());
 
     if ($(this).val() < 0) {
         $("#work_subClass_select2 option").remove();
@@ -1175,7 +1175,7 @@ $("#work_main_class").change( function() {
         data: JSON.stringify(request_obj),
         contentType: 'application/json',
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             $("#work_subClass_select2 option").remove();
             var select = $("#work_subClass_select2");
             for(var key in data) {
@@ -1183,7 +1183,7 @@ $("#work_main_class").change( function() {
            }
        },
        error: function(data) {
-        console.log("error");
+        //console.log("error");
     }
 });
 });
@@ -1199,7 +1199,7 @@ Dropzone.options.addWorksfile = {
             addWorksfile.removeAllFiles();
         });
         this.on("sendingmultiple", function(file, xhr, formData) {
-            console.log("test: count: " + _count);
+            //console.log("test: count: " + _count);
             formData.append('document', $("#works-modal input[name=thumbnail]")[0].files[0]);
             formData.append('name', $("#works-modal input[name=title]").val());
             formData.append('description', $("#works-modal textarea[name=description]").val());
@@ -1210,8 +1210,8 @@ Dropzone.options.addWorksfile = {
             formData.append('request', "update_portfolio");
         });
         this.on("successmultiple", function(file, foo) {
-            console.log(file);
-            console.log(foo);
+            //console.log(file);
+            //console.log(foo);
             location.reload();
         });
     },
@@ -1243,25 +1243,25 @@ Dropzone.options.addWorksfile = {
   });
 
     $("#search_skill tr").click( function() {
-        console.log($(this).children("td").text());
+        //console.log($(this).children("td").text());
         $("#search").val($(this).children("td").text());
     });
 
 
 });
    var test = function() {
-    console.log("test");
+    //console.log("test");
 }
 
 
 
 var readURL = function(input) {
-    console.log(input.files);
+    //console.log(input.files);
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
             var img = $("#"+input.id).prev();
-            console.log(img[0].id);
+            //console.log(img[0].id);
             $("#"+img[0].id).attr('src', e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
@@ -1271,8 +1271,8 @@ var readURL = function(input) {
 function upload_img(form_num) {
     var profile_img = document.getElementById("profile_img"+ form_num);
     var file = profile_img.files[0];
-    console.log("test");
-    console.log(file);
+    //console.log("test");
+    //console.log(file);
     var fd = new FormData();
     fd.append('profile_img', file);
 
@@ -1284,7 +1284,7 @@ function upload_img(form_num) {
     xhr.setRequestHeader("X-File-Type", file.type);
     xhr.onload = function() {
         if (this.status == 200) {
-            console.log("upload file success");
+            //console.log("upload file success");
         };
     };
     xhr.send(fd);
@@ -1305,7 +1305,7 @@ function upload_document() {
     xhr.setRequestHeader("X-File-Type", file.type);
     xhr.onload = function() {
         if (this.status == 200) {
-            console.log("upload file success");
+            //console.log("upload file success");
         };
     };
     xhr.send(fd);
@@ -1319,22 +1319,22 @@ var update_basic_info = function(form_num) {
         email: $("#contact-form" + form_num + " input[name='email']").val(),
         money: $("#contact-form" + form_num + " input[name='money']").val()
     };
-    console.log(obj);
+    //console.log(obj);
     $.ajax({
         url: "/users/profiles/ajax_updae",
         type: "post",
         dataType: "json",
         data: obj,
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             $("#fullname2").text(data.first_name + " " + data.last_name);
             $("#email2").text(data.email);
             $("#money2").text(data.hourly_pay);
             upload_img(form_num);
         },
         error: function(data) {
-            console.log("error");
-            console.log(data);
+            //console.log("error");
+            //console.log(data);
         }
     });
 
@@ -1391,14 +1391,14 @@ var addCategoryList = function(){
 }
 
 var main_class_change = function(){
-    console.log('.main_class');
+    //console.log('.main_class');
     var parent = $(this).parent().parent().parent().parent();
     var request_obj = {
         request: "get_sub_category",
         main_category_id: $(this).val()
     };
 
-    console.log(parent);
+    //console.log(parent);
 
     $(parent).find(".select2-search-choice").remove();
 
@@ -1409,16 +1409,16 @@ var main_class_change = function(){
         data: JSON.stringify(request_obj),
         contentType: 'application/json',
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             $(parent).find('select.subClass_select2 option').remove();
             var select = $(parent).find('select.subClass_select2');
-            console.log(select);
+            //console.log(select);
             for(var key in data) {
                select.append($("<option></option>").attr("value", key).text(data[key].name));
            }
        },
        error: function(data) {
-        console.log("error");
+        //console.log("error");
     }
 })
 }
@@ -1433,20 +1433,20 @@ var update_location = function() {
         timeZone: $("#contact-form2 select[name='timeZone']").val(),
         country: $("#contact-form2 select[name='country']").val(),
     };
-    console.log(obj);
+    //console.log(obj);
     $.ajax({
         url: "/users/profiles/ajax_updae",
         type: "post",
         dataType: "json",
         data: obj,
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             $("#time_zone").html(obj.timeZone);
             $("#country").html(obj.country);
         },
         error: function(data) {
-            console.log("error");
-            console.log(data);
+            //console.log("error");
+            //console.log(data);
         }
     });
 
@@ -1478,7 +1478,7 @@ var update_category = function() {
         parent.find('.sub_category').html(str);
     });
 
-    console.log(obj);
+    //console.log(obj);
 
     $.ajax({
         url: "/users/profiles/ajax_updae",
@@ -1486,11 +1486,11 @@ var update_category = function() {
         dataType: "json",
         data: obj,
         success: function(data) {
-            console.log(data);
+            //console.log(data);
         },
         error: function(data) {
-            console.log("error");
-            console.log(data);
+            //console.log("error");
+            //console.log(data);
         }
     });
 }
@@ -1500,19 +1500,19 @@ var update_skill = function() {
         request: "update_skill",
         skill: $("#contact-form1 input[name='skill']").val(),
     };
-    console.log(obj);
+    //console.log(obj);
     $.ajax({
         url: "/users/profiles/ajax_updae",
         type: "post",
         dataType: "json",
         data: obj,
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             $("#skill").html(obj.skill);
         },
         error: function(data) {
-            console.log("error");
-            console.log(data);
+            //console.log("error");
+            //console.log(data);
         }
     });
 }
@@ -1523,7 +1523,7 @@ var update_experience = function() {
      experience_add_list: experience_add_list,
      experience_delete_list: experience_delete_list
  }
- console.log(request_obj);
+ //console.log(request_obj);
  $.ajax({
     url: "/users/profiles/ajax_updae",
     type: "post",
@@ -1531,12 +1531,12 @@ var update_experience = function() {
     data: JSON.stringify(request_obj),
     contentType: 'application/json',
     success: function(data) {
-        console.log(data);
+        //console.log(data);
         experience_add_list = [];
         experience_delete_list = [];
     },
     error: function(data) {
-        console.log("error");
+        //console.log("error");
     }
 });
 }
@@ -1554,12 +1554,12 @@ var update_education = function() {
         data: JSON.stringify(request_obj),
         contentType: 'application/json',
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             education_add_list = [];
             education_delete_list = [];
         },
         error: function(data) {
-            console.log("error");
+            //console.log("error");
         }
     });
 }
@@ -1570,7 +1570,7 @@ var update_education = function() {
         //         works_add_list: works_add_list,
         //         works_delete_list: works_delete_list
         //     };
-        //     console.log(request_obj);
+        ////     console.log(request_obj);
         //     $.ajax({
             //         url: "/users/profiles/ajax_updae",
             //         type: "post",
@@ -1578,19 +1578,19 @@ var update_education = function() {
             //         data: JSON.stringify(request_obj),
             //         contentType: 'application/json',
             //         success: function(data) {
-                //             console.log(data);
+                ////             console.log(data);
                 //             works_add_list = [];
                 //             works_delete_list = [];
                 //         },
                 //         error: function(data) {
-                    //             console.log("error");
+                    ////             console.log("error");
                     //         }
                     //     });
 
 // }
 
 var update_portfolio = function() {
-    console.log(addWorksfile.getQueuedFiles());
+    //console.log(addWorksfile.getQueuedFiles());
     addWorksfile.processQueue();
     return;
 }
@@ -1608,11 +1608,11 @@ var delete_portfolio = function () {
             data: JSON.stringify(request_obj),
             contentType: 'application/json',
             success: function(data) {
-                console.log(data);
+                //console.log(data);
                 works_delete_list = [];
             },
             error: function(data) {
-                console.log("error");
+                //console.log("error");
             }
         });
     }
@@ -1629,7 +1629,7 @@ var update_certification = function() {
         certificate_add_list: certificate_add_list,
         certificate_delete_list: certificate_delete_list
     };
-    console.log(request_obj);
+    //console.log(request_obj);
     $.ajax({
         url: "/users/profiles/ajax_updae",
         type: "post",
@@ -1637,18 +1637,18 @@ var update_certification = function() {
         data: JSON.stringify(request_obj),
         contentType: 'application/json',
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             certificate_add_list = [];
             certificate_delete_list = [];
         },
         error: function(data) {
-            console.log("error");
+            //console.log("error");
         }
     });
 }
 
 function see_this(sel) {
-    console.log(sel);
+    //console.log(sel);
 }
 
 

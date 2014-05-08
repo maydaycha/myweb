@@ -93,7 +93,7 @@ var PersonalProfile = function(){
 			$('#experience-modal input[name=office]').val('');
 			$('#experience-modal textarea[name=description]').val('');
 			initExperienceTable();
-			console.log("test");
+			//console.log("test");
 			$("#experience-modal").modal('toggle');
 		});
 }
@@ -144,7 +144,7 @@ var initAddEducation = function(){
 			description: $('#education-modal textarea[name=description]').val()
 		};
 		education_add_list.push(obj);
-		console.log(education_add_list);
+		//console.log(education_add_list);
 		$('#education-table').append(tr);
 		$('#education-modal input[name=start]').val('');
 		$('#education-modal input[name=end]').val('');
@@ -191,7 +191,7 @@ var initAddCertificate = function(){
 			description: $('#certificate-modal textarea[name=work-description]').val()
 		};
 		certificate_add_list.push(obj);
-		console.log(certificate_add_list);
+		//console.log(certificate_add_list);
 		$('#certificate-table').append(tr);
 		$('#certificate-modal input[name=certificate]').val('');
 		$('#certificate-modal input[name=cer-source]').val('');
@@ -211,7 +211,7 @@ var initWorksTable = function(){
 
 var initAddWorks = function() {
 	$("#btn-addWorks").on('click', function() {
-		console.log($('#works-modal input[name=subClass]').val());
+		//console.log($('#works-modal input[name=subClass]').val());
 		if($('#works-modal input[name=title]').val() == "") {
 			alert('請填寫作品名稱');
 			return;
@@ -248,7 +248,7 @@ var initAddWorks = function() {
 		// works_add_list.push(fd);
 		var main_class_text = $("#work_main_class option:selected").text();
 		var sub_class_text = $("#work_subClass_select2 option:selected").text();
-		console.log(works_add_list);
+		//console.log(works_add_list);
 
 		// $("#works-modal input[name=title]").val('');
 		// $("#works-modal textarea[name=description]").val('');

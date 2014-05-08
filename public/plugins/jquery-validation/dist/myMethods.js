@@ -9,7 +9,7 @@ jQuery.validator.addMethod("myUsername", function(value, element) {
             result = data.status
         },
         error: function(data) {
-            console.log(data);
+            //console.log(data);
         },
         async: false
     });
@@ -22,8 +22,8 @@ jQuery.validator.addMethod("myImgVerification", function(value, element) {
 }, "驗證碼錯誤");
 
 jQuery.validator.addMethod("myEmail", function(value, element) {
-    console.log(value);
-    console.log(element);
+    //console.log(value);
+    //console.log(element);
 	var result;
 	$.ajax({
 		url: "/users/check_email",
@@ -34,11 +34,11 @@ jQuery.validator.addMethod("myEmail", function(value, element) {
             result = data.status
         },
         error: function(data) {
-            console.log(data);
+            //console.log(data);
         },
         async: false
     });
-    console.log("email: " + result);
+    //console.log("email: " + result);
     return !result;
 }, "Email已經存在");
 

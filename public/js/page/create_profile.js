@@ -23,9 +23,9 @@ var CreateProfile = function(){
                     $(this).html(input.find('option:selected').text());
                 } else if (input.is(":radio") && input.is(":checked")) {
                     $(this).html(input.attr("data-title"));
-                    console.log("13123");
+                    //console.log("13123");
                 } else if ($(this).attr("data-display") == 'user[hourly_pay]') {
-                    console.log("1@@@");
+                    //console.log("1@@@");
                     $(this).html(input.val()+' / HR');
                 }
             });
