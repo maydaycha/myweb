@@ -202,6 +202,12 @@ var initAddCertificate = function(){
 	});
 }
 
+var initWorksTable = function(){
+	$('#works-table .btn-delete').off('click');
+	$('#works-table .btn-delete').on('click',function(){
+		$(this).parent().parent().remove();
+	});
+}
 
 var initAddWorks = function() {
 	$("#btn-addWorks").on('click', function() {
@@ -252,8 +258,8 @@ var initAddWorks = function() {
 		$("#works-modal").modal('toggle');
 
 		// 圖片目前寫死
-		var content ="<hr><div class='row profile'> <div class='col-md-5'> <div class='row'> <div class='col-sm-4 title'><h4>"+obj.name+"</h4><p>"+obj.date+"</p></div> <div class='col-sm-8 text'><p style='font-size:1.2em;'>"+main_class_text+"/"+sub_class_text+"</p><p class='form-control-static'>"+obj.skill+"</p></div> </div> <hr> <div><p>"+obj.description+"</p></div></div><div class='col-md-7'><div class='row'><div class='col-sm-6'><img class='img-responsive' src='/img/class/class_6.jpg' alt='img'></div><div class='col-sm-6'><img class='img-responsive'  src='/img/class/class_5.jpg' alt='img'></div></div></div></div>";
-		$(".row.profile:last").after(content);
+		// var content ="<hr><div class='row profile'> <div class='col-md-5'> <div class='row'> <div class='col-sm-4 title'><h4>"+obj.name+"</h4><p>"+obj.date+"</p></div> <div class='col-sm-8 text'><p style='font-size:1.2em;'>"+main_class_text+"/"+sub_class_text+"</p><p class='form-control-static'>"+obj.skill+"</p></div> </div> <hr> <div><p>"+obj.description+"</p></div></div><div class='col-md-7'><div class='row'><div class='col-sm-6'><img class='img-responsive' src='/img/class/class_6.jpg' alt='img'></div><div class='col-sm-6'><img class='img-responsive'  src='/img/class/class_5.jpg' alt='img'></div></div></div></div>";
+		// $(".row.profile:last").after(content);
 	});
 }
 
@@ -271,6 +277,7 @@ return {
 		initAddEducation();
 		initCertificateTable();
 		initAddCertificate();
+		initWorksTable();
 		initAddWorks();
 
 	}

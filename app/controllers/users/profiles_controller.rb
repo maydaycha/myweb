@@ -95,22 +95,24 @@ class Users::ProfilesController < ApplicationController
       render json: current_user.user_certifications
 
     when 'update_portfolio'
-      new_portfolio_list = []
-      @p = current_user.user_portfolios.create! do |e|
-        e.name = params[:name]
-        e.description = params[:description]
-        e.date = params[:date]
-        e.main_skill_id = params[:main_skill_id]
-        e.sub_skill_id = params[:sub_skill_id]
-        e.skill = params[:skill]
-        e.document = open(params[:document].tempfile).read unless (params[:document].is_a? String)
-        e.picture1 = open(params[:file][0].tempfile).read if (params[:file].size > 0)
-        e.picture2 = open(params[:file][1].tempfile).read if (params[:file].size > 1)
+      if params[:works_delete_list] && (not params[:works_delete_list].empty?)
+        params[:works_delete_list].each{ |e| UserPortfolio.destroy(e[:id]) }
+      else
+        new_portfolio_list = []
+        @p = current_user.user_portfolios.create! do |e|
+          e.name = params[:name]
+          e.description = params[:description]
+          e.date = params[:date]
+          e.main_skill_id = params[:main_skill_id]
+          e.sub_skill_id = params[:sub_skill_id]
+          e.skill = params[:skill]
+          e.document = open(params[:document].tempfile).read unless (params[:document].is_a? String)
+          e.picture1 = open(params[:file][0].tempfile).read if (params[:file].size > 0)
+          e.picture2 = open(params[:file][1].tempfile).read if (params[:file].size > 1)
+        end
+        new_portfolio_list << @p
       end
-      new_portfolio_list << @p
-
-      # params[:works_delete_list].each{ |e| UserPortfolio.destroy(e[:id]) } unless params[:works_delete_list].nil?
-      render json: new_portfolio_list
+      render json: current_user.user_portfolios
 
     when "get_sub_category"
       render json: t(:sub_skill_category)[params[:main_category_id].to_i]

@@ -534,11 +534,11 @@
                                             <div class="input-group edit">
                                                 <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                   / HR
-                                               </span>
-                                           </div>
-                                       </div>
-                                       <div class="pull-right" style="margin:20px 16px 0 0;">
+                                                 / HR
+                                             </span>
+                                         </div>
+                                     </div>
+                                     <div class="pull-right" style="margin:20px 16px 0 0;">
                                         <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet1">儲存</button>
                                         <button onclick="cancel_basic_info()" class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet1">取消</button>
                                     </div>
@@ -859,7 +859,7 @@
                                 <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#works-modal">
                                     <i class="fa fa-plus"></i>
                                 </a>
-                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">
+                                <a href="javascript: ;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">
                                     <i class="fa fa-floppy-o"></i>
                                 </a>
                             </div>
@@ -926,180 +926,180 @@
                             </div>
                         </div>
                         <div class="portlet-body">
-                         <table class="table" id="#">
-                            <tr>
-                                <th>圖片縮圖</th>
-                                <th>作品標題</th>
-                                <th class="edit">刪除</th>
-                            </tr>
-                            <% current_user.user_portfolios.each_with_index do |e, index|%>
-                            <tr>
-                                <td>
-                                    <% if e.picture1 %>
-                                    <%= image_tag url_for(:controller => "users/profiles", :action => "show_portfolio_image1", :index => index), class: "img-thumbnail img-responsive", width: "113", height: "113" %>
-                                    <% end %>
-                                    <% if e.picture2 %>
-                                    <%= image_tag url_for(:controller => "users/profiles", :action => "show_portfolio_image2", :index => index), class: "img-thumbnail img-responsive", width: "113", height: "113" %>
-                                    <% end %>
-                                </td>
+                            <table class="table" id="works-table">
+                                <tr>
+                                    <th>圖片縮圖</th>
+                                    <th>作品標題</th>
+                                    <th class="edit">刪除</th>
+                                </tr>
+                                <% current_user.user_portfolios.each_with_index do |e, index|%>
+                                <tr>
+                                    <td>
+                                        <% if e.picture1 %>
+                                        <%= image_tag url_for(:controller => "users/profiles", :action => "show_portfolio_image1", :index => index), class: "img-thumbnail img-responsive", width: "113", height: "113" %>
+                                        <% end %>
+                                        <% if e.picture2 %>
+                                        <%= image_tag url_for(:controller => "users/profiles", :action => "show_portfolio_image2", :index => index), class: "img-thumbnail img-responsive", width: "113", height: "113" %>
+                                        <% end %>
+                                    </td>
 
-                                <td><%= e.name %></td>
-                                <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: works_delete_list.push(<%= e.id %>);">刪除</button></td>
-                            </tr>
-                            <% end %>
-                        </table>
-                        <div class=" text-right">
-                            <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
+                                    <td><%= e.name %></td>
+                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: works_delete_list.push({id:<%= e.id %>});">刪除</button></td>
+                                </tr>
+                                <% end %>
+                            </table>
+                            <div class=" text-right">
+                                <button onClick="delete_portfolio()"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="portlet box light-grey show-view" id="profile-portlet7">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            相關證照
+                    <div class="portlet box light-grey show-view" id="profile-portlet7">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                相關證照
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet7">
+                                    <i class="fa fa-pencil-square-o"></i> 編輯
+                                </a>
+                                <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#certificate-modal">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">
+                                    <i class="fa fa-floppy-o"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="tools">
-                            <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet7">
-                                <i class="fa fa-pencil-square-o"></i> 編輯
-                            </a>
-                            <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#certificate-modal">
-                                <i class="fa fa-plus"></i>
-                            </a>
-                            <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">
-                                <i class="fa fa-floppy-o"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portlet-body">
-                        <table class="table" id="certificate-table">
-                            <tr>
-                                <th>證照</th>
-                                <th>來源</th>
-                                <th>獲得時間</th>
-                                <th>描述</th>
+                        <div class="portlet-body">
+                            <table class="table" id="certificate-table">
+                                <tr>
+                                    <th>證照</th>
+                                    <th>來源</th>
+                                    <th>獲得時間</th>
+                                    <th>描述</th>
 
-                                <th class="edit">刪除</th>
-                            </tr>
-                            <% current_user.user_certifications.each do |e| %>
-                            <tr>
-                                <td><%= e.name %></td>
-                                <td><%= e.source %></td>
-                                <td><%= e.get_time %></td>
-                                <td><%= e.description %></td>
-                                <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: certificate_delete_list.push({id:<%= e.id %>})">刪除</button></td>
-                            </tr>
-                            <% end %>
-                        </table>
-                        <div class=" text-right">
-                            <button onclick="update_certification()"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
-                        </div>
-                        <div class="modal fade" id="certificate-modal" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">新增相關證照</h4>
-                                    </div>
-                                    <div class="modal-body">
-
-                                        <div class="form-group">
-                                            <input type="text" name="certificate" class="form-control" placeholder="證照">
+                                    <th class="edit">刪除</th>
+                                </tr>
+                                <% current_user.user_certifications.each do |e| %>
+                                <tr>
+                                    <td><%= e.name %></td>
+                                    <td><%= e.source %></td>
+                                    <td><%= e.get_time %></td>
+                                    <td><%= e.description %></td>
+                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: certificate_delete_list.push({id:<%= e.id %>})">刪除</button></td>
+                                </tr>
+                                <% end %>
+                            </table>
+                            <div class=" text-right">
+                                <button onclick="update_certification()"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
+                            </div>
+                            <div class="modal fade" id="certificate-modal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">新增相關證照</h4>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" name="cer-source" class="form-control" placeholder="來源">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                <input type="text" name="start" class="form-control" placeholder="獲得證照時間" readonly>
-                                                <span class="input-group-btn">
-                                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                                                </span>
+                                        <div class="modal-body">
+
+                                            <div class="form-group">
+                                                <input type="text" name="certificate" class="form-control" placeholder="證照">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="cer-source" class="form-control" placeholder="來源">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                    <input type="text" name="start" class="form-control" placeholder="獲得證照時間" readonly>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea name="work-description" class="form-control" rows="5" placeholder="描述"></textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <textarea name="work-description" class="form-control" rows="5" placeholder="描述"></textarea>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" id="btn-addCertificate">新增</button>
+                                            <button type="button" class="btn default" data-dismiss="modal">關閉</button>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" id="btn-addCertificate">新增</button>
-                                        <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="/" class="btn btn-danger">資料填寫完成回到首頁</a>
+                    </div>
+                </div>
+                <div class="tab-pane" id="password">
+                    <div class="portlet box light-grey show-view" id="password-portlet">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                變更密碼
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
+                                    <i class="fa fa-floppy-o"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <form action="#" id="contact-form1" class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">舊密碼</label>
+                                    <div class="col-md-10">
+                                        <input type="password" name="oldPassword" class="form-control">
+                                        <p class="help-block">
+                                            如果您想要變更您的密碼，請先輸入您的舊密碼
+                                        </p>
                                     </div>
                                 </div>
-                                <!-- /.modal-content -->
-                            </div>
-                            <!-- /.modal-dialog -->
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <a href="/" class="btn btn-danger">資料填寫完成回到首頁</a>
-                </div>
-            </div>
-            <div class="tab-pane" id="password">
-                <div class="portlet box light-grey show-view" id="password-portlet">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            變更密碼
-                        </div>
-                        <div class="tools">
-                            <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
-                                <i class="fa fa-floppy-o"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portlet-body">
-                        <form action="#" id="contact-form1" class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <label class="col-md-2 control-label">舊密碼</label>
-                                <div class="col-md-10">
-                                    <input type="password" name="oldPassword" class="form-control">
-                                    <p class="help-block">
-                                        如果您想要變更您的密碼，請先輸入您的舊密碼
-                                    </p>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">新密碼</label>
+                                    <div class="col-md-10">
+                                        <input type="password" name="newPassword" class="form-control">
+                                        <p class="help-block">
+                                            密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-2 control-label">新密碼</label>
-                                <div class="col-md-10">
-                                    <input type="password" name="newPassword" class="form-control">
-                                    <p class="help-block">
-                                        密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
-                                    </p>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">再次輸入新密碼</label>
+                                    <div class="col-md-10">
+                                        <input type="password" name="checkPassword" class="form-control">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-2 control-label">再次輸入新密碼</label>
-                                <div class="col-md-10">
-                                    <input type="password" name="checkPassword" class="form-control">
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- BEGIN END CONTENT -->
         </div>
-        <!-- BEGIN END CONTENT -->
+        <!-- END MAIN CONTENT -->
     </div>
-    <!-- END MAIN CONTENT -->
-</div>
-<!-- END PAGE -->
-<!-- BEGIN FOOTER -->
-<div class="footer">
-    <img class="footer-logo" src="/img/logo103.png" alt="">
-    <div class="footer-nav">
-        <%= link_to "關於我們", index_about_path %>
-        <span class="bar">|</span>
-        <%= link_to "隱私條款", index_rule_path %>
-        <span class="bar">|</span>
-        <%= link_to "使用條款", index_rule_path %>
-        <span class="bar">|</span>
-        <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
-    </ul>
-</div>
-<!-- END FOOTER -->
+    <!-- END PAGE -->
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+        <img class="footer-logo" src="/img/logo103.png" alt="">
+        <div class="footer-nav">
+            <%= link_to "關於我們", index_about_path %>
+            <span class="bar">|</span>
+            <%= link_to "隱私條款", index_rule_path %>
+            <span class="bar">|</span>
+            <%= link_to "使用條款", index_rule_path %>
+            <span class="bar">|</span>
+            <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
+        </ul>
+    </div>
+    <!-- END FOOTER -->
 
-<!-- BEGIN JAVASCRIPTS -->
-<!-- BEGIN 核心插件 -->
+    <!-- BEGIN JAVASCRIPTS -->
+    <!-- BEGIN 核心插件 -->
 <!--[if lt IE 9]>
 <script src="plugins/html5shiv.min.js"></script>
 <script src="plugins/respond.min.js"></script>
@@ -1145,9 +1145,9 @@
 
 
 jQuery(document).ready(function() {
- Web.init();
- PersonalProfile.init();
- for(var i = 1; i < 8; i++) {
+   Web.init();
+   PersonalProfile.init();
+   for(var i = 1; i < 8; i++) {
     $(".control_sub_calss"+i).hide();
 }
 
@@ -1179,15 +1179,15 @@ $("#work_main_class").change( function() {
             $("#work_subClass_select2 option").remove();
             var select = $("#work_subClass_select2");
             for(var key in data) {
-             select.append($("<option></option>").attr("value", key).text(data[key].name));
-         }
-     },
-     error: function(data) {
+               select.append($("<option></option>").attr("value", key).text(data[key].name));
+           }
+       },
+       error: function(data) {
         console.log("error");
     }
 });
 });
-
+_count = 0;
 
 Dropzone.autoDiscover = true;
 Dropzone.options.addWorksfile = {
@@ -1199,15 +1199,16 @@ Dropzone.options.addWorksfile = {
             addWorksfile.removeAllFiles();
         });
         this.on("sendingmultiple", function(file, xhr, formData) {
-          formData.append('document', $("#works-modal input[name=thumbnail]")[0].files[0]);
-          formData.append('name', $("#works-modal input[name=title]").val());
-          formData.append('description', $("#works-modal textarea[name=description]").val());
-          formData.append('main_skill_id', $("#work_main_class").val());
-          formData.append('sub_skill_id', $("#work_subClass_select2").val());
-          formData.append('date', $("#works-modal input[name=start]").val());
-          formData.append('skill', $("#works-modal input[name=skill]").val());
-          formData.append('request', "update_portfolio");
-      });
+            console.log("test: count: " + _count);
+            formData.append('document', $("#works-modal input[name=thumbnail]")[0].files[0]);
+            formData.append('name', $("#works-modal input[name=title]").val());
+            formData.append('description', $("#works-modal textarea[name=description]").val());
+            formData.append('main_skill_id', $("#work_main_class").val());
+            formData.append('sub_skill_id', $("#work_subClass_select2").val());
+            formData.append('date', $("#works-modal input[name=start]").val());
+            formData.append('skill', $("#works-modal input[name=skill]").val());
+            formData.append('request', "update_portfolio");
+        });
         this.on("successmultiple", function(file, foo) {
             console.log(file);
             console.log(foo);
@@ -1229,7 +1230,7 @@ Dropzone.options.addWorksfile = {
 
 <script>
 
- $(function(){
+   $(function(){
 
     $(".prevent").click(function(event){
         event.preventDefault();
@@ -1248,7 +1249,7 @@ Dropzone.options.addWorksfile = {
 
 
 });
- var test = function() {
+   var test = function() {
     console.log("test");
 }
 
@@ -1413,10 +1414,10 @@ var main_class_change = function(){
             var select = $(parent).find('select.subClass_select2');
             console.log(select);
             for(var key in data) {
-             select.append($("<option></option>").attr("value", key).text(data[key].name));
-         }
-     },
-     error: function(data) {
+               select.append($("<option></option>").attr("value", key).text(data[key].name));
+           }
+       },
+       error: function(data) {
         console.log("error");
     }
 })
@@ -1518,12 +1519,12 @@ var update_skill = function() {
 
 var update_experience = function() {
     var request_obj = {
-       request: "update_experience",
-       experience_add_list: experience_add_list,
-       experience_delete_list: experience_delete_list
-   }
-   console.log(request_obj);
-   $.ajax({
+     request: "update_experience",
+     experience_add_list: experience_add_list,
+     experience_delete_list: experience_delete_list
+ }
+ console.log(request_obj);
+ $.ajax({
     url: "/users/profiles/ajax_updae",
     type: "post",
     dataType: "json",
@@ -1589,26 +1590,13 @@ var update_education = function() {
 // }
 
 var update_portfolio = function() {
-
+    console.log(addWorksfile.getQueuedFiles());
     addWorksfile.processQueue();
     return;
+}
 
-    for(var key in works_add_list) {
-        $.ajax({
-          url: '/users/profiles/ajax_updae',
-          data: works_add_list[key],
-          processData: false,
-          contentType: false,
-          type: 'POST',
-          async: false,
-          success: function(data){
-            console.log(data);
-            console.log(works_add_list);
-        }
-    });
-    }
-    works_add_list = [];
-    if(request_obj.works_delete_list.length > 0 ) {
+var delete_portfolio = function () {
+    if(works_delete_list.length > 0 ) {
         var request_obj = {
             request: "update_portfolio",
             works_delete_list: works_delete_list
@@ -1628,7 +1616,6 @@ var update_portfolio = function() {
             }
         });
     }
-
 }
 
 
