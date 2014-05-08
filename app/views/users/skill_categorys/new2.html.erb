@@ -88,7 +88,7 @@
                             <p><%= t("main_skill_category")[@category_index]['name'] %></p>
                         </div>
                         <div class="col-md-9 col-xs-8 content">
-                            <p class="title">您是哪一種 <span class="point"><%= t("main_skill_category")[@category_index]['name'] %></span> 人員？</p>
+                            <p class="title">您是哪一種 <span class="point"><%= t("main_skill_category")[@category_index]['name'] %></span> 人員？（可複選）</p>
                             <% t("sub_skill_category")[@category_index].each_with_index do |cate, index| %>
                             <div class="item">
                                 <input type="checkbox" name="class[]" value="<%= index %>" id="class<%= index %>">

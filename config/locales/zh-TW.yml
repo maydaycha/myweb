@@ -62,6 +62,18 @@ zh-TW:
 
     Telework保留修改隱私權政策內容之權利，若有修改時，我們不會個別通知，但會於本網站上公佈新修改之內容。如有任何疑問，歡迎至客服中心反應，我們將儘速為您處理。
 
+
+  reset_password_content_html: |
+    Hi %{username}!
+    點擊以下連結重新設定您的密碼。
+    %{href}
+    如果您沒有要求重新設定密碼的需求，請忽略本信件。
+
+    TeleWork團隊致上
+
+  reset_password_link:  "重新設定我的密碼"
+
+
   main_skill_category: [
     {name: "IT & 軟體"},
     {name: "工程 & 科學"},

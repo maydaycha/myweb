@@ -30,6 +30,16 @@ en:
   rule: |
     Fixed Now
 
+  reset_password_content_html: |
+    Hi %{username}!
+    點擊以下連結重新設定您的密碼。
+    %{href}
+    如果您沒有要求重新設定密碼的需求，請忽略本信件。
+
+    TeleWork團隊致上
+
+  reset_password_link:  "重新設定我的密碼"
+
   main_skill_category: [
     {name: "IT & Software"},
     {name: "Engineering and Science"},

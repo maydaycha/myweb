@@ -3,7 +3,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     if verify_recaptcha
-      # if true
       super
       session[:omniauth] = nil unless @user.new_record?
       @user.user_authentications.create!(:provider => session["devise:provider"], :uid => session['devise:uid'], :token => session["devise:token"], :token_secret => "") if session["devise:provider"] != nil
@@ -21,6 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     print params.to_json
     print "======="
     @email = params[:email]
+    @user = User.find_by_email(params[:email])
     render template: "users/registrations/verify_email"
   end
 
