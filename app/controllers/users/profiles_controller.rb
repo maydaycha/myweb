@@ -28,15 +28,7 @@ class Users::ProfilesController < ApplicationController
     end
     params[:user][:user_skills] = foeign_skills
     current_user.update!(params.permit![:user])
-    # if params[:image]
-    #   file_type = params[:image].content_type.split("/")[1]
-    #   path = "/upload/#{current_user.username}.#{file_type}"
-    #   File.open("public#{path}", 'wb'){ |f| f << open(params[:image].tempfile).read }
-    #   current_user.image = path
-    # end
-    if params[:image]
-      current_user.picture = open(params[:image].tempfile).read
-    end
+    current_user.picture = open(params[:image].tempfile).read if params[:image]
     current_user.step = 2
     current_user.save
     # redirect_to users_profile_path(current_user)

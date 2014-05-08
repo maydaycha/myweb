@@ -28,6 +28,7 @@ Sun::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { host: '0.0.0.0:3000' }
+  config.action_mailer.asset_host = 'http://telwowrk.herokuapp.com'
 
   # mail service
   config.action_mailer.delivery_method = :smtp
