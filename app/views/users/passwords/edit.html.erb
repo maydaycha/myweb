@@ -79,8 +79,6 @@
                     <div class="col-md-9 col-xs-8 content">
                         <%= devise_error_messages! %>
                         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-                        <%= f.hidden_field :reset_password_token %>
-                        <%= f.text_field :username %>
                         <h1 class="title" style="text-align:left; margin-top:0px; padding:0;">更改您的密碼(<%= resource.username %>)</h1>
                         <h3>請輸入您的新密碼</h3>
                         <!-- <input type="text" class="form-control" name="username" placeholder="請輸入您的密碼" data-isEmpty="請輸入您的密碼"> -->
