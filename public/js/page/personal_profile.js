@@ -2,12 +2,14 @@ var PersonalProfile = function(){
 
 	var initEditSaveBtnTip = function(){
 		$('.tool-edit,.tool-save,.tool-add').tooltip({'container': 'body'});
-		$('.tool-edit').on('click',function(){
+		$('.tool-edit').on('click',function(e){
+			e.preventDefault();
 			var portlet = $($(this).attr('data-portlet'));
 			portlet.removeClass('show-view');
 			portlet.addClass('show-edit');
 		});
-		$('.tool-save').on('click',function(){
+		$('.tool-save').on('click',function(e){
+			e.preventDefault();
 			var portlet = $($(this).attr('data-portlet'));
 			portlet.removeClass('show-edit');
 			portlet.addClass('show-view');
@@ -17,16 +19,20 @@ var PersonalProfile = function(){
 	var initSkillTags = function(){
 		$('#skill-tags').tagsInput({
 			width: 'auto',
+			defaultText: "技能標籤",
+			placeholderColor: '#999',
 			autocomplete_url:'/skills/autocomplete'
 		});
-	}
-
-	var initAddWorksSkillTags = function(){
 		$('#addWorks-skill-tags').tagsInput({
 			width: 'auto',
+			defaultText: "技能標籤",
+			placeholderColor: "#999",
 			autocomplete_url:'/skills/autocomplete'
 		});
+		$('.tagsinput').addClass('form-control');
+		$('#skill-tags_tag').css('color', '#999');
 	}
+
 
 	var initSubClassSelect2 = function(){
 		$('.subClass_select2').select2({
@@ -116,17 +122,20 @@ var initAddEducation = function(){
 		var td2	 = $('<td></td>');
 		var td3 = $('<td></td>');
 		var td4 = $('<td></td>');
-		var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
+		var td5 = $('<td></td>');
+		var td6 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
 
 		td1.append($('#education-modal input[name=start]').val());
 		td2.append($('#education-modal input[name=end]').val());
 		td3.append($('#education-modal input[name=organization]').val());
 		td4.append($('#education-modal input[name=office]').val());
+		td5.append($('#education-modal textarea[name=description]').val());
 		tr.append(td1);
 		tr.append(td2);
 		tr.append(td3);
 		tr.append(td4);
 		tr.append(td5);
+		tr.append(td6);
 		var obj = {
 			start_date: $('#education-modal input[name=start]').val(),
 			end_date: $('#education-modal input[name=end]').val(),
@@ -255,7 +264,6 @@ return {
 	init:function(){
 		initEditSaveBtnTip();
 		initSkillTags();
-		initAddWorksSkillTags();
 		initSubClassSelect2();
 		initExperienceTable();
 		initAddExperience();

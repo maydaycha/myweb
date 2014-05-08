@@ -139,7 +139,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人圖像</label>
                                         <div class="col-md-10">
-                                            <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id)%>
+                                            <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id), class: "avatar" %>
                                             <!-- <img src="<%= (current_user.image != nil) ? current_user.image :  '/img/staff.png' %>" class="avatar" id="blah1"> -->
                                             <input type="file" name="image" class="form-control edit" id="profile_img1" onchange="readURL(this)">
                                         </div>
@@ -662,10 +662,9 @@
                                     1. 工作經歷　2. 教育程度　3. 作品集
                                 </p>
                             </form>
-
                         </div>
-
                     </div>
+
                     <div class="portlet box light-grey show-view" id="profile-portlet4">
                         <div class="portlet-title">
                             <div class="caption">
@@ -785,6 +784,7 @@
                                     <th>訖</th>
                                     <th>學校</th>
                                     <th>系所/專長</th>
+                                    <th>說明</th>
                                     <th class="edit">刪除</th>
                                 </tr>
                                 <% current_user.user_educations.each do |e| %>
@@ -793,6 +793,7 @@
                                     <td><%= e.end_date %></td>
                                     <td><%= e.school %></td>
                                     <td><%= e.department %></td>
+                                    <td><%= e.description %></td>
                                     <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: education_delete_list.push({id:<%= e.id %>})">刪除</button></td>
                                 </tr>
                                 <% end %>
@@ -925,71 +926,35 @@
                             </div>
                         </div>
                         <div class="portlet-body">
-                            <div class="row profile" name="works_section">
-                               <div class="col-md-5">
-                                   <div class="row">
-                                       <div class="col-sm-4 title"><h4>作品名稱</h4><p>2014/06/30</p></div>
-                                       <div class="col-sm-8 text"><p style="font-size:1.2em;">行銷業務/社群網站經營</p><p class="form-control-static">技能一,技能二,技能三</p></div>
-                                   </div>
-                                   <hr>
-                                   <div><p>(作品描述)不注線月馬裡元看以有戰目。馬獨行放了；新也時笑，做政夫文水一中處一能自回待在下新子</p></div>
-                               </div>
-                               <div class="col-md-7">
-                                   <div class="row">
-                                       <div class="col-sm-6"><img class="img-responsive" src="/img/class/class_6.jpg" alt="img"></div>
-                                       <div class="col-sm-6"><img class="img-responsive"  src="/img/class/class_5.jpg" alt="img"></div>
-                                   </div>
-                               </div>
-                           </div>
-                           <hr>
-                           <div class="row profile" name="works_section">
-                               <div class="col-md-5">
-                                   <div class="row">
-                                       <div class="col-sm-4 title"><h4>作品名稱</h4><p>2014/06/30</p></div>
-                                       <div class="col-sm-8 text"><p style="font-size:1.2em;">行銷業務/社群網站經營</p><p class="form-control-static">技能一,技能二,技能三</p></div>
-                                   </div>
-                                   <hr>
-                                   <div><p>(作品描述)不注線月馬裡元看以有戰目。馬獨行放了；新也時笑，做政夫文水一中處一能自回待在下新子</p></div>
-                               </div>
-                               <div class="col-md-7">
-                                   <div class="row">
-                                       <div class="col-sm-6"><img class="img-responsive" src="/img/class/class_1.jpg" alt="img"></div>
-                                       <div class="col-sm-6"><img class="img-responsive"  src="/img/class/class_2.jpg" alt="img"></div>
-                                   </div>
-                               </div>
-                           </div>
-                           <% current_user.user_portfolios.each_with_index do |e, index|%>
-                           <hr>
-                           <div class="row profile" name="works_section">
-                               <div class="col-md-5">
-                                   <div class="row">
-                                       <div class="col-sm-4 title"><h4><%= e.name %></h4><p><%= e.date %></p></div>
-                                       <div class="col-sm-8 text"><p style="font-size:1.2em;"><%= t(:main_skill_category)[e.main_skill_id.to_i]['name'] %>/<%= t(:sub_skill_category)[e.main_skill_id.to_i][e.sub_skill_id.to_i]['name'] %></p><p class="form-control-static"><%= e.skill %></p></div>
-                                   </div>
-                                   <hr>
-                                   <div><p><%= e.description %></p></div>
-                               </div>
-                               <div class="col-md-7">
-                                   <div class="row">
-                                       <div class="col-sm-6">
-                                           <!-- <img class="img-responsive" src="/img/class/class_1.jpg" alt="img"> -->
-                                           <%= image_tag url_for(:controller => "users/profiles", :action => "show_portfolio_image1", :index => index), class: "img-responsive" %>
-                                       </div>
-                                       <div class="col-sm-6">
-                                           <!-- <img class="img-responsive"  src="/img/class/class_2.jpg" alt="img"> -->
-                                           <%= image_tag url_for(:controller => "users/profiles", :action => "show_portfolio_image2", :index => index), class: "img-responsive" %>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                           <% end %>
-                           <div class="text-right">
-                               <button class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
-                           </div>
-                       </div>
-                   </div>
+                         <table class="table" id="#">
+                            <tr>
+                                <th>圖片縮圖</th>
+                                <th>作品標題</th>
+                                <th class="edit">刪除</th>
+                            </tr>
+                            <% current_user.user_portfolios.each_with_index do |e, index|%>
+                            <tr>
+                                <td>
+                                    <% if e.picture1 %>
+                                    <%= image_tag url_for(:controller => "users/profiles", :action => "show_portfolio_image1", :index => index), class: "img-thumbnail img-responsive", width: "113", height: "113" %>
+                                    <% end %>
+                                    <% if e.picture2 %>
+                                    <%= image_tag url_for(:controller => "users/profiles", :action => "show_portfolio_image2", :index => index), class: "img-thumbnail img-responsive", width: "113", height: "113" %>
+                                    <% end %>
+                                </td>
 
-                   <div class="portlet box light-grey show-view" id="profile-portlet7">
+                                <td><%= e.name %></td>
+                                <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: works_delete_list.push(<%= e.id %>);">刪除</button></td>
+                            </tr>
+                            <% end %>
+                        </table>
+                        <div class=" text-right">
+                            <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portlet box light-grey show-view" id="profile-portlet7">
                     <div class="portlet-title">
                         <div class="caption">
                             相關證照

@@ -154,3 +154,22 @@ Form wizard
     text-align: left;
   }
 }
+
+
+
+
+.ac_results {
+  width: auto !important;
+}
+
+.divcss5{
+  /*border:1px solid #000;*/
+  /*width:300px;*/
+  /*height:100px;*/
+  overflow:hidden
+}
+
+.divcss5 img{
+  /*max-width:300px;*/
+  /*max-height:400px;*/
+}
