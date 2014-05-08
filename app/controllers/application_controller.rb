@@ -73,7 +73,7 @@ class ApplicationController < ActionController::Base
   end
 
   def protect
-    @ips = ['125.227.181.61', '140.113.73.55', '127.0.0.1', '140.113.73.40', '140.113.73.30', '140.113.73.50', '140.113.72.8']
+    @ips = ['125.227.181.61', '140.113.73.55', '127.0.0.1', '140.113.73.40', '140.113.73.30', '140.113.73.50', '140.113.72.8', '118.166.80.56']
     if not @ips.include? request.remote_ip
       # Check for your subnet stuff here, for example
       # if not request.remote_ip.include?('127.0,0')
