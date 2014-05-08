@@ -59,16 +59,19 @@ var PersonalProfile = function(){
 			var td2 = $('<td></td>');
 			var td3 = $('<td></td>');
 			var td4 = $('<td></td>');
-			var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
+			var td5 = $('<td></td>');
+			var td6 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
 			td1.append($('#experience-modal input[name=start]').val());
 			td2.append($('#experience-modal input[name=end]').val());
 			td3.append($('#experience-modal input[name=organization]').val());
 			td4.append($('#experience-modal input[name=office]').val());
+			td5.append($('#experience-modal textarea[name=description]').val());
 			tr.append(td1);
 			tr.append(td2);
 			tr.append(td3);
 			tr.append(td4);
 			tr.append(td5);
+			tr.append(td6);
 			var obj = {
 				start_date: $('#experience-modal input[name=start]').val(),
 				end_date: $('#experience-modal input[name=end]').val(),
@@ -166,7 +169,7 @@ var initAddCertificate = function(){
 		td1.append($('#certificate-modal input[name=certificate]').val());
 		td2.append($('#certificate-modal input[name=cer-source]').val());
 		td3.append($('#certificate-modal input[name=start]').val());
-		td4.append($('#certificate-modal input[name=work-description]').val());
+		td4.append($('#certificate-modal textarea[name=work-description]').val());
 		tr.append(td1);
 		tr.append(td2);
 		tr.append(td3);

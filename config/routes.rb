@@ -160,7 +160,8 @@ Sun::Application.routes.draw do
   devise_for :users, :controllers => {
     registrations: 'users/registrations',
     omniauth_callbacks: "users/omniauth_callbacks",
-    confirmations: "users/confirmations"
+    confirmations: "users/confirmations",
+    passwords: "users/passwords"
   }
 
   devise_scope :user do

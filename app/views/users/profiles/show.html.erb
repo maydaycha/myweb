@@ -691,6 +691,7 @@
                                     <th>訖</th>
                                     <th>公司</th>
                                     <th>職位/職責</th>
+                                    <th>工作簡介</th>
                                     <th class="edit">刪除</th>
                                 </tr>
                                 <% current_user.user_experiences.each do |e| %>
@@ -699,6 +700,7 @@
                                     <td><%= e.end_date %></td>
                                     <td><%= e.organization %></td>
                                     <td><%= e.office %></td>
+                                    <td><%= e.description %></td>
                                     <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: experience_delete_list.push({id:<%= e.id %>})">刪除</button></td>
                                 </tr>
                                 <% end %>
