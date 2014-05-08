@@ -226,6 +226,7 @@ var initAddWorks = function() {
 			return;
 		}
 		var fd = new FormData();
+		update_portfolio();
 		// fd.append('document', $("#works-modal input[name=thumbnail]")[0].files[0]);
 		// fd.append('name', $("#works-modal input[name=title]").val());
 		// fd.append('description', $("#works-modal textarea[name=description]").val());
