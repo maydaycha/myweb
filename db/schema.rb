@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509082111) do
+ActiveRecord::Schema.define(version: 20140509083818) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(version: 20140509082111) do
     t.binary   "picture1",      limit: 10485760
     t.binary   "picture2",      limit: 10485760
     t.string   "skill"
-    t.binary   "document"
+    t.binary   "document",      limit: 52428800
   end
 
   create_table "user_skill_categories", force: true do |t|
