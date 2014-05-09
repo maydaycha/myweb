@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509024745) do
+ActiveRecord::Schema.define(version: 20140509082111) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -153,8 +153,8 @@ ActiveRecord::Schema.define(version: 20140509024745) do
     t.datetime "updated_at"
     t.integer  "main_skill_id"
     t.integer  "sub_skill_id"
-    t.binary   "picture1"
-    t.binary   "picture2"
+    t.binary   "picture1",      limit: 10485760
+    t.binary   "picture2",      limit: 10485760
     t.string   "skill"
     t.binary   "document"
   end
@@ -184,12 +184,12 @@ ActiveRecord::Schema.define(version: 20140509024745) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                                   default: "",    null: false
+    t.string   "encrypted_password",                      default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                           default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -198,17 +198,17 @@ ActiveRecord::Schema.define(version: 20140509024745) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,     null: false
+    t.integer  "failed_attempts",                         default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "username",                               null: false
-    t.string   "first_name",                             null: false
-    t.string   "last_name",                              null: false
-    t.string   "country_code",                           null: false
-    t.string   "time_zone",              default: "UTC"
+    t.string   "username",                                                null: false
+    t.string   "first_name",                                              null: false
+    t.string   "last_name",                                               null: false
+    t.string   "country_code",                                            null: false
+    t.string   "time_zone",                               default: "UTC"
     t.string   "how_to_know"
     t.boolean  "receive_information"
-    t.binary   "picture"
+    t.binary   "picture",                limit: 10485760
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "introduction"

@@ -133,9 +133,9 @@
             </div>
             <!-- END SWIPER -->
             <!-- BEGIN LOGIN -->
+            <% if not current_user %>
             <div class="login">
                 <p class="title">免費註冊，即刻使用</p>
-                <!-- <form action="" class="login-form"> -->
                 <%= form_for :user, url: new_user_registration_path, method: :get, html: {class: "login-form"} do |f|%>
                     <div class="input-icon">
                         <i class="fa fa-user"></i>
@@ -167,11 +167,12 @@
                     </ul>
                 </div>
             </div>
+            <% end %>
             <div class="login_min">
                 <%= link_to(new_user_registration_path) do %>
                   <p class="title">免費註冊，即刻使用</p>
                 <% end %>
-                
+
             </div>
             <!-- END LOGIN -->
             <!-- BEGIN CLASS -->
@@ -584,7 +585,7 @@
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/page/index.js"></script>
 <script>
-    jQuery(document).ready(function() {    
+    jQuery(document).ready(function() {
        Web.init();
        Index.init();
     });
