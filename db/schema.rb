@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507162814) do
+ActiveRecord::Schema.define(version: 20140509024745) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"

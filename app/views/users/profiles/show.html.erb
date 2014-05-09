@@ -1249,10 +1249,6 @@ Dropzone.options.addWorksfile = {
 
 
 });
-   var test = function() {
-    //console.log("test");
-}
-
 
 
 var readURL = function(input) {
@@ -1271,8 +1267,6 @@ var readURL = function(input) {
 function upload_img(form_num) {
     var profile_img = document.getElementById("profile_img"+ form_num);
     var file = profile_img.files[0];
-    //console.log("test");
-    //console.log(file);
     var fd = new FormData();
     fd.append('profile_img', file);
 
@@ -1290,27 +1284,7 @@ function upload_img(form_num) {
     xhr.send(fd);
 }
 
-function upload_document() {
-    var profile_img = document.getElementById("profile_img"+ form_num);
-    var file = profile_img.files[0];
 
-    var fd = new FormData();
-    fd.append('profile_img', file);
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('post', '/users/profiles/ajax_upload_img', true);
-
-    xhr.setRequestHeader("X-File-Name", file.name);
-    xhr.setRequestHeader("X-File-Size", file.size);
-    xhr.setRequestHeader("X-File-Type", file.type);
-    xhr.onload = function() {
-        if (this.status == 200) {
-            //console.log("upload file success");
-        };
-    };
-    xhr.send(fd);
-
-}
 
 var update_basic_info = function(form_num) {
     var obj = {
