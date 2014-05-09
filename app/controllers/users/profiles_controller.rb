@@ -125,7 +125,7 @@ class Users::ProfilesController < ApplicationController
   def ajax_upload_img
     current_user.picture = open(params[:profile_img].tempfile).read
     current_user.save
-    render json: @user
+    render json: current_user
   end
 
   def upload_portfolio_picture
