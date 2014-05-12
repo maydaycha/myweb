@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     logger.info "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
     I18n.locale = extract_locale_from_accept_language_header
     puts "|#{I18n.locale}|"
-    if I18n.locale == 'zh-tw' or I18n.locale == 'zh-Tw' or I18n.locale == 'zh-tW'
+    if I18n.locale.to_s == 'zh-tw' or I18n.locale.to_s == 'zh-Tw' or I18n.locale.to_s == 'zh-tW'
       I18n.locale = 'zh-TW'
       puts "abcdefg"
     end
