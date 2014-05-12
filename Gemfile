@@ -79,7 +79,7 @@ gem 'bcrypt'
 # gem 'country_select'
 gem 'localized_country_select', '>= 0.9.8'
 gem 'carmen-rails'
-gem 'nokogiri' # for get country from CLDR
+# gem 'nokogiri' # for get country from CLDR
 
 gem 'i18n-timezones'
 gem 'i18n-country-translations'
@@ -87,5 +87,6 @@ gem 'i18n-country-translations'
 gem "spreadsheet"
 
 gem 'kaminari'
+
 
 
