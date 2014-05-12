@@ -45,10 +45,6 @@ var SingUp = function(){
                     required: true,
                     myPasswordMatch: true
                 }
-                // verification: {
-                //     required: true,
-                //     myImgVerification: true
-                // },
             },
 
             invalidHandler: function (event, validator) { //display error alert on form submit
@@ -63,11 +59,14 @@ var SingUp = function(){
             		text = form.find('input[id='+error.attr('for')+']').attr('data-isempty');
             		error.text(text);
             	}
-            	else if(error.text()=='Account already exists'){
+            	else if(error.text()=='This field has already existed'){
             		text = form.find('input[id='+error.attr('for')+']').attr('data-isExists');
             		error.text(text);
             	}
-            	else if(error.text()!=''){
+                else if(error.text()=='This field has isInconsistent data'){
+                    text = form.find('input[id='+error.attr('for')+']').attr('data-isInconsistent');
+                    error.text(text);
+                }else if(error.text()!=''){
             		text = form.find('input[id='+error.attr('for')+']').attr('data-isError');
             		error.text(text);
             	}

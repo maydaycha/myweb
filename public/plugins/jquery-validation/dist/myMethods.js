@@ -14,7 +14,7 @@ jQuery.validator.addMethod("myUsername", function(value, element) {
         async: false
     });
     return !result;
-}, "帳號已經存在");
+}, "This field has already existed");
 
 jQuery.validator.addMethod("myImgVerification", function(value, element) {
 	var verification='vsdee';
@@ -40,11 +40,11 @@ jQuery.validator.addMethod("myEmail", function(value, element) {
     });
     //console.log("email: " + result);
     return !result;
-}, "Email已經存在");
+}, "This field has already existed");
 
 
 jQuery.validator.addMethod("myPasswordMatch", function(value, element) {
     var result = true;
     if( value == $("input[name='user[password]'").val() ) result = false;
     return !result;
-}, "密碼與先前輸入的不一致");
+}, "This field has isInconsistent data");

@@ -29,7 +29,7 @@ var SingUp = function(){
                     text = form.find('input[name='+error.attr('for')+']').attr('data-isEmpty');
                     error.text(text);
                 }
-                else if(error.text()=='Account already exists'){
+                else if(error.text()=='This field has already existed'){
                     text = form.find('input[name='+error.attr('for')+']').attr('data-isExists');
                     error.text(text);
                 }
@@ -96,7 +96,7 @@ var SingUp = function(){
                     text = form.find('input[name='+error.attr('for')+']').attr('data-isEmpty');
                     error.text(text);
                 }
-                else if(error.text()=='Account already exists'){
+                else if(error.text()=='This field has already existed'){
                     text = form.find('input[name='+error.attr('for')+']').attr('data-isExists');
                     error.text(text);
                 }
