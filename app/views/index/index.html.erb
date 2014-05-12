@@ -137,14 +137,16 @@
             <div class="login">
                 <p class="title">遠距工作，免費註冊</p>
                 <%= form_for :user, url: new_user_registration_path, method: :get, html: {class: "login-form"} do |f|%>
-                <%= flash[:warning] %>
+                    <% if alert %>
+                        <p class="alert form-group alert-danger"><%= alert %></p>
+                    <% end %>
                     <div class="input-icon">
                         <i class="fa fa-user"></i>
-                        <%= f.text_field :username, name: "username", class: "form-control", placeholder: "Username", onkeydown: "return constrain_Eng_and_num(event)"%>
+                        <%= f.text_field :username, name: "username", class: "form-control", placeholder: "Username", onkeydown: "return constrain_Eng_and_num(event)", required: true %>
                     </div>
                     <div class="input-icon">
                         <i class="fa fa-envelope"></i>
-                        <%= f.email_field :email, name: "email", class: "form-control", placeholder: "Email"%>
+                        <%= f.email_field :email, name: "email", class: "form-control", placeholder: "Email", required: true %>
                     </div>
                     <input type="submit" class="btn" value="註冊會員">
                 <% end %>

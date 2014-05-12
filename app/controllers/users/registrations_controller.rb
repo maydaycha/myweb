@@ -41,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     if params[:username] && params[:email]
       if not params[:username] =~ /\w/
-        flash[:warning] = "username only accept english character and digital"
+        flash[:alert] = t("error.username_format")
         redirect_to "/"
       else
         build_resource({
