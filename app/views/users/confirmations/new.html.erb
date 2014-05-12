@@ -76,20 +76,18 @@
                     <div class="col-md-3 col-xs-4 image">
                         <img src="/img/envelope01.png" alt="envelop">
                     </div>
-
                     <div class="col-md-9 col-xs-8 content">
+                        <% if devise_error_messages! != "" %>
+                            <div class="form-group alert alert-danger">
+                            <%= devise_error_messages! %>
+                            </div>
+                        <% end %>
                     	<h3>請重新輸入您的Email</h3>
                     	<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-                            <% if devise_error_messages! != "" %>
-                                <div class="form-group alert alert-danger">
-    					  		<%= devise_error_messages! %>
-                                </div>
-                            <% end %>
 
-					  		<div><%= f.label :email %><br />
-					  		<%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "請輸入您的Email", "data-isEmpty" => "請輸入您的Emai" %></div>
+					  		<%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "請輸入您的Email", "data-isEmpty" => "請輸入您的Emai" %>
 
-					  		<div><%= f.submit "重新寄送郵件", :class => "btn btn-warning" %></div>
+					  		<%= f.submit "重新寄送郵件", :class => "btn btn-warning" %>
 						<% end %>
                     </div>
                 </div>
@@ -126,7 +124,7 @@
         <!-- END 核心插件 -->
         <!-- BEGIN 頁面插件 -->
         <!-- END 頁面插件 -->
-        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="/js/script.js"></script>
         <!--<script type="text/javascript" src="js/page/index.js"></script>-->
         <script>
             jQuery(document).ready(function() {    
