@@ -47,37 +47,28 @@ var PersonalProfile = function(){
 			$(this).parent().parent().remove();
 		});
 	}
+	var rowExperience_idx = 0;
 	var initAddExperience = function(){
 		$('.date-picker').datepicker({
 			autoclose: true
 		});
 		$('#btn-addExperience').on('click',function(){
-			if($('#experience-modal input[name=start]').val() == "") {
-				alert('請填寫工作開始時間');
-				return;
-			} else if($('#experience-modal input[name=organization]').val() == "" && $('#experience-modal input[name=office]').val() == ""){
+			var tr = $($('.rowExperience-simple').html());
+			if( $('#experience-modal input[name=start]').val() == "") {
+				alert('請填寫工作開始時間')
+				return
+			} else if($('#experience-modal input[name=organization]').val() == "" || $('#experience-modal input[name=office]').val() == "") {
 				alert('公司 職位/職責 需填選至少一個');
 				return;
 			}
+			tr.find('.start').text($('#experience-modal input[name=start]').val());
+			tr.find('.end').text($('#experience-modal input[name=end]').val());
+			tr.find('.organization').text($('#experience-modal input[name=organization]').val());
+			tr.find('.office').text($('#experience-modal input[name=office]').val());
+			tr.find('.description').text($('#experience-modal textarea[name=description]').val());
+			editExperience(tr);
 
-			var tr = $('<tr></tr>');
-			var td1 = $('<td></td>');
-			var td2 = $('<td></td>');
-			var td3 = $('<td></td>');
-			var td4 = $('<td></td>');
-			var td5 = $('<td></td>');
-			var td6 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
-			td1.append($('#experience-modal input[name=start]').val());
-			td2.append($('#experience-modal input[name=end]').val());
-			td3.append($('#experience-modal input[name=organization]').val());
-			td4.append($('#experience-modal input[name=office]').val());
-			td5.append($('#experience-modal textarea[name=description]').val());
-			tr.append(td1);
-			tr.append(td2);
-			tr.append(td3);
-			tr.append(td4);
-			tr.append(td5);
-			tr.append(td6);
+
 			var obj = {
 				start_date: $('#experience-modal input[name=start]').val(),
 				end_date: $('#experience-modal input[name=end]').val(),
@@ -86,6 +77,7 @@ var PersonalProfile = function(){
 				description: $('#experience-modal textarea[name=description]').val()
 			};
 			experience_add_list.push(obj);
+
 			$('#experience-table').append(tr);
 			$('#experience-modal input[name=start]').val('');
 			$('#experience-modal input[name=end]').val('');
@@ -93,68 +85,118 @@ var PersonalProfile = function(){
 			$('#experience-modal input[name=office]').val('');
 			$('#experience-modal textarea[name=description]').val('');
 			initExperienceTable();
-			//console.log("test");
+
 			$("#experience-modal").modal('toggle');
 		});
-}
+	}
 
-var initEducationTable = function(){
-	$('#education-table .btn-delete').off('click');
-	$('#education-table .btn-delete').on('click',function(){
-		$(this).parent().parent().remove();
-	});
-}
-var initAddEducation = function(){
-	$('#btn-addEducation').on('click',function(){
-		if($('#education-modal input[name=start]').val() == "") {
-			alert('請填寫教育開始時間');
-			return;
-		} else if($('#education-modal input[name=organization]').val() == "") {
-			alert('請填寫學校');
-			return;
-		} else if($('#education-modal input[name=office]').val() == "") {
-			alert('請填寫系所/專長');
-			return;
+	var initEditExperience = function(tr){
+		var tr = $('#experience-table tr');
+		for(var i = 1; i < tr.length; i++){
+			editExperience(tr.eq(i));
 		}
+	}
 
-		var tr = $('<tr></tr>');
-		var td1 = $('<td></td>');
-		var td2	 = $('<td></td>');
-		var td3 = $('<td></td>');
-		var td4 = $('<td></td>');
-		var td5 = $('<td></td>');
-		var td6 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
+	var editExperience = function(tr){
+		var modal = $($('.editExperience-simple').html());
+		var id = tr.find('.id').text()
+		console.log(id)
+		modal.attr('id','editExperience-modal-'+ rowExperience_idx );
+		modal.find('input[name=start]').val(tr.find('.start').text());
+		modal.find('input[name=end]').val(tr.find('.end').text());
+		modal.find('input[name=organization]').val(tr.find('.organization').text());
+		modal.find('input[name=office]').val(tr.find('.office').text());
+		modal.find('textarea[name=description]').val(tr.find('.description').text());
+		modal.find('.btn-editExperience').on('click',function(){
+			tr.find('.start').text(modal.find('input[name=start]').val());
+			tr.find('.end').text(modal.find('input[name=end]').val());
+			tr.find('.organization').text(modal.find('input[name=organization]').val());
+			tr.find('.office').text(modal.find('input[name=office]').val());
+			tr.find('.description').text(modal.find('textarea[name=description]').val());
 
-		td1.append($('#education-modal input[name=start]').val());
-		td2.append($('#education-modal input[name=end]').val());
-		td3.append($('#education-modal input[name=organization]').val());
-		td4.append($('#education-modal input[name=office]').val());
-		td5.append($('#education-modal textarea[name=description]').val());
-		tr.append(td1);
-		tr.append(td2);
-		tr.append(td3);
-		tr.append(td4);
-		tr.append(td5);
-		tr.append(td6);
-		var obj = {
-			start_date: $('#education-modal input[name=start]').val(),
-			end_date: $('#education-modal input[name=end]').val(),
-			school: $('#education-modal input[name=organization]').val(),
-			department: $('#education-modal input[name=office]').val(),
-			description: $('#education-modal textarea[name=description]').val()
-		};
-		education_add_list.push(obj);
-		//console.log(education_add_list);
-		$('#education-table').append(tr);
-		$('#education-modal input[name=start]').val('');
-		$('#education-modal input[name=end]').val('');
-		$('#education-modal input[name=organization]').val('');
-		$('#education-modal input[name=office]').val('');
-		$('#education-modal textarea[name=description]').val('');
-		initEducationTable();
-		$("#education-modal").modal('toggle');
-	});
-}
+			var obj = {
+				id: id,
+				start_date: modal.find('input[name=start]').val(),
+				end_date: modal.find('input[name=end]').val(),
+				organization: modal.find('input[name=organization]').val(),
+				office: modal.find('input[name=office]').val(),
+				description: modal.find('textarea[name=description]').val()
+			}
+			experience_update_list.push(obj)
+			console.log(experience_update_list)
+
+			modal.find('.btn-close').click();
+		});
+		modal.find('.date-picker').datepicker();
+		tr.find('.btn-edit').attr('data-toggle','modal');
+		tr.find('.btn-edit').attr('href','#editExperience-modal-'+rowExperience_idx);
+		tr.find('.btns').append(modal);
+		rowExperience_idx++;
+	}
+
+
+
+	var initEducationTable = function(){
+		$('#education-table .btn-delete').off('click');
+		$('#education-table .btn-delete').on('click',function(){
+			$(this).parent().parent().remove();
+		});
+	}
+
+
+
+
+	var initAddEducation = function(){
+		$('#btn-addEducation').on('click',function(){
+			if($('#education-modal input[name=start]').val() == "") {
+				alert('請填寫教育開始時間');
+				return;
+			} else if($('#education-modal input[name=organization]').val() == "") {
+				alert('請填寫學校');
+				return;
+			} else if($('#education-modal input[name=office]').val() == "") {
+				alert('請填寫系所/專長');
+				return;
+			}
+
+			var tr = $('<tr></tr>');
+			var td1 = $('<td></td>');
+			var td2	 = $('<td></td>');
+			var td3 = $('<td></td>');
+			var td4 = $('<td></td>');
+			var td5 = $('<td></td>');
+			var td6 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
+
+			td1.append($('#education-modal input[name=start]').val());
+			td2.append($('#education-modal input[name=end]').val());
+			td3.append($('#education-modal input[name=organization]').val());
+			td4.append($('#education-modal input[name=office]').val());
+			td5.append($('#education-modal textarea[name=description]').val());
+			tr.append(td1);
+			tr.append(td2);
+			tr.append(td3);
+			tr.append(td4);
+			tr.append(td5);
+			tr.append(td6);
+			var obj = {
+				start_date: $('#education-modal input[name=start]').val(),
+				end_date: $('#education-modal input[name=end]').val(),
+				school: $('#education-modal input[name=organization]').val(),
+				department: $('#education-modal input[name=office]').val(),
+				description: $('#education-modal textarea[name=description]').val()
+			};
+			education_add_list.push(obj);
+				//console.log(education_add_list);
+				$('#education-table').append(tr);
+				$('#education-modal input[name=start]').val('');
+				$('#education-modal input[name=end]').val('');
+				$('#education-modal input[name=organization]').val('');
+				$('#education-modal input[name=office]').val('');
+				$('#education-modal textarea[name=description]').val('');
+				initEducationTable();
+				$("#education-modal").modal('toggle');
+			});
+	}
 
 
 var initCertificateTable = function(){
@@ -274,6 +316,7 @@ return {
 		initSubClassSelect2();
 		initExperienceTable();
 		initAddExperience();
+		initEditExperience();
 		initEducationTable();
 		initAddEducation();
 		initCertificateTable();

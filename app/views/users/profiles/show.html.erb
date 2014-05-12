@@ -534,11 +534,11 @@
                                             <div class="input-group edit">
                                                 <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                 / HR
-                                             </span>
-                                         </div>
-                                     </div>
-                                     <div class="pull-right" style="margin:20px 16px 0 0;">
+                                                   / HR
+                                               </span>
+                                           </div>
+                                       </div>
+                                       <div class="pull-right" style="margin:20px 16px 0 0;">
                                         <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet1">儲存</button>
                                         <button onclick="cancel_basic_info()" class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet1">取消</button>
                                     </div>
@@ -690,25 +690,84 @@
                                     <th>訖</th>
                                     <th>公司</th>
                                     <th>職位/職責</th>
-                                    <th>工作簡介</th>
-                                    <th class="edit">刪除</th>
+                                    <th>描述</th>
+                                    <th class="edit">刪除/編輯</th>
                                 </tr>
                                 <% current_user.user_experiences.each do |e| %>
                                 <tr>
-                                    <td><%= e.start_date %></td>
-                                    <td><%= e.end_date %></td>
-                                    <td><%= e.organization %></td>
-                                    <td><%= e.office %></td>
-                                    <td><%= e.description %></td>
-                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: experience_delete_list.push({id:<%= e.id %>})">刪除</button></td>
+                                    <td class="id" style="display: none;"><%= e.id %></td>
+                                    <td class="start"><%= e.start_date %></td>
+                                    <td class="end"><%= e.end_date %></td>
+                                    <td class="organization"><%= e.organization %></td>
+                                    <td class="office"><%= e.office %></td>
+                                    <td class="description text-over"><%= e.description %></td>
+                                    <td class="edit btns">
+                                        <button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: experience_delete_list.push({id:<%= e.id %>})">刪除</button>
+                                        <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                    </td>
                                 </tr>
                                 <% end %>
-
                             </table>
                             <% else %>
                             尚未新增工作經歷
                             <% end %>
-
+                            <table class="rowExperience-simple display-none">
+                                <tr>
+                                    <td class="start"></td>
+                                    <td class="end"></td>
+                                    <td class="organization"></td>
+                                    <td class="office"></td>
+                                    <td class="description text-over"></td>
+                                    <td class="edit btns">
+                                        <button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button>
+                                        <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="editExperience-simple display-none">
+                                <div class="modal fade" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">編輯工作經歷</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                        <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                        <span class="input-group-btn">
+                                                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                        <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                        <span class="input-group-btn">
+                                                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" name="organization" class="form-control" placeholder="公司">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" name="office" class="form-control" placeholder="職位/職責">
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary btn-editExperience">儲存</button>
+                                                <button type="button" class="btn default btn-close" data-dismiss="modal">關閉</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                            </div>
                             <div class=" text-right">
                                 <button onclick="update_experience()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet4">儲存</button>
                                 <button class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet4">取消</button>
@@ -789,15 +848,77 @@
                                 </tr>
                                 <% current_user.user_educations.each do |e| %>
                                 <tr>
-                                    <td><%= e.start_date %></td>
-                                    <td><%= e.end_date %></td>
-                                    <td><%= e.school %></td>
-                                    <td><%= e.department %></td>
-                                    <td><%= e.description %></td>
-                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: education_delete_list.push({id:<%= e.id %>})">刪除</button></td>
+                                    <td class="start"><%= e.start_date %></td>
+                                    <td class="end"><%= e.end_date %></td>
+                                    <td class="organization"><%= e.school %></td>
+                                    <td class="office"><%= e.department %></td>
+                                    <td class="description text-over"><%= e.description %></td>
+                                    <td class="edit">
+                                        <button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: education_delete_list.push({id:<%= e.id %>})">刪除</button>
+                                        <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                    </td>
                                 </tr>
                                 <% end %>
                             </table>
+                            <table class="rowEducation-simple">
+                                <tr>
+                                    <td class="start"></td>
+                                    <td class="end"></td>
+                                    <td class="organization"></td>
+                                    <td class="office"></td>
+                                    <td class="description text-over"></td>
+                                    <td class="edit btns">
+                                        <button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button>
+                                        <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="editEducation-simple display-none">
+                                <div class="modal fade" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">編輯教育程度</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                        <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                        <span class="input-group-btn">
+                                                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                        <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                        <span class="input-group-btn">
+                                                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" name="organization" class="form-control" placeholder="學校">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" name="office" class="form-control" placeholder="系所/專長">
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary btn-editEducation">儲存</button>
+                                                <button type="button" class="btn default btn-close" data-dismiss="modal">關閉</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                            </div>
+
+
                             <div class="text-right">
                                 <button onclick="update_education()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet5">儲存</button>
                                 <button class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet5">取消</button>
@@ -1108,10 +1229,13 @@
 <script>
     var education_add_list = [];
     var education_delete_list = [];
+    var education_update_list = [];
     var experience_add_list = [];
     var experience_delete_list = [];
+    var experience_update_list = [];
     var certificate_add_list = [];
     var certificate_delete_list = [];
+    var certificate_update_list = [];
     var works_add_list = [];
     var works_delete_list = [];
 
@@ -1139,66 +1263,60 @@
     // Dropzone.autoDiscover = false;
 
 
-
-//// console.log(Dropzone);
-
-
-
-jQuery(document).ready(function() {
-   Web.init();
-   PersonalProfile.init();
-   for(var i = 1; i < 8; i++) {
-    $(".control_sub_calss"+i).hide();
-}
-
-$(".main_class").change(main_class_change);
-
-
-$("#work_main_class").change( function() {
-    //console.log($(this).val());
-
-    if ($(this).val() < 0) {
-        $("#work_subClass_select2 option").remove();
-        $("#work_subClass_select2").append($("<option></option>").attr("value", -1).text("子類別"));
-        return;
+    jQuery(document).ready(function() {
+     Web.init();
+     PersonalProfile.init();
+     for(var i = 1; i < 8; i++) {
+        $(".control_sub_calss"+i).hide();
     }
 
-    var request_obj = {
-        request: "get_sub_category",
-        main_category_id: $(this).val()
-    };
+    $(".main_class").change(main_class_change);
 
-    $.ajax({
-        url: "/users/profiles/ajax_updae",
-        type: "post",
-        dataType: "json",
-        data: JSON.stringify(request_obj),
-        contentType: 'application/json',
-        success: function(data) {
+
+    $("#work_main_class").change( function() {
+
+        if ($(this).val() < 0) {
+            $("#work_subClass_select2 option").remove();
+            $("#work_subClass_select2").append($("<option></option>").attr("value", -1).text("子類別"));
+            return;
+        }
+
+        var request_obj = {
+            request: "get_sub_category",
+            main_category_id: $(this).val()
+        };
+
+        $.ajax({
+            url: "/users/profiles/ajax_updae",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
             //console.log(data);
             $("#work_subClass_select2 option").remove();
             var select = $("#work_subClass_select2");
             for(var key in data) {
-               select.append($("<option></option>").attr("value", key).text(data[key].name));
-           }
-       },
-       error: function(data) {
+             select.append($("<option></option>").attr("value", key).text(data[key].name));
+         }
+     },
+     error: function(data) {
         //console.log("error");
     }
 });
-});
-_count = 0;
+    });
+    _count = 0;
 
-Dropzone.autoDiscover = true;
-Dropzone.options.addWorksfile = {
-    init: function () {
-        addWorksfile = this;
-        myDropzone = this;
-        $(".removeAllImages").click(function () {
-            alert('here');
-            addWorksfile.removeAllFiles();
-        });
-        this.on("sendingmultiple", function(file, xhr, formData) {
+    Dropzone.autoDiscover = true;
+    Dropzone.options.addWorksfile = {
+        init: function () {
+            addWorksfile = this;
+            myDropzone = this;
+            $(".removeAllImages").click(function () {
+                alert('here');
+                addWorksfile.removeAllFiles();
+            });
+            this.on("sendingmultiple", function(file, xhr, formData) {
             //console.log("test: count: " + _count);
             formData.append('document', $("#works-modal input[name=thumbnail]")[0].files[0]);
             formData.append('name', $("#works-modal input[name=title]").val());
@@ -1209,19 +1327,19 @@ Dropzone.options.addWorksfile = {
             formData.append('skill', $("#works-modal input[name=skill]").val());
             formData.append('request', "update_portfolio");
         });
-        this.on("successmultiple", function(file, foo) {
+            this.on("successmultiple", function(file, foo) {
             //console.log(file);
             //console.log(foo);
             location.reload();
         });
-    },
-    paramName: "file",
-    maxFilesize: 5,
-    maxFiles: 2,
-    autoProcessQueue: false,
-    addRemoveLinks: true,
-    uploadMultiple: true,
-};
+        },
+        paramName: "file",
+        maxFilesize: 5,
+        maxFiles: 2,
+        autoProcessQueue: false,
+        addRemoveLinks: true,
+        uploadMultiple: true,
+    };
 
 
 });
@@ -1230,7 +1348,7 @@ Dropzone.options.addWorksfile = {
 
 <script>
 
-   $(function(){
+ $(function(){
 
     $(".prevent").click(function(event){
         event.preventDefault();
@@ -1251,48 +1369,47 @@ Dropzone.options.addWorksfile = {
 });
 
 
-var readURL = function(input) {
-    //console.log(input.files);
+ var readURL = function(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
             var img = $("#"+input.id).prev();
-            //console.log(img[0].id);
-            $("#"+img[0].id).attr('src', e.target.result);
-        };
-        reader.readAsDataURL(input.files[0]);
+                //console.log(img[0].id);
+                $("#"+img[0].id).attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
     }
-}
 
-function upload_img(form_num) {
-    var profile_img = document.getElementById("profile_img"+ form_num);
-    var file = profile_img.files[0];
-    var fd = new FormData();
-    fd.append('profile_img', file);
+    function upload_img(form_num) {
+        var profile_img = document.getElementById("profile_img"+ form_num);
+        var file = profile_img.files[0];
+        var fd = new FormData();
+        fd.append('profile_img', file);
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('post', '/users/profiles/ajax_upload_img', true);
+        var xhr = new XMLHttpRequest();
+        xhr.open('post', '/users/profiles/ajax_upload_img', true);
 
-    xhr.setRequestHeader("X-File-Name", file.name);
-    xhr.setRequestHeader("X-File-Size", file.size);
-    xhr.setRequestHeader("X-File-Type", file.type);
-    xhr.onload = function() {
-        if (this.status == 200) {
-            //console.log("upload file success");
+        xhr.setRequestHeader("X-File-Name", file.name);
+        xhr.setRequestHeader("X-File-Size", file.size);
+        xhr.setRequestHeader("X-File-Type", file.type);
+        xhr.onload = function() {
+            if (this.status == 200) {
+                //console.log("upload file success");
+            };
         };
-    };
-    xhr.send(fd);
-}
+        xhr.send(fd);
+    }
 
 
 
-var update_basic_info = function(form_num) {
-    var obj = {
-        request: "update_basic_info",
-        name: $("#contact-form" + form_num + " input[name='name']").val(),
-        email: $("#contact-form" + form_num + " input[name='email']").val(),
-        money: $("#contact-form" + form_num + " input[name='money']").val()
-    };
+    var update_basic_info = function(form_num) {
+        var obj = {
+            request: "update_basic_info",
+            name: $("#contact-form" + form_num + " input[name='name']").val(),
+            email: $("#contact-form" + form_num + " input[name='email']").val(),
+            money: $("#contact-form" + form_num + " input[name='money']").val()
+        };
     //console.log(obj);
     $.ajax({
         url: "/users/profiles/ajax_updae",
@@ -1388,10 +1505,10 @@ var main_class_change = function(){
             var select = $(parent).find('select.subClass_select2');
             //console.log(select);
             for(var key in data) {
-               select.append($("<option></option>").attr("value", key).text(data[key].name));
-           }
-       },
-       error: function(data) {
+             select.append($("<option></option>").attr("value", key).text(data[key].name));
+         }
+     },
+     error: function(data) {
         //console.log("error");
     }
 })
@@ -1493,11 +1610,13 @@ var update_skill = function() {
 
 var update_experience = function() {
     var request_obj = {
-     request: "update_experience",
-     experience_add_list: experience_add_list,
-     experience_delete_list: experience_delete_list
- }
- //console.log(request_obj);
+       request: "update_experience",
+       experience_add_list: experience_add_list,
+       experience_delete_list: experience_delete_list,
+       experience_update_list: experience_update_list
+   }
+   console.log(request_obj)
+ // return
  $.ajax({
     url: "/users/profiles/ajax_updae",
     type: "post",
@@ -1505,9 +1624,10 @@ var update_experience = function() {
     data: JSON.stringify(request_obj),
     contentType: 'application/json',
     success: function(data) {
-        //console.log(data);
+        console.log(data)
         experience_add_list = [];
         experience_delete_list = [];
+        experience_update_list = [];
     },
     error: function(data) {
         //console.log("error");

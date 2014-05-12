@@ -65,6 +65,15 @@ class Users::ProfilesController < ApplicationController
     when "update_experience"
       params[:experience_add_list].each{ |e| current_user.user_experiences.create!(organization: e[:organization], office: e[:office], start_date: e[:start_date], end_date: e[:end_date], description: e[:description])} if not params[:experience_add_list].nil?
       params[:experience_delete_list].each{ |e| UserExperience.destroy(e[:id]) } if not params[:experience_delete_list].nil?
+      params[:experience_update_list].each do |e|
+        @experience = UserExperience.find(e[:id])
+        @experience.start_date = e[:start_date]
+        @experience.end_date = e[:end_date]
+        @experience.organization = e[:organization]
+        @experience.office = e[:office]
+        @experience.description = e[:description]
+        @experience.save
+      end
       render json: current_user.user_experiences
 
     when "update_education"
