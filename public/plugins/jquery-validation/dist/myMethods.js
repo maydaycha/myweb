@@ -47,4 +47,4 @@ jQuery.validator.addMethod("myPasswordMatch", function(value, element) {
     var result = true;
     if( value == $("input[name='user[password]'").val() ) result = false;
     return !result;
-}, "密碼不一致");
+}, "密碼與先前輸入的不一致");

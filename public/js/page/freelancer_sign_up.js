@@ -28,9 +28,11 @@ var SingUp = function(){
                 },
                 "user[country_code]": {
                     required: true
-                },"user[time_zone]": {
+                },
+                "user[time_zone]": {
                     required: true
-                },"user[username]": {
+                },
+                "user[username]": {
                 	minlength: 6,
                     required: true,
                     myUsername: true
@@ -57,16 +59,16 @@ var SingUp = function(){
             errorPlacement: function (error, element) { // render error placement for each input type
             	var text;
             	if(error.text()=='This field is required.'){
-                    //console.log(error.attr('for'));
-            		text = form.find('input[name='+error.attr('for')+']').attr('data-isempty');
+                    console.log(error.attr('for'));
+            		text = form.find('input[id='+error.attr('for')+']').attr('data-isempty');
             		error.text(text);
             	}
             	else if(error.text()=='Account already exists'){
-            		text = form.find('input[name='+error.attr('for')+']').attr('data-isExists');
+            		text = form.find('input[id='+error.attr('for')+']').attr('data-isExists');
             		error.text(text);
             	}
             	else if(error.text()!=''){
-            		text = form.find('input[name='+error.attr('for')+']').attr('data-isError');
+            		text = form.find('input[id='+error.attr('for')+']').attr('data-isError');
             		error.text(text);
             	}
                 var icon = $(element).parent('.input-icon').children('i');

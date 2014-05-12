@@ -155,7 +155,7 @@
       <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
       <div class="input-icon right">
         <i class="fa"></i>
-        <%= f.email_field :email, class: "form-control", placeholder: "電子郵件"%>
+        <%= f.email_field :email, class: "form-control", placeholder: "電子郵件", "data-isEmpty" => "請輸入電子郵件"%>
       </div>
     </div>
   </div>
@@ -203,7 +203,7 @@
       <div class="input-icon right">
         <i class="fa"></i>
         <!-- <input type="password" class="form-control" name="password" placeholder="設定密碼" data-isEmpty="請輸入密碼" data-isError="密碼長度不足"> -->
-        <%= f.password_field :password_check, autocomplete: "off", class: "form-control", placeholder: "請再一次輸入密碼" %>
+        <%= f.password_field :password_check, autocomplete: "off", class: "form-control", placeholder: "請再一次輸入密碼", "data-isEmpty" => "請再一次輸入密碼" %>
       </div>
     </div>
   </div>

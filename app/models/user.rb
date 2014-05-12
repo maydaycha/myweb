@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable,
     :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
+  # validates :password, :presence => true, :format => { :with  => /(?=.*\d)(?=.*[a-zA-Z])/, :allow_blank => false, :message => "must include at least one letter, and one digit" }
+
+
   validates_presence_of :first_name, :message => "姓氏未填寫"
   validates_presence_of :last_name, :message => "名字未填寫"
   validates_presence_of :country_code, :message => "地區未選取"
@@ -70,5 +73,15 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+
+
+  # private
+  # def password_complexity
+    # if password.present? and not password.match(/(?=.*\d)(?=.*[a-zA-Z])/)
+      # errors.add :password, "must include at least one letter, and one digit"
+      # puts errors.to_json
+    # end
+  # end
 
 end

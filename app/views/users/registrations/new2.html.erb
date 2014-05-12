@@ -78,40 +78,40 @@
             <h4 class="modal-title">使用條約</h4>
           </div>
           <div class="modal-body">
-          <pre>
-<%= t(:rule)%>
-           </pre>
+            <pre>
+              <%= t(:rule)%>
+            </pre>
           </div>
-         <div class="modal-footer">
-          <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+          <div class="modal-footer">
+            <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+          </div>
         </div>
+        <!-- /.modal-content -->
       </div>
-      <!-- /.modal-content -->
+      <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal-dialog -->
-  </div>
-  <!-- END MODAL -->
-  <h1 class="title">免費建立個人帳號</h1>
-  <div class="social">
-    <div class="box">
-      <p class="social-text">您也可以使用其他OpenID快速註冊</p>
-      <ul class="social-icons">
+    <!-- END MODAL -->
+    <h1 class="title">免費建立個人帳號</h1>
+    <div class="social">
+      <div class="box">
+        <p class="social-text">您也可以使用其他OpenID快速註冊</p>
+        <ul class="social-icons">
+          <li>
+            <!-- <a class="facebook" data-original-title="facebook" href="#"> -->
+            <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "facebook", data:{original:{title:"facebook"}} %>
+          </a>
+        </li>
         <li>
-          <!-- <a class="facebook" data-original-title="facebook" href="#"> -->
-          <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "facebook", data:{original:{title:"facebook"}} %>
+          <!-- <a class="googleplus" data-original-title="Goole Plus" href="#"> -->
+          <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
         </a>
       </li>
       <li>
-        <!-- <a class="googleplus" data-original-title="Goole Plus" href="#"> -->
-        <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
+        <!-- <a class="yahoo" data-original-title="Yahoo!" href="#"> -->
+        <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "yahoo", data:{original:{title:"Yahoo!"}} %>
       </a>
     </li>
-    <li>
-      <!-- <a class="yahoo" data-original-title="Yahoo!" href="#"> -->
-      <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "yahoo", data:{original:{title:"Yahoo!"}} %>
-    </a>
-  </li>
-</ul>
+  </ul>
 </div>
 </div>
 
@@ -120,8 +120,9 @@
 <div class="main-content">
   <!-- /.modal -->
   <!-- BRGIN FORM -->
-
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "signUp-form", id: "signUp-form"}) do |f| %>
+  <%= devise_error_messages! %>
+  <!-- <%= resource.errors.inspect %> -->
 
   <div class="form-group alert alert-danger display-hide">
     請檢查您輸入的資料
@@ -186,7 +187,7 @@
       <div class="input-icon right">
         <i class="fa"></i>
         <!-- <input type="text" class="form-control" name="username" placeholder="使用者帳號" data-isEmpty="請輸入帳號" data-isError="帳號長度不足" data-isExists="帳戶名稱已經有人使用"> -->
-        <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號", "data-isEmpty" => "請輸入帳號", "data-isError" => "帳號長度不足", "data-isExists" => "帳戶名稱已經有人使用"%>
+        <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號", "data-isEmpty" => "請使用字母數字，做為您的使用者帳號", "data-isError" => "帳號長度不足六個字元", "data-isExists" => "帳戶名稱已經有人使用"%>
         <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
       </div>
     </div>
@@ -198,7 +199,7 @@
       <div class="input-icon right">
         <i class="fa"></i>
         <!-- <input type="password" class="form-control" name="password" placeholder="設定密碼" data-isEmpty="請輸入密碼" data-isError="密碼長度不足"> -->
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "設定密碼" %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "設定密碼", data: {isEmpty: "密碼至少要有六個字元，不包含*/!~等特殊符號", isError: "密碼至少要有六個字元，不包含*/!~等特殊符號"} %>
       </div>
     </div>
   </div>
@@ -208,8 +209,7 @@
       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
       <div class="input-icon right">
         <i class="fa"></i>
-        <!-- <input type="password" class="form-control" name="password" placeholder="設定密碼" data-isEmpty="請輸入密碼" data-isError="密碼長度不足"> -->
-        <%= f.password_field :password_check, autocomplete: "off", class: "form-control", placeholder: "請再一次輸入密碼" %>
+        <%= f.password_field :password_check, autocomplete: "off", class: "form-control", placeholder: "請再一次輸入密碼", "data-isEmpty" => "請再一次輸入密碼" %>
       </div>
     </div>
   </div>

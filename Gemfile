@@ -73,7 +73,7 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'omniauth-weibo-oauth2'
 
 gem 'devise'
-gem 'devise_security_extension'
+# gem 'devise_security_extension'
 gem 'bcrypt'
 
 # gem 'country_select'

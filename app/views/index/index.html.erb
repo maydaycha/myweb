@@ -139,7 +139,7 @@
                 <%= form_for :user, url: new_user_registration_path, method: :get, html: {class: "login-form"} do |f|%>
                     <div class="input-icon">
                         <i class="fa fa-user"></i>
-                        <%= f.text_field :username, name: "username", class: "form-control", placeholder: "Username"%>
+                        <%= f.text_field :username, name: "username", class: "form-control", placeholder: "Username", onkeydown: "return constrain_Eng_and_num(event)"%>
                     </div>
                     <div class="input-icon">
                         <i class="fa fa-lock"></i>
@@ -595,6 +595,24 @@ $(document).ready(function(ev){
     })
 });
 
+    function constrain_Eng_and_num(e) {
+        var keynum, keychar, check
+         // IE
+        if(window.event) {
+            keynum = e.keyCode
+        } else if(e.which) {  // Netscape/Firefox/Opera
+            keynum = e.which
+        }
+        console.log(keynum)
+        if( keynum == 8 || keynum == 9 ||keynum == 13) return true
+        keychar = String.fromCharCode(keynum)
+        console.log(keychar)
+        check = /[A-Z&&0-9]/
+        console.log(check.test(keychar))
+        return check.test(keychar)
+    }
+
+
 </script>
 
 
@@ -613,5 +631,6 @@ $(function() {
 </script>
 <![endif]-->
 <!-- END PIE -->
+
 </body>
 </html>

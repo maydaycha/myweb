@@ -215,3 +215,384 @@ zh-TW:
     {name: "服務顧問", title: "補充文字"},
     {name: "其他 - 顧問", title: "補充文字"}]
     ]
+
+
+  visite_site: 拜訪網站
+  welcome: 歡迎
+  profile: 個人資料
+  logout: 登出
+  users: 使用者
+  roles: 角色
+  orders: 訂單
+  courses: 課程
+  tag_courses: 課程標簽
+  instructors: 講師
+  materials: 教材
+  tag_materials: 教材標簽
+  course_suggestions: 課程建議
+  share_urls: 網站分享
+  posts: 文章
+  tag_posts: 文章標簽
+  category_posts: 文章分類
+  jobs: 工作
+  tag_jobs: 工作標簽
+  home: 首頁
+  search: 搜尋
+  id: 編號
+  email: 電子郵件
+  phone: 電話
+  actions: 操作
+  show: 詳細資料
+  change_role: 更改角色
+  delete: 刪除
+  description: 描述
+  avatar: 大頭照
+  back: 回到列表
+  cancel: 取消
+  confirm: 確認
+  Are_you_sure?: 你確定嗎？
+  Can_not_delete_yourself: 不能刪除自己
+  API_Key_Generate_sussefully: 成功產生 API Key
+  status: 狀態
+  address: 地址
+  order_detail: 訂單細節
+  orderable_name: 產品名稱
+  orderable_description: 產品描述
+  orderable_price: 產品價格
+  status_history: 狀態歷史
+  time_title: 時間
+  add: 新增
+  start_time: 開始時間
+  end_time: 結束時間
+  register_end_time: 註冊截止時間
+  price: 價錢
+  edit: 編輯
+  online: 上線
+  offline: 下線
+  successfully_created: 新增成功
+  successfully_updated: 更新成功
+  successfully_deleted: 刪除成功
+  successfully_online: 上線成功
+  successfully_offline: 下線成功
+  successfully_approve: 同意成功
+  successfully_reject: 拒絕成功
+  cover: 封面
+  suitable_people: 適合人士
+  tag: 標簽
+  slug: 網址
+  file: 檔案
+  file_name: 檔案名稱
+  file_type: 檔案格式
+  file_size: 檔案大小
+  download: 下載
+  title: 標題
+  content: 內容
+  reply: 回覆
+  replyer: 回覆者
+  url: 網址
+  approve: 同意
+  reject: 拒絕
+  category: 分類
+  job_title: 職位名稱
+  company_name: 公司名稱
+  link: 超連結
+  author: 作者
+  resume: 履歷
+  location: 地點
+  skill: 技能
+  characteristic: 性格
+  benefit: 福利
+  nationality: 國籍
+  cover_letter: 自傳
+  attachment: 附件
+  remember_me: 記住我
+  sign_in: 登入
+  sign_up: 註冊
+  password: 密碼
+  Password: 密碼
+  password_confirmation: 確認密碼
+  current_password: 目前密碼
+  leave_it_blank_if_you_don_want_to_change_it: 如果不想更改密碼的話就留空白
+  we_need_your_current_password_to_confirm_your_changes: 我們需要你的目前的密碼來確認你的更改
+  lock: 封鎖
+  unlock: 解除封鎖
+  unable_to_update_user: 無法更新使用者
+
+  admin:
+    users:
+      name: 姓名
+    instructors:
+      name: 姓名
+    courses:
+      name: 課程名稱
+    tag:
+      name: 標簽名稱
+    materials:
+      name: 教材名稱
+    category:
+      name: 分類名稱
+
+  date:
+    abbr_day_names:
+    - 日
+    - 一
+    - 二
+    - 三
+    - 四
+    - 五
+    - 六
+    abbr_month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 星期日
+    - 星期一
+    - 星期二
+    - 星期三
+    - 星期四
+    - 星期五
+    - 星期六
+    formats:
+      default: ! '%Y/%m/%d'
+      long: ! '%Y年%b%d日'
+      short: ! '%b%d日'
+    month_names:
+    -
+    - 一月
+    - 二月
+    - 三月
+    - 四月
+    - 五月
+    - 六月
+    - 七月
+    - 八月
+    - 九月
+    - 十月
+    - 十一月
+    - 十二月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 大約一小時
+        other: 大約 %{count} 小時
+      about_x_months:
+        one: 大約一個月
+        other: 大約 %{count} 個月
+      about_x_years:
+        one: 大約一年
+        other: 大約 %{count} 年
+      almost_x_years:
+        one: 接近一年
+        other: 接近 %{count} 年
+      half_a_minute: 半分鐘
+      less_than_x_minutes:
+        one: 不到一分鐘
+        other: 不到 %{count} 分鐘
+      less_than_x_seconds:
+        one: 不到一秒
+        other: 不到 %{count} 秒
+      over_x_years:
+        one: 一年多
+        other: ! '%{count} 年多'
+      x_days:
+        one: 一天
+        other: ! '%{count} 天'
+      x_minutes:
+        one: 一分鐘
+        other: ! '%{count} 分鐘'
+      x_months:
+        one: 一個月
+        other: ! '%{count} 個月'
+      x_seconds:
+        one: 一秒
+        other: ! '%{count} 秒'
+    prompts:
+      day: 日
+      hour: 時
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: 必須是可被接受的
+      blank: 不能是空白字元
+      confirmation: 不符合確認值
+      empty: 不能留空
+      equal_to: 必須等於 %{count}
+      even: 必須是偶數
+      exclusion: 是被保留的關鍵字
+      greater_than: 必須大於 %{count}
+      greater_than_or_equal_to: 必須大於或等於 %{count}
+      inclusion: 沒有包含在列表中
+      invalid: 是無效的
+      less_than: 必須小於 %{count}
+      less_than_or_equal_to: 必須小於或等於 %{count}
+      not_a_number: 不是數字
+      not_an_integer: 必須是整數
+      odd: 必須是奇數
+      record_invalid: ! '校驗失敗: %{errors}'
+      restrict_dependent_destroy: 因還有需要此記錄的其他記錄, 所以無法移除記錄
+      taken: 已經被使用
+      too_long: 過長（最長是 %{count} 個字）
+      too_short: 過短（最短是 %{count} 個字）
+      wrong_length: 字數錯誤（必須是 %{count} 個字）
+      expired: "已經過期，請重新申請一個"
+      not_found: "找不到"
+      already_confirmed: "已經驗證，請直接登入"
+      not_locked: "被鎖定了"
+      not_saved:
+        one: "有一個錯誤導致%{resource}不能被儲存："
+        other: "有 %{count} 個錯誤導致%{resource}不能被儲存："
+    template:
+      body: 以下欄位發生問題：
+      header:
+        one: 有 1 個錯誤發生使得「%{model}」無法被儲存。
+        other: 有 %{count} 個錯誤發生使得「%{model}」無法被儲存。
+  helpers:
+    select:
+      prompt: 請選擇
+    submit:
+      create: 新增%{model}
+      submit: 儲存%{model}
+      update: 更新%{model}
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u %n'
+        precision: 0
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: NT$
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: 十億
+          million: 百萬
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte: 位元組
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', 和 '
+      two_words_connector: ! ' 和 '
+      words_connector: ! ', '
+  time:
+    am: 上午
+    formats:
+      default: ! '%Y年%b%d日 %A %H:%M:%S'
+      long: ! '%Y年%b%d日 %H:%M'
+      short: ! '%b%d日 %H:%M'
+    pm: 下午
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
+  views:
+     pagination:
+       first: "&laquo; First"
+       last: "Last &raquo;"
+       previous: "&larr; 上一頁"
+       next: "下一頁 &rarr;"
+       truncate: "..."
+
+  ckeditor:
+    page_title: "CKEditor Files Manager"
+    confirm_delete: "Delete file?"
+    buttons:
+      cancel: "Cancel"
+      upload: "Upload"
+      delete: "Delete"
+
+  devise:
+    failure:
+      already_authenticated: '你已經登入。'
+      unauthenticated: '您需要先註冊，登入後才能繼續。'
+      unconfirmed: '您的帳號需需要經過確認後，才能繼續。'
+      locked: '您的帳號已被鎖定。'
+      invalid: 'Email 或密碼是無效的。'
+      invalid_token: '無效的認證代碼。'
+      timeout: '您的登入時效過期，請重新登入，才能繼續。'
+      inactive: '您的帳號尚未被啟用。'
+    sessions:
+      signed_in: '成功登入了。'
+      signed_out: '成功登出了。'
+    passwords:
+      send_instructions: '您將在幾分鐘後收到一封電子郵件，內有重新設定密碼的步驟說明。'
+      updated: '您的密碼已被修改，而您現在已重新登入。'
+      updated_not_active: '您的密碼已被修改。'
+      send_paranoid_instructions: "如果我們有您的電子信箱，您將會收到一封內含可重新設定密碼連結的電子郵件。"
+    confirmations:
+      send_instructions: '您將在幾分鐘後收到一封電子郵件，內有確認帳號的步驟說明。'
+      send_paranoid_instructions: '如果我們有您的電子信箱，您將會收到一封確認您的帳號的電子郵件。'
+      confirmed: '您的帳號已經過確認，現在您已成功登入。'
+    registrations:
+      signed_up: '註冊成功，歡迎！'
+      igned_up_but_unconfirmed: '確認信件已送至您的 Email 信箱，請點擊信件內連結以啓動您的帳號。'
+      signed_up_but_inactive: '您已註冊成功。然而因為您的帳號尚未啓動，暫時無法登入，抱歉！'
+      signed_up_but_locked: '您已註冊成功。 然而因為您的帳號已被鎖定，暫時無法登入，抱歉！'
+      updated: '您已經成功的更新帳號資訊。'
+      update_needs_confirmation: "您已經成功的更新帳號資訊，但我們仍需確認您的電子信箱，請至新信箱收信並點擊連結以確認您的新電子郵件帳號。"
+      destroyed: '再會！您的帳號已被取消。有緣再會。'
+    unlocks:
+      send_instructions: '您將在幾分鐘後收到一封電子郵件，內有將帳號解除鎖定的步驟說明。'
+      unlocked: '您的帳號已被解鎖，現在請重新登入。'
+      send_paranoid_instructions: '如果您的帳號已存在，您的電子信箱將會收到如何解鎖帳號的指示。'
+    omniauth_callbacks:
+      success: '成功從 %{kind} 取得認證'
+      failure: '從 %{kind} 無法取得認證，因為 "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: '確認步驟'
+      reset_password_instructions:
+        subject: '重設密碼步驟'
+      unlock_instructions:
+        subject: '解鎖步驟'
