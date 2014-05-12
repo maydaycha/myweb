@@ -106,9 +106,9 @@
         <li>
           <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
         </li>
-        <li>
+        <!-- <li>
           <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "yahoo", data:{original:{title:"Yahoo!"}} %>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
@@ -157,7 +157,7 @@
       <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
       <div class="input-icon right">
         <i class="fa"></i>
-        <%= f.email_field :email, class: "form-control", placeholder: "電子郵件", "data-isEmpty" => "請輸入電子郵件", "data-isError" => "請填入有效的email信箱"%>
+        <%= f.email_field :email, class: "form-control", placeholder: "電子郵件", "data-isEmpty" => "請輸入電子郵件", "data-isExists" => "Email已經有人使用" %>
       </div>
     </div>
   </div>
@@ -182,7 +182,7 @@
       <div class="input-icon right">
         <i class="fa"></i>
         <!-- <input type="text" class="form-control" name="username" placeholder="使用者帳號" data-isEmpty="請輸入帳號" data-isError="帳號長度不足" data-isExists="帳戶名稱已經有人使用"> -->
-        <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號", "data-isEmpty" => "請使用字母數字，做為您的使用者帳號", "data-isError" => "帳號長度不足六個字元", "data-isExists" => "帳戶名稱已經有人使用"%>
+        <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號", "data-isEmpty" => "請使用字母數字，做為您的使用者帳號", "data-isExists" => "帳戶名稱已經有人使用" %>
         <!-- 帳號重複及驗證碼的判斷在plugins/jquery-validation/dist/myMethods.js -->
       </div>
     </div>
@@ -205,7 +205,7 @@
       <div class="input-icon right">
         <i class="fa"></i>
         <!-- <input type="password" class="form-control" name="password" placeholder="設定密碼" data-isEmpty="請輸入密碼" data-isError="密碼長度不足"> -->
-        <%= f.password_field :password_check, autocomplete: "off", class: "form-control", placeholder: "請再一次輸入密碼", "data-isEmpty" => "請再一次輸入密碼" %>
+        <%= f.password_field :password_check, autocomplete: "off", class: "form-control", placeholder: "請再一次輸入密碼", "data-isEmpty" => "請再一次輸入密碼", "data-isInconsistent" => "密碼與先前輸入的不一致" %>
       </div>
     </div>
   </div>

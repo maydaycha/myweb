@@ -41,6 +41,7 @@ var PersonalProfile = function(){
 		});
 	}
 
+
 	var initExperienceTable = function(){
 		$('#experience-table .btn-delete').off('click');
 		$('#experience-table .btn-delete').on('click',function(){
@@ -100,7 +101,6 @@ var PersonalProfile = function(){
 	var editExperience = function(tr){
 		var modal = $($('.editExperience-simple').html());
 		var id = tr.find('.id').text()
-		console.log(id)
 		modal.attr('id','editExperience-modal-'+ rowExperience_idx );
 		modal.find('input[name=start]').val(tr.find('.start').text());
 		modal.find('input[name=end]').val(tr.find('.end').text());
@@ -143,8 +143,7 @@ var PersonalProfile = function(){
 		});
 	}
 
-
-
+	var rowEducation_idx = 0;
 
 	var initAddEducation = function(){
 		$('#btn-addEducation').on('click',function(){
@@ -158,26 +157,15 @@ var PersonalProfile = function(){
 				alert('請填寫系所/專長');
 				return;
 			}
+			var tr = $($('.rowEducation-simple').html());
+			tr.find('.start').text($('#education-modal input[name=start]').val());
+			tr.find('.end').text($('#education-modal input[name=end]').val());
+			tr.find('.organization').text($('#education-modal input[name=organization]').val());
+			tr.find('.office').text($('#education-modal input[name=office]').val());
+			tr.find('.description').text($('#education-modal textarea[name=description]').val());
 
-			var tr = $('<tr></tr>');
-			var td1 = $('<td></td>');
-			var td2	 = $('<td></td>');
-			var td3 = $('<td></td>');
-			var td4 = $('<td></td>');
-			var td5 = $('<td></td>');
-			var td6 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
+			editEducation(tr);
 
-			td1.append($('#education-modal input[name=start]').val());
-			td2.append($('#education-modal input[name=end]').val());
-			td3.append($('#education-modal input[name=organization]').val());
-			td4.append($('#education-modal input[name=office]').val());
-			td5.append($('#education-modal textarea[name=description]').val());
-			tr.append(td1);
-			tr.append(td2);
-			tr.append(td3);
-			tr.append(td4);
-			tr.append(td5);
-			tr.append(td6);
 			var obj = {
 				start_date: $('#education-modal input[name=start]').val(),
 				end_date: $('#education-modal input[name=end]').val(),
@@ -186,63 +174,151 @@ var PersonalProfile = function(){
 				description: $('#education-modal textarea[name=description]').val()
 			};
 			education_add_list.push(obj);
-				//console.log(education_add_list);
-				$('#education-table').append(tr);
-				$('#education-modal input[name=start]').val('');
-				$('#education-modal input[name=end]').val('');
-				$('#education-modal input[name=organization]').val('');
-				$('#education-modal input[name=office]').val('');
-				$('#education-modal textarea[name=description]').val('');
-				initEducationTable();
-				$("#education-modal").modal('toggle');
+			console.log(education_add_list)
+
+			$('#education-table').append(tr);
+			$('#education-modal input[name=start]').val('');
+			$('#education-modal input[name=end]').val('');
+			$('#education-modal input[name=organization]').val('');
+			$('#education-modal input[name=office]').val('');
+			$('#education-modal textarea[name=description]').val('');
+			initEducationTable();
+			$("#education-modal").modal('toggle');
 			});
 	}
 
-
-var initCertificateTable = function(){
-	$('#certificate-table .btn-delete').off('click');
-	$('#certificate-table .btn-delete').on('click',function(){
-		$(this).parent().parent().remove();
-	});
-}
-var initAddCertificate = function(){
-	$('#btn-addCertificate').on('click', function(){
-		if($('#certificate-modal input[name=certificate]').val() == "") {
-			alert('請填寫證照名稱');
-			return;
+	var initEditEducation = function(tr){
+		var tr = $('#education-table tr');
+		for(var i=1;i<tr.length;i++){
+			editEducation(tr.eq(i));
 		}
-		var tr = $('<tr></tr>');
-		var td1 = $('<td></td>');
-		var td2 = $('<td></td>');
-		var td3 = $('<td></td>');
-		var td4 = $('<td></td>');
-		var td5 = $('<td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>');
-		td1.append($('#certificate-modal input[name=certificate]').val());
-		td2.append($('#certificate-modal input[name=cer-source]').val());
-		td3.append($('#certificate-modal input[name=start]').val());
-		td4.append($('#certificate-modal textarea[name=work-description]').val());
-		tr.append(td1);
-		tr.append(td2);
-		tr.append(td3);
-		tr.append(td4);
-		tr.append(td5);
-		var obj = {
-			name: $('#certificate-modal input[name=certificate]').val(),
-			source: $('#certificate-modal input[name=cer-source]').val(),
-			get_time: $('#certificate-modal input[name=start]').val(),
-			description: $('#certificate-modal textarea[name=work-description]').val()
-		};
-		certificate_add_list.push(obj);
-		//console.log(certificate_add_list);
-		$('#certificate-table').append(tr);
-		$('#certificate-modal input[name=certificate]').val('');
-		$('#certificate-modal input[name=cer-source]').val('');
-		$('#certificate-modal input[name=start]').val('');
-		$('#certificate-modal textarea[name=work-description]').val('');
-		initCertificateTable();
-		$("#certificate-modal").modal('toggle');
-	});
-}
+	}
+
+	var editEducation = function(tr){
+		var modal = $($('.editEducation-simple').html());
+		var id = tr.find('.id').text()
+
+		modal.attr('id','editEducation-modal-'+rowEducation_idx);
+		modal.find('input[name=start]').val(tr.find('.start').text());
+		modal.find('input[name=end]').val(tr.find('.end').text());
+		modal.find('input[name=organization]').val(tr.find('.organization').text());
+		modal.find('input[name=office]').val(tr.find('.office').text());
+		modal.find('textarea[name=description]').val(tr.find('.description').text());
+		modal.find('.btn-editEducation').on('click',function(){
+			tr.find('.start').text(modal.find('input[name=start]').val());
+			tr.find('.end').text(modal.find('input[name=end]').val());
+			tr.find('.organization').text(modal.find('input[name=organization]').val());
+			tr.find('.office').text(modal.find('input[name=office]').val());
+			tr.find('.description').text(modal.find('textarea[name=description]').val());
+			modal.find('.btn-close').click();
+
+			var obj = {
+				id: id,
+				start_date: modal.find('input[name=start]').val(),
+				end_date: modal.find('input[name=end]').val(),
+				school: modal.find('input[name=organization]').val(),
+				department: modal.find('input[name=office]').val(),
+				description: modal.find('textarea[name=description]').val()
+			}
+			education_update_list.push(obj)
+			console.log(education_update_list)
+			console.log("tes")
+		});
+
+
+		modal.find('.date-picker').datepicker();
+		tr.find('.btn-edit').attr('data-toggle','modal');
+		tr.find('.btn-edit').attr('href','#editEducation-modal-'+rowEducation_idx);
+		tr.find('.btns').append(modal);
+
+		rowEducation_idx++;
+	}
+
+
+
+	var initCertificateTable = function(){
+		$('#certificate-table .btn-delete').off('click');
+		$('#certificate-table .btn-delete').on('click',function(){
+			$(this).parent().parent().remove();
+		});
+	}
+	var rowCertificate_idx = 0;
+	var initAddCertificate = function(){
+		$('.date-picker').datepicker({
+	            autoclose: true
+	     });
+
+		$('#btn-addCertificate').on('click', function(){
+			if($('#certificate-modal input[name=certificate]').val() == "") {
+				alert('請填寫證照名稱');
+				return;
+			}
+			var tr = $($('.rowCertificate-simple').html());
+			tr.find('.certificate').text($('#certificate-modal input[name=certificate]').val());
+			tr.find('.cer-source').text($('#certificate-modal input[name=cer-source]').val());
+			tr.find('.start').text($('#certificate-modal input[name=start]').val());
+			tr.find('.description').text($('#certificate-modal textarea[name=description]').val());
+			editCertificate(tr);
+
+			var obj = {
+				name: $('#certificate-modal input[name=certificate]').val(),
+				source: $('#certificate-modal input[name=cer-source]').val(),
+				get_time: $('#certificate-modal input[name=start]').val(),
+				description: $('#certificate-modal textarea[name=description]').val()
+			};
+			certificate_add_list.push(obj);
+			console.log(certificate_add_list)
+
+			$('#certificate-table').append(tr);
+			$('#certificate-modal input[name=certificate]').val('');
+			$('#certificate-modal input[name=cer-source]').val('');
+			$('#certificate-modal input[name=start]').val('');
+			$('#certificate-modal textarea[name=description]').val('');
+			initCertificateTable();
+
+			$("#certificate-modal").modal('toggle');
+		});
+	}
+
+	var initEditCertificate = function(tr){
+		var tr = $('#certificate-table tr');
+		for(var i=1;i<tr.length;i++){
+			editCertificate(tr.eq(i));
+		}
+	}
+	var editCertificate = function(tr){
+		var modal = $($('.editCertificate-simple').html());
+		var id = tr.find('.id').text()
+		modal.attr('id','editCertificate-modal-'+rowCertificate_idx);
+		modal.find('input[name=certificate]').val(tr.find('.certificate').text());
+		modal.find('input[name=cer-source]').val(tr.find('.cer-source').text());
+		modal.find('input[name=start]').val(tr.find('.start').text());
+		modal.find('textarea[name=description]').val(tr.find('.description').text());
+		modal.find('.btn-editCertificate').on('click',function(){
+			tr.find('.certificate').text(modal.find('input[name=certificate]').val());
+			tr.find('.cer-source').text(modal.find('input[name=cer-source]').val());
+			tr.find('.start').text(modal.find('input[name=start]').val());
+			tr.find('.description').text(modal.find('textarea[name=description]').val());
+			modal.find('.btn-close').click();
+
+			var obj = {
+				id: id,
+				name: modal.find('input[name=certificate]').val(),
+				source: modal.find('input[name=cer-source]').val(),
+				get_time: modal.find('input[name=start]').val(),
+				description: modal.find('textarea[name=description]').val(),
+			}
+			certificate_update_list.push(obj)
+			console.log(certificate_update_list)
+
+		});
+		modal.find('.date-picker').datepicker();
+		tr.find('.btn-edit').attr('data-toggle','modal');
+		tr.find('.btn-edit').attr('href','#editCertificate-modal-'+rowCertificate_idx);
+		tr.find('.btns').append(modal);
+
+		rowCertificate_idx++;
+	}
 
 var initWorksTable = function(){
 	$('#works-table .btn-delete').off('click');
@@ -269,40 +345,13 @@ var initAddWorks = function() {
 		}
 		var fd = new FormData();
 		update_portfolio();
-		// fd.append('document', $("#works-modal input[name=thumbnail]")[0].files[0]);
-		// fd.append('name', $("#works-modal input[name=title]").val());
-		// fd.append('description', $("#works-modal textarea[name=description]").val());
-		// fd.append('main_skill_id', $("#work_main_class").val());
-		// fd.append('sub_skill_id', $("#work_subClass_select2").val());
-		// fd.append('date', $("#works-modal input[name=start]").val());
-		// fd.append('skill', $("#works-modal input[name=skill]").val());
-		// fd.append('request', "update_portfolio");
 
-		// // var obj = {
-		// // 	name: $("#works-modal input[name=title]").val(),
-		// // 	description: $("#works-modal textarea[name=description]").val(),
-		// // 	main_skill_id: $("#work_main_class").val(),
-		// // 	sub_skill_id: $("#work_subClass_select2").val(),
-		// // 	date: $("#works-modal input[name=start]").val(),
-		// // 	skill: $("#works-modal input[name=skill]").val(),
-		// // 	document: fd
-		// // }
-		// works_add_list.push(fd);
 		var main_class_text = $("#work_main_class option:selected").text();
 		var sub_class_text = $("#work_subClass_select2 option:selected").text();
 		//console.log(works_add_list);
 
-		// $("#works-modal input[name=title]").val('');
-		// $("#works-modal textarea[name=description]").val('');
-		// $("#work_main_class").val('');
-		// $("#work_subClass_select2").val('');
-		// $("#works-modal input[name=start]").val('');
-		// $("#works-modal input[name=skill]").val('');
 		$("#works-modal").modal('toggle');
 
-		// 圖片目前寫死
-		// var content ="<hr><div class='row profile'> <div class='col-md-5'> <div class='row'> <div class='col-sm-4 title'><h4>"+obj.name+"</h4><p>"+obj.date+"</p></div> <div class='col-sm-8 text'><p style='font-size:1.2em;'>"+main_class_text+"/"+sub_class_text+"</p><p class='form-control-static'>"+obj.skill+"</p></div> </div> <hr> <div><p>"+obj.description+"</p></div></div><div class='col-md-7'><div class='row'><div class='col-sm-6'><img class='img-responsive' src='/img/class/class_6.jpg' alt='img'></div><div class='col-sm-6'><img class='img-responsive'  src='/img/class/class_5.jpg' alt='img'></div></div></div></div>";
-		// $(".row.profile:last").after(content);
 	});
 }
 
@@ -319,8 +368,10 @@ return {
 		initEditExperience();
 		initEducationTable();
 		initAddEducation();
+		initEditEducation();
 		initCertificateTable();
 		initAddCertificate();
+		initEditCertificate()
 		initWorksTable();
 		initAddWorks();
 

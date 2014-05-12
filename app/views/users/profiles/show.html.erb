@@ -34,6 +34,7 @@
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <link rel="stylesheet" type="text/css" href="/css/alert.css">
         <link rel="stylesheet" type="text/css" href="/css/page/personal_profile.css">
+        <link rel="stylesheet" type="text/css" href="/css/progress_bar.css">
         <link rel="shortcut icon" href="favicon.ico"/>
         <!-- END STYLE -->
     </head>
@@ -534,11 +535,11 @@
                                             <div class="input-group edit">
                                                 <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                   / HR
-                                               </span>
-                                           </div>
-                                       </div>
-                                       <div class="pull-right" style="margin:20px 16px 0 0;">
+                                                 / HR
+                                             </span>
+                                         </div>
+                                     </div>
+                                     <div class="pull-right" style="margin:20px 16px 0 0;">
                                         <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet1">儲存</button>
                                         <button onclick="cancel_basic_info()" class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet1">取消</button>
                                     </div>
@@ -848,19 +849,23 @@
                                 </tr>
                                 <% current_user.user_educations.each do |e| %>
                                 <tr>
+                                    <td class="id" style="display: none;"><%= e.id %></td>
                                     <td class="start"><%= e.start_date %></td>
                                     <td class="end"><%= e.end_date %></td>
                                     <td class="organization"><%= e.school %></td>
                                     <td class="office"><%= e.department %></td>
                                     <td class="description text-over"><%= e.description %></td>
-                                    <td class="edit">
+                                    <td class="edit btns">
                                         <button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: education_delete_list.push({id:<%= e.id %>})">刪除</button>
                                         <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
                                     </td>
                                 </tr>
                                 <% end %>
                             </table>
-                            <table class="rowEducation-simple">
+                            <% else %>
+                            尚未新增教育程度
+                            <% end %>
+                            <table class="rowEducation-simple display-none">
                                 <tr>
                                     <td class="start"></td>
                                     <td class="end"></td>
@@ -918,14 +923,11 @@
                                 </div>
                             </div>
 
-
                             <div class="text-right">
                                 <button onclick="update_education()" class="btn btn-default tool-save edit prevent" data-original-title="儲存" data-portlet="#profile-portlet5">儲存</button>
                                 <button class="btn btn-default tool-save edit" data-original-title="取消" data-portlet="#profile-portlet5">取消</button>
                             </div>
-                            <% else %>
-                            尚未新增教育程度
-                            <% end %>
+                            <button onClick="test()">eqwewqeqwe</button>
                             <div class="modal fade" id="education-modal" tabindex="-1" role="education-modal" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -1074,6 +1076,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="meter red" style="display: none;">
+                        <span style="width: 100%"></span>
+                    </div>
 
                     <div class="portlet box light-grey show-view" id="profile-portlet7">
                         <div class="portlet-title">
@@ -1104,14 +1109,66 @@
                                 </tr>
                                 <% current_user.user_certifications.each do |e| %>
                                 <tr>
-                                    <td><%= e.name %></td>
-                                    <td><%= e.source %></td>
-                                    <td><%= e.get_time %></td>
-                                    <td><%= e.description %></td>
-                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: certificate_delete_list.push({id:<%= e.id %>})">刪除</button></td>
+                                    <td class="id" style="display: none;"><%= e.id %></td>
+                                    <td class="certificate"><%= e.name %></td>
+                                    <td class="cer-source"><%= e.source %></td>
+                                    <td class="start"><%= e.get_time %></td>
+                                    <td class="description text-over"><%= e.description %></td>
+                                    <td class="edit btns">
+                                        <button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: certificate_delete_list.push({id:<%= e.id %>})">刪除</button>
+                                        <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                    </td>
                                 </tr>
                                 <% end %>
                             </table>
+                            <table class="rowCertificate-simple display-none">
+                                <tr>
+                                    <td class="certificate"></td>
+                                    <td class="cer-source"></td>
+                                    <td class="start"></td>
+                                    <td class="description text-over"></td>
+                                    <td class="edit btns">
+                                        <button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button>
+                                        <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="editCertificate-simple display-none">
+                                <div class="modal fade" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">編輯工作經歷</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <input type="text" name="certificate" class="form-control" placeholder="證照名稱">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" name="cer-source" class="form-control" placeholder="證照來源">
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                        <input type="text" name="start" class="form-control" placeholder="獲得證照時間" readonly>
+                                                        <span class="input-group-btn">
+                                                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary btn-editCertificate">儲存</button>
+                                                <button type="button" class="btn default btn-close" data-dismiss="modal">關閉</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                            </div>
                             <div class=" text-right">
                                 <button onclick="update_certification()"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
                             </div>
@@ -1138,7 +1195,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <textarea name="work-description" class="form-control" rows="5" placeholder="描述"></textarea>
+                                                <textarea name="description" class="form-control" rows="5" placeholder="描述"></textarea>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -1263,10 +1320,12 @@
     // Dropzone.autoDiscover = false;
 
 
+
+
     jQuery(document).ready(function() {
-     Web.init();
-     PersonalProfile.init();
-     for(var i = 1; i < 8; i++) {
+       Web.init();
+       PersonalProfile.init();
+       for(var i = 1; i < 8; i++) {
         $(".control_sub_calss"+i).hide();
     }
 
@@ -1297,10 +1356,10 @@
             $("#work_subClass_select2 option").remove();
             var select = $("#work_subClass_select2");
             for(var key in data) {
-             select.append($("<option></option>").attr("value", key).text(data[key].name));
-         }
-     },
-     error: function(data) {
+               select.append($("<option></option>").attr("value", key).text(data[key].name));
+           }
+       },
+       error: function(data) {
         //console.log("error");
     }
 });
@@ -1326,12 +1385,23 @@
             formData.append('date', $("#works-modal input[name=start]").val());
             formData.append('skill', $("#works-modal input[name=skill]").val());
             formData.append('request', "update_portfolio");
+            $(".mete").show()
+            $(".meter > span").each(function() {
+            $(this)
+                .data("origWidth", $(this).width())
+                .width(0)
+                .animate({
+                    width: $(this).data("origWidth")
+                }, 1200);
+            });
         });
+
             this.on("successmultiple", function(file, foo) {
             //console.log(file);
             //console.log(foo);
+            $(".mete").show()
             location.reload();
-        });
+            });
         },
         paramName: "file",
         maxFilesize: 5,
@@ -1348,7 +1418,8 @@
 
 <script>
 
- $(function(){
+   $(function(){
+
 
     $(".prevent").click(function(event){
         event.preventDefault();
@@ -1366,10 +1437,10 @@
     });
 
 
-});
+    });
 
 
- var readURL = function(input) {
+   var readURL = function(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
@@ -1505,10 +1576,10 @@ var main_class_change = function(){
             var select = $(parent).find('select.subClass_select2');
             //console.log(select);
             for(var key in data) {
-             select.append($("<option></option>").attr("value", key).text(data[key].name));
-         }
-     },
-     error: function(data) {
+               select.append($("<option></option>").attr("value", key).text(data[key].name));
+           }
+       },
+       error: function(data) {
         //console.log("error");
     }
 })
@@ -1610,12 +1681,12 @@ var update_skill = function() {
 
 var update_experience = function() {
     var request_obj = {
-       request: "update_experience",
-       experience_add_list: experience_add_list,
-       experience_delete_list: experience_delete_list,
-       experience_update_list: experience_update_list
-   }
-   console.log(request_obj)
+     request: "update_experience",
+     experience_add_list: experience_add_list,
+     experience_delete_list: experience_delete_list,
+     experience_update_list: experience_update_list
+ }
+ console.log(request_obj)
  // return
  $.ajax({
     url: "/users/profiles/ajax_updae",
@@ -1639,7 +1710,8 @@ var update_education = function() {
     var request_obj = {
         request: "update_education",
         education_add_list: education_add_list,
-        education_delete_list: education_delete_list
+        education_delete_list: education_delete_list,
+        education_update_list: education_update_list
     };
     $.ajax({
         url: "/users/profiles/ajax_updae",
@@ -1648,9 +1720,10 @@ var update_education = function() {
         data: JSON.stringify(request_obj),
         contentType: 'application/json',
         success: function(data) {
-            //console.log(data);
+            console.log(data);
             education_add_list = [];
             education_delete_list = [];
+            education_update_list = []
         },
         error: function(data) {
             //console.log("error");
@@ -1721,9 +1794,10 @@ var update_certification = function() {
     var request_obj = {
         request: "update_certification",
         certificate_add_list: certificate_add_list,
-        certificate_delete_list: certificate_delete_list
+        certificate_delete_list: certificate_delete_list,
+        certificate_update_list: certificate_update_list
     };
-    //console.log(request_obj);
+    console.log(request_obj);
     $.ajax({
         url: "/users/profiles/ajax_updae",
         type: "post",
@@ -1731,9 +1805,10 @@ var update_certification = function() {
         data: JSON.stringify(request_obj),
         contentType: 'application/json',
         success: function(data) {
-            //console.log(data);
+            console.log(data);
             certificate_add_list = [];
             certificate_delete_list = [];
+            certificate_update_list = [];
         },
         error: function(data) {
             //console.log("error");
