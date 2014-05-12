@@ -39,10 +39,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def new
-    if params[:username] && params[:password]
-      build_resource({
-       username: params[:username]
-      })
+    if params[:username] && params[:email]
+      if not params[:username] =~ /\w/
+        flash[:warning] = "username only accept english character and digital"
+        redirect_to "/"
+      else
+        build_resource({
+         username: params[:username],
+         email: params[:email]
+         })
+      end
     else
       super
     end
@@ -54,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      last_name: session["devise:info"]["last_name"],
      email: session["devise:info"]["email"],
      picture: session["devise:info"]["image"],
-    })
+     })
     render template: "users/registrations/new2"
   end
 

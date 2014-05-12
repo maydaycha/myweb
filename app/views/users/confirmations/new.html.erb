@@ -78,34 +78,33 @@
                     </div>
                     <div class="col-md-9 col-xs-8 content">
                         <% if devise_error_messages! != "" %>
-                            <div class="form-group alert alert-danger">
+                        <div class="form-group alert alert-danger">
                             <%= devise_error_messages! %>
-                            </div>
+                        </div>
                         <% end %>
-                    	<h3>請重新輸入您的Email</h3>
-                    	<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-<<<<<<< HEAD
+                        <h3>請重新輸入您的Email</h3>
+                        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
                         <% if devise_error_messages! != "" %>
                         <div class="form-group alert alert-danger">
-                           <%= devise_error_messages! %>
-                       </div>
-                       <% end %>
+                         <%= devise_error_messages! %>
+                     </div>
+                     <% end %>
 
-                       <div>
-                           <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "請輸入您的Email", "data-isEmpty" => "請輸入您的Emai" %>
-                       </div>
+                     <div>
+                         <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "請輸入您的Email", "data-isEmpty" => "請輸入您的Emai" %>
+                     </div>
 
-                       <div><%= f.submit "重新寄送郵件", :class => "btn btn-warning" %></div>
-                       <% end %>
-                   </div>
-               </div>
-               <!-- END BOX -->
-           </div>
-           <!-- END MAIN CONTENT -->
-       </div>
-       <!-- END PAGE -->
-       <!-- BEGIN FOOTER -->
-       <div class="footer">
+                     <div><%= f.submit "重新寄送郵件", :class => "btn btn-warning" %></div>
+                     <% end %>
+                 </div>
+             </div>
+             <!-- END BOX -->
+         </div>
+         <!-- END MAIN CONTENT -->
+     </div>
+     <!-- END PAGE -->
+     <!-- BEGIN FOOTER -->
+     <div class="footer">
         <img class="footer-logo" src="/img/logo103.png" alt="">
         <div class="footer-nav">
             <%= link_to "關於我們", index_about_path %>
@@ -115,44 +114,41 @@
             <%= link_to "使用條款", index_rule_path %>
             <span class="bar">|</span>
             <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
-=======
 
-					  		<%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "請輸入您的Email", "data-isEmpty" => "請輸入您的Emai" %>
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "請輸入您的Email", "data-isEmpty" => "請輸入您的Emai" %>
 
-					  		<%= f.submit "重新寄送郵件", :class => "btn btn-warning" %>
-						<% end %>
-                    </div>
-                </div>
-                <!-- END BOX -->
-            </div>
-            <!-- END MAIN CONTENT -->
-        </div>
-        <!-- END PAGE -->
-        <!-- BEGIN FOOTER -->
-        <div class="footer">
-            <img class="footer-logo" src="/img/logo103.png" alt="">
-            <div class="footer-nav">
-                <%= link_to "關於我們", index_about_path %>
-                <span class="bar">|</span>
-                <%= link_to "隱私條款", index_rule_path %>
-                <span class="bar">|</span>
-                <%= link_to "使用條款", index_rule_path %>
-                <span class="bar">|</span>
-                <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
-            </div>
->>>>>>> ea6397390b71e685a839a8a54c2eb71822c3b47e
+            <%= f.submit "重新寄送郵件", :class => "btn btn-warning" %>
+            <% end %>
         </div>
     </div>
-    <!-- END FOOTER -->
+    <!-- END BOX -->
+</div>
+<!-- END MAIN CONTENT -->
+</div>
+<!-- END PAGE -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <img class="footer-logo" src="/img/logo103.png" alt="">
+    <div class="footer-nav">
+        <%= link_to "關於我們", index_about_path %>
+        <span class="bar">|</span>
+        <%= link_to "隱私條款", index_rule_path %>
+        <span class="bar">|</span>
+        <%= link_to "使用條款", index_rule_path %>
+        <span class="bar">|</span>
+        <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
+    </div>
+</div>
+</div>
+<!-- END FOOTER -->
 
-    <!-- BEGIN JAVASCRIPTS -->
-    <!-- BEGIN 核心插件 -->
+<!-- BEGIN JAVASCRIPTS -->
+<!-- BEGIN 核心插件 -->
         <!--[if lt IE 9]>
             <script src="plugins/html5shiv.min.js"></script>
             <script src="plugins/respond.min.js"></script>
             <![endif]-->
 
-<<<<<<< HEAD
             <script src="/plugins/jquery-1.11.0.min.js"></script>
             <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
             <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
@@ -163,20 +159,18 @@
             <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
                 jQuery(document).ready(function() {
-                 Web.init();
-=======
-        <script src="/plugins/jquery-1.11.0.min.js"></script>
-        <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
-        <!-- END 核心插件 -->
-        <!-- BEGIN 頁面插件 -->
-        <!-- END 頁面插件 -->
-        <script type="text/javascript" src="/js/script.js"></script>
-        <!--<script type="text/javascript" src="js/page/index.js"></script>-->
-        <script>
-            jQuery(document).ready(function() {    
-               Web.init();
->>>>>>> ea6397390b71e685a839a8a54c2eb71822c3b47e
+                   Web.init();
+                   <script src="/plugins/jquery-1.11.0.min.js"></script>
+                   <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+                   <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+                   <!-- END 核心插件 -->
+                   <!-- BEGIN 頁面插件 -->
+                   <!-- END 頁面插件 -->
+                   <script type="text/javascript" src="/js/script.js"></script>
+                   <!--<script type="text/javascript" src="js/page/index.js"></script>-->
+                   <script>
+                    jQuery(document).ready(function() {
+                     Web.init();
                //Index.init();
            });
        </script>

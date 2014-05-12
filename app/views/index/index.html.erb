@@ -137,13 +137,14 @@
             <div class="login">
                 <p class="title">遠距工作，免費註冊</p>
                 <%= form_for :user, url: new_user_registration_path, method: :get, html: {class: "login-form"} do |f|%>
+                <%= flash[:warning] %>
                     <div class="input-icon">
                         <i class="fa fa-user"></i>
                         <%= f.text_field :username, name: "username", class: "form-control", placeholder: "Username", onkeydown: "return constrain_Eng_and_num(event)"%>
                     </div>
                     <div class="input-icon">
-                        <i class="fa fa-lock"></i>
-                        <%= f.password_field :password, name: "password", class: "form-control", placeholder: "Password"%>
+                        <i class="fa fa-envelope"></i>
+                        <%= f.email_field :email, name: "email", class: "form-control", placeholder: "Email"%>
                     </div>
                     <input type="submit" class="btn" value="註冊會員">
                 <% end %>
@@ -165,6 +166,11 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div class="login_min">
+                <a href="register.html">
+                    <p class="title">免費註冊，即刻使用</p>
+                </a>
             </div>
             <% end %>
             <!-- END LOGIN -->
@@ -604,11 +610,11 @@ $(document).ready(function(ev){
             keynum = e.which
         }
         console.log(keynum)
-        if( keynum == 8 || keynum == 9 ||keynum == 13) return true
+        if( keynum == 8 || keynum == 9 || keynum == 13 || keynum == 189 ) return true
         keychar = String.fromCharCode(keynum)
-        console.log(keychar)
-        check = /[A-Z&&0-9]/
-        console.log(check.test(keychar))
+        // console.log(keychar)
+        check = /\w/
+        // console.log(check.test(keychar))
         return check.test(keychar)
     }
 
