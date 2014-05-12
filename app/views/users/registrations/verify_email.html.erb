@@ -77,13 +77,31 @@
                         <img src="/img/envelope.png">
                     </div>
                     <div class="col-md-9 col-xs-8 content">
+                        <% if devise_error_messages! != "" %>
+                            <div class="form-group alert alert-danger">
+                            <%= devise_error_messages! %>
+                            </div>
+                        <% end %>
+                        
+                        <% if notice %>
+                            <div class="alert alert-success">
+                                <%= notice %>
+                            </div>
+                        <% end %>
+                        
                         <p>您的帳戶已建立! 請立即檢查您的電子郵件信箱，並且點選信件內的啟用連結。</p>
                         <p>啟用信件已傳送到 <span class="point"><%= @email %></span></p>
                         <!-- <a href="/#" class="btn btn-warning">我沒收到啟用信件，需要重新寄送郵件</a> -->
                         <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-                            <%= link_to "我沒有收到啟用信件，需要重新寄送郵件", new_confirmation_path(resource_name), :class=>"btn btn-danger" %>
+                            <% # link_to "我沒有收到啟用信件，按這裡重新傳送", new_confirmation_path(resource_name), :class=>"btn btn-danger" %>
+
+                            <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+
+                                <%= f.hidden_field :email, class: "form-control", value: @email %>
+
+                                <%= f.submit "我沒有收到啟用信件，按這裡重新傳送", :class => "btn btn-danger" %>
+                            <% end %>
                         <% end -%>
-                        
                     </div>
                 </div>
                 <!-- END BOX -->
