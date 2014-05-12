@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
     puts "|#{I18n.locale}|"
     if I18n.locale == 'zh-tw' or I18n.locale == 'zh-Tw' or I18n.locale == 'zh-tW'
       I18n.locale = 'zh-TW'
+      puts "abcdefg"
     end
 
     # I18n.locale = 'zh-TW'
