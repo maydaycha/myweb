@@ -153,10 +153,10 @@ ActiveRecord::Schema.define(version: 20140509083818) do
     t.datetime "updated_at"
     t.integer  "main_skill_id"
     t.integer  "sub_skill_id"
-    t.binary   "picture1",      limit: 16777215
-    t.binary   "picture2",      limit: 16777215
+    t.binary   "picture1",      limit: 10485760
+    t.binary   "picture2",      limit: 10485760
     t.string   "skill"
-    t.binary   "document",      limit: 2147483647
+    t.binary   "document",      limit: 52428800
   end
 
   create_table "user_skill_categories", force: true do |t|
@@ -208,7 +208,7 @@ ActiveRecord::Schema.define(version: 20140509083818) do
     t.string   "time_zone",                               default: "UTC"
     t.string   "how_to_know"
     t.boolean  "receive_information"
-    t.binary   "picture",                limit: 16777215
+    t.binary   "picture",                limit: 10485760
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "introduction"
@@ -221,9 +221,9 @@ ActiveRecord::Schema.define(version: 20140509083818) do
     t.integer  "step"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
 
 end
