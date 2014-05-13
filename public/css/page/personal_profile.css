@@ -139,3 +139,11 @@ ul.subtitle .point {
   max-width:300px;
   max-height:400px;
 }
+
+td
+{
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

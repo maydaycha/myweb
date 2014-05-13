@@ -560,7 +560,7 @@ zh-TW:
       unauthenticated: '您需要先註冊，登入後才能繼續。'
       unconfirmed: '您的帳號需需要經過確認後，才能繼續。'
       locked: '您的帳號已被鎖定。'
-      invalid: 'Email 或密碼是無效的。'
+      invalid: '帳號或密碼是無效的。'
       invalid_token: '無效的認證代碼。'
       timeout: '您的登入時效過期，請重新登入，才能繼續。'
       inactive: '您的帳號尚未被啟用。'

@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/galetahub/simple-captcha.git
+  remote: git://github.com/galetahub/simple-captcha.git
   revision: 2602bf19a63df25929960b5a7721a9d265281ec1
   specs:
     simple_captcha (0.1.6)
@@ -93,6 +93,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.10.0)
     multipart-post (2.0.0)
+    mysql2 (0.3.15)
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -202,6 +203,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   localized_country_select (>= 0.9.8)
+  mysql2
   oauth
   omniauth
   omniauth-facebook (= 1.4.0)

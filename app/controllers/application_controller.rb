@@ -33,8 +33,6 @@ class ApplicationController < ActionController::Base
     if I18n.locale.to_s.downcase == 'zh-tw'
       I18n.locale = 'zh-TW'
     end
-
-    # I18n.locale = 'zh-TW'
     logger.info "* Locale set to '#{I18n.locale}'"
   end
 
