@@ -98,9 +98,18 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="container">
+                <p></p>
+                <% if notice %>
+                    <p class="alert alert-success"><%= notice %></p>
+                <% end %>
+                <% if alert and alert != "" %>
+                    <p class="alert form-group alert-danger"><%= alert %></p>
+                <% end %>
+            </div>
 
             <!-- BEGIN MAIN CONTENT -->
-
             <div class="main-content">
                 <!-- BEGIN TABS -->
                 <ul class="nav nav-tabs nav-justified">
@@ -1219,38 +1228,60 @@
                                 變更密碼
                             </div>
                             <div class="tools">
-                                <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
+                                <!-- <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
                                     <i class="fa fa-floppy-o"></i>
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                         <div class="portlet-body">
-                            <form action="#" id="contact-form1" class="form-horizontal" role="form">
+                            <%= form_for(@user, url: "/users", html: { id: "password-form", method: :put, class: "form-horizontal", role: "form"}) do |f| %>
+                            <!-- <form action="#" id="contact-form1" class="form-horizontal" role="form"> -->
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">舊密碼</label>
                                     <div class="col-md-10">
-                                        <input type="password" name="oldPassword" class="form-control">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <%= f.password_field :current_password, autocomplete: "off", class: "form-control", data: {isEmpty: "當前密碼不能為空", isError: "密碼錯誤"} %>
+                                            </div>
+                                        </div>
                                         <p class="help-block">
                                             如果您想要變更您的密碼，請先輸入您的舊密碼
                                         </p>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">新密碼</label>
                                     <div class="col-md-10">
-                                        <input type="password" name="newPassword" class="form-control">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                            <div class="input-icon right">
+                                                <i class="fa fa-warning" data-original-title="密碼至少要有六個字元，不包含*/!~等特殊符號"></i>
+                                                <%= f.password_field :password, autocomplete: "off", class: "form-control", data: {isEmpty: "密碼至少要有六個字元，不包含*/!~等特殊符號", isError: "密碼至少要有六個字元，不包含*/!~等特殊符號"} %>
+                                            </div>
+                                        </div>
                                         <p class="help-block">
-                                            密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
+                                            密碼長度必須大於6英數字元，包含大小寫英文符號，不包含特殊符號。
                                         </p>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">再次輸入新密碼</label>
                                     <div class="col-md-10">
-                                        <input type="password" name="checkPassword" class="form-control">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", "data-isInconsistent" => "密碼與先前輸入的不一致" %>
+                                        </div>
                                     </div>
                                 </div>
-                            </form>
+                                <div class="form-group" style="margin:20px 16px 0 0;">
+                                    <%= f.submit "儲存", class: "btn btn-default pull-right" %>
+                                </div>
+                            <!-- </form> -->
+                            <% end %>
                         </div>
                     </div>
                 </div>
@@ -1302,6 +1333,8 @@
 <!-- <script src="/plugins/jquery-1.11.0.min.js"></script> -->
 <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+<script type="text/javascript" src="/plugins/jquery-validation/dist/jquery.validate.js"></script>
+<script type="text/javascript" src="/plugins/jquery-validation/dist/myMethods.js"></script>
 <!-- END 核心插件 -->
 <!-- BEGIN 頁面插件 -->
 <script src="/plugins/jquery-autocomplete/jquery.autocomplete.pack.js"></script>
@@ -1371,7 +1404,6 @@
             addWorksfile = this;
             myDropzone = this;
             $(".removeAllImages").click(function () {
-                alert('here');
                 addWorksfile.removeAllFiles();
             });
             this.on("sendingmultiple", function(file, xhr, formData) {

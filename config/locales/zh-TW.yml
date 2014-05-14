@@ -2,6 +2,7 @@ zh-TW:
   error:
     recaptcha: "驗證碼錯誤，請重新輸入並再次送出。"
     username_format: "帳號只接受英文字母或數字。"
+    oldpassword: "舊密碼"
 
   about: |
     旭曜資訊服務有限公司本著倡導高品質遠距工作的宗旨，推出 快樂工作 (英文名稱 Telework) 網站，在全球流動的大趨勢下，利用遠距工作中，工作在流動，人卻可以不流動的特性，期待能幫助大家的工作不受地點的限制，實現個人和家庭的價值，在快樂中工作。
@@ -410,19 +411,19 @@ zh-TW:
         other: 不到 %{count} 秒
       over_x_years:
         one: 一年多
-        other: ! '%{count} 年多'
+        other: '%{count} 年多'
       x_days:
         one: 一天
-        other: ! '%{count} 天'
+        other: '%{count} 天'
       x_minutes:
         one: 一分鐘
-        other: ! '%{count} 分鐘'
+        other: '%{count} 分鐘'
       x_months:
         one: 一個月
-        other: ! '%{count} 個月'
+        other: '%{count} 個月'
       x_seconds:
         one: 一秒
-        other: ! '%{count} 秒'
+        other: '%{count} 秒'
     prompts:
       day: 日
       hour: 時
@@ -431,7 +432,7 @@ zh-TW:
       second: 秒
       year: 年
   errors: &errors
-    format: ! '%{attribute} %{message}'
+    format: '%{attribute} %{message}'
     messages:
       accepted: 必須是可被接受的
       blank: 不能是空白字元
@@ -449,7 +450,7 @@ zh-TW:
       not_a_number: 不是數字
       not_an_integer: 必須是整數
       odd: 必須是奇數
-      record_invalid: ! '校驗失敗: %{errors}'
+      record_invalid: '校驗失敗: %{errors}'
       restrict_dependent_destroy: 因還有需要此記錄的其他記錄, 所以無法移除記錄
       taken: 已經被使用
       too_long: 過長（最長是 %{count} 個字）
@@ -477,22 +478,22 @@ zh-TW:
   number:
     currency:
       format:
-        delimiter: ! ','
-        format: ! '%u %n'
+        delimiter: ','
+        format: '%u %n'
         precision: 0
         separator: .
         significant: false
         strip_insignificant_zeros: false
         unit: NT$
     format:
-      delimiter: ! ','
+      delimiter: ','
       precision: 3
       separator: .
       significant: false
       strip_insignificant_zeros: false
     human:
       decimal_units:
-        format: ! '%n %u'
+        format: '%n %u'
         units:
           billion: 十億
           million: 百萬
@@ -521,9 +522,9 @@ zh-TW:
         delimiter: ''
   support:
     array:
-      last_word_connector: ! ', 和 '
-      two_words_connector: ! ' 和 '
-      words_connector: ! ', '
+      last_word_connector: ', 和 '
+      two_words_connector: ' 和 '
+      words_connector: ', '
   time:
     am: 上午
     formats:
@@ -553,48 +554,3 @@ zh-TW:
       cancel: "Cancel"
       upload: "Upload"
       delete: "Delete"
-
-  devise:
-    failure:
-      already_authenticated: '你已經登入。'
-      unauthenticated: '您需要先註冊，登入後才能繼續。'
-      unconfirmed: '您的帳號需需要經過確認後，才能繼續。'
-      locked: '您的帳號已被鎖定。'
-      invalid: '帳號或密碼是無效的。'
-      invalid_token: '無效的認證代碼。'
-      timeout: '您的登入時效過期，請重新登入，才能繼續。'
-      inactive: '您的帳號尚未被啟用。'
-    sessions:
-      signed_in: '成功登入了。'
-      signed_out: '成功登出了。'
-    passwords:
-      send_instructions: '您將在幾分鐘後收到一封電子郵件，內有重新設定密碼的步驟說明。'
-      updated: '您的密碼已被修改，而您現在已重新登入。'
-      updated_not_active: '您的密碼已被修改。'
-      send_paranoid_instructions: "如果我們有您的電子信箱，您將會收到一封內含可重新設定密碼連結的電子郵件。"
-    confirmations:
-      send_instructions: '您將在幾分鐘後收到一封電子郵件，內有確認帳號的步驟說明。'
-      send_paranoid_instructions: '如果我們有您的電子信箱，您將會收到一封確認您的帳號的電子郵件。'
-      confirmed: '您的帳號已經過確認，現在您已成功登入。'
-    registrations:
-      signed_up: '註冊成功，歡迎！'
-      igned_up_but_unconfirmed: '確認信件已送至您的 Email 信箱，請點擊信件內連結以啓動您的帳號。'
-      signed_up_but_inactive: '您已註冊成功。然而因為您的帳號尚未啓動，暫時無法登入，抱歉！'
-      signed_up_but_locked: '您已註冊成功。 然而因為您的帳號已被鎖定，暫時無法登入，抱歉！'
-      updated: '您已經成功的更新帳號資訊。'
-      update_needs_confirmation: "您已經成功的更新帳號資訊，但我們仍需確認您的電子信箱，請至新信箱收信並點擊連結以確認您的新電子郵件帳號。"
-      destroyed: '再會！您的帳號已被取消。有緣再會。'
-    unlocks:
-      send_instructions: '您將在幾分鐘後收到一封電子郵件，內有將帳號解除鎖定的步驟說明。'
-      unlocked: '您的帳號已被解鎖，現在請重新登入。'
-      send_paranoid_instructions: '如果您的帳號已存在，您的電子信箱將會收到如何解鎖帳號的指示。'
-    omniauth_callbacks:
-      success: '成功從 %{kind} 取得認證'
-      failure: '從 %{kind} 無法取得認證，因為 "%{reason}".'
-    mailer:
-      confirmation_instructions:
-        subject: '確認步驟'
-      reset_password_instructions:
-        subject: '重設密碼步驟'
-      unlock_instructions:
-        subject: '解鎖步驟'

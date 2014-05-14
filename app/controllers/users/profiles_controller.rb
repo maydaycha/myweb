@@ -38,6 +38,7 @@ class Users::ProfilesController < ApplicationController
 
   def show
     @skill_main_categoies = current_user.user_skill_categories.uniq_by(&:main_skill_id)
+    @user = current_user
   end
 
 
@@ -160,6 +161,11 @@ class Users::ProfilesController < ApplicationController
     render json: current_user
   end
 
+  # def ajax_verify_password
+  #   puts current_user.valid_password?(params[:current_password])
+  #   render json: {status: current_user.valid_password?(params[:current_password])}
+  # end
+
   def upload_portfolio_picture
     render json: params
   end
@@ -188,5 +194,4 @@ class Users::ProfilesController < ApplicationController
       send_data current_user.user_portfolios[params[:index].to_i].picture2, :type => 'image/png', :disposition => 'inline'
     end
   end
-
 end
