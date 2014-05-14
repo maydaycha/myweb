@@ -10,9 +10,6 @@ class UsersController < ApplicationController
     render json: {status: User.has_username?(params[:username])}
   end
 
-  def search
-  end
-
   def index
     @users = User.all
   end
@@ -34,10 +31,6 @@ class UsersController < ApplicationController
     
     @total_size = @users.size
     @users = Kaminari.paginate_array(@users).page(params[:page]).per(5)
-  end
-
-  def detail
-    @user = User.find(params[:id])
   end
 
   def add_to_favorite
