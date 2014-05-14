@@ -295,14 +295,13 @@
 
         $("#slider").rangeSlider();
         $("#slider").rangeSlider("bounds", 5, 500);
-        $("#slider").rangeSlider("values", <%= @pay_min %>, <%= @pay_max %>);
+        $("#slider").rangeSlider("values", <%= @pay_min == 0? 10:@pay_min %>, <%= @pay_max == 0 ? 100:@pay_max %>);
 
         $('#search-btn').click(function(){
             $('#search-form').submit();
         });
 
         $("#slider").bind("valuesChanged", function(e, data){
-            // console.log("Values just changed. min: " + Math.round(data.values.min) + " max: " + )
             $('#pay_min_hidden').val(Math.round(data.values.min));
             $('#pay_max_hidden').val(Math.round(data.values.max));
         });
