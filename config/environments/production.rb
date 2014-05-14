@@ -66,8 +66,8 @@ Sun::Application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { host: 'telwowrk.herokuapp.com' }
-  config.action_mailer.asset_host = 'http://telwowrk.herokuapp.com'
+  config.action_mailer.default_url_options = { host: 'www.telework.com.tw' }
+  config.action_mailer.asset_host = 'http://www.telework.com.tw'
 
   # mail service
   config.action_mailer.delivery_method = :smtp
