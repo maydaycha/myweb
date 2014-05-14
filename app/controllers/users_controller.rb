@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   protect_from_forgery except: [:add_to_favorite, :remove_from_favorite]
+  before_action :authenticate_user!, :except => [:check_email, :check_username]
 
   def check_email
     render json: {status: User.has_email?(params[:email])}
@@ -16,11 +17,18 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def browse_by_skill_category
+  def search_category
   end
 
-  def search_result
-    @users = UserSkillCategory.where(main_skill_id: params[:main], sub_skill_id: params[:sub]).map{ |m| User.find(m.user_id) }
+  def search
+    # params[:main], params[:sub]
+    @main_skill_id = params[:main].to_i
+    @sub_skill_id = params[:sub].to_i
+    @keyword = params[:keyword].to_s
+    @pay_min = params[:pay_min].to_i
+    @pay_max = params[:pay_max].to_i # -1 = 無限大
+
+    @users = UserSkillCategory.where(main_skill_id: @main_skill_id, sub_skill_id: @sub_skill_id).map{ |m| User.find(m.user_id) }
     # exclude myself
     @users.delete_if{ |e| e.id == current_user.id }
     @total_size = @users.size

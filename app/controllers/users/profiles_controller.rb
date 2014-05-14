@@ -172,10 +172,16 @@ class Users::ProfilesController < ApplicationController
 
 
   def show_image
-    if current_user.picture == nil
-      render :text => open("public/img/staff.png", "rb").read
+    if user_signed_in?
+      puts params
+      user = User.find(params[:id])
+      if user.picture == nil
+        render :text => open("public/img/staff.png", "rb").read
+      else
+        send_data user.picture, :type => 'image/png', :disposition => 'inline'
+      end
     else
-      send_data current_user.picture, :type => 'image/png', :disposition => 'inline'
+      render root_path
     end
   end
 

@@ -145,7 +145,7 @@ Sun::Application.routes.draw do
   get 'contact' => 'index#contact', :as => :index_contact
 
   namespace :users do
-    get 'browse_by_skill_category'
+    
     post 'add_to_favorite'
     delete 'remove_from_favorite'
     get 'check_email'
@@ -153,7 +153,8 @@ Sun::Application.routes.draw do
   end
 
   scope :users do
-    get 'search_result/:main/:sub' => "users#search_result", :as => :users_search_result
+    get 'search' => "users#search", :as => :users_search
+    get 'search_category' => "users#search_category", :as => :user_search_category
     get 'detail/:id' => "users#detail", :as => :users_detail
   end
 
