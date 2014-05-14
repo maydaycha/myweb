@@ -10,8 +10,6 @@ class UsersController < ApplicationController
     render json: {status: User.has_username?(params[:username])}
   end
 
-  def search
-  end
 
   def index
     @users = User.all
