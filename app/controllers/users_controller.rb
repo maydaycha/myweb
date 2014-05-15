@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     render json: {status: User.has_username?(params[:username])}
   end
 
-
   def index
     @users = User.all
   end
@@ -29,13 +28,9 @@ class UsersController < ApplicationController
 
     @users = UserSkillCategory.where(main_skill_id: @main_skill_id, sub_skill_id: @sub_skill_id).map{ |m| User.find(m.user_id) }
     @users.delete_if{ |e| e.id == current_user.id or @pay_min > e.hourly_pay or e.hourly_pay > @pay_max }
-    
+
     @total_size = @users.size
     @users = Kaminari.paginate_array(@users).page(params[:page]).per(5)
-  end
-
-  def detail
-    @user = User.find(params[:id])
   end
 
   def add_to_favorite

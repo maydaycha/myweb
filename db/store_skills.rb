@@ -2,7 +2,7 @@ require 'mysql2'
 require 'spreadsheet'
 
 #my = Mysql.new(hostname, username, password, databasename)
-con = Client.new(
+client = Mysql2::Client.new(
     :host => 'telework.c3hdqvev57qg.ap-northeast-1.rds.amazonaws.com',
     :username => 'sun',
     :password => 'suntelework',
@@ -13,14 +13,23 @@ con = Client.new(
     :sslca => '../config/amazon-rds-ca-cert.pem'
     )
 
-book = Spreadsheet.open "#{Rails.root}/db/20140428_skill.xls"
-sheet1 = book.worksheet 0
-sheet1.each_with_index do |row, index|
-      next if index < 2
-      Skill.create!(name: row[0])
-    end
+puts client.inspect
+results = client.query("SELECT * FROM user_skills WHERE group='githubbers'")
+puts "test"
+while client.next_result
+  result = client.store_result
+  puts result
+  # result now contains the next result set
+end
 
-rs = con.query('select * from student')
-rs.each_hash { |h| puts h['name']}
-con.close
+# book = Spreadsheet.open "#{Rails.root}/db/20140428_skill.xls"
+# sheet1 = book.worksheet 0
+# sheet1.each_with_index do |row, index|
+#       next if index < 2
+#       Skill.create!(name: row[0])
+#     end
+
+# rs = con.query('select * from student')
+# rs.each_hash { |h| puts h['name']}
+client.close
 
