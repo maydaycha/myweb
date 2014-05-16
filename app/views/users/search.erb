@@ -6,7 +6,7 @@
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <title>快樂工作</title>
-    
+
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
     <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
@@ -183,7 +183,7 @@
                                 </ul>
                             </div> -->
                         </div>
-                        <% end %> 
+                        <% end %>
                     </div> <!--END dLeft Advanced Search-->
                     <div class="btn-post" >
                         <button  type="button" class="btn btn-info" style="margin-top:20px; text-align:right;"> 我要刊登工作</button>
@@ -232,14 +232,14 @@
                                                     <li><%= t("countries."+user.country_code) %></li>
                                                 </ul>
                                                 <ul>
-                                                    <li>上次登入 <%= user.last_sign_in_at %></li> 
+                                                    <li>上次登入 <%= user.last_sign_in_at %></li>
                                                     <li>共<%= user.user_portfolios.count %>項作品</li>
                                                     <!-- TODO: Future -->
                                                     <!-- <li>通過5項測驗</li> -->
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div> <!--END 會員資料-->
                             <% end %>
                         </div> <!--End Search Result Data-->
@@ -289,8 +289,8 @@
     <!--END RANG BAR JS-->
 
     <script>
-    
-    jQuery(document).ready(function() {    
+
+    jQuery(document).ready(function() {
         Web.init();
 
         $("#slider").rangeSlider();
