@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title>快樂工作</title>
+
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
+    <!--[if gte IE 9]>
+    <style type="text/css">
+    .gradient {
+    filter: none;
+    }
+    </style>
+    <![endif]-->
+    <!-- END 核心樣式 -->
+    <!-- BEGIN 頁面插件樣式 -->
+    <!-- END 頁面插件樣式 -->
+    <!-- BEGIN 主題樣式 -->
+    <!-- END 主題樣式 -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/page/search_page.css">
+    <link rel="stylesheet" href="/css/iThing.css" type="text/css" />
+    <!--<link rel="stylesheet/less" type="text/css" href="/less/page/index.less">-->
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <!-- END STYLE -->
+</head>
+<body>
+    <!-- BEGIN NAVBAR -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                <i class="fa fa-search"></i>
+            </button>
+            <a class="navbar-brand" href="/index.html"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
+        </div>
+        <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+            <div class="navbar-search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <% if user_signed_in? %>
+                <li><%= link_to "個人設定", users_profile_path(current_user)  %></li>
+                <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                <li><%= link_to "會員登入", new_user_session_path %></li>
+                <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+    <!-- END NAVBAR -->
+    <!-- BEGIN PAGE -->
+    <h1 class="title" style="margin-bottom:0px; padding-bottom:5px;"><%= t(:main_skill_category)[@main_skill_id]["name"] %></h1>
+    <h3 class="text-center" style="padding:0px; margin:0px;">共有<%= @total_size %>個結果</h3>
+    <div class="page-content container">
+        <div class="main-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3"> <!-- Search Bar-->
+                        <!-- <div class="input-group hidden-xs">
+                            <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div> -->
+                    </div> <!-- END Search Bar-->
+                    <div class="col-md-5">
+
+                    </div>
+                    <div class="col-md-4" style="display:block"> <!--Page Number-->
+
+                    </div> <!--END Page Number-->
+                </div> <!--END Row-->
+            </div>
+            <div class=" container-fluid">
+                <div class="row">
+                    <div class="col-md-3 hidden-xs"> <!--dLeft Advanced Search-->
+                        <%= form_tag(users_search_path, method: "get", id: "search-form") do %>
+                        <div class="input-group" style="margin-top:20px;">
+                            <input type="text" class="form-control" placeholder="搜尋您需要的人才" name="keyword" value="<%= @keyword %>">
+                            <span class="input-group-btn">
+                                <button id="search-btn" class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                        <div class="search-border">
+                            <h4>縮小搜尋依照:</h4>
+                            <br>
+                            <div class="form-group">
+                                <div>
+                                    <p class="form-control-static view">主類別</p>
+                                    <div style="margin-top:5px;">
+                                        <select name="main" id="mainClass_select" class="edit form-control">
+                                            <% t(:main_skill_category).each_with_index do |main_one, index| %>
+                                            <% if index == @main_skill_id %>
+                                            <option value="<%= index %>" selected><%= main_one['name'] %></option>
+                                            <% else %>
+                                            <option value="<%= index %>"><%= main_one['name'] %></option>
+                                            <% end %>
+                                            <% end %>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <p class="form-control-static view">子類別</p>
+                                    <div style="margin-top:5px;">
+                                        <select name="sub" id="subClass_select2" class="form-control" >
+                                            <% t(:sub_skill_category)[@main_skill_id].each_with_index do |sub_one, index| %>
+                                            <% if index == @sub_skill_id %>
+                                            <option value="<%= index %>" selected><%= sub_one['name'] %></option>
+                                            <% else %>
+                                            <option value="<%= index %>"><%= sub_one['name'] %></option>
+                                            <% end %>
+                                            <% end %>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <p><strong>每小時工資</strong></p>
+                            </div>
+
+                            <div style="margin-top:40px;">
+                                <div id="slider"></div>
+                                <div class="row">
+                                    <div class="col-md-6 pull-left">最低</div>
+                                    <div class="col-md-6 pull-right text-right">最高</div>
+                                </div>
+                                <input type="hidden" id="pay_min_hidden" name="pay_min" value="<%= @pay_min %>">
+                                <input type="hidden" id="pay_max_hidden" name="pay_max" value="<%= @pay_max %>">
+                            </div>
+                            <hr>
+                            <!-- <div class="form-group">
+                                <p class="form-control-static view"><strong>所在地區</strong></p>
+                                <ul class="location-list">
+                                    <li class="input-group">
+                                        <span class="">
+                                            <input type="checkbox">所有地區
+                                        </span>
+                                    </li>
+                                    <li class="input-group">
+                                        <span class="">
+                                            <input type="checkbox">北美洲
+                                        </span>
+                                    </li>
+                                    <li class="input-group">
+                                        <span class="">
+                                            <input type="checkbox">南美洲
+                                        </span>
+                                    </li>
+                                    <li class="input-group">
+                                        <span class="">
+                                            <input type="checkbox">亞洲
+                                        </span>
+                                    </li>
+                                    <li class="input-group">
+                                        <span class="">
+                                            <input type="checkbox">大洋洲
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div> -->
+                        </div>
+                        <% end %>
+                    </div> <!--END dLeft Advanced Search-->
+                    <div class="btn-post" >
+                        <button  type="button" class="btn btn-info" style="margin-top:20px; text-align:right;"> 我要刊登工作</button>
+                    </div>
+                    <div class="page-number" style=" margin-top:30px;"> <!--PAGE NUMBER-->
+                        <%= paginate @users %>
+                    </div> <!--ENDPAGE NUMBER-->
+
+                    <div class="col-md-8"> <!--dRight-->
+                        <div> <!--Search Result Data-->
+                            <% @users.each do |user| %>
+                                <div class=""> <!--會員資料-->
+                                    <div class="media">
+
+                                        <a class="pull-left" href="<%= user.image %>">
+                                            <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => user.id), class: "media-object dp img-circle", style: "width: 100px;height:100px;", alt: "img" %>
+                                        </a>
+
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><%= link_to user.first_name+user.last_name, users_detail_path(user) %>
+                                                <!-- TODO: Future -->
+                                                <!-- <span class=" fa fa-star"></span>
+                                                <span class=" fa fa-star"></span>
+                                                <span class=" fa fa-star"></span>
+                                                <span class=" fa fa-star"></span>
+                                                <span class=" fa fa-star-o"></span>
+                                                <strong>(3.95)</strong> -->
+                                            </h4>
+                                            <h5><%= user.introduction %></h5>
+                                            <div class="" >
+                                                <button type="button" class="btn btn-danger btn-sm btn-circle "><i class="fa fa-heart"> 儲存</i></button>
+
+                                                <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 雇用</i></button>
+
+                                                <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 聯絡</i></button>
+                                            </div>
+                                            <hr style="margin:8px auto" class=" clear">
+                                            <p><%= user.review %></p>
+                                            <% user.user_skills.each do |skill| %>
+                                                <span class="label label-default"><%= skill.name %></span>
+                                            <% end %>
+                                            <div class="profolio-info" >
+                                                <ul>
+                                                    <li>每小時<%= user.hourly_pay %>美金</li>
+                                                    <li></li>
+                                                    <li><%= t("countries."+user.country_code) %></li>
+                                                </ul>
+                                                <ul>
+                                                    <li>上次登入 <%= user.last_sign_in_at %></li>
+                                                    <li>共<%= user.user_portfolios.count %>項作品</li>
+                                                    <!-- TODO: Future -->
+                                                    <!-- <li>通過5項測驗</li> -->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!--END 會員資料-->
+                            <% end %>
+                        </div> <!--End Search Result Data-->
+                    </div><!--END dRight-->
+                </div> <!--END Contant Row-->
+            </div>
+
+            <div class="page-number"> <!--PAGE NUMBER-->
+                <%= paginate @users %>
+            </div> <!--ENDPAGE NUMBER-->
+        </div> <!--main-content-->
+    </div>
+    <!-- END PAGE -->
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+        <img class="footer-logo" src="/img/logo103.png" alt="">
+        <div class="footer-nav">
+            <%= link_to "關於我們", index_about_path %>
+            <span class="bar">|</span>
+            <%= link_to "隱私條款", index_rule_path %>
+            <span class="bar">|</span>
+            <%= link_to "使用條款", index_rule_path %>
+            <span class="bar">|</span>
+            <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
+        </div>
+    </div>
+    <!-- END FOOTER -->
+
+<!-- BEGIN JAVASCRIPTS -->
+<!-- BEGIN 核心插件 -->
+    <!--[if lt IE 9]>
+        <script src="/plugins/html5shiv.min.js"></script>
+        <script src="/plugins/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/plugins/jquery-1.11.0.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+    <!-- END 核心插件 -->
+    <!-- BEGIN 頁面插件 -->
+    <!-- END 頁面插件 -->
+    <script type="text/javascript" src="/js/script.js"></script>
+    <!--RANG BAR JS-->
+    <script src="/js/range-slider/jquery.js"></script>
+    <script src="/js/range-slider/jquery-ui-1.8.16.custom.min.js"></script>
+    <script src="/js/range-slider/jQRangeSlider-min.js"></script>
+    <!--END RANG BAR JS-->
+
+    <script>
+
+    jQuery(document).ready(function() {
+        Web.init();
+
+        $("#slider").rangeSlider();
+        $("#slider").rangeSlider("bounds", 5, 500);
+        $("#slider").rangeSlider("values", <%= @pay_min == 0? 10:@pay_min %>, <%= @pay_max == 0 ? 100:@pay_max %>);
+
+        $('#search-btn').click(function(){
+            $('#search-form').submit();
+        });
+
+        $("#slider").bind("valuesChanged", function(e, data){
+            $('#pay_min_hidden').val(Math.round(data.values.min));
+            $('#pay_max_hidden').val(Math.round(data.values.max));
+        });
+
+        $('select[name="main"]').change(function(){
+            $('select[name="sub"] :nth-child(0)').prop('selected', true);
+            $('#search-form').submit();
+        });
+
+        $('select[name="sub"]').change(function(){
+            $('#search-form').submit();
+        });
+    });
+    </script>
+
+    <!-- END JAVASCRIPTS -->
+    <!-- BEGIN PIE -->
+    <!--[if lte IE 9]>
+        <script type="text/javascript" src="/plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+    <![endif]-->
+    <!-- END PIE -->
+</body>
+</html>

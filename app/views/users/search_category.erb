@@ -86,7 +86,7 @@
                                             </div>
                                             <ul class="panel-body list-group" style="display: block;">
                                                 <% t(:sub_skill_category)[index].each_with_index do |s, index2| %>
-                                                <li class="list-group-item clickable"><%= link_to s['name'], users_search_result_path(index, index2) %></li>
+                                                <li class="list-group-item clickable"><%= link_to s['name'], users_search_path(:main => index, :sub => index2) %></li>
                                                 <% end %>
                                             </ul>
                                         </div>
@@ -95,7 +95,6 @@
                                         </div> <!--END 樹狀圖 ROW 01&02-->
                                     <% end %>
                                 <% end %>
-                            
                         </div>
                         <div class=""><!--樹狀圖 保留空間-->
                         </div>

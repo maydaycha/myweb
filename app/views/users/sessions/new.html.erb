@@ -117,7 +117,7 @@
                 </li>
                 <li>
                   <!-- <a class="yahoo" data-original-title="Yahoo!" href="#"> -->
-                  <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "yahoo", data:{original:{title:"Yahoo!"}} %>
+                  <!-- <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "yahoo", data:{original:{title:"Yahoo!"}} %> -->
                 </a>
               </li>
             </ul>
@@ -125,7 +125,7 @@
         </div>
         <!-- BEGIN MAIN CONTENT -->
         <div class="main-content">
-            
+
             <!-- BEGIN TABS -->
             <ul class="nav nav-tabs nav-justified">
                 <li class="active"><a href="#personal" data-toggle="tab">自由工作者登入帳戶</a></li>
@@ -144,9 +144,7 @@
                         <!-- <p class="alert alert-success"><%= notice %></p> -->
                         <% # end %>
                     <% if alert %>
-                        <div class="form-group alert alert-danger">
-                        <%= alert %>
-                        </div>
+                        <div class="form-group alert alert-danger"><%= alert %></div>
                     <% end %>
 
                     <div class="form-group">

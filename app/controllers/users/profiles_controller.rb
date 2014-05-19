@@ -2,7 +2,7 @@ require 'open-uri'
 class Users::ProfilesController < ApplicationController
   before_action :authenticate_user!
 
-  protect_from_forgery except: [:ajax_upload_img, :ajax_updae, :get_sub_category, :upload_portfolio_picture]
+  protect_from_forgery except: [:ajax_upload_img, :ajax_updae, :get_sub_category, :upload_portfolio_picture, :check_password]
 
   def index
   end
@@ -38,6 +38,7 @@ class Users::ProfilesController < ApplicationController
 
   def show
     @skill_main_categoies = current_user.user_skill_categories.uniq_by(&:main_skill_id)
+    @user = current_user
   end
 
 
@@ -153,6 +154,12 @@ class Users::ProfilesController < ApplicationController
     end
   end
 
+  def check_password
+    puts params
+    puts "================="
+    puts current_user.valid_password?(params[:password])
+    render json: {status: current_user.valid_password?(params[:password])}
+  end
 
   def ajax_upload_img
     current_user.picture = open(params[:profile_img].tempfile).read
@@ -160,16 +167,27 @@ class Users::ProfilesController < ApplicationController
     render json: current_user
   end
 
+  # def ajax_verify_password
+  #   puts current_user.valid_password?(params[:current_password])
+  #   render json: {status: current_user.valid_password?(params[:current_password])}
+  # end
+
   def upload_portfolio_picture
     render json: params
   end
 
 
   def show_image
-    if current_user.picture == nil
-      render :text => open("public/img/staff.png", "rb").read
+    if user_signed_in?
+      puts params
+      user = User.find(params[:id])
+      if user.picture == nil
+        render :text => open("public/img/staff.png", "rb").read
+      else
+        send_data user.picture, :type => 'image/png', :disposition => 'inline'
+      end
     else
-      send_data current_user.picture, :type => 'image/png', :disposition => 'inline'
+      render root_path
     end
   end
 
@@ -188,5 +206,4 @@ class Users::ProfilesController < ApplicationController
       send_data current_user.user_portfolios[params[:index].to_i].picture2, :type => 'image/png', :disposition => 'inline'
     end
   end
-
 end

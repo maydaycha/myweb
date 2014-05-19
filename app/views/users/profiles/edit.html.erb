@@ -145,28 +145,24 @@
                                             <div class="col-md-12">
                                                 <div class="radio">
                                                     <label>
-                                                        <!-- <input type="radio" name="status" data-title="我是專職的自由工作者" checked> -->
-                                                        <%= f.radio_button :worker_type, "1", data: {title: "我是專職的自由工作者" } %>
+                                                        <%= f.radio_button :worker_type, "1", class: "required", data: {title: "我是專職的自由工作者" } %>
                                                         我是專職的自由工作者
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                        <!-- <input type="radio" name="status" data-title="我是兼職的自由工作者"> -->
                                                         <%= f.radio_button :worker_type, "2", data: {title: "我是兼職的自由工作者" } %>
                                                         我是兼職的自由工作者
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                       <!--  <input type="radio" name="status" data-title="我們是小於5人的工作室"> -->
                                                        <%= f.radio_button :worker_type, "3", data: {title: "我們是小於5人的工作室" } %>
                                                        我們是小於5人的工作室
                                                    </label>
                                                </div>
                                                <div class="radio">
                                                 <label>
-                                                    <!-- <input type="radio" name="status" data-title="我們是大於5人的工作室"> -->
                                                     <%= f.radio_button :worker_type, "4", data: {title: "我們是大於5人的工作室" } %>
                                                     我們是大於5人的工作室
                                                 </label>
@@ -189,7 +185,7 @@
                                             <!-- <input type="file" name="image" class="form-control edit" onchange="readURL(this)"> -->
                                             <%= f.file_field :image, name: "image", class: "form-control edit", onchange: "readURL(this)" %>
                                             <p class="help-block">
-                                                一張好的相片可以增加雇主或是客戶對您的第一印象，提升您專業形象更能為您曾家被雇用的機會喔!
+                                                一張好的相片可以提升您專業形象，更能增加您被雇用的機會。
                                             </p>
                                         </div>
                                     </div>
@@ -198,16 +194,14 @@
                                             <i class="fa fa fa-info-circle" ></i>
                                         </a></label>
                                         <div class="col-md-9">
-                                            <!-- <textarea name="introduction" class="form-control" rows="3" placeholder="個人簡介"></textarea> -->
                                             <%= f.text_area :introduction, class: "form-control", rows: "3", placeholder: "個人簡介" %>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">詳細介紹(僅限1000字) <a href="javascript:;" class="show-tip" data-original-title="<h4>讓您完整的來介紹自己的工作經歷，有助於雇主更了解您的專長。</h4><p>藉此可以強調您的優勢和技能，或是參予過的專案，也能將您的教育背景呈現。言簡意賅，記得別讓您的簡介出錯。</p>">
+                                        <label class="col-md-3 control-label">詳細介紹(僅限1000字) <a href="javascript:;" class="show-tip" data-original-title="<h4>讓您完整的來介紹自己的工作經歷，有助於雇主更了解您的專長。</h4><p>藉此可以強調您的優勢和技能，或是參與過的專案，也能將您的教育背景呈現。言簡意賅，記得別讓您的簡介出錯。</p>">
                                             <i class="fa fa fa-info-circle" ></i>
                                         </a></label>
                                         <div class="col-md-9">
-                                            <!-- <textarea name="review" class="form-control" rows="3" placeholder="個人評介"></textarea> -->
                                             <%= f.text_area :review, class: "form-control", rows: "3", placeholder: "個人評介" %>
                                         </div>
                                     </div>
@@ -237,14 +231,8 @@
                                         <label class="col-md-2 control-label">每小時工資(美金)</label>
                                         <div class="col-md-10">
                                             <div class="input-group">
-                                            <%= f.text_field :hourly_pay, class: "form-control text-left", placeholder: "每小時工資(美金)", id: "hourly_pay", data: {isEmpty: "請輸入期望的工資"} %>
-                                                <!-- <div class="input-icon left"> -->
-                                                    <!-- <i class="fa"></i> -->
-                                                    <!-- <input type="text" class="form-control text-right" name="money" placeholder="每小時工資" data-isEmpty="請輸入期望的工資"> -->
-                                                <!-- </div> -->
-                                                <span class="input-group-addon">
-                                                 USD /HR
-                                             </span>
+                                            <%= f.text_field :hourly_pay, class: "form-control text-left", placeholder: "每小時工資(美金)", id: "hourly_pay", "data-isEmpty" => "請輸入期望的工資" %>
+                                                <span class="input-group-addon">USD /HR</span>
                                          </div>
                                      </div>
                                  </div>
@@ -504,8 +492,7 @@
                                     <div class="col-md-10">
                                         <div class="input-icon right">
                                             <i class="fa"></i>
-                                            <!-- <input type="text" name="zip" class="form-control" placeholder="郵遞區號" data-isEmpty="請輸入郵遞區號"> -->
-                                            <%= f.text_field :zip, class: "form-control", placeholder: "郵遞區號", data: {isEmpty: "請輸入郵遞區號"}%>
+                                            <%= f.text_field :zip, class: "form-control", placeholder: "郵遞區號", "data-isEmpty" => "請輸入郵遞區號"%>
                                         </div>
                                     </div>
                                 </div>
@@ -514,7 +501,6 @@
                                     <div class="col-md-10">
                                         <div class="input-icon right">
                                             <i class="fa"></i>
-                                            <!-- <input type="text" name="city" class="form-control" placeholder="城市" data-isEmpty="請輸入城市"> -->
                                             <%= f.text_field :city, class: "form-control", placeholder: "城市", data: {isEmpty: "請輸入城市"}%>
                                         </div>
                                     </div>
@@ -555,6 +541,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2">個人簡介</label>
                                     <div class="col-md-10">
+                                        <i class="fa"></i>
                                         <p class="form-control-static" data-display="user[introduction]">
                                         </p>
                                     </div>
@@ -628,6 +615,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="btns">
+                            <!-- 回到選擇技能那個步奏 -->
+                            <%= link_to(:back, style: "text-decoration: none; color:black;") do %>
+                            <button type="button" class="btn btn-default btn-lg left button-previous﹣page">
+                                    <i class="fa fa-long-arrow-left"></i> 上一步
+                            </button>
+                            <% end %>
                             <button type="button" class="btn btn-default btn-lg left button-previous"><i class="fa fa-long-arrow-left"></i> 上一步</button>
                             <button type="button" class="btn btn-default btn-lg right button-next">下一步 <i class="fa fa-long-arrow-right"></i></button>
                             <button type="submit" class="btn btn-primary btn-lg right button-submit">確認送出</button>
@@ -698,8 +691,6 @@
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    // $('#blah1').attr('src', e.target.result).width(150).height(200);
-                    // $('#blah2').attr('src', e.target.result).width(150).height(200);
                     $('#blah1').attr('src', e.target.result);
                     $('#blah2').attr('src', e.target.result);
                 };
