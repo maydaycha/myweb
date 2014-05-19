@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+        <title>快樂工作</title>
+        
+        <!-- BEGIN STYLE -->
+        <!-- BEGIN 核心樣式 -->
+        <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <!-- END STYLE -->
+        <style>
+		html,body{
+    height: 100%;
+}
+        	body {
+background:rgba(68,184,208,1.00);
+background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(68,184,208,1.00) ), to(#3D7DAC)  );
+background: -moz-linear-gradient(top, rgba(68,184,208,1.00) 0%, rgba(0,0,0,1) 100%);
+
+overflow:hidden;}
+
+
+.drop {
+  background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(68,184,208,1.00) ), to(rgba(255,255,255,0.6))  );
+  background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(255,255,255,.6) 100%);
+	width:2px;
+	height:60px;
+	position: absolute;
+	bottom:200px;
+	-webkit-animation: fall .63s linear infinite;
+  -moz-animation: fall .63s linear infinite;
+  
+}
+
+/* animate the drops*/
+@-webkit-keyframes fall {
+	to {margin-top:900px;}
+}
+@-moz-keyframes fall {
+	to {margin-top:900px;}
+}
+        </style>
+    </head>
+    <body>
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+        <section class="rain">
+                </section>
+            <div class="row">
+            <div class="col-md-6 col-md-offset-4"><img src="img/logo_big.png"></div>
+            <div class="col-md-6 col-md-offset-4" style="font-size:20em; color:rgba(41,41,41,1.00);"><strong>422</strong></div>
+            </div>
+        </div>
+        <!-- END PAGE -->
+        <!-- BEGIN FOOTER -->
+        <div class="footer">
+            <img class="footer-logo" src="img/logo103.png" alt="">
+            <div class="footer-nav">
+                <a href="about.html">關於我們</a>
+                <span class="bar">|</span>
+                <a href="rule.html">隱私條款</a>
+                <span class="bar">|</span>
+                <a href="rule.html">使用條款</a>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+        
+        <!-- BEGIN JAVASCRIPTS -->
+        <!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="plugins/jquery-1.11.0.min.js"></script>
+        <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <!-- END 核心插件 -->
+        <!-- BEGIN 頁面插件 -->
+        <!-- END 頁面插件 -->
+        <script type="text/javascript" src="js/script.js"></script>
+        <!--<script type="text/javascript" src="js/page/index.js"></script>-->
+        <script>
+            jQuery(document).ready(function() {    
+               Web.init();
+               //Index.init();
+            });
+        </script>
+        <script>
+        	// number of drops created.
+var nbDrop = 858; 
+
+// function to generate a random number range.
+function randRange( minNum, maxNum) {
+  return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+}
+
+// function to generate drops
+function createRain() {
+
+	for( i=1;i<nbDrop;i++) {
+	var dropLeft = randRange(0,6000);
+	var dropTop = randRange(-1000,800);
+
+	$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
+	$('#drop'+i).css('left',dropLeft);
+	$('#drop'+i).css('top',dropTop);
+	}
+
+}
+// Make it rain
+createRain();
+        </script>
+        <!-- END JAVASCRIPTS -->
+        <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+    </body>
+</html>

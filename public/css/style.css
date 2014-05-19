@@ -849,3 +849,8 @@ Box portlet
 .text-overflow{
 	white-space:nowrap; width:15em; overflow:hidden;text-overflow:ellipsis;
 	}
+.text-over{
+	max-width: 15em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;}

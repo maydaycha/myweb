@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+        <title>快樂工作</title>
+        
+        <!-- BEGIN STYLE -->
+        <!-- BEGIN 核心樣式 -->
+        <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="css/socialIcons.css">
+        <link rel="stylesheet" type="text/css" href="css/page/employer_sign_up.css">
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <!-- END STYLE -->
+    </head>
+    <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--
+                <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                    <i class="fa fa-search"></i>
+                </button>
+                -->
+                <a class="navbar-brand" href="index.html"><img class="navbar-logo" src="img/logo208.png" alt="快樂工作"></a>
+            </div>
+            <!--
+            <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+                <div class="navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            -->
+            <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="login.html">會員登入</a></li>
+                    <li><a href="sign_up.html">免費註冊</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- END NAVBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <!-- BEGIN MODAL -->
+            <div class="modal fade" id="rule" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">使用條約</h4>
+                        </div>
+                        <div class="modal-body">
+                             使用條約使用條約使用條約使用條約使用條約使用條約使用條約使用條約使用條約
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- END MODAL -->
+            <h1 class="title">登入帳戶</h1>
+            <div class="social">
+                <div class="box">
+                    <p class="social-text">您也可以使用其他OpenID登入</p>
+                    <ul class="social-icons">
+                        <li>
+                            <a class="facebook" data-original-title="facebook" href="#">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="googleplus" data-original-title="Goole Plus" href="#">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="yahoo" data-original-title="Yahoo!" href="#">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- BEGIN MAIN CONTENT -->
+            <div class="main-content">
+                <!-- BEGIN TABS -->
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="#personal" data-toggle="tab">自由工作者登入帳戶</a></li>
+                   <!-- <li><a href="#company" data-toggle="tab">登入企業帳戶</a></li> -->
+                </ul>
+                <!-- END TABS -->
+
+                <!-- BEGIN TAB CONTENT -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="personal">
+                        <!-- BRGIN FORM -->
+                        <form action="verify_email.html" class="signUp-form" id="signUp-form-personal">
+                            <div class="form-group alert alert-danger display-hide">
+                                請檢查您輸入的資料
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="text" class="form-control" name="username" placeholder="請輸入Email帳號" data-isEmpty="請輸入Email帳號">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <input type="text" class="form-control" name="password" placeholder="密碼">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <div class=" col-md-2 pull-left" style="padding-left:0px;" >
+                                    <label>
+                                        <input type="checkbox"> 記住我
+                                    </label>
+                                </div>
+                                <div class=" col-md-10 right" style="text-align:right; padding-right:0px;">
+                                	<a href="forgot_password.html">忘記密碼</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input class="btn" type="submit" value="登入">
+                            </div>
+                        </form>
+                        <!-- END FORM -->
+                     </div>
+                    <div class="tab-pane" id="company">
+                        <!-- BRGIN FORM -->
+                        <form action="verify_email.html" class="signUp-form" id="signUp-form-company">
+                            <div class="form-group alert alert-danger display-hide">
+                                請檢查您輸入的資料
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-home"></i></span>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="text" class="form-control" name="username" placeholder="請輸入Email帳號" data-isEmpty="請輸入Email帳號">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <input type="text" class="form-control" name="password" placeholder="密碼">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <div class=" col-md-2 pull-left" style="padding-left:0px;" >
+                                    <label>
+                                        <input type="checkbox"> 記住我
+                                    </label>
+                                </div>
+                                <div class=" col-md-10 right" style="text-align:right; padding-right:0px;">
+                                	<a href="#">忘記密碼</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                            <input class="btn" type="submit" value="登入">
+                            </div>
+                        </form>
+                        <!-- END FORM -->
+                    </div>
+                </div>  
+                <!-- BEGIN END CONTENT -->
+           </div>
+            <!-- END MAIN CONTENT -->
+       
+        </div>
+        <!-- END PAGE -->
+        <!-- BEGIN FOOTER -->
+        <div class="footer">
+            <img class="footer-logo" src="img/logo103.png" alt="">
+            <div class="footer-nav">
+                <a href="about.html">關於我們</a>
+                <span class="bar">|</span>
+                <a href="rule.html">隱私條款</a>
+                <span class="bar">|</span>
+                <a href="rule.html">使用條款</a>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+        
+        <!-- BEGIN JAVASCRIPTS -->
+        <!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="plugins/jquery-1.11.0.min.js"></script>
+        <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!-- END 核心插件 -->
+        <!-- BEGIN 頁面插件 -->
+        <script type="text/javascript" src="plugins/jquery-validation/dist/jquery.validate.js"></script>
+        <script type="text/javascript" src="plugins/jquery-validation/dist/myMethods.js"></script>
+        <!-- END 頁面插件 -->
+        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="js/page/employer_sign_up.js"></script>
+        <script>
+            jQuery(document).ready(function() {    
+               Web.init();
+               SingUp.init();
+            });
+        </script>
+        <!-- END JAVASCRIPTS -->
+        <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+    </body>
+</html>

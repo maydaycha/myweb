@@ -1,0 +1,94 @@
+/* line 1, ../../scss/page/edit_profile.scss */
+.class {
+  width: 100%;
+  overflow: hidden;
+}
+/* line 4, ../../scss/page/edit_profile.scss */
+.class .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+/* line 8, ../../scss/page/edit_profile.scss */
+.class .item {
+  margin-top: 20px;
+  padding: 0 10px;
+}
+/* line 11, ../../scss/page/edit_profile.scss */
+.class .item input[type=radio] {
+  display: block;
+  height: 15px;
+  margin-bottom: -15px;
+  position: absolute;
+  left: -2000px;
+}
+/* line 18, ../../scss/page/edit_profile.scss */
+.class .item label {
+  cursor: pointer;
+  display: block;
+}
+/* line 21, ../../scss/page/edit_profile.scss */
+.class .item label img {
+  width: 100%;
+  display: block;
+  border-radius: 10px 10px 0 0;
+  opacity: 0.8;
+}
+/* line 27, ../../scss/page/edit_profile.scss */
+.class .item label:hover img {
+  opacity: 1;
+}
+/* line 30, ../../scss/page/edit_profile.scss */
+.class .item label span {
+  display: block;
+  background-color: #EFEFEF;
+  border-radius: 0 0 10px 10px;
+  line-height: 90px;
+  height: 90px;
+  text-align: center;
+  color: #E05E3E;
+  font-size: 16px;
+  overflow: hidden;
+}
+/* line 43, ../../scss/page/edit_profile.scss */
+.class .item input[type=radio].active + label img {
+  opacity: 1;
+}
+/* line 46, ../../scss/page/edit_profile.scss */
+.class .item input[type=radio].active + label span {
+  background-color: #B7DDF0;
+}
+/* line 51, ../../scss/page/edit_profile.scss */
+.class .btns {
+  clear: both;
+  padding: 20px 10px 10px 10px;
+}
+/* line 54, ../../scss/page/edit_profile.scss */
+.class .btns .right {
+  float: right;
+}
+/* line 57, ../../scss/page/edit_profile.scss */
+.class .btns .left {
+  float: left;
+}
+
+@media (max-width: 1200px) {
+  /* line 64, ../../scss/page/edit_profile.scss */
+  .class .item span {
+    line-height: 70px;
+    height: 70px;
+  }
+}
+@media (max-width: 992px) {
+  /* line 70, ../../scss/page/edit_profile.scss */
+  .class .item span {
+    line-height: 70px;
+    height: 75px;
+  }
+}
+@media (max-width: 768px) {
+  /* line 76, ../../scss/page/edit_profile.scss */
+  .class .item span {
+    line-height: 70px;
+    height: 70px;
+  }
+}
