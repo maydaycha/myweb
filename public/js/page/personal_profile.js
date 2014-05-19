@@ -11,12 +11,13 @@ var PersonalProfile = function(){
             ignore: "",
             rules: {
                 "user[current_password]": {
-                	// myPassword: true,
-                    required: true
+                    required: true,
+                    myPasswordCheck: true
                 },
                 "user[password]": {
                 	minlength: 6,
                     required: true,
+                    myPasswordAllow: true
                 },
                 "user[password_confirmation]": {
                     required: true,
@@ -137,6 +138,9 @@ var PersonalProfile = function(){
 			if( $('#experience-modal input[name=start]').val() == "") {
 				alert('請填寫工作開始時間')
 				return
+			} else if( $('#experience-modal input[name=end]').val() != "" && $('#experience-modal input[name=start]').val() > $('#experience-modal input[name=end]').val()) {
+				alert('訖日在起日之前');
+				return;
 			} else if( $('#experience-modal input[name=organization]').val() == "" ) {
 				alert('公司名稱 尚未填寫');
 				return;
@@ -190,6 +194,22 @@ var editExperience = function(tr){
 	modal.find('input[name=office]').val(tr.find('.office').text());
 	modal.find('textarea[name=description]').val(tr.find('.description').text());
 	modal.find('.btn-editExperience').on('click',function(){
+		console.log(modal.find('input[name=start]').val());
+		console.log(modal.find('input[name=end]').val());
+		if( modal.find('input[name=start]').val() == "") {
+			alert('請填寫工作開始時間')
+			return;
+		}else if( modal.find('input[name=end]').val() != "" && modal.find('input[name=start]').val() > modal.find('input[name=end]').val()) {
+			alert('訖日在起日之前');
+			return;
+		}else if( modal.find('input[name=organization]').val() == "" ) {
+			alert('公司名稱 尚未填寫');
+			return;
+		} else if( modal.find('input[name=office]').val() == "" ) {
+			alert('職位/職責 尚未填寫');
+			return;
+		}
+
 		tr.find('.start').text(modal.find('input[name=start]').val());
 		tr.find('.end').text(modal.find('input[name=end]').val());
 		tr.find('.organization').text(modal.find('input[name=organization]').val());
@@ -231,6 +251,9 @@ var initAddEducation = function(){
 	$('#btn-addEducation').on('click',function(){
 		if($('#education-modal input[name=start]').val() == "") {
 			alert('請填寫教育開始時間');
+			return;
+		} else if( $('#education-modal input[name=end]').val() != "" && $('#education-modal input[name=start]').val() > $('#education-modal input[name=end]').val()) {
+			alert('訖日在起日之前');
 			return;
 		} else if($('#education-modal input[name=organization]').val() == "") {
 			alert('請填寫學校');
@@ -287,6 +310,20 @@ var editEducation = function(tr){
 	modal.find('input[name=office]').val(tr.find('.office').text());
 	modal.find('textarea[name=description]').val(tr.find('.description').text());
 	modal.find('.btn-editEducation').on('click',function(){
+		if(modal.find('input[name=start]').val() == "") {
+			alert('請填寫教育開始時間');
+			return;
+		} else if( modal.find('input[name=end]').val() != "" && modal.find('input[name=start]').val() > modal.find('input[name=end]').val()) {
+			alert('訖日在起日之前');
+			return;
+		} else if(modal.find('input[name=organization]').val() == "") {
+			alert('請填寫學校');
+			return;
+		} else if( modal.find('input[name=office]').val() == "") {
+			alert('請填寫系所/專長');
+			return;
+		}
+
 		tr.find('.start').text(modal.find('input[name=start]').val());
 		tr.find('.end').text(modal.find('input[name=end]').val());
 		tr.find('.organization').text(modal.find('input[name=organization]').val());
@@ -377,6 +414,11 @@ var editCertificate = function(tr){
 	modal.find('input[name=start]').val(tr.find('.start').text());
 	modal.find('textarea[name=description]').val(tr.find('.description').text());
 	modal.find('.btn-editCertificate').on('click',function(){
+		if(modal.find('input[name=certificate]').val() == "") {
+			alert('請填寫證照名稱');
+			return;
+		}
+		
 		tr.find('.certificate').text(modal.find('input[name=certificate]').val());
 		tr.find('.cer-source').text(modal.find('input[name=cer-source]').val());
 		tr.find('.start').text(modal.find('input[name=start]').val());

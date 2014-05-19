@@ -32,6 +32,26 @@ jQuery.validator.addMethod("myEmail", function(value, element) {
     return !result;
 }, "This field has already existed");
 
+jQuery.validator.addMethod("myPasswordCheck", function(value, element) {
+    var result;
+    $.ajax({
+        url: "/users/profiles/check_password",
+        type: "post",
+        dataType: "json",
+        data: {password: value},
+        success: function(data) {
+            result = data.status;
+        },
+        error: function(data) {
+        },
+        async: false
+    });
+    return result;
+}, "This field has wrong value");
+
+jQuery.validator.addMethod("myPasswordAllow", function(value, element) {
+    return value.match(/^([a-zA-Z0-9]*)$/);
+}, "This field has illegal characters");
 
 jQuery.validator.addMethod("myPasswordMatch", function(value, element) {
     var result = true;

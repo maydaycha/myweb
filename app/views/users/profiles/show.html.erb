@@ -516,6 +516,15 @@
                                             </label> -->
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">使用者名稱</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view" id="fullname2"><%= current_user.username %> </p>
+                                            <input type="text" class="form-control edit" placeholder="姓名" value="<%= current_user.username %>" disabled>
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">姓名</label>
                                         <div class="col-md-10">
@@ -534,17 +543,17 @@
                                         <label class="col-md-2 control-label">電子郵件</label>
                                         <div class="col-md-10">
                                             <p class="form-control-static view" id="email2"><%= current_user.email %></p>
-                                            <input type="text" name="email" class="form-control edit" placeholder="電子郵件" value="<%= current_user.email %>">
+                                            <input type="text" class="form-control edit" placeholder="電子郵件" value="<%= current_user.email %>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">每小時工資</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view"  id="money2">$<%= current_user.hourly_pay%> / HR</p>
+                                            <p class="form-control-static view"  id="money2">$<%= current_user.hourly_pay%> USD/HR</p>
                                             <div class="input-group edit">
                                                 <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
                                                 <span class="input-group-addon">
-                                                 / HR
+                                                 USD/HR
                                              </span>
                                          </div>
                                      </div>
@@ -706,8 +715,8 @@
                                 <% current_user.user_experiences.each do |e| %>
                                 <tr>
                                     <td class="id" style="display: none;"><%= e.id %></td>
-                                    <td class="start"><%= e.start_date %></td>
-                                    <td class="end"><%= e.end_date %></td>
+                                    <td class="start"><%= e.start_date.strftime("%Y/%m/%d") %></td>
+                                    <td class="end"><%= e.end_date.strftime("%Y/%m/%d") %></td>
                                     <td class="organization"><%= e.organization %></td>
                                     <td class="office"><%= e.office %></td>
                                     <td class="description text-over"><%= e.description %></td>
@@ -859,8 +868,8 @@
                                 <% current_user.user_educations.each do |e| %>
                                 <tr>
                                     <td class="id" style="display: none;"><%= e.id %></td>
-                                    <td class="start"><%= e.start_date %></td>
-                                    <td class="end"><%= e.end_date %></td>
+                                    <td class="start"><%= e.start_date.strftime("%Y/%m/%d") %></td>
+                                    <td class="end"><%= e.end_date.strftime("%Y/%m/%d") %></td>
                                     <td class="organization"><%= e.school %></td>
                                     <td class="office"><%= e.department %></td>
                                     <td class="description text-over"><%= e.description %></td>
@@ -1153,7 +1162,7 @@
                                                     <input type="text" name="certificate" class="form-control" placeholder="證照名稱">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="cer-source" class="form-control" placeholder="證照來源">
+                                                    <input type="text" name="cer-source" class="form-control" placeholder="證照發行機構">
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
@@ -1259,11 +1268,11 @@
                                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                             <div class="input-icon right">
                                                 <i class="fa fa-warning" data-original-title="密碼至少要有六個字元，不包含*/!~等特殊符號"></i>
-                                                <%= f.password_field :password, autocomplete: "off", class: "form-control", data: {isEmpty: "密碼至少要有六個字元，不包含*/!~等特殊符號", isError: "密碼至少要有六個字元，不包含*/!~等特殊符號"} %>
+                                                <%= f.password_field :password, autocomplete: "off", class: "form-control", data: {isEmpty: "密碼至少要有八個字元，不包含*/!~等特殊符號", isError: "密碼至少要有八個字元，不包含*/!~等特殊符號"} %>
                                             </div>
                                         </div>
                                         <p class="help-block">
-                                            密碼長度必須大於6英數字元，包含大小寫英文符號，不包含特殊符號。
+                                            密碼長度必須大於等於8英數字元，包含大小寫英文符號，不包含特殊符號。
                                         </p>
                                     </div>
                                 </div>

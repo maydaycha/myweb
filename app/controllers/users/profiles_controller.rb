@@ -2,7 +2,7 @@ require 'open-uri'
 class Users::ProfilesController < ApplicationController
   before_action :authenticate_user!
 
-  protect_from_forgery except: [:ajax_upload_img, :ajax_updae, :get_sub_category, :upload_portfolio_picture]
+  protect_from_forgery except: [:ajax_upload_img, :ajax_updae, :get_sub_category, :upload_portfolio_picture, :check_password]
 
   def index
   end
@@ -154,6 +154,12 @@ class Users::ProfilesController < ApplicationController
     end
   end
 
+  def check_password
+    puts params
+    puts "================="
+    puts current_user.valid_password?(params[:password])
+    render json: {status: current_user.valid_password?(params[:password])}
+  end
 
   def ajax_upload_img
     current_user.picture = open(params[:profile_img].tempfile).read
