@@ -2,7 +2,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
 
   def create
     # override it all
-    # super 
+    # super
     self.resource = resource_class.send_confirmation_instructions(resource_params)
     yield resource if block_given?
 
