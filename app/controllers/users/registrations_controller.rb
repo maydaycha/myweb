@@ -51,6 +51,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render template: "users/registrations/verify_email"
   end
 
+  def verify_success
+    
+  end
+
   def after_inactive_sign_up_path_for(user)
     verify_user_registration_path(email: user.email)
   end
