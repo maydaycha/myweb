@@ -1,0 +1,109 @@
+/* line 1, ../../scss/page/edit_category.scss */
+.class {
+  width: 100%;
+  overflow: hidden;
+}
+/* line 4, ../../scss/page/edit_category.scss */
+.class .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+/* line 8, ../../scss/page/edit_category.scss */
+.class .image {
+  margin-top: 20px;
+  padding: 0 10px;
+}
+/* line 11, ../../scss/page/edit_category.scss */
+.class .image img {
+  width: 100%;
+  display: block;
+  border-radius: 10px 10px 0 0;
+}
+/* line 16, ../../scss/page/edit_category.scss */
+.class .image p {
+  background-color: #EFEFEF;
+  border-radius: 0 0 10px 10px;
+  line-height: 90px;
+  height: 90px;
+  text-align: center;
+  color: #E05E3E;
+  font-size: 16px;
+  overflow: hidden;
+}
+/* line 27, ../../scss/page/edit_category.scss */
+.class .content {
+  margin-top: 20px;
+  padding: 0 10px;
+}
+/* line 30, ../../scss/page/edit_category.scss */
+.class .content .title {
+  font-weight: bold;
+}
+/* line 32, ../../scss/page/edit_category.scss */
+.class .content .title .point {
+  color: #E15E41;
+}
+/* line 36, ../../scss/page/edit_category.scss */
+.class .content .item {
+  float: left;
+  margin-right: 10px;
+}
+/* line 39, ../../scss/page/edit_category.scss */
+.class .content .item input[type=checkbox] {
+  display: block;
+  height: 15px;
+  margin-bottom: -15px;
+  position: absolute;
+  top: 0;
+  left: -20px;
+  z-index: -1;
+}
+/* line 48, ../../scss/page/edit_category.scss */
+.class .content .item label {
+  display: block;
+  padding: 5px 10px;
+  background-color: #FFF;
+  border-radius: 5px;
+  color: #0188CC;
+  cursor: pointer;
+}
+/* line 56, ../../scss/page/edit_category.scss */
+.class .content .item input[type=checkbox].active + label {
+  background-color: #0188CC;
+  color: #FFF;
+}
+/* line 62, ../../scss/page/edit_category.scss */
+.class .btns {
+  clear: both;
+  padding: 20px 10px 10px 10px;
+}
+/* line 65, ../../scss/page/edit_category.scss */
+.class .btns .right {
+  float: right;
+}
+/* line 68, ../../scss/page/edit_category.scss */
+.class .btns .left {
+  float: left;
+}
+
+@media (max-width: 1200px) {
+  /* line 75, ../../scss/page/edit_category.scss */
+  .class .image p {
+    line-height: 80px;
+    height: 80px;
+  }
+}
+@media (max-width: 992px) {
+  /* line 81, ../../scss/page/edit_category.scss */
+  .class .image p {
+    line-height: 70px;
+    height: 70px;
+  }
+}
+@media (max-width: 768px) {
+  /* line 87, ../../scss/page/edit_category.scss */
+  .class .image p {
+    line-height: 60px;
+    height: 60px;
+  }
+}

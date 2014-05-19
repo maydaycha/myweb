@@ -169,7 +169,9 @@ Sun::Application.routes.draw do
   devise_scope :user do
     get 'users/new2', to: 'users/registrations#new2', :as => :new2_user_registration
     get 'users/verify_email', to: 'users/registrations#verify_email', :as => :verify_user_registration
+    get 'users/verify_success', to: 'users/registrations#verify_success', :as => :verify_user_registration_success
     get 'users/email_success', to: 'users/passwords#email_success', :as => :email_success
+    get 'users/edit_error', to: 'users/passwords#edit_error', :as => :edit_passwords_error
   end
 
 end

@@ -2,7 +2,6 @@ var PersonalProfile = function(){
 	var formValidation = function() {
         var form = $('#password-form');
         var error = $('.alert-danger', form);
-        console.log('a');
 
         form.validate({
             errorElement: 'span', //default input error message container

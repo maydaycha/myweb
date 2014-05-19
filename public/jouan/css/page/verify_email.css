@@ -1,0 +1,16 @@
+/* line 1, ../../scss/page/verify_email.scss */
+.box {
+  padding: 10px;
+}
+/* line 4, ../../scss/page/verify_email.scss */
+.box .image img {
+  width: 100%;
+}
+/* line 9, ../../scss/page/verify_email.scss */
+.box .content .point {
+  color: #E15E41;
+}
+/* line 12, ../../scss/page/verify_email.scss */
+.box .content .btn {
+  margin-top: 10px;
+}
