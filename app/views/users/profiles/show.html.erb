@@ -39,6 +39,9 @@
         <!-- END STYLE -->
     </head>
     <body>
+    <div id="loader" style="z-index:10; position:fixed; width:100%; height:100%; display: none;" align="center">
+        <img src="/img/loading.gif">
+    </div>
         <!-- BEGIN NAVBAR -->
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="navbar-header">
@@ -98,7 +101,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="container">
                 <p></p>
                 <% if notice %>
@@ -1024,7 +1027,7 @@
                                                 <p class="help-block">上傳檔案/文件</p>
                                             </div>
                                             <div class="form-group">
-                                                <input type="file" name="thumbnail" class="form-control">
+                                                <input type="file" name="thumbnail" class="form-control" accept="application/pdf" onchange="check_document_size()">
                                                 <p class="help-block">上傳縮圖</p>
                                             </div>
                                             <div class="form-group">
@@ -1092,9 +1095,6 @@
                                 <button onClick="delete_portfolio()"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="meter red" style="display: none;">
-                        <span style="width: 100%"></span>
                     </div>
 
                     <div class="portlet box light-grey show-view" id="profile-portlet7">
@@ -1416,36 +1416,27 @@
                 addWorksfile.removeAllFiles();
             });
             this.on("sendingmultiple", function(file, xhr, formData) {
-            //console.log("test: count: " + _count);
-            formData.append('document', $("#works-modal input[name=thumbnail]")[0].files[0]);
-            formData.append('name', $("#works-modal input[name=title]").val());
-            formData.append('description', $("#works-modal textarea[name=description]").val());
-            formData.append('main_skill_id', $("#work_main_class").val());
-            formData.append('sub_skill_id', $("#work_subClass_select2").val());
-            formData.append('date', $("#works-modal input[name=start]").val());
-            formData.append('skill', $("#works-modal input[name=skill]").val());
-            formData.append('request', "update_portfolio");
-            $(".mete").show()
-            $(".meter > span").each(function() {
-            $(this)
-                .data("origWidth", $(this).width())
-                .width(0)
-                .animate({
-                    width: $(this).data("origWidth")
-                }, 1200);
+                $("#loader").show()
+                formData.append('document', $("#works-modal input[name=thumbnail]")[0].files[0]);
+                formData.append('name', $("#works-modal input[name=title]").val());
+                formData.append('description', $("#works-modal textarea[name=description]").val());
+                formData.append('main_skill_id', $("#work_main_class").val());
+                formData.append('sub_skill_id', $("#work_subClass_select2").val());
+                formData.append('date', $("#works-modal input[name=start]").val());
+                formData.append('skill', $("#works-modal input[name=skill]").val());
+                formData.append('request', "update_portfolio");
             });
-        });
 
             this.on("successmultiple", function(file, foo) {
-            //console.log(file);
-            //console.log(foo);
-            $(".mete").show()
-            location.reload();
+                //console.log(file);
+                //console.log(foo);
+                $("#loader").hide()
+                location.reload();
             });
         },
         paramName: "file",
         maxFilesize: 5,
-        maxFiles: 2,
+        maxFiles: 1,
         autoProcessQueue: false,
         addRemoveLinks: true,
         uploadMultiple: true,
@@ -1459,8 +1450,6 @@
 <script>
 
    $(function(){
-
-
     $(".prevent").click(function(event){
         event.preventDefault();
     });
@@ -1824,6 +1813,15 @@ var delete_portfolio = function () {
         });
     }
 }
+    var check_document_size = function() {
+        var file_size = $("#works-modal input[name=thumbnail]")[0].files[0].size
+        if( file_size / Math.pow(10,6) > 2 ) {
+            alert("超過了！")
+            $("#btn-addWorks").attr('disabled', true)
+        } else {
+            $("#btn-addWorks").attr('disabled', false)
+        }
+    }
 
 
 

@@ -95,7 +95,7 @@
     </div>
     <!-- END MODAL -->
     <h1 class="title">免費建立個人帳號</h1>
-    
+
 
 
 <!-- BEGIN MAIN CONTENT -->
@@ -144,7 +144,7 @@
       <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
       <div class="input-icon right">
         <i class="fa"></i>
-        <%= f.email_field :email, class: "form-control", placeholder: "Email", "data-isEmpty" => "請輸入電子郵件", "data-isExists" => "Email已經有人使用" %>
+        <%= f.email_field :email, autocomplete: "off", class: "form-control", placeholder: "Email", "data-isEmpty" => "請輸入電子郵件", "data-isExists" => "Email已經有人使用" %>
       </div>
     </div>
   </div>
