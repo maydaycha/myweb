@@ -45,8 +45,10 @@ var CreateProfile = function(){
 
             if (current == 1) {
                 $('#form_wizard_1').find('.button-previous').hide();
+                $('#form_wizard_1').find('.button-previous﹣page').show();
             } else {
                 $('#form_wizard_1').find('.button-previous').show();
+                $('#form_wizard_1').find('.button-previous﹣page').hide();
             }
 
             if (current >= total) {
@@ -115,6 +117,12 @@ var CreateProfile = function(){
                 },
                 'user[city]': {
                     required: true
+                },
+                'user[introduction]': {
+                    maxlength: 20
+                },
+                'user[review]': {
+                    maxlength: 1000
                 }
             },
 

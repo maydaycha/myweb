@@ -137,8 +137,11 @@ var PersonalProfile = function(){
 			if( $('#experience-modal input[name=start]').val() == "") {
 				alert('請填寫工作開始時間')
 				return
-			} else if($('#experience-modal input[name=organization]').val() == "" || $('#experience-modal input[name=office]').val() == "") {
-				alert('公司 職位/職責 需填選至少一個');
+			} else if( $('#experience-modal input[name=organization]').val() == "" ) {
+				alert('公司名稱 尚未填寫');
+				return;
+			} else if( $('#experience-modal input[name=office]').val() == "" ) {
+				alert('職位/職責 尚未填寫');
 				return;
 			}
 			tr.find('.start').text($('#experience-modal input[name=start]').val());
