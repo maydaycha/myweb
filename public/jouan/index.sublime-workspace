@@ -1,0 +1,460 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"r",
+				"right"
+			],
+			[
+				"s",
+				"src	Attr"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"pa",
+				"padding-top"
+			],
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"h",
+				"height	Attr"
+			],
+			[
+				"a",
+				"alt	Attr"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"t",
+				"type	Attr"
+			],
+			[
+				"c",
+				"class	Attr"
+			],
+			[
+				"te",
+				"text-align"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "scss/loginmain.scss",
+			"settings":
+			{
+				"buffer_size": 29,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "find_case.html",
+			"settings":
+			{
+				"buffer_size": 40175,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "my_case.html",
+			"settings":
+			{
+				"buffer_size": 25117,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "case.html",
+			"settings":
+			{
+				"buffer_size": 12001,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "inboxes-message.html",
+			"settings":
+			{
+				"buffer_size": 13538,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/User/Desktop/html-email-template/email-temp.html",
+		"/C/Users/User/Desktop/html-email-template/email-temp2.html",
+		"/C/Users/User/Desktop/email.html",
+		"/C/Users/User/telework20140513/login-byeamil.html",
+		"/C/Users/User/Downloads/test.html",
+		"/C/Users/User/telework20140513/case.html",
+		"/C/Users/User/telework20140513/inboxes.html",
+		"/C/Users/User/telework20140513/case_report.html",
+		"/C/Users/User/telework20140513/mytest.html",
+		"/C/Users/User/telework20140513/my_case.html",
+		"/C/Users/User/telework20140513/find_case.html",
+		"/C/Users/User/telework20140513/scss/_profolio.scss",
+		"/C/Users/User/telework20140513/css/page/freelancer_description.css",
+		"/C/Users/User/telework20140513/my_test.html",
+		"/C/Users/User/telework20140513/scss/loginmain",
+		"/C/Users/User/telework20140513/scss/page/_freelancer_description.scss",
+		"/C/Users/User/telework20140513/css/page/find_case.css",
+		"/C/Users/User/telework20140513/search_page.html",
+		"/C/Users/User/telework20140513/job_description.html",
+		"/C/Users/User/telework20140513/personal_profile.html",
+		"/C/Users/User/telework20140513/freelancer_description.html",
+		"/C/Users/User/telework20140513/css/page/inboxes-message.css",
+		"/C/Users/User/telework20140513/sendboxes.html",
+		"/C/Users/User/telework20140513/inboxes-message.html",
+		"/C/Users/User/telework20140513/scss/page/login_main.scss",
+		"/C/Users/User/telework20140513/scss/loginF/login_main",
+		"/C/Users/User/telework20140513/css/loginF/login_main.css.txt",
+		"/C/Users/User/telework20140513/scss/loginP/login",
+		"/C/Users/User/Desktop/tset.html",
+		"/C/Users/User/telework20140513/message.html",
+		"/C/Users/User/telework20140513/css/page/case.css",
+		"/C/Users/User/telework20140513/scss/page/case.scss",
+		"/C/Users/User/telework20140513/category.html",
+		"/C/Users/User/test/css/page/test.css",
+		"/C/Users/User/telework20140513/scss/style.scss",
+		"/C/Users/User/Desktop/4-advanced-nesting/final/main.scss",
+		"/C/Users/User/Documents/GitHub/Telework-project/public/css/style.css",
+		"/C/Users/User/Desktop/telework20140425/telework/css/style.css",
+		"/C/Users/User/test/index.html",
+		"/C/Users/User/test/myscript.js",
+		"/C/Users/User/Documents/GitHub/Telework-project/config/database.yml",
+		"/C/Users/User/Desktop/telework20140425/telework/category.html",
+		"/C/Users/User/Documents/GitHub/Telework-project/public/test.html",
+		"/C/Users/User/Documents/GitHub/Telework-project/public/scss/page/personal_profile.scss",
+		"/C/Users/User/Documents/GitHub/Telework-project/Gemfile",
+		"/C/Users/User/Documents/GitHub/Telework-project/app/views/index/index.html.erb",
+		"/C/Users/User/Documents/GitHub/Telework-project/app/views/users/profiles/edit.html.erb",
+		"/C/Users/User/Documents/GitHub/Telework-project/public/category.html",
+		"/C/Users/User/Documents/GitHub/Telework-project/public/422.html",
+		"/C/Users/User/Documents/GitHub/Telework-project/public/404.html",
+		"/C/RailsInstaller/DevKit/config.yml",
+		"/C/RailsInstaller/Ruby200-x64/lib/ruby/gems/2.0.0/gems/eventmachine-1.0.3/ext/project.h",
+		"/C/Users/User/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"九號",
+			"九",
+			"popover_content_wrapper",
+			"popover-examples",
+			"logo104",
+			"檢視案件詳情",
+			"mytest",
+			"tab3",
+			"caption",
+			".caption",
+			"caption",
+			"myprofile",
+			"save",
+			"myprofile",
+			"sql",
+			"ruby"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "scss/loginmain.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 29,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								29,
+								29
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "find_case.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 40175,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37564,
+								37564
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9019.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "my_case.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 25117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19149,
+								19149
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3634.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "case.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12001,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7247,
+								7247
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 709.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "inboxes-message.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13538,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9418,
+								9418
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3040.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 211.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+  <title>快樂工作</title>
+
+  <!-- BEGIN STYLE -->
+  <!-- BEGIN 核心樣式 -->
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+<!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/alert.css">
+        <link rel="stylesheet" type="text/css" href="css/page/inboxes.css">
+        <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <link rel="stylesheet" href="http://i.icomoon.io/public/temp/4ff1883506/UntitledProject1/style.css">
+        <link rel="stylesheet" href="css/iconstyle.css"></head>
+        <!-- END STYLE -->
+      </head>
+      <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar-fixed-top">
+          <div class="navbar navbar-default"  role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+              <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-person"> <i class="fa fa-user"></i> </button>
+              <a class="navbar-brand" href="index.html"><img class="navbar-logo" src="img/logo208.png" alt="快樂工作"></a> </div>
+              <div class="navbar-collapse collapse navbar-collapse-person navbar-right">
+                <ul class="nav navbar-nav ">
+                  <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle" src="img/class/class_3.jpg" style="width: 30px;height:30px;" alt="img"> &nbsp;Chris,Chou <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><span style="padding-left:20px;">Hi,<a href="#">Chris,Chou</a></span></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Sign out</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-bell"></i></span>&nbsp;<span class="badge">2</span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">訊息<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">訊息<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#"><i class="fa fa-lg fa-info-circle"></i></span></a></li>
+                </ul>
+              </div>
+              <div class="navbar-collapse navbar-collapse-nav collapse" style="padding-left:100px;">
+                <ul class="nav navbar-nav navbar-left">
+                  <li><a href="find_case.html" >找案件</a></li>
+                  <li><a href="my_case.html">我的案件</a></li>
+                  <li><a href="case_report.html">案件報表</a></li>
+                  <li><a href="inboxes.html">訊息</a></li>
+                  <li><a href="mytest.html">測驗</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- END NAVBAR --> 
+          <!-- BEGIN PAGE -->
+          <div class="page-content" style="margin-bottom:50px;">
+            <div class="container" style="margin-top: 50px;">
+              <div class="myTabs" >
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="col-md-5">
+                      <h3>測驗列表</h3>
+                      <hr>
+                      <div class="input-group" style="margin-top:10px;"> 
+                        <span class="input-group-btn">
+                          <button type="button" class="btn btn-info">測驗類別</button>
+                          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">工程科學</a></li>
+                            <li><a href="#">設計</a></li>
+                            <li><a href="#">網頁設計</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">IT軟體</a></li>
+                          </ul>
+                        </span>
+                        <input type="text" class="form-control" placeholder="搜尋您的測驗">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span> </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div style="margin:10px 0; border:lightgrey 1px solid;">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>測驗名稱</th>
+                                <th>測驗類別</th>
+                                <th>通過測驗人數</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><a href="#">U.S. English Basic Skills Test</a></td>
+                                <td>語言能力</td>
+                                <td><a href="#">1,130,861</a></td>
+                              </tr>
+                              <tr>
+                                <td><a href="#">Window XP Test</a></td>
+                                <td>電腦能力</td>
+                                <td><a href="#">123,453</a></td>
+                              </tr>
+                              <tr>
+                                <td><a href="#">客戶服務測試</a></td>
+                                <td>業務和行銷</td>
+                                <td><a href="#">62,245</a></td>
+                              </tr>
+                              <tr>
+                                <td><a href="#">Adobe Photoshop CS3 Test</a></td>
+                                <td>平面設計</td>
+                                <td><a href="#">32,344</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- END PAGE --> 
+            <!-- BEGIN FOOTER -->
+            <div class="footer"> <img class="footer-logo" src="img/logo103.png" alt="">
+              <div class="footer-nav"> <a href="about.html">關於我們</a> <span class="bar">|</span> <a href="rule.html">隱私條款</a> <span class="bar">|</span> <a href="rule.html">使用條款</a> </div>
+            </div>
+            <!-- END FOOTER --> 
+
+            <!-- BEGIN JAVASCRIPTS --> 
+            <!-- BEGIN 核心插件 --> 
+<!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+            <![endif]--> 
+
+            <script src="plugins/jquery-1.11.0.min.js"></script> 
+            <script src="plugins/bootstrap/js/bootstrap.min.js"></script> 
+            <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script> 
+            <!-- END 核心插件 --> 
+            <!-- BEGIN 頁面插件 --> 
+            <!-- END 頁面插件 --> 
+            <script type="text/javascript" src="js/script.js"></script> 
+            <!--<script type="text/javascript" src="js/page/index.js"></script>--> 
+            <script>
+              jQuery(document).ready(function() {    
+               Web.init();
+               //Index.init();
+             });
+            </script> 
+            <script type="text/javascript" src="js/bootstrap-tabcollapse.js"></script> 
+            <script type="text/javascript">
+              $('#myTab').tabCollapse();
+            </script> 
+            <script type="text/javascript">
+              $('#testTabs').tabCollapse();
+            </script> 
+            <script type="text/javascript">
+              $('#testTabs01').tabCollapse();
+            </script> 
+
+            <!-- END JAVASCRIPTS --> 
+            <!-- BEGIN PIE --> 
+<!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]--> 
+        <!-- END PIE -->
+      </body>
+      </html>
