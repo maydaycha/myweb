@@ -1,58 +1,154 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-<head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-  }
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+        <title>快樂工作</title>
+        
+        <!-- BEGIN STYLE -->
+        <!-- BEGIN 核心樣式 -->
+        <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <!-- END STYLE -->
+        <style>
+		html,body{
+    height: 100%;
+}
+        	body {
+background:rgba(68,184,208,1.00);
+background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(68,184,208,1.00) ), to(#3D7DAC)  );
+background: -moz-linear-gradient(top, rgba(68,184,208,1.00) 0%, rgba(0,0,0,1) 100%);
 
-  div.dialog {
-    width: 25em;
-    margin: 4em auto 0 auto;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 4em 0 4em;
-  }
+overflow:hidden;}
 
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
 
-  body > p {
-    width: 33em;
-    margin: 0 auto 1em;
-    padding: 1em 0;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
-</head>
+.drop {
+  background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(68,184,208,1.00) ), to(rgba(255,255,255,0.6))  );
+  background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(255,255,255,.6) 100%);
+	width:2px;
+	height:60px;
+	position: absolute;
+	bottom:200px;
+	-webkit-animation: fall .63s linear infinite;
+  -moz-animation: fall .63s linear infinite;
+  
+}
 
-<body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
-  </div>
-  <p>If you are the application owner check the logs for more information.</p>
-</body>
+/* animate the drops*/
+@-webkit-keyframes fall {
+	to {margin-top:900px;}
+}
+@-moz-keyframes fall {
+	to {margin-top:900px;}
+}
+        </style>
+    </head>
+    <body>
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+        <section class="rain">
+                
+            <div class="row">
+            <div class="col-md-4 col-md-offset-5 col-sm-6 col-sm-offset-3"><img src="img/logo_big.png" width="400"></div>
+            <div class="col-md-4 col-md-offset-5 col-sm-6 col-sm-offset-3" style="font-size:15em; color:rgba(41,41,41,1.00);"><strong>404</strong></div>
+            <div class="col-md-4 col-md-offset-5 col-sm-6 col-sm-offset-3" style="font-size:2.5em; color:rgba(41,41,41,1.00);"><strong> 無法找到您想找的頁面</strong></div>
+            <div class="col-md-4 col-md-offset-5 col-sm-6 col-sm-offset-3" style="height:50px;"></div>
+            </div>
+            </section>
+        </div>
+        <!-- END PAGE -->
+        <!-- BEGIN FOOTER -->
+        <div class="footer" style="position: absolute; bottom:0; width: 100%;">
+            <div class="container">
+                <img class="footer-logo" src="img/logo103.png" alt="">
+                <div class="footer-nav">
+                    <a href="about.html">關於我們</a>
+                    <span class="bar">|</span>
+                    <a href="rule.html">隱私條款</a>
+                    <span class="bar">|</span>
+                    <a href="rule.html">使用條款</a>
+                </div>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+        
+        <!-- BEGIN JAVASCRIPTS -->
+        <!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="plugins/jquery-1.11.0.min.js"></script>
+        <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <!-- END 核心插件 -->
+        <!-- BEGIN 頁面插件 -->
+        <!-- END 頁面插件 -->
+        <script type="text/javascript" src="js/script.js"></script>
+        <!--<script type="text/javascript" src="js/page/index.js"></script>-->
+        <script>
+            jQuery(document).ready(function() {    
+               Web.init();
+               //Index.init();
+            });
+        </script>
+        <script>
+        	// number of drops created.
+var nbDrop = 858; 
+
+// function to generate a random number range.
+function randRange( minNum, maxNum) {
+  return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+}
+
+// function to generate drops
+function createRain() {
+
+	for( i=1;i<nbDrop;i++) {
+	var dropLeft = randRange(0,6000);
+	var dropTop = randRange(-1000,800);
+
+	$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
+	$('#drop'+i).css('left',dropLeft);
+	$('#drop'+i).css('top',dropTop);
+	}
+
+}
+// Make it rain
+createRain();
+        </script>
+        <!-- END JAVASCRIPTS -->
+        <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+    </body>
 </html>
