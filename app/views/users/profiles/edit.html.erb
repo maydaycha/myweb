@@ -685,6 +685,10 @@
         jQuery(document).ready(function() {
            Web.init();
            CreateProfile.init();
+
+            window.onbeforeunload = function(e) {
+                return '尚未儲存的資料都將遺失';
+            };
        });
 
         function readURL(input) {
@@ -694,10 +698,12 @@
                     $('#blah1').attr('src', e.target.result);
                     $('#blah2').attr('src', e.target.result);
                 };
-
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+
+
     </script>
     <!-- END JAVASCRIPTS -->
     <!-- BEGIN PIE -->
