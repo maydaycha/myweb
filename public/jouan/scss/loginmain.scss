@@ -3,3 +3,62 @@
 /*light box*/
 @import "_lightbox2.scss";
 
+
+
+/*message style*/
+
+.message-item {
+margin-bottom: 25px;
+margin-left: 40px;
+position: relative;
+	.message-inner {
+		background: #fff;
+		border: 1px solid #ddd;
+		border-radius: 3px;
+		padding: 10px;
+		position: relative;
+		}
+	.message-head {
+		border-bottom: 1px solid #eee;
+		margin-bottom: 8px;
+		padding-bottom: 8px;
+		.avatar {
+			margin-right: 20px;
+			}
+		.user-detail {
+			overflow: hidden;
+			 h5 {
+				font-size: 16px;
+				font-weight: bold;
+				margin: 0;
+				}
+			}
+		.post-meta {
+			float: left;
+			padding: 0 15px 0 0;
+			>div {
+				color: #333;
+				font-weight: bold;
+				text-align: right;
+				}
+			}
+		}
+}
+
+
+
+.post-meta > div {
+color: #777;
+font-size: 12px;
+line-height: 22px;
+}
+.message-item .message-head .post-meta >div {
+color: #333;
+font-weight: bold;
+text-align: right;
+}
+.post-meta > div {
+color: #777;
+font-size: 12px;
+line-height: 22px;
+}
