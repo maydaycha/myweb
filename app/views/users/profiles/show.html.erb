@@ -519,14 +519,8 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人簡述</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view">最認真負責的自由工作者</p>
-                                            <input type="text" class="form-control edit" placeholder="個人簡述" value="最認真負責的自由工作者" disabled>
-                                            <!-- <label class="radio-inline edit">
-                                                <input type="radio" name="status" checked> 最認真負責的自由工作者
-                                            </label> -->
-                                            <!-- <label class="radio-inline edit">
-                                                <input type="radio" name="status"> 最奸詐狡猾苛薄的雇主
-                                            </label> -->
+                                            <p class="form-control-static view" id="sketch"><%= current_user.sketch %></p>
+                                            <input type="text" name="sketch" class="form-control edit" placeholder="個人簡述" value="<%= current_user.sketch %>" >
                                         </div>
                                     </div>
 
@@ -534,7 +528,7 @@
                                         <label class="col-md-2 control-label">使用者名稱</label>
                                         <div class="col-md-10">
                                             <p class="form-control-static view" id=""><%= current_user.username %> </p>
-                                            <input type="text" class="form-control edit" placeholder="姓名" value="<%= current_user.username %>" disabled>
+                                            <input type="text" class="form-control edit" placeholder="使用者名稱" value="<%= current_user.username %>" disabled>
                                         </div>
                                     </div>
 
@@ -542,7 +536,8 @@
                                         <label class="col-md-2 control-label">姓名</label>
                                         <div class="col-md-10">
                                             <p class="form-control-static view" id="fullname2"><%= current_user.first_name %> <%= current_user.last_name %></p>
-                                            <input type="text" name="name" class="form-control edit" placeholder="姓名" value="<%= current_user.first_name %> <%= current_user.last_name %>">
+                                            <input type="text" name="first_name" class="form-control edit" placeholder="名" value="<%= current_user.first_name %>">
+                                            <input type="text" name="last_name" class="form-control edit" placeholder="姓" value="<%= current_user.last_name %>">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -562,9 +557,9 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">每小時工資</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view"  id="money2">$<%= current_user.hourly_pay%> USD/HR</p>
+                                            <p class="form-control-static view"  id="money2">$<%= current_user.hourly_pay.to_f.round(0) %> USD/HR</p>
                                             <div class="input-group edit">
-                                                <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay%>">
+                                                <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay.to_f.round(0) %>">
                                                 <span class="input-group-addon">
                                                  USD/HR
                                              </span>
@@ -1369,19 +1364,25 @@
     // Dropzone.autoDiscover = false;
 
 
-
+    var warn_on_unload = "尚未儲存的資料都將遺失"
 
     jQuery(document).ready(function() {
        Web.init();
        PersonalProfile.init();
        for(var i = 1; i < 8; i++) {
-        $(".control_sub_calss"+i).hide();
-    }
+            $(".control_sub_calss"+i).hide();
+        }
 
-    $(".main_class").change(main_class_change);
+        window.onbeforeunload = function(e) {
+            clean_all_value()
+            if( warn_on_unload != '' ) return warn_on_unload
+        }
 
 
-    $("#work_main_class").change( function() {
+        $(".main_class").change(main_class_change);
+
+
+        $("#work_main_class").change( function() {
 
         if ($(this).val() < 0) {
             $("#work_subClass_select2 option").remove();
@@ -1407,13 +1408,8 @@
             for(var key in data) {
                select.append($("<option></option>").attr("value", key).text(data[key].name));
            }
-       },
-       error: function(data) {
-        //console.log("error");
-    }
-});
+        } });
     });
-    _count = 0;
 
     Dropzone.autoDiscover = true;
     Dropzone.options.addWorksfile = {
@@ -1505,6 +1501,7 @@
         xhr.onload = function() {
             if (this.status == 200) {
                 //console.log("upload file success");
+                $("#loader").hide()
             };
         };
         xhr.send(fd);
@@ -1515,28 +1512,28 @@
     var update_basic_info = function(form_num) {
         var obj = {
             request: "update_basic_info",
-            name: $("#contact-form" + form_num + " input[name='name']").val(),
-            email: $("#contact-form" + form_num + " input[name='email']").val(),
+            sketch: $("#contact-form" + form_num + " input[name='sketch']").val(),
+            first_name: $("#contact-form" + form_num + " input[name='first_name']").val(),
+            last_name: $("#contact-form" + form_num + " input[name='last_name']").val(),
             money: $("#contact-form" + form_num + " input[name='money']").val()
-        };
-    //console.log(obj);
-    $.ajax({
-        url: "/users/profiles/ajax_updae",
-        type: "post",
-        dataType: "json",
-        data: obj,
-        success: function(data) {
-            $("#fullname2").text(data.first_name + " " + data.last_name);
-            $("#email2").text(data.email);
-            $("#money2").text(data.hourly_pay);
-            upload_img(form_num);
-        },
-        error: function(data) {
-            //console.log(data);
         }
-    });
+        $("#loader").show()
+        $.ajax({
+            url: "/users/profiles/ajax_updae",
+            type: "post",
+            dataType: "json",
+            data: obj,
+            success: function(data) {
+                console.log(data)
+                $("#sketch").text(data.sketch)
+                $("#fullname2").text(data.first_name + " " + data.last_name)
+                $("#money2").text(data.hourly_pay)
+                if( typeof document.getElementById("profile_img"+ form_num).files[0] != 'undefined' ) upload_img(form_num)
+                else $("#loader").hide()
+            }
+        });
 
-}
+    }
 
 var addCategoryList = function(){
     if ($('.category_delete_container').size() > 3)
@@ -1621,152 +1618,145 @@ var main_class_change = function(){
 })
 }
 
-var cancel_basic_info = function(){
-    $('#blah1').attr("src", "<%= image_path url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id) %>");
-}
-
-var update_location = function() {
-    var obj = {
-        request: "update_location",
-        timeZone: $("#contact-form2 select[name='timeZone']").val(),
-        country: $("#contact-form2 select[name='country']").val(),
-    };
-    //console.log(obj);
-    $.ajax({
-        url: "/users/profiles/ajax_updae",
-        type: "post",
-        dataType: "json",
-        data: obj,
-        success: function(data) {
-            //console.log(data);
-            $("#time_zone").html(obj.timeZone);
-            $("#country").html(obj.country);
-        },
-        error: function(data) {
-            //console.log("error");
-            //console.log(data);
-        }
-    });
-
-}
-
-
-var update_category = function() {
-    var obj = {
-        request: "update_category",
-        data: []
+    var cancel_basic_info = function(){
+        $('#blah1').attr("src", "<%= image_path url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id) %>");
     }
 
-    $(".main_class").each(function( index ) {
-        var parent = $(this).parent().parent().parent().parent();
-
-        obj.data.push({
-            main_category: $(this).val(),
-            sub_category: parent.find('select.subClass_select2').val()
+    var update_location = function() {
+        var obj = {
+            request: "update_location",
+            timeZone: $("#contact-form2 select[name='timeZone']").val(),
+            country: $("#contact-form2 select[name='country']").val(),
+        };
+        //console.log(obj);
+        $.ajax({
+            url: "/users/profiles/ajax_updae",
+            type: "post",
+            dataType: "json",
+            data: obj,
+            success: function(data) {
+                //console.log(data);
+                $("#time_zone").html(obj.timeZone);
+                $("#country").html(obj.country);
+            },
+            error: function(data) {
+                //console.log("error");
+                //console.log(data);
+            }
         });
 
-        var str = "";
-        parent.find('select.subClass_select2 option:selected').each(function () {
-            str += $(this).text() + ", ";
-
-        });
-        str = str.substring(0, str.length - 2);
-
-        parent.find('.main_category').html($(this).find('option:selected').text())
-        parent.find('.sub_category').html(str);
-    });
-
-    //console.log(obj);
-
-    $.ajax({
-        url: "/users/profiles/ajax_updae",
-        type: "post",
-        dataType: "json",
-        data: obj,
-        success: function(data) {
-            //console.log(data);
-        },
-        error: function(data) {
-            //console.log("error");
-            //console.log(data);
-        }
-    });
-}
-
-var update_skill = function() {
-    // console.log($("#contact-form1 input[name='skill']").val())
-    var obj = {
-        request: "update_skill",
-        skill: $("#contact-form1 input[name='skill']").val(),
-    };
-    //console.log(obj);
-    $.ajax({
-        url: "/users/profiles/ajax_updae",
-        type: "post",
-        dataType: "json",
-        data: obj,
-        success: function(data) {
-            //console.log(data);
-            $("#skill").html(obj.skill);
-        },
-        error: function(data) {
-            //console.log("error");
-            //console.log(data);
-        }
-    });
-}
-
-var update_experience = function() {
-    var request_obj = {
-     request: "update_experience",
-     experience_add_list: experience_add_list,
-     experience_delete_list: experience_delete_list,
-     experience_update_list: experience_update_list
- }
- console.log(request_obj)
- // return
- $.ajax({
-    url: "/users/profiles/ajax_updae",
-    type: "post",
-    dataType: "json",
-    data: JSON.stringify(request_obj),
-    contentType: 'application/json',
-    success: function(data) {
-        console.log(data)
-        experience_add_list = [];
-        experience_delete_list = [];
-        experience_update_list = [];
-    },
-    error: function(data) {
-        //console.log("error");
     }
-});
-}
 
-var update_education = function() {
-    var request_obj = {
-        request: "update_education",
-        education_add_list: education_add_list,
-        education_delete_list: education_delete_list,
-        education_update_list: education_update_list
-    };
-    $.ajax({
-        url: "/users/profiles/ajax_updae",
-        type: "post",
-        dataType: "json",
-        data: JSON.stringify(request_obj),
-        contentType: 'application/json',
-        success: function(data) {
-            console.log(data);
-            education_add_list = [];
-            education_delete_list = [];
-            education_update_list = []
-        },
-        error: function(data) {
-            //console.log("error");
+
+    var update_category = function() {
+        var obj = {
+            request: "update_category",
+            data: []
         }
-    });
-}
+
+        $(".main_class").each(function( index ) {
+            var parent = $(this).parent().parent().parent().parent();
+
+            obj.data.push({
+                main_category: $(this).val(),
+                sub_category: parent.find('select.subClass_select2').val()
+            });
+
+            var str = "";
+            parent.find('select.subClass_select2 option:selected').each(function () {
+                str += $(this).text() + ", ";
+            });
+            str = str.substring(0, str.length - 2);
+            parent.find('.main_category').html($(this).find('option:selected').text())
+            parent.find('.sub_category').html(str);
+        });
+
+        //console.log(obj);
+        $("#loader").show()
+        $.ajax({
+            url: "/users/profiles/ajax_updae",
+            type: "post",
+            dataType: "json",
+            data: obj,
+            success: function(data) {
+                //console.log(data);
+                $("#loader").hide()
+            }
+        })
+    }
+
+    var update_skill = function() {
+        var obj = {
+            request: "update_skill",
+            skill: $("#contact-form1 input[name='skill']").val(),
+        };
+        $("#loader").show()
+        $.ajax({
+            url: "/users/profiles/ajax_updae",
+            type: "post",
+            dataType: "json",
+            data: obj,
+            success: function(data) {
+                //console.log(data);
+                $("#skill").html(obj.skill);
+                $("#loader").hide()
+            },
+            error: function(data) {
+                //console.log("error");
+            }
+        });
+    }
+
+    var update_experience = function() {
+        var request_obj = {
+         request: "update_experience",
+         experience_add_list: experience_add_list,
+         experience_delete_list: experience_delete_list,
+         experience_update_list: experience_update_list
+        }
+         console.log(request_obj)
+         $("#loader").show()
+         $.ajax({
+            url: "/users/profiles/ajax_updae",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
+                console.log(data)
+                experience_add_list = [];
+                experience_delete_list = [];
+                experience_update_list = [];
+                $("#loader").hide()
+            },
+            error: function(data) {
+                //console.log("error");
+            }
+        });
+    }
+
+    var update_education = function() {
+        var request_obj = {
+            request: "update_education",
+            education_add_list: education_add_list,
+            education_delete_list: education_delete_list,
+            education_update_list: education_update_list
+        }
+        $("#loader").show()
+        $.ajax({
+            url: "/users/profiles/ajax_updae",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
+                education_add_list = []
+                education_delete_list = []
+                education_update_list = []
+                $("#loader").hide()
+            }
+        });
+    }
 
 // var update_portfolio = function() {
     //     var request_obj = {
@@ -1837,38 +1827,38 @@ var update_education = function() {
 
 
 
-var update_certification = function() {
-    var request_obj = {
-        request: "update_certification",
-        certificate_add_list: certificate_add_list,
-        certificate_delete_list: certificate_delete_list,
-        certificate_update_list: certificate_update_list
-    };
-    console.log(request_obj);
-    $.ajax({
-        url: "/users/profiles/ajax_updae",
-        type: "post",
-        dataType: "json",
-        data: JSON.stringify(request_obj),
-        contentType: 'application/json',
-        success: function(data) {
-            console.log(data);
-            certificate_add_list = [];
-            certificate_delete_list = [];
-            certificate_update_list = [];
-        },
-        error: function(data) {
-            //console.log("error");
+    var update_certification = function() {
+        var request_obj = {
+            request: "update_certification",
+            certificate_add_list: certificate_add_list,
+            certificate_delete_list: certificate_delete_list,
+            certificate_update_list: certificate_update_list
         }
-    });
-}
-
-function see_this(sel) {
-    //console.log(sel);
-}
+        $("#loader").show()
+        console.log(request_obj);
+        $.ajax({
+            url: "/users/profiles/ajax_updae",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
+                console.log(data)
+                certificate_add_list = []
+                certificate_delete_list = []
+                certificate_update_list = []
+                $("#loader").hide()
+            }
+        });
+    }
 
     var hide_message = function() {
         $("#error_message").hide()
+    }
+
+    function clean_all_value() {
+        console.log($("#contact-form1 input[name='skill']").val())
+        $("#contact-form1 input[name='skill']").val('')
     }
 
 

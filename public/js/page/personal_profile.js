@@ -14,11 +14,12 @@ var PersonalProfile = function(){
                     myPasswordCheck: true
                 },
                 "user[password]": {
-                	minlength: 6,
+                	minlength: 8,
                     required: true,
                     myPasswordAllow: true
                 },
                 "user[password_confirmation]": {
+                	minlength: 8,
                     required: true,
                     myPasswordMatch: true
                 }

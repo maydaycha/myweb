@@ -21,7 +21,7 @@ class Users::ProfilesController < ApplicationController
 
 
   def update
-    current_user.user_skills.destroy_all if !current_user.user_skills.empty?
+    UserSkill.where(user_id: current_user.id).delete_all
     if current_user.user_skills.empty?
       foeign_skills = []
       params[:user][:user_skills].split(",").each{|e| foeign_skills << current_user.user_skills.create!(name: e) }
@@ -45,11 +45,7 @@ class Users::ProfilesController < ApplicationController
   def ajax_updae
     case params[:request]
     when "update_basic_info"
-      current_user.first_name = params[:name].split(/ /)[0]
-      current_user.last_name = params[:name].split(/ /)[1]
-      current_user.email = params[:email]
-      current_user.hourly_pay = params[:money]
-      current_user.save
+      current_user.update!(sketch: params['sketch'], first_name: params[:first_name], last_name: params[:last_name], hourly_pay: params[:money])
       render json: current_user
 
     when "update_location"
@@ -59,7 +55,7 @@ class Users::ProfilesController < ApplicationController
       render json: current_user
 
     when "update_skill"
-      current_user.user_skills.destroy_all if not current_user.user_skills.empty?
+      UserSkill.where(user_id: current_user.id).delete_all
       params[:skill].split(",").each{ |e| current_user.user_skills.create!(name: e) }
       render json: current_user
 
