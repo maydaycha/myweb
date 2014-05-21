@@ -108,7 +108,7 @@
                 </div>
             </div>
 
-            <div class="container">
+            <div class="container" id="error_message">
                 <p></p>
                 <% if notice %>
                     <p class="alert alert-success"><%= notice %></p>
@@ -123,8 +123,8 @@
                 <!-- BEGIN TABS -->
                 <ul class="nav nav-tabs nav-justified">
                     <!-- <li class="active"><a href="#contact" data-toggle="tab">我的連絡資訊</a></li> -->
-                    <li class="active"><a href="#profile" data-toggle="tab">我的個人資料</a></li>
-                    <li><a href="#password" data-toggle="tab">變更密碼</a></li>
+                    <li class="active"><a href="#profile" data-toggle="tab" onclick="hide_message()">我的個人資料</a></li>
+                    <li><a href="#password" data-toggle="tab" onclick="hide_message()">變更密碼</a></li>
                 </ul>
                 <!-- END TABS -->
 
@@ -520,6 +520,7 @@
                                         <label class="col-md-2 control-label">個人簡述</label>
                                         <div class="col-md-10">
                                             <p class="form-control-static view">最認真負責的自由工作者</p>
+                                            <input type="text" class="form-control edit" placeholder="個人簡述" value="最認真負責的自由工作者" disabled>
                                             <!-- <label class="radio-inline edit">
                                                 <input type="radio" name="status" checked> 最認真負責的自由工作者
                                             </label> -->
@@ -686,8 +687,8 @@
                             <p class="form-control-static view" id="skill"><%= current_user.user_skills.map{|e| e.name}.join(", ") %></p>
                             <form action="javascript: return false;" id="contact-form1" class="form-horizontal edit" role="form">
                                 <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>"/>
-                                <div class="pull-right" style="margin:8px 0px 0 0;"> 
-                                    <button class="btn btn-default tool-save edit" data-original-title="收合" data-portlet="#profile-portlet3">收合</button>
+                                <div class="pull-right" style="margin:8px 0px 0 0;">
+                                    <button class="btn btn-default tool-save edit" data-original-title="收合" data-portlet="#profile-portlet3" onclick="update_skill()">收合</button>
                                 </div>
                                 <p class="help-block">
                                     如果您欲新增更多的技能。您必須完成下列項目：<br>
@@ -1090,12 +1091,10 @@
                                         <% if e.picture1 %>
                                         <%= image_tag url_for(:controller => "users/profiles", :action => "show_portfolio_image1", :index => index), class: "img-thumbnail img-responsive", width: "113", height: "113" %>
                                         <% end %>
-                                        <% if e.picture2 %>
-                                        <%= image_tag url_for(:controller => "users/profiles", :action => "show_portfolio_image2", :index => index), class: "img-thumbnail img-responsive", width: "113", height: "113" %>
-                                        <% end %>
                                     </td>
 
                                     <td><%= e.name %></td>
+                                    <td><%= e.document_name %></td>
                                     <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="javascript: works_delete_list.push({id:<%= e.id %>});">刪除</button></td>
                                 </tr>
                                 <% end %>
@@ -1426,7 +1425,8 @@
             });
             this.on("sendingmultiple", function(file, xhr, formData) {
                 $("#loader").show()
-                formData.append('document', $("#works-modal input[name=thumbnail]")[0].files[0]);
+                formData.append('document_name', $("#works-modal input[name=thumbnail]")[0].files[0].name);
+                formData.append('document_content', $("#works-modal input[name=thumbnail]")[0].files[0]);
                 formData.append('name', $("#works-modal input[name=title]").val());
                 formData.append('description', $("#works-modal textarea[name=description]").val());
                 formData.append('main_skill_id', $("#work_main_class").val());
@@ -1526,14 +1526,12 @@
         dataType: "json",
         data: obj,
         success: function(data) {
-            //console.log(data);
             $("#fullname2").text(data.first_name + " " + data.last_name);
             $("#email2").text(data.email);
             $("#money2").text(data.hourly_pay);
             upload_img(form_num);
         },
         error: function(data) {
-            //console.log("error");
             //console.log(data);
         }
     });
@@ -1696,6 +1694,7 @@ var update_category = function() {
 }
 
 var update_skill = function() {
+    // console.log($("#contact-form1 input[name='skill']").val())
     var obj = {
         request: "update_skill",
         skill: $("#contact-form1 input[name='skill']").val(),
@@ -1794,38 +1793,39 @@ var update_education = function() {
 
 // }
 
-var update_portfolio = function() {
-    //console.log(addWorksfile.getQueuedFiles());
-    addWorksfile.processQueue();
-    return;
-}
-
-var delete_portfolio = function () {
-    if(works_delete_list.length > 0 ) {
-        var request_obj = {
-            request: "update_portfolio",
-            works_delete_list: works_delete_list
-        };
-        $.ajax({
-            url: "/users/profiles/ajax_updae",
-            type: "post",
-            dataType: "json",
-            data: JSON.stringify(request_obj),
-            contentType: 'application/json',
-            success: function(data) {
-                //console.log(data);
-                works_delete_list = [];
-            },
-            error: function(data) {
-                //console.log("error");
-            }
-        });
+    var update_portfolio = function() {
+        //console.log(addWorksfile.getQueuedFiles());
+        addWorksfile.processQueue();
+        return;
     }
-}
+
+    var delete_portfolio = function () {
+        if(works_delete_list.length > 0 ) {
+            var request_obj = {
+                request: "update_portfolio",
+                works_delete_list: works_delete_list
+            };
+            $.ajax({
+                url: "/users/profiles/ajax_updae",
+                type: "post",
+                dataType: "json",
+                data: JSON.stringify(request_obj),
+                contentType: 'application/json',
+                success: function(data) {
+                    //console.log(data);
+                    works_delete_list = [];
+                },
+                error: function(data) {
+                    //console.log("error");
+                }
+            });
+        }
+    }
+
     var check_document_size = function() {
         var file_size = $("#works-modal input[name=thumbnail]")[0].files[0].size
         if( file_size / Math.pow(10,6) > 2 ) {
-            alert("超過了！")
+            alert("您上傳的檔案已超過 2MB 的限制")
             $("#btn-addWorks").attr('disabled', true)
         } else {
             $("#btn-addWorks").attr('disabled', false)
@@ -1866,6 +1866,10 @@ var update_certification = function() {
 function see_this(sel) {
     //console.log(sel);
 }
+
+    var hide_message = function() {
+        $("#error_message").hide()
+    }
 
 
 

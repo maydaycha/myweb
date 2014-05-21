@@ -417,7 +417,7 @@ var editCertificate = function(tr){
 			alert('請填寫證照名稱');
 			return;
 		}
-		
+
 		tr.find('.certificate').text(modal.find('input[name=certificate]').val());
 		tr.find('.cer-source').text(modal.find('input[name=cer-source]').val());
 		tr.find('.start').text(modal.find('input[name=start]').val());

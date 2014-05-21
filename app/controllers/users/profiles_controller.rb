@@ -139,9 +139,9 @@ class Users::ProfilesController < ApplicationController
           e.main_skill_id = params[:main_skill_id]
           e.sub_skill_id = params[:sub_skill_id]
           e.skill = params[:skill]
-          e.document = open(params[:document].tempfile).read unless (params[:document].is_a? String)
+          e.document_name = params[:document_name]
+          e.document_content = open(params[:document_content].tempfile).read unless (params[:document].is_a? String)
           e.picture1 = open(params[:file][0].tempfile).read if (params[:file].size > 0)
-          e.picture2 = open(params[:file][1].tempfile).read if (params[:file].size > 1)
         end
         new_portfolio_list << @p
       end
