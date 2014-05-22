@@ -521,8 +521,31 @@
                             <div class="portlet-body">
                                 <form action="javascript: return false;" id="contact-form2" class="form-horizontal" role="form">
                                     <div class="form-group">
+                                        <label class="col-md-2 control-label">使用者名稱</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view" id=""><%= current_user.username %> </p>
+                                            <input type="text" class="form-control edit" placeholder="姓名" value="<%= current_user.username %>" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">姓氏</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view" id="fullname2"><%= current_user.first_name %></p>
+                                            <input type="text" name="name" class="form-control edit" placeholder="姓氏" value="<%= current_user.first_name %>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">名字</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view" id=""><%= current_user.last_name %></p>
+                                            <input type="text" name="name" class="form-control edit" placeholder="名字" value="<%= current_user.last_name %>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-2 control-label">個人簡述</label>
                                         <div class="col-md-10">
+                                            <p class="form-control-static edit">最認真負責的自由工作者</p>
                                             <p class="form-control-static view">最認真負責的自由工作者</p>
                                             <!-- <label class="radio-inline edit">
                                                 <input type="radio" name="status" checked> 最認真負責的自由工作者
@@ -532,20 +555,13 @@
                                             </label> -->
                                         </div>
                                     </div>
-
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">使用者名稱</label>
+                                        <label class="col-md-2 control-label">詳細介紹<br>(僅限1000字)</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id=""><%= current_user.username %> </p>
-                                            <input type="text" class="form-control edit" placeholder="姓名" value="<%= current_user.username %>" disabled>
-                                        </div>
-                                    </div>
+                                        <p class="form-control-static view">什臉站人，關年懷問常玩黑本，要不種通舉成，阿山至不衣這，真持樣。老們加完地年房獲……中度里約說讀，有可外回成必方速面時像日不國提人：和合我局加灣人石黃色山，口設苦也美發多未？了創究月金險在生。素有科書風？都舉了得中動術已家，的團的文關字太手工只教我邊，界知方機當對。
 
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">姓名</label>
-                                        <div class="col-md-10">
-                                            <p class="form-control-static view" id="fullname2"><%= current_user.first_name %> <%= current_user.last_name %></p>
-                                            <input type="text" name="name" class="form-control edit" placeholder="姓名" value="<%= current_user.first_name %> <%= current_user.last_name %>">
+</p>
+                                        <textarea name="review" class="form-control edit" rows="3" placeholder="個人詳細介紹"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -861,6 +877,9 @@
                             <div class="tools">
                                 <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet5">
                                     <i class="fa fa-pencil-square-o"></i>編輯
+                                </a>
+                                <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#education-modal">
+                                    <i class="fa fa-plus"></i>
                                 </a>
                                 <a href="javascript:;" onclick="update_category()" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet5">
                                     <i class="fa fa-chevron-up"></i>
