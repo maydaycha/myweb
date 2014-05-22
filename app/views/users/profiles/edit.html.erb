@@ -688,9 +688,24 @@
            Web.init();
            CreateProfile.init();
 
-            window.onbeforeunload = function(e) {
-                if( warn_on_unload != '' ) return warn_on_unload;
-            };
+            // clean all form data while user click next page to arrive here
+            $("form")[0].reset();
+
+           $(':input').bind('input', function() {
+                 window.onbeforeunload = function(e) {
+                    if( warn_on_unload != '' ) return warn_on_unload
+                }
+            });
+
+            $('input[type=text], textarea').bind('input', function() {
+                console.log(warn_on_unload != '')
+                 window.onbeforeunload = function(e) {
+                    if( warn_on_unload != '' ) return warn_on_unload
+                }
+            });
+
+
+
        });
 
         function readURL(input) {
