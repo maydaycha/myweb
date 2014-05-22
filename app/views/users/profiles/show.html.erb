@@ -46,7 +46,9 @@
     </head>
     <body>
     <div id="loader" style="z-index:10; position:fixed; width:100%; height:100%; display: none;" align="center">
-        <img src="/img/loading.gif">
+        <img style="-webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+    filter:alpha(opacity=40);" src="/img/spinner.gif">
     </div>
         <!-- BEGIN NAVBAR -->
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -107,16 +109,18 @@
                     </div>
                 </div>
             </div>
-
-            <div class="container">
-                <p></p>
+            <div class="container alert-bordered" >
+                <div class="row">
+                    <p></p>
                 <% if notice %>
                     <p class="alert alert-success"><%= notice %></p>
                 <% end %>
                 <% if alert and alert != "" %>
                     <p class="alert form-group alert-danger"><%= alert %></p>
                 <% end %>
+                </div>
             </div>
+            
 
             <!-- BEGIN MAIN CONTENT -->
             <div class="main-content">

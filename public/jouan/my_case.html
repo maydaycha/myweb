@@ -78,9 +78,9 @@
           <div class="page-content" style="margin-bottom:150px;">
             <div class="container" style="margin-top: 50px;">
               <ul id="myTab" class="nav nav-tabs navmargin">
-                <li class="active"><a href="#mycase" data-toggle="tab">我的案件</a></li>
-                <li ><a href="#contract" data-toggle="tab">案件合約</a></li>
-                <li><a href="#diary" data-toggle="tab">案件日誌</a></li>
+                <li class="active"><a id="tab-1" href="#mycase" data-toggle="tab">我的案件</a></li>
+                <li ><a id="tab-2" href="#contract" data-toggle="tab">案件合約</a></li>
+                <li><a id="tab-3" href="#diary" data-toggle="tab">案件日誌</a></li>
               </ul>
               <div id="myTabContent" class="tab-content myTabs" >
                 <div class="tab-pane fade in active" id="mycase">
@@ -368,15 +368,8 @@
             </script> 
             <script type="text/javascript" src="js/bootstrap-tabcollapse.js"></script> 
             <script type="text/javascript">
-
               $('#myTab').tabCollapse();
-            </script> 
-            <script type="text/javascript">
-
               $('#testTabs').tabCollapse();
-            </script> 
-            <script type="text/javascript">
-
               $('#testTabs01').tabCollapse();
             </script> 
             <script type="text/javascript" src="js/bootstrap-filestyle.min.js"></script> 
