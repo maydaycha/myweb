@@ -183,7 +183,7 @@
                                         <div class="col-md-9 divcss5">
                                             <img src="/img/staff.png" class="avatar" id="blah1">
                                             <!-- <input type="file" name="image" class="form-control edit" onchange="readURL(this)"> -->
-                                            <%= f.file_field :image, name: "image", class: "form-control edit", onchange: "readURL(this)" %>
+                                            <%= f.file_field :image, name: "image" ,class: "form-control edit", onchange: "readURL(this)" %>
                                             <p class="help-block">
                                                 一張好的相片可以提升您專業形象，更能增加您被雇用的機會。
                                             </p>
@@ -698,7 +698,12 @@
             });
 
             $('input[type=text], textarea').bind('input', function() {
-                console.log(warn_on_unload != '')
+                 window.onbeforeunload = function(e) {
+                    if( warn_on_unload != '' ) return warn_on_unload
+                }
+            });
+
+            $('input[type=file]').bind('change', function() {
                  window.onbeforeunload = function(e) {
                     if( warn_on_unload != '' ) return warn_on_unload
                 }

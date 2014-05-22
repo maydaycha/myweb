@@ -60,12 +60,7 @@ class Users::ProfilesController < ApplicationController
 
     when "update_experience"
       @experience = UserExperience.find(params[:id])
-      @experience.start_date = params[:start_date]
-      @experience.end_date = params[:end_date]
-      @experience.organization = params[:organization]
-      @experience.office = params[:office]
-      @experience.description = params[:description]
-      @experience.save
+      @experience.update!(start_date: params[:start_date], end_date: params[:end_date], organization: params[:organization], office: params[:office], description: params[:description])
       render json: current_user.user_experiences
     when 'add_experience'
       current_user.user_experiences.create!(organization: params[:organization], office: params[:office], start_date: params[:start_date], end_date: params[:end_date], description: params[:description])
@@ -77,12 +72,7 @@ class Users::ProfilesController < ApplicationController
 
     when "update_education"
       @education = UserEducation.find(params[:id])
-      @education.start_date = params[:start_date]
-      @education.end_date = params[:end_date]
-      @education.school = params[:school]
-      @education.department = params[:department]
-      @education.description = params[:description]
-      @education.save
+      @education.update!(start_date: params[:start_date], end_date: params[:end_date], school: params[:school], department: params[:department], description: params[:description])
       render json: current_user.user_educations
     when 'add_education'
       current_user.user_educations.create!(school: params[:school], department: params[:department], start_date: params[:start_date], end_date: params[:end_date], description: params[:description])
@@ -92,7 +82,7 @@ class Users::ProfilesController < ApplicationController
       render json: current_user.user_educations
 
     when "update_category"
-      current_user.user_skill_categories.destroy_all if not current_user.user_skill_categories.empty?
+      UserSkillCategory.where(user_id: current_user.id).delete_all
 
       used = {}
       params[:data].each do |index, item|
@@ -122,27 +112,25 @@ class Users::ProfilesController < ApplicationController
       render json: current_user.user_certifications
 
     when 'delete_certification'
-      UserCertification.destroy(params[:id])
+      UserCertification.delete(params[:id])
       render json: current_user.user_certifications
 
-    when 'update_portfolio'
-      if params[:works_delete_list] && (not params[:works_delete_list].empty?)
-        params[:works_delete_list].each{ |e| UserPortfolio.destroy(e[:id]) }
-      else
-        new_portfolio_list = []
-        @p = current_user.user_portfolios.create! do |e|
-          e.name = params[:name]
-          e.description = params[:description]
-          e.date = params[:date]
-          e.main_skill_id = params[:main_skill_id]
-          e.sub_skill_id = params[:sub_skill_id]
-          e.skill = params[:skill]
-          e.document_name = params[:document_name]
-          e.document_content = open(params[:document_content].tempfile).read unless (params[:document].is_a? String)
-          e.picture1 = open(params[:file][0].tempfile).read if (params[:file].size > 0)
-        end
-        new_portfolio_list << @p
+    when 'add_portfolio'
+      current_user.user_portfolios.create! do |e|
+        e.name = params[:name]
+        e.description = params[:description]
+        e.date = params[:date]
+        e.main_skill_id = params[:main_skill_id]
+        e.sub_skill_id = params[:sub_skill_id]
+        e.skill = params[:skill]
+        e.document_name = params[:document_name] unless params[:document_name].nil?
+        # e.document_content = open(params[:document_content].tempfile).read unless (params[:document].is_a? String)
+        e.document_content = open(params[:document_content].tempfile).read unless params[:document_content].nil?
+        e.picture1 = open(params[:file][0].tempfile).read if (params[:file].size > 0)
       end
+      render json: current_user.user_portfolios
+    when 'delete_portfolio'
+      UserPortfolio.delete(params[:id])
       render json: current_user.user_portfolios
 
     when "get_sub_category"

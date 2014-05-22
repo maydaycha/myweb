@@ -33,7 +33,6 @@ var PersonalProfile = function(){
             errorPlacement: function (error, element) { // render error placement for each input type
             	var text;
             	if(error.text()=='This field is required.'){
-                    console.log(error.attr('for'));
             		text = form.find('input[id='+error.attr('for')+']').attr('data-isempty');
             		error.text(text);
             	}
@@ -202,8 +201,8 @@ var editExperience = function(tr){
 	modal.find('input[name=office]').val(tr.find('.office').text());
 	modal.find('textarea[name=description]').val(tr.find('.description').text());
 	modal.find('.btn-editExperience').on('click',function(){
-		console.log(modal.find('input[name=start]').val());
-		console.log(modal.find('input[name=end]').val());
+		// console.log(modal.find('input[name=start]').val());
+		// console.log(modal.find('input[name=end]').val());
 		if( modal.find('input[name=start]').val() == "") {
 			alert('請填寫工作開始時間')
 			return;
@@ -521,18 +520,15 @@ var initAddWorks = function() {
 			return;
 		}
 		var fd = new FormData();
-		update_portfolio();
+
+		add_portfolio();  // this defined in show.html
 
 		var main_class_text = $("#work_main_class option:selected").text();
 		var sub_class_text = $("#work_subClass_select2 option:selected").text();
-		//console.log(works_add_list);
-
 		$("#works-modal").modal('toggle');
 
 	});
 }
-
-
 
 
 return {
