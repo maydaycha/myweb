@@ -25,7 +25,7 @@
         <!-- END 主題樣式 -->
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/alert.css">
-        <link rel="stylesheet" type="text/css" href="css/page/inboxes.css">
+        <link rel="stylesheet" type="text/css" href="css/loginmain.css">
         <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
         <link rel="shortcut icon" href="favicon.ico"/>
         <link rel="stylesheet" href="http://i.icomoon.io/public/temp/4ff1883506/UntitledProject1/style.css">
@@ -74,16 +74,19 @@
           <!-- BEGIN PAGE -->
           <div class="page-content" style="margin-bottom:50px;">
             <div class="container" style="margin-top: 50px;">
-              <ul id="" class="nav nav-tabs navmargin">
+              <!-- <ul id="" class="nav nav-tabs navmargin">
                 <li ><a href="inboxes.html">收件夾</a></li>
                 <li><a href="sendboxes.html">寄件夾</a></li>
                 <li class="active"><a href="archive.html">封存</a></li>
-              </ul>
+              </ul> -->
               <div class="myTabs" >
                 <div class="row">
                   <div class="col-sm-2 text-center">
                     <h3>封存</h3>
-                    
+                    <button class="btn btn-info btn-block" data-toggle="modal" data-target="#sendModal">新增訊息</button>
+                    <a href="inboxes.html" class="btn btn-default btn-block">收件夾</a>
+                    <a href="sendboxes.html" class="btn btn-default btn-block">寄件夾</a>
+                    <a href="archive.html" class="btn btn-default btn-block">封存</a>
                   </div>
                   <div class="col-sm-8">
 
@@ -107,7 +110,7 @@
                               </span>
                               <span class="qa-message-who">
                                 <span class="qa-message-who-pad">by </span>
-                                <span class="qa-message-who-data"><a href="#">Oleg Kolesnichenko</a></span>
+                                <span class="qa-message-who-data"><a href="inboxes-message.html">Oleg Kolesnichenko</a></span>
                               </span>
                             </div>
                           </div>
