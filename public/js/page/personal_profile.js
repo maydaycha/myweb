@@ -93,18 +93,46 @@ var PersonalProfile = function(){
 		});
 	}
 
+	var validateSkillExist = function(value){
+		var result = false;
+		$.ajax({
+			url: "/skills/exist",
+			type: "get",
+			dataType: "json",
+			data: {name: value},
+	        success: function(data) {
+	            result = data.status;
+	        },
+	        error: function(data) {
+	        },
+	        async: false
+	    });
+	    if (result == false) 
+	    	$(this).removeTag(value);
+
+	    var skills_arr = $(this).val().split(',');
+	    if (skills_arr.length > 8) {
+	    	alert('目前只能擁有8項技能');
+	    	$(this).removeTag(value);
+	    }
+	}
+
 	var initSkillTags = function(){
 		$('#skill-tags').tagsInput({
 			width: 'auto',
 			defaultText: "技能標籤",
+			maxCount: 3,
 			placeholderColor: '#999',
-			autocomplete_url:'/skills/autocomplete'
+			autocomplete_url:'/skills/autocomplete',
+			onAddTag: validateSkillExist
 		});
 		$('#addWorks-skill-tags').tagsInput({
 			width: 'auto',
 			defaultText: "技能標籤",
+			maxCount: 3,
 			placeholderColor: "#999",
-			autocomplete_url:'/skills/autocomplete'
+			autocomplete_url:'/skills/autocomplete',
+			onAddTag: validateSkillExist
 		});
 		$('.tagsinput').addClass('form-control');
 		$('#skill-tags_tag').css('color', '#999');

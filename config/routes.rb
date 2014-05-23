@@ -133,7 +133,7 @@ Sun::Application.routes.draw do
   get 'users/profiles/show_portfolio_image1/:index' => 'users/profiles#show_portfolio_image1'
   get 'users/profiles/show_portfolio_image2/:index' => 'users/profiles#show_portfolio_image2'
 
-
+  get 'skills/exist' => 'skills#exist'
   get 'skills/autocomplete' => 'skills#autocomplete'
 
 

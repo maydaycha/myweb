@@ -171,10 +171,36 @@ var CreateProfile = function(){
 
         });
     }
+
+    var validateSkillExist = function(value){
+        var result = false;
+        $.ajax({
+            url: "/skills/exist",
+            type: "get",
+            dataType: "json",
+            data: {name: value},
+            success: function(data) {
+                result = data.status;
+            },
+            error: function(data) {
+            },
+            async: false
+        });
+        if (result == false) 
+            $(this).removeTag(value);
+
+        var skills_arr = $(this).val().split(',');
+        if (skills_arr.length > 5) {
+            alert('目前只能擁有5項技能');
+            $(this).removeTag(value);
+        }
+    }
+
     var initSkillTags = function(){
 		$('#skill-tags').tagsInput({
             width: 'auto',
-            autocomplete_url:'/skills/autocomplete'
+            autocomplete_url:'/skills/autocomplete',
+            onAddTag: validateSkillExist
         });
 	}
     var initShowTip = function(){
