@@ -122,7 +122,7 @@
       <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
       <div class="input-icon right">
         <i class="fa"></i>
-        <%= f.text_field :first_name, class: "form-control", placeholder: "姓(公開資訊，中英文皆可)" %>
+        <%= f.text_field :first_name, class: "form-control", placeholder: "姓(公開資訊，中英文皆可)", "data-isEmpty" => "請輸入姓氏"%>
       </div>
     </div>
   </div>
@@ -132,7 +132,7 @@
       <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
       <div class="input-icon right">
         <i class="fa"></i>
-        <%= f.text_field :last_name, class: "form-control", placeholder: "名(公開資訊，中英文皆可)" %>
+        <%= f.text_field :last_name, class: "form-control", placeholder: "名字(公開資訊，中英文皆可)", "data-isEmpty" => "請輸入名字" %>
       </div>
     </div>
   </div>

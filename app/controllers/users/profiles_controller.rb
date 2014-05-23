@@ -126,7 +126,7 @@ class Users::ProfilesController < ApplicationController
         e.document_name = params[:document_name] unless params[:document_name].nil?
         # e.document_content = open(params[:document_content].tempfile).read unless (params[:document].is_a? String)
         e.document_content = open(params[:document_content].tempfile).read unless params[:document_content].nil?
-        e.picture1 = open(params[:file][0].tempfile).read if (params[:file].size > 0)
+        e.picture1 = open(params[:file][0].tempfile).read unless params[:file].nil?
       end
       render json: current_user.user_portfolios
     when 'delete_portfolio'

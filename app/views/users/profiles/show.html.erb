@@ -519,6 +519,7 @@
                             </div>
                             <div class="portlet-body">
                                 <form action="javascript: return false;" id="contact-form2" class="form-horizontal" role="form">
+                                <!-- <%= form_for current_user, url: users_profile_path(current_user), method: :put, html: {class: "form-horizontal", id: "contact-form2", role: "form"} do |f| %> -->
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">使用者名稱</label>
                                         <div class="col-md-10">
@@ -586,6 +587,7 @@
                                     </div>
                                 </div>
                             </form>
+                            <!-- <% end %> -->
                         </div>
                     </div>
                     <div class="portlet box light-grey show-view" id="profile-portlet2">
@@ -656,11 +658,11 @@
                                                 <div class="edit">
                                                     <select name="subClass" class="form-control select2 subClass_select2" multiple>
                                                         <% t(:sub_skill_category)[s.main_skill_id].each_with_index do |x, i|%>
-                                                        <% if current_user.user_skill_categories.map{ |m| "#{m.main_skill_id.to_i} #{m.sub_skill_id.to_i}" }.include? "#{s.main_skill_id} #{i}" %>
-                                                        <option value="<%= i %>" selected><%= x['name'] %></option>
-                                                        <% else%>
-                                                        <option value="<%= i %>"><%= x['name'] %></option>
-                                                        <% end %>
+                                                            <% if current_user.user_skill_categories.map{ |m| "#{m.main_skill_id.to_i} #{m.sub_skill_id.to_i}" }.include? "#{s.main_skill_id} #{i}" %>
+                                                                <option value="<%= i %>" selected><%= x['name'] %></option>
+                                                            <% else%>
+                                                                <option value="<%= i %>"><%= x['name'] %></option>
+                                                            <% end %>
                                                         <% end %>
                                                     </select>
                                                 </div>
@@ -1383,14 +1385,6 @@
             $(".control_sub_calss"+i).hide();
         }
 
-        var is_origin = true
-        var ori = ""
-
-        // $(':input').bind('input', function() {
-        //      window.onbeforeunload = function(e) {
-        //         if( warn_on_unload != '' ) return warn_on_unload
-        //     }
-        // });
 
         window.onbeforeunload = function(e) {
             if( expand_count > 0 && warn_on_unload != '') return warn_on_unload
@@ -1469,6 +1463,7 @@
         autoProcessQueue: false,
         addRemoveLinks: true,
         uploadMultiple: true,
+        acceptedFiles: "image/jpeg, image/png"
     };
 
 
@@ -1621,20 +1616,25 @@ var main_class_change = function(){
     //console.log(parent);
     $(parent).find(".select2-search-choice").remove();
 
+    var select = $(parent).find('select.subClass_select2');
+
+    select.attr("disabled", true)
     $.ajax({
         url: "/users/profiles/ajax_updae",
         type: "post",
         dataType: "json",
         data: JSON.stringify(request_obj),
         contentType: 'application/json',
+        async: false,
         success: function(data) {
             //console.log(data);
             $(parent).find('select.subClass_select2 option').remove();
-            var select = $(parent).find('select.subClass_select2');
+
             //console.log(select);
             for(var key in data) {
                select.append($("<option></option>").attr("value", key).text(data[key].name));
            }
+           select.attr("disabled", false)
        }
     })
 }
@@ -1757,7 +1757,39 @@ var main_class_change = function(){
     }
 
     var add_portfolio = function() {
-        addWorksfile.processQueue();
+        if( addWorksfile.getQueuedFiles().length > 0) addWorksfile.processQueue()
+        else add_portfolio_without_thumbnail()
+    }
+
+    var add_portfolio_without_thumbnail = function() {
+        $("#loader").show()
+        var fd = new FormData()
+        if( typeof $("#works-modal input[name=thumbnail]")[0].files[0] != 'undefined' ) {
+            fd.append('document_name', $("#works-modal input[name=thumbnail]")[0].files[0].name)
+            fd.append('document_content', $("#works-modal input[name=thumbnail]")[0].files[0])
+        }
+        fd.append('name', $("#works-modal input[name=title]").val())
+        fd.append('description', $("#works-modal textarea[name=description]").val())
+        fd.append('main_skill_id', $("#work_main_class").val())
+        fd.append('sub_skill_id', $("#work_subClass_select2").val())
+        fd.append('date', $("#works-modal input[name=start]").val())
+        fd.append('skill', $("#works-modal input[name=skill]").val())
+        fd.append('request', "add_portfolio")
+        warn_on_unload = ''
+
+        var xhr = new XMLHttpRequest()
+        xhr.open('post', '/users/profiles/ajax_updae', true)
+
+        xhr.onload = function() {
+            if (this.status == 200) {
+                $("#loader").hide()
+                location.reload()
+            } else {
+                alert("上傳失敗")
+                location.reload()
+            }
+        }
+        xhr.send(fd)
     }
 
     var delete_portfolio = function (id) {
@@ -1786,6 +1818,8 @@ var main_class_change = function(){
             $("#btn-addWorks").attr('disabled', false)
         }
     }
+
+
 
     var delete_certification = function(id) {
         var request_obj = {
