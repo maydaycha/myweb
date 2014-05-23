@@ -62,7 +62,6 @@ gem 'mysql2'
 # ActiveRecord session
 #gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
-gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 gem "recaptcha", :require => "recaptcha/rails"
 
 gem 'certified'
