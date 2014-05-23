@@ -26,7 +26,7 @@ var SingUp = function(){
                     myUsername: true
                 },
                 password: {
-                	minlength: 6,
+                	minlength: 8,
                     required: true
                 },
                 verification: {

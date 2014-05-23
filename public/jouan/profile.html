@@ -1,0 +1,1268 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title>快樂工作</title>
+
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <link rel="stylesheet" href="plugins/jquery-tags-input/jquery.tagsinput.css">
+        <link rel="stylesheet" href="plugins/select2/select2.css">
+        <link rel="stylesheet" href="plugins/select2/select2-metronic.css">
+        <link rel="stylesheet" href="plugins/bootstrap-datepicker/css/datepicker.css">
+        <link rel="stylesheet" href="plugins/dropzone/css/dropzone.css">
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/alert.css">
+        <link rel="stylesheet" type="text/css" href="css/page/personal_profile.css">
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <!-- END STYLE -->
+    </head>
+    <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                    <i class="fa fa-search"></i>
+                </button> 
+            -->
+            <a class="navbar-brand" href="index.html"><img class="navbar-logo" src="img/logo208.png" alt="快樂工作"></a>
+        </div>
+        <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+              <!--  <div class="navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div> -->
+            </div>
+            <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="login.html">會員登入</a></li>
+                    <li><a href="sign_up.html">免費註冊</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- END NAVBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <h1 class="title">個人設定</h1>
+            <div class="container alert alert-warning alert-bordered" >
+                <div class="row">
+                    <div class="col-md-11 col-sm-11" style="padding-top:25px;">
+                        <p class="subtitle">完整的個人資訊能增加您接案的機會，建議您優先處理以下項目</p>
+                        <ul class="subtitle">
+                            <li class="point">1. 教育程度</li>
+                            <li class="point">2. 工作經歷</li>
+                            <li class="point">3. 作品集</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-1 col-sm-1" style=" text-align:right; padding-top:35px; padding-left:5px;">
+                    	<button type="button" class="btn btn-alert"><i class="fa fa-3x fa-times-circle-o"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- BEGIN MAIN CONTENT -->
+            <div class="main-content">
+                <!-- BEGIN TABS -->
+                <ul class="nav nav-tabs nav-justified">
+
+                    <li class="active"><a href="profile.html">我的個人資料</a></li>
+                    <li><a href="password.html">變更密碼</a></li>
+                </ul>
+                <!-- END TABS -->
+
+                <!-- BEGIN TAB CONTENT -->
+                <div class="tab-content">
+                    <div class="tab-pane" id="contact">
+                        <div class="portlet box light-grey show-view" id="contact-portlet1">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    基本資訊
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#contact-portlet1">
+                                        <i class="fa fa-pencil-square-o"></i> 編輯
+                                    </a>
+                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet1">
+                                        <i class="fa fa-floppy-o"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <form action="#" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">姓名</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view">Chris Chou</p>
+                                            <input type="text" name="name" class="form-control edit" placeholder="姓名" value="Chris Chou">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">個人圖像</label>
+                                        <div class="col-md-10">
+                                            <img src="img/staff.png" class="avatar" alt="">
+                                            <input type="file" name="image" class="form-control edit">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">電子郵件</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view">Chris.Chou@sun-innovation.com</p>
+                                            <input type="text" name="email" class="form-control edit" placeholder="電子郵件" value="Chris.Chou@sun-innovation.com">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">國碼</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view">+886</p>
+                                            <input type="text" name="phone" class="form-control edit" placeholder="國碼" value="+886">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">聯絡電話</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view">55 230 000</p>
+                                            <input type="text" name="phone" class="form-control edit" placeholder="聯絡電話" value="55 230 000">
+                                        </div>
+                                        <div class="pull-right" style="margin:20px 16px 0 0;">
+                                            <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet1">儲存</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class=" portlet box light-grey show-view" id="contact-portlet2">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    我的位置
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#contact-portlet2">
+                                        <i class="fa fa-pencil-square-o"></i> 編輯
+                                    </a>
+                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet2">
+                                        <i class="fa fa-floppy-o"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <form action="#" id="contact-form2" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">時區</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view">UTC+8 Taipei</p>
+                                            <select name="timeZone" class="form-control edit">
+                                                <option value="-12">UTC-12 Baker Island Time</option>
+                                                <option value="-11">UTC-11 Niue Time, Samoa Standard Time</option>
+                                                <option value="-10">UTC-10 Hawaii-Aleutian Standard Time, Cook Island Time</option>
+                                                <option value="-9.5">UTC-9:30 Marquesas Islands Time</option>
+                                                <option value="-9">UTC-9 Alaska Standard Time, Gambier Island Time</option>
+                                                <option value="-8">UTC-8 Pacific Standard Time</option>
+                                                <option value="-7">UTC-7 Mountain Standard Time</option>
+                                                <option value="-6">UTC-6 Central Standard Time</option>
+                                                <option value="-5">UTC-5 Eastern Standard Time</option>
+                                                <option value="-4.5">UTC-4:30 Venezuelan Standard Time</option>
+                                                <option value="-4">UTC-4 Atlantic Standard Time</option>
+                                                <option value="-3.5">UTC-3:30 Newfoundland Standard Time</option>
+                                                <option value="-3">UTC-3 Amazon Standard Time, Central Greenland Time</option>
+                                                <option value="-2">UTC-2 Fernando de Noronha Time, South Georgia &amp; the South Sandwich Islands Time</option>
+                                                <option value="-1">UTC-1 Azores Standard Time, Cape Verde Time, Eastern Greenland Time</option>
+                                                <option value="0" selected="selected">UTC Western European Time, Greenwich Mean Time</option>
+                                                <option value="1">UTC+1 Central European Time, West African Time</option>
+                                                <option value="2">UTC+2 Eastern European Time, Central African Time</option>
+                                                <option value="3">UTC+3 Moscow Standard Time, Eastern African Time</option>
+                                                <option value="3.5">UTC+3:30 Iran Standard Time</option>
+                                                <option value="4">UTC+4 Gulf Standard Time, Samara Standard Time</option>
+                                                <option value="4.5">UTC+4:30 Afghanistan Time</option>
+                                                <option value="5">UTC+5 Pakistan Standard Time, Yekaterinburg Standard Time</option>
+                                                <option value="5.5">UTC+5:30 Indian Standard Time, Sri Lanka Time</option>
+                                                <option value="5.75">UTC+5:45 Nepal Time</option>
+                                                <option value="6">UTC+6 Bangladesh Time, Bhutan Time, Novosibirsk Standard Time</option>
+                                                <option value="6.5">UTC+6:30 Cocos Islands Time, Myanmar Time</option>
+                                                <option value="7">UTC+7 Indochina Time, Krasnoyarsk Standard Time</option>
+                                                <option value="8">UTC+8 Chinese Standard Time, Australian Western Standard Time, Irkutsk Standard Time</option>
+                                                <option value="8.75">UTC+8:45 Southeastern Western Australia Standard Time</option>
+                                                <option value="9">UTC+9 Japan Standard Time, Korea Standard Time, Chita Standard Time</option>
+                                                <option value="9.5">UTC+9:30 Australian Central Standard Time</option>
+                                                <option value="10">UTC+10 Australian Eastern Standard Time, Vladivostok Standard Time</option>
+                                                <option value="10.5">UTC+10:30 Lord Howe Standard Time</option>
+                                                <option value="11">UTC+11 Solomon Island Time, Magadan Standard Time</option>
+                                                <option value="11.5">UTC+11:30 Norfolk Island Time</option>
+                                                <option value="12">UTC+12 New Zealand Time, Fiji Time, Kamchatka Standard Time</option>
+                                                <option value="12.75">UTC+12:45 Chatham Islands Time</option>
+                                                <option value="13">UTC+13 Tonga Time, Phoenix Islands Time</option>
+                                                <option value="14">UTC+14 Line Island Time</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">所在地區</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view">Taiwan</p>
+                                            <select name="country" class="form-control edit">
+                                                <option value="Afghanistan">Afghanistan 阿富汗</option>
+                                                <option value="Albania">Albania 阿爾巴尼亞</option>
+                                                <option value="Algeria">Algeria 阿爾及利亞</option>
+                                                <option value="American Samoa">American Samoa 美屬薩摩亞</option>
+                                                <option value="Andorra">Andorra 安道爾</option>
+                                                <option value="Angola">Angola 安哥拉</option>
+                                                <option value="Anguilla">Anguilla 安圭拉</option>
+                                                <option value="Antarctica">Antarctica 南極洲</option>
+                                                <option value="Antigua and Barbuda">Antigua and Barbuda 安提瓜和巴布達</option>
+                                                <option value="Argentina">Argentina 阿根廷</option>
+                                                <option value="Armenia">Armenia 亞美尼亞</option>
+                                                <option value="Aruba">Aruba 阿魯巴</option>
+                                                <option value="Australia">Australia 澳洲</option>
+                                                <option value="Austria">Austria 奧地利</option>
+                                                <option value="Azerbaijan">Azerbaijan 阿塞拜疆</option>
+                                                <option value="Bahamas">Bahamas 巴哈馬</option>
+                                                <option value="Bahrain">Bahrain 巴林</option>
+                                                <option value="Bangladesh">Bangladesh 孟加拉</option>
+                                                <option value="Barbados">Barbados 巴巴多斯</option>
+                                                <option value="Belarus">Belarus 白俄羅斯</option>
+                                                <option value="Belgium">Belgium 比利時</option>
+                                                <option value="Belize">Belize 伯利茲</option>
+                                                <option value="Benin">Benin 貝寧</option>
+                                                <option value="Bermuda">Bermuda 百慕達</option>
+                                                <option value="Bhutan">Bhutan 不丹</option>
+                                                <option value="Bolivia">Bolivia 玻利維亞</option>
+                                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina 波斯尼亞和黑塞哥維那</option>
+                                                <option value="Botswana">Botswana 博茨瓦納</option>
+                                                <option value="Bouvet Island">Bouvet Island 布維島</option>
+                                                <option value="Brazil">Brazil 巴西</option>
+                                                <option value="British Indian Ocean Territory">British Indian Ocean Territory 英屬印度洋領地</option>
+                                                <option value="Brunei Darussalam">Brunei Darussalam 文萊</option>
+                                                <option value="Bulgaria">Bulgaria 保加利亞</option>
+                                                <option value="Burkina Faso">Burkina Faso 布基納法索</option>
+                                                <option value="Burundi">Burundi 布隆迪</option>
+                                                <option value="Cambodia">Cambodia 柬埔寨</option>
+                                                <option value="Cameroon">Cameroon 喀麥隆</option>
+                                                <option value="Canada">Canada 加拿大</option>
+                                                <option value="Cape Verde">Cape Verde 佛得角</option>
+                                                <option value="Cayman Islands">Cayman Islands 開曼群島</option>
+                                                <option value="Central African Republic">Central African Republic 中非共和國</option>
+                                                <option value="Chad">Chad 乍得</option>
+                                                <option value="Chile">Chile 智利</option>
+                                                <option value="China">China 中國</option>
+                                                <option value="Christmas Island">Christmas Island 聖誕島</option>
+                                                <option value="Cocos Islands">Cocos Islands 科科斯群島</option>
+                                                <option value="Colombia">Colombia 哥倫比亞</option>
+                                                <option value="Comoros">Comoros 科摩羅</option>
+                                                <option value="Congo">Congo, Republic of the 剛果共和國</option>
+                                                <option value="Congo, Democratic Republic of the">Congo, Democratic Republic of the 剛果民主共和國</option>
+                                                <option value="Cook Islands">Cook Islands 庫克群島</option>
+                                                <option value="Costa Rica">Costa Rica 哥斯達黎加</option>
+                                                <option value="Cote d'Ivoire">Cote d'Ivoire 科特迪瓦</option>
+                                                <option value="Croatia">Croatia 克羅地亞</option>
+                                                <option value="Cuba">Cuba 古巴</option>
+                                                <option value="Cyprus">Cyprus 塞浦路斯</option>
+                                                <option value="Czech Republic">Czech Republic 捷克</option>
+                                                <option value="Denmark">Denmark 丹麥</option>
+                                                <option value="Djibouti">Djibouti 吉布提</option>
+                                                <option value="Dominica">Dominica 多明尼加</option>
+                                                <option value="Dominican Republic">Dominican Republic 多明尼加共和國</option>
+                                                <option value="East Timor">East Timor 東帝汶</option>
+                                                <option value="Ecuador">Ecuador 厄瓜多爾</option>
+                                                <option value="Egypt">Egypt 埃及</option>
+                                                <option value="El Salvador">El Salvador 薩爾瓦多</option>
+                                                <option value="Equatorial Guinea">Equatorial Guinea 赤道幾內亞</option>
+                                                <option value="Eritrea">Eritrea 厄立特里亞</option>
+                                                <option value="Estonia">Estonia 愛沙尼亞</option>
+                                                <option value="Ethiopia">Ethiopia 埃塞俄比亞</option>
+                                                <option value="Falkland Islands">Falkland Islands 福克蘭群島</option>
+                                                <option value="Faroe Islands">Faroe Islands 法羅群島</option>
+                                                <option value="Fiji">Fiji 斐濟</option>
+                                                <option value="Finland">Finland 芬蘭</option>
+                                                <option value="France">France 法國</option>
+                                                <option value="French Guiana">French Guiana 法屬圭亞那</option>
+                                                <option value="French Polynesia">French Polynesia 法屬玻里尼西亞</option>
+                                                <option value="Gabon">Gabon 加蓬</option>
+                                                <option value="Gambia">Gambia 岡比亞</option>
+                                                <option value="Georgia">Georgia 格魯吉亞</option>
+                                                <option value="Germany">Germany 德國</option>
+                                                <option value="Ghana">Ghana 加納</option>
+                                                <option value="Gibraltar">Gibraltar 直布羅陀</option>
+                                                <option value="Greece">Greece 希臘</option>
+                                                <option value="Greenland">Greenland 格陵蘭</option>
+                                                <option value="Grenada">Grenada 格林納達</option>
+                                                <option value="Guadeloupe">Guadeloupe 瓜德羅普島</option>
+                                                <option value="Guam">Guam 關島</option>
+                                                <option value="Guatemala">Guatemala 危地馬拉</option>
+                                                <option value="Guinea">Guinea 幾內亞</option>
+                                                <option value="Guinea-Bissau">Guinea-Bissau 幾內亞比紹</option>
+                                                <option value="Guyana">Guyana 圭亞那</option>
+                                                <option value="Haiti">Haiti 海地</option>
+                                                <option value="Heard Island and McDonald Islands">Heard Island and McDonald Islands 赫德島和麥克唐納島</option>
+                                                <option value="Honduras">Honduras 洪都拉斯</option>
+                                                <option value="Hong Kong">Hong Kong 香港</option>
+                                                <option value="Hungary">Hungary 匈牙利</option>
+                                                <option value="Iceland">Iceland 冰島</option>
+                                                <option value="India">India 印度</option>
+                                                <option value="Indonesia">Indonesia 印尼</option>
+                                                <option value="Iran">Iran 伊朗</option>
+                                                <option value="Iraq">Iraq 伊拉克</option>
+                                                <option value="Ireland">Ireland 愛爾蘭</option>
+                                                <option value="Israel">Israel 以色列</option>
+                                                <option value="Italy">Italy 意大利</option>
+                                                <option value="Jamaica">Jamaica 牙買加</option>
+                                                <option value="Japan">Japan 日本</option>
+                                                <option value="Jordan">Jordan 約旦</option>
+                                                <option value="Kazakhstan">Kazakhstan 哈薩克斯坦</option>
+                                                <option value="Kenya">Kenya 肯尼亞</option>
+                                                <option value="Kiribati">Kiribati 基里巴斯</option>
+                                                <option value="Kosovo">Kosovo 科索沃</option>
+                                                <option value="Kuwait">Kuwait 科威特</option>
+                                                <option value="Kyrgyzstan">Kyrgyzstan 吉爾吉斯斯坦</option>
+                                                <option value="Laos">Laos 老撾</option>
+                                                <option value="Latvia">Latvia 拉脫維亞</option>
+                                                <option value="Lebanon">Lebanon 黎巴嫩</option>
+                                                <option value="Lesotho">Lesotho 萊索托</option>
+                                                <option value="Liberia">Liberia 利比里亞</option>
+                                                <option value="Libya">Libya 利比亞</option>
+                                                <option value="Liechtenstein">Liechtenstein 列支敦士登</option>
+                                                <option value="Lithuania">Lithuania 立陶宛</option>
+                                                <option value="Luxembourg">Luxembourg 盧森堡</option>
+                                                <option value="Macau">Macau 澳門</option>
+                                                <option value="Macedonia">Macedonia 馬其頓</option>
+                                                <option value="Madagascar">Madagascar 馬達加斯加</option>
+                                                <option value="Malawi">Malawi 馬拉維</option>
+                                                <option value="Malaysia">Malaysia 馬來西亞</option>
+                                                <option value="Maldives">Maldives 馬爾代夫</option>
+                                                <option value="Mali">Mali 馬里</option>
+                                                <option value="Malta">Malta 馬耳他</option>
+                                                <option value="Marshall Islands">Marshall Islands 馬紹爾群島</option>
+                                                <option value="Martinique">Martinique 馬提尼克島</option>
+                                                <option value="Mauritania">Mauritania 毛里塔尼亞</option>
+                                                <option value="Mauritius">Mauritius 毛里求斯</option>
+                                                <option value="Mayotte">Mayotte 馬約特島</option>
+                                                <option value="Mexico">Mexico 墨西哥</option>
+                                                <option value="Micronesia">Micronesia 密克羅尼西亞</option>
+                                                <option value="Moldova">Moldova 摩爾多瓦</option>
+                                                <option value="Monaco">Monaco 摩納哥</option>
+                                                <option value="Mongolia">Mongolia 蒙古</option>
+                                                <option value="Montenegro">Montenegro 黑山</option>
+                                                <option value="Montserrat">Montserrat 蒙特塞拉特</option>
+                                                <option value="Morocco">Morocco 摩洛哥</option>
+                                                <option value="Mozambique">Mozambique 莫桑比克</option>
+                                                <option value="Myanmar">Myanmar 緬甸</option>
+                                                <option value="Namibia">Namibia 納米比亞</option>
+                                                <option value="Nauru">Nauru 瑙魯</option>
+                                                <option value="Nepal">Nepal 尼泊爾</option>
+                                                <option value="Netherlands">Netherlands 荷蘭</option>
+                                                <option value="Netherlands Antilles">Netherlands Antilles 荷屬安的列斯群島</option>
+                                                <option value="New Caledonia">New Caledonia 新喀裡多尼亞</option>
+                                                <option value="New Zealand">New Zealand 紐西蘭</option>
+                                                <option value="Nicaragua">Nicaragua 尼加拉瓜</option>
+                                                <option value="Niger">Niger 尼日爾</option>
+                                                <option value="Nigeria">Nigeria 尼日利亞</option>
+                                                <option value="Norfolk Island">Norfolk Island 諾福克島</option>
+                                                <option value="North Korea">North Korea 北韓</option>
+                                                <option value="Norway">Norway 挪威</option>
+                                                <option value="Oman">Oman 阿曼</option>
+                                                <option value="Pakistan">Pakistan 巴基斯坦</option>
+                                                <option value="Palau">Palau 帕勞</option>
+                                                <option value="Panama">Panama 巴拿馬</option>
+                                                <option value="Papua New Guinea">Papua New Guinea 巴布亞新畿內亞</option>
+                                                <option value="Paraguay">Paraguay 巴拉圭</option>
+                                                <option value="Peru">Peru 秘魯</option>
+                                                <option value="Philippines">Philippines 菲律賓</option>
+                                                <option value="Pitcairn">Pitcairn 皮特凱恩</option>
+                                                <option value="Poland">Poland 波蘭</option>
+                                                <option value="Portugal">Portugal 葡萄牙</option>
+                                                <option value="Puerto Rico">Puerto Rico 波多黎各</option>
+                                                <option value="Qatar">Qatar 卡塔爾</option>
+                                                <option value="Romania">Romania 羅馬尼亞</option>
+                                                <option value="Russian Federation">Russian Federation 俄羅斯</option>
+                                                <option value="Rwanda">Rwanda 盧旺達</option>
+                                                <option value="Saint Helena">Saint Helena 聖赫勒拿島</option>
+                                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis 聖基茨和尼維斯</option>
+                                                <option value="Saint Lucia">Saint Lucia 聖盧西亞</option>
+                                                <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon 聖皮埃爾和密克隆</option>
+                                                <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines 聖文森特和格林納丁斯</option>
+                                                <option value="Samoa">Samoa 薩摩亞</option>
+                                                <option value="San Marino">San Marino 聖馬力諾</option>
+                                                <option value="Sao Tome and Principe">Sao Tome and Principe 聖多美和普林西比</option>
+                                                <option value="Saudi Arabia">Saudi Arabia 沙特阿拉伯</option>
+                                                <option value="Senegal">Senegal 塞內加爾</option>
+                                                <option value="Serbia">Serbia 塞爾維亞</option>
+                                                <option value="Seychelles">Seychelles 塞舌爾</option>
+                                                <option value="Sierra Leone">Sierra Leone 塞拉利昂</option>
+                                                <option value="Singapore">Singapore 新加坡</option>
+                                                <option value="Slovakia">Slovakia 斯洛伐克</option>
+                                                <option value="Slovenia">Slovenia 斯洛文尼亞</option>
+                                                <option value="Solomon Islands">Solomon Islands 所羅門群島</option>
+                                                <option value="Somalia">Somalia 索馬里</option>
+                                                <option value="South Africa">South Africa 南非</option>
+                                                <option value="South Georgia">South Georgia 南喬治亞</option>
+                                                <option value="South Korea">South Korea 韓國</option>
+                                                <option value="Spain">Spain 西班牙</option>
+                                                <option value="Sri Lanka">Sri Lanka 斯里蘭卡</option>
+                                                <option value="Sudan">Sudan 蘇丹</option>
+                                                <option value="Suriname">Suriname 蘇里南</option>
+                                                <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen 斯瓦爾巴群島和揚馬延島</option>
+                                                <option value="Swaziland">Swaziland 斯威士蘭</option>
+                                                <option value="Sweden">Sweden 瑞典</option>
+                                                <option value="Switzerland">Switzerland 瑞士</option>
+                                                <option value="Syria">Syria 敘利亞</option>
+                                                <option value="Taiwan" selected>Taiwan 台灣</option>
+                                                <option value="Tajikistan">Tajikistan 塔吉克斯坦</option>
+                                                <option value="Tanzania">Tanzania 坦桑尼亞</option>
+                                                <option value="Thailand">Thailand 泰國</option>
+                                                <option value="Togo">Togo 多哥</option>
+                                                <option value="Tokelau">Tokelau 托克勞</option>
+                                                <option value="Tonga">Tonga 湯加</option>
+                                                <option value="Trinidad and Tobago">Trinidad and Tobago 千里達和多巴哥</option>
+                                                <option value="Tunisia">Tunisia 突尼西亞</option>
+                                                <option value="Turkey">Turkey 土耳其</option>
+                                                <option value="Turkmenistan">Turkmenistan 土庫曼斯坦</option>
+                                                <option value="Tuvalu">Tuvalu 圖瓦盧</option>
+                                                <option value="Uganda">Uganda 烏干達</option>
+                                                <option value="Ukraine">Ukraine 烏克蘭</option>
+                                                <option value="United Arab Emirates">United Arab Emirates 阿拉伯聯合酋長國</option>
+                                                <option value="United Kingdom">United Kingdom 英國</option>
+                                                <option value="United States">United States 美國</option>
+                                                <option value="United States Minor Outlying Islands">United States Minor Outlying Islands 美國本土外小島嶼</option>
+                                                <option value="Uruguay">Uruguay 烏拉圭</option>
+                                                <option value="Uzbekistan">Uzbekistan 烏茲別克斯坦</option>
+                                                <option value="Vanuatu">Vanuatu 瓦努阿圖</option>
+                                                <option value="Vatican City">Vatican City 梵蒂岡</option>
+                                                <option value="Venezuela">Venezuela 委內瑞拉</option>
+                                                <option value="Vietnam">Vietnam 越南</option>
+                                                <option value="Virgin Islands, British">Virgin Islands, British 英屬維京群島</option>
+                                                <option value="Virgin Islands, U.S.">Virgin Islands, U.S. 美屬維京群島</option>
+                                                <option value="Wallis and Futuna">Wallis and Futuna 瓦利斯和富圖納</option>
+                                                <option value="Western Sahara">Western Sahara 西撒哈拉</option>
+                                                <option value="Yemen">Yemen 也門</option>
+                                                <option value="Zambia">Zambia 贊比亞</option>
+                                                <option value="Zimbabwe">Zimbabwe 津巴布韋</option>
+                                            </select>
+                                        </div>
+                                        <div class="pull-right" style="margin:20px 16px 0 0;">
+                                            <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet2">儲存</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane active" id="profile">
+                        <div class="portlet box light-grey show-view" id="profile-portlet1">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    帳戶概觀
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet1">
+                                        <i class="fa fa-pencil-square-o"></i> 編輯
+                                    </a>
+                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1">
+                                        <i class="fa fa-floppy-o"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <form action="#" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">個人簡述</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view">最認真負責的自由工作者</p>
+                                            <label class="radio-inline edit">
+                                                <input type="radio" name="status" checked> 最認真負責的自由工作者
+                                            </label>
+                                           <!-- <label class="radio-inline edit">
+                                                <input type="radio" name="status"> 雇主
+                                            </label> -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">詳細介紹<br>(僅限1000字)</label>
+                                        <div class="col-md-10">
+                                        <p class="form-control-static view">什臉站人，關年懷問常玩黑本，要不種通舉成，阿山至不衣這，真持樣。老們加完地年房獲……中度里約說讀，有可外回成必方速面時像日不國提人：和合我局加灣人石黃色山，口設苦也美發多未？了創究月金險在生。素有科書風？都舉了得中動術已家，的團的文關字太手工只教我邊，界知方機當對。
+
+</p>
+                                        <textarea name="review" class="form-control edit" rows="3" placeholder="個人詳細介紹"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">姓名</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view">Chris Chou</p>
+                                            <input type="text" name="name" class="form-control edit" placeholder="姓名" value="Chris Chou">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">個人圖像</label>
+                                        <div class="col-md-10">
+                                            <img src="img/staff.png" class="avatar" alt="">
+                                            <input type="file" name="image" class="form-control edit">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">電子郵件</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view">Chris.Chou@sun-innovation.com</p>
+                                            <input type="text" name="email" class="form-control edit" placeholder="電子郵件" value="Chris.Chou@sun-innovation.com">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">每小時工資</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view">$10 / HR</p>
+                                            <div class="input-group edit">
+                                                <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="10">
+                                                <span class="input-group-addon">
+                                                    USD / HR
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right" style="margin:20px 16px 0 0;">
+                                            <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1">儲存</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="portlet box light-grey show-view" id="profile-portlet2">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    專業類別
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet2">
+                                        <i class="fa fa-pencil-square-o"></i>編輯
+                                    </a>
+                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet2">
+                                        <i class="fa fa-floppy-o"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <form action="#" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">主類別</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view">IT、軟體</p>
+                                            <select name="mainClass" class="edit form-control">
+                                                <option>IT、軟體</option>
+                                                <option>翻譯、寫作</option>
+                                                <option>設計、創意服務</option>
+                                                <option>行銷、業務</option>
+                                                <option>行政、客戶服務</option>
+                                                <option>商業、會計、法務</option>
+                                                <option>工程、科學</option>
+                                                <option>專業諮商</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">子類別</label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view">社群網路經營, 搜尋引擎最佳化</p>
+                                            <div class="edit">
+                                                <select name="subClass" id="subClass_select2" class="form-control select2" multiple>
+                                                    <option selected>社群網路經營</option>
+                                                    <option selected>搜尋引擎最佳化</option>
+                                                    <option>公共關係經營</option>
+                                                    <option>電子郵件行銷</option>
+                                                    <option>電話行銷</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right" style="margin:20px 16px 0 0;">
+                                            <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet2">儲存</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="portlet box light-grey show-view" id="profile-portlet3">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    技能
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet3">
+                                        <i class="fa fa-pencil-square-o"></i> 編輯
+                                    </a>
+                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet3">
+                                        <i class="fa fa-floppy-o"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <p class="form-control-static view">技能一,技能二,技能三</p>
+                                <form action="#" class="form-horizontal edit" role="form">
+                                    <input id="skill-tags" type="text" class="form-control tags" value="技能一,技能二,技能三"/>
+                                    <div class="pull-right" style="margin:8px 0px 0 0;">
+                                    	<button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet3">儲存</button>
+                                    </div>
+                                    <p class="help-block">
+                                        如果您欲新增更多的技能。您必須完成下列項目：<br>
+                                        1. 工作經歷　2. 教育程度　3. 作品集
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="portlet box light-grey show-view" id="profile-portlet4">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    工作經歷
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet4">
+                                        <i class="fa fa-pencil-square-o"></i> 編輯
+                                    </a>
+                                    <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#experience-modal">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet4">
+                                        <i class="fa fa-floppy-o"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <table class="table" id="experience-table">
+                                    <tr>
+                                        <th>起</th>
+                                        <th>訖</th>
+                                        <th>公司</th>
+                                        <th>職位/職責</th>
+                                        <th>描述</th>
+                                        <th class="edit">刪除/編輯</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="start">2014/03/01</td>
+                                        <td class="end">2100/12/31</td>
+                                        <td class="organization">盈碩科技</td>
+                                        <td class="office">程式設計師學徒</td>
+                                        <td class="detail text-over">廣日用備發目法差到？傳鄉受阿展羅語除我送那平，系不理友近得坐多，西華是年庭？力燈裡。營備每打育停作積平山登觀了民車道育山語方離名，動布市像，山特大了一解而光化現我資該真開的入間育美，大動部緊中必臉化方。去靈不中：造對大比發所？正家全？人時應公樣記月效場受力一次影通也。樹的不層少師公自器，現布決經西心人結著常落公不。洲以另原。
+
+                                            質他公層要過面大線高在新們海然起後國的個天有</td>
+                                            <td class="edit btns">
+                                               <button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button>
+                                               <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                           </td>
+                                       </tr>
+                                   </table>
+                                   <table class="rowExperience-simple display-none">
+                                       <tr>
+                                        <td class="start"></td>
+                                        <td class="end"></td>
+                                        <td class="organization"></td>
+                                        <td class="office"></td>
+                                        <td class="detail text-over"></td>
+                                        <td class="edit btns">
+                                        	<button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button>
+                                        	<button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="editExperience-simple display-none">
+                                   <div class="modal fade" tabindex="-1" aria-hidden="true">
+                                       <div class="modal-dialog">
+                                           <div class="modal-content">
+                                               <div class="modal-header">
+                                                   <h4 class="modal-title">編輯工作經歷</h4>
+                                               </div>
+                                               <div class="modal-body">
+                                                   <div class="form-group">
+                                                       <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                           <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                           <span class="input-group-btn">
+                                                               <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                           </span>
+                                                       </div>
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                           <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                           <span class="input-group-btn">
+                                                               <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                           </span>
+                                                       </div>
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <input type="text" name="organization" class="form-control" placeholder="公司">
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <input type="text" name="office" class="form-control" placeholder="職位/職責">
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <textarea name="detail" class="form-control" rows="5" placeholder="說明"></textarea>
+                                                   </div>
+                                               </div>
+                                               <div class="modal-footer">
+                                                   <button type="button" class="btn btn-primary btn-editExperience">儲存</button>
+                                                   <button type="button" class="btn default btn-close" data-dismiss="modal">關閉</button>
+                                               </div>
+                                           </div>
+                                           <!-- /.modal-content -->
+                                       </div>
+                                       <!-- /.modal-dialog -->
+                                   </div>
+                               </div>
+                               <div class=" text-right">
+                                   <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet4">儲存</button>
+                               </div>
+                               <div class="modal fade" id="experience-modal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">新增工作經歷</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                    <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                    <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="organization" class="form-control" placeholder="公司">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="office" class="form-control" placeholder="職位/職責">
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea name="detail" class="form-control" rows="5" placeholder="說明"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" id="btn-addExperience">新增</button>
+                                            <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet box light-grey show-view" id="profile-portlet5">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                教育程度
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet5">
+                                    <i class="fa fa-pencil-square-o"></i> 編輯
+                                </a>
+                                <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#education-modal">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet5">
+                                    <i class="fa fa-floppy-o"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <table class="table" id="education-table">
+                                <tr>
+                                    <th>起</th>
+                                    <th>訖</th>
+                                    <th>學校</th>
+                                    <th>系所/專長</th>
+                                    <th>描述</th>
+                                    <th class="edit">刪除/編輯</th>
+                                </tr>
+                                <tr>
+                                    <td class="start">2007/08/01</td>
+                                    <td class="end">2011/06/30</td>
+                                    <td class="organization">國立台南大學</td>
+                                    <td class="office">數位學習科技學系</td>
+                                    <td class="detail text-over">廣日用備發目法差到？傳鄉受阿展羅語除我送那平，系不理友近得坐多，西華是年庭？力燈裡。營備每打育停作積平山登觀了民車道育山語方離名，動布市像，山特大了一解而光化現我資該真開的入間育美，大動部緊中必臉化方。去靈不中：造對大比發所？正家全？人時應公樣記月效場受力一次影通也。樹的不層少師公自器，現布決經西心人結著常落公不。洲以另原。
+
+                                        質他公層要過面大線高在新們海然起後國的個天有</td>
+                                        <td class="edit btns">
+                                        	<button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button>
+                                        	<button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="rowEducation-simple display-none">
+                                	<tr>
+                                        <td class="start"></td>
+                                        <td class="end"></td>
+                                        <td class="organization"></td>
+                                        <td class="office"></td>
+                                        <td class="detail text-over"></td>
+                                        <td class="edit btns">
+                                        	<button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button>
+                                        	<button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="editEducation-simple display-none">
+                                   <div class="modal fade" tabindex="-1" aria-hidden="true">
+                                       <div class="modal-dialog">
+                                           <div class="modal-content">
+                                               <div class="modal-header">
+                                                   <h4 class="modal-title">編輯教育程度</h4>
+                                               </div>
+                                               <div class="modal-body">
+                                                   <div class="form-group">
+                                                       <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                           <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                           <span class="input-group-btn">
+                                                               <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                           </span>
+                                                       </div>
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                           <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                           <span class="input-group-btn">
+                                                               <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                           </span>
+                                                       </div>
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <input type="text" name="organization" class="form-control" placeholder="學校">
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <input type="text" name="office" class="form-control" placeholder="系所/專長">
+                                                   </div>
+                                                   <div class="form-group">
+                                                    <textarea name="detail" class="form-control" rows="5" placeholder="說明"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                               <button type="button" class="btn btn-primary btn-editEducation">儲存</button>
+                                               <button type="button" class="btn default btn-close" data-dismiss="modal">關閉</button>
+                                           </div>
+                                       </div>
+                                       <!-- /.modal-content -->
+                                   </div>
+                                   <!-- /.modal-dialog -->
+                               </div>
+                           </div>
+                           <div class=" text-right">
+                               <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet5">儲存</button>
+                           </div>
+                           <div class="modal fade" id="education-modal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">新增教育程度</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="organization" class="form-control" placeholder="學校">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="office" class="form-control" placeholder="系所/專長">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea name="detail" class="form-control" rows="5" placeholder="說明"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" id="btn-addEducation">新增</button>
+                                        <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet box light-grey show-view" id="profile-portlet6">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            作品集
+                        </div>
+                        <div class="tools">
+                            <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet6">
+                                <i class="fa fa-pencil-square-o"></i> 編輯
+                            </a>
+                            <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#works-modal">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                            <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">
+                                <i class="fa fa-floppy-o"></i>
+                            </a>
+                        </div>
+                        <div class="modal fade" id="works-modal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">新增作品集</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <input type="text" name="title" class="form-control" placeholder="作品名稱">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea id="addWoeks-description" name="description" class="form-control" maxlength="4000" rows="3" placeholder="作品描述"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <!--<input type="file" name="file" class="form-control">-->
+                                            <form action="plugins/dropzone/upload.php" class="dropzone dz-clickable" id="addWorks-file">
+                                                <div class="dz-default dz-message"><span>上傳檔案</span></div>
+                                            </form>
+                                            <p class="help-block">上傳檔案/文件</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="file" name="thumbnail" class="form-control">
+                                            <p class="help-block">上傳縮圖</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <select name="mainClass" class="form-control">
+                                                <option selected>主類別</option>
+                                                <option>IT、軟體</option>
+                                                <option>翻譯、寫作</option>
+                                                <option>設計、創意服務</option>
+                                                <option>行銷、業務</option>
+                                                <option>行政、客戶服務</option>
+                                                <option>商業、會計、法務</option>
+                                                <option>工程、科學</option>
+                                                <option>專業諮商</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select name="subClass" class="form-control select2">
+                                                <option selected>子類別</option>
+                                                <option>社群網路經營</option>
+                                                <option>搜尋引擎最佳化</option>
+                                                <option>公共關係經營</option>
+                                                <option>電子郵件行銷</option>
+                                                <option>電話行銷</option>
+                                            </select>
+                                        </div>
+                                            <!--
+                                            <div class="form-group">
+                                                <input type="text" name="organization" class="form-control" placeholder="作品網址">
+                                            </div>
+                                        -->
+                                        <div class="form-group">
+                                            <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                                <input type="text" name="start" class="form-control" placeholder="完成時間" readonly>
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input id="addWorks-skill-tags" type="text" class="form-control tags" placeholder="技能" value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" id="btn-addWorks">新增</button>
+                                        <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                                        <p class="help-block">請確保您有此作品的著作權</p>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>                            
+                    </div>
+                    <div class="portlet-body">
+                       <table class="table" id="#">
+                        <tr>
+                            <th>圖片縮圖</th>
+                            <th>作品標題</th>
+                            <th class="edit">刪除</th>
+                        </tr>
+                        <tr>
+                            <td><img class="img-thumbnail img-responsive" width="113" height="113" src="img/class/class_2.jpg" alt="img"></td>
+                            <td>作品標題</td>
+                            <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button></td>
+                        </tr>
+                    </table>
+                    <div class=" text-right">
+                       <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet6">儲存</button>
+                   </div>
+               </div>
+           </div>
+           <div class="portlet box light-grey show-view" id="profile-portlet7">
+            <div class="portlet-title">
+                <div class="caption">
+                    相關證照
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet7">
+                        <i class="fa fa-pencil-square-o"></i> 編輯
+                    </a>
+                    <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#certificate-modal">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">
+                        <i class="fa fa-floppy-o"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table" id="certificate-table">
+                    <tr>
+                        <th>證照</th>
+                        <th>來源</th>
+                        <th>獲得時間</th>
+                        <th>描述</th>
+                        <th class="edit">刪除</th>
+                    </tr>
+                    <tr>
+                        <td class="start">網頁設計</td>
+                        <td class="end">行政院勞委會</td>
+                        <td class="organization">2014 Feb 25th</td>
+                        <td class="detail text-over">廣日用備發目法差到？傳鄉受阿展羅語除我送那平，系不理友近得坐多，西華是年庭？力燈裡。營備每打育停作積平山登觀了民車道育山語方離名，動布市像，山特大了一解而光化現我資該真開的入間育美，大動部緊中必臉化方。去靈不中：造對大比發所？正家全？人時應公樣記月效場受力一次影通也。樹的不層少師公自器，現布決經西心人結著常落公不。洲以另原。
+
+                            質他公層要過面大線高在新們海然起後國的個天有</td>
+                            <td class="edit btns">
+                               <button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button>
+                               <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                           </td>
+                       </tr>
+                   </table>
+                   <table class="rowCertificate-simple display-none">
+                       <tr>
+                        <td class="start"></td>
+                        <td class="end"></td>
+                        <td class="organization"></td>
+                        <td class="detail text-over"></td>
+                        <td class="edit btns">
+                           <button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button>
+                           <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                       </td>
+                   </tr>
+               </table>
+               <div class="editCertificate-simple display-none">
+                   <div class="modal fade" tabindex="-1" aria-hidden="true">
+                       <div class="modal-dialog">
+                           <div class="modal-content">
+                               <div class="modal-header">
+                                   <h4 class="modal-title">編輯工作經歷</h4>
+                               </div>
+                               <div class="modal-body">
+                                   <div class="form-group">
+                                    <input type="text" name="start" class="form-control" placeholder="證照名稱">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="end" class="form-control" placeholder="證照來源">
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                        <input type="text" name="organization" class="form-control" placeholder="獲得證照時間" readonly>
+                                        <span class="input-group-btn">
+                                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="detail" class="form-control" rows="5" placeholder="說明"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                               <button type="button" class="btn btn-primary btn-editCertificate">儲存</button>
+                               <button type="button" class="btn default btn-close" data-dismiss="modal">關閉</button>
+                           </div>
+                       </div>
+                       <!-- /.modal-content -->
+                   </div>
+                   <!-- /.modal-dialog -->
+               </div>
+           </div>
+           <div class=" text-right">
+               <button onClick=" javascript:;"  class="btn btn-default tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet7">儲存</button>
+           </div>
+           <div class="modal fade" id="certificate-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">新增相關證照</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <input type="text" name="start" class="form-control" placeholder="證照名稱">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="end" class="form-control" placeholder="證照來源">
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                                <input type="text" name="organization" class="form-control" placeholder="獲得證照時間" readonly>
+                                <span class="input-group-btn">
+                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="detail" class="form-control" rows="5" placeholder="說明"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btn-addCertificate">新增</button>
+                        <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </div>
+</div>
+<div class="text-center">
+    <a href="index.html" class="btn btn-danger">資料填寫完成回到首頁</a>
+</div>
+</div>
+<div class="tab-pane" id="password">
+    <div class="portlet box light-grey show-view" id="password-portlet">
+        <div class="portlet-title">
+            <div class="caption">
+                變更密碼
+            </div>
+            <div class="tools">
+                <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
+                    <i class="fa fa-floppy-o"></i>
+                </a>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <form action="#" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">舊密碼</label>
+                    <div class="col-md-10">
+                        <input type="password" name="oldPassword" class="form-control">
+                        <p class="help-block">
+                            如果您想要變更您的密碼，請先輸入您的舊密碼
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">新密碼</label>
+                    <div class="col-md-10">
+                        <input type="password" name="newPassword" class="form-control">
+                        <p class="help-block">
+                            密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">再次輸入新密碼</label>
+                    <div class="col-md-10">
+                        <input type="password" name="checkPassword" class="form-control">
+                    </div>
+                </div>
+                <div class=" text-right" >
+                    <button onClick=" javascript:;"  class="btn btn-default tool-save" data-original-title="儲存" data-portlet="#password-portlet">儲存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>  
+<!-- BEGIN END CONTENT -->
+</div>
+<!-- END MAIN CONTENT -->
+</div>
+<!-- END PAGE -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <img class="footer-logo" src="img/logo103.png" alt="">
+    <div class="footer-nav">
+        <a href="about.html">關於我們</a>
+        <span class="bar">|</span>
+        <a href="rule.html">隱私條款</a>
+        <span class="bar">|</span>
+        <a href="rule.html">使用條款</a>
+    </div>
+</div>
+<!-- END FOOTER -->
+
+<!-- BEGIN JAVASCRIPTS -->
+<!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+            <![endif]-->
+
+            <script src="plugins/jquery-1.11.0.min.js"></script>
+            <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+            <!-- END 核心插件 -->
+            <!-- BEGIN 頁面插件 -->
+            <script src="plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+            <script src="plugins/select2/select2.min.js"></script>
+            <script src="plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+            <script src="plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+            <script src="plugins/dropzone/dropzone.js"></script>
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="js/script.js"></script>
+            <script type="text/javascript" src="js/page/personal_profile.js"></script>
+            <script>
+                jQuery(document).ready(function() {    
+                 Web.init();
+                 PersonalProfile.init();
+             });
+            </script>
+            <!-- END JAVASCRIPTS -->
+            <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+    </body>
+    </html>
