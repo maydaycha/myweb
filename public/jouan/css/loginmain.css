@@ -387,3 +387,9 @@ body:after {
 .grey {
   font-weight: bold;
   color: grey; }
+
+/*Navbar*/
+.user-dropdown {
+  font-size: 1.2em; }
+  .user-dropdown span {
+    margin-left: 20px; }

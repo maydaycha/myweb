@@ -5,6 +5,7 @@
 
 
 
+
 /*message style*/
 
 .message-item {
@@ -99,3 +100,15 @@ line-height: 22px;
 .media1 img{ margin-right: 10px;}
 .media1 p{ padding-top: 10px; color: grey;}
 .grey{ font-weight: bold; color: grey;}
+
+/*Navbar*/
+.user-dropdown{
+	font-size:1.2em;
+	span{
+	margin-left:20px;
+	}
+}
+
+@media (max-width: 979px){
+	
+}
