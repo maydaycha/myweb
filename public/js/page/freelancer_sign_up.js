@@ -41,7 +41,7 @@ var SingUp = function(){
                 	minlength: 6,
                     required: true,
                 },
-                "user[password_check]": {
+                "user[password_confirmation]": {
                     required: true,
                     myPasswordMatch: true
                 }
