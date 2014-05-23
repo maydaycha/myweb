@@ -45,18 +45,8 @@
         </style>
     </head>
     <body>
-<<<<<<< HEAD
-    <div id="loader" style="z-index:10; position:fixed; width:100%; height:100%; display: none;" align="center">
-        <img style="-webkit-opacity: 0.4;
-    -moz-opacity: 0.4;
-    filter:alpha(opacity=40);" src="/img/spinner.gif">
-=======
-    <!-- <div id="loader" style="z-index:10; position:fixed; width:100%; height:100%; display: none;" align="center">
-        <img src="/img/loading.gif">
-    </div> -->
     <div id="loader" style="z-index:10; position:fixed; width:100%; height:100%; display: none;" align="center">
         <img style="-webkit-opacity: 0.4; -moz-opacity: 0.4; filter:alpha(opacity=40);" src="/img/spinner.gif">
->>>>>>> cab774b9115d8da2b1cee5070cdfba35f439de80
     </div>
         <!-- BEGIN NAVBAR -->
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -117,15 +107,9 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
             <div class="container alert-bordered" >
                 <div class="row">
                     <p></p>
-=======
-
-            <div class="container" id="error_message">
-                <p></p>
->>>>>>> cab774b9115d8da2b1cee5070cdfba35f439de80
                 <% if notice %>
                     <p class="alert alert-success"><%= notice %></p>
                 <% end %>
@@ -538,7 +522,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">使用者名稱</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id=""><%= current_user.username %> </p>
+                                            <p class="form-control-static view" id="username"><%= current_user.username %> </p>
                                             <input type="text" class="form-control edit" placeholder="姓名" value="<%= current_user.username %>" disabled>
                                         </div>
                                     </div>
@@ -546,62 +530,32 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">姓氏</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id="fullname2"><%= current_user.first_name %></p>
-                                            <input type="text" name="name" class="form-control edit" placeholder="姓氏" value="<%= current_user.first_name %>">
+                                            <p class="form-control-static view" id="first_name"><%= current_user.first_name %></p>
+                                            <input type="text" name="first_name" class="form-control edit" placeholder="姓氏" value="<%= current_user.first_name %>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">名字</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id=""><%= current_user.last_name %></p>
-                                            <input type="text" name="name" class="form-control edit" placeholder="名字" value="<%= current_user.last_name %>">
+                                            <p class="form-control-static view" id="last_name"><%= current_user.last_name %></p>
+                                            <input type="text" name="last_name" class="form-control edit" placeholder="名字" value="<%= current_user.last_name %>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人簡述</label>
                                         <div class="col-md-10">
-<<<<<<< HEAD
-                                            <p class="form-control-static edit">最認真負責的自由工作者</p>
-                                            <p class="form-control-static view">最認真負責的自由工作者</p>
-                                            <!-- <label class="radio-inline edit">
-                                                <input type="radio" name="status" checked> 最認真負責的自由工作者
-                                            </label> -->
-                                            <!-- <label class="radio-inline edit">
-                                                <input type="radio" name="status"> 最奸詐狡猾苛薄的雇主
-                                            </label> -->
-=======
-                                            <p class="form-control-static view" id="sketch"><%= current_user.introduction %></p>
-                                            <input type="text" name="sketch" class="form-control edit" placeholder="個人簡述" value="<%= current_user.introduction %>" >
->>>>>>> cab774b9115d8da2b1cee5070cdfba35f439de80
+                                            <p class="form-control-static view" id="introduction"><%= current_user.introduction %></p>
+                                            <input type="text" name="introduction" class="form-control edit" placeholder="個人簡述" value="<%= current_user.introduction %>" >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">詳細介紹<br>(僅限1000字)</label>
                                         <div class="col-md-10">
-<<<<<<< HEAD
-                                        <p class="form-control-static view">什臉站人，關年懷問常玩黑本，要不種通舉成，阿山至不衣這，真持樣。老們加完地年房獲……中度里約說讀，有可外回成必方速面時像日不國提人：和合我局加灣人石黃色山，口設苦也美發多未？了創究月金險在生。素有科書風？都舉了得中動術已家，的團的文關字太手工只教我邊，界知方機當對。
-
-</p>
-                                        <textarea name="review" class="form-control edit" rows="3" placeholder="個人詳細介紹"></textarea>
-=======
-                                            <p class="form-control-static view" id=""><%= current_user.username %> </p>
-                                            <input type="text" class="form-control edit" placeholder="使用者名稱" value="<%= current_user.username %>" disabled>
+                                            <p class="form-control-static view" id="review"><%= current_user.review %></p>
+                                            <textarea name="review" class="form-control edit" rows="3" placeholder="個人詳細介紹"><%= current_user.review %></textarea>
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">名字</label>
-                                        <div class="col-md-10">
-                                            <p class="form-control-static view" id="first_name"><%= current_user.last_name %></p>
-                                            <input type="text" name="first_name" class="form-control edit" placeholder="名字" value="<%= current_user.first_name %>">
-                                        </div>
-                                        <label class="col-md-2 control-label">姓</label>
-                                        <div class="col-md-10">
-                                            <p class="form-control-static view" id="last_name"><%= current_user.first_name %></p>
-                                            <input type="text" name="last_name" class="form-control edit" placeholder="姓" value="<%= current_user.last_name %>">
->>>>>>> cab774b9115d8da2b1cee5070cdfba35f439de80
-                                        </div>
-                                    </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人圖像</label>
                                         <div class="col-md-10 divcss5">
@@ -918,13 +872,8 @@
                                 <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#education-modal">
                                     <i class="fa fa-plus"></i>
                                 </a>
-<<<<<<< HEAD
                                 <a href="javascript:;" onclick="update_category()" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet5">
-                                    <i class="fa fa-chevron-up"></i>
-=======
-                                <a href="javascript:;" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet5">
                                     <i class="fa fa-chevron-up" onclick="javascript: expand_count--;"></i>
->>>>>>> cab774b9115d8da2b1cee5070cdfba35f439de80
                                 </a>
                                 <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet5"> -->
                                 <!-- </a> -->
@@ -1594,7 +1543,8 @@
     var update_basic_info = function(form_num) {
         var obj = {
             request: "update_basic_info",
-            sketch: $("#contact-form" + form_num + " input[name='sketch']").val(),
+            introduction: $("#contact-form" + form_num + " input[name='introduction']").val(),
+            review: $("#contact-form" + form_num + " textarea[name='review']").val(),
             first_name: $("#contact-form" + form_num + " input[name='first_name']").val(),
             last_name: $("#contact-form" + form_num + " input[name='last_name']").val(),
             money: $("#contact-form" + form_num + " input[name='money']").val()
@@ -1606,7 +1556,8 @@
             dataType: "json",
             data: obj,
             success: function(data) {
-                $("#sketch").text(data.sketch)
+                $("#introduction").text(data.introduction)
+                $("#review").text(data.review)
                 $("#first_name").text(data.first_name)
                 $("#last_name").text(data.last_name)
                 $("#money2").text('$' + data.hourly_pay + ' USD/HR')

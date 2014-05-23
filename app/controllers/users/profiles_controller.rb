@@ -44,7 +44,7 @@ class Users::ProfilesController < ApplicationController
   def ajax_updae
     case params[:request]
     when "update_basic_info"
-      current_user.update!(sketch: params['sketch'], first_name: params[:first_name], last_name: params[:last_name], hourly_pay: params[:money])
+      current_user.update!(introduction: params[:introduction], review: params[:review], first_name: params[:first_name], last_name: params[:last_name], hourly_pay: params[:money])
       render json: current_user
 
     when "update_location"
