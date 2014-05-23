@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  # reset captcha code after each request for security
+  # after_filter :reset_last_captcha_code!
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception
@@ -76,7 +79,7 @@ class ApplicationController < ActionController::Base
   end
 
   def protect
-    @ips = ['125.227.181.61', '140.113.73.55', '127.0.0.1', '140.113.73.40', '140.113.73.30', '140.113.73.50', '140.113.72.8', '118.166.80.56', '36.226.230.98', '118.163.48.186', '111.253.21.3', '140.113.46.18']
+    @ips = ['125.227.181.61', '140.113.73.55', '127.0.0.1', '140.113.73.40', '140.113.73.30', '140.113.73.50', '140.113.72.8', '118.166.80.56', '36.226.230.98', '118.163.48.186', '111.253.21.3', '140.113.46.18', '220.129.28.72']
     if not @ips.include? request.remote_ip
       # Check for your subnet stuff here, for example
       # if not request.remote_ip.include?('127.0,0')

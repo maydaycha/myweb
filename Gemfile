@@ -90,3 +90,7 @@ gem "spreadsheet"
 
 gem 'kaminari'
 
+# Captcha
+gem 'easy_captcha'
+gem 'rmagick'
+
