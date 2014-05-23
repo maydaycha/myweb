@@ -118,7 +118,7 @@
                 <% end %>
                 </div>
             </div>
-            
+
 
             <!-- BEGIN MAIN CONTENT -->
             <div class="main-content">
@@ -1045,11 +1045,11 @@
                                                 <form class="dropzone dz-clickable", action="/users/profiles/ajax_updae" id="addWorksfile">
                                                     <div class="dz-default dz-message"><span>上傳檔案</span></div>
                                                 </form>
-                                                <p class="help-block">上傳檔案/文件</p>
+                                                <p class="help-block">上傳縮圖</p>
                                             </div>
                                             <div class="form-group">
                                                 <input type="file" name="thumbnail" class="form-control" accept="application/pdf" onchange="check_document_size()">
-                                                <p class="help-block">上傳縮圖</p>
+                                                <p class="help-block">上傳檔案/文件</p>
                                             </div>
                                             <div class="form-group">
                                                 <select name="mainClass" class="form-control", id="work_main_class">
@@ -1343,18 +1343,6 @@
 <![endif]-->
 
 <script>
-    var education_add_list = [];
-    var education_delete_list = [];
-    var education_update_list = [];
-    var experience_add_list = [];
-    var experience_delete_list = [];
-    var experience_update_list = [];
-    var certificate_add_list = [];
-    var certificate_delete_list = [];
-    var certificate_update_list = [];
-    var works_add_list = [];
-    var works_delete_list = [];
-
     var myDropzone;
 </script>
 
@@ -1406,6 +1394,11 @@
 
         window.onbeforeunload = function(e) {
             if( expand_count > 0 && warn_on_unload != '') return warn_on_unload
+
+        }
+
+        window.onpopstate = function() {
+            location.reload()
         }
 
 
@@ -1471,7 +1464,7 @@
             });
         },
         paramName: "file",
-        maxFilesize: 5,
+        maxFilesize: 0.5,
         maxFiles: 1,
         autoProcessQueue: false,
         addRemoveLinks: true,

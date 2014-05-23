@@ -107,7 +107,7 @@ var PersonalProfile = function(){
 	        },
 	        async: false
 	    });
-	    if (result == false) 
+	    if (result == false)
 	    	$(this).removeTag(value);
 
 	    var skills_arr = $(this).val().split(',');
