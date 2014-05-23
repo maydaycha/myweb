@@ -91,7 +91,21 @@
                             <p class="title">您是哪一種 <span class="point"><%= t("main_skill_category")[@category_index]['name'] %></span> 人員？（可複選）</p>
                             <% t("sub_skill_category")[@category_index].each_with_index do |cate, index| %>
                             <div class="item">
-                                <input type="checkbox" name="class[]" value="<%= index %>" id="class<%= index %>">
+                                <% if current_user.user_skill_categories[0].main_skill_id.to_s == user_skill_category_id %>
+                                    <% has_selected = false %>
+                                    <% current_user.user_skill_categories.each do |e| %>
+                                        <% if e.sub_skill_id.to_i == index %>
+                                            <% has_selected = true %>
+                                        <% end %>
+                                    <% end %>
+                                    <% if has_selected %>
+                                        <input type="checkbox" name="class[]" value="<%= index %>" id="class<%= index %>" class="active" checked>
+                                    <% else %>
+                                        <input type="checkbox" name="class[]" value="<%= index %>" id="class<%= index %>">
+                                    <% end %>
+                                <% else %>
+                                    <input type="checkbox" name="class[]" value="<%= index %>" id="class<%= index %>">
+                                <% end %>
                                 <label for="class<%= index %>">
                                     <%= cate['name'] %>
                                 </label>
