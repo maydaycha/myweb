@@ -14,11 +14,12 @@ var PersonalProfile = function(){
                     myPasswordCheck: true
                 },
                 "user[password]": {
-                	minlength: 6,
+                	minlength: 8,
                     required: true,
                     myPasswordAllow: true
                 },
                 "user[password_confirmation]": {
+                	minlength: 8,
                     required: true,
                     myPasswordMatch: true
                 }
@@ -32,7 +33,6 @@ var PersonalProfile = function(){
             errorPlacement: function (error, element) { // render error placement for each input type
             	var text;
             	if(error.text()=='This field is required.'){
-                    console.log(error.attr('for'));
             		text = form.find('input[id='+error.attr('for')+']').attr('data-isempty');
             		error.text(text);
             	}
@@ -154,25 +154,33 @@ var PersonalProfile = function(){
 			tr.find('.description').text($('#experience-modal textarea[name=description]').val());
 			editExperience(tr);
 
-
-			var obj = {
+			var request_obj = {
+				request: "add_experience",
 				start_date: $('#experience-modal input[name=start]').val(),
 				end_date: $('#experience-modal input[name=end]').val(),
 				organization: $('#experience-modal input[name=organization]').val(),
 				office: $('#experience-modal input[name=office]').val(),
 				description: $('#experience-modal textarea[name=description]').val()
 			};
-			experience_add_list.push(obj);
-
-			$('#experience-table').append(tr);
-			$('#experience-modal input[name=start]').val('');
-			$('#experience-modal input[name=end]').val('');
-			$('#experience-modal input[name=organization]').val('');
-			$('#experience-modal input[name=office]').val('');
-			$('#experience-modal textarea[name=description]').val('');
-			initExperienceTable();
-
-			$("#experience-modal").modal('toggle');
+         	$("#loader").show()
+	         $.ajax({
+	            url: "/users/profiles/ajax_updae",
+	            type: "post",
+	            dataType: "json",
+	            data: JSON.stringify(request_obj),
+	            contentType: 'application/json',
+	            success: function(data) {
+	            	$("#loader").hide()
+	                $('#experience-table').append(tr);
+					$('#experience-modal input[name=start]').val('');
+					$('#experience-modal input[name=end]').val('');
+					$('#experience-modal input[name=organization]').val('');
+					$('#experience-modal input[name=office]').val('');
+					$('#experience-modal textarea[name=description]').val('');
+					initExperienceTable();
+					$("#experience-modal").modal('toggle');
+	            }
+	        });
 		});
 }
 
@@ -193,8 +201,8 @@ var editExperience = function(tr){
 	modal.find('input[name=office]').val(tr.find('.office').text());
 	modal.find('textarea[name=description]').val(tr.find('.description').text());
 	modal.find('.btn-editExperience').on('click',function(){
-		console.log(modal.find('input[name=start]').val());
-		console.log(modal.find('input[name=end]').val());
+		// console.log(modal.find('input[name=start]').val());
+		// console.log(modal.find('input[name=end]').val());
 		if( modal.find('input[name=start]').val() == "") {
 			alert('請填寫工作開始時間')
 			return;
@@ -215,7 +223,8 @@ var editExperience = function(tr){
 		tr.find('.office').text(modal.find('input[name=office]').val());
 		tr.find('.description').text(modal.find('textarea[name=description]').val());
 
-		var obj = {
+		var request_obj = {
+			request: "update_experience",
 			id: id,
 			start_date: modal.find('input[name=start]').val(),
 			end_date: modal.find('input[name=end]').val(),
@@ -223,10 +232,18 @@ var editExperience = function(tr){
 			office: modal.find('input[name=office]').val(),
 			description: modal.find('textarea[name=description]').val()
 		}
-		experience_update_list.push(obj)
-		console.log(experience_update_list)
-
-		modal.find('.btn-close').click();
+		$("#loader").show()
+	         $.ajax({
+	            url: "/users/profiles/ajax_updae",
+	            type: "post",
+	            dataType: "json",
+	            data: JSON.stringify(request_obj),
+	            contentType: 'application/json',
+	            success: function(data) {
+	            	$("#loader").hide()
+					modal.find('.btn-close').click();
+	         }
+	     });
 	});
 	modal.find('.date-picker').datepicker();
 	tr.find('.btn-edit').attr('data-toggle','modal');
@@ -270,24 +287,33 @@ var initAddEducation = function(){
 
 		editEducation(tr);
 
-		var obj = {
+		var request_obj = {
+			request: "add_education",
 			start_date: $('#education-modal input[name=start]').val(),
 			end_date: $('#education-modal input[name=end]').val(),
 			school: $('#education-modal input[name=organization]').val(),
 			department: $('#education-modal input[name=office]').val(),
 			description: $('#education-modal textarea[name=description]').val()
-		};
-		education_add_list.push(obj);
-		console.log(education_add_list)
-
-		$('#education-table').append(tr);
-		$('#education-modal input[name=start]').val('');
-		$('#education-modal input[name=end]').val('');
-		$('#education-modal input[name=organization]').val('');
-		$('#education-modal input[name=office]').val('');
-		$('#education-modal textarea[name=description]').val('');
-		initEducationTable();
-		$("#education-modal").modal('toggle');
+		}
+		$("#loader").show()
+		$.ajax({
+	            url: "/users/profiles/ajax_updae",
+	            type: "post",
+	            dataType: "json",
+	            data: JSON.stringify(request_obj),
+	            contentType: 'application/json',
+	            success: function(data) {
+	                $("#loader").hide()
+	                $('#education-table').append(tr);
+					$('#education-modal input[name=start]').val('');
+					$('#education-modal input[name=end]').val('');
+					$('#education-modal input[name=organization]').val('');
+					$('#education-modal input[name=office]').val('');
+					$('#education-modal textarea[name=description]').val('');
+					initEducationTable();
+					$("#education-modal").modal('toggle');
+	            }
+	        });
 	});
 }
 
@@ -330,7 +356,8 @@ var editEducation = function(tr){
 		tr.find('.description').text(modal.find('textarea[name=description]').val());
 		modal.find('.btn-close').click();
 
-		var obj = {
+		var request_obj = {
+			request: "update_education",
 			id: id,
 			start_date: modal.find('input[name=start]').val(),
 			end_date: modal.find('input[name=end]').val(),
@@ -338,10 +365,18 @@ var editEducation = function(tr){
 			department: modal.find('input[name=office]').val(),
 			description: modal.find('textarea[name=description]').val()
 		}
-		education_update_list.push(obj)
-		console.log(education_update_list)
-		console.log("tes")
-	});
+		$("#loader").show()
+		$.ajax({
+	            url: "/users/profiles/ajax_updae",
+	            type: "post",
+	            dataType: "json",
+	            data: JSON.stringify(request_obj),
+	            contentType: 'application/json',
+	            success: function(data) {
+	                $("#loader").hide()
+	            }
+	     });
+});
 
 
 	modal.find('.date-picker').datepicker();
@@ -378,23 +413,32 @@ var initAddCertificate = function(){
 		tr.find('.description').text($('#certificate-modal textarea[name=description]').val());
 		editCertificate(tr);
 
-		var obj = {
+		var request_obj = {
+			request: "add_certification",
 			name: $('#certificate-modal input[name=certificate]').val(),
 			source: $('#certificate-modal input[name=cer-source]').val(),
 			get_time: $('#certificate-modal input[name=start]').val(),
 			description: $('#certificate-modal textarea[name=description]').val()
 		};
-		certificate_add_list.push(obj);
-		console.log(certificate_add_list)
 
-		$('#certificate-table').append(tr);
-		$('#certificate-modal input[name=certificate]').val('');
-		$('#certificate-modal input[name=cer-source]').val('');
-		$('#certificate-modal input[name=start]').val('');
-		$('#certificate-modal textarea[name=description]').val('');
-		initCertificateTable();
-
-		$("#certificate-modal").modal('toggle');
+		$("#loader").show()
+		$.ajax({
+	            url: "/users/profiles/ajax_updae",
+	            type: "post",
+	            dataType: "json",
+	            data: JSON.stringify(request_obj),
+	            contentType: 'application/json',
+	            success: function(data) {
+	                $("#loader").hide()
+					$('#certificate-table').append(tr);
+					$('#certificate-modal input[name=certificate]').val('');
+					$('#certificate-modal input[name=cer-source]').val('');
+					$('#certificate-modal input[name=start]').val('');
+					$('#certificate-modal textarea[name=description]').val('');
+					initCertificateTable();
+					$("#certificate-modal").modal('toggle');
+	            }
+	     });
 	});
 }
 
@@ -417,23 +461,32 @@ var editCertificate = function(tr){
 			alert('請填寫證照名稱');
 			return;
 		}
-		
+
 		tr.find('.certificate').text(modal.find('input[name=certificate]').val());
 		tr.find('.cer-source').text(modal.find('input[name=cer-source]').val());
 		tr.find('.start').text(modal.find('input[name=start]').val());
 		tr.find('.description').text(modal.find('textarea[name=description]').val());
 		modal.find('.btn-close').click();
 
-		var obj = {
+		var request_obj = {
+			request: "update_certification",
 			id: id,
 			name: modal.find('input[name=certificate]').val(),
 			source: modal.find('input[name=cer-source]').val(),
 			get_time: modal.find('input[name=start]').val(),
 			description: modal.find('textarea[name=description]').val(),
 		}
-		certificate_update_list.push(obj)
-		console.log(certificate_update_list)
-
+		$("#loader").show()
+		$.ajax({
+	            url: "/users/profiles/ajax_updae",
+	            type: "post",
+	            dataType: "json",
+	            data: JSON.stringify(request_obj),
+	            contentType: 'application/json',
+	            success: function(data) {
+	                $("#loader").hide()
+	            }
+	     });
 	});
 	modal.find('.date-picker').datepicker();
 	tr.find('.btn-edit').attr('data-toggle','modal');
@@ -467,18 +520,15 @@ var initAddWorks = function() {
 			return;
 		}
 		var fd = new FormData();
-		update_portfolio();
+
+		add_portfolio();  // this defined in show.html
 
 		var main_class_text = $("#work_main_class option:selected").text();
 		var sub_class_text = $("#work_subClass_select2 option:selected").text();
-		//console.log(works_add_list);
-
 		$("#works-modal").modal('toggle');
 
 	});
 }
-
-
 
 
 return {

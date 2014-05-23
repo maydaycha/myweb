@@ -6,7 +6,7 @@
         <meta content="" name="description"/>
         <meta content="" name="author"/>
         <title>快樂工作</title>
-        
+
         <!-- BEGIN STYLE -->
         <!-- BEGIN 核心樣式 -->
         <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
@@ -56,8 +56,8 @@
             </div>
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><a href="login.html">會員登入</a></li>
-                    <li><a href="sign_up.html">免費註冊</a></li>
+                    <li><%= link_to "會員登入", new_user_session_path %></li>
+                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
                 </ul>
             </div>
         </div>
@@ -74,7 +74,7 @@
                     <div class="col-sm-7 content">
                     	<h1 class="title" style="text-align:left; margin-top:0px; padding:0;">郵件已傳送</h1>
                         <h1 class="title" style="text-align:left; margin-top:0px; padding:0; font-size:2.7em;">請檢查您的郵件</h1>
-                        
+
                     </div>
                 </div>
                 <!-- END BOX -->
@@ -96,7 +96,7 @@
             </div>
         </div>
         <!-- END FOOTER -->
-        
+
         <!-- BEGIN JAVASCRIPTS -->
         <!-- BEGIN 核心插件 -->
         <!--[if lt IE 9]>
@@ -113,7 +113,7 @@
         <script type="text/javascript" src="/js/script.js"></script>
         <!--<script type="text/javascript" src="js/page/index.js"></script>-->
         <script>
-            jQuery(document).ready(function() {    
+            jQuery(document).ready(function() {
                Web.init();
                //Index.init();
             });

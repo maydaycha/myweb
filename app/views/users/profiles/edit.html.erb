@@ -183,7 +183,7 @@
                                         <div class="col-md-9 divcss5">
                                             <img src="/img/staff.png" class="avatar" id="blah1">
                                             <!-- <input type="file" name="image" class="form-control edit" onchange="readURL(this)"> -->
-                                            <%= f.file_field :image, name: "image", class: "form-control edit", onchange: "readURL(this)" %>
+                                            <%= f.file_field :image, name: "image" ,class: "form-control edit", onchange: "readURL(this)" %>
                                             <p class="help-block">
                                                 一張好的相片可以提升您專業形象，更能增加您被雇用的機會。
                                             </p>
@@ -623,7 +623,7 @@
                             <% end %>
                             <button type="button" class="btn btn-default btn-lg left button-previous"><i class="fa fa-long-arrow-left"></i> 上一步</button>
                             <button type="button" class="btn btn-default btn-lg right button-next">下一步 <i class="fa fa-long-arrow-right"></i></button>
-                            <button type="submit" class="btn btn-primary btn-lg right button-submit">確認送出</button>
+                            <button type="submit" class="btn btn-primary btn-lg right button-submit" onclick="javascript: warn_on_unload='';">確認送出</button>
                         </div>
                     </div>
                 </div>
@@ -682,13 +682,35 @@
     <script type="text/javascript" src="/js/page/create_profile.js"></script>
 
     <script>
+        var warn_on_unload = "尚未儲存的資料都將遺失"
+
         jQuery(document).ready(function() {
            Web.init();
            CreateProfile.init();
 
-            window.onbeforeunload = function(e) {
-                return '尚未儲存的資料都將遺失';
-            };
+            // clean all form data while user click next page to arrive here
+            $("form")[0].reset();
+
+           $(':input').bind('input', function() {
+                 window.onbeforeunload = function(e) {
+                    if( warn_on_unload != '' ) return warn_on_unload
+                }
+            });
+
+            $('input[type=text], textarea').bind('input', function() {
+                 window.onbeforeunload = function(e) {
+                    if( warn_on_unload != '' ) return warn_on_unload
+                }
+            });
+
+            $('input[type=file]').bind('change', function() {
+                 window.onbeforeunload = function(e) {
+                    if( warn_on_unload != '' ) return warn_on_unload
+                }
+            });
+
+
+
        });
 
         function readURL(input) {

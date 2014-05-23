@@ -1,9 +1,3 @@
-GIT
-  remote: git://github.com/galetahub/simple-captcha.git
-  revision: 2602bf19a63df25929960b5a7721a9d265281ec1
-  specs:
-    simple_captcha (0.1.6)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -56,6 +50,15 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    diff-lcs (1.2.5)
+    docile (1.1.3)
+    easy_captcha (0.6.4)
+      bundler (>= 1.1.0)
+      rails (>= 3.0.0)
+      rmagick (>= 2.13.1)
+      rspec-rails (>= 2.8.1)
+      simplecov (>= 0.3.8)
+      yard (>= 0.7.0)
     erubis (2.7.0)
     eventmachine (1.0.3)
     eventmachine (1.0.3-x86-mingw32)
@@ -142,6 +145,19 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     recaptcha (0.3.6)
+    rmagick (2.13.2)
+    rspec-core (2.14.8)
+    rspec-expectations (2.14.5)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.14.6)
+    rspec-rails (2.14.2)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 2.14.0)
+      rspec-expectations (~> 2.14.0)
+      rspec-mocks (~> 2.14.0)
     ruby-ole (1.2.11.7)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -152,6 +168,11 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    simplecov (0.8.2)
+      docile (~> 1.1.0)
+      multi_json
+      simplecov-html (~> 0.8.0)
+    simplecov-html (0.8.0)
     spreadsheet (0.9.7)
       ruby-ole (>= 1.0)
     sprockets (2.11.0)
@@ -185,6 +206,7 @@ GEM
     unicode_utils (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
+    yard (0.8.7.4)
 
 PLATFORMS
   ruby
@@ -197,6 +219,7 @@ DEPENDENCIES
   certified
   coffee-rails (~> 4.0.0)
   devise
+  easy_captcha
   i18n-country-translations
   i18n-timezones
   jbuilder (~> 1.2)
@@ -212,9 +235,9 @@ DEPENDENCIES
   rails (= 4.0.3)
   rails_12factor
   recaptcha
+  rmagick
   sass-rails (~> 4.0.0)
   sdoc
-  simple_captcha!
   spreadsheet
   sqlite3
   thin

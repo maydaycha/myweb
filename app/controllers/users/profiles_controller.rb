@@ -21,10 +21,10 @@ class Users::ProfilesController < ApplicationController
 
 
   def update
-    current_user.user_skills.destroy_all if !current_user.user_skills.empty?
+    UserSkill.where(user_id: current_user.id).delete_all
     if current_user.user_skills.empty?
       foeign_skills = []
-      params[:user][:user_skills].split(",").each{|e| foeign_skills << current_user.user_skills.create!(name: e) }
+      params[:user][:user_skills].split(",").each{ |e| foeign_skills << current_user.user_skills.create!(name: e) }
     end
     params[:user][:user_skills] = foeign_skills
     current_user.update!(params.permit![:user])
@@ -32,7 +32,6 @@ class Users::ProfilesController < ApplicationController
     current_user.step = 2
     current_user.save
     redirect_to users_profile_path(current_user)
-    # redirect_to root_path
   end
 
 
@@ -45,11 +44,7 @@ class Users::ProfilesController < ApplicationController
   def ajax_updae
     case params[:request]
     when "update_basic_info"
-      current_user.first_name = params[:name].split(/ /)[0]
-      current_user.last_name = params[:name].split(/ /)[1]
-      current_user.email = params[:email]
-      current_user.hourly_pay = params[:money]
-      current_user.save
+      current_user.update!(sketch: params['sketch'], first_name: params[:first_name], last_name: params[:last_name], hourly_pay: params[:money])
       render json: current_user
 
     when "update_location"
@@ -59,44 +54,35 @@ class Users::ProfilesController < ApplicationController
       render json: current_user
 
     when "update_skill"
-      current_user.user_skills.destroy_all if not current_user.user_skills.empty?
+      UserSkill.where(user_id: current_user.id).delete_all
       params[:skill].split(",").each{ |e| current_user.user_skills.create!(name: e) }
       render json: current_user
 
     when "update_experience"
-      params[:experience_add_list].each{ |e| current_user.user_experiences.create!(organization: e[:organization], office: e[:office], start_date: e[:start_date], end_date: e[:end_date], description: e[:description])} if not params[:experience_add_list].nil?
-      params[:experience_delete_list].each{ |e| UserExperience.destroy(e[:id]) } if not params[:experience_delete_list].nil?
-      if not params[:experience_update_list].nil?
-        params[:experience_update_list].each do |e|
-          @experience = UserExperience.find(e[:id])
-          @experience.start_date = e[:start_date]
-          @experience.end_date = e[:end_date]
-          @experience.organization = e[:organization]
-          @experience.office = e[:office]
-          @experience.description = e[:description]
-          @experience.save
-        end
-      end
+      @experience = UserExperience.find(params[:id])
+      @experience.update!(start_date: params[:start_date], end_date: params[:end_date], organization: params[:organization], office: params[:office], description: params[:description])
+      render json: current_user.user_experiences
+    when 'add_experience'
+      current_user.user_experiences.create!(organization: params[:organization], office: params[:office], start_date: params[:start_date], end_date: params[:end_date], description: params[:description])
+      render json: current_user.user_experiences
+    when 'delete_experience'
+      UserExperience.delete(params[:id])
       render json: current_user.user_experiences
 
+
     when "update_education"
-      params[:education_add_list].each{ |e| current_user.user_educations.create!(school: e[:school], department: e[:department], start_date: e[:start_date], end_date: e[:end_date], description: e[:description])} if not params[:education_add_list].nil?
-      params[:education_delete_list].each{ |e| UserEducation.destroy(e[:id]) } if not params[:education_delete_list].nil?
-      if not params[:education_update_list].nil?
-        params[:education_update_list].each do |e|
-          @education = UserEducation.find(e[:id])
-          @education.start_date = e[:start_date]
-          @education.end_date = e[:end_date]
-          @education.school = e[:school]
-          @education.department = e[:department]
-          @education.description = e[:description]
-          @education.save
-        end
-      end
+      @education = UserEducation.find(params[:id])
+      @education.update!(start_date: params[:start_date], end_date: params[:end_date], school: params[:school], department: params[:department], description: params[:description])
+      render json: current_user.user_educations
+    when 'add_education'
+      current_user.user_educations.create!(school: params[:school], department: params[:department], start_date: params[:start_date], end_date: params[:end_date], description: params[:description])
+      render json: current_user.user_educations
+    when 'delete_education'
+      UserEducation.delete(params[:id])
       render json: current_user.user_educations
 
     when "update_category"
-      current_user.user_skill_categories.destroy_all if not current_user.user_skill_categories.empty?
+      UserSkillCategory.where(user_id: current_user.id).delete_all
 
       used = {}
       params[:data].each do |index, item|
@@ -113,38 +99,38 @@ class Users::ProfilesController < ApplicationController
       render json: current_user.user_skill_categories
 
     when "update_certification"
-      params[:certificate_add_list].each{ |e| current_user.user_certifications.create!(name: e[:name], source: e[:source], get_time: e[:get_time], description: e[:description]) } unless params[:certificate_add_list].nil?
-      params[:certificate_delete_list].each{ |e| UserCertification.destroy(e[:id]) } unless params[:certificate_delete_list].nil?
-      if not params[:certificate_update_list].nil?
-        params[:certificate_update_list].each do |e|
-          @certificate = UserCertification.find(e[:id])
-          @certificate.name = e[:name]
-          @certificate.source = e[:source]
-          @certificate.get_time = e[:get_time]
-          @certificate.description = e[:description]
-          @certificate.save
-        end
-      end
+      @certificate = UserCertification.find(params[:id])
+      @certificate.name = params[:name]
+      @certificate.source = params[:source]
+      @certificate.get_time = params[:get_time]
+      @certificate.description = params[:description]
+      @certificate.save
       render json: current_user.user_certifications
 
-    when 'update_portfolio'
-      if params[:works_delete_list] && (not params[:works_delete_list].empty?)
-        params[:works_delete_list].each{ |e| UserPortfolio.destroy(e[:id]) }
-      else
-        new_portfolio_list = []
-        @p = current_user.user_portfolios.create! do |e|
-          e.name = params[:name]
-          e.description = params[:description]
-          e.date = params[:date]
-          e.main_skill_id = params[:main_skill_id]
-          e.sub_skill_id = params[:sub_skill_id]
-          e.skill = params[:skill]
-          e.document = open(params[:document].tempfile).read unless (params[:document].is_a? String)
-          e.picture1 = open(params[:file][0].tempfile).read if (params[:file].size > 0)
-          e.picture2 = open(params[:file][1].tempfile).read if (params[:file].size > 1)
-        end
-        new_portfolio_list << @p
+    when 'add_certification'
+      current_user.user_certifications.create!(name: params[:name], source: params[:source], get_time: params[:get_time], description: params[:description])
+      render json: current_user.user_certifications
+
+    when 'delete_certification'
+      UserCertification.delete(params[:id])
+      render json: current_user.user_certifications
+
+    when 'add_portfolio'
+      current_user.user_portfolios.create! do |e|
+        e.name = params[:name]
+        e.description = params[:description]
+        e.date = params[:date]
+        e.main_skill_id = params[:main_skill_id]
+        e.sub_skill_id = params[:sub_skill_id]
+        e.skill = params[:skill]
+        e.document_name = params[:document_name] unless params[:document_name].nil?
+        # e.document_content = open(params[:document_content].tempfile).read unless (params[:document].is_a? String)
+        e.document_content = open(params[:document_content].tempfile).read unless params[:document_content].nil?
+        e.picture1 = open(params[:file][0].tempfile).read if (params[:file].size > 0)
       end
+      render json: current_user.user_portfolios
+    when 'delete_portfolio'
+      UserPortfolio.delete(params[:id])
       render json: current_user.user_portfolios
 
     when "get_sub_category"
