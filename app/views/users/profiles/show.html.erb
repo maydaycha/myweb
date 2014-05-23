@@ -509,7 +509,7 @@
                                     <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet1" onclick="javascript: expand_count++;">
                                         <i class="fa fa-pencil-square-o"></i>編輯
                                     </a>
-                                    <a href="javascript:;" onclick="update_basic_info(2)" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet1">
+                                    <a href="javascript:;" onclick="update_basic_info(2)" class="edit" data-original-title="收合" data-portlet="#profile-portlet1">
                                     <i class="fa fa-chevron-up"></i>
                                 </a>
                                     <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1"> -->
@@ -519,7 +519,6 @@
                             </div>
                             <div class="portlet-body">
                                 <form action="javascript: return false;" id="contact-form2" class="form-horizontal" role="form">
-                                <!-- <%= form_for current_user, url: users_profile_path(current_user), method: :put, html: {class: "form-horizontal", id: "contact-form2", role: "form"} do |f| %> -->
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">使用者名稱</label>
                                         <div class="col-md-10">
@@ -583,11 +582,10 @@
                                          </div>
                                      </div>
                                      <div class="pull-right" style="margin:20px 16px 0 0;">
-                                        <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="收合" data-portlet="#profile-portlet1">收合</button>
+                                        <button onclick="update_basic_info(2)" class="btn btn-default edit prevent" data-original-title="收合" data-portlet="#profile-portlet1" >收合</button>
                                     </div>
                                 </div>
                             </form>
-                            <!-- <% end %> -->
                         </div>
                     </div>
                     <div class="portlet box light-grey show-view" id="profile-portlet2">
@@ -1529,6 +1527,28 @@
 
 
     var update_basic_info = function(form_num) {
+        var double_check = 2
+        if( $("#contact-form" + form_num + " input[name='first_name']").val() == '' ) {
+            $("#contact-form" + form_num + " input[name='first_name']").focus()
+            $("#contact-form" + form_num + " input[name='first_name']").css("border-color", "red")
+        } else {
+            double_check--
+        }
+        if( $("#contact-form" + form_num + " input[name='last_name']").val() == '' ) {
+            $("#contact-form" + form_num + " input[name='last_name']").focus()
+            $("#contact-form" + form_num + " input[name='last_name']").css("border-color", "red")
+        } else {
+            double_check--
+        }
+        if(double_check == 0) {
+            var portlet = $("#profile-portlet1")
+            console.log(portlet)
+            portlet.removeClass('show-edit');
+            portlet.addClass('show-view');
+        } else {
+            return
+        }
+
         var obj = {
             request: "update_basic_info",
             introduction: $("#contact-form" + form_num + " input[name='introduction']").val(),
@@ -1538,6 +1558,7 @@
             money: $("#contact-form" + form_num + " input[name='money']").val()
         }
         $("#loader").show()
+        console.log("test")
         $.ajax({
             url: "/users/profiles/ajax_updae",
             type: "post",
