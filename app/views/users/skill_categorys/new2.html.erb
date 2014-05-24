@@ -6,6 +6,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0">
     <title>快樂工作</title>
 
     <!-- BEGIN STYLE -->
@@ -80,7 +82,6 @@
                 <!-- <%= t("sub_skill_category") %> -->
                 <div class="class">
                     <div class="row">
-                        <!-- <form action="create_profile.html" class="class-form" data-isEmpty="請選擇一個專長類別"> -->
                         <%= form_for :user_skill_category, url: users_skill_categorys_path, html: {class: "class-form", data: {isempty: "請選擇一個專長類別"}} do |f| %>
                         <input type="hidden" value="<%= user_skill_category_id %>" name="user_skill_category_id">
                         <div class="col-md-3 col-xs-4 image">
@@ -162,9 +163,12 @@
             <script type="text/javascript" src="/js/page/edit_category.js"></script>
             <script>
                 jQuery(document).ready(function() {
-                 Web.init();
-                 EditCategory.init();
-             });
+                     Web.init();
+                     EditCategory.init();
+                    $("input[name='class[]']").each( function(e) {
+                        if( $(this).attr("class") == 'active' ) $(this)[0].checked = true
+                    })
+                });
          </script>
          <!-- END JAVASCRIPTS -->
          <!-- BEGIN PIE -->

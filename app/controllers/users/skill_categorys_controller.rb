@@ -8,6 +8,8 @@ class Users::SkillCategorysController < ApplicationController
   end
 
   def new
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
     if not params[:user_skill_category]
       render template: "users/skill_categorys/new"
     else

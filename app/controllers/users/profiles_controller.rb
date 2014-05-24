@@ -16,6 +16,8 @@ class Users::ProfilesController < ApplicationController
   end
 
   def edit
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
     @user = User.find(params[:id])
   end
 
@@ -36,6 +38,8 @@ class Users::ProfilesController < ApplicationController
 
 
   def show
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
     @skill_main_categoies = current_user.user_skill_categories.uniq_by(&:main_skill_id)
     @user = current_user
   end
