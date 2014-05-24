@@ -717,7 +717,10 @@
                 }
             });
 
+
+            // refresh the previous page when go back
             window.onpopstate = function() {
+                history.back()
                 location.reload()
             }
 

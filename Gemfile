@@ -91,5 +91,5 @@ gem 'kaminari'
 
 # Captcha
 gem 'easy_captcha'
-gem 'rmagick'
+# gem 'rmagick'
 
