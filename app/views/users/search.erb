@@ -110,12 +110,13 @@
                                     <p class="form-control-static view">主類別</p>
                                     <div style="margin-top:5px;">
                                         <select name="main" id="mainClass_select" class="edit form-control">
+                                            <option value="-1">所有類別</option>
                                             <% t(:main_skill_category).each_with_index do |main_one, index| %>
-                                            <% if index == @main_skill_id %>
-                                            <option value="<%= index %>" selected><%= main_one['name'] %></option>
-                                            <% else %>
-                                            <option value="<%= index %>"><%= main_one['name'] %></option>
-                                            <% end %>
+                                                <% if index == @main_skill_id %>
+                                                    <option value="<%= index %>" selected><%= main_one['name'] %></option>
+                                                <% else %>
+                                                    <option value="<%= index %>"><%= main_one['name'] %></option>
+                                                <% end %>
                                             <% end %>
                                         </select>
                                     </div>
@@ -126,12 +127,13 @@
                                     <p class="form-control-static view">子類別</p>
                                     <div style="margin-top:5px;">
                                         <select name="sub" id="subClass_select2" class="form-control" >
+                                            <option value="-1">所有類別</option>
                                             <% t(:sub_skill_category)[@main_skill_id].each_with_index do |sub_one, index| %>
-                                            <% if index == @sub_skill_id %>
-                                            <option value="<%= index %>" selected><%= sub_one['name'] %></option>
-                                            <% else %>
-                                            <option value="<%= index %>"><%= sub_one['name'] %></option>
-                                            <% end %>
+                                                <% if index == @sub_skill_id %>
+                                                    <option value="<%= index %>" selected><%= sub_one['name'] %></option>
+                                                <% else %>
+                                                    <option value="<%= index %>"><%= sub_one['name'] %></option>
+                                                <% end %>
                                             <% end %>
                                         </select>
                                     </div>
@@ -307,7 +309,7 @@
         });
 
         $('select[name="main"]').change(function(){
-            $('select[name="sub"] :nth-child(0)').prop('selected', true);
+            $('select[name="sub"] :nth-child(0)').attr('selected', true);
             $('#search-form').submit();
         });
 

@@ -147,7 +147,7 @@ Sun::Application.routes.draw do
   get 'contact' => 'index#contact', :as => :index_contact
 
   namespace :users do
-    
+
     post 'add_to_favorite'
     delete 'remove_from_favorite'
     get 'check_email'

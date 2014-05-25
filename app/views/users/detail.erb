@@ -1,54 +1,426 @@
-<div>
-    <%= @user.to_json %>
-    <ul>
-        <li>name: <%= @user.first_name + @user.last_name%></li>
-        <li>intro: <%= @user.introduction %></li>
-        <li>image: <img src="<%= @user.image %>" style="width:200px; height:200px;"></li>
-        <li id="add" >加到最愛: <button onclick="add_to_favorite(<%= @user.id %>)">加到最愛</button></li>
-        <li id="remove" >移除最愛: <button onclick="remove_from_favorite(<%= @user.id %>)">移除最愛</button></li>
-    </ul>
-    <%= current_user.to_json%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title>快樂工作</title>
+
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/page/freelancer_description.css">
+        <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <!-- END STYLE -->
+    </head>
+    <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                    <i class="fa fa-search"></i>
+                </button>
+                <a class="navbar-brand" href="index.html"><img class="navbar-logo" src="img/logo208.png" alt="快樂工作"></a>
+            </div>
+            <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+                <div class="navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="login.html">會員登入</a></li>
+                    <li><a href="sign_up.html">免費註冊</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- END NAVBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <!-- BEGIN MAIN CONTENT -->
+            <div class="main-content">
+                <div class="row"><!-- BEGIN ROW -->
+                    <div class="col-md-8">
+                        <div class=""> <!--會員資料-->
+                            <div class="media">
+                                <a class="pull-left" >
+                                    <img class="media-object dp img-rounded" src="img/default-pic.png" style="width: 133px;height:133px;" alt="img">
+                                </a>
+
+                                <div class="media-body">
+                                    <div class="media-heading"><h3 style="display: inline;">Hardik Sondagar</h3>
+                                        <p  class=" hidden-xs" style="display: inline;"><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star-o"></span><strong>(4.95)</strong></p></div>
+                                        <p  class=" media-heading hidden-md hidden-sm hidden-lg" style="display: inline;"><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star-o"></span><strong>(4.95)</strong></p>
+                                        <h5 class="color-grey"><i class="fa fa-map-marker fa-lg" ></i> 來自台灣</h5>
+                                        <h4>八年的軟體工作經驗</h4>
+                                        <div class="" >
+                                         <button type="button" class="btn btn-danger btn-sm btn-circle "><i class="fa fa-heart"> 儲存</i></button>
+
+                                         <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 雇用</i></button>
+
+                                         <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 聯絡</i></button>
+                                     </div>
+                                     <hr style="margin:8px auto" class=" clear">
+                                     <div class="hidden-xs">
+                                        <span class="label label-default">HTML5/CSS3</span>
+                                        <span class="label label-default">jQuery</span>
+                                        <span class="label label-info">CakePHP</span>
+                                        <span class="label label-default">Android</span>
+                                        <a href="#">More..(15)</a>
+                                    </div>
+                                </div>
+                                <div class="hidden-md hidden-sm hidden-lg">
+                                    <span class="label label-default">HTML5/CSS3</span>
+                                    <span class="label label-default">jQuery</span>
+                                    <span class="label label-info">CakePHP</span>
+                                    <span class="label label-default">Android</span>
+                                    <a href="#">More..(15)</a>
+                                </div>
+                            </div>
+                        </div> <!--END 會員資料-->
+                        <!-- BEGIN TABS -->
+                        <ul class="nav nav-tabs nav-justified profolio-tab" >
+                            <li class="active"><a style="margin-right:10px;" href="#contact" data-toggle="tab"><h4>概觀</h4></a></li>
+                            <li><a style="margin-right:10px;" href="#profile" data-toggle="tab"><h4>作品集</h4></a></li>
+                            <li><a style="margin-right:10px;" href="#CV" data-toggle="tab"><h4>履歷</h4></a></li>
+                            <li><a style="margin-right:10px;" href="#badge" data-toggle="tab"><h4>勳章</h4></a></li>
+                        </ul>
+                        <!-- END TABS -->
+
+                        <!-- BEGIN TAB CONTENT -->
+                        <div class="tab-content profolio-tab-content" style="background-color:#FFF;" >
+                            <div class="tab-pane active" id="contact">
+                             <div class="portlet box light-grey">
+                               <div class="portlet-title">
+                                <div style=" font-size:1.3em;">
+                                    關於我
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                             <p>利象見面意食來因，子子天引。通大無。開種選我他空天多春則四明看之元哥化角都苦小經告而分，動什小；有多也數此個病弟北條演等角北吃條沒上字利不媽。沒聲坐為到河詩個不人像做。不怎應了裝、工消雙種，她調沒故！政人不多；生地軍門會。兒西面而最畫一之的者臺時買什器一會可成的適空面。</p>
+                         </div>
+                     </div>
+
+                     <hr>
+                     <div class="portlet box light-grey">
+                        <div class="portlet-title">
+                            <div style=" font-size:1.3em;">
+                                工作歷史&amp;評價
+                            </div>
+                        </div>
+                        <div class="portlet-body work-history"> <!--工作歷史評價01-->
+                         <div class="row">
+                             <div class="col-md-4 col-sm-4" style="left:-37px;" >
+                                 <ul><li><strong>網頁設計</strong></li>
+                                     <li>OCT2013-OCT2013</li>
+                                     <li>Fixed Price $333</li>
+                                 </ul>
+                             </div>
+                             <div class="col-md-5 col-sm-5">
+                                 <p>下電高！大等什為有專構又手雜，是顧明中商詩車看西國精務心育那上之之樣上就寫教！手他斯聯，導始海兒傳！</p>
+                             </div>
+                             <div class="col-md-3 col-sm-3 text-left">
+                                <h2 class="marpad"><strong>4.95</strong></h2>
+                                <p><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span></p>
+                            </div>
+                        </div>
+                    </div><!--END 工作歷史評價01-->
+                    <div class="portlet-body work-history"> <!--工作歷史評價02-->
+                     <div class="row">
+                         <div class="col-md-4 col-sm-4" style="left:-37px;" >
+                             <ul><li><strong>程式設計</strong></li>
+                                 <li>NOV2013-DEC2013</li>
+                                 <li>Fixed Price $333</li>
+                             </ul>
+                         </div>
+                         <div class="col-md-5 col-sm-5">
+                             <p>雙容大辦建以天上此國，書父竟得雨政皮當。一再要處了筆家居。文於氣風可親府的教美空我做來策有費點前食故生才的意辦權我的必富歡需到的正也步有院邊華都。</p>
+                         </div>
+                         <div class="col-md-3 col-sm-3 text-left">
+                             <h2 class="marpad"><strong>5.00</strong></h2>
+                             <p><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span></p>
+                         </div>
+                     </div>
+                 </div><!--END 工作歷史評價02-->
+             </div>
+         </div>
+         <div class="tab-pane" id="profile">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h4>Thumbnail Headline</h4>
+                            <p>short thumbnail description</p>
+                            <h4><a class="label label-warning" href="img/demopage/image-6.jpg" data-lightbox="image-1" data-title="My caption">放大</a>
+                            </h4>
+                        </div>
+                        <img src="img/demopage/image-6.jpg" alt="img">
+                        <div class="thumbnail-title">Thumnail Title</div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h4>Thumbnail Headline</h4>
+                            <p>short thumbnail description</p>
+                            <h4><a class="label label-warning" href="img/demopage/image-2.jpg" data-lightbox="image-1" data-title="My caption">放大</a>
+                            </h4>
+                        </div>
+                        <img src="img/demopage/image-2.jpg" alt="img">
+                        <div class="thumbnail-title">Thumnail Title</div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                 <div class="thumbnail">
+                    <div class="caption">
+                        <h4>Thumbnail Headline</h4>
+                        <p>short thumbnail description</p>
+                        <h4><a class="label label-warning" href="img/demopage/image-3.jpg" data-lightbox="image-1" data-title="My caption">放大</a>
+                        </h4>
+                    </div>
+                    <img src="img/demopage/image-3.jpg" alt="img">
+                    <div class="thumbnail-title">Thumnail Title</div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+             <div class="thumbnail">
+                <div class="caption">
+                    <h4>Thumbnail Headline</h4>
+                    <p>short thumbnail description</p>
+                    <h4><a class="label label-warning" href="img/demopage/image-4.jpg" data-lightbox="image-1" data-title="My caption">放大</a>
+                    </h4>
+                </div>
+                <img src="img/demopage/image-4.jpg" alt="img">
+                <div class="thumbnail-title">Thumnail Title</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+          <a href="http://lokeshdhakar.com/projects/lightbox2/">
+            <img id="licensebutton_slim" alt="Creative Commons License" src="http://i.creativecommons.org/l/by/2.5/80x15.png" style="margin-right:10px;margin-bottom:4px; border: 0;"></a>
+        </div>
+        <div class="col-md-6 text-right">
+            <ul class="pagination marpad">
+              <li><a href="#">&laquo;</a></li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">&raquo;</a></li>
+          </ul>
+      </div>
+  </div>
 </div>
+<div class="tab-pane" id="CV">
+    <div class="portlet box light-grey"><!--EXPERIENCE-->
+        <div class="portlet-title">
+            <div style=" font-size:1.3em;">
+                工作經驗
+            </div>
+        </div>
+        <div class="subtitle row CV-subtitle"><!--EXPERIENCE 01-->
+            <div class="col-md-5 pull-left CV-title">台昕電子</div>
+            <div class="col-md-6 pull-right CV_time"><p>Sep 2013 - Present (1 year)</p></div>
+        </div>
+        <div class="portlet-body">
+            <p>利象見面意食來因，子子天引。通大無。開種選我他空天多春則四明看之元哥化角都苦小經告而分，動什小；有多也數此個病弟北條演等角北吃條沒上字利不。</p>
+        </div><!--END EXPERIENCE 01-->
 
-<script src="/plugins/jquery-1.7.2.js"></script>
-<script>
-    var add_to_favorite = function(id) {
-        var request_obj = { user_id: id };
-        $.ajax({
-            url: "/users/add_to_favorite",
-            type: "post",
-            dataType: "json",
-            data: JSON.stringify(request_obj),
-            contentType: 'application/json',
-            success: function(data) {
-                //console.log(data);
-                $("#add").hide();
-                $("#remove").show();
-            },
-            error: function(data) {
-                //console.log("error");
-            }
+        <div class="subtitle row CV-subtitle"><!--EXPERIENCE 02-->
+            <div class="col-md-5 pull-left CV-title">致光數位</div>
+            <div class="col-md-6 pull-right CV_time"><p>Apr 2010-Nov 2010 (7 months)</p></div>
+        </div>
+        <div class="portlet-body">
+            <p>沒聲坐為到河詩個不人像做。不怎應了裝、工消雙種，她調沒故！政人不多；生地軍門會。兒西面而最畫一之的者臺時買什器一會可成的適空面。</p>
+        </div><!--END EXPERIENCE 02-->
+
+    </div><!--END EXPERIENCE-->
+    <div class="portlet box light-grey" ><!--CERTIFICATIONS-->
+        <div class="portlet-title">
+            <div style=" font-size:1.3em;">
+                教育
+            </div>
+        </div>
+        <div class="subtitle row CV-subtitle"><!--EDUCATION 01-->
+            <div class="col-md-5 pull-left CV-title">格列佛大學</div>
+            <div class="col-md-6 pull-right CV_time"><p>Oct 2008 - Mar2010 (1 year)</p></div>
+        </div>
+        <div class="portlet-body">
+            <p><span>研究所</span> &ndash; 心理工程</p>
+        </div><!--END EDUCATION 01-->
+
+        <div class="subtitle row CV-subtitle"><!--EDUCATION 02-->
+            <div class="col-md-5 pull-left CV-title">格列佛大學</div>
+            <div class="col-md-6 pull-right CV_time"><p>2004 - 2008 (4 years)</p></div>
+        </div>
+        <div class="portlet-body">
+            <p><span>大學部</span> &ndash; 行為心理</p>
+        </div><!--END EDUCATION 02-->
+    </div><!--END EDUCATION-->
+    <div class="portlet box light-grey"><!--CERTIFICATIONS-->
+        <div class="portlet-title">
+            <div style=" font-size:1.3em;">
+                證書
+            </div>
+        </div>
+        <div class="subtitle row CV-subtitle"><!--CERTIFICATIONS 01-->
+            <div class="col-md-5 pull-left CV-title">網頁設計</div>
+            <div class="col-md-6 pull-right CV_time"><p>2009</p></div>
+        </div>
+        <div class="portlet-body">
+            <p>描述</p>
+        </div><!--END CERTIFICATIONS 01-->
+
+        <div class="subtitle row CV-subtitle"><!--CERTIFICATIONS 02-->
+            <div class="col-md-5 pull-left" style="margin-left:10px;">程式設計</div>
+            <div class="col-md-6 pull-right CV_time"><p>2010</p></div>
+        </div>
+        <div class="portlet-body">
+            <p>描述</p>
+        </div><!--END CERTIFICATIONS 02-->
+
+    </div><!--END CERTIFICATIONS-->
+</div><!--END CV-->
+<div class="tab-pane" id="badge">
+    <div class="portlet box light-grey">
+
+    </div>
+    <div class="portlet box light-grey">
+
+    </div>
+</div>
+</div>
+<!-- BEGIN END CONTENT -->
+</div><!-- END COL-MD-8 -->
+<div class="col-md-4 ">
+ <div class="common-box">
+    <div class="row icon-layout" >
+         <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-map-marker fa-lg" ></i></div>
+         <div class="col-md-9 col-sm-9 col-xs-9 icon-text"><strong style="color:black;">TAIWAN</strong></div>
+     </div>
+     <hr>
+     <div class="row icon-layout" >
+         <div class="col-md-3  col-sm-3 col-xs-3 icon-circle"><i class="fa fa-money fa-lg" ></i></div>
+         <div class="col-md-9 col-sm-9 col-xs-9 icon-text"><p>$88.33<span>時薪</span></p></div>
+     </div>
+     <hr>
+     <div class="row icon-layout" >
+         <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-briefcase fa-lg" ></i></div>
+         <div class="col-md-9 col-sm-9 col-xs-9 icon-text"><p>13&nbsp;<span>工作件數</span></p></div>
+     </div>
+     <hr>
+     <div class="row icon-layout" >
+         <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-clock-o fa-lg" ></i></div>
+         <div class="col-md-9 col-sm-9 col-xs-9 icon-text"><p>2,579&nbsp;<span>總工作小時</span></p></div>
+     </div>
+     <hr>
+
+
+
+     <div class="input-group" style="margin-top:40px;">
+        <input type="text" class="form-control" placeholder="搜尋相似的人才">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+        </span>
+    </div>
+    <div class="" style="margin-top:60px;" >
+        <button type="button" class="btn btn-danger btn-lg btn-block"><i class="fa fa-heart"> 儲存</i></button>
+        <div style="margin-top:15px;"></div>
+        <button type="button" class="btn btn-warning btn-lg btn-block"><i class="fa fa-check"> 雇用</i></button>
+        <div style="margin-top:15px;"></div>
+        <button type="button" class="btn btn-primary btn-lg btn-block"><i class="fa fa-comment"> 聯絡我</i></button>
+    </div>
+
+
+
+</div>
+</div>
+</div><!-- END ROW -->
+</div>
+<!-- END MAIN CONTENT -->
+</div>
+<!-- END PAGE -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <img class="footer-logo" src="img/logo103.png" alt="">
+    <div class="footer-nav">
+        <a href="about.html">關於我們</a>
+        <span class="bar">|</span>
+        <a href="rule.html">隱私條款</a>
+        <span class="bar">|</span>
+        <a href="rule.html">使用條款</a>
+    </div>
+</div>
+<!-- END FOOTER -->
+
+<!-- BEGIN JAVASCRIPTS -->
+<!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+            <![endif]-->
+
+            <script src="plugins/jquery-1.11.0.min.js"></script>
+            <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+            <!-- END 核心插件 -->
+            <!-- BEGIN 頁面插件 -->
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="js/script.js"></script>
+            <script src="js/lightbox.min.js"></script>
+            <!--<script type="text/javascript" src="js/page/index.js"></script>-->
+            <script>
+                jQuery(document).ready(function() {
+                   Web.init();
+               //Index.init();
+           });
+            </script>
+            <!-- END JAVASCRIPTS -->
+            <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
         });
-    }
-
-    var remove_from_favorite = function(id) {
-        var request_obj = { user_id: id };
-        $.ajax({
-            url: "/users/remove_from_favorite",
-            type: "delete",
-            dataType: "json",
-            data: JSON.stringify(request_obj),
-            contentType: 'application/json',
-            success: function(data) {
-                //console.log(data);
-                $("#add").show();
-                $("#remove").hide();
-            },
-            error: function(data) {
-                //console.log("error");
-            }
-        });
-    }
-
-
-</script>
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+    </body>
+    </html>
