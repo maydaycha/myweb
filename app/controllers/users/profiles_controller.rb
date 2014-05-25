@@ -169,7 +169,6 @@ class Users::ProfilesController < ApplicationController
 
   def show_image
     if user_signed_in?
-      puts params
       user = User.find(params[:id])
       if user.picture == nil
         render :text => open("public/img/staff.png", "rb").read
@@ -181,19 +180,18 @@ class Users::ProfilesController < ApplicationController
     end
   end
 
-  def show_portfolio_image1
-    if current_user.user_portfolios[params[:index].to_i].picture1 == nil
+  def show_portfolio_image
+    if params[:id].nil?
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
+    if @user.user_portfolios[params[:index].to_i].picture1 == nil
       render :text => open("public/img/staff.png", "rb").read
     else
-      send_data current_user.user_portfolios[params[:index].to_i].picture1, :type => 'image/png', :disposition => 'inline'
+      send_data @user.user_portfolios[params[:index].to_i].picture1, :type => 'image/png', :disposition => 'inline'
     end
   end
 
-  def show_portfolio_image2
-    if current_user.user_portfolios[params[:index].to_i].picture2 == nil
-      render :text => open("public/img/staff.png", "rb").read
-    else
-      send_data current_user.user_portfolios[params[:index].to_i].picture2, :type => 'image/png', :disposition => 'inline'
-    end
-  end
+
 end

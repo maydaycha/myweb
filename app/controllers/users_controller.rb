@@ -42,20 +42,18 @@ class UsersController < ApplicationController
 
     @users.delete_if{ |e| e.id == current_user.id or @pay_min > e.hourly_pay or e.hourly_pay > @pay_max }
 
-    # @total_size = @users.size
+    @total_size = @users.size
     @users = Kaminari.paginate_array(@users).page(params[:page]).per(5)
   end
 
 
   def add_to_favorite
-    if not current_user.user_favorites.where(favorite_user_id: params[:user_id])
-      current_user.user_favorites.create!(favorite_user_id: params[:user_id])
-    end
+    current_user.user_favorites.create!(favorite_user_id: params[:user_id]) unless current_user.user_favorites.exists?(favorite_user_id: params[:user_id])
     render json: current_user.user_favorites
   end
 
   def remove_from_favorite
-    current_user.user_favorites.where(favorite_user_id: params[:user_id]).destroy_all
+    current_user.user_favorites.where(favorite_user_id: params[:user_id]).delete_all
     render json: current_user.user_favorites
   end
 

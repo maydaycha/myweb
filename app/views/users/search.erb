@@ -71,7 +71,7 @@
     <!-- END NAVBAR -->
     <!-- BEGIN PAGE -->
     <h1 class="title" style="margin-bottom:0px; padding-bottom:5px;"><%= t(:main_skill_category)[@main_skill_id]["name"] %></h1>
-    <h3 class="text-center" style="padding:0px; margin:0px;">共有<%= @total_size %>個結果</h3>
+    <h3 class="text-center" style="padding:0px; margin:0px;">共有 <%= @total_size %> 個結果</h3>
     <div class="page-content container">
         <div class="main-content">
             <div class="container">
@@ -196,7 +196,7 @@
 
                     <div class="col-md-8"> <!--dRight-->
                         <div> <!--Search Result Data-->
-                            <% @users.each do |user| %>
+                            <% @users.each_with_index do |user, index| %>
                                 <div class=""> <!--會員資料-->
                                     <div class="media">
 
@@ -205,7 +205,7 @@
                                         </a>
 
                                         <div class="media-body">
-                                            <h4 class="media-heading"><%= link_to user.first_name+user.last_name, users_detail_path(user) %>
+                                            <h4 class="media-heading"><%= link_to user.first_name+" "+user.last_name, users_detail_path(user) %>
                                                 <!-- TODO: Future -->
                                                 <!-- <span class=" fa fa-star"></span>
                                                 <span class=" fa fa-star"></span>
@@ -216,7 +216,13 @@
                                             </h4>
                                             <h5><%= user.introduction %></h5>
                                             <div class="" >
-                                                <button type="button" class="btn btn-danger btn-sm btn-circle "><i class="fa fa-heart"> 儲存</i></button>
+                                                <% if not current_user.user_favorites.exists?(favorite_user_id: user.id) %>
+                                                    <button id="add<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= user.id %>)"><i class="fa fa-heart"> 儲存</i></button>
+                                                    <button id="remove<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= user.id %>)" style="display:none;"><i class="fa fa-heart"> 移除</i></button>
+                                                <% else %>
+                                                    <button id="add<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= user.id %>)" style="display:none;"><i class="fa fa-heart"> 儲存</i></button>
+                                                    <button id="remove<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= user.id %>)"><i class="fa fa-heart"> 移除</i></button>
+                                                <% end %>
 
                                                 <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 雇用</i></button>
 
@@ -317,6 +323,39 @@
             $('#search-form').submit();
         });
     });
+
+    var add_to_favorite = function(ele_id, id) {
+        var request_obj = { user_id: id };
+        $.ajax({
+            url: "/users/add_to_favorite",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
+                console.log(data);
+                $("#"+ele_id).next().show()
+                $("#"+ele_id).hide()
+            }
+        });
+    }
+
+    var remove_from_favorite = function(ele_id, id) {
+        var request_obj = { user_id: id };
+        $.ajax({
+            url: "/users/remove_from_favorite",
+            type: "delete",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
+                console.log(data);
+                $("#"+ele_id).prev().show()
+                $("#"+ele_id).hide()
+            }
+        });
+    }
+
     </script>
 
     <!-- END JAVASCRIPTS -->

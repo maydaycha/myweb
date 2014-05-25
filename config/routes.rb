@@ -130,8 +130,7 @@ Sun::Application.routes.draw do
   post 'users/profiles/check_password' => 'users/profiles#check_password'
   get 'users/profiles/show_image/:id' => 'users/profiles#show_image'
   get 'import_from_csv' => 'skills#import_from_csv'
-  get 'users/profiles/show_portfolio_image1/:index' => 'users/profiles#show_portfolio_image1'
-  get 'users/profiles/show_portfolio_image2/:index' => 'users/profiles#show_portfolio_image2'
+  get 'users/profiles/show_portfolio_image/:index' => 'users/profiles#show_portfolio_image'
 
   get 'skills/exist' => 'skills#exist'
   get 'skills/autocomplete' => 'skills#autocomplete'
