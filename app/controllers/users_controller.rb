@@ -30,6 +30,8 @@ class UsersController < ApplicationController
 
     if @main_skill_id == -1 # not specify category
       @users = User.all
+      # 移除註冊不完全的使用者
+      @users.delete_if{ |e| e.hourly_pay.nil? }
       # search by keyword
       @users = User.where("introduction LIKE :keyword", {:keyword => "%#{@keyword}%"}) unless @keyword.blank?
     elsif @main_skill_id != -1 and @sub_skill_id == -1 # only specify main_category
