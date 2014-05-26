@@ -26,6 +26,12 @@ module Sun
 
     config.assets.initialize_on_precompile = false
 
-
+    if Rails.env.development?
+      # Don't log to STDOUT, by default rails s will handle it
+      config.logger = Logger.new('/dev/null')
+    else
+      # Don't log to file, sending everything to unicorn file.
+      config.logger = Logger.new(STDOUT)
+    end
   end
 end
