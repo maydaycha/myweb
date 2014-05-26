@@ -45,7 +45,7 @@ Sun::Application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  # config.log_level = :info
+  config.log_level = :info
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -91,7 +91,7 @@ Sun::Application.configure do
   # config.autoflush_log = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  # config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = ::Logger::Formatter.new
 
   #  prevent asset pipeline may break some of your AngularJS code due to renaming.
   config.assets.js_compressor = Uglifier.new(mangle: false)
