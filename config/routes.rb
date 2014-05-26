@@ -131,6 +131,7 @@ Sun::Application.routes.draw do
   get 'users/profiles/show_image/:id' => 'users/profiles#show_image'
   get 'import_from_csv' => 'skills#import_from_csv'
   get 'users/profiles/show_portfolio_image/:index' => 'users/profiles#show_portfolio_image'
+  get 'users/profiles/download_document/:index' => 'users/profiles#download_portfolio_document', as: "users_download_document"
 
   get 'skills/exist' => 'skills#exist'
   get 'skills/autocomplete' => 'skills#autocomplete'

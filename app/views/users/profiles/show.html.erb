@@ -1108,7 +1108,7 @@
                                     </td>
 
                                     <td><%= e.name %></td>
-                                    <td><%= e.document_name %></td>
+                                    <td><%= link_to e.document_name, users_download_document_path(index) %></td>
                                     <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="delete_portfolio(<%= e.id %>)">刪除</button></td>
                                 </tr>
                                 <% end %>
@@ -1336,7 +1336,12 @@
         </div>
     </div>
     <!-- END FOOTER -->
-
+    <% upload_fail = "上傳失敗" %>
+    <div id="string">
+        <input type="text" id="upload_fail" value="<%= upload_fail %>">
+        <input type="text" value="" >
+        alert("上傳失敗")
+    </div>
     <!-- BEGIN JAVASCRIPTS -->
     <!-- BEGIN 核心插件 -->
 <!--[if lt IE 9]>
@@ -1833,7 +1838,7 @@
                 location.reload()
             }
         }
-        
+
         xhr.send(fd)
     }
 

@@ -24,12 +24,12 @@ class Users::ProfilesController < ApplicationController
 
   def update
     UserSkill.where(user_id: current_user.id).delete_all
-    
+
     foeign_skills = []
     params[:user][:user_skills].split(",").each{ |e| foeign_skills << current_user.user_skills.create!(name: e) }
-    
+
     params[:user][:user_skills] = foeign_skills
-    
+
     params[:user][:picture] = open(params[:image].tempfile).read if params[:image]
     params[:user][:step] = 2
     puts params.permit![:user]
@@ -196,6 +196,11 @@ class Users::ProfilesController < ApplicationController
     else
       send_data @user.user_portfolios[params[:index].to_i].picture1, :type => 'image/png', :disposition => 'inline'
     end
+  end
+
+
+  def download_portfolio_document
+    send_data current_user.user_portfolios[params[:index].to_i].document_content, filename: current_user.user_portfolios[params[:index].to_i].document_name + ".pdf"
   end
 
 
