@@ -194,7 +194,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">個人簡介(僅限20字) <a href="javascript:;" class="show-tip" data-original-title="<h4>簡潔有力的文字描述您工作，例如:</h4><ul><li>有十年經驗的行動裝置程式開發人員</li><li>有五年經驗的紐約州執業律師</li><li>曾獲得德國紅點設計大獎</li></ul>">
+                                        <label class="col-md-3 control-label">個人簡介(僅限200字) <a href="javascript:;" class="show-tip" data-original-title="<h4>簡潔有力的文字描述您工作，例如:</h4><ul><li>有十年經驗的行動裝置程式開發人員</li><li>有五年經驗的紐約州執業律師</li><li>曾獲得德國紅點設計大獎</li></ul>">
                                             <i class="fa fa fa-info-circle" ></i>
                                         </a></label>
                                         <div class="col-md-9">
@@ -213,7 +213,7 @@
                                         <label class="col-md-3 control-label">技能專長</label>
                                         <div class="col-md-9">
                                             <!-- <input id="skill-tags" name="skill" type="text" class="form-control tags" value=""/> -->
-                                            <%= f.text_field :user_skills, class: "form-control tags", id: "skill-tags", value: current_user.user_skills.empty? ? "" : current_user.user_skills.map {|e| e.name}.join(",") %>
+                                            <%= f.text_field :user_skills, class: "form-control tags", id: "skill-tags", value: current_user.user_skills.empty? ? "" : current_user.user_skills.map {|e| e.name}.join(", ") %>
                                             <p class="help-block">
                                                 建議您輸入技能專長，例如CSS, HTML Coding。
                                             </p>

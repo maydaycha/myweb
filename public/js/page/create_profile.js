@@ -119,7 +119,7 @@ var CreateProfile = function(){
                     required: true
                 },
                 'user[introduction]': {
-                    maxlength: 20
+                    maxlength: 200
                 },
                 'user[review]': {
                     maxlength: 1000

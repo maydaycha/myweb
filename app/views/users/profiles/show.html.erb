@@ -1410,6 +1410,8 @@
                 main_category_id: $(this).val()
             };
 
+            $('#work_subClass_select2').attr('disabled', true);
+
             $.ajax({
                 url: "/users/profiles/ajax_updae",
                 type: "post",
@@ -1417,14 +1419,15 @@
                 data: JSON.stringify(request_obj),
                 contentType: 'application/json',
                 success: function(data) {
-                //console.log(data);
-                $("#work_subClass_select2 option").remove();
-                var select = $("#work_subClass_select2");
-                for(var key in data) {
-                   select.append($("<option></option>").attr("value", key).text(data[key].name));
-               }
-            } });
-    });
+                    $("#work_subClass_select2 option").remove();
+                    var select = $("#work_subClass_select2");
+                    for(var key in data) {
+                        select.append($("<option></option>").attr("value", key).text(data[key].name));
+                    }
+                    $('#work_subClass_select2').attr('disabled', false);
+                }
+            });
+        });
 
     Dropzone.autoDiscover = true;
     Dropzone.options.addWorksfile = {
@@ -1830,6 +1833,7 @@
                 location.reload()
             }
         }
+        
         xhr.send(fd)
     }
 
