@@ -59,6 +59,7 @@ jQuery.validator.addMethod("myPasswordMatch", function(value, element) {
     return !result;
 }, "This field has isInconsistent data");
 
+
 // scott comment
 // jQuery.validator.addMethod("myPassword", function(value, element) {
 //     var result;

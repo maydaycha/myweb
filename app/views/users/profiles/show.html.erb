@@ -6,6 +6,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0">
     <title>快樂工作</title>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script> -->
@@ -45,18 +47,8 @@
         </style>
     </head>
     <body>
-<<<<<<< HEAD
-    <div id="loader" style="z-index:10; position:fixed; width:100%; height:100%; display: none;" align="center">
-        <img style="-webkit-opacity: 0.4;
-    -moz-opacity: 0.4;
-    filter:alpha(opacity=40);" src="/img/spinner.gif">
-=======
-    <!-- <div id="loader" style="z-index:10; position:fixed; width:100%; height:100%; display: none;" align="center">
-        <img src="/img/loading.gif">
-    </div> -->
     <div id="loader" style="z-index:10; position:fixed; width:100%; height:100%; display: none;" align="center">
         <img style="-webkit-opacity: 0.4; -moz-opacity: 0.4; filter:alpha(opacity=40);" src="/img/spinner.gif">
->>>>>>> cab774b9115d8da2b1cee5070cdfba35f439de80
     </div>
         <!-- BEGIN NAVBAR -->
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -117,15 +109,9 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
             <div class="container alert-bordered" >
                 <div class="row">
                     <p></p>
-=======
-
-            <div class="container" id="error_message">
-                <p></p>
->>>>>>> cab774b9115d8da2b1cee5070cdfba35f439de80
                 <% if notice %>
                     <p class="alert alert-success"><%= notice %></p>
                 <% end %>
@@ -134,7 +120,7 @@
                 <% end %>
                 </div>
             </div>
-            
+
 
             <!-- BEGIN MAIN CONTENT -->
             <div class="main-content">
@@ -525,7 +511,7 @@
                                     <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet1" onclick="javascript: expand_count++;">
                                         <i class="fa fa-pencil-square-o"></i>編輯
                                     </a>
-                                    <a href="javascript:;" onclick="update_basic_info(2)" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet1">
+                                    <a href="javascript:;" onclick="update_basic_info(2)" class="edit" data-original-title="收合" data-portlet="#profile-portlet1">
                                     <i class="fa fa-chevron-up"></i>
                                 </a>
                                     <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1"> -->
@@ -538,7 +524,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">使用者名稱</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id=""><%= current_user.username %> </p>
+                                            <p class="form-control-static view" id="username"><%= current_user.username %> </p>
                                             <input type="text" class="form-control edit" placeholder="姓名" value="<%= current_user.username %>" disabled>
                                         </div>
                                     </div>
@@ -546,62 +532,32 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">姓氏</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id="fullname2"><%= current_user.first_name %></p>
-                                            <input type="text" name="name" class="form-control edit" placeholder="姓氏" value="<%= current_user.first_name %>">
+                                            <p class="form-control-static view" id="first_name"><%= current_user.first_name %></p>
+                                            <input type="text" name="first_name" class="form-control edit" placeholder="姓氏" value="<%= current_user.first_name %>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">名字</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id=""><%= current_user.last_name %></p>
-                                            <input type="text" name="name" class="form-control edit" placeholder="名字" value="<%= current_user.last_name %>">
+                                            <p class="form-control-static view" id="last_name"><%= current_user.last_name %></p>
+                                            <input type="text" name="last_name" class="form-control edit" placeholder="名字" value="<%= current_user.last_name %>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人簡述</label>
                                         <div class="col-md-10">
-<<<<<<< HEAD
-                                            <p class="form-control-static edit">最認真負責的自由工作者</p>
-                                            <p class="form-control-static view">最認真負責的自由工作者</p>
-                                            <!-- <label class="radio-inline edit">
-                                                <input type="radio" name="status" checked> 最認真負責的自由工作者
-                                            </label> -->
-                                            <!-- <label class="radio-inline edit">
-                                                <input type="radio" name="status"> 最奸詐狡猾苛薄的雇主
-                                            </label> -->
-=======
-                                            <p class="form-control-static view" id="sketch"><%= current_user.introduction %></p>
-                                            <input type="text" name="sketch" class="form-control edit" placeholder="個人簡述" value="<%= current_user.introduction %>" >
->>>>>>> cab774b9115d8da2b1cee5070cdfba35f439de80
+                                            <p class="form-control-static view" id="introduction"><%= current_user.introduction %></p>
+                                            <input type="text" name="introduction" class="form-control edit" placeholder="個人簡述" value="<%= current_user.introduction %>" >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">詳細介紹<br>(僅限1000字)</label>
                                         <div class="col-md-10">
-<<<<<<< HEAD
-                                        <p class="form-control-static view">什臉站人，關年懷問常玩黑本，要不種通舉成，阿山至不衣這，真持樣。老們加完地年房獲……中度里約說讀，有可外回成必方速面時像日不國提人：和合我局加灣人石黃色山，口設苦也美發多未？了創究月金險在生。素有科書風？都舉了得中動術已家，的團的文關字太手工只教我邊，界知方機當對。
-
-</p>
-                                        <textarea name="review" class="form-control edit" rows="3" placeholder="個人詳細介紹"></textarea>
-=======
-                                            <p class="form-control-static view" id=""><%= current_user.username %> </p>
-                                            <input type="text" class="form-control edit" placeholder="使用者名稱" value="<%= current_user.username %>" disabled>
+                                            <p class="form-control-static view" id="review"><%= current_user.review %></p>
+                                            <textarea name="review" class="form-control edit" rows="3" placeholder="個人詳細介紹"><%= current_user.review %></textarea>
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">名字</label>
-                                        <div class="col-md-10">
-                                            <p class="form-control-static view" id="first_name"><%= current_user.last_name %></p>
-                                            <input type="text" name="first_name" class="form-control edit" placeholder="名字" value="<%= current_user.first_name %>">
-                                        </div>
-                                        <label class="col-md-2 control-label">姓</label>
-                                        <div class="col-md-10">
-                                            <p class="form-control-static view" id="last_name"><%= current_user.first_name %></p>
-                                            <input type="text" name="last_name" class="form-control edit" placeholder="姓" value="<%= current_user.last_name %>">
->>>>>>> cab774b9115d8da2b1cee5070cdfba35f439de80
-                                        </div>
-                                    </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人圖像</label>
                                         <div class="col-md-10 divcss5">
@@ -628,7 +584,7 @@
                                          </div>
                                      </div>
                                      <div class="pull-right" style="margin:20px 16px 0 0;">
-                                        <button onclick="update_basic_info(2)" class="btn btn-default tool-save edit prevent" data-original-title="收合" data-portlet="#profile-portlet1">收合</button>
+                                        <button onclick="update_basic_info(2)" class="btn btn-default edit prevent" data-original-title="收合" data-portlet="#profile-portlet1" >收合</button>
                                     </div>
                                 </div>
                             </form>
@@ -702,11 +658,11 @@
                                                 <div class="edit">
                                                     <select name="subClass" class="form-control select2 subClass_select2" multiple>
                                                         <% t(:sub_skill_category)[s.main_skill_id].each_with_index do |x, i|%>
-                                                        <% if current_user.user_skill_categories.map{ |m| "#{m.main_skill_id.to_i} #{m.sub_skill_id.to_i}" }.include? "#{s.main_skill_id} #{i}" %>
-                                                        <option value="<%= i %>" selected><%= x['name'] %></option>
-                                                        <% else%>
-                                                        <option value="<%= i %>"><%= x['name'] %></option>
-                                                        <% end %>
+                                                            <% if current_user.user_skill_categories.map{ |m| "#{m.main_skill_id.to_i} #{m.sub_skill_id.to_i}" }.include? "#{s.main_skill_id} #{i}" %>
+                                                                <option value="<%= i %>" selected><%= x['name'] %></option>
+                                                            <% else%>
+                                                                <option value="<%= i %>"><%= x['name'] %></option>
+                                                            <% end %>
                                                         <% end %>
                                                     </select>
                                                 </div>
@@ -918,13 +874,8 @@
                                 <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#education-modal">
                                     <i class="fa fa-plus"></i>
                                 </a>
-<<<<<<< HEAD
                                 <a href="javascript:;" onclick="update_category()" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet5">
-                                    <i class="fa fa-chevron-up"></i>
-=======
-                                <a href="javascript:;" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet5">
                                     <i class="fa fa-chevron-up" onclick="javascript: expand_count--;"></i>
->>>>>>> cab774b9115d8da2b1cee5070cdfba35f439de80
                                 </a>
                                 <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet5"> -->
                                 <!-- </a> -->
@@ -1096,11 +1047,11 @@
                                                 <form class="dropzone dz-clickable", action="/users/profiles/ajax_updae" id="addWorksfile">
                                                     <div class="dz-default dz-message"><span>上傳檔案</span></div>
                                                 </form>
-                                                <p class="help-block">上傳檔案/文件</p>
+                                                <p class="help-block">上傳縮圖</p>
                                             </div>
                                             <div class="form-group">
                                                 <input type="file" name="thumbnail" class="form-control" accept="application/pdf" onchange="check_document_size()">
-                                                <p class="help-block">上傳縮圖</p>
+                                                <p class="help-block">上傳檔案/文件</p>
                                             </div>
                                             <div class="form-group">
                                                 <select name="mainClass" class="form-control", id="work_main_class">
@@ -1152,7 +1103,7 @@
                                 <tr>
                                     <td>
                                         <% if e.picture1 %>
-                                        <%= image_tag url_for(:controller => "users/profiles", :action => "show_portfolio_image1", :index => index), class: "img-thumbnail img-responsive", width: "113", height: "113" %>
+                                        <%= image_tag url_for(:controller => "users/profiles", :action => "show_portfolio_image", :index => index), class: "img-thumbnail img-responsive", width: "113", height: "113" %>
                                         <% end %>
                                     </td>
 
@@ -1382,7 +1333,7 @@
             <%= link_to "使用條款", index_rule_path %>
             <span class="bar">|</span>
             <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
-        </ul>
+        </div>
     </div>
     <!-- END FOOTER -->
 
@@ -1394,18 +1345,6 @@
 <![endif]-->
 
 <script>
-    var education_add_list = [];
-    var education_delete_list = [];
-    var education_update_list = [];
-    var experience_add_list = [];
-    var experience_delete_list = [];
-    var experience_update_list = [];
-    var certificate_add_list = [];
-    var certificate_delete_list = [];
-    var certificate_update_list = [];
-    var works_add_list = [];
-    var works_delete_list = [];
-
     var myDropzone;
 </script>
 
@@ -1439,6 +1378,7 @@
        Web.init();
        PersonalProfile.init();
 
+
        // clean all form data while user click next page to arrive here
        $("form")[0].reset();
 
@@ -1446,19 +1386,15 @@
             $(".control_sub_calss"+i).hide();
         }
 
-        var is_origin = true
-        var ori = ""
-
-        // $(':input').bind('input', function() {
-        //      window.onbeforeunload = function(e) {
-        //         if( warn_on_unload != '' ) return warn_on_unload
-        //     }
-        // });
-
         window.onbeforeunload = function(e) {
             if( expand_count > 0 && warn_on_unload != '') return warn_on_unload
         }
 
+        history.pushState("trick", null, null)
+
+        window.onpopstate = function(e) {
+            history.back()
+        }
 
         $(".main_class").change(main_class_change);
 
@@ -1522,11 +1458,12 @@
             });
         },
         paramName: "file",
-        maxFilesize: 5,
+        maxFilesize: 0.5,
         maxFiles: 1,
         autoProcessQueue: false,
         addRemoveLinks: true,
         uploadMultiple: true,
+        acceptedFiles: "image/jpeg, image/png"
     };
 
 
@@ -1592,21 +1529,46 @@
 
 
     var update_basic_info = function(form_num) {
+        var double_check = 2
+        if( $("#contact-form" + form_num + " input[name='first_name']").val() == '' ) {
+            $("#contact-form" + form_num + " input[name='first_name']").focus()
+            $("#contact-form" + form_num + " input[name='first_name']").css("border-color", "red")
+        } else {
+            double_check--
+        }
+        if( $("#contact-form" + form_num + " input[name='last_name']").val() == '' ) {
+            $("#contact-form" + form_num + " input[name='last_name']").focus()
+            $("#contact-form" + form_num + " input[name='last_name']").css("border-color", "red")
+        } else {
+            double_check--
+        }
+        if(double_check == 0) {
+            var portlet = $("#profile-portlet1")
+            console.log(portlet)
+            portlet.removeClass('show-edit');
+            portlet.addClass('show-view');
+        } else {
+            return
+        }
+
         var obj = {
             request: "update_basic_info",
-            sketch: $("#contact-form" + form_num + " input[name='sketch']").val(),
+            introduction: $("#contact-form" + form_num + " input[name='introduction']").val(),
+            review: $("#contact-form" + form_num + " textarea[name='review']").val(),
             first_name: $("#contact-form" + form_num + " input[name='first_name']").val(),
             last_name: $("#contact-form" + form_num + " input[name='last_name']").val(),
             money: $("#contact-form" + form_num + " input[name='money']").val()
         }
         $("#loader").show()
+        console.log("test")
         $.ajax({
             url: "/users/profiles/ajax_updae",
             type: "post",
             dataType: "json",
             data: obj,
             success: function(data) {
-                $("#sketch").text(data.sketch)
+                $("#introduction").text(data.introduction)
+                $("#review").text(data.review)
                 $("#first_name").text(data.first_name)
                 $("#last_name").text(data.last_name)
                 $("#money2").text('$' + data.hourly_pay + ' USD/HR')
@@ -1677,20 +1639,25 @@ var main_class_change = function(){
     //console.log(parent);
     $(parent).find(".select2-search-choice").remove();
 
+    var select = $(parent).find('select.subClass_select2');
+
+    select.attr("disabled", true)
     $.ajax({
         url: "/users/profiles/ajax_updae",
         type: "post",
         dataType: "json",
         data: JSON.stringify(request_obj),
         contentType: 'application/json',
+        async: false,
         success: function(data) {
             //console.log(data);
             $(parent).find('select.subClass_select2 option').remove();
-            var select = $(parent).find('select.subClass_select2');
+
             //console.log(select);
             for(var key in data) {
                select.append($("<option></option>").attr("value", key).text(data[key].name));
            }
+           select.attr("disabled", false)
        }
     })
 }
@@ -1813,7 +1780,39 @@ var main_class_change = function(){
     }
 
     var add_portfolio = function() {
-        addWorksfile.processQueue();
+        if( addWorksfile.getQueuedFiles().length > 0) addWorksfile.processQueue()
+        else add_portfolio_without_thumbnail()
+    }
+
+    var add_portfolio_without_thumbnail = function() {
+        $("#loader").show()
+        var fd = new FormData()
+        if( typeof $("#works-modal input[name=thumbnail]")[0].files[0] != 'undefined' ) {
+            fd.append('document_name', $("#works-modal input[name=thumbnail]")[0].files[0].name)
+            fd.append('document_content', $("#works-modal input[name=thumbnail]")[0].files[0])
+        }
+        fd.append('name', $("#works-modal input[name=title]").val())
+        fd.append('description', $("#works-modal textarea[name=description]").val())
+        fd.append('main_skill_id', $("#work_main_class").val())
+        fd.append('sub_skill_id', $("#work_subClass_select2").val())
+        fd.append('date', $("#works-modal input[name=start]").val())
+        fd.append('skill', $("#works-modal input[name=skill]").val())
+        fd.append('request', "add_portfolio")
+        warn_on_unload = ''
+
+        var xhr = new XMLHttpRequest()
+        xhr.open('post', '/users/profiles/ajax_updae', true)
+
+        xhr.onload = function() {
+            if (this.status == 200) {
+                $("#loader").hide()
+                location.reload()
+            } else {
+                alert("上傳失敗")
+                location.reload()
+            }
+        }
+        xhr.send(fd)
     }
 
     var delete_portfolio = function (id) {
@@ -1842,6 +1841,8 @@ var main_class_change = function(){
             $("#btn-addWorks").attr('disabled', false)
         }
     }
+
+
 
     var delete_certification = function(id) {
         var request_obj = {

@@ -17,4 +17,8 @@ class SkillsController < ApplicationController
     Skill.import_from_csv
   end
 
+  def exist
+    render json: {status: Skill.exists?(:name => params[:name])}
+  end
+
 end

@@ -93,18 +93,46 @@ var PersonalProfile = function(){
 		});
 	}
 
+	var validateSkillExist = function(value){
+		var result = false;
+		$.ajax({
+			url: "/skills/exist",
+			type: "get",
+			dataType: "json",
+			data: {name: value},
+	        success: function(data) {
+	            result = data.status;
+	        },
+	        error: function(data) {
+	        },
+	        async: false
+	    });
+	    if (result == false)
+	    	$(this).removeTag(value);
+
+	    var skills_arr = $(this).val().split(',');
+	    if (skills_arr.length > 8) {
+	    	alert('目前只能擁有8項技能');
+	    	$(this).removeTag(value);
+	    }
+	}
+
 	var initSkillTags = function(){
 		$('#skill-tags').tagsInput({
 			width: 'auto',
 			defaultText: "技能標籤",
+			maxCount: 3,
 			placeholderColor: '#999',
-			autocomplete_url:'/skills/autocomplete'
+			autocomplete_url:'/skills/autocomplete',
+			onAddTag: validateSkillExist
 		});
 		$('#addWorks-skill-tags').tagsInput({
 			width: 'auto',
 			defaultText: "技能標籤",
+			maxCount: 3,
 			placeholderColor: "#999",
-			autocomplete_url:'/skills/autocomplete'
+			autocomplete_url:'/skills/autocomplete',
+			onAddTag: validateSkillExist
 		});
 		$('.tagsinput').addClass('form-control');
 		$('#skill-tags_tag').css('color', '#999');
@@ -161,7 +189,8 @@ var PersonalProfile = function(){
 				organization: $('#experience-modal input[name=organization]').val(),
 				office: $('#experience-modal input[name=office]').val(),
 				description: $('#experience-modal textarea[name=description]').val()
-			};
+			}
+			$("#experience-modal").modal('toggle')
          	$("#loader").show()
 	         $.ajax({
 	            url: "/users/profiles/ajax_updae",
@@ -170,15 +199,14 @@ var PersonalProfile = function(){
 	            data: JSON.stringify(request_obj),
 	            contentType: 'application/json',
 	            success: function(data) {
-	            	$("#loader").hide()
-	                $('#experience-table').append(tr);
-					$('#experience-modal input[name=start]').val('');
-					$('#experience-modal input[name=end]').val('');
-					$('#experience-modal input[name=organization]').val('');
-					$('#experience-modal input[name=office]').val('');
-					$('#experience-modal textarea[name=description]').val('');
-					initExperienceTable();
-					$("#experience-modal").modal('toggle');
+	                $('#experience-table').append(tr)
+					$('#experience-modal input[name=start]').val('')
+					$('#experience-modal input[name=end]').val('')
+					$('#experience-modal input[name=organization]').val('')
+					$('#experience-modal input[name=office]').val('')
+					$('#experience-modal textarea[name=description]').val('')
+					$("#loader").hide()
+					initExperienceTable()
 	            }
 	        });
 		});
@@ -295,6 +323,7 @@ var initAddEducation = function(){
 			department: $('#education-modal input[name=office]').val(),
 			description: $('#education-modal textarea[name=description]').val()
 		}
+		$("#education-modal").modal('toggle');
 		$("#loader").show()
 		$.ajax({
 	            url: "/users/profiles/ajax_updae",
@@ -303,15 +332,14 @@ var initAddEducation = function(){
 	            data: JSON.stringify(request_obj),
 	            contentType: 'application/json',
 	            success: function(data) {
-	                $("#loader").hide()
 	                $('#education-table').append(tr);
 					$('#education-modal input[name=start]').val('');
 					$('#education-modal input[name=end]').val('');
 					$('#education-modal input[name=organization]').val('');
 					$('#education-modal input[name=office]').val('');
 					$('#education-modal textarea[name=description]').val('');
+					$("#loader").hide()
 					initEducationTable();
-					$("#education-modal").modal('toggle');
 	            }
 	        });
 	});
@@ -421,6 +449,7 @@ var initAddCertificate = function(){
 			description: $('#certificate-modal textarea[name=description]').val()
 		};
 
+		$("#certificate-modal").modal('toggle');
 		$("#loader").show()
 		$.ajax({
 	            url: "/users/profiles/ajax_updae",
@@ -429,14 +458,13 @@ var initAddCertificate = function(){
 	            data: JSON.stringify(request_obj),
 	            contentType: 'application/json',
 	            success: function(data) {
-	                $("#loader").hide()
 					$('#certificate-table').append(tr);
 					$('#certificate-modal input[name=certificate]').val('');
 					$('#certificate-modal input[name=cer-source]').val('');
 					$('#certificate-modal input[name=start]').val('');
 					$('#certificate-modal textarea[name=description]').val('');
+					$("#loader").hide()
 					initCertificateTable();
-					$("#certificate-modal").modal('toggle');
 	            }
 	     });
 	});

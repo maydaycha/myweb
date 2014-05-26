@@ -71,7 +71,7 @@
     <!-- END NAVBAR -->
     <!-- BEGIN PAGE -->
     <h1 class="title" style="margin-bottom:0px; padding-bottom:5px;"><%= t(:main_skill_category)[@main_skill_id]["name"] %></h1>
-    <h3 class="text-center" style="padding:0px; margin:0px;">共有<%= @total_size %>個結果</h3>
+    <h3 class="text-center" style="padding:0px; margin:0px;">共有 <%= @total_size %> 個結果</h3>
     <div class="page-content container">
         <div class="main-content">
             <div class="container">
@@ -110,12 +110,13 @@
                                     <p class="form-control-static view">主類別</p>
                                     <div style="margin-top:5px;">
                                         <select name="main" id="mainClass_select" class="edit form-control">
+                                            <option value="-1">所有類別</option>
                                             <% t(:main_skill_category).each_with_index do |main_one, index| %>
-                                            <% if index == @main_skill_id %>
-                                            <option value="<%= index %>" selected><%= main_one['name'] %></option>
-                                            <% else %>
-                                            <option value="<%= index %>"><%= main_one['name'] %></option>
-                                            <% end %>
+                                                <% if index == @main_skill_id %>
+                                                    <option value="<%= index %>" selected><%= main_one['name'] %></option>
+                                                <% else %>
+                                                    <option value="<%= index %>"><%= main_one['name'] %></option>
+                                                <% end %>
                                             <% end %>
                                         </select>
                                     </div>
@@ -126,12 +127,13 @@
                                     <p class="form-control-static view">子類別</p>
                                     <div style="margin-top:5px;">
                                         <select name="sub" id="subClass_select2" class="form-control" >
+                                            <option value="-1">所有類別</option>
                                             <% t(:sub_skill_category)[@main_skill_id].each_with_index do |sub_one, index| %>
-                                            <% if index == @sub_skill_id %>
-                                            <option value="<%= index %>" selected><%= sub_one['name'] %></option>
-                                            <% else %>
-                                            <option value="<%= index %>"><%= sub_one['name'] %></option>
-                                            <% end %>
+                                                <% if index == @sub_skill_id %>
+                                                    <option value="<%= index %>" selected><%= sub_one['name'] %></option>
+                                                <% else %>
+                                                    <option value="<%= index %>"><%= sub_one['name'] %></option>
+                                                <% end %>
                                             <% end %>
                                         </select>
                                     </div>
@@ -194,7 +196,7 @@
 
                     <div class="col-md-8"> <!--dRight-->
                         <div> <!--Search Result Data-->
-                            <% @users.each do |user| %>
+                            <% @users.each_with_index do |user, index| %>
                                 <div class=""> <!--會員資料-->
                                     <div class="media">
 
@@ -203,7 +205,7 @@
                                         </a>
 
                                         <div class="media-body">
-                                            <h4 class="media-heading"><%= link_to user.first_name+user.last_name, users_detail_path(user) %>
+                                            <h4 class="media-heading"><%= link_to user.first_name+" "+user.last_name, users_detail_path(user) %>
                                                 <!-- TODO: Future -->
                                                 <!-- <span class=" fa fa-star"></span>
                                                 <span class=" fa fa-star"></span>
@@ -214,7 +216,13 @@
                                             </h4>
                                             <h5><%= user.introduction %></h5>
                                             <div class="" >
-                                                <button type="button" class="btn btn-danger btn-sm btn-circle "><i class="fa fa-heart"> 儲存</i></button>
+                                                <% if not current_user.user_favorites.exists?(favorite_user_id: user.id) %>
+                                                    <button id="add<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= user.id %>)"><i class="fa fa-heart"> 儲存</i></button>
+                                                    <button id="remove<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= user.id %>)" style="display:none;"><i class="fa fa-heart"> 移除</i></button>
+                                                <% else %>
+                                                    <button id="add<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= user.id %>)" style="display:none;"><i class="fa fa-heart"> 儲存</i></button>
+                                                    <button id="remove<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= user.id %>)"><i class="fa fa-heart"> 移除</i></button>
+                                                <% end %>
 
                                                 <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 雇用</i></button>
 
@@ -307,7 +315,7 @@
         });
 
         $('select[name="main"]').change(function(){
-            $('select[name="sub"] :nth-child(0)').prop('selected', true);
+            $('select[name="sub"] :nth-child(0)').attr('selected', true);
             $('#search-form').submit();
         });
 
@@ -315,6 +323,39 @@
             $('#search-form').submit();
         });
     });
+
+    var add_to_favorite = function(ele_id, id) {
+        var request_obj = { user_id: id };
+        $.ajax({
+            url: "/users/add_to_favorite",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
+                // console.log(data);
+                $("#"+ele_id).next().show()
+                $("#"+ele_id).hide()
+            }
+        });
+    }
+
+    var remove_from_favorite = function(ele_id, id) {
+        var request_obj = { user_id: id };
+        $.ajax({
+            url: "/users/remove_from_favorite",
+            type: "delete",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            success: function(data) {
+                // console.log(data);
+                $("#"+ele_id).prev().show()
+                $("#"+ele_id).hide()
+            }
+        });
+    }
+
     </script>
 
     <!-- END JAVASCRIPTS -->

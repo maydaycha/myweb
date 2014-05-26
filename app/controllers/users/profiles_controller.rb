@@ -16,6 +16,8 @@ class Users::ProfilesController < ApplicationController
   end
 
   def edit
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
     @user = User.find(params[:id])
   end
 
@@ -36,6 +38,8 @@ class Users::ProfilesController < ApplicationController
 
 
   def show
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
     @skill_main_categoies = current_user.user_skill_categories.uniq_by(&:main_skill_id)
     @user = current_user
   end
@@ -44,7 +48,7 @@ class Users::ProfilesController < ApplicationController
   def ajax_updae
     case params[:request]
     when "update_basic_info"
-      current_user.update!(sketch: params['sketch'], first_name: params[:first_name], last_name: params[:last_name], hourly_pay: params[:money])
+      current_user.update!(introduction: params[:introduction], review: params[:review], first_name: params[:first_name], last_name: params[:last_name], hourly_pay: params[:money])
       render json: current_user
 
     when "update_location"
@@ -126,7 +130,7 @@ class Users::ProfilesController < ApplicationController
         e.document_name = params[:document_name] unless params[:document_name].nil?
         # e.document_content = open(params[:document_content].tempfile).read unless (params[:document].is_a? String)
         e.document_content = open(params[:document_content].tempfile).read unless params[:document_content].nil?
-        e.picture1 = open(params[:file][0].tempfile).read if (params[:file].size > 0)
+        e.picture1 = open(params[:file][0].tempfile).read unless params[:file].nil?
       end
       render json: current_user.user_portfolios
     when 'delete_portfolio'
@@ -165,7 +169,6 @@ class Users::ProfilesController < ApplicationController
 
   def show_image
     if user_signed_in?
-      puts params
       user = User.find(params[:id])
       if user.picture == nil
         render :text => open("public/img/staff.png", "rb").read
@@ -177,19 +180,18 @@ class Users::ProfilesController < ApplicationController
     end
   end
 
-  def show_portfolio_image1
-    if current_user.user_portfolios[params[:index].to_i].picture1 == nil
+  def show_portfolio_image
+    if params[:id].nil?
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
+    if @user.user_portfolios[params[:index].to_i].picture1 == nil
       render :text => open("public/img/staff.png", "rb").read
     else
-      send_data current_user.user_portfolios[params[:index].to_i].picture1, :type => 'image/png', :disposition => 'inline'
+      send_data @user.user_portfolios[params[:index].to_i].picture1, :type => 'image/png', :disposition => 'inline'
     end
   end
 
-  def show_portfolio_image2
-    if current_user.user_portfolios[params[:index].to_i].picture2 == nil
-      render :text => open("public/img/staff.png", "rb").read
-    else
-      send_data current_user.user_portfolios[params[:index].to_i].picture2, :type => 'image/png', :disposition => 'inline'
-    end
-  end
+
 end

@@ -235,7 +235,6 @@ DEPENDENCIES
   rails (= 4.0.3)
   rails_12factor
   recaptcha
-  rmagick
   sass-rails (~> 4.0.0)
   sdoc
   spreadsheet

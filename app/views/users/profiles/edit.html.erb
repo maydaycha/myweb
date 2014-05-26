@@ -181,7 +181,11 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">新增圖像</label>
                                         <div class="col-md-9 divcss5">
+                                        <% if not current_user.picture.nil? %>
+                                            <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id), id: "blah1", class: "avatar" %>
+                                        <% else %>
                                             <img src="/img/staff.png" class="avatar" id="blah1">
+                                        <% end %>
                                             <!-- <input type="file" name="image" class="form-control edit" onchange="readURL(this)"> -->
                                             <%= f.file_field :image, name: "image" ,class: "form-control edit", onchange: "readURL(this)" %>
                                             <p class="help-block">
@@ -535,7 +539,11 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2">個人圖像</label>
                                     <div class="col-md-10">
+                                    <% if not current_user.picture.nil? %>
+                                        <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id), id: "blah2", class: "avatar" %>
+                                    <% else %>
                                         <img src="/img/staff.png" class="avatar" id="blah2">
+                                    <% end %>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -708,6 +716,15 @@
                     if( warn_on_unload != '' ) return warn_on_unload
                 }
             });
+
+            // history.pushState("trick", null, null)
+
+            // console.log(history.state)
+
+            // refresh the previous page when go back
+            // window.onpopstate = function() {
+            //     history.back()
+            // }
 
 
 
