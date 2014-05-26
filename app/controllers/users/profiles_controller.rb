@@ -24,15 +24,20 @@ class Users::ProfilesController < ApplicationController
 
   def update
     UserSkill.where(user_id: current_user.id).delete_all
-    if current_user.user_skills.empty?
-      foeign_skills = []
-      params[:user][:user_skills].split(",").each{ |e| foeign_skills << current_user.user_skills.create!(name: e) }
-    end
+    
+    foeign_skills = []
+    params[:user][:user_skills].split(",").each{ |e| foeign_skills << current_user.user_skills.create!(name: e) }
+    
     params[:user][:user_skills] = foeign_skills
+    
+    params[:user][:picture] = open(params[:image].tempfile).read if params[:image]
+    params[:user][:step] = 2
+    puts params.permit![:user]
+    puts current_user.step
     current_user.update!(params.permit![:user])
-    current_user.picture = open(params[:image].tempfile).read if params[:image]
-    current_user.step = 2
-    current_user.save
+    # current_user.picture = open(params[:image].tempfile).read if params[:image]
+    # current_user.step = 2
+    # current_user.save
     redirect_to users_profile_path(current_user)
   end
 
