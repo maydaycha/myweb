@@ -1811,7 +1811,10 @@ var main_class_change = function(){
                 alert("上傳失敗")
                 location.reload()
             }
+            $('#work_subClass_select2').attr('disabled', false);
         }
+
+        $('#work_subClass_select2').attr('disabled', true);
         xhr.send(fd)
     }
 
