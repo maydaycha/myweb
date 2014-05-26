@@ -114,3 +114,25 @@ line-height: 22px;
 	position:relative; 
 	bottom:0;
 }
+
+.nav-border-yellow{
+	border:2px solid #EDBE73; 
+	position:relative; 
+	bottom:0;
+}
+
+
+
+
+	
+
+
+.page-yellow{
+  a { color:#AD612A;
+ 	 text-decoration: none;
+  	 &:hover {
+    color:darken(#AD612A, 15%);
+    text-decoration: underline;
+  }
+  }
+}

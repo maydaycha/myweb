@@ -28,6 +28,7 @@ var SingUp = function(){
                 password: {
                 	minlength: 8,
                     required: true
+                    
                 },
                 verification: {
                     required: true,
