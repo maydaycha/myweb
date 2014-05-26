@@ -1406,14 +1406,14 @@
             }
 
             var request_obj = {
-                request: "get_sub_category",
+                // request: "get_sub_category",
                 main_category_id: $(this).val()
             };
 
             $('#work_subClass_select2').attr('disabled', true);
 
             $.ajax({
-                url: "/users/profiles/ajax_updae",
+                url: "/users/profiles/get_sub_category",
                 type: "post",
                 dataType: "json",
                 data: JSON.stringify(request_obj),
@@ -1636,7 +1636,7 @@ var addCategoryList = function(){
 var main_class_change = function(){
     var parent = $(this).parent().parent().parent().parent();
     var request_obj = {
-        request: "get_sub_category",
+        // request: "get_sub_category",
         main_category_id: $(this).val()
     };
     //console.log(parent);
@@ -1646,7 +1646,7 @@ var main_class_change = function(){
 
     select.attr("disabled", true)
     $.ajax({
-        url: "/users/profiles/ajax_updae",
+        url: "/users/profiles/get_sub_category",
         type: "post",
         dataType: "json",
         data: JSON.stringify(request_obj),
