@@ -533,14 +533,14 @@
                                         <label class="col-md-2 control-label">姓氏</label>
                                         <div class="col-md-10">
                                             <p class="form-control-static view" id="first_name"><%= current_user.first_name %></p>
-                                            <input type="text" name="first_name" class="form-control edit" placeholder="姓氏" value="<%= current_user.first_name %>">
+                                            <input type="text" name="first_name" class="form-control edit" placeholder="姓氏" value="<%= current_user.first_name %>" onkeydown="return constrain_Eng_and_num(event)">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">名字</label>
                                         <div class="col-md-10">
                                             <p class="form-control-static view" id="last_name"><%= current_user.last_name %></p>
-                                            <input type="text" name="last_name" class="form-control edit" placeholder="名字" value="<%= current_user.last_name %>">
+                                            <input type="text" name="last_name" class="form-control edit" placeholder="名字" value="<%= current_user.last_name %>" onkeydown="return constrain_Eng_and_num(event)">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -1492,6 +1492,22 @@
 
     });
 
+   function constrain_Eng_and_num(e) {
+        var keynum, keychar, check
+         // IE
+        if(window.event) {
+            keynum = e.keyCode
+        } else if(e.which) {  // Netscape/Firefox/Opera
+            keynum = e.which
+        }
+        // console.log(keynum)
+        if( keynum == 8 || keynum == 9 || keynum == 13 || keynum == 189 || keynum == 229) return true
+        keychar = String.fromCharCode(keynum)
+        check = /\w/
+        check_digital = /[0-9]/
+        return check.test(keychar) && !check_digital.test(keychar)
+    }
+
 
    var readURL = function(input) {
     if (input.files && input.files[0]) {
@@ -1548,6 +1564,8 @@
             portlet.removeClass('show-edit');
             portlet.addClass('show-view');
         } else {
+            $("body").animate({scrollTop: "300px"})
+            // window.scrollTo(0, -200)
             return
         }
 
@@ -1580,87 +1598,87 @@
 
     }
 
-var addCategoryList = function(){
-    if ($('.category_delete_container').size() > 3)
-        return 0;
+    var addCategoryList = function(){
+        if ($('.category_delete_container').size() > 3)
+            return 0;
 
-    var span = $('<span class="category_delete_container"><span>');
-    var div1 = $('<div class="form-group"><label class="col-md-2 control-label">主類別</label><div>');
-    var div1_div1 = $('<div class="col-md-9"></div>')
-    var p = $('<p class="form-control-static view main_category"><%= t(:main_skill_category)[0]["name"] %></p>')
-    var div_main = $('<div class="edit" class="input-group"></div>');
-    var main_select = $('<select name="mainClass" class="form-control main_class"><select>');
-    <% t(:main_skill_category).each_with_index do |e, index| %>
-    main_select.append('<option value="<%= index %>"><%= e['name'] %></option>');
-    <% end %>
-    div_main.append(main_select);
-    div1_div1.append(p);
-    div1_div1.append(div_main);
-    var div1_div2 = $('<div class="col-md-1"><div class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete"onclick="$(this).parent().parent().parent().parent().remove();">刪除</button></div></div>');
-    div1.append(div1_div1);
-    div1.append(div1_div2);
+        var span = $('<span class="category_delete_container"><span>');
+        var div1 = $('<div class="form-group"><label class="col-md-2 control-label">主類別</label><div>');
+        var div1_div1 = $('<div class="col-md-9"></div>')
+        var p = $('<p class="form-control-static view main_category"><%= t(:main_skill_category)[0]["name"] %></p>')
+        var div_main = $('<div class="edit" class="input-group"></div>');
+        var main_select = $('<select name="mainClass" class="form-control main_class"><select>');
+        <% t(:main_skill_category).each_with_index do |e, index| %>
+        main_select.append('<option value="<%= index %>"><%= e['name'] %></option>');
+        <% end %>
+        div_main.append(main_select);
+        div1_div1.append(p);
+        div1_div1.append(div_main);
+        var div1_div2 = $('<div class="col-md-1"><div class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete"onclick="$(this).parent().parent().parent().parent().remove();">刪除</button></div></div>');
+        div1.append(div1_div1);
+        div1.append(div1_div2);
 
-    var div2 = $('<div class="form-group"><div>');
-    var div2_label = $('<label class="col-md-2 control-label">子類別</label>');
-    var div2_div = $('<div class="col-md-10"></div>');
-    var div2_p = $('<p class="form-control-static view sub_category"><%= t(:sub_skill_category)[0][0]['name'] %></p>');
-    var div2_sub = $('<div class="edit"><div>');
-    var sub_select = $('<select name="subClass" class="form-control select2 subClass_select2" multiple></select');
+        var div2 = $('<div class="form-group"><div>');
+        var div2_label = $('<label class="col-md-2 control-label">子類別</label>');
+        var div2_div = $('<div class="col-md-10"></div>');
+        var div2_p = $('<p class="form-control-static view sub_category"><%= t(:sub_skill_category)[0][0]['name'] %></p>');
+        var div2_sub = $('<div class="edit"><div>');
+        var sub_select = $('<select name="subClass" class="form-control select2 subClass_select2" multiple></select');
 
-    <% t(:sub_skill_category)[0].each_with_index do |x, i|%>
-    sub_select.append('<option value="<%= i %>"><%= x['name'] %></option>');
-    <% end %>
+        <% t(:sub_skill_category)[0].each_with_index do |x, i|%>
+        sub_select.append('<option value="<%= i %>"><%= x['name'] %></option>');
+        <% end %>
 
-    div2_sub.append(sub_select);
-    div2_div.append(div2_p);
-    div2_div.append(div2_sub);
-    div2.append(div2_label);
-    div2.append(div2_div);
+        div2_sub.append(sub_select);
+        div2_div.append(div2_p);
+        div2_div.append(div2_sub);
+        div2.append(div2_label);
+        div2.append(div2_div);
 
-    span.append(div1);
-    span.append(div2);
+        span.append(div1);
+        span.append(div2);
 
-    $('#category-list').append(span);
+        $('#category-list').append(span);
 
-    sub_select.select2({
-        placeholder: "Select a State",
-        allowClear: true
-    });
+        sub_select.select2({
+            placeholder: "Select a State",
+            allowClear: true
+        });
 
-    main_select.change(main_class_change);
-}
+        main_select.change(main_class_change);
+    }
 
-var main_class_change = function(){
-    var parent = $(this).parent().parent().parent().parent();
-    var request_obj = {
-        request: "get_sub_category",
-        main_category_id: $(this).val()
-    };
-    //console.log(parent);
-    $(parent).find(".select2-search-choice").remove();
+    var main_class_change = function(){
+        var parent = $(this).parent().parent().parent().parent();
+        var request_obj = {
+            request: "get_sub_category",
+            main_category_id: $(this).val()
+        };
+        //console.log(parent);
+        $(parent).find(".select2-search-choice").remove();
 
-    var select = $(parent).find('select.subClass_select2');
+        var select = $(parent).find('select.subClass_select2');
 
-    select.attr("disabled", true)
-    $.ajax({
-        url: "/users/profiles/ajax_updae",
-        type: "post",
-        dataType: "json",
-        data: JSON.stringify(request_obj),
-        contentType: 'application/json',
-        async: false,
-        success: function(data) {
-            //console.log(data);
-            $(parent).find('select.subClass_select2 option').remove();
+        select.attr("disabled", true)
+        $.ajax({
+            url: "/users/profiles/ajax_updae",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            async: false,
+            success: function(data) {
+                //console.log(data);
+                $(parent).find('select.subClass_select2 option').remove();
 
-            //console.log(select);
-            for(var key in data) {
-               select.append($("<option></option>").attr("value", key).text(data[key].name));
+                //console.log(select);
+                for(var key in data) {
+                   select.append($("<option></option>").attr("value", key).text(data[key].name));
+               }
+               select.attr("disabled", false)
            }
-           select.attr("disabled", false)
-       }
-    })
-}
+        })
+    }
 
     var cancel_basic_info = function(){
         $('#blah1').attr("src", "<%= image_path url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id) %>");
