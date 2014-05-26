@@ -96,5 +96,5 @@ Sun::Application.configure do
   #  prevent asset pipeline may break some of your AngularJS code due to renaming.
   config.assets.js_compressor = Uglifier.new(mangle: false)
 
-  config.logger = Logger.new(STDOUT)
+  # config.logger = Logger.new(STDOUT)
 end
