@@ -54,9 +54,9 @@ jQuery.validator.addMethod("myPasswordAllow", function(value, element) {
 }, "This field has illegal characters");
 
 jQuery.validator.addMethod("myPasswordMatch", function(value, element) {
-    var result = true;
-    if( value == $("input[name='user[password]'").val() ) result = false;
-    return !result;
+    var result = false
+    if( value == $("input[name='user[password]']").val() ) result = true;
+    return result;
 }, "This field has isInconsistent data");
 
 
