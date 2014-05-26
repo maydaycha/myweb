@@ -1411,14 +1411,14 @@
             }
 
             var request_obj = {
-                request: "get_sub_category",
+                // request: "get_sub_category",
                 main_category_id: $(this).val()
             };
 
             $('#work_subClass_select2').attr('disabled', true);
 
             $.ajax({
-                url: "/users/profiles/ajax_updae",
+                url: "/users/profiles/get_sub_category",
                 type: "post",
                 dataType: "json",
                 data: JSON.stringify(request_obj),
@@ -1461,7 +1461,7 @@
             this.on("successmultiple", function(file, foo) {
                 //console.log(file);
                 //console.log(foo);
-                $("#loader").hide()
+                // $("#loader").hide()
                 location.reload();
             });
         },
@@ -1656,10 +1656,11 @@
         main_select.change(main_class_change);
     }
 
+
     var main_class_change = function(){
         var parent = $(this).parent().parent().parent().parent();
         var request_obj = {
-            request: "get_sub_category",
+            // request: "get_sub_category",
             main_category_id: $(this).val()
         };
         //console.log(parent);
@@ -1669,7 +1670,7 @@
 
         select.attr("disabled", true)
         $.ajax({
-            url: "/users/profiles/ajax_updae",
+            url: "/users/profiles/get_sub_category",
             type: "post",
             dataType: "json",
             data: JSON.stringify(request_obj),
@@ -1831,7 +1832,7 @@
 
         xhr.onload = function() {
             if (this.status == 200) {
-                $("#loader").hide()
+                // $("#loader").hide()
                 location.reload()
             } else {
                 alert("上傳失敗")

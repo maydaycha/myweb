@@ -65,7 +65,7 @@ gem 'mysql2'
 gem "recaptcha", :require => "recaptcha/rails"
 
 gem 'certified'
-gem 'thin'
+# gem 'thin'
 
 gem 'omniauth'
 gem 'omniauth-facebook','1.4.0'

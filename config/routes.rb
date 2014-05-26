@@ -126,8 +126,8 @@ Sun::Application.routes.draw do
     end
   end
 
-  #test
   post 'users/profiles/check_password' => 'users/profiles#check_password'
+  post 'users/profiles/get_sub_category' => 'users/profiles#get_sub_category'
   get 'users/profiles/show_image/:id' => 'users/profiles#show_image'
   get 'import_from_csv' => 'skills#import_from_csv'
   get 'users/profiles/show_portfolio_image/:index' => 'users/profiles#show_portfolio_image'
