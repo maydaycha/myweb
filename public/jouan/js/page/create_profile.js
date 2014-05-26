@@ -99,7 +99,7 @@ var CreateProfile = function(){
         $('#form_wizard_1 .button-submit').hide();
     }
 
-    var initForm = function(){        
+    var initForm = function(){
         form.validate({
             errorElement: 'span', //default input error message container
             errorClass: 'help-block', // default input error message class
@@ -127,11 +127,11 @@ var CreateProfile = function(){
             		error.text(text);
             	}
                 var icon = $(element).parent('.input-icon').children('i');
-                icon.removeClass('fa-check').addClass("fa-warning");  
+                icon.removeClass('fa-check').addClass("fa-warning");
                 icon.attr("data-original-title", error.text()).tooltip({'container': 'body'});
             },
 
-            invalidHandler: function (event, validator) { //display error alert on form submit   
+            invalidHandler: function (event, validator) { //display error alert on form submit
                 success.hide();
                 error.show();
                 Web.scrollTo(error, -200);

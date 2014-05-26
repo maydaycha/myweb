@@ -137,7 +137,7 @@
       <span class="input-group-addon"><i class="fa fa-user"></i></span>
       <div class="input-icon right">
         <i class="fa"></i>
-        <%= f.text_field :first_name, class: "form-control", placeholder: "姓氏(公開資訊，中英文皆可)", "data-isEmpty" => "請輸入姓氏"%>
+        <%= f.text_field :first_name, class: "form-control", placeholder: "姓氏(公開資訊，中英文皆可)", onkeydown: "return constrain_Eng_and_num(event)", "data-isEmpty" => "請輸入姓氏"%>
       </div>
     </div>
   </div>
@@ -147,7 +147,7 @@
       <span class="input-group-addon"><i class="fa fa-user"></i></span>
       <div class="input-icon right">
         <i class="fa"></i>
-        <%= f.text_field :last_name, class: "form-control", placeholder: "名字(公開資訊，中英文皆可)", "data-isEmpty" => "請輸入密碼"%>
+        <%= f.text_field :last_name, class: "form-control", placeholder: "名字(公開資訊，中英文皆可)", onkeydown: "return constrain_Eng_and_num(event)", "data-isEmpty" => "請輸入名字"%>
       </div>
     </div>
   </div>
@@ -301,6 +301,22 @@
        Web.init();
        SingUp.init();
      });
+
+      function constrain_Eng_and_num(e) {
+        var keynum, keychar, check
+         // IE
+        if(window.event) {
+            keynum = e.keyCode
+        } else if(e.which) {  // Netscape/Firefox/Opera
+            keynum = e.which
+        }
+        // console.log(keynum)
+        if( keynum == 8 || keynum == 9 || keynum == 13 || keynum == 189 || keynum == 229) return true
+        keychar = String.fromCharCode(keynum)
+        check = /\w/
+        check_digital = /[0-9]/
+        return check.test(keychar) && !check_digital.test(keychar)
+    }
    </script>
 
 

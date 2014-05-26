@@ -1,6 +1,6 @@
 require 'open-uri'
 class Users::ProfilesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except => [:get_sub_category]
 
   protect_from_forgery except: [:ajax_upload_img, :ajax_updae, :get_sub_category, :upload_portfolio_picture, :check_password]
 
@@ -24,15 +24,15 @@ class Users::ProfilesController < ApplicationController
 
   def update
     UserSkill.where(user_id: current_user.id).delete_all
-    if current_user.user_skills.empty?
-      foeign_skills = []
-      params[:user][:user_skills].split(",").each{ |e| foeign_skills << current_user.user_skills.create!(name: e) }
-    end
+    
+    foeign_skills = []
+    params[:user][:user_skills].split(",").each{ |e| foeign_skills << current_user.user_skills.create!(name: e) }
+    
     params[:user][:user_skills] = foeign_skills
+    params[:user][:picture] = open(params[:image].tempfile).read if params[:image]
+    params[:user][:step] = 2
+
     current_user.update!(params.permit![:user])
-    current_user.picture = open(params[:image].tempfile).read if params[:image]
-    current_user.step = 2
-    current_user.save
     redirect_to users_profile_path(current_user)
   end
 
@@ -137,17 +137,18 @@ class Users::ProfilesController < ApplicationController
       UserPortfolio.delete(params[:id])
       render json: current_user.user_portfolios
 
-    when "get_sub_category"
-      render json: t(:sub_skill_category)[params[:main_category_id].to_i]
+    # when "get_sub_category"
+    #   render json: t(:sub_skill_category)[params[:main_category_id].to_i]
     else
       render json: params
     end
   end
 
+  def get_sub_category
+    render json: t(:sub_skill_category)[params[:main_category_id].to_i]
+  end
+
   def check_password
-    puts params
-    puts "================="
-    puts current_user.valid_password?(params[:password])
     render json: {status: current_user.valid_password?(params[:password])}
   end
 
