@@ -31,7 +31,8 @@ module Sun
       config.logger = Logger.new('/dev/null')
     else
       # Don't log to file, sending everything to unicorn file.
-      config.logger = Logger.new(STDOUT)
+      # config.logger = Logger.new(STDOUT)
+      config.logger = Logger.new('/dev/null')
     end
   end
 end
