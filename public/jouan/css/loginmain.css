@@ -410,3 +410,7 @@ body:after {
   .page-yellow a:hover {
     color: #6f3e1b;
     text-decoration: underline; }
+
+/*************Table*****************/
+.btn-group-table {
+  padding: 10px 0px 5px 0px; }

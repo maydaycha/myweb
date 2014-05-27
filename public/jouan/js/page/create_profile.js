@@ -1,10 +1,10 @@
 var CreateProfile = function(){
-	var form = $('#submit_form');
+    var form = $('#submit_form');
     var error = $('.alert-danger', form);
     var success = $('.alert-success', form);
 
-	var initWizard = function(){
-		if (!jQuery().bootstrapWizard) {
+    var initWizard = function(){
+        if (!jQuery().bootstrapWizard) {
             return;
         }
 
@@ -23,7 +23,9 @@ var CreateProfile = function(){
                     $(this).html(input.find('option:selected').text());
                 } else if (input.is(":radio") && input.is(":checked")) {
                     $(this).html(input.attr("data-title"));
-                } else if ($(this).attr("data-display") == 'money') {
+                    //console.log("13123");
+                } else if ($(this).attr("data-display") == 'user[hourly_pay]') {
+                    //console.log("1@@@");
                     $(this).html(input.val()+' / HR');
                 }
             });
@@ -43,8 +45,10 @@ var CreateProfile = function(){
 
             if (current == 1) {
                 $('#form_wizard_1').find('.button-previous').hide();
+                $('#form_wizard_1').find('.button-previous﹣page').show();
             } else {
                 $('#form_wizard_1').find('.button-previous').show();
+                $('#form_wizard_1').find('.button-previous﹣page').hide();
             }
 
             if (current >= total) {
@@ -105,27 +109,33 @@ var CreateProfile = function(){
             errorClass: 'help-block', // default input error message class
             focusInvalid: false, // do not focus the last invalid input
             rules: {
-                'money': {
+                'user[hourly_pay]': {
                     required: true
                 },
-                'zip': {
+                'user[zip]': {
                     required: true
                 },
-                'city': {
+                'user[city]': {
                     required: true
+                },
+                'user[introduction]': {
+                    maxlength: 200
+                },
+                'user[review]': {
+                    maxlength: 1000
                 }
             },
 
             errorPlacement: function (error, element) { // render error placement for each input type
-            	var text;
-            	if(error.text()=='This field is required.'){
-            		text = form.find('input[name='+error.attr('for')+']').attr('data-isEmpty');
-            		error.text(text);
-            	}
-            	else if(error.text()!=''){
-            		text = form.find('input[name='+error.attr('for')+']').attr('data-isError');
-            		error.text(text);
-            	}
+                var text;
+                if(error.text()=='This field is required.'){
+                    text = form.find('input[id='+error.attr('for')+']').attr('data-isempty');
+                    error.text(text);
+                }
+                else if(error.text()!=''){
+                    text = form.find('input[id='+error.attr('for')+']').attr('data-isError');
+                    error.text(text);
+                }
                 var icon = $(element).parent('.input-icon').children('i');
                 icon.removeClass('fa-check').addClass("fa-warning");
                 icon.attr("data-original-title", error.text()).tooltip({'container': 'body'});
@@ -161,29 +171,53 @@ var CreateProfile = function(){
 
         });
     }
-    var initSkillTags = function(){
-		$('#skill-tags').tagsInput({
-            width: 'auto',
-            defaultText: '技能標籤',
-            placeholderColor: '#999'
+
+    var validateSkillExist = function(value){
+        var result = false;
+        $.ajax({
+            url: "/skills/exist",
+            type: "get",
+            dataType: "json",
+            data: {name: value},
+            success: function(data) {
+                result = data.status;
+            },
+            error: function(data) {
+            },
+            async: false
         });
-        $('.tagsinput').addClass('form-control');
-	}
+        if (result == false) 
+            $(this).removeTag(value);
+
+        var skills_arr = $(this).val().split(',');
+        if (skills_arr.length > 5) {
+            alert('目前只能擁有5項技能');
+            $(this).removeTag(value);
+        }
+    }
+
+    var initSkillTags = function(){
+        $('#skill-tags').tagsInput({
+            width: 'auto',
+            autocomplete_url:'/skills/autocomplete',
+            onAddTag: validateSkillExist
+        });
+    }
     var initShowTip = function(){
-    	$('.show-tip').on('click',function(e){
-    		e.preventDefault();
+        $('.show-tip').on('click',function(e){
+            e.preventDefault();
             var text = $(this).attr('data-original-title');
             bootbox.alert(text);
-    	});
-	}
+        });
+    }
 
-	return {
-		init:function(){
-			initSkillTags();
-			initShowTip();
-			initForm();
-			initWizard();
-		}
-	}
+    return {
+        init:function(){
+            initSkillTags();
+            initShowTip();
+            initForm();
+            initWizard();
+        }
+    }
 }();
 

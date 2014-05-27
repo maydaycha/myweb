@@ -131,14 +131,14 @@
                       </div>
                       <div class="portlet-body text-center">
                        <p>您現在還沒有招募的案件，您可以</p>
-                       <p><a href="#">刊登案件</a>或<a href="#">搜尋遠距工作者</a></p>
+                       <p><a href="employer-post-history.html" data-tab-destination="tab-2">刊登案件</a>或<a href="#" data-tab-destination="tab-3">搜尋遠距工作者</a></p>
                      </div>
                    </div>
                  </div>
                </div>
                <div class="row">
                 <div class="col-md-12">
-                  <div class="portlet box yellow">
+                  <div class="portlet box yellow marpad">
                     <div class="portlet-title">
                       <div style="font-size:1.2em;"> 目前正在招募的工作 </div>
                     </div>
@@ -155,26 +155,45 @@
                         <tbody>
                           <tr>
                             <td style="line-height:1.5;">
-                              <a href="case.html">翻譯案件，將中文翻譯成英文、德文、法文、俄文</a>
-                              <p class="marpad">固定預算 | 2014/05/19</p>
+                              <h4><a href="case.html">翻譯案件，將中文翻譯成英文、德文、法文、俄文</a></h4>
+                              <span class="btn-group btn-group-table" data-toggle="buttons">
+                                <label class="btn btn-info btn-sm">
+                                  <input type="radio" name="options" id="option1"> 公開式案件
+                                </label>
+                                <label class="btn btn-info btn-sm">
+                                  <input type="radio" name="options" id="option2"> 登入後公開
+                                </label>
+                                <label class="btn btn-info btn-sm">
+                                  <input type="radio" name="options" id="option3"> 隱藏式案件
+                                </label>
+                              </span>
+                              <p class="marpad">固定預算 | 2014/05/19 由您發佈</p>
                               <a href="#">檢視推薦遠距工作</a>
-                              <div class="show-view">
-                                <div class="row">
-                                  <div class="col-xs-6">隱藏式案件</div>
-                                  <div class="col-xs-6">
-                                <div class="tools">
-                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#contact-portlet1">編輯
-                                    </a>
-                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet1">儲存
-                                    </a>
-                                </div></div>
-                                </div>
-                              </div>
-
                             </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
+                          <tr>
+                            <td style="line-height:1.5;">
+                              <h4><a href="case.html">拯救Facebook 搜尋災難，QSearch 找回我們的臉書訊息</a></h4>
+                              <span class="btn-group btn-group-table" data-toggle="buttons">
+                                <label class="btn btn-info btn-sm">
+                                  <input type="radio" name="options" id="option1"> 公開式案件
+                                </label>
+                                <label class="btn btn-info btn-sm">
+                                  <input type="radio" name="options" id="option2"> 登入後公開
+                                </label>
+                                <label class="btn btn-info btn-sm">
+                                  <input type="radio" name="options" id="option3"> 隱藏式案件
+                                </label>
+                              </span>
+                              <p class="marpad">固定預算 | 2014/05/19 由您發佈</p>
+                              <a href="#">檢視推薦遠距工作</a>
+                            </td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
                           </tr>
                         </tbody>
                       </table>
@@ -182,12 +201,105 @@
                   </div>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-md-12 marpad"><a href="employer-post-history.html" class="btn btn-link">檢視曾經開登的工作 <i class="fa fa-angle-double-right"></i></a></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="tab-pane fade in " id="two">
-
+        <div class="row">
+          <div class="col-md-12">
+            <div class="portlet box yellow">
+              <div class="portlet-title">
+                <div style="font-size:1.2em;"> 選擇案件類別 </div>
+              </div>
+              <div class="portlet-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div>
+                        <p class="form-control-static">主類別</p>
+                        <div style="margin-top:5px;">
+                          <select name="IT" id="mainClass_select" class="edit form-control">
+                            <option>IT、軟體</option>
+                            <option>翻譯、寫作</option>
+                            <option>設計、創意服務</option>
+                            <option>行銷、業務</option>
+                            <option>行政、客戶服務</option>
+                            <option>商業、會計、法務</option>
+                            <option>工程、科學</option>
+                            <option>專業諮商</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div>
+                        <p class="form-control-static">子類別</p>
+                        <div style="margin-top:5px;">
+                          <select name="subClass" id="subClass_select2" class="form-control" >
+                            <option selected>社群網路經營</option>
+                            <option>搜尋引擎最佳化</option>
+                            <option>公共關係經營</option>
+                            <option>電子郵件行銷</option>
+                            <option>電話行銷</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="portlet box yellow">
+              <div class="portlet-title">
+                <div style="font-size:1.2em;"> 案件描述 </div>
+              </div>
+              <div class="portlet-body">
+                <div class="row">
+                  <form action="#" class="form-horizontal" role="form">
+                    <div class="col-sm-10 col-sm-offset-1">
+                      <div class="form-group">
+                        <label class="col-md-3 control-label">為您的案件命名</label>
+                        <div class="col-md-9">
+                          <input type="text" name="name" class="form-control" placeholder="為您的案件命名" value="">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-3 control-label">描述您的案件工作內容</label>
+                        <div class="col-md-9">
+                          <textarea name="detail" class="form-control" rows="5" placeholder="說明"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-3 control-label">案件需求技能</label>
+                        <div class="col-md-9">
+                          <input type="text" name="name" class="form-control" placeholder="輸入技能" value="">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-md-3 control-label">急件</label>
+                        <div class="col-md-9">
+                          <input type="checkbox" style="margin-top:10px;"> 我需要急件處理
+                        </div>
+                          
+                        
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="tab-pane fade" id="three">
 
@@ -222,8 +334,8 @@
             <!-- BEGIN 頁面插件 --> 
             <!-- END 頁面插件 --> 
             <script type="text/javascript" src="js/script.js"></script> 
+            <script type="text/javascript" src="js/loginmain.js"></script> 
             <script src="js/lightbox.min.js"></script>
-            <script type="text/javascript" src="js/page/personal_profile.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>--> 
             <script>
               jQuery(document).ready(function() {    

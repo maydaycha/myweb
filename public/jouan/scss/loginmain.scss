@@ -101,6 +101,7 @@ line-height: 22px;
 .media1 p{ padding-top: 10px; color: grey;}
 .grey{ font-weight: bold; color: grey;}
 
+
 /*Navbar*/
 .user-dropdown{
 	font-size:1.2em;
@@ -121,12 +122,6 @@ line-height: 22px;
 	bottom:0;
 }
 
-
-
-
-	
-
-
 .page-yellow{
   a { color:#AD612A;
  	 text-decoration: none;
@@ -135,4 +130,10 @@ line-height: 22px;
     text-decoration: underline;
   }
   }
+}
+
+/*************Table*****************/
+
+.btn-group-table{
+	padding:10px 0px 5px 0px;
 }
