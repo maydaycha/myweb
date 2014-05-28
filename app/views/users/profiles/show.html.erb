@@ -1108,7 +1108,11 @@
                                     </td>
 
                                     <td><%= e.name %></td>
-                                    <td><%= link_to e.document_name, users_download_document_path(index) %></td>
+                                    <% if e.document_name.nil? %>
+                                        <td></td>
+                                    <% else %>
+                                        <td><%= link_to e.document_name, users_download_document_path(index) %></td>
+                                    <% end %>
                                     <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="delete_portfolio(<%= e.id %>)">刪除</button></td>
                                 </tr>
                                 <% end %>
@@ -1411,7 +1415,6 @@
             }
 
             var request_obj = {
-                // request: "get_sub_category",
                 main_category_id: $(this).val()
             };
 
@@ -1440,30 +1443,34 @@
             addWorksfile = this;
             myDropzone = this;
             $(".removeAllImages").click(function () {
-                addWorksfile.removeAllFiles();
+                addWorksfile.removeAllFiles()
             });
             this.on("sendingmultiple", function(file, xhr, formData) {
-                $("#loader").show()
+                // $("#loader").show()
                 if( typeof $("#works-modal input[name=thumbnail]")[0].files[0] != 'undefined' ) {
-                    formData.append('document_name', $("#works-modal input[name=thumbnail]")[0].files[0].name);
-                    formData.append('document_content', $("#works-modal input[name=thumbnail]")[0].files[0]);
+                    formData.append('document_name', $("#works-modal input[name=thumbnail]")[0].files[0].name)
+                    formData.append('document_content', $("#works-modal input[name=thumbnail]")[0].files[0])
                 }
-                formData.append('name', $("#works-modal input[name=title]").val());
-                formData.append('description', $("#works-modal textarea[name=description]").val());
-                formData.append('main_skill_id', $("#work_main_class").val());
-                formData.append('sub_skill_id', $("#work_subClass_select2").val());
-                formData.append('date', $("#works-modal input[name=start]").val());
-                formData.append('skill', $("#works-modal input[name=skill]").val());
+                formData.append('name', $("#works-modal input[name=title]").val())
+                formData.append('description', $("#works-modal textarea[name=description]").val())
+                formData.append('main_skill_id', $("#work_main_class").val())
+                formData.append('sub_skill_id', $("#work_subClass_select2").val())
+                formData.append('date', $("#works-modal input[name=start]").val())
+                formData.append('skill', $("#works-modal input[name=skill]").val())
                 formData.append('request', "add_portfolio");
                 warn_on_unload = ''
             });
+
+            this.on("processing", function() {
+                location.reload()
+            })
 
             this.on("successmultiple", function(file, foo) {
                 //console.log(file);
                 //console.log(foo);
                 // $("#loader").hide()
-                location.reload();
-            });
+                // location.reload()
+            })
         },
         paramName: "file",
         maxFilesize: 0.5,
@@ -1482,23 +1489,20 @@
 <script>
 
    $(function(){
-    $(".prevent").click(function(event){
-        event.preventDefault();
-    });
+        $(".prevent").click(function(event){
+            event.preventDefault()
+        })
 
-    $("#search_skill tr").hover( function() {
-        $(this).css('color','#ffffff');
-    }, function() {
-      $(this).css('color','#000000');
-  });
+        $("#search_skill tr").hover( function() {
+            $(this).css('color','#ffffff')
+        }, function() {
+          $(this).css('color','#000000')
+        })
 
-    $("#search_skill tr").click( function() {
-        //console.log($(this).children("td").text());
-        $("#search").val($(this).children("td").text());
-    });
-
-
-    });
+        $("#search_skill tr").click( function() {
+            $("#search").val($(this).children("td").text())
+        })
+    })
 
    function constrain_Eng_and_num(e) {
         var keynum, keychar, check
@@ -1519,35 +1523,35 @@
 
    var readURL = function(input) {
     if (input.files && input.files[0]) {
-        var reader = new FileReader();
+        var reader = new FileReader()
         reader.onload = function (e) {
-            var img = $("#"+input.id).prev();
-                //console.log(img[0].id);
-                $("#"+img[0].id).attr('src', e.target.result);
-            };
-            reader.readAsDataURL(input.files[0]);
+            var img = $("#"+input.id).prev()
+                //console.log(img[0].id)
+                $("#"+img[0].id).attr('src', e.target.result)
+            }
+            reader.readAsDataURL(input.files[0])
         }
     }
 
     function upload_img(form_num) {
-        var profile_img = document.getElementById("profile_img"+ form_num);
-        var file = profile_img.files[0];
-        var fd = new FormData();
-        fd.append('profile_img', file);
+        var profile_img = document.getElementById("profile_img"+ form_num)
+        var file = profile_img.files[0]
+        var fd = new FormData()
+        fd.append('profile_img', file)
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('post', '/users/profiles/ajax_upload_img', true);
+        var xhr = new XMLHttpRequest()
+        xhr.open('post', '/users/profiles/ajax_upload_img', true)
 
-        xhr.setRequestHeader("X-File-Name", file.name);
-        xhr.setRequestHeader("X-File-Size", file.size);
-        xhr.setRequestHeader("X-File-Type", file.type);
+        xhr.setRequestHeader("X-File-Name", file.name)
+        xhr.setRequestHeader("X-File-Size", file.size)
+        xhr.setRequestHeader("X-File-Type", file.type)
         xhr.onload = function() {
             if (this.status == 200) {
-                //console.log("upload file success");
+                //console.log("upload file success")
                 $("#loader").hide()
-            };
-        };
-        xhr.send(fd);
+            }
+        }
+        xhr.send(fd)
     }
 
 
@@ -1569,8 +1573,8 @@
         if(double_check == 0) {
             var portlet = $("#profile-portlet1")
             console.log(portlet)
-            portlet.removeClass('show-edit');
-            portlet.addClass('show-view');
+            portlet.removeClass('show-edit')
+            portlet.addClass('show-view')
         } else {
             $("body").animate({scrollTop: "300px"})
             // window.scrollTo(0, -200)
@@ -1600,7 +1604,7 @@
                 $("#money2").text('$' + data.hourly_pay + ' USD/HR')
                 if( typeof document.getElementById("profile_img"+ form_num).files[0] != 'undefined' ) upload_img(form_num)
                 else $("#loader").hide()
-                expand_count--;
+                expand_count--
             }
         });
 
@@ -1637,36 +1641,36 @@
         sub_select.append('<option value="<%= i %>"><%= x['name'] %></option>');
         <% end %>
 
-        div2_sub.append(sub_select);
-        div2_div.append(div2_p);
-        div2_div.append(div2_sub);
-        div2.append(div2_label);
-        div2.append(div2_div);
+        div2_sub.append(sub_select)
+        div2_div.append(div2_p)
+        div2_div.append(div2_sub)
+        div2.append(div2_label)
+        div2.append(div2_div)
 
-        span.append(div1);
-        span.append(div2);
+        span.append(div1)
+        span.append(div2)
 
-        $('#category-list').append(span);
+        $('#category-list').append(span)
 
         sub_select.select2({
             placeholder: "Select a State",
             allowClear: true
-        });
+        })
 
-        main_select.change(main_class_change);
+        main_select.change(main_class_change)
     }
 
 
     var main_class_change = function(){
-        var parent = $(this).parent().parent().parent().parent();
+        var parent = $(this).parent().parent().parent().parent()
         var request_obj = {
             // request: "get_sub_category",
             main_category_id: $(this).val()
-        };
-        //console.log(parent);
-        $(parent).find(".select2-search-choice").remove();
+        }
+        //console.log(parent)
+        $(parent).find(".select2-search-choice").remove()
 
-        var select = $(parent).find('select.subClass_select2');
+        var select = $(parent).find('select.subClass_select2')
 
         select.attr("disabled", true)
         $.ajax({
@@ -1677,12 +1681,12 @@
             contentType: 'application/json',
             async: false,
             success: function(data) {
-                //console.log(data);
-                $(parent).find('select.subClass_select2 option').remove();
+                //console.log(data)
+                $(parent).find('select.subClass_select2 option').remove()
 
-                //console.log(select);
+                //console.log(select)
                 for(var key in data) {
-                   select.append($("<option></option>").attr("value", key).text(data[key].name));
+                   select.append($("<option></option>").attr("value", key).text(data[key].name))
                }
                select.attr("disabled", false)
            }
@@ -1690,7 +1694,7 @@
     }
 
     var cancel_basic_info = function(){
-        $('#blah1').attr("src", "<%= image_path url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id) %>");
+        $('#blah1').attr("src", "<%= image_path url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id) %>")
     }
 
     var update_location = function() {
@@ -1698,19 +1702,19 @@
             request: "update_location",
             timeZone: $("#contact-form2 select[name='timeZone']").val(),
             country: $("#contact-form2 select[name='country']").val(),
-        };
-        //console.log(obj);
+        }
+        //console.log(obj)
         $.ajax({
             url: "/users/profiles/ajax_updae",
             type: "post",
             dataType: "json",
             data: obj,
             success: function(data) {
-                //console.log(data);
-                $("#time_zone").html(obj.timeZone);
-                $("#country").html(obj.country);
+                //console.log(data)
+                $("#time_zone").html(obj.timeZone)
+                $("#country").html(obj.country)
             }
-        });
+        })
 
     }
 
@@ -1722,22 +1726,22 @@
         }
 
         $(".main_class").each(function( index ) {
-            var parent = $(this).parent().parent().parent().parent();
+            var parent = $(this).parent().parent().parent().parent()
 
             obj.data.push({
                 main_category: $(this).val(),
                 sub_category: parent.find('select.subClass_select2').val()
-            });
+            })
 
-            var str = "";
+            var str = ""
             parent.find('select.subClass_select2 option:selected').each(function () {
-                str += $(this).text() + ", ";
-            });
-            str = str.substring(0, str.length - 2);
+                str += $(this).text() + ", "
+            })
+            str = str.substring(0, str.length - 2)
             parent.find('.main_category').html($(this).find('option:selected').text())
-            parent.find('.sub_category').html(str);
-        });
-        //console.log(obj);
+            parent.find('.sub_category').html(str)
+        })
+        //console.log(obj)
         $("#loader").show()
         $.ajax({
             url: "/users/profiles/ajax_updae",
@@ -1746,7 +1750,7 @@
             data: obj,
             success: function(data) {
                 $("#loader").hide()
-                expand_count--;
+                expand_count--
             }
         })
     }
@@ -1755,7 +1759,7 @@
         var obj = {
             request: "update_skill",
             skill: $("#contact-form1 input[name='skill']").val(),
-        };
+        }
         $("#loader").show()
         $.ajax({
             url: "/users/profiles/ajax_updae",
@@ -1763,11 +1767,11 @@
             dataType: "json",
             data: obj,
             success: function(data) {
-                $("#skill").html( obj.skill.replace(/,/g, ", ") );
+                $("#skill").html( obj.skill.replace(/,/g, ", ") )
                 $("#loader").hide()
                 expand_count--
             }
-        });
+        })
     }
 
     var delete_experience = function(id) {
@@ -1785,7 +1789,7 @@
             success: function(data) {
                 $("#loader").hide()
             }
-        });
+        })
     }
 
     var delete_education = function(id) {
@@ -1803,7 +1807,7 @@
             success: function(data) {
                 $("#loader").hide()
             }
-        });
+        })
     }
 
     var add_portfolio = function() {
@@ -1812,7 +1816,7 @@
     }
 
     var add_portfolio_without_thumbnail = function() {
-        $("#loader").show()
+        // $("#loader").show()
         var fd = new FormData()
         if( typeof $("#works-modal input[name=thumbnail]")[0].files[0] != 'undefined' ) {
             fd.append('document_name', $("#works-modal input[name=thumbnail]")[0].files[0].name)
@@ -1830,24 +1834,24 @@
         var xhr = new XMLHttpRequest()
         xhr.open('post', '/users/profiles/ajax_updae', true)
 
-        xhr.onload = function() {
-            if (this.status == 200) {
-                // $("#loader").hide()
-                location.reload()
-            } else {
-                alert("上傳失敗")
-                location.reload()
-            }
-        }
-
+        // xhr.onload = function() {
+        //     if (this.status == 200) {
+        //         // $("#loader").hide()
+        //         location.reload()
+        //     } else {
+        //         alert("上傳失敗")
+        //         location.reload()
+        //     }
+        // }
         xhr.send(fd)
+        location.reload()
     }
 
     var delete_portfolio = function (id) {
         var request_obj = {
             request: "delete_portfolio",
             id: id
-        };
+        }
         $.ajax({
             url: "/users/profiles/ajax_updae",
             type: "post",
@@ -1857,7 +1861,7 @@
             success: function(data) {
                 // console.log(data)
             }
-        });
+        })
     }
 
     var check_document_size = function() {
@@ -1878,7 +1882,7 @@
             id: id
         }
         $("#loader").show()
-        // console.log(request_obj);
+        // console.log(request_obj)
         $.ajax({
             url: "/users/profiles/ajax_updae",
             type: "post",
@@ -1888,7 +1892,7 @@
             success: function(data) {
                 $("#loader").hide()
             }
-        });
+        })
     }
 
     var hide_message = function() {
@@ -1904,11 +1908,11 @@
     <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
     <script>
         $(function() {
-            $('input, textarea').placeholder();
+            $('input, textarea').placeholder()
             $('.main-content').each(function() {
-                PIE.attach(this);
-            });
-});
+                PIE.attach(this)
+            })
+})
 </script>
 <![endif]-->
 <!-- END PIE -->
