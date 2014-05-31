@@ -27,7 +27,7 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" href="/css/socialIcons.css">
   <link rel="stylesheet" type="text/css" href="/css/page/freelancer_sign_up.css">
-  <link rel="shortcut icon" href="favicon.ico"/>
+  <link rel="shortcut icon" href="/favicon.ico"/>
   <!-- END STYLE -->
   <style type="text/css">
     #recaptcha_switch_audio { display: none; }
@@ -226,7 +226,7 @@
   <div class="form-group">
     <div class="checkbox">
       <label>
-        <input type="checkbox" checked> 我想收到關於網站最新的資訊及動態，若您不想收到類似訊息，請取消勾選。
+        <%= f.check_box :receive_information, :checked => "checked" %> 我想收到關於網站最新的資訊及動態，若您不想收到類似訊息，請取消勾選。
       </label>
     </div>
   </div>

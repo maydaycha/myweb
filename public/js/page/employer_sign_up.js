@@ -9,12 +9,31 @@ var SingUp = function(){
             focusInvalid: false, // do not focus the last invalid input
             ignore: "",
             rules: {
-                surname: {
+                "user[first_name]": {
                     required: true
                 },
-                email: {
+                "user[last_name]": {
+                    required: true
+                },
+                "user[email]": {
                     required: true,
-                    email: true
+                    email: true,
+                    myEmail: true
+                },
+                "user[username]": {
+                    minlength: 6,
+                    required: true,
+                    myUsername: true
+                },
+                "user[password]": {
+                    minlength: 8,
+                    required: true,
+                    myPasswordAllow: true
+                },
+                "user[password_confirmation]": {
+                    minlength: 8,
+                    required: true,
+                    myPasswordMatch: true
                 }
             },
 
@@ -26,15 +45,18 @@ var SingUp = function(){
             errorPlacement: function (error, element) { // render error placement for each input type
                 var text;
                 if(error.text()=='This field is required.'){
-                    text = form.find('input[name='+error.attr('for')+']').attr('data-isEmpty');
+                    text = form.find('input[id='+error.attr('for')+']').attr('data-isempty');
                     error.text(text);
                 }
                 else if(error.text()=='This field has already existed'){
-                    text = form.find('input[name='+error.attr('for')+']').attr('data-isExists');
+                    text = form.find('input[id='+error.attr('for')+']').attr('data-isExists');
                     error.text(text);
                 }
-                else if(error.text()!=''){
-                    text = form.find('input[name='+error.attr('for')+']').attr('data-isError');
+                else if(error.text()=='This field has isInconsistent data'){
+                    text = form.find('input[id='+error.attr('for')+']').attr('data-isInconsistent');
+                    error.text(text);
+                }else if(error.text()!=''){
+                    text = form.find('input[id='+error.attr('for')+']').attr('data-isError');
                     error.text(text);
                 }
                 var icon = $(element).parent('.input-icon').children('i');
@@ -73,14 +95,33 @@ var SingUp = function(){
             focusInvalid: false, // do not focus the last invalid input
             ignore: "",
             rules: {
-                surname: {
+                "user[first_name]": {
                     required: true
                 },
-                email: {
-                    required: true,
-                    email: true
+                "user[last_name]": {
+                    required: true
                 },
-                organization: {
+                "user[email]": {
+                    required: true,
+                    email: true,
+                    myEmail: true
+                },
+                "user[username]": {
+                    minlength: 6,
+                    required: true,
+                    myUsername: true
+                },
+                "user[password]": {
+                    minlength: 8,
+                    required: true,
+                    myPasswordAllow: true
+                },
+                "user[password_confirmation]": {
+                    minlength: 8,
+                    required: true,
+                    myPasswordMatch: true
+                },
+                "company_name": {
                     required: true
                 }
             },
@@ -93,15 +134,18 @@ var SingUp = function(){
             errorPlacement: function (error, element) { // render error placement for each input type
                 var text;
                 if(error.text()=='This field is required.'){
-                    text = form.find('input[name='+error.attr('for')+']').attr('data-isEmpty');
+                    text = form.find('input[id='+error.attr('for')+']').attr('data-isempty');
                     error.text(text);
                 }
                 else if(error.text()=='This field has already existed'){
-                    text = form.find('input[name='+error.attr('for')+']').attr('data-isExists');
+                    text = form.find('input[id='+error.attr('for')+']').attr('data-isExists');
                     error.text(text);
                 }
-                else if(error.text()!=''){
-                    text = form.find('input[name='+error.attr('for')+']').attr('data-isError');
+                else if(error.text()=='This field has isInconsistent data'){
+                    text = form.find('input[id='+error.attr('for')+']').attr('data-isInconsistent');
+                    error.text(text);
+                }else if(error.text()!=''){
+                    text = form.find('input[id='+error.attr('for')+']').attr('data-isError');
                     error.text(text);
                 }
                 var icon = $(element).parent('.input-icon').children('i');
@@ -125,8 +169,8 @@ var SingUp = function(){
 
             submitHandler: function (form) {
                 error.hide();
-                form.off('submit');
                 form.submit();
+                return false;
             }
         });
     }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521175023) do
+ActiveRecord::Schema.define(version: 20140531095553) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -126,6 +126,40 @@ ActiveRecord::Schema.define(version: 20140521175023) do
     t.string   "description", limit: 1000
   end
 
+  create_table "user_employer_companies", force: true do |t|
+    t.integer  "user_id"
+    t.string   "first_name",                                          null: false
+    t.string   "last_name",                                           null: false
+    t.string   "company_name",                                        null: false
+    t.binary   "picture",            limit: 16777215
+    t.string   "brief_introduction"
+    t.string   "introduction"
+    t.string   "website"
+    t.string   "country_code"
+    t.string   "city"
+    t.integer  "zip"
+    t.string   "time_zone",                           default: "UTC"
+    t.integer  "vat_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_employer_personals", force: true do |t|
+    t.integer  "user_id"
+    t.string   "first_name",                                          null: false
+    t.string   "last_name",                                           null: false
+    t.binary   "picture",            limit: 16777215
+    t.string   "brief_introduction"
+    t.string   "introduction"
+    t.string   "website"
+    t.string   "country_code"
+    t.string   "city"
+    t.integer  "zip"
+    t.string   "time_zone",                           default: "UTC"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_experiences", force: true do |t|
     t.string   "organization"
     t.string   "office"
@@ -204,7 +238,7 @@ ActiveRecord::Schema.define(version: 20140521175023) do
     t.string   "username",                                                null: false
     t.string   "first_name",                                              null: false
     t.string   "last_name",                                               null: false
-    t.string   "country_code",                                            null: false
+    t.string   "country_code"
     t.string   "time_zone",                               default: "UTC"
     t.string   "how_to_know"
     t.boolean  "receive_information"

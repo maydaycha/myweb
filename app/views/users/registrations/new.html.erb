@@ -27,7 +27,7 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" href="/css/socialIcons.css">
   <link rel="stylesheet" type="text/css" href="/css/page/freelancer_sign_up.css">
-  <link rel="shortcut icon" href="favicon.ico"/>
+  <link rel="shortcut icon" href="/favicon.ico"/>
   <!-- END STYLE -->
 
   <style type="text/css">
@@ -130,6 +130,7 @@
     <% if alert %>
     <p class="alert form-group alert-danger"><%= alert %></p>
     <% end %>
+    <%= devise_error_messages! %>
   </div>
 
   <div class="form-group">
@@ -243,7 +244,7 @@
   <div class="form-group">
     <div class="checkbox">
       <label>
-        <input type="checkbox" checked> 我想收到關於網站最新的資訊及動態，若您不想收到類似訊息，請取消勾選。
+        <%= f.check_box :receive_information, :checked => "checked" %> 我想收到關於網站最新的資訊及動態，若您不想收到類似訊息，請取消勾選。
       </label>
     </div>
   </div>
@@ -301,24 +302,6 @@
        Web.init();
        SingUp.init();
      });
-
-      function constrain_Eng_and_num(e) {
-        var keynum, keychar, check
-         // IE
-        if(window.event) {
-            keynum = e.keyCode
-        } else if(e.which) {  // Netscape/Firefox/Opera
-            keynum = e.which
-        }
-        // console.log(keynum)
-        if( keynum == 8 || keynum == 9 || keynum == 13 || keynum == 189 || keynum == 229) return true
-        keychar = String.fromCharCode(keynum)
-        check = /\w/
-        check_digital = /[0-9]/
-        return check.test(keychar) && !check_digital.test(keychar)
-    }
    </script>
-
-
  </body>
  </html>

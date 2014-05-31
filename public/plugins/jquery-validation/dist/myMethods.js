@@ -55,9 +55,7 @@ jQuery.validator.addMethod("myPasswordAllow", function(value, element) {
 
 jQuery.validator.addMethod("myPasswordMatch", function(value, element) {
     var result = false
-    if( value == $("input[name='user[password]']").val() ) result = true;
-    console.log(value)
-    console.log($("input[name='user[password]']").val())
+    if( value == $(element).parents("form").find("input[name='user[password]']").val() ) result = true;
     return result;
 }, "This field has isInconsistent data");
 
