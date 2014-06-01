@@ -91,19 +91,6 @@
             </div>
         <!-- END MODAL -->
         <h1 class="title">建立雇主帳號</h1>
-        <div class="social">
-            <div class="box">
-                <p class="social-text">您也可以使用其他OpenID快速註冊</p>
-                <ul class="social-icons">
-                    <li>
-                        <%= link_to "Facebook", user_omniauth_authorize_path(:facebook, from: 'employer_new'), class: "facebook", data:{original:{title:"facebook"}} %>
-                    </li>
-                    <li>
-                        <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2, from: 'employer_new'), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <!-- BEGIN MAIN CONTENT -->
         <div class="main-content">
             <!-- BEGIN TABS -->

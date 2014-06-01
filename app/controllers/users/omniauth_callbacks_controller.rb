@@ -24,8 +24,12 @@ class Users::OmniauthCallbacksController < ApplicationController
       session["devise:uid"] = request.env["omniauth.auth"]["uid"]
       session["devise:info"] = request.env["omniauth.auth"]["info"]
       session["devise:token"] = request.env["omniauth.auth"]["credentials"]["token"]
-      redirect_to new2_user_registration_path
-
+      if request.env['omniauth.params']['from'] == 'employer_new'
+        redirect_to new_employer_social_user_registration_path
+      else
+        redirect_to new2_user_registration_path  
+      end
+      
       # user = User.new
       # user.first_name = omni['extra']['raw_info'].first_name
       # user.last_name = omni['extra']['raw_info'].last_name
@@ -65,7 +69,11 @@ class Users::OmniauthCallbacksController < ApplicationController
       session["devise:uid"] = request.env["omniauth.auth"]["uid"]
       session["devise:info"] = request.env["omniauth.auth"]["info"]
       session["devise:token"] = request.env["omniauth.auth"]["credentials"]["token"]
-      redirect_to new2_user_registration_path
+      if request.env['omniauth.params']['from'] == 'employer_new'
+        redirect_to new_employer_social_user_registration_path
+      else
+        redirect_to new2_user_registration_path  
+      end
     end
   end
 
