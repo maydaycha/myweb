@@ -9,8 +9,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if not @user.new_record?
         session[:omniauth] = nil
         @user.user_authentications.create!(:provider => session["devise:provider"],
-                                           :uid => session['devise:uid'], 
-                                           :token => session["devise:token"], 
+                                           :uid => session['devise:uid'],
+                                           :token => session["devise:token"],
                                            :token_secret => "") if session["devise:provider"] != nil
       end
 
@@ -32,7 +32,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       if params[:from] == "employer_personal"
         @from = "employer_personal"
-        render :employer_new 
+        render :employer_new
       elsif params[:from] == "employer_company"
         @from = "employer_company"
         render :employer_new

@@ -124,6 +124,14 @@ Sun::Application.routes.draw do
       post 'upload_portfolio_picture'
       get 'upload_portfolio_picture'
     end
+    namespace :employer do
+      namespace :company do
+        resources :profiles
+      end
+      namespace :personal do
+        resources :profiles
+      end
+    end
   end
 
   post 'users/profiles/check_password' => 'users/profiles#check_password'
@@ -147,7 +155,6 @@ Sun::Application.routes.draw do
   get 'contact' => 'index#contact', :as => :index_contact
 
   namespace :users do
-
     post 'add_to_favorite'
     delete 'remove_from_favorite'
     get 'check_email'

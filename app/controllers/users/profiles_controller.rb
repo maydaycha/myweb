@@ -18,17 +18,16 @@ class Users::ProfilesController < ApplicationController
   def edit
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
     response.headers["Pragma"] = "no-cache"
-    @user = User.find(params[:id])
   end
 
 
   def update
     UserSkill.where(user_id: current_user.id).delete_all
 
-    foeign_skills = []
-    params[:user][:user_skills].split(",").each{ |e| foeign_skills << current_user.user_skills.create!(name: e) }
+    foreign_skills = []
+    params[:user][:user_skills].split(",").each{ |e| foreign_skills << current_user.user_skills.create!(name: e) }
 
-    params[:user][:user_skills] = foeign_skills
+    params[:user][:user_skills] = foreign_skills
     params[:user][:picture] = open(params[:image].tempfile).read if params[:image]
     params[:user][:step] = 2
 
@@ -43,6 +42,9 @@ class Users::ProfilesController < ApplicationController
     @skill_main_categoies = current_user.user_skill_categories.uniq_by(&:main_skill_id)
     @user = current_user
   end
+
+
+
 
 
   def ajax_updae
@@ -104,11 +106,7 @@ class Users::ProfilesController < ApplicationController
 
     when "update_certification"
       @certificate = UserCertification.find(params[:id])
-      @certificate.name = params[:name]
-      @certificate.source = params[:source]
-      @certificate.get_time = params[:get_time]
-      @certificate.description = params[:description]
-      @certificate.save
+      @certificate.update!(name: params[:name], source: params[:source], get_time: params[:get_time], description: params[:description])
       render json: current_user.user_certifications
 
     when 'add_certification'
