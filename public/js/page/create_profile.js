@@ -109,6 +109,9 @@ var CreateProfile = function(){
             errorClass: 'help-block', // default input error message class
             focusInvalid: false, // do not focus the last invalid input
             rules: {
+                'user[worker_type]': {
+                    required: true
+                },
                 'user[hourly_pay]': {
                     required: true
                 },
@@ -118,11 +121,17 @@ var CreateProfile = function(){
                 'user[city]': {
                     required: true
                 },
-                'user[introduction]': {
-                    maxlength: 200
+                'user[brief_introduction]': {
+                    maxlength: 100
                 },
-                'user[review]': {
+                'user[introduction]': {
                     maxlength: 1000
+                },
+                'user[website]': {
+                    complete_url: true
+                },
+                'user[vat_number]': {
+                    digits: true
                 }
             },
 
@@ -186,7 +195,7 @@ var CreateProfile = function(){
             },
             async: false
         });
-        if (result == false) 
+        if (result == false)
             $(this).removeTag(value);
 
         var skills_arr = $(this).val().split(',');

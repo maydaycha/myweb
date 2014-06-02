@@ -127,6 +127,10 @@ Sun::Application.routes.draw do
     namespace :employer do
       namespace :company do
         resources :profiles
+        namespace :profiles do
+          post 'ajax_updae'
+          post 'ajax_upload_img'
+        end
       end
       namespace :personal do
         resources :profiles
@@ -137,12 +141,16 @@ Sun::Application.routes.draw do
   post 'users/profiles/check_password' => 'users/profiles#check_password'
   post 'users/profiles/get_sub_category' => 'users/profiles#get_sub_category'
   get 'users/profiles/show_image/:id' => 'users/profiles#show_image'
-  get 'import_from_csv' => 'skills#import_from_csv'
   get 'users/profiles/show_portfolio_image/:index' => 'users/profiles#show_portfolio_image'
   get 'users/profiles/download_document/:index' => 'users/profiles#download_portfolio_document', as: "users_download_document"
 
+  get 'users/employer/company/show_image/:id' => 'users/employer/company/profiles#show_image'
+
+  get 'import_from_csv' => 'skills#import_from_csv'
+
   get 'skills/exist' => 'skills#exist'
   get 'skills/autocomplete' => 'skills#autocomplete'
+
 
 
   namespace :index do

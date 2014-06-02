@@ -546,15 +546,15 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">個人簡述</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id="introduction"><%= current_user.introduction %></p>
-                                            <input type="text" name="introduction" class="form-control edit" placeholder="個人簡述" value="<%= current_user.introduction %>" >
+                                            <p class="form-control-static view" id="brief_introduction"><%= current_user.brief_introduction %></p>
+                                            <input type="text" name="brief_introduction" class="form-control edit" placeholder="個人簡述" value="<%= current_user.brief_introduction %>" >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">詳細介紹<br>(僅限1000字)</label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view" id="review"><%= current_user.review %></p>
-                                            <textarea name="review" class="form-control edit" rows="3" placeholder="個人詳細介紹"><%= current_user.review %></textarea>
+                                            <p class="form-control-static view" id="introduction"><%= current_user.introduction %></p>
+                                            <textarea name="introduction" class="form-control edit" rows="3" placeholder="個人詳細介紹"><%= current_user.introduction %></textarea>
                                         </div>
                                     </div>
 
@@ -1577,14 +1577,13 @@
             portlet.addClass('show-view')
         } else {
             $("body").animate({scrollTop: "300px"})
-            // window.scrollTo(0, -200)
             return
         }
 
         var obj = {
             request: "update_basic_info",
-            introduction: $("#contact-form" + form_num + " input[name='introduction']").val(),
-            review: $("#contact-form" + form_num + " textarea[name='review']").val(),
+            brief_introduction: $("#contact-form" + form_num + " input[name='brief_introduction']").val(),
+            introduction: $("#contact-form" + form_num + " textarea[name='introduction']").val(),
             first_name: $("#contact-form" + form_num + " input[name='first_name']").val(),
             last_name: $("#contact-form" + form_num + " input[name='last_name']").val(),
             money: $("#contact-form" + form_num + " input[name='money']").val()
@@ -1597,8 +1596,8 @@
             dataType: "json",
             data: obj,
             success: function(data) {
+                $("#brief_introduction").text(data.brief_introduction)
                 $("#introduction").text(data.introduction)
-                $("#review").text(data.review)
                 $("#first_name").text(data.first_name)
                 $("#last_name").text(data.last_name)
                 $("#money2").text('$' + data.hourly_pay + ' USD/HR')
@@ -1607,7 +1606,6 @@
                 expand_count--
             }
         });
-
     }
 
     var addCategoryList = function(){
