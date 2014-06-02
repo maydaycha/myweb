@@ -24,6 +24,10 @@ var PersonalProfile = function(){
                 },
                 "website": {
                 	complete_url: true
+                },
+                "vat_number": {
+                    digits: true,
+                    maxlength: 8
                 }
             },
 

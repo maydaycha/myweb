@@ -131,7 +131,8 @@ var CreateProfile = function(){
                     complete_url: true
                 },
                 'user[vat_number]': {
-                    digits: true
+                    digits: true,
+                    maxlength: 8
                 }
             },
 

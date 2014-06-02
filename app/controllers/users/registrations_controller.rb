@@ -12,16 +12,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                            :uid => session['devise:uid'],
                                            :token => session["devise:token"],
                                            :token_secret => "") if session["devise:provider"] != nil
+        @user.update!(current_role: nil)
       end
 
       if not @user.new_record?
         if params[:from] == "employer_personal"
           @user.user_employer_personals.create!(:first_name => params[:user][:first_name],
                                                :last_name => params[:user][:last_name])
+          @user.update!(current_role: "p#{@user.user_employer_personals.last.id}")
         elsif params[:from] == "employer_company"
           @user.user_employer_companies.create!(:first_name => params[:user][:first_name],
                                                :last_name => params[:user][:last_name],
                                                :company_name => params[:company_name])
+          @user.update!(current_role: "c#{@user.user_employer_companies.last.id}")
         end
       end
     else

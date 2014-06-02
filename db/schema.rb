@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602055643) do
+ActiveRecord::Schema.define(version: 20140602182641) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -254,6 +254,7 @@ ActiveRecord::Schema.define(version: 20140602055643) do
     t.integer  "zip"
     t.integer  "step"
     t.string   "sketch"
+    t.string   "current_role"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

@@ -47,7 +47,15 @@ class ApplicationController < ActionController::Base
     elsif current_user.step == 2
       root_path
     else
-      new_users_skill_category_path
+      if not current_user.current_role.nil?
+        if current_user.current_role[0] == 'p'
+          edit_users_employer_personal_profile_path(current_user.current_role[1, current_user.current_role.length - 1])
+        elsif current_user.current_role[0] == 'c'
+          edit_users_employer_company_profile_path(current_user.current_role[1, current_user.current_role.length - 1])
+        end
+      else
+        new_users_skill_category_path
+      end
     end
   end
 
