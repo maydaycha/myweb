@@ -10,6 +10,12 @@ var PersonalProfile = function(){
             focusInvalid: false, // do not focus the last invalid input
             ignore: "",
             rules: {
+                "first_name": {
+                    required: true
+                },
+                "last_name": {
+                    required: true
+                },
                 "brief_introduction": {
                     maxlength: 20
                 },

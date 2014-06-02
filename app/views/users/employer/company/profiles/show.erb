@@ -63,8 +63,12 @@
             </div>
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><a href="/login.html">會員登入</a></li>
-                    <li><a href="/sign_up.html">免費註冊</a></li>
+                    <% if user_signed_in? %>
+                    <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                    <% else %>
+                    <li><%= link_to "會員登入", new_user_session_path %></li>
+                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                    <% end %>
                 </ul>
             </div>
         </div>
@@ -89,10 +93,10 @@
                                     基本資訊
                                 </div>
                                 <div class="tools">
-                                    <a href="/javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#contact-portlet1">
+                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#contact-portlet1">
                                         <i class="fa fa-pencil-square-o"></i> 編輯
                                     </a>
-                                    <a href="/javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet1">
+                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet1">
                                         <i class="fa fa-floppy-o"></i>
                                     </a>
                                 </div>
@@ -118,7 +122,7 @@
                                         <div class="col-md-10">
                                             <!-- <img src="/img/staff.png" class="avatar" alt=""> -->
                                             <%= image_tag url_for(:controller => "users/employer/company/profiles", :action => "show_image", :id => @company.id), id: "blah1", class: "avatar" %>
-                                            <input type="file" name="image" class="form-control edit">
+                                            <input type="file" name="image" class="form-control edit" onchange="readURL(this)">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -154,10 +158,10 @@
                                     我的位置
                                 </div>
                                 <div class="tools">
-                                    <a href="/javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#contact-portlet2">
+                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#contact-portlet2">
                                         <i class="fa fa-pencil-square-o"></i> 編輯
                                     </a>
-                                    <a href="/javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet2">
+                                    <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#contact-portlet2">
                                         <i class="fa fa-floppy-o"></i>
                                     </a>
                                 </div>
@@ -469,16 +473,16 @@
                                     帳戶概觀
                                 </div>
                                 <div class="tools">
-                                    <a href="/javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet1">
-                                        <i class="fa fa-pencil-square-o"></i> 編輯
+                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet1" onClick="javascript: expand_count++;">
+                                        <i class="fa fa-pencil-square-o" ></i> 編輯
                                     </a>
-                                    <a href="/javascript:;" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet1">
+                                    <a href="javascript:;" class="edit" data-original-title="收合" data-portlet="#profile-portlet1" onclick="update_basic_info(2)">
                                         <i class="fa fa-chevron-up"></i>
                                     </a>
                                 </div>
                             </div>
                             <div id="mycontact" class="portlet-body">
-                                <form  action="#" id="contact-form2" class="form-horizontal" role="form">
+                                <form action="#" id="contact-form2" class="form-horizontal" role="form">
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">企業圖像</label>
                                         <div class="col-md-10">
@@ -495,7 +499,7 @@
                                                     <div class="btn btn-default image-preview-input">
                                                         <span class="glyphicon glyphicon-folder-open"></span>
                                                         <span class="image-preview-input-title">選擇檔案</span>
-                                                        <input class="" id="profile_img2" name="image" type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                                                        <input class="" id="profile_img2" name="image" type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" onchange="readURL(this)"/> <!-- rename it -->
                                                     </div>
                                                 </span>
                                             </div><!-- /input-group image-preview [TO HERE]-->
@@ -565,14 +569,14 @@
                                             <textarea name="introduction" class="form-control edit" rows="3" placeholder="(自動帶入)"><%= @company.introduction %></textarea>
                                         </div>
                                         <div class="pull-right" style="margin:20px 16px 0 0;">
-                                        <button class="btn btn-default tool-save edit" data-original-title="收合" data-portlet="#profile-portlet1" onclick="update_basic_info(2)">收合</button>
+                                        <button class="btn btn-default edit prevent" data-original-title="收合" data-portlet="#profile-portlet1" onclick="update_basic_info(2)">收合</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
                         <div class="text-center">
-                            <a href="/index.html" class="btn btn-danger">資料填寫完成回到首頁</a>
+                            <a href="/" class="btn btn-danger">資料填寫完成回到首頁</a>
                         </div>
                     </div>
                     <div class="tab-pane" id="password">
@@ -582,42 +586,63 @@
                                     變更密碼
                                 </div>
                                 <div class="tools">
-                                    <a href="/javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
+                                    <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
                                         <i class="fa fa-floppy-o"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="portlet-body">
-                                <form action="#" class="form-horizontal" role="form">
+                                <%= form_for(current_user, url: "/users", html: { id: "password-form", method: :put, class: "form-horizontal", role: "form"}) do |f| %>
+                                <!-- <form action="#" id="contact-form1" class="form-horizontal" role="form"> -->
+                                    <input name="from" value="company" style="display: none"> <!-- for redirect after update password -->
+                                    <input name="company_id" value="<%= @company.id %>" style="display: none"> <!-- for redirect after update password -->
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">舊密碼</label>
                                         <div class="col-md-10">
-                                            <input type="password" name="oldPassword" class="form-control">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                <div class="input-icon right">
+                                                    <i class="fa"></i>
+                                                    <%= f.password_field :current_password, autocomplete: "off", class: "form-control", data: {isEmpty: "當前密碼不能為空", isError: "密碼錯誤"} %>
+                                                </div>
+                                            </div>
                                             <p class="help-block">
                                                 如果您想要變更您的密碼，請先輸入您的舊密碼
                                             </p>
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">新密碼</label>
                                         <div class="col-md-10">
-                                            <input type="password" name="newPassword" class="form-control">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                <div class="input-icon right">
+                                                    <i class="fa fa-warning" data-original-title="密碼至少要有六個字元，不包含*/!~等特殊符號"></i>
+                                                    <%= f.password_field :password, autocomplete: "off", class: "form-control", data: {isEmpty: "密碼至少要有八個字元，不包含*/!~等特殊符號", isError: "密碼至少要有八個字元，不包含*/!~等特殊符號"} %>
+                                                </div>
+                                            </div>
                                             <p class="help-block">
-                                                密碼長度必須大於8英數字元，包含大小寫英文符號，不包含特殊符號。
+                                                密碼長度必須大於等於8英數字元，包含大小寫英文符號，不包含特殊符號。
                                             </p>
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">再次輸入新密碼</label>
                                         <div class="col-md-10">
-                                            <input type="password" name="checkPassword" class="form-control">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", "data-isInconsistent" => "密碼與先前輸入的不一致" %>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class=" text-right" >
-                                        <button onClick=" javascript:;"  class="btn btn-default tool-save" data-original-title="儲存" data-portlet="#password-portlet">儲存</button>
+                                    <div class="form-group" style="margin:20px 16px 0 0;">
+                                        <%= f.submit "儲存", class: "btn btn-default pull-right", onclick: "warn_on_unload=''" %>
                                     </div>
-                                </form>
-                            </div>
+                                <!-- </form> -->
+                                <% end %>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -642,6 +667,7 @@
             <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
             <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
             <script type="text/javascript" src="/plugins/jquery-validation/dist/jquery.validate.js"></script>
+            <script type="text/javascript" src="/plugins/jquery-validation/dist/myMethods.js"></script>
             <!-- END 核心插件 -->
             <!-- BEGIN 頁面插件 -->
             <script src="/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
@@ -651,18 +677,32 @@
             <script src="/plugins/dropzone/dropzone.js"></script>
             <!-- END 頁面插件 -->
             <script type="text/javascript" src="/js/script.js"></script>
-            <script type="text/javascript" src="/js/page/personal_profile.js"></script>
+            <script type="text/javascript" src="/js/page/company_profile.js"></script>
+            <!-- <script type="text/javascript" src="/js/page/personal_profile.js"></script> -->
             <script type="text/javascript" src="/js/element.js"></script>
             <script>
 
                 var warn_on_unload = "尚未儲存的資料都將遺失"
                 var expand_count = 0
+
                 jQuery(document).ready(function() {
                    Web.init();
                    PersonalProfile.init();
+
+                    $(".prevent").click(function(event){
+                      event.preventDefault()
+                    })
+
+                   window.onbeforeunload = function(e) {
+                       if( expand_count > 0 && warn_on_unload != '') return warn_on_unload
+                    }
                });
 
                 var update_basic_info = function(form_num) {
+                    if( $(".has-error").length > 0 ) {
+                        $("body").animate({scrollTop: "300px"})
+                        return
+                    }
                     var double_check = 2
                     if( $("#contact-form" + form_num + " input[name='first_name']").val() == '' ) {
                         $("#contact-form" + form_num + " input[name='first_name']").focus()
@@ -678,7 +718,7 @@
                     }
                     if(double_check == 0) {
                         var portlet = $("#profile-portlet1")
-                        console.log(portlet)
+//                        console.log(portlet)
                         portlet.removeClass('show-edit')
                         portlet.addClass('show-view')
                     } else {
@@ -698,24 +738,34 @@
                         "company[vat_number]": $("#contact-form" + form_num + " input[name='vat_number']").val()
                     }
                     $("#loader").show()
-                    console.log(obj)
+                    //console.log(obj)
                     $.ajax({
                         url: "/users/employer/company/profiles/ajax_updae",
                         type: "post",
                         dataType: "json",
                         data: obj,
                         success: function(data) {
-                            console.log(data)
+                            //console.log(data)
                             $("#brief_introduction").text(data.company.brief_introduction)
                             $("#introduction").text(data.company.introduction)
                             $("#first_name").text(data.user.first_name)
                             $("#last_name").text(data.user.last_name)
-                            console.log(document.getElementById("profile_img"+ form_num))
+                            //console.log(document.getElementById("profile_img"+ form_num))
                             if( typeof document.getElementById("profile_img"+ form_num).files[0] != 'undefined' ) upload_img(form_num)
                             else $("#loader").hide()
                             expand_count--
                         }
                     });
+                }
+
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $(".avatar").attr('src', e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
                 }
 
                 function upload_img(form_num) {
@@ -733,12 +783,14 @@
                     xhr.setRequestHeader("X-File-Type", file.type)
                     xhr.onload = function() {
                         if (this.status == 200) {
-                            console.log("upload file success")
+                            //console.log("upload file success")
                             $("#loader").hide()
                         }
                     }
                     xhr.send(fd)
                 }
+
+
             </script>
             <!-- END JAVASCRIPTS -->
             <!-- BEGIN PIE -->

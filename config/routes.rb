@@ -134,6 +134,10 @@ Sun::Application.routes.draw do
       end
       namespace :personal do
         resources :profiles
+        namespace :profiles do
+          post 'ajax_updae'
+          post 'ajax_upload_img'
+        end
       end
     end
   end
@@ -145,6 +149,7 @@ Sun::Application.routes.draw do
   get 'users/profiles/download_document/:index' => 'users/profiles#download_portfolio_document', as: "users_download_document"
 
   get 'users/employer/company/show_image/:id' => 'users/employer/company/profiles#show_image'
+  get 'users/employer/personal/show_image/:id' => 'users/employer/personal/profiles#show_image'
 
   get 'import_from_csv' => 'skills#import_from_csv'
 

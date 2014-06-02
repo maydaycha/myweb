@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title>快樂工作</title>
+
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <link rel="stylesheet" href="/plugins/select2/select2-metronic.css">
+        <link rel="stylesheet" href="/plugins/select2/select2.css">
+        <link rel="stylesheet" href="/plugins/jquery-tags-input/jquery.tagsinput.css">
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/page/create_profile.css">
+        <link rel="shortcut icon" href="/favicon.ico"/>
+        <!-- END STYLE -->
+    </head>
+    <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--
+                <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                    <i class="fa fa-search"></i>
+                </button>
+            -->
+            <a class="navbar-brand" href="/index.html"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
+        </div>
+            <!--
+            <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+                <div class="navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        -->
+        <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a href="/login.html">會員登入</a></li>
+                <li><a href="/sign_up.html">免費註冊</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- END NAVBAR -->
+    <!-- BEGIN PAGE -->
+    <div class="page-content">
+        <!-- BEGIN TITLE -->
+        <h1 class="title">填寫資料</h1>
+        <!-- END TITLE -->
+        <!-- BEGIN MAIN CONTENT -->
+        <div class="main-content">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="form_wizard_1">
+                        <div class="form">
+                            <!-- <form action="#" class="form-horizontal" id="submit_form"> -->
+                            <%= form_for @personal, as: :user, url: users_employer_personal_profile_path(@personal), method: :put, html: {class: "form-horizontal", id: "submit_form"} do |f| %>
+                                <div class="form-wizard">
+                                    <div class="form-body">
+                                        <ul class="nav nav-pills nav-justified steps">
+                                            <li>
+                                                <a href="/#tab1" data-toggle="tab" class="step">
+                                                    <span class="number">
+                                                     1
+                                                 </span>
+                                                 <span class="desc">
+                                                    <i class="fa fa-check"></i> 自我介紹
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/#tab2" data-toggle="tab" class="step">
+                                                <span class="number">
+                                                 2
+                                             </span>
+                                             <span class="desc">
+                                                <i class="fa fa-check"></i> 聯絡資訊
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/#tab3" data-toggle="tab" class="step active">
+                                            <span class="number">
+                                             3
+                                         </span>
+                                         <span class="desc">
+                                            <i class="fa fa-check"></i> 完成編輯
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="bar" class="progress progress-striped" role="progressbar">
+                                <div class="progress-bar progress-bar-success">
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="alert alert-danger display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    請檢查您輸入的資料
+                                </div>
+                                <div class="alert alert-success display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    資料正確
+                                </div>
+                                <div class="tab-pane" id="tab1">
+                                    <div class=" portlet box light-grey">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                介紹自己
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">新增圖像</label>
+                                                <div class="col-md-10">
+                                                    <!-- <img src="/img/staff.png" class="avatar" alt=""> -->
+                                                    <%= image_tag url_for(:controller => "/users/employer/personal/profiles", :action => "show_image", :id => @personal.id), id: "blah1", class: "avatar" %>
+                                                    <div class="input-group image-preview edit">
+                                                        <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                                                        <span class="input-group-btn">
+                                                            <!-- image-preview-clear button -->
+                                                            <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                                                                <span class="glyphicon glyphicon-remove"></span> 清除
+                                                            </button>
+                                                            <!-- image-preview-input -->
+                                                            <div class="btn btn-default image-preview-input">
+                                                                <span class="glyphicon glyphicon-folder-open"></span>
+                                                                <span class="image-preview-input-title">選擇檔案</span>
+                                                                <!-- <input class="" name="image" type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> -->
+                                                                <%= f.file_field :picture, name: "image", accept: "image/png, image/jpeg, image/gif", onchange: "readURL(this)" %>
+                                                            </div>
+                                                        </span>
+                                                    </div><!-- /input-group image-preview [TO HERE]-->
+                                                    <p class="help-block">
+                                                        一張好的相片, 能更增進遠距工具者的信賴感。
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">雇主簡介(僅限20字)<a href="javascript:;" class="show-tip" data-original-title="<h4>簡短的描述介紹自己，這個介紹會出現在您的公開資訊上。">
+                                                    <i class="fa fa fa-info-circle" ></i>
+                                                </a></label>
+
+                                                <div class="col-md-10">
+                                                    <!-- <textarea name="introduction" class="form-control" rows="3" placeholder="雇主簡介"></textarea> -->
+                                                    <%= f.text_area :brief_introduction, class: "form-control", rows: "3", placeholder: "雇主簡介" %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">詳細介紹(僅限1000字)
+                                                    <a href="javascript:;" class="show-tip" data-original-title="<h4>完整詳細介紹關於您自己，幫助遠距工作者更了解您的需求。">
+                                                        <i class="fa fa fa-info-circle" ></i>
+                                                    </a>
+                                                </label>
+                                                <div class="col-md-10">
+                                                    <!-- <textarea name="review" class="form-control" rows="3" placeholder="詳細介紹"></textarea> -->
+                                                    <%= f.text_area :introduction, class: "form-control", rows: "3", placeholder: "詳細介紹" %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">個人網站</label>
+                                                <div class="col-md-10">
+                                                    <!-- <input type="text" class="form-control tags" name="website" placeholder="選填，請輸入您的網址" value=""/> -->
+                                                    <%= f.text_field :website, class: "form-control tags", placeholder: "選填，請輸入您的網址" %>
+                                                    <!-- <p class="help-block">
+                                                        個人網站
+                                                    </p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane active" id="tab2">
+                                    <div class=" portlet box light-grey">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                所在地區
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">所在地區</label>
+                                                <div class="col-md-10">
+                                                    <select name="user[country_code]" class="form-control edit">
+                                                        <% t("countries").each do |e| %>
+                                                            <option value="<%= e[0] %>"><%= e[1] %></option>
+                                                        <% end %>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">郵遞區號</label>
+                                                <div class="col-md-10">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <!-- <input type="text" name="zip" class="form-control" placeholder="郵遞區號" data-isEmpty="請輸入郵遞區號"> -->
+                                                        <%= f.text_field :zip, class: "form-control", placeholder: "郵遞區號", "data-isEmpty" => "請輸入郵遞區號"%>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">城市</label>
+                                                <div class="col-md-10">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <!-- <input type="text" name="city" class="form-control" placeholder="城市" data-isEmpty="請輸入城市"> -->
+                                                        <%= f.text_field :city, class: "form-control", placeholder: "城市", data: {isEmpty: "請輸入城市"}%>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label" for="timezone">時區</label>
+                                                <div class="col-md-10">
+                                                    <select name="timezoon" class="form-control edit" data-isEmpty="請選擇時區">
+                                                        <option value="-12">UTC-12 Baker Island Time</option>
+                                                        <option value="-11">UTC-11 Niue Time, Samoa Standard Time</option>
+                                                        <option value="-10">UTC-10 Hawaii-Aleutian Standard Time, Cook Island Time</option>
+                                                        <option value="-9.5">UTC-9:30 Marquesas Islands Time</option>
+                                                        <option value="-9">UTC-9 Alaska Standard Time, Gambier Island Time</option>
+                                                        <option value="-8">UTC-8 Pacific Standard Time</option>
+                                                        <option value="-7">UTC-7 Mountain Standard Time</option>
+                                                        <option value="-6">UTC-6 Central Standard Time</option>
+                                                        <option value="-5">UTC-5 Eastern Standard Time</option>
+                                                        <option value="-4.5">UTC-4:30 Venezuelan Standard Time</option>
+                                                        <option value="-4">UTC-4 Atlantic Standard Time</option>
+                                                        <option value="-3.5">UTC-3:30 Newfoundland Standard Time</option>
+                                                        <option value="-3">UTC-3 Amazon Standard Time, Central Greenland Time</option>
+                                                        <option value="-2">UTC-2 Fernando de Noronha Time, South Georgia &amp; the South Sandwich Islands Time</option>
+                                                        <option value="-1">UTC-1 Azores Standard Time, Cape Verde Time, Eastern Greenland Time</option>
+                                                        <option value="0" selected="selected">UTC Western European Time, Greenwich Mean Time</option>
+                                                        <option value="1">UTC+1 Central European Time, West African Time</option>
+                                                        <option value="2">UTC+2 Eastern European Time, Central African Time</option>
+                                                        <option value="3">UTC+3 Moscow Standard Time, Eastern African Time</option>
+                                                        <option value="3.5">UTC+3:30 Iran Standard Time</option>
+                                                        <option value="4">UTC+4 Gulf Standard Time, Samara Standard Time</option>
+                                                        <option value="4.5">UTC+4:30 Afghanistan Time</option>
+                                                        <option value="5">UTC+5 Pakistan Standard Time, Yekaterinburg Standard Time</option>
+                                                        <option value="5.5">UTC+5:30 Indian Standard Time, Sri Lanka Time</option>
+                                                        <option value="5.75">UTC+5:45 Nepal Time</option>
+                                                        <option value="6">UTC+6 Bangladesh Time, Bhutan Time, Novosibirsk Standard Time</option>
+                                                        <option value="6.5">UTC+6:30 Cocos Islands Time, Myanmar Time</option>
+                                                        <option value="7">UTC+7 Indochina Time, Krasnoyarsk Standard Time</option>
+                                                        <option value="8">UTC+8 Chinese Standard Time, Australian Western Standard Time, Irkutsk Standard Time</option>
+                                                        <option value="8.75">UTC+8:45 Southeastern Western Australia Standard Time</option>
+                                                        <option value="9">UTC+9 Japan Standard Time, Korea Standard Time, Chita Standard Time</option>
+                                                        <option value="9.5">UTC+9:30 Australian Central Standard Time</option>
+                                                        <option value="10">UTC+10 Australian Eastern Standard Time, Vladivostok Standard Time</option>
+                                                        <option value="10.5">UTC+10:30 Lord Howe Standard Time</option>
+                                                        <option value="11">UTC+11 Solomon Island Time, Magadan Standard Time</option>
+                                                        <option value="11.5">UTC+11:30 Norfolk Island Time</option>
+                                                        <option value="12">UTC+12 New Zealand Time, Fiji Time, Kamchatka Standard Time</option>
+                                                        <option value="12.75">UTC+12:45 Chatham Islands Time</option>
+                                                        <option value="13">UTC+13 Tonga Time, Phoenix Islands Time</option>
+                                                        <option value="14">UTC+14 Line Island Time</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab3">
+                                    <h3 class="block">請確認您輸入的資訊</h3>
+                                    <div class=" portlet box light-grey">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                雇主帳戶型態
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <p class="form-control-static" data-display="status">個人雇主
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" portlet box light-grey">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                介紹自己
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">個人圖像</label>
+                                                <div class="col-md-10">
+                                                    <!-- <img src="/img/staff.png" class="avatar" alt=""> -->
+                                                    <%= image_tag url_for(:controller => "users/employer/personal/profiles", :action => "show_image", :id => @personal.id), id: "blah1", class: "avatar" %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">雇主簡介</label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static text-wrap" data-display="user[brief_introduction]">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">詳細介紹</label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static text-wrap" data-display="user[introduction]">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">個人網站</label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static text-wrap" data-display="user[website]">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" portlet box light-grey">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                聯絡資訊
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">所在地區</label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static" data-display="user[country_code]">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">郵遞區號</label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static" data-display="user[zip]">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">城市</label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static" data-display="user[city]">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">時區</label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static" data-display="timezoon">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="btns">
+                                        <button type="button" class="btn btn-default btn-lg left button-previous"><i class="fa fa-long-arrow-left"></i> 上一步</button>
+                                        <button type="button" class="btn btn-default btn-lg right button-next">下一步 <i class="fa fa-long-arrow-right"></i></button>
+                                        <button type="submit" class="btn btn-primary btn-lg right button-submit">確認送出</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- </form> -->
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<!-- END MAIN CONTENT -->
+</div>
+<!-- END PAGE -->
+<!-- BEGIN FOOTER -->
+<script language="javascript" type="text/javascript"
+src="/masterpage/footer.txt"></script>
+<!-- END FOOTER -->
+
+<!-- BEGIN JAVASCRIPTS -->
+<!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="/plugins/html5shiv.min.js"></script>
+            <script src="/plugins/respond.min.js"></script>
+            <![endif]-->
+
+            <script src="/plugins/jquery-1.11.0.min.js"></script>
+            <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+            <!-- END 核心插件 -->
+            <!-- BEGIN 頁面插件 -->
+            <script src="/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+            <script src="/plugins/select2/select2.min.js"></script>
+            <script type="text/javascript" src="/plugins/jquery-validation/dist/jquery.validate.js"></script>
+            <script type="text/javascript" src="/plugins/jquery-validation/dist/myMethods.js"></script>
+            <script src="/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+            <script src="/plugins/bootbox/bootbox.min.js"></script>
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="/js/script.js"></script>
+            <script type="text/javascript" src="/js/page/create_profile.js"></script>
+            <script type="text/javascript" src="/js/element.js"></script>
+            <script>
+                jQuery(document).ready(function() {
+                   Web.init();
+                   CreateProfile.init();
+               });
+
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $(".avatar").attr('src', e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
+            <!-- END JAVASCRIPTS -->
+            <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="/plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+    </body>
+    </html>

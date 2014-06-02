@@ -3,7 +3,7 @@ class Users::Employer::Company::ProfilesController < ApplicationController
   protect_from_forgery except: [:ajax_updae, :ajax_upload_img]
 
   def show
-    @company = current_user.user_employer_companies.first
+    @company = current_user.user_employer_companies.last
   end
 
   def new
@@ -15,7 +15,7 @@ class Users::Employer::Company::ProfilesController < ApplicationController
   def edit
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
     response.headers["Pragma"] = "no-cache"
-    @company = current_user.user_employer_companies.first
+    @company = current_user.user_employer_companies.last
   end
 
   def update

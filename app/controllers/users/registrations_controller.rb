@@ -61,12 +61,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
       sign_in resource_name, resource, bypass: true
       flash[:alert] = resource.errors.full_messages.map { |msg| "#{msg}" }.join
       flash[:alert].sub! 'Current password', t('error.oldpassword')
-      redirect_to users_profile_path(resource)
+      if params[:from] == 'company'
+        redirect_to users_employer_company_profile_path(params[:company_id])
+      elsif params[:from] == 'personal'
+        redirect_to users_employer_personal_profile_path(params[:personal_id])
+      else
+        redirect_to users_profile_path(resource)
+      end
     else
       clean_up_passwords resource
       flash[:alert] = resource.errors.full_messages.map { |msg| "#{msg}\n" }.join
       flash[:alert].sub! 'Current password', t('error.oldpassword')
-      redirect_to users_profile_path(resource)
+      if params[:from] == 'company'
+        redirect_to users_employer_company_profile_path(params[:company_id])
+      elsif params[:from] == 'personal'
+        redirect_to users_employer_personal_profile_path(params[:personal_id])
+      else
+        redirect_to users_profile_path(resource)
+      end
     end
   end
 
