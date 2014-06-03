@@ -1462,14 +1462,14 @@
             });
 
             this.on("processing", function() {
-                location.reload()
+                // location.reload()
             })
 
             this.on("successmultiple", function(file, foo) {
                 //console.log(file);
                 //console.log(foo);
                 // $("#loader").hide()
-                // location.reload()
+                location.reload()
             })
         },
         paramName: "file",
