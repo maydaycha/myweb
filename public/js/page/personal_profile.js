@@ -11,7 +11,7 @@ var PersonalProfile = function(){
             ignore: "",
             rules: {
                 "brief_introduction": {
-                    maxlength: 20
+                    maxlength: 100
                 },
                 "introduction": {
                     maxlength: 1000
