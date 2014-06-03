@@ -1446,7 +1446,7 @@
                 addWorksfile.removeAllFiles()
             });
             this.on("sendingmultiple", function(file, xhr, formData) {
-                // $("#loader").show()
+                $("#loader").show()
                 if( typeof $("#works-modal input[name=thumbnail]")[0].files[0] != 'undefined' ) {
                     formData.append('document_name', $("#works-modal input[name=thumbnail]")[0].files[0].name)
                     formData.append('document_content', $("#works-modal input[name=thumbnail]")[0].files[0])
@@ -1814,7 +1814,7 @@
     }
 
     var add_portfolio_without_thumbnail = function() {
-        // $("#loader").show()
+        $("#loader").show()
         var fd = new FormData()
         if( typeof $("#works-modal input[name=thumbnail]")[0].files[0] != 'undefined' ) {
             fd.append('document_name', $("#works-modal input[name=thumbnail]")[0].files[0].name)
