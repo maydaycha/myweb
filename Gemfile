@@ -93,3 +93,5 @@ gem 'kaminari'
 gem 'easy_captcha'
 # gem 'rmagick'
 
+# admin
+gem 'activeadmin', github: 'gregbell/active_admin'

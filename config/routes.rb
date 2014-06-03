@@ -1,5 +1,6 @@
 Sun::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
   captcha_route
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -57,10 +58,9 @@ Sun::Application.routes.draw do
   #   end
 
 
-
-  get "admins/index"
-  get "admins/login"
-  get "admins/authenticaiotn"
+  namespace :admins do
+    resources :users
+  end
 
 
   # freelancer api
