@@ -1832,17 +1832,16 @@
         var xhr = new XMLHttpRequest()
         xhr.open('post', '/users/profiles/ajax_updae', true)
 
-        // xhr.onload = function() {
-        //     if (this.status == 200) {
-        //         // $("#loader").hide()
-        //         location.reload()
-        //     } else {
-        //         alert("上傳失敗")
-        //         location.reload()
-        //     }
-        // }
+        xhr.onload = function() {
+            if (this.status == 200) {
+                // $("#loader").hide()
+                location.reload()
+            } else {
+                alert("上傳失敗")
+                location.reload()
+            }
+        }
         xhr.send(fd)
-        location.reload()
     }
 
     var delete_portfolio = function (id) {
