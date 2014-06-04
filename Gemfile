@@ -6,7 +6,7 @@ gem 'rails', '4.0.3'
 
 # Use sqlite3 as the database for Active Record
 group :development do
-	gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 
@@ -95,3 +95,4 @@ gem 'easy_captcha'
 
 # admin
 gem 'activeadmin', github: 'gregbell/active_admin'
+# gem "meta_search",    '>= 1.1.0.pre'
