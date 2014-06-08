@@ -60,12 +60,26 @@ ActiveAdmin.register User do
     end
 
     def update
-      render json: params
-      # @user = User.find(params[:id])
-      # UserSkill.where(user_id: @user.id).delete_all
-      # params[:skill].split(",").each{ |e| @user.user_skills.create!(name: e) }
 
-      # super
+      @user = User.find(params[:id])
+      # skill
+      UserSkill.where(user_id: @user.id).delete_all
+      params[:skill].split(",").each{ |e| @user.user_skills.create!(name: e) }
+
+      #category
+      UserSkillCategory.where(user_id: @user.id).delete_all
+      used = {}
+      params[:main_skill_id].each_with_index do |e, i|
+        if not used[e]
+          used[e] = {}
+        end
+        if not used[e][params[:sub_skill_id][i]]
+          used[e][params[:sub_skill_id][i]] = true
+          @user.user_skill_categories.create!(main_skill_id: e, sub_skill_id: params[:sub_skill_id][i])
+        end
+      end
+
+      super
     end
   end
 
