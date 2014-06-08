@@ -1,0 +1,82 @@
+<link rel="stylesheet" type="text/css" href="/plugins/jquery-autocomplete/jquery.autocomplete.css" />
+<link rel="stylesheet" href="/plugins/jquery-tags-input/jquery.tagsinput.css">
+
+<%= semantic_form_for [:admin, @user] do |f| %>
+    <%= f.inputs :username, :first_name, :last_name, :email %>
+
+    <%= f.inputs "Skill Category" do %>
+        <!-- <%= f.input :user_skill_categories, as: :select, collection: @user.user_skill_categories.each_with_index.map{ |e, i| ["#{t(:main_skill_category)[e.main_skill_id]['name']}", i] } %> -->
+
+        <% @user.user_skill_categories.each do |e|%>
+            <select name="main_skill_id[]">
+                <% t(:main_skill_category).each_with_index do |f, i| %>
+                    <% if e.main_skill_id == i %>
+                        <option value="<%= i %>" selected><%= f['name'] %></option>
+                    <% else %>
+                        <option value="<%= i %>"><%= f['name'] %></option>
+                    <% end %>
+                <% end %>
+            </select>
+            <select name="sub_skill_id[]">
+                <% t(:sub_skill_category)[e.main_skill_id].each_with_index do |f, i| %>
+                    <% if e.sub_skill_id == i %>
+                        <option value="<%= i %>" selected><%= f['name'] %></option>
+                    <% else %>
+                        <option value="<%= i %>"><%= f['name'] %></option>
+                    <% end %>
+                <% end %>
+            </select>
+            <hr style="background-color: gray;">
+        <% end %>
+    <% end %>
+
+    <%= f.inputs "Skills" do %>
+            <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>" />
+            <div class="pull-right" style="margin:8px 0px 0 0;"></div>
+    <% end %>
+
+    <%= f.actions %>
+
+<% end %>
+
+
+<script src="/plugins/jquery-1.7.2.js"></script>
+<script src="/plugins/jquery-autocomplete/jquery.autocomplete.pack.js"></script>
+<script src="/plugins/jquery-autocomplete/jquery.autocomplete.js"></script>
+<script src="/plugins/jquery-tags-input/jquery.tagsinput.js"></script>
+
+<script>
+    $(function(){
+        $('#skill-tags').tagsInput({
+            width: 'auto',
+            defaultText: "技能標籤",
+            maxCount: 3,
+            placeholderColor: '#999',
+            autocomplete_url:'/skills/autocomplete',
+            onAddTag: validateSkillExist
+        });
+        $('.tagsinput').addClass('form-control');
+        $('#skill-tags_tag').css('color', '#999');
+
+        $("#skills").autocomplete('/skills/autocomplete');
+    })
+
+    var validateSkillExist = function(value){
+        var result = false;
+        $.ajax({
+            url: "/skills/exist",
+            type: "get",
+            dataType: "json",
+            data: {name: value},
+            success: function(data) {
+                result = data.status;
+            },
+            error: function(data) {
+            },
+            async: false
+        });
+        if (result == false)
+            $(this).removeTag(value);
+    }
+
+</script>

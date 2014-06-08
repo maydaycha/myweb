@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
   has_many :user_certifications
   has_many :user_portfolios
 
+  accepts_nested_attributes_for :user_skill_categories
+
   def self.has_email?(email)
     self.where(:email => email).limit(1).size > 0
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604100555) do
+ActiveRecord::Schema.define(version: 20140608174935) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 20140604100555) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -211,7 +216,7 @@ ActiveRecord::Schema.define(version: 20140604100555) do
   create_table "user_skill_categories", force: true do |t|
     t.integer  "user_id"
     t.integer  "main_skill_id"
-    t.string   "sub_skill_id"
+    t.integer  "sub_skill_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

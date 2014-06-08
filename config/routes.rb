@@ -1,6 +1,6 @@
 Sun::Application.routes.draw do
 
-
+  ActiveAdmin.routes(self)
   captcha_route
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -58,9 +58,6 @@ Sun::Application.routes.draw do
   #   end
 
 
-  namespace :admins do
-    resources :users
-  end
 
 
   # freelancer api
@@ -197,6 +194,6 @@ Sun::Application.routes.draw do
     get 'users/edit_error', to: 'users/passwords#edit_error', :as => :edit_passwords_error
   end
 
-  ActiveAdmin.routes(self)
+
 
 end
