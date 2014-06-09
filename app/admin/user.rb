@@ -1,8 +1,19 @@
 # encoding: utf-8
-
 ActiveAdmin.register User do
+  # See permitted parameters documentation:
+  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
+  #
+  # permit_params :id, :useranme, :picture
+  #
+  # or
+  #
+  # permit_params do
+  #  permitted = [:permitted, :attributes]
+  #  permitted << :other if resource.something?
+  #  permitted
+  # end
 
-  permit_params :id, :useranme, :picture
+  # permit_params :id, :useranme, :picture
 
   index do
     column t(:id) do |m|
@@ -35,21 +46,6 @@ ActiveAdmin.register User do
     end
     active_admin_comments
   end
-
-
-  # form do |f|
-  #   f.inputs "User" do
-  #     f.input :username
-  #     f.input :email
-  #   end
-  #   f.inputs "Skill Categorirs" do
-  #     f.has_many :user_skill_categories do |c|
-  #       c.input :main_skill_id, label: 'Main skill category', as: :select, collection: t(:main_skill_category).each_with_index.map{ |e, i| ["#{e['name']}", i] }
-  #       # c.input :sub_skill_id, label: "Sub skill category", as: :select, collection: t(:sub_skill_category)[c.main_skill_id].each_with_index.map{ |e, i| ["#{e['name']}", i] }
-  #     end
-  #   end
-  #   f.actions
-  # end
 
   form :partial => "form"
   # form :partial => "form", :only => [:edit]
@@ -88,19 +84,5 @@ ActiveAdmin.register User do
   end
 
 
-
-
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :id, :useranme, :picture
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
 
 end

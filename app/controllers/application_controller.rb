@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(user)
-    if user.is_admin?
+    if user.try(:is_admin)
       admin_root_path
     else
       if current_user.step == 1
@@ -66,11 +66,6 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource_or_scope)
     root_path
   end
-
-  def authenticate_admin_user!
-    redirect_to new_user_session_path unless current_user.try(:is_admin?)
-  end
-
 
 
 
