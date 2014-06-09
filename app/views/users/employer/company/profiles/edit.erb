@@ -213,11 +213,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-2 control-label">所在地區</label>
                                                 <div class="col-md-10">
-                                                    <select name="user[country_code]" class="form-control edit">
-                                                    <% t("countries").each do |e| %>
-                                                        <option value="<%= e[0] %>"><%= e[1] %></option>
-                                                    <% end %>
-                                                    </select>
+                                                    <%= f.localized_country_select :country_code, [], {:include_blank => '所在地區'}, {:class => 'form-control edit'} %>
                                                 </div>
                                             </div>
                                             <div class="form-group">

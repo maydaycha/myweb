@@ -21,6 +21,8 @@ ActiveAdmin.register User do
     attributes_table do
       row :id
       row :username
+      row :first_name
+      row :last_name
       row :email
       row :last_sign_in_at
       row :created_at
@@ -56,11 +58,9 @@ ActiveAdmin.register User do
   controller do
     def edit
       @user = User.find(params[:id])
-      # render form :partial => "form"
     end
 
     def update
-
       @user = User.find(params[:id])
       # skill
       UserSkill.where(user_id: @user.id).delete_all
@@ -79,8 +79,12 @@ ActiveAdmin.register User do
         end
       end
 
+      #basic info
+      @user.update!(params.permit![:user])
+
       super
     end
+
   end
 
 
