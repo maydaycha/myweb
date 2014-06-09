@@ -13,7 +13,6 @@ ActiveAdmin.register User do
   #  permitted
   # end
 
-  # permit_params :id, :useranme, :picture
 
   index do
     column t(:id) do |m|

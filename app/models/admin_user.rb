@@ -10,8 +10,6 @@ class AdminUser < ActiveRecord::Base
 
   def is_service?
     result = self.is_service.nil? ? false : true
-    puts self.to_json
-    puts result
     return result
   end
 end
