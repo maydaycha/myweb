@@ -2,7 +2,12 @@
 <link rel="stylesheet" href="/plugins/jquery-tags-input/jquery.tagsinput.css">
 
 <%= semantic_form_for [:admin, @user] do |f| %>
-    <%= f.inputs :username, :first_name, :last_name, :email %>
+    <!-- <%= f.inputs :username, :first_name, :last_name, :email, :created_at %> -->
+    <%= f.inputs "Basic Info" do %>
+        <%= f.input :first_name, input_html: { disabled: current_admin_user.is_service? } %>
+        <%= f.input :last_name, input_html: { disabled: current_admin_user.is_service? } %>
+        <%= f.input :email %>
+    <% end %>
 
     <%= f.inputs "Skill Category" do %>
         <!-- <%= f.input :user_skill_categories, as: :select, collection: @user.user_skill_categories.each_with_index.map{ |e, i| ["#{t(:main_skill_category)[e.main_skill_id]['name']}", i] } %> -->
@@ -36,7 +41,7 @@
     <% end %>
 
     <%= f.inputs "Skills" do %>
-            <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>" />
+            <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= @user.user_skills.map{|e| e.name }.join(", ") %>" />
             <div class="pull-right" style="margin:8px 0px 0 0;"></div>
     <% end %>
 

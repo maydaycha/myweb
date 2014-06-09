@@ -7,4 +7,11 @@ class AdminUser < ActiveRecord::Base
     # self.email && ENV['ADMIN_EMAILS'].to_s.include?(self.email)
     return true
   end
+
+  def is_service?
+    result = self.is_service.nil? ? false : true
+    puts self.to_json
+    puts result
+    return result
+  end
 end

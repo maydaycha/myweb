@@ -1,5 +1,9 @@
 ActiveAdmin.register AdminUser do
-  permit_params :email, :password, :password_confirmation, :username, :first_name, :last_name
+  permit_params :email, :password, :password_confirmation, :username, :first_name, :last_name, :is_service
+
+  # hide resource from menu
+  menu :if => proc{ not current_admin_user.is_service? }
+
 
   index do
     selectable_column
@@ -37,6 +41,7 @@ ActiveAdmin.register AdminUser do
       f.input :password_confirmation
       f.input :first_name
       f.input :last_name
+      f.input :is_service
     end
     f.actions
   end
@@ -46,9 +51,9 @@ ActiveAdmin.register AdminUser do
     #   create!
     # end
 
-    def update
-      render json: params
-    end
+    # def update
+    # end
+
   end
 
 end
