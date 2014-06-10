@@ -5,7 +5,7 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
         <meta content="" name="description"/>
         <meta content="" name="author"/>
-        <title>快樂工作</title>
+        <title><%= I18n.t("page.title") %></title>
 
         <!-- BEGIN STYLE -->
         <!-- BEGIN 核心樣式 -->
@@ -44,7 +44,7 @@
                 </button>
                 <a class="navbar-brand" href="/"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
             </div>
-            <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+            <!-- <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
                 <div class="navbar-search">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="搜尋您需要的人才">
@@ -53,11 +53,16 @@
                         </span>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><%= link_to "會員登入", new_user_session_path %></li>
-                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                    <% if user_signed_in? %>
+                    <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                    <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
+                    <% else %>
+                    <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                    <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
+                    <% end %>
                 </ul>
             </div>
         </div>
@@ -72,8 +77,8 @@
                         <img src="/img/happy.png" alt="change-password">
                     </div>
                     <div class="col-sm-7 content">
-                    	<h1 class="title" style="text-align:left; margin-top:0px; padding:0;">郵件已傳送</h1>
-                        <h1 class="title" style="text-align:left; margin-top:0px; padding:0; font-size:2.7em;">請檢查您的郵件</h1>
+                    	<h1 class="title" style="text-align:left; margin-top:0px; padding:0;"><%= I18n.t("page.forget_password_email_sent.container_title") %></h1>
+                        <h1 class="title" style="text-align:left; margin-top:0px; padding:0; font-size:2.7em;"><%= I18n.t("page.forget_password_email_sent.container_description") %></h1>
 
                     </div>
                 </div>
@@ -86,13 +91,13 @@
         <div class="footer">
             <img class="footer-logo" src="/img/logo103.png" alt="">
             <div class="footer-nav">
-                <%= link_to "關於我們", index_about_path %>
+                <%= link_to I18n.t("page.footer.about"), index_about_path %>
                 <span class="bar">|</span>
-                <%= link_to "隱私條款", index_rule_path %>
+                <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
                 <span class="bar">|</span>
-                <%= link_to "使用條款", index_rule_path %>
+                <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
                 <span class="bar">|</span>
-                <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
+                <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
             </div>
         </div>
         <!-- END FOOTER -->

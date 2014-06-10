@@ -201,7 +201,7 @@ var CreateProfile = function(){
 
         var skills_arr = $(this).val().split(',');
         if (skills_arr.length > 5) {
-            alert('目前只能擁有5項技能');
+            alert($('#skill-tags').attr('alert-limit'));
             $(this).removeTag(value);
         }
     }

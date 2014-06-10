@@ -699,7 +699,7 @@
                         <div class="portlet-body">
                             <p class="form-control-static view" id="skill"><%= current_user.user_skills.map{|e| e.name}.join(", ") %></p>
                             <form action="javascript: return false;" id="contact-form1" class="form-horizontal edit" role="form">
-                                <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>"/>
+                                <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>" defaultText="技能標籤" alert-limit="目前只能擁有8項技能" />
                                 <div class="pull-right" style="margin:8px 0px 0 0;">
                                     <button class="btn btn-default tool-save edit" data-original-title="收合" data-portlet="#profile-portlet3" onclick="update_skill()">收合</button>
                                 </div>
@@ -779,7 +779,7 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                        <input type="text" name="start" class="form-control" placeholder="起" data-isEmpty="請填寫工作開始時間" readonly>
                                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                         </span>
@@ -787,17 +787,17 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                        <input type="text" name="end" class="form-control" placeholder="訖" data-isError="訖日在起日之前" readonly>
                                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                         </span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="organization" class="form-control" placeholder="公司">
+                                                    <input type="text" name="organization" class="form-control" placeholder="公司" data-isEmpty="公司名稱 尚未填寫">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="office" class="form-control" placeholder="職位/職責">
+                                                    <input type="text" name="office" class="form-control" placeholder="職位/職責" data-isEmpty="職位/職責 尚未填寫">
                                                 </div>
                                                 <div class="form-group">
                                                     <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
@@ -825,7 +825,7 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                    <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                    <input type="text" name="start" class="form-control" placeholder="起" data-isEmpty="請填寫工作開始時間" readonly>
                                                     <span class="input-group-btn">
                                                         <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                     </span>
@@ -833,17 +833,17 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                    <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                    <input type="text" name="end" class="form-control" placeholder="訖" data-isError="訖日在起日之前" readonly>
                                                     <span class="input-group-btn">
                                                         <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                     </span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="organization" class="form-control" placeholder="公司">
+                                                <input type="text" name="organization" class="form-control" placeholder="公司" data-isEmpty="公司名稱 尚未填寫">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="office" class="form-control" placeholder="職位/職責">
+                                                <input type="text" name="office" class="form-control" placeholder="職位/職責" data-isEmpty="職位/職責 尚未填寫">
                                             </div>
                                             <div class="form-group">
                                                 <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
@@ -933,7 +933,7 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                        <input type="text" name="start" class="form-control" placeholder="起" data-isEmpty="請填寫教育開始時間" readonly>
                                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                         </span>
@@ -941,17 +941,17 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                        <input type="text" name="end" class="form-control" placeholder="訖" data-isError="訖日在起日之前" readonly>
                                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                         </span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="organization" class="form-control" placeholder="學校">
+                                                    <input type="text" name="organization" class="form-control" placeholder="學校" data-isEmpty="請填寫學校">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="office" class="form-control" placeholder="系所/專長">
+                                                    <input type="text" name="office" class="form-control" placeholder="系所/專長" data-isEmpty="請填寫系所/專長">
                                                 </div>
                                                 <div class="form-group">
                                                     <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
@@ -980,7 +980,7 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                    <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                    <input type="text" name="start" class="form-control" placeholder="起" data-isEmpty="請填寫教育開始時間" readonly>
                                                     <span class="input-group-btn">
                                                         <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                     </span>
@@ -988,17 +988,17 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                    <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                    <input type="text" name="end" class="form-control" placeholder="訖" data-isError="訖日在起日之前" readonly>
                                                     <span class="input-group-btn">
                                                         <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                     </span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="organization" class="form-control" placeholder="學校">
+                                                <input type="text" name="organization" class="form-control" placeholder="學校" data-isEmpty="請填寫學校">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="office" class="form-control" placeholder="系所/專長">
+                                                <input type="text" name="office" class="form-control" placeholder="系所/專長" data-isEmpty="請填寫系所/專長">
                                             </div>
                                             <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
                                         </div>
@@ -1037,10 +1037,10 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <input type="text" name="title" class="form-control" placeholder="作品名稱">
+                                                <input type="text" name="title" class="form-control" placeholder="作品名稱" data-isEmpty="請填寫作品名稱">
                                             </div>
                                             <div class="form-group">
-                                                <textarea id="addWoeks-description" name="description" class="form-control" maxlength="4000" rows="3" placeholder="作品描述"></textarea>
+                                                <textarea id="addWoeks-description" name="description" class="form-control" maxlength="4000" rows="3" placeholder="作品描述" data-isEmpty="請填寫作品描述"></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <!--<input type="file" name="file" class="form-control">-->
@@ -1054,7 +1054,7 @@
                                                 <p class="help-block">上傳檔案/文件</p>
                                             </div>
                                             <div class="form-group">
-                                                <select name="mainClass" class="form-control", id="work_main_class">
+                                                <select name="mainClass" class="form-control", id="work_main_class" data-isEmpty="請填寫主類別">
                                                     <option value="-1" selected>主類別</option>
                                                     <% t(:main_skill_category).each_with_index do |e, index| %>
                                                     <option value="<%= index %>"><%= e['name'] %></option>
@@ -1062,7 +1062,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select name="subClass" class="form-control select2" id="work_subClass_select2">
+                                                <select name="subClass" class="form-control select2" id="work_subClass_select2" data-isEmpty="請填寫子類別">
                                                     <option value="-1" selected>子類別</option>
                                                 </select>
                                             </div>
@@ -1185,7 +1185,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">
-                                                    <input type="text" name="certificate" class="form-control" placeholder="證照名稱">
+                                                    <input type="text" name="certificate" class="form-control" placeholder="證照名稱" data-isEmpty="請填寫證照名稱">
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="text" name="cer-source" class="form-control" placeholder="證照發行機構">
@@ -1224,7 +1224,7 @@
                                         <div class="modal-body">
 
                                             <div class="form-group">
-                                                <input type="text" name="certificate" class="form-control" placeholder="證照">
+                                                <input type="text" name="certificate" class="form-control" placeholder="證照" data-isEmpty="請填寫證照名稱">
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" name="cer-source" class="form-control" placeholder="證照發行機構">
@@ -1340,12 +1340,8 @@
         </div>
     </div>
     <!-- END FOOTER -->
-    <% upload_fail = "上傳失敗" %>
-    <div id="string">
-        <input type="text" id="upload_fail" value="<%= upload_fail %>">
-        <input type="text" value="" >
-        alert("上傳失敗")
-    </div>
+
+
     <!-- BEGIN JAVASCRIPTS -->
     <!-- BEGIN 核心插件 -->
 <!--[if lt IE 9]>

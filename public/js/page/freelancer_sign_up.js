@@ -1,8 +1,6 @@
 var SingUp = function(){
-    //console.log("sign");
 	var formValidation = function() {
         var recommendIcon = $("#signUp-form input[name='user[how_to_know]']").parent('.input-icon').children('i');
-        //console.log("test" + recommendIcon.tooltip());
         recommendIcon.tooltip({'container': 'body'});
 
 
@@ -57,7 +55,6 @@ var SingUp = function(){
             errorPlacement: function (error, element) { // render error placement for each input type
             	var text;
             	if(error.text()=='This field is required.'){
-                    console.log(error.attr('for'));
             		text = form.find('input[id='+error.attr('for')+']').attr('data-isempty');
             		error.text(text);
             	}

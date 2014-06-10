@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
-    <title>快樂工作</title>
+    <title><%= I18n.t("page.title") %></title>
 
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
@@ -57,11 +57,11 @@
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
-                    <li><%= link_to "個人設定", users_profile_path(current_user)  %></li>
-                    <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                    <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                    <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
                     <% else %>
-                    <li><%= link_to "會員登入", new_user_session_path %></li>
-                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                    <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                    <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
                     <% end %>
                 </ul>
             </div>
@@ -81,14 +81,14 @@
                         <h3 style="color:red;"><%= flash[:alert] %></h3>
                         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put, class: "signUp-form", id: "signUp-form" }) do |f| %>
                         <%= f.hidden_field :reset_password_token %>
-                        <h1 class="title" style="text-align:left; margin-top:0px; padding:0;">更改您的密碼(<%= resource.username %>)</h1>
-                        <h3>請輸入您的新密碼</h3>
-                        <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control", placeholder: "請輸入您的密碼", "data-isEmpty" => "請輸入您的密碼" %>
+                        <h1 class="title" style="text-align:left; margin-top:0px; padding:0;"><%= I18n.t("page.forget_password_reset.container_title") %>(<%= resource.username %>)</h1>
+                        <h3><%= I18n.t("page.forget_password_reset.container_description") %></h3>
+                        <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control", placeholder: I18n.t("page.forget_password_reset.input_placeholder_password"), "data-isEmpty" => I18n.t("page.forget_password_reset.input_empty_password") %>
                         <br>
                         <!-- <input type="text" class="form-control" name="username" placeholder="請再次輸入您的密碼" data-isEmpty="請再次輸入您的密碼"> -->
-                        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "請再次輸入您的密碼", "data-isEmpty" => "請再次輸入您的密碼" %>
+                        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: I18n.t("page.forget_password_reset.input_placeholder_password_confirmation"), "data-isEmpty" => I18n.t("page.forget_password_reset.input_empty_password_confirmation") %>
                         <!-- <a href="/#" class="btn btn-warning">確認送出</a> -->
-                        <%= f.submit "確認送出", class: "btn btn-warning" %>
+                        <%= f.submit I18n.t("page.forget_password_reset.button_submit"), class: "btn btn-warning" %>
                         <% end %>
                     </div>
                 </div>
@@ -101,13 +101,13 @@
         <div class="footer">
             <img class="footer-logo" src="/img/logo103.png" alt="">
             <div class="footer-nav">
-                <%= link_to "關於我們", index_about_path %>
+                <%= link_to I18n.t("page.footer.about"), index_about_path %>
                 <span class="bar">|</span>
-                <%= link_to "隱私條款", index_rule_path %>
+                <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
                 <span class="bar">|</span>
-                <%= link_to "使用條款", index_rule_path %>
+                <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
                 <span class="bar">|</span>
-                <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
+                <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
             </div>
         </div>
         <!-- END FOOTER -->

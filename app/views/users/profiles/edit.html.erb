@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
-    <title>快樂工作</title>
+    <title><%= I18n.t("page.title") %></title>
 
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
@@ -213,7 +213,7 @@
                                         <label class="col-md-3 control-label">技能專長</label>
                                         <div class="col-md-9">
                                             <!-- <input id="skill-tags" name="skill" type="text" class="form-control tags" value=""/> -->
-                                            <%= f.text_field :user_skills, class: "form-control tags", id: "skill-tags", value: current_user.user_skills.empty? ? "" : current_user.user_skills.map {|e| e.name}.join(", ") %>
+                                            <%= f.text_field :user_skills, class: "form-control tags", id: "skill-tags", value: current_user.user_skills.empty? ? "" : current_user.user_skills.map {|e| e.name}.join(", "), "alert-limit" => "目前只能擁有5項技能" %>
                                             <p class="help-block">
                                                 建議您輸入技能專長，例如CSS, HTML Coding。
                                             </p>
