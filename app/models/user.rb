@@ -78,9 +78,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def is_admin?
-    self.email && ENV['ADMIN_EMAILS'].to_s.include?(self.email)
-  end
+
 
 
 

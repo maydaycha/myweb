@@ -1,4 +1,5 @@
 development:
-  ADMIN_EMAILS: maydaychaaaa@gmail.com
+  # ADMIN_EMAILS: maydaychaaaa@gmail.com
+  ADMIN_EMAILS: admin@example.com
 production:
-  ADMIN_EMAILS: maydaychaaaa@gmail.com
+  ADMIN_EMAILS: admin@example.com
