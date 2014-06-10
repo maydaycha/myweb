@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
-    <title>快樂工作</title>
+    <title><%= I18n.t("page.title") %></title>
 
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
@@ -58,10 +58,11 @@
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
-                    <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                    <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                    <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
                     <% else %>
-                    <li><%= link_to "會員登入", new_user_session_path %></li>
-                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                    <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                    <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
                     <% end %>
                 </ul>
             </div>
@@ -74,7 +75,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">使用條約</h4>
+                            <h4 class="modal-title"><%= I18n.t("page.sign_up_employer.termofuse") %></h4>
                         </div>
                         <div class="modal-body">
                             <pre>
@@ -82,7 +83,7 @@
                             </pre>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                            <button type="button" class="btn default" data-dismiss="modal"><%= I18n.t("basic.button.close") %></button>
                         </div>
                     </div>
                     <!-- /.modal-content -->
@@ -90,17 +91,17 @@
                 <!-- /.modal-dialog -->
             </div>
         <!-- END MODAL -->
-        <h1 class="title">建立雇主帳號</h1>
+        <h1 class="title"><%= I18n.t("page.sign_up_employer.container_title") %></h1>
         <!-- BEGIN MAIN CONTENT -->
         <div class="main-content">
             <!-- BEGIN TABS -->
             <ul class="nav nav-tabs nav-justified">
                 <% if @from == "employer_company" %>
-                    <li><a href="/#personal" data-toggle="tab">建立個人帳戶</a></li>
-                    <li class="active"><a href="/#company" data-toggle="tab">建立企業帳戶</a></li>
+                    <li><a href="/#personal" data-toggle="tab"><%= I18n.t("page.sign_up_employer.tab1_title") %></a></li>
+                    <li class="active"><a href="/#company" data-toggle="tab"><%= I18n.t("page.sign_up_employer.tab2_title") %></a></li>
                 <% else %>
-                    <li class="active"><a href="/#personal" data-toggle="tab">建立個人帳戶</a></li>
-                    <li><a href="/#company" data-toggle="tab">建立企業帳戶</a></li>
+                    <li class="active"><a href="/#personal" data-toggle="tab"><%= I18n.t("page.sign_up_employer.tab1_title") %></a></li>
+                    <li><a href="/#company" data-toggle="tab"><%= I18n.t("page.sign_up_employer.tab2_title") %></a></li>
                 <% end %>
             </ul>
             <!-- END TABS -->
@@ -115,7 +116,7 @@
                     <!-- BRGIN FORM -->
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "signUp-form", id: "signUp-form-personal"}) do |f| %>
                         <div class="form-group alert alert-danger display-hide">
-                            請檢查您輸入的資料
+                            <%= I18n.t("page.sign_up_employer.submit_alert") %>
                         </div>
 
                         <div>
@@ -134,14 +135,14 @@
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <%= f.text_field :first_name, class: "form-control", placeholder: "姓氏(公開資訊，中英文皆可)", onkeydown: "return constrain_Eng_and_num(event)", "data-isEmpty" => "請輸入姓氏"%>
+                                    <%= f.text_field :first_name, class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_first_name"), onkeydown: "return constrain_Eng_and_num(event)", "data-isEmpty" => I18n.t("page.sign_up_employer.input_empty_first_name") %>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <%= f.text_field :last_name, class: "form-control", placeholder: "名字(公開資訊，中英文皆可)", onkeydown: "return constrain_Eng_and_num(event)", "data-isEmpty" => "請輸入名字"%>
+                                <%= f.text_field :last_name, class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_last_name"), onkeydown: "return constrain_Eng_and_num(event)", "data-isEmpty" => I18n.t("page.sign_up_employer.input_empty_last_name") %>
                             </div>
                         </div>
                         <div class="form-group">
@@ -149,7 +150,7 @@
                                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <%= f.email_field :email, autocomplete: "off", class: "form-control", placeholder: "電子郵件", "data-isEmpty" => "請輸入電子郵件", "data-isError" => "請填入有效的email信箱", "data-isExists" => "Email已經有人使用" %>
+                                    <%= f.email_field :email, autocomplete: "off", class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_email"), "data-isEmpty" => I18n.t("page.sign_up_employer.input_empty_email"), "data-isError" => I18n.t("page.sign_up_employer.input_error_email"), "data-isExists" => I18n.t("page.sign_up_employer.input_exist_email") %>
                                 </div>
                             </div>
                         </div>
@@ -158,7 +159,7 @@
                                 <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號(隱密資訊，為您登入的帳號，請填入英數字元)", "data-isEmpty" => "請使用字母數字，做為您的使用者帳號", "data-isExists" => "帳戶名稱已經有人使用" %>
+                                    <%= f.text_field :username, class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_username"), "data-isEmpty" => I18n.t("page.sign_up_employer.input_empty_username"), "data-isExists" => I18n.t("page.sign_up_employer.input_exist_username") %>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +168,7 @@
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "設定密碼(長度必須大於等於8英數字元，包含大小寫英文字元，不包含特殊符號)", data: {isEmpty: "密碼至少要有八個字元，不包含*/!~等特殊符號", isError: "密碼至少要有八個字元，不包含*/!~等特殊符號"} %>
+                                    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_password"), data: {isEmpty: I18n.t("page.sign_up_employer.input_empty_password"), isError: I18n.t("page.sign_up_employer.input_error_password")} %>
                                 </div>
                             </div>
                         </div>
@@ -176,19 +177,13 @@
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "請再一次輸入密碼", "data-isEmpty" => "請再一次輸入密碼", "data-isInconsistent" => "密碼與先前輸入的不一致" %>
+                                    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_password_confirmation"), "data-isEmpty" => I18n.t("page.sign_up_employer.input_empty_password_confirmation"), "data-isInconsistent" => I18n.t("page.sign_up_employer.input_inconsistent_password_confirmation") %>
                                 </div>
                             </div>
                         </div>
-                       <!--  <div class="form-group recommend">
-                            <div class="input-icon right">
-                                <i class="fa fa-info-circle" data-original-title="如果您是透過朋友推薦得知本網站，建議您填寫朋友姓名。"></i>
-                                <input type="text" class="form-control" name="recommend" placeholder="從何處得知網站訊息？">
-                            </div>
-                        </div> -->
                         <div class="form-group imageVerification">
                             <div>
-                                <p>為避免惡意註冊，請輸入下方顯示的英數字母。</p>
+                                <p><%= I18n.t("page.sign_up_employer.input_description_captcha") %></p>
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon"><%= captcha_tag %></span>
@@ -202,15 +197,15 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <%= f.check_box :receive_information, :checked => "checked" %> 我想收到關於網站最新的資訊及動態，若您不想收到類似訊息，請取消勾選。
+                                    <%= f.check_box :receive_information, :checked => "checked" %> <%= I18n.t("page.sign_up_employer.input_receive_information") %>
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <%= hidden_field_tag 'from', 'employer_personal' %>
-                            <%= f.submit "我要註冊", class: "btn" %>
+                            <%= f.submit I18n.t("page.sign_up_employer.button_submit"), class: "btn" %>
                         </div>
-                        <p class="rule">完成註冊代表您同意本網站的<a data-toggle="modal" href="#rule">使用條約</a>及<a data-toggle="modal" href="#rule">隱私權條款</a>。</p>
+                        <p class="rule"><%= I18n.t("page.sign_up_employer.bottom_description") %><a data-toggle="modal" href="#rule"><%= I18n.t("page.sign_up_employer.termofuse") %></a>及<a data-toggle="modal" href="#rule"><%= I18n.t("page.sign_up_employer.privacy") %></a>。</p>
                     <% end %>
                     <!-- END FORM -->
                 </div>
@@ -222,7 +217,7 @@
                     <!-- BRGIN FORM -->
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "signUp-form", id: "signUp-form-company"}) do |f| %>
                         <div class="form-group alert alert-danger display-hide">
-                            請檢查您輸入的資料
+                            <%= I18n.t("page.sign_up_employer.submit_alert") %>
                         </div>
 
                         <div class="form-group">
@@ -241,14 +236,14 @@
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <%= f.text_field :first_name, class: "form-control", placeholder: "姓氏(公開資訊，中英文皆可)", onkeydown: "return constrain_Eng_and_num(event)", "data-isEmpty" => "請輸入姓氏"%>
+                                    <%= f.text_field :first_name, class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_first_name"), onkeydown: "return constrain_Eng_and_num(event)", "data-isEmpty" => I18n.t("page.sign_up_employer.input_empty_first_name") %>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <%= f.text_field :last_name, class: "form-control", placeholder: "名字(公開資訊，中英文皆可)", onkeydown: "return constrain_Eng_and_num(event)", "data-isEmpty" => "請輸入名字"%>
+                                <%= f.text_field :last_name, class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_last_name"), onkeydown: "return constrain_Eng_and_num(event)", "data-isEmpty" => I18n.t("page.sign_up_employer.input_empty_last_name") %>
                             </div>
                         </div>
                         <div class="form-group">
@@ -256,7 +251,7 @@
                                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <%= f.email_field :email, autocomplete: "off", class: "form-control", placeholder: "電子郵件", "data-isEmpty" => "請輸入電子郵件", "data-isExists" => "Email已經有人使用" %>
+                                    <%= f.email_field :email, autocomplete: "off", class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_email"), "data-isEmpty" => I18n.t("page.sign_up_employer.input_empty_email"), "data-isError" => I18n.t("page.sign_up_employer.input_error_email"), "data-isExists" => I18n.t("page.sign_up_employer.input_exist_email") %>
                                 </div>
                             </div>
                         </div>
@@ -265,7 +260,7 @@
                                 <span class="input-group-addon"><i class="fa fa-home"></i></span>
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <%= text_field_tag :company_name, nil, class: "form-control", placeholder: "公司 / 組織 (公開資訊)", "data-isEmpty" => "必填欄位，請輸入您的公司或組織，中英文或英文名稱" %>
+                                    <%= text_field_tag :company_name, nil, class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_company"), "data-isEmpty" => I18n.t("page.sign_up_employer.input_empty_company") %>
                                 </div>
                             </div>
                         </div>
@@ -274,7 +269,7 @@
                                 <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <%= f.text_field :username, class: "form-control", placeholder: "使用者帳號(隱密資訊，為您登入的帳號，請填入英數字元)", "data-isEmpty" => "請使用字母數字，做為您的使用者帳號", "data-isExists" => "帳戶名稱已經有人使用" %>
+                                    <%= f.text_field :username, class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_username"), "data-isEmpty" => I18n.t("page.sign_up_employer.input_empty_username"), "data-isExists" => I18n.t("page.sign_up_employer.input_exist_username") %>
                                 </div>
                             </div>
                         </div>
@@ -283,7 +278,7 @@
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "設定密碼(長度必須大於等於8英數字元，包含大小寫英文字元，不包含特殊符號)", data: {isEmpty: "密碼至少要有八個字元，不包含*/!~等特殊符號", isError: "密碼至少要有八個字元，不包含*/!~等特殊符號"} %>
+                                    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_password"), data: {isEmpty: I18n.t("page.sign_up_employer.input_empty_password"), isError: I18n.t("page.sign_up_employer.input_error_password")} %>
                                 </div>
                             </div>
                         </div>
@@ -292,13 +287,13 @@
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <div class="input-icon right">
                                     <i class="fa"></i>
-                                    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "請再一次輸入密碼", "data-isEmpty" => "請再一次輸入密碼", "data-isInconsistent" => "密碼與先前輸入的不一致" %>
+                                    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: I18n.t("page.sign_up_employer.input_placeholder_password_confirmation"), "data-isEmpty" => I18n.t("page.sign_up_employer.input_empty_password_confirmation"), "data-isInconsistent" => I18n.t("page.sign_up_employer.input_inconsistent_password_confirmation") %>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group imageVerification">
                             <div>
-                                <p>為避免惡意註冊，請輸入下方顯示的英數字母。</p>
+                                <p><%= I18n.t("page.sign_up_employer.input_description_captcha") %></p>
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon"><%= captcha_tag %></span>
@@ -311,15 +306,15 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <%= f.check_box :receive_information, :checked => "checked" %> 我想收到關於網站最新的資訊及動態，若您不想收到類似訊息，請取消勾選。
+                                    <%= f.check_box :receive_information, :checked => "checked" %> <%= I18n.t("page.sign_up_employer.input_receive_information") %>
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <%= hidden_field_tag 'from', 'employer_company' %>
-                            <%= f.submit "完成註冊", class: "btn" %>
+                            <%= f.submit I18n.t("page.sign_up_employer.button_submit"), class: "btn" %>
                         </div>
-                        <p class="rule">完成註冊代表您同意本網站的<a data-toggle="modal" href="#rule">使用條約</a>及<a data-toggle="modal" href="#rule">隱私權條款</a>。</p>
+                        <p class="rule"><%= I18n.t("page.sign_up_employer.bottom_description") %><a data-toggle="modal" href="#rule"><%= I18n.t("page.sign_up_employer.termofuse") %></a>及<a data-toggle="modal" href="#rule"><%= I18n.t("page.sign_up_employer.privacy") %></a>。</p>
                     <% end %>
                     <!-- END FORM -->
                 </div>
@@ -333,13 +328,13 @@
     <div class="footer">
         <img class="footer-logo" src="/img/logo103.png" alt="">
         <div class="footer-nav">
-            <%= link_to "關於我們", index_about_path %>
+            <%= link_to I18n.t("page.footer.about"), index_about_path %>
             <span class="bar">|</span>
-            <%= link_to "隱私條款", index_rule_path %>
+            <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
             <span class="bar">|</span>
-            <%= link_to "使用條款", index_rule_path %>
+            <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
             <span class="bar">|</span>
-            <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
+            <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
         </div>
         <div style="margin-top:12px;">
             <span id="siteseal">

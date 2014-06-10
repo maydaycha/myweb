@@ -596,11 +596,10 @@ var initWorksTable = function(){
 
 var initAddWorks = function() {
 	$("#btn-addWorks").on('click', function() {
-		//console.log($('#works-modal input[name=subClass]').val());
 		if($('#works-modal input[name=title]').val() == "") {
 			alert('請填寫作品名稱');
 			return;
-		} else if($('#works-modal input[name=description]').val() == "") {
+		} else if($('#works-modal textarea[name=description]').val() == "") {
 			alert('請填寫作品描述');
 			return;
 		} else if($('#works-modal select[name=mainClass]').val() == -1) {
