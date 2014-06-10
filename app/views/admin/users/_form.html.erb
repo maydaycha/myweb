@@ -37,7 +37,7 @@
             <hr style="background-color: gray;">
             </div>
         <% end %>
-        <button id="add_category_button" class="prevent" onclick="add_skill_category()">add</button>
+        <button id="add_category_button" class="prevent" onclick="add_skill_category(this)">add</button>
     <% end %>
 
     <%= f.inputs "Skills" do %>
@@ -126,7 +126,7 @@
         $("#category_section_" + index).remove()
     }
 
-    function add_skill_category() {
+    function add_skill_category(obj) {
         var current_amount = $("select[name='main_skill_id[]']").length
         var last_div = $("#category_section_" + (current_amount-1) )
         var div = $('<div></div>')
@@ -147,7 +147,7 @@
        div.append(sub_select)
        div.append(remove_category_button)
        div.append("<hr>")
-       last_div.append(div)
+       $(obj).before(div)
     }
 
 

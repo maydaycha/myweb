@@ -62,15 +62,17 @@ ActiveAdmin.register User do
       params[:skill].split(",").each{ |e| @user.user_skills.create!(name: e) }
 
       #category
-      UserSkillCategory.where(user_id: @user.id).delete_all
-      used = {}
-      params[:main_skill_id].each_with_index do |e, i|
-        if not used[e]
-          used[e] = {}
-        end
-        if not used[e][params[:sub_skill_id][i]]
-          used[e][params[:sub_skill_id][i]] = true
-          @user.user_skill_categories.create!(main_skill_id: e, sub_skill_id: params[:sub_skill_id][i])
+      if not params[:main_skill_id].nil?
+        UserSkillCategory.where(user_id: @user.id).delete_all
+        used = {}
+        params[:main_skill_id].each_with_index do |e, i|
+          if not used[e]
+            used[e] = {}
+          end
+          if not used[e][params[:sub_skill_id][i]]
+            used[e][params[:sub_skill_id][i]] = true
+            @user.user_skill_categories.create!(main_skill_id: e, sub_skill_id: params[:sub_skill_id][i])
+          end
         end
       end
 
