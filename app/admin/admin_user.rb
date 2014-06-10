@@ -5,7 +5,7 @@ ActiveAdmin.register AdminUser do
   menu :if => proc{ not current_admin_user.is_service? }
 
 
-  index do
+  index :download_links => false do
     selectable_column
     id_column
     column :email

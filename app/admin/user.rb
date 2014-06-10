@@ -35,7 +35,7 @@ ActiveAdmin.register User do
 
 
 
-  index do
+  index :download_links => false do
     column t(:id) do |m|
       link_to m.id, admin_user_path(m.id)
     end
