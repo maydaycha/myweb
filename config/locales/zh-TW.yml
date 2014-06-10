@@ -209,6 +209,8 @@ zh-TW:
       {name: "其他 - 顧問", title: "補充文字"}
     ]
   ]
+
+
   basic:
     button:
       add: "新增"
@@ -710,8 +712,36 @@ zh-TW:
       step3_segment3: "聯絡資訊"
       button_save: "確認送出"
     employer_company_profile_show:
-
-
-
-
-
+      container_title: "個人設定"
+      tabA_title: "我的企業資料"
+      tabB_title: "變更密碼"
+      tabA_segment: "帳戶概觀"
+      tabA_segment_row1: "企業圖像"
+      tabA_segment_row1_choose: "選擇檔案"
+      tabA_segment_row2: "使用者名稱"
+      tabA_segment_row2_placeholder: "User ID"
+      tabA_segment_row3: "姓氏"
+      tabA_segment_row3_placeholder: "姓氏"
+      tabA_segment_row4: "名字"
+      tabA_segment_row4_placeholder: "名字"
+      tabA_segment_row5: "電子郵件"
+      tabA_segment_row5_placeholder: "電子郵件"
+      tabA_segment_row6: "企業名稱"
+      tabA_segment_row7: "統一編號"
+      tabA_segment_row8: "企業網站"
+      tabA_segment_row9: "雇主簡介"
+      tabA_segment_row9_comment: "(僅限20字)"
+      tabA_segment_row10: "詳細介紹"
+      tabA_segment_row10_comment: "(僅限1000字)"
+      button_gohome: "資料填寫完成回到首頁"
+      tabB_segment: "變更密碼"
+      tabB_segment_row1: "舊密碼"
+      tabB_segment_row1_description: "如果您想要變更您的密碼，請先輸入您的舊密碼"
+      tabB_segment_row1_empty: "當前密碼不能為空"
+      tabB_segment_row1_error: "密碼錯誤"
+      tabB_segment_row2: "新密碼"
+      tabB_segment_row2_description: "密碼長度必須大於等於8英數字元，包含大小寫英文符號，不包含特殊符號。"
+      tabB_segment_row2_empty: "密碼至少要有八個字元，不包含*/!~等特殊符號"
+      tabB_segment_row2_error: "密碼至少要有八個字元，不包含*/!~等特殊符號"
+      tabB_segment_row3: "再次輸入新密碼"
+      tabB_segment_row3_inconsistent: "密碼與先前輸入的不一致"
