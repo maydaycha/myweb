@@ -138,16 +138,16 @@
         main_select.change(main_class_change)
         <% t(:main_skill_category).each_with_index do |e, index| %>
             main_select.append('<option value="<%= index %>"><%= e['name'] %></option>');
-       <% end %>
+        <% end %>
         <% t(:sub_skill_category)[0].each_with_index do |e, index| %>
             sub_select.append('<option value="<%= index %>"><%= e['name'] %></option>');
-       <% end %>
-       var remove_category_button = $("<button class='prevent' onclick='remove_category_button("+current_amount+ ")'>remove</button>")
-       div.append(main_select)
-       div.append(sub_select)
-       div.append(remove_category_button)
-       div.append("<hr>")
-       $(obj).before(div)
+        <% end %>
+        var remove_category_button = $("<button class='prevent' onclick='remove_category_button("+current_amount+ ")'>remove</button>")
+        div.append(main_select)
+        div.append(sub_select)
+        div.append(remove_category_button)
+        div.append("<hr>")
+        $(obj).before(div)
     }
 
 

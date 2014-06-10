@@ -13,6 +13,27 @@ ActiveAdmin.register User do
   #  permitted
   # end
 
+  # if current_admin_user.is_service?
+  #   actions :all, :except => [:destroy, :create]
+  # else
+  #   actions :all
+  # end
+
+  filter :email
+  filter :username
+  filter :first_name
+  filter :last_name
+  filter :last_sign_in_at
+
+
+  config.clear_action_items!
+
+  action_item :only => [:index] do
+    link_to t("active_admin.new_model", model: :User), url: new_admin_user_path unless current_admin_user.is_service?
+  end
+
+
+
 
   index do
     column t(:id) do |m|
@@ -24,7 +45,12 @@ ActiveAdmin.register User do
     column :email
     column :last_sign_in_at
     column :created_at
-    actions
+    column :actions do |user|
+      links = link_to(I18n.t('active_admin.view'), admin_user_path(user)) + "  "
+      links += link_to(I18n.t('active_admin.edit'), edit_admin_user_path(user)) + "  "
+      links += link_to I18n.t('active_admin.delete'), admin_user_path(user), method: :delete, confirm: 'Are you sure?' unless current_admin_user.is_service?
+      links
+    end
   end
 
   show do |user|
@@ -48,6 +74,7 @@ ActiveAdmin.register User do
 
   form :partial => "form"
   # form :partial => "form", :only => [:edit]
+
 
   # override controller
   controller do
@@ -80,6 +107,14 @@ ActiveAdmin.register User do
       @user.update!(params.permit![:user])
 
       super
+    end
+
+    def create
+      create! unless current_admin_user.is_service?
+    end
+
+    def new
+      new! unless current_admin_user.is_service?
     end
 
   end

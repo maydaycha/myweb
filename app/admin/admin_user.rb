@@ -12,6 +12,7 @@ ActiveAdmin.register AdminUser do
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
+    column :is_service
     actions
   end
 
@@ -47,13 +48,9 @@ ActiveAdmin.register AdminUser do
   end
 
   controller do
-    # def create
-    #   create!
-    # end
-
-    # def update
-    # end
-
+    def create
+      create!
+    end
   end
 
 end
