@@ -139,11 +139,11 @@ var CreateProfile = function(){
             errorPlacement: function (error, element) { // render error placement for each input type
             	var text;
             	if(error.text()=='This field is required.'){
-            		text = form.find('input[id='+error.attr('for')+']').attr('data-isempty');
+            		text = form.find('input[id="'+error.attr('for')+'"]').attr('data-isempty');
             		error.text(text);
             	}
             	else if(error.text()!=''){
-            		text = form.find('input[id='+error.attr('for')+']').attr('data-isError');
+            		text = form.find('input[id="'+error.attr('for')+'"]').attr('data-isError');
             		error.text(text);
             	}
                 var icon = $(element).parent('.input-icon').children('i');
