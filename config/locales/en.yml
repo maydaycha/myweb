@@ -1,177 +1,747 @@
 #encoding: UTF-8
 
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   error:
-    recaptcha: "There was an error with the recaptcha code below. Please re-enter the code and click submit."
-    username_format: "username only accepts English character and digital number."
-    oldpassword: "Old password "
+    recaptcha: "Verification code errors, please re-enter and submit again."
+    username_format: "Only alphabet letters, numbers or the combinations are allowed."
+    oldpassword: "Old Password"
 
   about: |
-    Sun Innovation Corporation Co. Ltd. is the e-commerce company registered in Taiwan. The website TeleworkTM is established by Sun Innovation Corporation Co. Ltd. The web is registered on Taiwan and is going to be registered on China. As the growth of the domestic demand, the market of outsourcing to western countries is growing in Chinese-speaking areas. We will help the freelancers or SOHO in western countries to expand the business scope to Chinese-speaking areas with least communication barrier.
-    TeleworkTM will offer you the telework opportunities and help the communication between you and the employer in order to make the contract. You can work at home or elsewhere in the world, and deliver the required result to the employer thru TeleworkTM. All of the information and the messages that delivered to you will be shown in your language and you can reply in your language as well. The employer has to pay to start the contract, the payment will be escrowed. If the milestone on the contract is reached or the contract is complete, the payment will be released to the employee thru the internet services, like Paypal.
+    旭曜資訊服務有限公司本著倡導高品質遠距工作的宗旨，推出 快樂工作 (英文名稱 Telework) 網站，在全球流動的大趨勢下，利用遠距工作中，工作在流動，人卻可以不流動的特性，期待能幫助大家的工作不受地點的限制，實現個人和家庭的價值，在快樂中工作。
 
-    The website is ready for recruiting new members now. It is free. You are cordially invited to register. If you have any questions, comments or suggestions, please e-mail to service@sun-innovation.com . Again, you can e-mail us in your language and we will reply you in your language as well. We look forward to hearing from you.
+    我們服務Telework 的接案會員在國內外找尋合適的遠距工作，同時也服務Telework 的發案會員在國內外找尋合適的遠距工作人才，所有的服務包含媒合、訂定工作合約、執行合約和金流等所有程序都會在快樂工作網站中完成，目前網站還在建置中，招募會員的網頁已經完成，加入會員是完全免費的，歡迎您隨時上網註冊成為初始會員。
+
+    關於遠距工作
+
+    Telework (遠距工作) 早在1950年代就被提出來，近年來由於現代資訊科技的快速發展，工作型態也隨之轉變，人與人的溝通不見得一定得在同一時間聚集在一起，在一般工作場合外而藉助資訊工具溝通的工作或稱遠距工作 (Telework)，已經大量被應用在那些工作成果能夠透過資訊科技呈現的相關工作上，像是程式撰寫、翻譯寫作、多媒體、網頁建置、各類的設計、網路市場行銷和顧問諮商等。
+    遠距工作提供了彈性的工作地點甚至彈性的工作時間，如果經營得宜，個人取得工作地點和時間的主導權，將更容易達成工作與生活的平衡，也能有更多的心力經營家庭和自己。
+    此外，對於不適合到一般工作場合的個人像是腎透析患者、視覺障礙者、行動障礙者、言語障礙者及各類身心障礙者及其照護家人等，也有機會藉由遠距工作取得收入並獲得工作成就感。
+    穩定的遠距工作來源是長久經營遠距工作面臨最大的挑戰，當收入不穩定時遠距工作就無法持久，但是，隨著全球化的大趨勢，現在我們有個機會解決這個問題。
+
+    關於全球化對遠距工作的影響
+
+    在全球化的浪潮下，企業為了提升競爭力會把一些原本在企業內完成的工作轉移到企業外完成，如此一來，企業可充分利用外部最優秀的專業人才達到提高工作成果品質、 降低成本、並使企業能更專注留在企業內部的核心工作。提供企業這種需求的個人或團體應運而生稱作委外服務業 (Outsourcing service industry)。委外市場結構正從基礎的技術層面的資訊技術服務委外(ITO)轉向商務流程委外(Business Process Outsourcing)，或更高附加值的知識流程外包(Knowledge Process Outsourcing )。Gartner 報導委外服務在2013年光只在ITO的部分就有2880億美金的市場。這些委外服務有一部分會成為遠距工作，Economist (經濟學人) 報導遠距工作的產值會由2013年的10億美金成長到2014年的20億美金並且在2018年之前會達到50億美金，在委外服務市場的擴增及遠距科技進展的雙重加持下，遠距工作的未來的成長性相當可以被期待的。
 
   rule: |
-    Fixed Now
+    您好
+
+    歡迎您加入或預備加入 Telework，讓我們一起為開拓遠距工作的機會而努力
+
+    以下是關於Telework 網站(以下簡稱 Telework)的隱私權政策，敬請閱讀。
+
+    您在Telework網站所登錄之個人資料，我們將遵守中華民國相關隱私權保護之法律，並以嚴謹的態度管理及保護您的個人資料，對於任何非法使用或揭露您個人資料的行為，Telework將採取必要的法律措施，以確保您個人隱私的安全。以下為Telework隱私權政策的相關措施及建議。
+
+    接案方須知
+
+    1.  Telework 受接案方委託尋求接案機會，Telework 將根據接案方所設定之條件 為接案方尋找第三方雇主，並媒合雙方。接案方經由Telework 所得自第三方雇主及其所提供之遠距工作之資訊，僅能就尋求接案之目的合理使用，不得作其他用途。不當使用導致之法律問題由接案方承擔。
+    2.  您在Telework 登錄相關接案會員資料，Telework之電腦系統會根據您的接案需求，有選擇性地提供給第三方的雇主參考做為媒合之用。Telework發案會員之承辦人亦可主動上Telework專屬頁面查詢，設定條件查詢您的接案資料，做為選擇委外案件人選之參考之用。並可能透過的Telework 的訊息系統與您討論細節，或可能邀請您參與投標，為確保您的隱私和阻絕您的困擾，也為維持遠距工作的單純性，除了在指定的欄位外，敬請不要在非指定的欄位(個人介紹、學經歷、作品展、認證) 主動揭露您的聯絡方式，或運用訊息系統主動傳送您的聯絡方式，聯絡方式指的是電話、E-mail和住址等，若有發案方或其他會員要求您提供您個人的聯絡方式，敬請不要提供，並至Telework客服中心求助，本公司客服人員會妥善處理。
+    3.  履歷之個人資料不實或不全，學歷及自傳留白，或過於精簡，填寫不完全，若經通知仍未確實補齊者，本網站有權不予刊登或關閉履歷表。
+    4.  所有您透過Telework發佈的資訊，必須與您在本站想要承做的遠距工作相關，違反法律規定、善良風俗、職場倫理與社會禮儀，或透過本站收集接發案者資料或進行廣告推播是不被允許的。
+    5.  為促進網站國際化，及保護接發案雙方隱私，Telework並未要求會員以身分證字號或公司統一編號資料登入，也未要求提供身分證字號或公司統一編號資料，會員刊登或應徵案件前，採用網路資料之認證方式進行，若一旦發現會員有違約之情形時，我們除立即取消其刊登需求外，情節嚴重者將對之採取必要之法律行動。即使如此，仍不能完全排除少數發案者以不實之工作機會，導致接案方不愉快之接案經驗。
+    我們建議接案者須注意下列事項，並與Telework充分合作，以減少不必要的困擾
+    (1) 所有的溝通在Telework進行，不提供其他的聯絡方式，若有使用其他的聯絡方式的必要，請與客服人員聯絡。
+    (2) 不與發案方私下會面，若真有其必要請與客服人員聯絡，我們會要求接發案雙方提供更詳細的認證，以避免與陌生人會面的潛在危險，即使如此，Telework 也無法完全保證會面的安全。
+    6.  當您訂閱Telework電子報或加入網站成為會員時，我們會請您填寫個人基本資料，做為訂閱戶辨識及發送訊息之用。除非您已主動表明不接收之意願，否則我們會定時或不定時提供您Telework及合作廠商之各項活動資訊。
+    7.  為讓使用者有更佳的使用經驗，Telework 會在您的電腦中放置並取用我們的Cookie，若您不願接受Cookie的寫入，您可在您使用的瀏覽器功能項中設定隱私權等級為高，即可拒絕Cookie的寫入，但可能會導至網站某些功能無法正常執行 。Telework 會收集並分析使用Telework各項功能之各項歷程紀錄及資訊如，上網的IP位址、瀏覽器種類、瀏覽網頁及停留時間等軌跡資料等。
+    8.  Telework已與所有員工簽署保密協議，保密範圍包括您未公開於網站上的個人聯絡資料，我們會善盡保密之責任。
+    9.  當台灣的司法機關基於偵查犯罪之公益目的，或為保護受害當事人之合法權益，我們將配合司法機關提供特定會員之資料。
+    10. Telework保留限縮暫停刪除會員權限和服務之權利，除緊急事故外，Telework會在透過訊息系統在一星期前通知。
+
+    發案方須知
+
+    1.  Telework 受發案方委託尋求合適接案人選，Telework 將根據發案方所設定之條件，為發案方尋找第三方接案人選，並媒合雙方。發案方經由Telework 所得之第三方接案者之資訊，僅能就選擇合適接案人選之目的合理使用，不得作其他用途。不當使用導致之法律問題由發案方承擔。
+    2.  您在Telework 登錄相關發案會員資料，Telework之電腦系統會根據您的發案需求，有選擇性地提供給潛在的接案業主參考做為媒合之用，接案業主可能透過的Telework 的訊息系統與您討論細節以參與投標，為確保您的隱私和阻絕您的困擾，也為維持遠距工作的單純性，除了在指定的欄位外，敬請不要在非指定的欄位(個人介紹、學經歷、作品展、認證) 揭露您的聯絡方式，或運用訊息系統傳送您的聯絡方式，聯絡方式指的是電話、E-mail和住址等，若有發案方或其他會員要求您提供您個人的聯絡方式，敬請不要提供，並至Telework客服中心求助，本公司客服人員會妥善處理。
+    3.  發案之資料不實，或過於精簡，填寫不完全，若經通知仍未確實補齊者，本網站有權不予刊登或關閉。
+    4.  所有您透過Telework網發佈的資訊，必須與您在本站發佈的遠距工作相關，違反法律規定、善良風俗、職場倫理與社會禮儀，或透過本站收集接發案者資料或進行廣告推播是不被允許的。
+    5.  為促進網站國際化， 及保護接發案雙方隱私，Telework並未要求接案方以身分證字號或公司統一編號資料登入，也未要求接案方提供身分證字號或公司統一編號資料，接案會員刊登應徵案件前，採用網路資料之認證方式進行，若一旦發現接案會員有違約之情形時，我們除立即取消其刊登需求外，情節嚴重者將對之採取必要之法律行動。即使如此，仍不能完全排除少數接案者以不實之工作履歷，導致發案方不愉快之發案經驗。
+    我們建議發案者須注意下列事項，並與Telework充分合作，以減少不必要的困擾
+    (1)所有的溝通在Telework的訊息系統中進行，以留下紀錄，不提供其他的聯絡方式，若有使用其他的聯絡方式的必要，請與客服人員聯絡。
+    (2)不與接案方私下會面，若真有其必要請與客服人員聯絡，我們會要求接發案雙方提供更詳細的認證，以避免與陌生人會面的潛在危險，即使如此，Telework 也無法完全保證會面的安全。
+    6.  當您訂閱Telework電子報或加入網站成為會員時，我們會請您填寫個人基本資料，做為訂閱戶辨識物及發送訊息之用。除非您已主動表明不接收之意願，否則我們會定時或不定時提供您Telework及合作廠商之各項活動資訊。
+    7.  為讓使用者有更佳的使用經驗, Telework 會收集並分析 使用Telework各項功能之各項歷程紀錄及資訊（例如上網的IP位址、瀏覽器種類、瀏覽網頁及停留時間資料等）。
+    8.  Telework已與所有員工簽署保密協議，保密範圍包括您未公開於網站上的個人聯絡資料，我們會善盡保密之責任。
+    9.  當台灣的司法機關基於偵查犯罪之公益目的或為保護受害當事人之合法權益，我們將配合司法機關提供特定會員之資料。
+    10. Telework保留限縮暫停刪除會員權限和服務之權利，除緊急事故外，Telework會在透過訊息系統在一星期前通知。
+
+    隱私權政策內容的變更
+
+    Telework保留修改隱私權政策內容之權利，若有修改時，我們不會個別通知，但會於本網站上公佈新修改之內容。如有任何疑問，歡迎至客服中心反應，我們將儘速為您處理。
 
   main_skill_category: [
-    {name: "IT & Software"},
-    {name: "Engineering and Science"},
-    {name: "Design and Creative Work"},
-    {name: "Sales and Marketing"},
-    {name: "Administrative and Customer Services"},
-    {name: "Business, Accounting and Legal"},
-    {name: "Writing and Translation"},
-    {name: "Consulting"}]
+    {name: "IT、Software"},
+    {name: "Engineering、Science"},
+    {name: "Design、Creativity"},
+    {name: "Business、Marketing "},
+    {name: "General Affairs、Customer Services"},
+    {name: "Business、Accounting、Legal"},
+    {name: "Writing、Translation"},
+    {name: "Professional Advisory"}
+  ]
 
   sub_skill_category: [
-    [{name: "Programming", title: "nothing"},
-    {name: "Program Testing/Debugging", title: "nothing"},
-    {name: "E-commerce", title: "nothing"},
-    {name: "Web Site Development", title: "nothing"},
-    {name: "Web Site Planning", title: "nothing"},
-    {name: "Web Site Quality Assurance", title: "nothing"},
-    {name: "Web Application Software", title: "nothing"},
-    {name: "Mobile Application Software", title: "nothing"},
-    {name: "Software Interface ", title: "nothing"},
-    {name: "Utility Software", title: "nothing"},
-    {name: "Entertainment Software ", title: "nothing"},
-    {name: "Scripting Language", title: "nothing"},
-    {name: "Plug-in Program", title: "nothing"},
-    {name: "IT Project Management", title: "nothing"},
-    {name: "VoIP", title: "nothing"},
-    {name: "Information System Architecture", title: "nothing"},
-    {name: "Information System Management", title: "nothing"},
-    {name: "Information System Implementation", title: "nothing"},
-    {name: "Management Information System", title: "nothing"},
-    {name: "Other – IT & Software", title: "nothing"}],
-
-    [{name: "Data Mining & Analysis", title: ""},
-    {name: "CAD / CAM", title: ""},
-    {name: "Manufacturing Engineering", title: ""},
-    {name: "Manufacturing Development", title: ""},
-    {name: "Industrial Engineering", title: ""},
-    {name: "Chemical Engineering", title: ""},
-    {name: "Materials Engineering", title: ""},
-    {name: "Electrical Engineering", title: ""},
-    {name: "Mechanical Engineering", title: ""},
-    {name: "Biological Engineering", title: ""},
-    {name: "Engineering Statistics", title: ""},
-    {name: "Quality Engineering", title: ""},
-    {name: "Design Engineering", title: ""},
-    {name: "Engineering Management", title: ""},
-    {name: "Mathematics", title: ""},
-    {name: "Physics", title: ""},
-    {name: "Chemistry", title: ""},
-    {name: "Others-Science & Engineering", title: ""}],
-
-    [{name: "Graphic Design", title: ""},
-    {name: "Logo & CIS Design", title: ""},
-    {name: "Visual Design", title: ""},
-    {name: "Drawing", title: ""},
-    {name: "Printed Matters", title: ""},
-    {name: "Photography ", title: ""},
-    {name: "CAD", title: ""},
-    {name: "3D Design", title: ""},
-    {name: "Audio Production", title: ""},
-    {name: "Video Production", title: ""},
-    {name: "Voice Acting", title: ""},
-    {name: "Animation", title: ""},
-    {name: "Templates Design", title: ""},
-    {name: "Web Design", title: ""},
-    {name: "User Interface Design", title: ""},
-    {name: "Fashion Design", title: ""},
-    {name: "Industrial Design", title: ""},
-    {name: "Other - Design & Creative Work", title: ""}],
-
-
-
-    [{name: "Sales Promotion", title: ""},
-    {name: "E-mail & Internet Marketing", title: ""},
-    {name: "Telemarketing", title: ""},
-    {name: "SEO/SEM", title: ""},
-    {name: "Social Media Marketing", title: ""},
-    {name: "Customer & Media Relations", title: ""},
-    {name: "Business Proposal & Strategy", title: ""},
-    {name: "Marketing Research ", title: ""},
-    {name: "Lead Generation", title: ""},
-    {name: "Other - Sales & Marketing", title: ""}],
-
-
-
-    [{name: "Typing & Data Entry", title: ""},
-    {name: "IT Assistant", title: ""},
-    {name: "Executive Assistant", title: ""},
-    {name: "Accounting Assistant", title: ""},
-    {name: "Business Correspondence", title: ""},
-    {name: "Transcription Services", title: ""},
-    {name: "On-line Customer Service", title: ""},
-    {name: "Field Support", title: ""},
-    {name: "Invoicing & Order Processing ", title: ""},
-    {name: "Inventory Assistant", title: ""},
-    {name: "Other – Administrative & Customer Support", title: ""}],
-
-    [{name: "Accounting Services", title: ""},
-    {name: "Computerized Bookkeeping", title: ""},
-    {name: "Financial Compensation", title: ""},
-    {name: "Financial Services ", title: ""},
-    {name: "Financial Planning & Forecast", title: ""},
-    {name: "Financial Statement", title: ""},
-    {name: "Procurement Process ", title: ""},
-    {name: "Legal Affairs", title: ""},
-    {name: "Intellectual Property Protection", title: ""},
-    {name: "Project Management", title: ""},
-    {name: "Human Resources ", title: ""},
-    {name: "Hiring", title: ""},
-    {name: "Actuarial Analysis", title: ""},
-    {name: "Other - Business Services", title: ""}],
-
-
-    [{name: "Blog Writing", title: ""},
-    {name: "Ghost Writing", title: ""},
-    {name: "Copywriting", title: ""},
-    {name: "Content Writing", title: ""},
-    {name: "Editorial Writing", title: ""},
-    {name: "Online Journalism", title: ""},
-    {name: "Technical Documentation", title: ""},
-    {name: "Literature Review", title: ""},
-    {name: "Translation & Interpretation", title: ""},
-    {name: "Other - Writing & Translatio", title: ""}],
-
-    [{name: "Legal Consultant", title: ""},
-    {name: "Travel Consultant", title: ""},
-    {name: "Immigrant Consultant", title: ""},
-    {name: "Technical Consultant", title: ""},
-    {name: "Culinary Consultant", title: ""},
-    {name: "Language & Communication Consultant", title: ""},
-    {name: "Marketing Consultatant", title: ""},
-    {name: "Business Consultant", title: ""},
-    {name: "Commercial Consultant", title: ""},
-    {name: "Consulting Analyst", title: ""},
-    {name: "Services Consultant", title: ""},
-    {name: "Other - Consulant", title: ""}]
+    [
+      {name: "Programming", title: ""},
+      {name: "Program test / debug", title: ""},
+      {name: "E-commerce platform", title: ""},
+      {name: "Web development", title: ""},
+      {name: "Web planning", title: ""},
+      {name: "Web test", title: ""},
+      {name: "Web Applications", title: ""},
+      {name: "Mobile App", title: ""},
+      {name: "Software interface", title: ""},
+      {name: "Utility software", title: ""},
+      {name: "Entertainment and gaming applications", title: ""},
+      {name: "Scripting language (Scripting)", title: ""},
+      {name: "Plug-ins", title: ""},
+      {name: "IT project management", title: ""},
+      {name: "Internet telephony (VoIP)", title: ""},
+      {name: "Information systems architecture", title: ""},
+      {name: "Management information system (MIS)", title: ""},
+      {name: "Information system provisioning", title: ""},
+      {name: "Enterprise resource planning (ERP)", title: ""},
+      {name: "Other - IT / Software", title: ""}
+    ],
+    [
+      {name: "Data mining / analysis", title: ""},
+      {name: "CAD / CAM", title: ""},
+      {name: "Manufacturing engineering", title: ""},
+      {name: "Product development", title: ""},
+      {name: "Industrial engineering", title: ""},
+      {name: "Chemical engineering", title: ""},
+      {name: "Materials engineering", title: ""},
+      {name: "Electronics engineering", title: ""},
+      {name: "Mechanical engineering", title: ""},
+      {name: "Biological engineering", title: ""},
+      {name: "Mathematical statistics", title: ""},
+      {name: "Quality control analysis", title: ""},
+      {name: "Design engineering", title: ""},
+      {name: "Engineering project management", title: ""},
+      {name: "Mathematics", title: ""},
+      {name: "Physics", title: ""},
+      {name: "Chemistry", title: ""},
+      {name: "Other - Engineering / Science", title: ""}
+    ],
+    [
+      {name: "Graphics", title: ""},
+      {name: "Logo、 Corporate identity system", title: ""},
+      {name: "Visual design", title: ""},
+      {name: "Drawing", title: ""},
+      {name: "Printing design", title: ""},
+      {name: "Photography", title: ""},
+      {name: "Computer-aided design", title: ""},
+      {name: "3D Design", title: ""},
+      {name: "Audio effects", title: ""},
+      {name: "Video / Movie", title: ""},
+      {name: "Dubbing", title: ""},
+      {name: "Animation", title: ""},
+      {name: "Framework design", title: ""},
+      {name: "Website design", title: ""},
+      {name: "User interface design", title: ""},
+      {name: "Fashion design", title: ""},
+      {name: "Industrial esign", title: ""},
+      {name: "Other - Design / Creativity", title: ""}
+    ],
+    [
+      {name: "Promotions", title: ""},
+      {name: "E-mail and internet marketing", title: ""},
+      {name: "Telemarketing", title: ""},
+      {name: "Search engine optimization and marketing", title: ""},
+      {name: "Social media marketing", title: ""},
+      {name: "Customer / Media relations", title: ""},
+      {name: "Business planning / strategy", title: ""},
+      {name: "Market research", title: ""},
+      {name: "Sales", title: ""},
+      {name: "Other - Business / Marketing", title: ""}
+    ],
+    [
+      {name: "Typing and data entry", title: ""},
+      {name: "IT assistant", title: ""},
+      {name: "Sales assistant", title: ""},
+      {name: "Accounting assistant", title: ""},
+      {name: "Business correspondence", title: ""},
+      {name: "Transcription", title: ""},
+      {name: "On-line customer services", title: ""},
+      {name: "Field support / On-site services", title: ""},
+      {name: "Quotation / Order processing", title: ""},
+      {name: "Inventory processing", title: ""},
+      {name: "Other - General affairs / Customer services", title: ""}
+    ],
+    [
+      {name: "General accounting", title: ""},
+      {name: "Computer billing system", title: ""},
+      {name: "Salary", title: ""},
+      {name: "Financial services", title: ""},
+      {name: "Financial planning and forecasting", title: ""},
+      {name: "Financial statements", title: ""},
+      {name: "Procurement process", title: ""},
+      {name: "Legal", title: ""},
+      {name: "Intellectual property protection", title: ""},
+      {name: "Project management", title: ""},
+      {name: "Human resources", title: ""},
+      {name: "Recruitment", title: ""},
+      {name: "Actuary", title: ""},
+      {name: "Other - Business services", title: ""}
+    ],
+    [
+    {name: "Blog writing", title: ""},
+    {name: "Ghostwriting", title: ""},
+    {name: "Tweets writing", title: ""},
+    {name: "Creative writing", title: ""},
+    {name: "Editorial", title: ""},
+    {name: "On-line journalist", title: ""},
+    {name: "Technical writing", title: ""},
+    {name: "Literature review", title: ""},
+    {name: "Translation、interpretation、verbatim", title: ""},
+    {name: "Other - Writing / Translation", title: ""}
+    ],
+    [
+      {name: "Legal adviser", title: ""},
+      {name: "Travel consultant", title: ""},
+      {name: "Immigration consultant", title: ""},
+      {name: "Technical consultant", title: ""},
+      {name: "Culinary consultant", title: ""},
+      {name: "Language / Communication consultant", title: ""},
+      {name: "Marketing consultant", title: ""},
+      {name: "Overseas jobs consulting", title: ""},
+      {name: "Business consultant", title: ""},
+      {name: "Consultanting analysis", title: ""},
+      {name: "Service advisor", title: ""},
+      {name: "Other - Consultant", title: ""}
     ]
+  ]
 
 
+  basic:
+    button:
+      add: "New"
+      edit: "Modify"
+      delete: "Delete"
+      close: "Close"
+      save: "Save"
+      collapse: "Close"
+      clear: "Remove"
+      previous_step: "Previous"
+      next_step: "Next"
+    alert:
+      warning_on_load: "Alert! Un-saved data will be lost!"
+  page:
+    title: "Telework"
+    header:
+      settings: "Personal settings"
+      logout: "Log out"
+      login: "Log in"
+      signup: "Sign up"
+    footer:
+      about: "About Us"
+      privacy: "Privacy Policy"
+      termofuse: "Terms of Use"
+      contact: "Contact Us"
+    index:
+      button_indialog_link1: "Register now for free!"
+      button_indialog_link2: "Finding freelancers on Telework"
+      button_indialog_link3: "Telework is coming soon..."
+      swiper1_title1: "Launch your freelance career from Telework"
+      swiper1_title2: "這個位子留給你.."
+      swiper2_title1: "Conduct global telework from here"
+      swiper2_title2: "讓工作和世界接軌"
+      swiper3_title1: "Be yourself starting from Telework"
+      swiper3_title2: "讓您快樂接案"
+      frame_login_title: "Sign up for free now"
+      frame_login_title_min: "Sign up for free now"
+      input_placeholder_username: "Username"
+      input_placeholder_email: "E-mail"
+      frame_login_button: "Sign Up"
+      frame_login_social: "使用OPEN ID快速註冊"
+      container_title: "Join Telework Now"
+      tabA1_title: "I am an employer, looking for freelance professionals."
+      tabA2_title: "I am a teleworker, looking for jobs."
+      tabA1_step1_title: "Post a project"
+      tabA1_step2_title: "Find appropriate teleworkers"
+      tabA1_step3_title: "Contracting & Escrow"
+      tabA1_step4_title: "Review deliverables and pay upon acceptance"
+      tabA2_step1_title: "Edit personal profile"
+      tabA2_step2_title: "Find appropriate projects"
+      tabA2_step3_title: "Contracting & Escrow"
+      tabA2_step4_title: "Fullfil the contract and paid upon acceptance"
+      tabA1_step1_cotent1: "STEP1 / Post project"
+      tabA1_step1_cotent2: "Post your work to Telework for outsourcing"
+      tabA1_step1_cotent3: "You can find freelance talents and create your own team on Telework."
+      tabA1_step2_cotent1: "STEP2 / Choose teleworkers"
+      tabA1_step2_cotent2: "Recruiting process is clear and efficient"
+      tabA1_step2_cotent3: "In addition to profile and tracking record of teleworkers, on-line communication system helps to find the right teleworkers."
+      tabA1_step3_cotent1: "STEP3 / Contracting"
+      tabA1_step3_cotent2: "Escrow process will be done before the contract is effective."
+      tabA1_step3_cotent3: "Objectives, deliverables, milestones, schedule and payment terms can be all included in the contract. The clear contract avoids misunderstanding"
+      tabA1_step4_cotent1: "STEP4 / Fulfill contract"
+      tabA1_step4_cotent2: "Review receivables and pay upon acceptance"
+      tabA1_step4_cotent3: "Review receivables, pay upon acceptance and earn credibility on Telework. Ratings and comments to the teleworker can be made after the contract is complete."
+      tabA2_step1_cotent1: "STEP1 / New your profile"
+      tabA2_step1_cotent2: "Start the career on Telework from newing your profile"
+      tabA2_step1_cotent3: "Expertise, certification, work experience, education background and your portfolio can be all included in your profile."
+      tabA2_step2_cotent1: "STEP2 / Choose project"
+      tabA2_step2_cotent2: "Choose the appropriate project efficiently"
+      tabA2_step2_cotent3: "You can choose the appropriate projects efficiently by the assistance of the project screening system."
+      tabA2_step3_cotent1: "STEP3 / Contracting"
+      tabA2_step3_cotent2: "Escrow process will be done before the contract is effective."
+      tabA2_step3_cotent3: "Objectives, deliverables, milestones, schedule and payment terms can be all included in the contract. The clear contract avoids misunderstanding"
+      tabA2_step4_cotent1: "STEP4 / Fulfill contract"
+      tabA2_step4_cotent2: "Paid by the payment terms on the contract"
+      tabA2_step4_cotent3: "After the deliverables are accepted, the teleworker will be paid . Ratings and comments to the employer can be made after the contract is complete."
+      tabB1_title: "Do telework wherever you are."
+      tabB2_title: "Accompany with you and your family."
+      tabB3_title: "Getting thru every unexpected minute with you."
+      tabB4_title: "Getting old with you."
+      tabB1_content1: "Wherever and whenever, Telework will be always with you."
+      tabB1_content2: "遠距工作配合你的人生"
+      tabB1_content3: "忠實的留在你身邊"
+      tabB2_content1: "Wherever and whenever, Telework will be always with you."
+      tabB2_content2: "遠距工作配合你的人生"
+      tabB2_content3: "忠實的留在你身邊"
+      tabB3_content1: "Wherever and whenever, Telework will be always with you."
+      tabB3_content2: "遠距工作配合你的人生"
+      tabB3_content3: "忠實的留在你身邊"
+      tabB4_content1: "Wherever and whenever, Telework will be always with you."
+      tabB4_content2: "遠距工作配合你的人生"
+      tabB4_content3: "忠實的留在你身邊"
+      frame1_title: "Employer 1 2 3"
+      frame1_step1: "Post project"
+      frame1_step2: "Contracting"
+      frame1_step3: "Pay by contract"
+      frame2_title: "Teleworker 1 2 3"
+      frame2_step1: "Choose project"
+      frame2_step2: "Contracting"
+      frame2_step3: "Paid by contract"
+    sign_up:
+      container_title: "Please choose your major role in Telework."
+      button_freelancer: "I am a teleworker, looking for jobs."
+      button_employer: "I am an employer, looking for teleworkers."
+      button_signup: "Sign up now"
+    sign_up_freelancer:
+      termofuse: "Term of Use"
+      privacy: "Privacy Policy"
+      container_title: "Create Your Account"
+      container_description: "Registration with Open ID"
+      submit_alert: "Please check your entered data"
+      input_placeholder_first_name: "Last name (public information)"
+      input_empty_first_name: "Please enter your last name"
+      input_placeholder_last_name: "First name (public information)"
+      input_empty_last_name: "Please enter your first name"
+      input_placeholder_email: "E-mail address"
+      input_empty_email: "Please enter your e-mail address"
+      input_exist_email: "The e-mail address has been used already"
+      input_includeblank_country: "Country"
+      input_placeholder_username: "User account (secret information, please fill in alphabet letters, numbers or the combinations.)"
+      input_empty_username: "Please enter alphabet letters, numbers or the combinations."
+      input_exist_username: "The account name is already in use"
+      input_placeholder_password: "Set a password (length must be greater than equal to 8 alphanumeric characters, including uppercase and lowercase characters. Special characters are not allowed.)"
+      input_empty_password: "Password must be at least eight characters,  * /! ~ and the other special symbols are not allowed."
+      input_error_password: "Password must be at least eight characters,  * /! ~ and the other special symbols are not allowed."
+      input_placeholder_password_confirmation: "Please enter your password again"
+      input_empty_password_confirmation: "Please enter your password again"
+      input_inconsistent_password_confirmation: "The entered passwords are inconsistent!"
+      input_placeholder_how_to_know: "Where do you know Telework?? "
+      input_exclamation: "If you know Telework from someone, we recommend that you fill his/her name."
+      input_description_captcha: "Please enter alphanumeric characters displayed below."
+      input_receive_information: "I want to receive the latest information about Telework. If you do not want to receive such messages, please uncheck."
+      button_submit: "I want to register"
+      bottom_description: "Please read the term of use and the privacy policy before registration. It means you agree the term of use and the privacy policy if you complete the registration process."
+    sign_up_employer:
+      termofuse: "Term of Use"
+      privacy: "Privacy Policy"
+      container_title: "Create an employer account"
+      container_description: "Sign up with Open ID"
+      tab1_title: "Create a personal account"
+      tab2_title: "Create a corporation account"
+      submit_alert: "Please check the entered information"
+      input_placeholder_first_name: "Last name (public information)"
+      input_empty_first_name: "Please enter your last name"
+      input_placeholder_last_name: "First name (public information)"
+      input_empty_last_name: "Please enter your first name"
+      input_placeholder_email: "E-mail address"
+      input_empty_email: "Please enter your e-mail address"
+      input_error_email: "Please enter a valid e-mail address."
+      input_exist_email: "The e-mail address has been used already"
+      input_placeholder_username: "User account (secret information, please fill in alphabet letters, numbers or the combinations.)"
+      input_empty_username: "Please enter alphabet letters, numbers or the combinations."
+      input_exist_username: "The account name is already in use"
+      input_placeholder_password: "Set a password (length must be greater than equal to 8 alphanumeric characters, including uppercase and lowercase characters. Special characters are not allowed.)"
+      input_empty_password: "Password must be at least eight characters,  * /! ~ and the other special symbols are not allowed."
+      input_error_password: "Password must be at least eight characters,  * /! ~ and the other special symbols are not allowed."
+      input_placeholder_password_confirmation: "Please enter your password again"
+      input_empty_password_confirmation: "Please enter your password again"
+      input_inconsistent_password_confirmation: "Inconsistent with the previously entered password"
+      input_description_captcha: "Please enter alphanumeric characters displayed below."
+      input_receive_information: "I want to receive the latest information about Telework. If you do not want to receive such messages, please uncheck."
+      button_submit: "I want to register"
+      bottom_description: "Please read the term of use and the privacy policy before registration. It means you agree the term of use and the privacy policy if you complete the registration process."
+      input_placeholder_company: "Company / Organization (public information)"
+      input_empty_company: "Required field, please enter  your company or organization's name"
+    verify_email_sent:
+      container_content: "We sent an e-mail to you. To activate your account, please check your e-mail box and click on the activation button in the e-mail."
+      container_sendto: "We received the confirmation e-mail and your account is effective. "
+    verify_email:
+      configuration: "Congratulations, you have completed the registration process."
+      dear: "Dear Sir or Madam,"
+      content: "Thank you for your registration, please click on the following link to enable your account."
+      button_enable: "Click the link/button to enable your account."
+      not_work: "* If you can not click on this link, please copy the following link to your browser to enable your account ."
+    verify_email_success: # confimations/show.html.erb
+      account_work: "Your account has been enabled."
+      wait_for_login: "Get you to the log-in page in 5 seconds."
+      button_gohome: "Main Page"
+    sign_in:
+      container_title: "Log in"
+      container_description: "Sign up with Open ID"
+      input_placeholder_username: "Please enter your account"
+      input_empty_username: "Please enter your e-mail address"
+      input_placeholder_password: "Password"
+      input_rememberme: "Remember me"
+      link_forget: "Forgot your username or password"
+      button_login: "Log in"
+      submit_alert: "Please check the entered information"
+    forget_password:
+      container_title: "Forgot your password?"
+      container_description: "Please enter your e-mail address"
+      input_placeholder_email: "Please enter your e-mail address"
+      input_empty_email: "Please enter your e-mail address"
+      button_submit: "Send an e-mail"
+    forget_password_email_sent:
+      container_title: "We just sent an e-mail to your e-mail box."
+      container_description: "Please check your e-mail box."
+    forget_password_email:
+      container_title: "Hi, "
+      container_description: "Click on the following link to reset your password."
+      bottom_description: "If you do not require re-setting a new password, please ignore this e-mail."
+      button_reset: "Reset my password"
+      footer: "Best Regards, Telework"
+    forget_password_reset:
+      container_title: "Change your password"
+      container_description: "Please enter your new password"
+      input_placeholder_password: "Please enter your password"
+      input_empty_password: "Please enter your password"
+      input_placeholder_password_confirmation: "Please enter your password"
+      input_empty_password_confirmation: "Please enter your password"
+      button_submit: "Confirm and send"
+    forget_password_expired:
+      container_title: "Your password has been changed"
+      container_description: "This link is invalid."
+      button_goHome: "Main Page"
+    skill_category_main:
+      container_title: "Authentication process is done. Welocome."
+      container_description: "Please proceed to creating your account."
+      container_choose_description: " Please choose your professions (main category)"
+      choose_empty_alert: "Please choose your professions (sub-category)"
+      button_next: "Next "
+    skill_category_sub:
+      container_title: "Authentication process is done. Welcome. "
+      container_description: "Please proceed to creating your account."
+      container_choose_description: " Please select your professional category"
+      container_main: "You are what kind of %{main_skill_category} staff? (Check all that apply)"
+      choose_empty_alert: "Please select a professional category"
+      button_previous: " Previous step"
+      button_save: "Save"
+    profile_edit:
+      container_title: "Create your profile"
+      step1_title: " About me"
+      step2_title: " Experiences and skills"
+      step3_title: " Done"
+      submit_alert: "Please check the entered information"
+      submit_correct: "Confirmed"
+      step1_segment1_title: "Individuals or small studio"
+      step1_segment1_option1: "I am a full-time freelancer"
+      step1_segment1_option2: "I am a part-time freelancer"
+      step1_segment1_option3: "We are less than five people in the studio"
+      step1_segment1_option4: "We are more than 5 people studio"
+      step1_segment2_title: "About me"
+      step1_segment2_picture_title: "Upload my image"
+      step1_segment2_picture_description: "Upload my image"
+      step1_segment2_brief_title: "About me in brief (Less than 20 words) "
+      step1_segment2_brief_exclamation: "<h4> Introduce your competence in one sentence, for example: </ h4> <ul> <li> More than 10-year experience on mobile APP programming </li><li> The solicitor practising in New York State USA. </li><li> The winner of Red Dot Award on 2013. </li></ul>"
+      step1_segment2_brief_placeholder: "About me in brief"
+      step1_segment2_intro_title: "Introduction of me (Less than 1000 words) "
+      step1_segment2_intro_exclamation: "<h4>讓您完整的來介紹自己的工作經歷，有助於雇主更了解您的專長。</h4><p>藉此可以強調您的優勢和技能，或是參與過的專案，也能將您的教育背景呈現。言簡意賅，記得別讓您的簡介出錯。</p>"
+      step1_segment2_skill_title: "Skills"
+      step1_segment2_skill_description: "Skills"
+      step1_segment2_alert_limit: "Less than 6 skills are allowed currently"
+      step2_segment1_title: "Salary"
+      step2_segment1_pay_title: "Hourly pay"
+      step2_segment1_pay_placeholder: "Hourly pay"
+      step2_segment1_pay_empty: "Please enter the required pay"
+      step2_segment1_pay_end: "USD /HR"
+      step2_segment2_title: "Location"
+      step2_segment2_location_title: "Country"
+      step2_segment2_location_includeblank: "Country"
+      step2_segment2_zipcode_title: "Zip Code"
+      step2_segment2_zipcode_placeholder: "Zip Code"
+      step2_segment2_zipcode_empty: "Please enter a zip code"
+      step2_segment2_city_title: "City"
+      step2_segment2_city_placeholder: "City"
+      step2_segment2_city_empty: "Please enter a city"
+      step3_confirmation: "Make sure the information you enter"
+      step3_picture: "Image"
+      step3_brief: "About me in brief"
+      step3_intro: "Introduction of me"
+      step3_skill: "Skills"
+      button_previous: " Previous step"
+      button_next: "Next "
+      button_save: "Confirmed & send"
+    profile_show:
+      container_title: "Personal Settings"
+      container_notice: "The complete profile will help winning the contract. Especially, the following areas in the profile"
+      container_notice_item1: "1. Education Background"
+      container_notice_item2: "2. Work Experience"
+      container_notice_item3: "3. Portfolio"
+      tabA_title: "My Profile"
+      tabB_title: "Change Password"
+      tabA_segment1_title: "Account Overview"
+      tabA_segment1_row1: "Username"
+      tabA_segment1_row2: "Last name"
+      tabA_segment1_row2_placeholder: "Last name"
+      tabA_segment1_row3: "First name"
+      tabA_segment1_row3_placeholder: "First name"
+      tabA_segment1_row4: "About me in brief"
+      tabA_segment1_row4_placeholder: "About me in brief"
+      tabA_segment1_row4_description: " (Less than 20 words)"
+      tabA_segment1_row5: "Introduction of me"
+      tabA_segment1_row5_placeholder: "Introduction of me"
+      tabA_segment1_row5_description: " (Less than 20 words)"
+      tabA_segment1_row6: "Image"
+      tabA_segment1_row7: "E-mail address"
+      tabA_segment1_row7_placeholder: "E-mail address"
+      tabA_segment1_row8: "Hourly pay"
+      tabA_segment1_row8_placeholder: "Hourly pay"
+      tabA_segment1_row8_unit: "USD/HR"
+      tabA_segment2_title: "Professions"
+      tabA_segment2_row1: "Main Category"
+      tabA_segment2_row2: "Sub Category"
+      tabA_segment3_title: "Skill"
+      tabA_segment3_description: "If you like to add more skills. Please fill the required information in"
+      tabA_segment3_description_details: "1. Work Experience 2. Education Background 3. Portfolio"
+      tabA_segment3_defaulttext: "Skills tag"
+      tabA_segment3_alert_limit: "Less than 9 skills are allowed currently"
+      tabA_segment4_title: "Work Experience"
+      tabA_segment4_empty: "No information yet"
+      tabA_segment4_edit: "Edit"
+      tabA_segment4_add: "New"
+      tabA_segment4_error: "Failed to Upload"
+      tabA_segment4_row1: "Start date"
+      tabA_segment4_row1_placeholder: "Start date"
+      tabA_segment4_row1_empty: "Please fill in the correct time"
+      tabA_segment4_row2: "Ended date"
+      tabA_segment4_row2_placeholder: "Ended date"
+      tabA_segment4_row2_error: "Alert! The ended date is earlier than the start date."
+      tabA_segment4_row3: "Company"
+      tabA_segment4_row3_placeholder: "Company"
+      tabA_segment4_row3_empty: "Please fill in the company name"
+      tabA_segment4_row4: "Position / Responsibilities"
+      tabA_segment4_row4_placeholder: "Position / Responsibilities"
+      tabA_segment4_row4_empty: 職位/職責 尚未填寫"
+      tabA_segment4_row5: "Description"
+      tabA_segment4_row5_placeholder: "Description"
+      tabA_segment4_row6: "Delete / Edit"
+      tabA_segment5_title: "Education Background"
+      tabA_segment5_empty: "No information yet"
+      tabA_segment5_edit: "Edit"
+      tabA_segment5_add: "New"
+      tabA_segment5_row1: "Start date"
+      tabA_segment5_row1_placeholder: "Start date"
+      tabA_segment5_row1_empty: "Please fill in the correct time"
+      tabA_segment5_row2: "Ended date"
+      tabA_segment5_row2_placeholder: "Ended date"
+      tabA_segment5_row2_error: "Alert! The ended date is earlier than the start date."
+      tabA_segment5_row3: "Academic institute"
+      tabA_segment5_row3_placeholder: "Academic institute"
+      tabA_segment5_row3_empty: "Please fill in school"
+      tabA_segment5_row4: "Department / Major"
+      tabA_segment5_row4_placeholder: "Department / Major"
+      tabA_segment5_row4_empty: "Please fill in the Department / Major"
+      tabA_segment5_row5: "Description"
+      tabA_segment5_row5_placeholder: "Description"
+      tabA_segment5_row6: "Delete"
+      tabA_segment6_title: "Portfolio"
+      tabA_segment6_empty: "No information yet"
+      tabA_segment6_edit: "Edit"
+      tabA_segment6_add: "New"
+      tabA_segment6_row1: "Portfolio name"
+      tabA_segment6_row1_placeholder: "Title"
+      tabA_segment6_row1_empty: "Please fill in the title"
+      tabA_segment6_row2_placeholder: "Description"
+      tabA_segment6_row2_empty: "Please fill in the description"
+      tabA_segment6_row3: "Image"
+      tabA_segment6_row3_description1: "Upload file"
+      tabA_segment6_row3_description2: "Upload image"
+      tabA_segment6_row4: "File name"
+      tabA_segment6_row4_error: "Over 2 MB limit !!!"
+      tabA_segment6_row4_placeholder: "Upload File"
+      tabA_segment6_row5_empty: "Please choose the main category"
+      tabA_segment6_row5_main: "Main category"
+      tabA_segment6_row5_empty: "Please choose the sub-category"
+      tabA_segment6_row6_sub: "Sub-category"
+      tabA_segment6_row7_placeholder: "Completion date"
+      tabA_segment6_row8_placeholder: "Related skills"
+      tabA_segment6_row9: "Delete"
+      tabA_segment6_bottom: "Make sure you have the copyright for this work"
+      tabA_segment7_title: "Related licenses"
+      tabA_segment7_edit: "Edit the relevant license"
+      tabA_segment7_add:  "Add the relevant license"
+      tabA_segment7_row1: "Certification"
+      tabA_segment7_row1_placeholder: "Certification title"
+      tabA_segment7_row1_empty: "Certification title"
+      tabA_segment7_row2: "Issued institute"
+      tabA_segment7_row2_placeholder: "Issued institute"
+      tabA_segment7_row3: "Issued date"
+      tabA_segment7_row3_placeholder: "Issued date"
+      tabA_segment7_row4: "Description"
+      tabA_segment7_row4_placeholder: "Description"
+      button_goHome: "Save & Goto Main Page"
+      tabB_segment: "Change Password"
+      tabB_segment_row1: "Old Password"
+      tabB_segment_row1_description: "Please enter your old password before you change the password."
+      tabB_segment_row1_empty: "Alert! Password is not entered"
+      tabB_segment_row1_error: "Password Error"
+      tabB_segment_row2: "New Password"
+      tabB_segment_row2_description: "Set a password (length must be greater than equal to 8 alphanumeric characters, including uppercase and lowercase characters. Special characters are not allowed.)"
+      tabB_segment_row2_empty: "Password must be at least eight characters,  * /! ~ and the other special symbols are not allowed."
+      tabB_segment_row2_error: "Password must be at least eight characters,  * /! ~ and the other special symbols are not allowed."
+      tabB_segment_row3: "Please enter your password again"
+      tabB_segment_row3_inconsistent: "Inconsistent with the previously entered password"
+    employer_personal_profile_edit:
+      container_title: "Fill in the information"
+      step1_title: "Introduction of me"
+      step2_title: "Contact information"
+      step3_title: "Done"
+      submit_alert: "Please check the entered data"
+      submit_correct: "Confirmed & save"
+      step1_segment: "Introduction of me"
+      step1_row1: "My image"
+      step1_row1_choose: "Choose an image file"
+      step1_row1_description: "A good image can enhance the trust between the employer and the teleworker."
+      step1_row2: "About me in brief (Less than 20 words)"
+      step1_row2_exclamation: "Describe yourself in one sentence to attract the telewokers bid your project. (For example, A web programmer looking for web visual designers, A chemistry professor experienced on ab-initio calculation)"
+      step1_row2_placeholder: "About me in brief"
+      step1_row3: "Introduction of me (Less than 1000 words)"
+      step1_row3_exclamation: "Describe yourself in more details to attract the telewokers bid your project."
+      step1_row3_placeholder: "Introduction of me"
+      step1_row4: "My website"
+      step1_row4_placeholder: "Optional, enter your URL"
+      step2_segement: "Location"
+      step2_segement_row1: "Location"
+      step2_segement_row1_includeblank: "Location"
+      step2_segement_row2: "Zip Code"
+      step2_segement_row2_placeholder: "Zip Code"
+      step2_segement_row2_empty: "Please enter a zip code"
+      step2_segement_row3: "City"
+      step2_segement_row3_placeholder: "City"
+      step2_segement_row3_empty: "Please enter a city"
+      step2_segement_row4: "Time zone"
+      step3_confirmation: "Confirmed & save"
+      step3_segment1: "Employer type"
+      step3_segment1_personal: "Individual employer"
+      step3_segment2: "Introduction of me"
+      step3_segment3: "Contact information"
+      button_save: "Confirmed & send"
+    employer_personal_profile_show:
+      container_title: "Personal settings"
+      tabA_title: "Employer information"
+      tabB_title: "Change Password"
+      tabA_segment: "Account Overview"
+      tabA_segment_row1: "My image"
+      tabA_segment_row1_choose: "Choose an image file"
+      tabA_segment_row2: "Username"
+      tabA_segment_row2_placeholder: "User ID"
+      tabA_segment_row3: "Last name"
+      tabA_segment_row3_placeholder: "Last name"
+      tabA_segment_row4: "First name"
+      tabA_segment_row4_placeholder: "First name"
+      tabA_segment_row5: "E-mail address"
+      tabA_segment_row5_placeholder: "E-mail address"
+      tabA_segment_row6: "My Website"
+      tabA_segment_row7: "About me in brief"
+      tabA_segment_row7_comment: "(Less than 20 words)"
+      tabA_segment_row8: "Introduction of me"
+      tabA_segment_row8_comment: "(No more than 1000 words)"
+      button_gohome: "Save & Goto Main Page"
+      tabB_segment: "Change Password"
+      tabB_segment_row1: "Old Password"
+      tabB_segment_row1_description: "Please enter your old password before you change the password."
+      tabB_segment_row1_empty: "Alert! Password is not entered"
+      tabB_segment_row1_error: "Password Error"
+      tabB_segment_row2: "New Password"
+      tabB_segment_row2_description: "Set a password (length must be greater than equal to 8 alphanumeric characters, including uppercase and lowercase characters. Special characters are not allowed.)"
+      tabB_segment_row2_empty: "Password must be at least eight characters,  * /! ~ and the other special symbols are not allowed."
+      tabB_segment_row2_error: "Password must be at least eight characters,  * /! ~ and the other special symbols are not allowed."
+      tabB_segment_row3: "Please enter your password again"
+      tabB_segment_row3_inconsistent: "Inconsistent with the previously entered password"
+    employer_company_profile_edit:
+      container_title: "Fill in the information"
+      step1_title: "Introduction of me"
+      step2_title: "Contact information"
+      step3_title: "Done"
+      submit_alert: "Please check the entered data"
+      submit_correct: "Confirmed & save"
+      step1_segment: "Introduction of me"
+      step1_row1: "My image"
+      step1_row1_choose: "Choose an image file"
+      step1_row1_description: "A good image can enhance the trust between the employer and the teleworker."
+      step1_row2: "Company Name"
+      step1_row2_placeholder: "Company Name"
+      step1_row3: "About the company in brief (Less than 20 words)"
+      step1_row3_exclamation: "Descript your business in one sentence to attract the teleworkers bid your project."
+      step1_row3_placeholder: "About the company in brief"
+      step1_row4: "Introduction of the company (Less than 1000 words)"
+      step1_row4_exclamation: "Describe the company and the business in details to attract teleworkers to understand your needs, allowing the right candidates bid your project."
+      step1_row4_placeholder: "Introduction of the company"
+      step1_row5: "Corporate website"
+      step1_row5_placeholder: "Optional, enter the URL"
+      step2_segement: "Location"
+      step2_segement_row1: "Location"
+      step2_segement_row1_includeblank: "Location"
+      step2_segement_row2: "Zip Code"
+      step2_segement_row2_placeholder: "Zip Code"
+      step2_segement_row2_empty: "Please enter a zip code"
+      step2_segement_row3: "City"
+      step2_segement_row3_placeholder: "City"
+      step2_segement_row3_empty: "Please enter a city"
+      step2_segement_row4: "Time zone"
+      step2_segement_row5: "VAT (Value Added Tax) No."
+      step2_segement_row5_placeholder: "Optional, enter VAT (Value Added Tax) number"
+      step3_confirmation: "Confirmed & save"
+      step3_segment1: "Employer type"
+      step3_segment1_company: "Corporate employer"
+      step3_segment2: "Introduction of the employer"
+      step3_segment3: "Contact information"
+      button_save: "Confirmed & send"
+    employer_company_profile_show:
+      container_title: "Personal Settings"
+      tabA_title: "Employer information"
+      tabB_title: "Change Password"
+      tabA_segment: "Account Overview"
+      tabA_segment_row1: "Choose an image file"
+      tabA_segment_row1_choose: "Choose an image file"
+      tabA_segment_row2: "Username"
+      tabA_segment_row2_placeholder: "User ID"
+      tabA_segment_row3: "Last name"
+      tabA_segment_row3_placeholder: "Last name"
+      tabA_segment_row4: "First name"
+      tabA_segment_row4_placeholder: "First name"
+      tabA_segment_row5: "E-mail address"
+      tabA_segment_row5_placeholder: "E-mail address"
+      tabA_segment_row6: "Company name"
+      tabA_segment_row7: "VAT (Value Added Tax) no."
+      tabA_segment_row8: "Corporate website"
+      tabA_segment_row9: "About the employer in brief"
+      tabA_segment_row9_comment: "(Less than 20 words)"
+      tabA_segment_row10: "Introduction of the employer"
+      tabA_segment_row10_comment: "(Less than 1000 words)"
+      button_gohome: "Save & Goto Main Page"
+      tabB_segment: "Change Password"
+      tabB_segment_row1: "Old Password"
+      tabB_segment_row1_description: "Please enter your old password before you change the password."
+      tabB_segment_row1_empty: "Alert! Password is not entered"
+      tabB_segment_row1_error: "Password Error"
+      tabB_segment_row2: "New Password"
+      tabB_segment_row2_description: "Set a password (length must be greater than equal to 8 alphanumeric characters, including uppercase and lowercase characters. Special characters are not allowed.)"
+      tabB_segment_row2_empty: "Password must be at least eight characters,  * /! ~ and the other special symbols are not allowed."
+      tabB_segment_row2_error: "Password must be at least eight characters,  * /! ~ and the other special symbols are not allowed."
+      tabB_segment_row3: "Please enter your password again"
+      tabB_segment_row3_inconsistent: "Inconsistent with the previously entered password"
