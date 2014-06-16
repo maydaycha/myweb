@@ -1,6 +1,6 @@
 #encoding: UTF-8
 
-zh-TW:
+en:
   error:
     recaptcha: "Verification code errors, please re-enter and submit again."
     username_format: "Only alphabet letters, numbers or the combinations are allowed."
