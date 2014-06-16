@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   before_action :protect
 
   # layout :layout_by_resource
-  # layout false
+  layout false
 
 
   def set_headers
