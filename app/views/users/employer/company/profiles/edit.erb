@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
-    <title>快樂工作</title>
+    <title><%= I18n.t("page.title") %></title>
 
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
@@ -63,8 +63,13 @@
         -->
         <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
             <ul class="nav navbar-nav">
-                <li><%= link_to "會員登入", new_user_session_path %></li>
-                <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                <% if user_signed_in? %>
+                <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
+                <% end %>
             </ul>
         </div>
     </div>
@@ -72,7 +77,7 @@
     <!-- BEGIN PAGE -->
     <div class="page-content">
         <!-- BEGIN TITLE -->
-        <h1 class="title">填寫資料</h1>
+        <h1 class="title"><%= I18n.t("page.employer_company_profile_edit.container_title") %></h1>
         <!-- END TITLE -->
         <!-- BEGIN MAIN CONTENT -->
         <div class="main-content">
@@ -92,7 +97,7 @@
                                                      1
                                                  </span>
                                                  <span class="desc">
-                                                    <i class="fa fa-check"></i> 自我介紹
+                                                    <i class="fa fa-check"></i> <%= I18n.t("page.employer_company_profile_edit.step1_title") %>
                                                 </span>
                                             </a>
                                         </li>
@@ -102,7 +107,7 @@
                                                  2
                                              </span>
                                              <span class="desc">
-                                                <i class="fa fa-check"></i> 聯絡資訊
+                                                <i class="fa fa-check"></i> <%= I18n.t("page.employer_company_profile_edit.step2_title") %>
                                             </span>
                                         </a>
                                     </li>
@@ -112,7 +117,7 @@
                                              3
                                          </span>
                                          <span class="desc">
-                                            <i class="fa fa-check"></i> 完成編輯
+                                            <i class="fa fa-check"></i> <%= I18n.t("page.employer_company_profile_edit.step3_title") %>
                                         </span>
                                     </a>
                                 </li>
@@ -124,22 +129,22 @@
                             <div class="tab-content">
                                 <div class="alert alert-danger display-none">
                                     <button class="close" data-dismiss="alert"></button>
-                                    請檢查您輸入的資料
+                                    <%= I18n.t("page.employer_company_profile_edit.submit_alert") %>
                                 </div>
                                 <div class="alert alert-success display-none">
                                     <button class="close" data-dismiss="alert"></button>
-                                    資料正確
+                                    <%= I18n.t("page.employer_company_profile_edit.submit_correct") %>
                                 </div>
                                 <div class="tab-pane" id="tab1">
                                     <div class=" portlet box light-grey">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                介紹自己
+                                                <%= I18n.t("page.employer_company_profile_edit.step1_segment") %>
                                             </div>
                                         </div>
                                         <div class="portlet-body">
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label">新增企業圖像</label>
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_company_profile_edit.step1_row1") %></label>
                                                 <div class="col-md-10">
                                                         <%= image_tag url_for(:controller => "users/employer/company/profiles", :action => "show_image", :id => @company.id), id: "blah1", class: "avatar" %>
                                                     <div class="input-group image-preview edit">
@@ -147,53 +152,53 @@
                                                         <span class="input-group-btn">
                                                             <!-- image-preview-clear button -->
                                                             <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                                                                <span class="glyphicon glyphicon-remove"></span> 清除
+                                                                <span class="glyphicon glyphicon-remove"></span> <%= I18n.t("basic.button.clear") %>
                                                             </button>
                                                             <!-- image-preview-input -->
                                                             <div class="btn btn-default image-preview-input">
                                                                 <span class="glyphicon glyphicon-folder-open"></span>
-                                                                <span class="image-preview-input-title">選擇檔案</span>
+                                                                <span class="image-preview-input-title"><%= I18n.t("page.employer_company_profile_edit.step1_row1_choose") %></span>
                                                                 <!-- <input class="" name="image" type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it --> -->
                                                                 <%= f.file_field :picture, name: "image", accept: "image/png, image/jpeg, image/gif", onchange: "readURL(this)" %>
                                                             </div>
                                                         </span>
                                                     </div><!-- /input-group image-preview [TO HERE]-->
                                                     <p class="help-block">
-                                                        建議您始使用公司Logo,增加企業識別形象。
+                                                        <%= I18n.t("page.employer_company_profile_edit.step1_row1_description") %>
                                                     </p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label">企業名稱</label>
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_company_profile_edit.step1_row2") %></label>
                                                 <div class="col-md-10">
                                                     <!-- <input type="text" class="form-control" value="" name="companyname" placeholder="以自動帶入公司名稱"> -->
-                                                    <%= f.text_field :company_name, class: "form-control", placeholder: "以自動帶入公司名稱" %>
+                                                    <%= f.text_field :company_name, class: "form-control", placeholder:I18n.t("page.employer_company_profile_edit.step1_row2_placeholder") %>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label">企業簡介(僅限100字)<a href="/javascript:;" class="show-tip" data-original-title="<h4>簡短的描述您的企業，這個介紹會出現在您的公開資訊上">
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_company_profile_edit.step1_row3") %><a href="/javascript:;" class="show-tip" data-original-title="<h4><%= I18n.t("page.employer_company_profile_edit.step1_row3_exclamation") %>">
                                                     <i class="fa fa fa-info-circle" ></i>
                                                 </a></label>
 
                                                 <div class="col-md-10">
                                                     <!-- <textarea name="introduction" class="form-control" rows="3" placeholder="企業簡介"></textarea> -->
-                                                    <%= f.text_area :brief_introduction, class: "form-control", rows: "3", placeholder: "企業簡介" %>
+                                                    <%= f.text_area :brief_introduction, class: "form-control", rows: "3", placeholder: I18n.t("page.employer_company_profile_edit.step1_row3_placeholder") %>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label">詳細介紹(僅限1000字) <a href="/javascript:;" class="show-tip" data-original-title="<h4>完整的介紹您的公司，或是相關業務內容，幫助遠距工作者能夠了解您的需求，讓您的工作更快找到對的人選。">
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_company_profile_edit.step1_row4") %> <a href="/javascript:;" class="show-tip" data-original-title="<h4><%= I18n.t("page.employer_company_profile_edit.step1_row4_exclamation") %>">
                                                     <i class="fa fa fa-info-circle" ></i>
                                                 </a></label>
                                                 <div class="col-md-10">
                                                     <!-- <textarea name="review" class="form-control" rows="3" placeholder="詳細介紹"></textarea> -->
-                                                    <%= f.text_area :introduction, class: "form-control", rows: "3", placeholder: "詳細介紹" %>
+                                                    <%= f.text_area :introduction, class: "form-control", rows: "3", placeholder: I18n.t("page.employer_company_profile_edit.step1_row4_placeholder") %>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label">企業網站</label>
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_company_profile_edit.step1_row5") %></label>
                                                 <div class="col-md-10">
                                                     <!-- <input type="text" class="form-control tags" value="" name="website" placeholder="選填，請輸入您的網址" /> -->
-                                                    <%= f.text_field :website, class: "form-control tags", placeholder: "選填，請輸入您的網址" %>
+                                                    <%= f.text_field :website, class: "form-control tags", placeholder: I18n.t("page.employer_company_profile_edit.step1_row5_placeholder") %>
                                                     <!-- <p class="help-block">
                                                         企業網站
                                                     </p> -->
@@ -206,91 +211,49 @@
                                     <div class=" portlet box light-grey">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                所在地區
+                                                <%= I18n.t("page.employer_company_profile_edit.step2_segement") %>
                                             </div>
                                         </div>
                                         <div class="portlet-body">
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label">所在地區</label>
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_company_profile_edit.step2_segement_row1") %></label>
                                                 <div class="col-md-10">
-                                                    <%= f.localized_country_select :country_code, [], {:include_blank => '所在地區'}, {:class => 'form-control edit'} %>
+                                                    <%= f.localized_country_select :country_code, [], {:include_blank => I18n.t("page.employer_company_profile_edit.step2_segement_row1_includeblank")}, {:class => 'form-control edit'} %>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label">郵遞區號</label>
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_company_profile_edit.step2_segement_row2") %></label>
                                                 <div class="col-md-10">
                                                     <div class="input-icon right">
                                                         <i class="fa"></i>
                                                         <!-- <input type="text" class="form-control" name="zip" placeholder="郵遞區號" data-isEmpty="請輸入郵遞區號"> -->
-                                                        <%= f.text_field :zip, class: "form-control", placeholder: "郵遞區號", "data-isEmpty" => "請輸入郵遞區號"%>
+                                                        <%= f.text_field :zip, class: "form-control", placeholder: I18n.t("page.employer_company_profile_edit.step2_segement_row2_placeholder"), "data-isEmpty" => I18n.t("page.employer_company_profile_edit.step2_segement_row2_empty") %>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label">城市</label>
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_company_profile_edit.step2_segement_row3") %></label>
                                                 <div class="col-md-10">
                                                     <div class="input-icon right">
                                                         <i class="fa"></i>
                                                         <!-- <input type="text" name="city" class="form-control" placeholder="城市" data-isEmpty="請輸入城市"> -->
-                                                        <%= f.text_field :city, class: "form-control", placeholder: "城市", data: {isEmpty: "請輸入城市"}%>
+                                                        <%= f.text_field :city, class: "form-control", placeholder: I18n.t("page.employer_company_profile_edit.step2_segement_row3_placeholder"), data: {isEmpty: I18n.t("page.employer_company_profile_edit.step2_segement_row3_empty")}%>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label" >時區</label>
+                                                <label class="col-md-2 control-label" ><%= I18n.t("page.employer_company_profile_edit.step2_segement_row4") %></label>
                                                 <div class="col-md-10">
-                                                    <select name="timezoon" class="form-control edit" data-isEmpty="請選擇時區">
-
-                                                        <option value="-12">UTC-12 Baker Island Time</option>
-                                                        <option value="-11">UTC-11 Niue Time, Samoa Standard Time</option>
-                                                        <option value="-10">UTC-10 Hawaii-Aleutian Standard Time, Cook Island Time</option>
-                                                        <option value="-9.5">UTC-9:30 Marquesas Islands Time</option>
-                                                        <option value="-9">UTC-9 Alaska Standard Time, Gambier Island Time</option>
-                                                        <option value="-8">UTC-8 Pacific Standard Time</option>
-                                                        <option value="-7">UTC-7 Mountain Standard Time</option>
-                                                        <option value="-6">UTC-6 Central Standard Time</option>
-                                                        <option value="-5">UTC-5 Eastern Standard Time</option>
-                                                        <option value="-4.5">UTC-4:30 Venezuelan Standard Time</option>
-                                                        <option value="-4">UTC-4 Atlantic Standard Time</option>
-                                                        <option value="-3.5">UTC-3:30 Newfoundland Standard Time</option>
-                                                        <option value="-3">UTC-3 Amazon Standard Time, Central Greenland Time</option>
-                                                        <option value="-2">UTC-2 Fernando de Noronha Time, South Georgia &amp; the South Sandwich Islands Time</option>
-                                                        <option value="-1">UTC-1 Azores Standard Time, Cape Verde Time, Eastern Greenland Time</option>
-                                                        <option value="0" selected="selected">UTC Western European Time, Greenwich Mean Time</option>
-                                                        <option value="1">UTC+1 Central European Time, West African Time</option>
-                                                        <option value="2">UTC+2 Eastern European Time, Central African Time</option>
-                                                        <option value="3">UTC+3 Moscow Standard Time, Eastern African Time</option>
-                                                        <option value="3.5">UTC+3:30 Iran Standard Time</option>
-                                                        <option value="4">UTC+4 Gulf Standard Time, Samara Standard Time</option>
-                                                        <option value="4.5">UTC+4:30 Afghanistan Time</option>
-                                                        <option value="5">UTC+5 Pakistan Standard Time, Yekaterinburg Standard Time</option>
-                                                        <option value="5.5">UTC+5:30 Indian Standard Time, Sri Lanka Time</option>
-                                                        <option value="5.75">UTC+5:45 Nepal Time</option>
-                                                        <option value="6">UTC+6 Bangladesh Time, Bhutan Time, Novosibirsk Standard Time</option>
-                                                        <option value="6.5">UTC+6:30 Cocos Islands Time, Myanmar Time</option>
-                                                        <option value="7">UTC+7 Indochina Time, Krasnoyarsk Standard Time</option>
-                                                        <option value="8">UTC+8 Chinese Standard Time, Australian Western Standard Time, Irkutsk Standard Time</option>
-                                                        <option value="8.75">UTC+8:45 Southeastern Western Australia Standard Time</option>
-                                                        <option value="9">UTC+9 Japan Standard Time, Korea Standard Time, Chita Standard Time</option>
-                                                        <option value="9.5">UTC+9:30 Australian Central Standard Time</option>
-                                                        <option value="10">UTC+10 Australian Eastern Standard Time, Vladivostok Standard Time</option>
-                                                        <option value="10.5">UTC+10:30 Lord Howe Standard Time</option>
-                                                        <option value="11">UTC+11 Solomon Island Time, Magadan Standard Time</option>
-                                                        <option value="11.5">UTC+11:30 Norfolk Island Time</option>
-                                                        <option value="12">UTC+12 New Zealand Time, Fiji Time, Kamchatka Standard Time</option>
-                                                        <option value="12.75">UTC+12:45 Chatham Islands Time</option>
-                                                        <option value="13">UTC+13 Tonga Time, Phoenix Islands Time</option>
-                                                        <option value="14">UTC+14 Line Island Time</option>
-                                                    </select>
+                                                    <%= f.time_zone_select :time_zone, nil, {}, {:class => 'form-control edit'}  %>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label">統一編號</label>
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_company_profile_edit.step2_segement_row5") %></label>
                                                 <div class="col-md-10">
                                                     <div class="input-icon right">
                                                         <i class="fa"></i>
                                                         <!-- <input type="text" name="companyid" class="form-control" placeholder="選填，請輸入統一編號"> -->
-                                                        <%= f.text_field :vat_number, class: "form-control", placeholder: "選填，請輸入統一編號" %>
+                                                        <%= f.text_field :vat_number, class: "form-control", placeholder: I18n.t("page.employer_company_profile_edit.step2_segement_row5_placeholder") %>
                                                     </div>
                                                 </div>
                                             </div>
@@ -298,18 +261,18 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tab3">
-                                    <h3 class="block">請確認您輸入的資訊</h3>
+                                    <h3 class="block"><%= I18n.t("page.employer_company_profile_edit.step3_segment1") %></h3>
                                     <div class=" portlet box light-grey">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                雇主帳戶型態
+                                                <%= I18n.t("page.employer_company_profile_edit.step3_segment1") %>
                                             </div>
                                         </div>
                                         <div class="portlet-body">
                                             <div class="form-group">
                                                 <div class="col-md-12">
                                                     <p class="form-control-static" data-display="status">
-                                                        企業雇主
+                                                        <%= I18n.t("page.employer_company_profile_edit.step3_segment1_company") %>
                                                     </p>
                                                 </div>
                                             </div>
@@ -318,39 +281,39 @@
                                     <div class=" portlet box light-grey">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                介紹自己
+                                                <%= I18n.t("page.employer_company_profile_edit.step1_segment") %>
                                             </div>
                                         </div>
                                         <div class="portlet-body">
                                             <div class="form-group">
-                                                <label class="control-label col-md-2">企業圖像</label>
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_company_profile_edit.step1_row1") %></label>
                                                 <div class="col-md-10">
                                                     <%= image_tag url_for(:controller => "users/employer/company/profiles", :action => "show_image", :id => @company.id), id: "blah1", class: "avatar" %>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-2">企業名稱</label>
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_company_profile_edit.step1_row2") %></label>
                                                 <div class="col-md-10">
                                                     <p class="form-control-static" data-display="user[company_name]">
                                                     </p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-2">企業簡介</label>
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_company_profile_edit.step1_row3") %></label>
                                                 <div class="col-md-10">
                                                     <p class="form-control-static text-wrap" data-display="user[brief_introduction]">
                                                     </p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-2">詳細介紹</label>
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_company_profile_edit.step1_row4") %></label>
                                                 <div class="col-md-10">
                                                     <p class="form-control-static text-wrap" data-display="user[introduction]">
                                                     </p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-2">企業網站</label>
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_company_profile_edit.step1_row5") %></label>
                                                 <div class="col-md-10">
                                                     <p class="form-control-static text-wrap" data-display="user[website]">
                                                     </p>
@@ -361,40 +324,40 @@
                                     <div class=" portlet box light-grey">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                聯絡資訊
+                                                <%= I18n.t("page.employer_company_profile_edit.step3_segment3") %>
                                             </div>
                                         </div>
                                         <div class="portlet-body">
                                             <div class="form-group">
-                                                <label class="control-label col-md-2">國家</label>
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_company_profile_edit.step2_segement_row1") %></label>
                                                 <div class="col-md-10">
                                                     <p class="form-control-static" data-display="user[country_code]">
                                                     </p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-2">郵遞區號</label>
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_company_profile_edit.step2_segement_row2") %></label>
                                                 <div class="col-md-10">
                                                     <p class="form-control-static" data-display="user[zip]">
                                                     </p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-2">城市</label>
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_company_profile_edit.step2_segement_row3") %></label>
                                                 <div class="col-md-10">
                                                     <p class="form-control-static" data-display="user[city]">
                                                     </p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-2">時區</label>
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_company_profile_edit.step2_segement_row4") %></label>
                                                 <div class="col-md-10">
                                                     <p class="form-control-static" data-display="timezoon">
                                                     </p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-2">統一編號</label>
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_company_profile_edit.step2_segement_row5") %></label>
                                                 <div class="col-md-10">
                                                     <p class="form-control-static" data-display="user[vat_number]">
                                                     </p>
@@ -409,9 +372,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="btns">
-                                        <button type="button" class="btn btn-default btn-lg left button-previous"><i class="fa fa-long-arrow-left"></i> 上一步</button>
-                                        <button type="button" class="btn btn-default btn-lg right button-next">下一步 <i class="fa fa-long-arrow-right"></i></button>
-                                        <button type="submit" class="btn btn-primary btn-lg right button-submit">確認送出</button>
+                                        <button type="button" class="btn btn-default btn-lg left button-previous"><i class="fa fa-long-arrow-left"></i> <%= I18n.t("basic.button.previous_step") %></button>
+                                        <button type="button" class="btn btn-default btn-lg right button-next"><%= I18n.t("basic.button.next_step") %> <i class="fa fa-long-arrow-right"></i></button>
+                                        <button type="submit" class="btn btn-primary btn-lg right button-submit"><%= I18n.t("page.employer_company_profile_edit.button_save") %></button>
                                     </div>
                                 </div>
                             </div>
@@ -429,7 +392,22 @@
 </div>
 <!-- END PAGE -->
 <!-- BEGIN FOOTER -->
-<script language="javascript" type="text/javascript" src="/masterpage/footer.txt"></script>
+<div class="footer"><img class="footer-logo" src="/img/logo103.png" alt="">
+    <div class="footer-nav">
+        <%= link_to I18n.t("page.footer.about"), index_about_path %>
+        <span class="bar">|</span>
+        <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
+        <span class="bar">|</span>
+        <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
+        <span class="bar">|</span>
+        <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
+    </div>
+    <div style="margin-top:12px;">
+        <span id="siteseal">
+            <script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=6EabjzhFVsN0Ek7Z9eGWGUwWv7uWRVt7AtmVMPmKs7pzCryNcCDdV"></script>
+        </span>
+    </div>
+</div>
 <!-- END FOOTER -->
 
 <!-- BEGIN JAVASCRIPTS -->
