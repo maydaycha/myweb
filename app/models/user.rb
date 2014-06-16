@@ -16,16 +16,16 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :message => "Email重複了"
   validates_uniqueness_of :username, :message => "帳號重複了"
 
-  has_many :user_authentications
-  has_many :user_employer_personals
-  has_many :user_employer_companies
-  has_many :user_skills
-  has_many :user_skill_categories
-  has_many :user_educations
-  has_many :user_experiences
-  has_many :user_favorites
-  has_many :user_certifications
-  has_many :user_portfolios
+  has_many :user_authentications, dependent: :destroy
+  has_many :user_employer_personals, dependent: :destroy
+  has_many :user_employer_companies, dependent: :destroy
+  has_many :user_skills, dependent: :destroy
+  has_many :user_skill_categories, dependent: :destroy
+  has_many :user_educations, dependent: :destroy
+  has_many :user_experiences, dependent: :destroy
+  has_many :user_favorites, dependent: :destroy
+  has_many :user_certifications, dependent: :destroy
+  has_many :user_portfolios, dependent: :destroy
 
   accepts_nested_attributes_for :user_skill_categories
 

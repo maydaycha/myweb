@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   before_action :protect
 
   # layout :layout_by_resource
-  layout false
+  # layout false
 
 
   def set_headers
@@ -24,9 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def is_admin?
-    return session[:admin] != nil
-  end
+
 
 
   def set_locale
@@ -42,7 +40,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(user)
-    if user.try(:is_admin)
+    if user.try(:is_admin?)
       admin_root_path
     else
       if current_user.step == 1
