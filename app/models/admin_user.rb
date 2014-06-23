@@ -7,9 +7,5 @@ class AdminUser < ActiveRecord::Base
     # self.email && ENV['ADMIN_EMAILS'].to_s.include?(self.email)
     return true
   end
-
-  def is_service?
-    result = self.is_service.nil? ? false : true
-    return result
-  end
+  
 end
