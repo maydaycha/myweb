@@ -1,0 +1,748 @@
+#encoding: UTF-8
+
+zh-CN:
+  error:
+    recaptcha: "验证码错误，请重新输入并再次送出。"
+    username_format: "帐号只接受英文字母或数字。"
+    oldpassword: "旧密码"
+
+  about: |
+    旭曜資訊服務有限公司本著倡導高品質遠距工作的宗旨，推出 快樂工作 (英文名稱 Telework) 網站，在全球流動的大趨勢下，利用遠距工作中，工作在流動，人卻可以不流動的特性，期待能幫助大家的工作不受地點的限制，實現個人和家庭的價值，在快樂中工作。
+
+    我們服務Telework 的接案會員在國內外找尋合適的遠距工作，同時也服務Telework 的發案會員在國內外找尋合適的遠距工作人才，所有的服務包含媒合、訂定工作合約、執行合約和金流等所有程序都會在快樂工作網站中完成，目前網站還在建置中，招募會員的網頁已經完成，加入會員是完全免費的，歡迎您隨時上網註冊成為初始會員。
+
+    關於遠距工作
+
+    Telework (遠距工作) 早在1950年代就被提出來，近年來由於現代資訊科技的快速發展，工作型態也隨之轉變，人與人的溝通不見得一定得在同一時間聚集在一起，在一般工作場合外而藉助資訊工具溝通的工作或稱遠距工作 (Telework)，已經大量被應用在那些工作成果能夠透過資訊科技呈現的相關工作上，像是程式撰寫、翻譯寫作、多媒體、網頁建置、各類的設計、網路市場行銷和顧問諮商等。
+    遠距工作提供了彈性的工作地點甚至彈性的工作時間，如果經營得宜，個人取得工作地點和時間的主導權，將更容易達成工作與生活的平衡，也能有更多的心力經營家庭和自己。
+    此外，對於不適合到一般工作場合的個人像是腎透析患者、視覺障礙者、行動障礙者、言語障礙者及各類身心障礙者及其照護家人等，也有機會藉由遠距工作取得收入並獲得工作成就感。
+    穩定的遠距工作來源是長久經營遠距工作面臨最大的挑戰，當收入不穩定時遠距工作就無法持久，但是，隨著全球化的大趨勢，現在我們有個機會解決這個問題。
+
+    關於全球化對遠距工作的影響
+
+    在全球化的浪潮下，企業為了提升競爭力會把一些原本在企業內完成的工作轉移到企業外完成，如此一來，企業可充分利用外部最優秀的專業人才達到提高工作成果品質、 降低成本、並使企業能更專注留在企業內部的核心工作。提供企業這種需求的個人或團體應運而生稱作委外服務業 (Outsourcing service industry)。委外市場結構正從基礎的技術層面的資訊技術服務委外(ITO)轉向商務流程委外(Business Process Outsourcing)，或更高附加值的知識流程外包(Knowledge Process Outsourcing )。Gartner 報導委外服務在2013年光只在ITO的部分就有2880億美金的市場。這些委外服務有一部分會成為遠距工作，Economist (經濟學人) 報導遠距工作的產值會由2013年的10億美金成長到2014年的20億美金並且在2018年之前會達到50億美金，在委外服務市場的擴增及遠距科技進展的雙重加持下，遠距工作的未來的成長性相當可以被期待的。
+
+  rule: |
+    您好
+
+    歡迎您加入或預備加入 Telework，讓我們一起為開拓遠距工作的機會而努力
+
+    以下是關於Telework 網站(以下簡稱 Telework)的隱私權政策，敬請閱讀。
+
+    您在Telework網站所登錄之個人資料，我們將遵守中華民國相關隱私權保護之法律，並以嚴謹的態度管理及保護您的個人資料，對於任何非法使用或揭露您個人資料的行為，Telework將採取必要的法律措施，以確保您個人隱私的安全。以下為Telework隱私權政策的相關措施及建議。
+
+    接案方須知
+
+    1.  Telework 受接案方委託尋求接案機會，Telework 將根據接案方所設定之條件 為接案方尋找第三方雇主，並媒合雙方。接案方經由Telework 所得自第三方雇主及其所提供之遠距工作之資訊，僅能就尋求接案之目的合理使用，不得作其他用途。不當使用導致之法律問題由接案方承擔。
+    2.  您在Telework 登錄相關接案會員資料，Telework之電腦系統會根據您的接案需求，有選擇性地提供給第三方的雇主參考做為媒合之用。Telework發案會員之承辦人亦可主動上Telework專屬頁面查詢，設定條件查詢您的接案資料，做為選擇委外案件人選之參考之用。並可能透過的Telework 的訊息系統與您討論細節，或可能邀請您參與投標，為確保您的隱私和阻絕您的困擾，也為維持遠距工作的單純性，除了在指定的欄位外，敬請不要在非指定的欄位(個人介紹、學經歷、作品展、認證) 主動揭露您的聯絡方式，或運用訊息系統主動傳送您的聯絡方式，聯絡方式指的是電話、E-mail和住址等，若有發案方或其他會員要求您提供您個人的聯絡方式，敬請不要提供，並至Telework客服中心求助，本公司客服人員會妥善處理。
+    3.  履歷之個人資料不實或不全，學歷及自傳留白，或過於精簡，填寫不完全，若經通知仍未確實補齊者，本網站有權不予刊登或關閉履歷表。
+    4.  所有您透過Telework發佈的資訊，必須與您在本站想要承做的遠距工作相關，違反法律規定、善良風俗、職場倫理與社會禮儀，或透過本站收集接發案者資料或進行廣告推播是不被允許的。
+    5.  為促進網站國際化，及保護接發案雙方隱私，Telework並未要求會員以身分證字號或公司統一編號資料登入，也未要求提供身分證字號或公司統一編號資料，會員刊登或應徵案件前，採用網路資料之認證方式進行，若一旦發現會員有違約之情形時，我們除立即取消其刊登需求外，情節嚴重者將對之採取必要之法律行動。即使如此，仍不能完全排除少數發案者以不實之工作機會，導致接案方不愉快之接案經驗。
+    我們建議接案者須注意下列事項，並與Telework充分合作，以減少不必要的困擾
+    (1) 所有的溝通在Telework進行，不提供其他的聯絡方式，若有使用其他的聯絡方式的必要，請與客服人員聯絡。
+    (2) 不與發案方私下會面，若真有其必要請與客服人員聯絡，我們會要求接發案雙方提供更詳細的認證，以避免與陌生人會面的潛在危險，即使如此，Telework 也無法完全保證會面的安全。
+    6.  當您訂閱Telework電子報或加入網站成為會員時，我們會請您填寫個人基本資料，做為訂閱戶辨識及發送訊息之用。除非您已主動表明不接收之意願，否則我們會定時或不定時提供您Telework及合作廠商之各項活動資訊。
+    7.  為讓使用者有更佳的使用經驗，Telework 會在您的電腦中放置並取用我們的Cookie，若您不願接受Cookie的寫入，您可在您使用的瀏覽器功能項中設定隱私權等級為高，即可拒絕Cookie的寫入，但可能會導至網站某些功能無法正常執行 。Telework 會收集並分析使用Telework各項功能之各項歷程紀錄及資訊如，上網的IP位址、瀏覽器種類、瀏覽網頁及停留時間等軌跡資料等。
+    8.  Telework已與所有員工簽署保密協議，保密範圍包括您未公開於網站上的個人聯絡資料，我們會善盡保密之責任。
+    9.  當台灣的司法機關基於偵查犯罪之公益目的，或為保護受害當事人之合法權益，我們將配合司法機關提供特定會員之資料。
+    10. Telework保留限縮暫停刪除會員權限和服務之權利，除緊急事故外，Telework會在透過訊息系統在一星期前通知。
+
+    發案方須知
+
+    1.  Telework 受發案方委託尋求合適接案人選，Telework 將根據發案方所設定之條件，為發案方尋找第三方接案人選，並媒合雙方。發案方經由Telework 所得之第三方接案者之資訊，僅能就選擇合適接案人選之目的合理使用，不得作其他用途。不當使用導致之法律問題由發案方承擔。
+    2.  您在Telework 登錄相關發案會員資料，Telework之電腦系統會根據您的發案需求，有選擇性地提供給潛在的接案業主參考做為媒合之用，接案業主可能透過的Telework 的訊息系統與您討論細節以參與投標，為確保您的隱私和阻絕您的困擾，也為維持遠距工作的單純性，除了在指定的欄位外，敬請不要在非指定的欄位(個人介紹、學經歷、作品展、認證) 揭露您的聯絡方式，或運用訊息系統傳送您的聯絡方式，聯絡方式指的是電話、E-mail和住址等，若有發案方或其他會員要求您提供您個人的聯絡方式，敬請不要提供，並至Telework客服中心求助，本公司客服人員會妥善處理。
+    3.  發案之資料不實，或過於精簡，填寫不完全，若經通知仍未確實補齊者，本網站有權不予刊登或關閉。
+    4.  所有您透過Telework網發佈的資訊，必須與您在本站發佈的遠距工作相關，違反法律規定、善良風俗、職場倫理與社會禮儀，或透過本站收集接發案者資料或進行廣告推播是不被允許的。
+    5.  為促進網站國際化， 及保護接發案雙方隱私，Telework並未要求接案方以身分證字號或公司統一編號資料登入，也未要求接案方提供身分證字號或公司統一編號資料，接案會員刊登應徵案件前，採用網路資料之認證方式進行，若一旦發現接案會員有違約之情形時，我們除立即取消其刊登需求外，情節嚴重者將對之採取必要之法律行動。即使如此，仍不能完全排除少數接案者以不實之工作履歷，導致發案方不愉快之發案經驗。
+    我們建議發案者須注意下列事項，並與Telework充分合作，以減少不必要的困擾
+    (1)所有的溝通在Telework的訊息系統中進行，以留下紀錄，不提供其他的聯絡方式，若有使用其他的聯絡方式的必要，請與客服人員聯絡。
+    (2)不與接案方私下會面，若真有其必要請與客服人員聯絡，我們會要求接發案雙方提供更詳細的認證，以避免與陌生人會面的潛在危險，即使如此，Telework 也無法完全保證會面的安全。
+    6.  當您訂閱Telework電子報或加入網站成為會員時，我們會請您填寫個人基本資料，做為訂閱戶辨識物及發送訊息之用。除非您已主動表明不接收之意願，否則我們會定時或不定時提供您Telework及合作廠商之各項活動資訊。
+    7.  為讓使用者有更佳的使用經驗, Telework 會收集並分析 使用Telework各項功能之各項歷程紀錄及資訊（例如上網的IP位址、瀏覽器種類、瀏覽網頁及停留時間資料等）。
+    8.  Telework已與所有員工簽署保密協議，保密範圍包括您未公開於網站上的個人聯絡資料，我們會善盡保密之責任。
+    9.  當台灣的司法機關基於偵查犯罪之公益目的或為保護受害當事人之合法權益，我們將配合司法機關提供特定會員之資料。
+    10. Telework保留限縮暫停刪除會員權限和服務之權利，除緊急事故外，Telework會在透過訊息系統在一星期前通知。
+
+    隱私權政策內容的變更
+
+    Telework保留修改隱私權政策內容之權利，若有修改時，我們不會個別通知，但會於本網站上公佈新修改之內容。如有任何疑問，歡迎至客服中心反應，我們將儘速為您處理。
+
+  main_skill_category: [
+    {name: "IT、软体"},
+    {name: "工程、科学"},
+    {name: "设计、创意 "},
+    {name: "业务、行销"},
+    {name: "行政总务、客户服务"},
+    {name: "商业、会计、法务"},
+    {name: "写作、翻译"},
+    {name: "专业咨询"}
+  ]
+
+  sub_skill_category: [
+    [
+      {name: "程式设计", title: ""},
+      {name: "程式测试/除错", title: ""},
+      {name: "电子商务平台", title: ""},
+      {name: "网站开发", title: ""},
+      {name: "网站企划", title: ""},
+      {name: "网站验收", title: ""},
+      {name: "网页应用程式", title: ""},
+      {name: "手机应用程式", title: ""},
+      {name: "软体介面程式", title: ""},
+      {name: "工具软体", title: ""},
+      {name: "娱乐及游戏应用程式", title: ""},
+      {name: "脚本语言 (Scripting)", title: ""},
+      {name: "外挂程式", title: ""},
+      {name: "资讯计划管理", title: ""},
+      {name: "网路电话 (VoIP)", title: ""},
+      {name: "资讯系统架构", title: ""},
+      {name: "资讯系统管理/ 安全", title: ""},
+      {name: "资讯系统布建", title: ""},
+      {name: "企业资讯系统管理", title: ""},
+      {name: "其他 - 资讯科技及软体", title: ""}
+    ],
+    [
+      {name: "资料探勘、分析", title: ""},
+      {name: "CAD / CAM 工程开发", title: ""},
+      {name: "生产工程", title: ""},
+      {name: "生产开发", title: ""},
+      {name: "工业工程", title: ""},
+      {name: "化学工程", title: ""},
+      {name: "材料工程", title: ""},
+      {name: "电子工程", title: ""},
+      {name: "机械工程", title: ""},
+      {name: "生物工程", title: ""},
+      {name: "数理统计", title: ""},
+      {name: "品质控制分析", title: ""},
+      {name: "设计工程", title: ""},
+      {name: "工程专案管理", title: ""},
+      {name: "数学", title: ""},
+      {name: "物理", title: ""},
+      {name: "化学", title: ""},
+      {name: "其他 - 工程与科学", title: ""}
+    ],
+    [
+      {name: "图像设计", title: ""},
+      {name: "Logo、企业识别设计", title: ""},
+      {name: "视觉设计", title: ""},
+      {name: "绘图", title: ""},
+      {name: "印刷设计", title: ""},
+      {name: "照相摄影", title: ""},
+      {name: "电脑辅助设计", title: ""},
+      {name: "3D 设计", title: ""},
+      {name: "音效设计", title: ""},
+      {name: "影音设计", title: ""},
+      {name: "配音", title: ""},
+      {name: "动画设计", title: ""},
+      {name: "版型设计", title: ""},
+      {name: "网站设计", title: ""},
+      {name: "使用者介面设计", title: ""},
+      {name: "服饰设计", title: ""},
+      {name: "工业设计", title: ""},
+      {name: "其他 - 设计与创意", title: ""}
+    ],
+    [
+      {name: "促销", title: ""},
+      {name: "电子邮件及网路行销", title: ""},
+      {name: "电话行销", title: ""},
+      {name: "搜寻引擎优化与行销", title: ""},
+      {name: "社群行销", title: ""},
+      {name: "客户与媒体关系", title: ""},
+      {name: "商业计画与策略", title: ""},
+      {name: "市场研究", title: ""},
+      {name: "业务推广", title: ""},
+      {name: "其他 - 业务、行销", title: ""}
+    ],
+    [
+      {name: "打字及数据输入", title: ""},
+      {name: "资讯助理", title: ""},
+      {name: "业务助理", title: ""},
+      {name: "会计助理", title: ""},
+      {name: "商务书信、商务电讯", title: ""},
+      {name: "会议记录、听译、转稿", title: ""},
+      {name: "网路客户服务、支援", title: ""},
+      {name: "外地支援、到场服务", title: ""},
+      {name: "报价单、订单处理", title: ""},
+      {name: "库存处理", title: ""},
+      {name: "其他 - 行政总务、客户服务", title: ""}
+    ],
+    [
+      {name: "会计服务", title: ""},
+      {name: "电脑帐务系统", title: ""},
+      {name: "薪资", title: ""},
+      {name: "财务服务", title: ""},
+      {name: "财务规画和预测", title: ""},
+      {name: "财务报表", title: ""},
+      {name: "采购流程", title: ""},
+      {name: "法务", title: ""},
+      {name: "智财权保护", title: ""},
+      {name: "专案管理", title: ""},
+      {name: "人力资源", title: ""},
+      {name: "人员招募", title: ""},
+      {name: "精算", title: ""},
+      {name: "其他 - 商业服务", title: ""}
+    ],
+    [
+    {name: "部落格专文写作", title: ""},
+    {name: "代笔、代写 ", title: ""},
+    {name: "推文写作", title: ""},
+    {name: "文案创作", title: ""},
+    {name: "社论、专栏写作", title: ""},
+    {name: "在线新闻写作", title: ""},
+    {name: "技术文件写作", title: ""},
+    {name: "文献报告总结", title: ""},
+    {name: "翻译、口译", title: ""},
+    {name: "其他 - 写作、翻译", title: ""}
+    ],
+    [
+      {name: "法律顾问", title: ""},
+      {name: "旅游顾问", title: ""},
+      {name: "移民与留学顾问", title: ""},
+      {name: "科技顾问", title: ""},
+      {name: "厨艺顾问", title: ""},
+      {name: "语言与沟通顾问", title: ""},
+      {name: "行销顾问", title: ""},
+      {name: "海外工作咨询", title: ""},
+      {name: "商业顾问", title: ""},
+      {name: "顾问分析", title: ""},
+      {name: "服务顾问", title: ""},
+      {name: "其他 - 顾问", title: ""}
+    ]
+  ]
+
+
+  basic:
+    button:
+      add: "新增"
+      edit: "修改"
+      delete: "删除"
+      close: "关闭"
+      save: "储存"
+      collapse: "收合"
+      clear: "清除"
+      previous_step: "上一步"
+      next_step: "下一步"
+    alert:
+      warning_on_load: "尚未储存的资料都将遗失"
+  page:
+    title: "快乐威客"
+    header:
+      settings: "个人设定"
+      logout: "会员登出"
+      login: "会员登入"
+      signup: "免费注册"
+    footer:
+      about: "关于我们"
+      privacy: "隐私条款"
+      termofuse: "使用条款"
+      contact: "联络客服"
+    index:
+      aaa: ""
+      button_indialog_link1: "最适合您的案件都在这，立即免费注册！"
+      button_indialog_link2: "找到对的人才，事倍功半！"
+      button_indialog_link3: "好事就快发生，即将上线！"
+      swiper1_title1: "会员募集中"
+      swiper1_title2: "这个位子留给你.."
+      swiper2_title1: "远距工作"
+      swiper2_title2: "让工作和世界接轨"
+      swiper3_title1: "快乐工作"
+      swiper3_title2: "让您快乐接案"
+      frame_login_title: "远距工作，免费注册"
+      frame_login_title_min: "免费注册，即刻使用"
+      input_placeholder_username: "使用者名称"
+      input_placeholder_email: "电子邮件"
+      frame_login_button: "注册会员"
+      frame_login_social: "使用OPEN ID快速注册"
+      container_title: "各类远距工作者招募中"
+      tabA1_title: "我是雇主，想找远距工作人才"
+      tabA2_title: "我是远距工作者，想要找案件"
+      tabA1_step1_title: "刊登案件"
+      tabA1_step2_title: "挑选合适人才"
+      tabA1_step3_title: "订定工作契约"
+      tabA1_step4_title: "执行契约，依约付款"
+      tabA2_step1_title: "新增个人资料"
+      tabA2_step2_title: "找到适合案件"
+      tabA2_step3_title: "订定工作契约"
+      tabA2_step4_title: "执行契约，获得收益"
+      tabA1_step1_cotent1: "STEP1 / 刊登案件"
+      tabA1_step1_cotent2: "建立您的专属人才网"
+      tabA1_step1_cotent3: "委外工作找不到够专业的人来执行吗？那就立刻到快乐工作网发布案件"
+      tabA1_step2_cotent1: "STEP2 / 挑选合适人才"
+      tabA1_step2_cotent2: "简明的选才流程"
+      tabA1_step2_cotent3: "除了应征者的学经历，作品集及过去的历史纪录的资料外，并能用线上问答功能，挑选合适人才。"
+      tabA1_step3_cotent1: "STEP3 / 订定工作契约"
+      tabA1_step3_cotent2: "工作契约一目了然"
+      tabA1_step3_cotent3: "工作目标，时程要求及付款计画都包含在工作契约之中，聘雇双方执行契约避免误解。"
+      tabA1_step4_cotent1: "STEP4 / 执行契约，依约付款"
+      tabA1_step4_cotent2: "依约付款，建立雇主公信力"
+      tabA1_step4_cotent3: "目标完成后，依约付款，聘雇双方互留考核和评价，建立自己的公信力。"
+      tabA2_step1_cotent1: "STEP1 / 新增个人资料"
+      tabA2_step1_cotent2: "一展长才，从新增您的专长开始"
+      tabA2_step1_cotent3: "分享您的专业技能和认证，工作经历，您的作品集与学业资历，更有助于您开拓新的案件，增加雇主对您的认识。"
+      tabA2_step2_cotent1: "STEP2 / 找到适合案件"
+      tabA2_step2_cotent2: "挑选你想要的案件"
+      tabA2_step2_cotent3: "您可根据专长挑选案件，应征案件后可借助线上问答和雇主更进一步了解案件内容。"
+      tabA2_step3_cotent1: "STEP3 / 订定工作契约"
+      tabA2_step3_cotent2: "工作契约一目了然"
+      tabA2_step3_cotent3: "工作目标，时程要求及付款计画都包含在工作契约之中，聘雇双方执行契约避免误解。"
+      tabA2_step4_cotent1: "STEP4 / 执行契约，获得收益"
+      tabA2_step4_cotent2: "依约收款，建立个人信用"
+      tabA2_step4_cotent3: "目标达成后，依约收款，聘雇双方互留考核和评价，建立个人的信用，有助于争取下一个案件。"
+      tabB1_title: "陪你闯荡世界"
+      tabB2_title: "不错过孩子的成长"
+      tabB3_title: "渡过人生的意外"
+      tabB4_title: "永不嫌弃你，陪你到老"
+      tabB1_content1: "不论你身处于人生的哪一个场景"
+      tabB1_content2: "远距工作配合你的人生 "
+      tabB1_content3: "忠实的留在你身边"
+      tabB2_content1: "不论你身处于人生的哪一个场景"
+      tabB2_content2: "远距工作配合你的人生"
+      tabB2_content3: "忠实的留在你身边"
+      tabB3_content1: "不论你身处于人生的哪一个场景"
+      tabB3_content2: "远距工作配合你的人生"
+      tabB3_content3: "忠实的留在你身边"
+      tabB4_content1: "不论你身处于人生的哪一个场景"
+      tabB4_content2: "远距工作配合你的人生 "
+      tabB4_content3: "忠实的留在你身边"
+      frame1_title: "雇主一二三"
+      frame1_step1: "刊登案件"
+      frame1_step2: "选才订约"
+      frame1_step3: "依约付款"
+      frame2_title: "接案一二三"
+      frame2_step1: "寻找案件"
+      frame2_step2: "选案订约"
+      frame2_step3: "依约收款"
+    sign_up:
+      container_title: "请先选择您想注册的身分"
+      button_freelancer: "我是远距工作者我想要接案"
+      button_employer: "我是雇主我想找远距工作者"
+      button_signup: "立即注册"
+    sign_up_freelancer:
+      termofuse: "使用条约"
+      privacy: "隐私权条款"
+      container_title: "免费建立个人帐号"
+      container_description: "您也可以使用其他OpenID快速注册"
+      submit_alert: "请检查您输入的资料"
+      input_placeholder_first_name: "姓氏(公开资讯，中英文皆可)"
+      input_empty_first_name: "请输入姓氏"
+      input_placeholder_last_name: "名字(公开资讯，中英文皆可)"
+      input_empty_last_name: "请输入名字"
+      input_placeholder_email: "电子邮件"
+      input_empty_email: "请输入电子邮件"
+      input_exist_email: "Email已经有人使用"
+      input_includeblank_country: "所在地区"
+      input_placeholder_username: "使用者帐号(隐密资讯，为您登入的帐号，请填入英数字元)"
+      input_empty_username: "请使用字母数字，做为您的使用者帐号"
+      input_exist_username: "帐户名称已经有人使用"
+      input_placeholder_password: "设定密码(长度必须大于等于8英数字元，包含大小写英文字元，不包含特殊符号)"
+      input_empty_password: "密码至少要有八个字元，不包含*/!~等特殊符号"
+      input_error_password: "密码至少要有八个字元，不包含*/!~等特殊符号"
+      input_placeholder_password_confirmation: "请再一次输入密码"
+      input_empty_password_confirmation: "请再一次输入密码"
+      input_inconsistent_password_confirmation: "密码与先前输入的不一致"
+      input_placeholder_how_to_know: "从何处得知网站讯息? "
+      input_exclamation: "如果您是透过朋友推荐得知本网站，建议您填写朋友姓名。"
+      input_description_captcha: "为避免恶意注册，请输入下方显示的英数字母。"
+      input_receive_information: "我想收到关于网站最新的资讯及动态，若您不想收到类似讯息，请取消勾选。"
+      button_submit: "我要注册"
+      bottom_description: "完成注册代表您同意本网站的"
+    sign_up_employer:
+      termofuse: "使用条约"
+      privacy: "隐私权条款"
+      container_title: "建立雇主帐号"
+      container_description: "您也可以使用其他OpenID快速注册"
+      tab1_title: "建立个人帐户"
+      tab2_title: "建立企业帐户"
+      submit_alert: "请检查您输入的资料"
+      input_placeholder_first_name: "姓氏(公开资讯，中英文皆可)"
+      input_empty_first_name: "请输入姓氏"
+      input_placeholder_last_name: "名字(公开资讯，中英文皆可)"
+      input_empty_last_name: "请输入名字"
+      input_placeholder_email: "电子邮件"
+      input_empty_email: "请输入电子邮件"
+      input_error_email: "请填入有效的email信箱"
+      input_exist_email: "Email已经有人使用"
+      input_placeholder_username: "使用者帐号(隐密资讯，为您登入的帐号，请填入英数字元)"
+      input_empty_username: "请使用字母数字，做为您的使用者帐号"
+      input_exist_username: "帐户名称已经有人使用"
+      input_placeholder_password: "设定密码(长度必须大于等于8英数字元，包含大小写英文字元，不包含特殊符号)"
+      input_empty_password: "密码至少要有八个字元，不包含*/!~等特殊符号"
+      input_error_password: "密码至少要有八个字元，不包含*/!~等特殊符号"
+      input_placeholder_password_confirmation: "请再一次输入密码"
+      input_empty_password_confirmation: "请再一次输入密码"
+      input_inconsistent_password_confirmation: "密码与先前输入的不一致"
+      input_description_captcha: "为避免恶意注册，请输入下方显示的英数字母。"
+      input_receive_information: "我想收到关于网站最新的资讯及动态，若您不想收到类似讯息，请取消勾选。"
+      button_submit: "我要注册"
+      bottom_description: "完成注册代表您同意本网站的"
+      input_placeholder_company: "公司 / 组织 (公开资讯)"
+      input_empty_company: "必填栏位，请输入您的公司或组织，中英文或英文名称"
+    verify_email_sent:
+      container_content: "您的帐户已建立! 请立即检查您的电子邮件信箱，并且点选信件内的启用连结。"
+      container_sendto: "启用信件已传送到"
+    verify_email:
+      configuration: "恭喜你完成注册"
+      dear: "亲爱的会员您好:"
+      content: "感谢您的注册，请点击下列联结，已确定您的Email信箱"
+      button_enable: "点这里启用"
+      not_work: "*如果您无法打开此连结,请复制以下连结，到您的浏览器，以完成启用。"
+    verify_email_success: # confimations/show.html.erb
+      account_work: "您的帐户已启用"
+      wait_for_login: "5秒后带您到登入画面"
+      button_gohome: "回首页"
+    sign_in:
+      container_title: "登入帐户"
+      container_description: "您也可以使用其他OpenID登入"
+      input_placeholder_username: "请输入帐号"
+      input_empty_username: "请输入Email帐号"
+      input_placeholder_password: "密码"
+      input_rememberme: "记住我"
+      link_forget: "忘记帐号或密码"
+      button_login: "登入"
+      submit_alert: "请检查您输入的资料"
+    forget_password:
+      container_title: "忘记密码?"
+      container_description: "请输入您的Email"
+      input_placeholder_email: "请输入您的Email"
+      input_empty_email: "请输入您的Email"
+      button_submit: "寄送邮件"
+    forget_password_email_sent:
+      container_title: "邮件已传送"
+      container_description: "请检查您的邮件"
+    forget_password_email:
+      container_title: "Hi, "
+      container_description: "点击以下连结重新设定您的密码。"
+      bottom_description: "如果您没有要求重新设定密码，请忽视本邮件"
+      button_reset: "重新设定我的密码"
+      footer: "Telework 团队致上"
+    forget_password_reset:
+      container_title: "更改您的密码"
+      container_description: "请输入您的新密码"
+      input_placeholder_password: "请输入您的密码"
+      input_empty_password: "请输入您的密码"
+      input_placeholder_password_confirmation: "请输入您的密码"
+      input_empty_password_confirmation: "请输入您的密码"
+      button_submit: "确认送出"
+    forget_password_expired:
+      container_title: "密码已经更改过"
+      container_description: "这个连结已经失效"
+      button_goHome: "回首页"
+    skill_category_main:
+      container_title: "认证完成，欢迎您"
+      container_description: "请继续完成您的远距工作者帐户设定"
+      container_choose_description: "请先选择您的专业类别"
+      choose_empty_alert: "请选择一个专长类别"
+      button_next: "下一步"
+    skill_category_sub:
+      container_title: "认证完成，欢迎您"
+      container_description: "请继续完成您的远距工作者帐户设定"
+      container_choose_description: "请先选择您的专业类别"
+      container_main: "您是哪一种 %{main_skill_category} 人员？ （可复选）"
+      choose_empty_alert: "请选择一个专业类别"
+      button_previous: "上一步"
+      button_save: "确定储存"
+    profile_edit:
+      container_title: "建立个人资料"
+      step1_title: "自我介绍"
+      step2_title: "经历及技能"
+      step3_title: "完成编辑"
+      submit_alert: "请检查您输入的资料"
+      submit_correct: "资料正确"
+      step1_segment1_title: "个人或小型工作室"
+      step1_segment1_option1: "我是专职的自由工作者"
+      step1_segment1_option2: "我是兼职的自由工作者"
+      step1_segment1_option3: "我们是小于5人的工作室"
+      step1_segment1_option4: "我们是大于5人的工作室"
+      step1_segment2_title: "介绍自己"
+      step1_segment2_picture_title: "新增图像"
+      step1_segment2_picture_description: "新增图像"
+      step1_segment2_brief_title: "个人简介(仅限20字)"
+      step1_segment2_brief_exclamation: "<h4>简洁有力的一句话描述您职场竞争力，例如:</h4><ul><li>有十年经验的行动装置程式开发人员</li><li>有五年经验的纽约州执业律师</li><li>2013年德国红点设计大奖得主</li></ul>"
+      step1_segment2_brief_placeholder: "个人简介"
+      step1_segment2_intro_title: "详细介绍(仅限1000字) "
+      step1_segment2_intro_exclamation: "<h4>让您完整的来介绍自己，有助于雇主更了解您。 </h4><p>借此可以强调您的优势和技能，或是参与过的专案，也能将您的教育背景呈现。 </p>"
+      step1_segment2_skill_title: "技能专长"
+      step1_segment2_skill_description: "技能专长"
+      step1_segment2_alert_limit: "目前只能拥有5项技能"
+      step2_segment1_title: "待遇需求"
+      step2_segment1_pay_title: "每小时工资(美金)"
+      step2_segment1_pay_placeholder: "每小时工资(美金)"
+      step2_segment1_pay_empty: "请输入期望的工资"
+      step2_segment1_pay_end: "USD /HR"
+      step2_segment2_title: "所在位置"
+      step2_segment2_location_title: "所在地区"
+      step2_segment2_location_includeblank: "所在地区"
+      step2_segment2_zipcode_title: "邮递区号"
+      step2_segment2_zipcode_placeholder: "邮递区号"
+      step2_segment2_zipcode_empty: "请输入邮递区号"
+      step2_segment2_city_title: "城市"
+      step2_segment2_city_placeholder: "城市"
+      step2_segment2_city_empty: "请输入城市"
+      step3_confirmation: "请确认您输入的资讯"
+      step3_picture: "个人图像"
+      step3_brief: "个人简介"
+      step3_intro: "个人评介"
+      step3_skill: "技能专长"
+      button_previous: "上一步"
+      button_next: "下一步 "
+      button_save: "确认送出"
+    profile_show:
+      container_title: "个人设定"
+      container_notice: "完整的个人资讯能增加您接案的机会，建议您优先处理以下项目"
+      container_notice_item1: "1. 教育程度"
+      container_notice_item2: "2. 工作经历"
+      container_notice_item3: "3. 作品集"
+      tabA_title: "我的个人资料"
+      tabB_title: "变更密码"
+      tabA_segment1_title: "帐户概观"
+      tabA_segment1_row1: "使用者名称"
+      tabA_segment1_row2: "姓氏"
+      tabA_segment1_row2_placeholder: "姓氏"
+      tabA_segment1_row3: "名字"
+      tabA_segment1_row3_placeholder: "名字"
+      tabA_segment1_row4: "个人简述"
+      tabA_segment1_row4_placeholder: "个人简述"
+      tabA_segment1_row4_description: "(仅限20字)"
+      tabA_segment1_row5: "详细介绍"
+      tabA_segment1_row5_placeholder: "个人详细介绍"
+      tabA_segment1_row5_description: "(仅限20字)"
+      tabA_segment1_row6: "个人图像"
+      tabA_segment1_row7: "电子邮件"
+      tabA_segment1_row7_placeholder: "电子邮件"
+      tabA_segment1_row8: "每小时工资"
+      tabA_segment1_row8_placeholder: "每小时工资"
+      tabA_segment1_row8_unit: "USD/小时"
+      tabA_segment2_title: "专业类别"
+      tabA_segment2_row1: "主类别"
+      tabA_segment2_row2: "子类别"
+      tabA_segment3_title: "技能"
+      tabA_segment3_description: "如果您欲新增更多的技能。您必须完成下列项目："
+      tabA_segment3_description_details: "1. 工作经历　2. 教育程度　3. 作品集"
+      tabA_segment3_defaulttext: "技能标签"
+      tabA_segment3_alert_limit: "目前只能拥有8项技能"
+      tabA_segment4_title: "工作经历"
+      tabA_segment4_empty: "尚未新增工作经历"
+      tabA_segment4_edit: "编辑工作经历"
+      tabA_segment4_add: "新增工作经历"
+      tabA_segment4_error: "上传失败"
+      tabA_segment4_row1: "起"
+      tabA_segment4_row1_placeholder: "起"
+      tabA_segment4_row1_empty: "请填写工作开始时间"
+      tabA_segment4_row2: "讫"
+      tabA_segment4_row2_placeholder: "讫"
+      tabA_segment4_row2_error: "讫日在起日之前"
+      tabA_segment4_row3: "公司"
+      tabA_segment4_row3_placeholder: "公司"
+      tabA_segment4_row3_empty: "公司名称 尚未填写"
+      tabA_segment4_row4: "职位/职责"
+      tabA_segment4_row4_placeholder: "职位/职责"
+      tabA_segment4_row4_empty: "职位/职责 尚未填写"
+      tabA_segment4_row5: "描述"
+      tabA_segment4_row5_placeholder: "说明"
+      tabA_segment4_row6: "删除/编辑"
+      tabA_segment5_title: "教育程度"
+      tabA_segment5_empty: "尚未新增教育程度"
+      tabA_segment5_edit: "编辑教育程度"
+      tabA_segment5_add: "新增教育程度"
+      tabA_segment5_row1: "起"
+      tabA_segment5_row1_placeholder: "起"
+      tabA_segment5_row1_empty: "请填写教育开始时间"
+      tabA_segment5_row2: "讫"
+      tabA_segment5_row2_placeholder: "讫"
+      tabA_segment5_row2_error: "讫日在起日之前"
+      tabA_segment5_row3: "学校"
+      tabA_segment5_row3_placeholder: "学校"
+      tabA_segment5_row3_empty: "请填写学校"
+      tabA_segment5_row4: "系所/主修"
+      tabA_segment5_row4_placeholder: "系所/主修"
+      tabA_segment5_row4_empty: "请填写系所/主修"
+      tabA_segment5_row5: "说明"
+      tabA_segment5_row5_placeholder: "说明"
+      tabA_segment5_row6: "删除"
+      tabA_segment6_title: "作品集"
+      tabA_segment6_empty: "尚未新增作品集"
+      tabA_segment6_edit: "编辑作品集"
+      tabA_segment6_add: "新增作品集"
+      tabA_segment6_row1: "作品集名称"
+      tabA_segment6_row1_placeholder: "作品名称"
+      tabA_segment6_row1_empty: "请填写作品名称"
+      tabA_segment6_row2_placeholder: "作品描述"
+      tabA_segment6_row2_empty: "请填写作品描述"
+      tabA_segment6_row3: "图片缩图"
+      tabA_segment6_row3_description1: "上传档案"
+      tabA_segment6_row3_description2: "上传缩图"
+      tabA_segment6_row4: "附加档案名称"
+      tabA_segment6_row4_error: "您上传的档案已超过 2MB 的限制"
+      tabA_segment6_row4_placeholder: "上传档案/文件"
+      tabA_segment6_row5_empty: "请填写主类别"
+      tabA_segment6_row5_main: "主类别"
+      tabA_segment6_row5_empty: "请填写子类别"
+      tabA_segment6_row6_sub: "子类别"
+      tabA_segment6_row7_placeholder: "完成时间"
+      tabA_segment6_row8_placeholder: "相关技能"
+      tabA_segment6_row9: "删除"
+      tabA_segment6_bottom: "请确保您有此作品的著作权"
+      tabA_segment7_title: "相关证照"
+      tabA_segment7_edit: "编辑相关证照"
+      tabA_segment7_add:  "新增相关证照"
+      tabA_segment7_row1: "证照"
+      tabA_segment7_row1_placeholder: "证照名称"
+      tabA_segment7_row1_empty: "证照名称"
+      tabA_segment7_row2: "来源"
+      tabA_segment7_row2_placeholder: "证照发行机构"
+      tabA_segment7_row3: "获得时间"
+      tabA_segment7_row3_placeholder: "获得证照时间"
+      tabA_segment7_row4: "描述"
+      tabA_segment7_row4_placeholder: "说明"
+      button_goHome: "资料填写完成回到首页"
+      tabB_segment: "变更密码"
+      tabB_segment_row1: "旧密码"
+      tabB_segment_row1_description: "如果您想要变更您的密码，请先输入您的旧密码"
+      tabB_segment_row1_empty: "当前密码不能为空"
+      tabB_segment_row1_error: "密码错误"
+      tabB_segment_row2: "新密码"
+      tabB_segment_row2_description: "密码长度必须大于等于8英数字元，包含大小写英文符号，不包含特殊符号。"
+      tabB_segment_row2_empty: "密码至少要有八个字元，不包含*/!~等特殊符号"
+      tabB_segment_row2_error: "密码至少要有八个字元，不包含*/!~等特殊符号"
+      tabB_segment_row3: "再次输入新密码"
+      tabB_segment_row3_inconsistent: "密码与先前输入的不一致"
+    employer_personal_profile_edit:
+      container_title: "填写资料"
+      step1_title: "自我介绍"
+      step2_title: "联络资讯"
+      step3_title: "完成编辑"
+      submit_alert: "请检查您输入的资料"
+      submit_correct: "资料正确"
+      step1_segment: "介绍自己"
+      step1_row1: "个人图像"
+      step1_row1_choose: "选择档案"
+      step1_row1_description: "一张好的相片，能更增进远距工具者的信赖感。"
+      step1_row2: "雇主简介(仅限20字)"
+      step1_row2_exclamation: "简短的描述介绍自己，吸引远距工作者投标你的计划，这个介绍会出现在您的公开资讯上。"
+      step1_row2_placeholder: "雇主简介"
+      step1_row3: "详细介绍(仅限1000字)"
+      step1_row3_exclamation: "完整详细介绍关于您自己，帮助远距工作者更了解您的需求。"
+      step1_row3_placeholder: "详细介绍"
+      step1_row4: "个人网站"
+      step1_row4_placeholder: "选填，请输入您的网址"
+      step2_segement: "所在地区所在地区"
+      step2_segement_row1: "所在地区"
+      step2_segement_row1_includeblank: "所在地区"
+      step2_segement_row2: "邮递区号"
+      step2_segement_row2_placeholder: "邮递区号"
+      step2_segement_row2_empty: "请输入邮递区号"
+      step2_segement_row3: "城市"
+      step2_segement_row3_placeholder: "城市"
+      step2_segement_row3_empty: "请输入城市"
+      step2_segement_row4: "时区"
+      step3_confirmation: "请确认您输入的资讯"
+      step3_segment1: "雇主帐户型态"
+      step3_segment1_personal: "个人雇主"
+      step3_segment2: "介绍自己"
+      step3_segment3: "联络资讯"
+      button_save: "确认送出"
+    employer_personal_profile_show:
+      container_title: "个人设定"
+      tabA_title: "我的雇主资料"
+      tabB_title: "变更密码"
+      tabA_segment: "帐户概观"
+      tabA_segment_row1: "个人图像"
+      tabA_segment_row1_choose: "选择档案"
+      tabA_segment_row2: "使用者名称"
+      tabA_segment_row2_placeholder: "User ID"
+      tabA_segment_row3: "姓氏"
+      tabA_segment_row3_placeholder: "姓氏"
+      tabA_segment_row4: "名字"
+      tabA_segment_row4_placeholder: "名字"
+      tabA_segment_row5: "电子邮件"
+      tabA_segment_row5_placeholder: "电子邮件"
+      tabA_segment_row6: "个人网站"
+      tabA_segment_row7: "雇主简介"
+      tabA_segment_row7_comment: "(仅限20字)"
+      tabA_segment_row8: "详细介绍"
+      tabA_segment_row8_comment: "(仅限1000字)"
+      button_gohome: "资料填写完成回到首页"
+      tabB_segment: "变更密码"
+      tabB_segment_row1: "旧密码"
+      tabB_segment_row1_description: "如果您想要变更您的密码，请先输入您的旧密码"
+      tabB_segment_row1_empty: "当前密码不能为空"
+      tabB_segment_row1_error: "密码错误"
+      tabB_segment_row2: "新密码"
+      tabB_segment_row2_description: "密码长度必须大于等于8英数字元，包含大小写英文符号，不包含特殊符号。"
+      tabB_segment_row2_empty: "密码至少要有八个字元，不包含*/!~等特殊符号密码至少要有八个字元，不包含*/!~等特殊符号"
+      tabB_segment_row2_error: "密码至少要有八个字元，不包含*/!~等特殊符号"
+      tabB_segment_row3: "再次输入新密码"
+      tabB_segment_row3_inconsistent: "密码与先前输入的不一致"
+    employer_company_profile_edit:
+      container_title: "填写资料"
+      step1_title: "自我介绍"
+      step2_title: "联络资讯"
+      step3_title: "完成编辑"
+      submit_alert: "请检查您输入的资料"
+      submit_correct: "资料正确"
+      step1_segment: "介绍自己"
+      step1_row1: "企业图像"
+      step1_row1_choose: "选择档案"
+      step1_row1_description: "建议您始使用公司Logo，加企业识别形象。"
+      step1_row2: "企业名称"
+      step1_row2_placeholder: "企业名称"
+      step1_row3: "企业简介(仅限20字)"
+      step1_row3_exclamation: "简短的描述您的企业，这个介绍会出现在您的公开资讯上。"
+      step1_row3_placeholder: "企业简介"
+      step1_row4: "详细介绍(仅限1000字)"
+      step1_row4_exclamation: "完整的介绍您的公司，或是相关业务内容，帮助远距工作者能够了解您的需求，让您的工作更快找到对的人选。"
+      step1_row4_placeholder: "详细介绍"
+      step1_row5: "企业网站"
+      step1_row5_placeholder: "选填，请输入您的网址"
+      step2_segement: "所在地区"
+      step2_segement_row1: "所在地区"
+      step2_segement_row1_includeblank: "所在地区"
+      step2_segement_row2: "邮递区号"
+      step2_segement_row2_placeholder: "邮递区号"
+      step2_segement_row2_empty: "请输入邮递区号"
+      step2_segement_row3: "城市"
+      step2_segement_row3_placeholder: "城市"
+      step2_segement_row3_empty: "请输入城市"
+      step2_segement_row4: "时区"
+      step2_segement_row5: "统一编号"
+      step2_segement_row5_placeholder: "选填，请输入统一编号。"
+      step3_confirmation: "请确认您输入的资讯"
+      step3_segment1: "雇主帐户型态"
+      step3_segment1_company: "企业雇主"
+      step3_segment2: "介绍自己"
+      step3_segment3: "联络资讯"
+      button_save: "确认送出"
+    employer_company_profile_show:
+      container_title: "个人设定"
+      tabA_title: "我的企业资料"
+      tabB_title: "变更密码"
+      tabA_segment: "帐户概观"
+      tabA_segment_row1: "企业图像"
+      tabA_segment_row1_choose: "选择档案"
+      tabA_segment_row2: "使用者名称"
+      tabA_segment_row2_placeholder: "User ID"
+      tabA_segment_row3: "姓氏"
+      tabA_segment_row3_placeholder: "姓氏"
+      tabA_segment_row4: "名字"
+      tabA_segment_row4_placeholder: "名字"
+      tabA_segment_row5: "电子邮件"
+      tabA_segment_row5_placeholder: "电子邮件"
+      tabA_segment_row6: "企业名称"
+      tabA_segment_row7: "统一编号"
+      tabA_segment_row8: "企业网站"
+      tabA_segment_row9: "雇主简介"
+      tabA_segment_row9_comment: "(仅限20字))"
+      tabA_segment_row10: "详细介绍"
+      tabA_segment_row10_comment: "(仅限1000字)"
+      button_gohome: "资料填写完成回到首页"
+      tabB_segment: "变更密码"
+      tabB_segment_row1: "旧密码"
+      tabB_segment_row1_description: "如果您想要变更您的密码，请先输入您的旧密码。"
+      tabB_segment_row1_empty: "当前密码不能为空"
+      tabB_segment_row1_error: "密码错误"
+      tabB_segment_row2: "新密码"
+      tabB_segment_row2_description: "密码长度必须大于等于8英数字元，包含大小写英文符号，不包含特殊符号。"
+      tabB_segment_row2_empty: "密码至少要有八个字元，不包含*/!~等特殊符号"
+      tabB_segment_row2_error: "密码至少要有八个字元，不包含*/!~等特殊符号"
+      tabB_segment_row3: "再次输入新密码"
+      tabB_segment_row3_inconsistent: "密码与先前输入的不一致"
