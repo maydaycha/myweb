@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609170132) do
+ActiveRecord::Schema.define(version: 20140626073051) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -29,20 +29,21 @@ ActiveRecord::Schema.define(version: 20140609170132) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "admin_users", force: true do |t|
-    t.string   "email",               default: "", null: false
-    t.string   "encrypted_password",  default: "", null: false
+    t.string   "email",               default: "",    null: false
+    t.string   "encrypted_password",  default: "",    null: false
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",       default: 0,  null: false
+    t.integer  "sign_in_count",       default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "username",                         null: false
-    t.string   "first_name",                       null: false
-    t.string   "last_name",                        null: false
+    t.string   "username",                            null: false
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_service"
+    t.boolean  "is_service",          default: false
+    t.boolean  "is_translator",       default: false
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree

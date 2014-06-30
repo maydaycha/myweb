@@ -8,8 +8,4 @@ class AdminUser < ActiveRecord::Base
     return true
   end
 
-  def is_service?
-    result = self.is_service.nil? ? false : true
-    return result
-  end
 end

@@ -86,7 +86,6 @@ gem 'i18n-country-translations'
 
 gem "spreadsheet"
 
-
 gem 'kaminari'
 
 # Captcha

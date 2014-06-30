@@ -1,8 +1,13 @@
 ActiveAdmin.register AdminUser do
-  permit_params :email, :password, :password_confirmation, :username, :first_name, :last_name, :is_service
+  permit_params :email, :password, :password_confirmation, :username, :first_name, :last_name, :is_service, :is_translator
 
   # hide resource from menu
   menu :if => proc{ not current_admin_user.is_service? }
+
+  filter :email
+  filter :current_sign_in_at
+  filter :sign_in_count
+  filter :created_at
 
 
   index :download_links => false do
@@ -13,6 +18,7 @@ ActiveAdmin.register AdminUser do
     column :sign_in_count
     column :created_at
     column :is_service
+    column :is_translator
     actions
   end
 
@@ -29,10 +35,6 @@ ActiveAdmin.register AdminUser do
     active_admin_comments
   end
 
-  filter :email
-  filter :current_sign_in_at
-  filter :sign_in_count
-  filter :created_at
 
   form do |f|
     f.inputs "Admin Details" do
@@ -43,10 +45,13 @@ ActiveAdmin.register AdminUser do
       f.input :first_name
       f.input :last_name
       f.input :is_service
+      f.input :is_translator
     end
     f.actions
   end
 
+
+  # override controller
   controller do
     def create
       create!

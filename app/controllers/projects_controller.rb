@@ -72,18 +72,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def update_project_from_angular
-    if params[:projectName] && params[:projectDescription] && params[:projectId]
-      @p = Project.find(params[:projectId])
-      @p.name_chinese = params[:projectName]
-      @p.description_chinese = params[:projectDescription]
-      @p.is_translation = 1
-      @p.save
-      render :json => { :status => "success" }
-    else
-      render :json => { :status => "fail" }
-    end
-  end
 
 
   def wirte_job_to_csv

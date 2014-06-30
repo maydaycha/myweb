@@ -147,25 +147,25 @@
                                             <div class="col-md-12">
                                                 <div class="radio">
                                                     <label>
-                                                        <%= f.radio_button :worker_type, "1", class: "required" %>
+                                                        <%= f.radio_button :worker_type, "1", class: "required", data: {title: I18n.t("page.profile_edit.step1_segment1_option1") } %>
                                                         <%= I18n.t("page.profile_edit.step1_segment1_option1") %>
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                        <%= f.radio_button :worker_type, "2" %>
+                                                        <%= f.radio_button :worker_type, "2", data: {title: I18n.t("page.profile_edit.step1_segment1_option2") } %>
                                                         <%= I18n.t("page.profile_edit.step1_segment1_option2") %>
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                       <%= f.radio_button :worker_type, "3" %>
+                                                       <%= f.radio_button :worker_type, "3", data: {title: I18n.t("page.profile_edit.step1_segment1_option3") } %>
                                                        <%= I18n.t("page.profile_edit.step1_segment1_option3") %>
                                                    </label>
                                                </div>
                                                <div class="radio">
                                                 <label>
-                                                    <%= f.radio_button :worker_type, "4" %>
+                                                    <%= f.radio_button :worker_type, "4", data: {title: I18n.t("page.profile_edit.step1_segment1_option4") } %>
                                                     <%= I18n.t("page.profile_edit.step1_segment1_option4") %>
                                                 </label>
                                             </div>
@@ -452,7 +452,7 @@
     <!-- END 頁面插件 -->
     <script type="text/javascript" src="/js/script.js"></script>
     <script type="text/javascript" src="/js/page/create_profile.js"></script>
-    <script type="text/javascript" src="js/google_analytics.js"></script>
+    <script type="text/javascript" src="/js/google_analytics.js"></script>
 
     <script>
         var warn_on_unload = $('#warning_on_load').html();
