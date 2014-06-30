@@ -2,7 +2,7 @@ ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation, :username, :first_name, :last_name, :is_service, :is_translator
 
   # hide resource from menu
-  menu :if => proc{ not current_admin_user.is_service? }
+  menu :if => proc{ not current_admin_user.is_service }
 
   filter :email
   filter :current_sign_in_at
