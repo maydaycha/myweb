@@ -1,4 +1,7 @@
+## Implementation of the callback function of OAuth
+
 class Users::OmniauthCallbacksController < ApplicationController
+
   def index
     @user_authentications = current_user.authentications.all
   end
@@ -75,6 +78,21 @@ class Users::OmniauthCallbacksController < ApplicationController
         redirect_to new2_user_registration_path
       end
     end
+  end
+
+
+  def weibo
+    omni = request.env["omniauth.auth"]
+    render json: omni
+  end
+
+  def linkedin
+    omni = request.env["omniauth.auth"]
+    render json: omni
+  end
+
+  def failure
+    render json: params
   end
 
 end

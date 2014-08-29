@@ -141,6 +141,11 @@ GEM
     omniauth-google-oauth2 (0.2.2)
       omniauth (~> 1.0)
       omniauth-oauth2
+    omniauth-linkedin (0.2.0)
+      omniauth-oauth (~> 1.0)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
     omniauth-oauth2 (1.0.3)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -267,6 +272,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook (= 1.4.0)
   omniauth-google-oauth2 (~> 0.2.1)
+  omniauth-linkedin
   omniauth-weibo-oauth2
   rails (= 4.0.3)
   rails_12factor

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable,
-    :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+    :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :weibo, :linkedin]
 
   # validates :password, :presence => true, :format => { :with  => /(?=.*\d)(?=.*[a-zA-Z])/, :allow_blank => false, :message => "must include at least one letter, and one digit" }
 
