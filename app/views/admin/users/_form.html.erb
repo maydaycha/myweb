@@ -1,0 +1,154 @@
+<link rel="stylesheet" type="text/css" href="/plugins/jquery-autocomplete/jquery.autocomplete.css" />
+<link rel="stylesheet" href="/plugins/jquery-tags-input/jquery.tagsinput.css">
+
+<%= semantic_form_for [:admin, @user] do |f| %>
+    <!-- <%= f.inputs :username, :first_name, :last_name, :email, :created_at %> -->
+    <%= f.inputs "Basic Info" do %>
+        <%= f.input :first_name, input_html: { disabled: current_admin_user.is_service? } %>
+        <%= f.input :last_name, input_html: { disabled: current_admin_user.is_service? } %>
+        <%= f.input :email %>
+    <% end %>
+
+    <%= f.inputs "Skill Category" do %>
+        <!-- <%= f.input :user_skill_categories, as: :select, collection: @user.user_skill_categories.each_with_index.map{ |e, i| ["#{t(:main_skill_category)[e.main_skill_id]['name']}", i] } %> -->
+
+        <% @user.user_skill_categories.each_with_index do |e, index|%>
+            <div id="category_section_<%= index %>">
+            <select name="main_skill_id[]" id="main_skill_<%= index %>">
+                <% t(:main_skill_category).each_with_index do |f, i| %>
+                    <% if e.main_skill_id == i %>
+                        <option value="<%= i %>" selected><%= f['name'] %></option>
+                    <% else %>
+                        <option value="<%= i %>"><%= f['name'] %></option>
+                    <% end %>
+                <% end %>
+            </select>
+            <select name="sub_skill_id[]" id="sub_skill_<%= index %>">
+                <% t(:sub_skill_category)[e.main_skill_id].each_with_index do |f, i| %>
+                    <% if e.sub_skill_id == i %>
+                        <option value="<%= i %>" selected><%= f['name'] %></option>
+                    <% else %>
+                        <option value="<%= i %>"><%= f['name'] %></option>
+                    <% end %>
+                <% end %>
+            </select>
+            <button class="prevent" onclick="remove_category_button(<%= index %>)">remove</button>
+
+            <hr style="background-color: gray;">
+            </div>
+        <% end %>
+        <button id="add_category_button" class="prevent" onclick="add_skill_category(this)">add</button>
+    <% end %>
+
+    <%= f.inputs "Skills" do %>
+            <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= @user.user_skills.map{|e| e.name }.join(", ") %>" />
+            <div class="pull-right" style="margin:8px 0px 0 0;"></div>
+    <% end %>
+
+    <%= f.actions %>
+
+<% end %>
+
+
+<script src="/plugins/jquery-1.7.2.js"></script>
+<script src="/plugins/jquery-autocomplete/jquery.autocomplete.pack.js"></script>
+<script src="/plugins/jquery-autocomplete/jquery.autocomplete.js"></script>
+<script src="/plugins/jquery-tags-input/jquery.tagsinput.js"></script>
+
+<script>
+    $(function(){
+        $('#skill-tags').tagsInput({
+            width: 'auto',
+            defaultText: "技能標籤",
+            maxCount: 3,
+            placeholderColor: '#999',
+            autocomplete_url:'/skills/autocomplete',
+            onAddTag: validateSkillExist
+        });
+        $('.tagsinput').addClass('form-control');
+        $('#skill-tags_tag').css('color', '#999');
+
+        $("#skills").autocomplete('/skills/autocomplete');
+
+        $('select[name^=main_skill_id]').change(main_class_change)
+
+        $(".prevent").click(function(event){
+            event.preventDefault()
+        })
+
+
+    })
+
+    var validateSkillExist = function(value){
+        var result = false;
+        $.ajax({
+            url: "/skills/exist",
+            type: "get",
+            dataType: "json",
+            data: {name: value},
+            success: function(data) {
+                result = data.status;
+            },
+            error: function(data) {
+            },
+            async: false
+        });
+        if (result == false)
+            $(this).removeTag(value);
+    }
+
+    var main_class_change = function(){
+        var request_obj = {
+            main_category_id: $(this).val()
+        }
+        var sub_skill_id = this.id.replace("main", "sub")
+        var sub_skill_select = $("#" + sub_skill_id)
+        sub_skill_select.attr("disabled", true)
+        sub_skill_select.find('option').remove()
+        $.ajax({
+            url: "/users/profiles/get_sub_category",
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify(request_obj),
+            contentType: 'application/json',
+            async: false,
+            success: function(data) {
+                for(var key in data) {
+                    $(sub_skill_select).append('<option value='+ key +'>' + data[key].name + '</option>')
+                }
+               sub_skill_select.attr("disabled", false)
+           }
+        })
+    }
+
+    function remove_category_button(index) {
+        console.log(index)
+        $("#category_section_" + index).remove()
+    }
+
+    function add_skill_category(obj) {
+        var current_amount = $("select[name='main_skill_id[]']").length
+        var last_div = $("#category_section_" + (current_amount-1) )
+        var div = $('<div></div>')
+        div.attr("id", "category_section_" + current_amount)
+        var main_select = $('<select name="main_skill_id[]"><select>')
+        var sub_select = $('<select name="sub_skill_id[]"><select>')
+        main_select.attr("id", "main_skill_" + current_amount)
+        sub_select.attr("id", "sub_skill_" + current_amount)
+        main_select.change(main_class_change)
+        <% t(:main_skill_category).each_with_index do |e, index| %>
+            main_select.append('<option value="<%= index %>"><%= e['name'] %></option>');
+        <% end %>
+        <% t(:sub_skill_category)[0].each_with_index do |e, index| %>
+            sub_select.append('<option value="<%= index %>"><%= e['name'] %></option>');
+        <% end %>
+        var remove_category_button = $("<button class='prevent' onclick='remove_category_button("+current_amount+ ")'>remove</button>")
+        div.append(main_select)
+        div.append(sub_select)
+        div.append(remove_category_button)
+        div.append("<hr>")
+        $(obj).before(div)
+    }
+
+
+</script>

@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title><%= I18n.t("page.title") %></title>
+
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <link rel="stylesheet" href="/plugins/select2/select2-metronic.css">
+        <link rel="stylesheet" href="/plugins/select2/select2.css">
+        <link rel="stylesheet" href="/plugins/jquery-tags-input/jquery.tagsinput.css">
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/page/create_profile.css">
+        <link rel="shortcut icon" href="/favicon.ico"/>
+        <!-- END STYLE -->
+    </head>
+    <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--
+                <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                    <i class="fa fa-search"></i>
+                </button>
+            -->
+            <a class="navbar-brand" href="/index.html"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
+        </div>
+            <!--
+            <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+                <div class="navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        -->
+        <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <% if user_signed_in? %>
+                <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+    <!-- END NAVBAR -->
+    <!-- BEGIN PAGE -->
+    <div class="page-content">
+        <!-- BEGIN TITLE -->
+        <h1 class="title"><%= I18n.t("page.employer_personal_profile_edit.container_title") %></h1>
+        <!-- END TITLE -->
+        <!-- BEGIN MAIN CONTENT -->
+        <div class="main-content">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="form_wizard_1">
+                        <div class="form">
+                            <!-- <form action="#" class="form-horizontal" id="submit_form"> -->
+                            <%= form_for @personal, as: :user, url: users_employer_personal_profile_path(@personal), method: :put, html: {class: "form-horizontal", id: "submit_form"} do |f| %>
+                                <div class="form-wizard">
+                                    <div class="form-body">
+                                        <ul class="nav nav-pills nav-justified steps">
+                                            <li>
+                                                <a href="/#tab1" data-toggle="tab" class="step">
+                                                    <span class="number">
+                                                     1
+                                                 </span>
+                                                 <span class="desc">
+                                                    <i class="fa fa-check"></i> <%= I18n.t("page.employer_personal_profile_edit.step1_title") %>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/#tab2" data-toggle="tab" class="step">
+                                                <span class="number">
+                                                 2
+                                             </span>
+                                             <span class="desc">
+                                                <i class="fa fa-check"></i> <%= I18n.t("page.employer_personal_profile_edit.step2_title") %>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/#tab3" data-toggle="tab" class="step active">
+                                            <span class="number">
+                                             3
+                                         </span>
+                                         <span class="desc">
+                                            <i class="fa fa-check"></i> <%= I18n.t("page.employer_personal_profile_edit.step3_title") %>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="bar" class="progress progress-striped" role="progressbar">
+                                <div class="progress-bar progress-bar-success">
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="alert alert-danger display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    <%= I18n.t("page.employer_personal_profile_edit.submit_alert") %>
+                                </div>
+                                <div class="alert alert-success display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    <%= I18n.t("page.employer_personal_profile_edit.submit_correct") %>
+                                </div>
+                                <div class="tab-pane" id="tab1">
+                                    <div class=" portlet box light-grey">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <%= I18n.t("page.employer_personal_profile_edit.step1_segment") %>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_edit.step1_row1") %></label>
+                                                <div class="col-md-10">
+                                                    <!-- <img src="/img/staff.png" class="avatar" alt=""> -->
+                                                    <%= image_tag url_for(:controller => "/users/employer/personal/profiles", :action => "show_image", :id => @personal.id), id: "blah1", class: "avatar" %>
+                                                    <div class="input-group image-preview edit">
+                                                        <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                                                        <span class="input-group-btn">
+                                                            <!-- image-preview-clear button -->
+                                                            <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                                                                <span class="glyphicon glyphicon-remove"></span> <%= I18n.t('basic.button.clear') %>
+                                                            </button>
+                                                            <!-- image-preview-input -->
+                                                            <div class="btn btn-default image-preview-input">
+                                                                <span class="glyphicon glyphicon-folder-open"></span>
+                                                                <span class="image-preview-input-title"><%= I18n.t("page.employer_personal_profile_edit.step1_row1_choose") %></span>
+                                                                <!-- <input class="" name="image" type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> -->
+                                                                <%= f.file_field :picture, name: "image", accept: "image/png, image/jpeg, image/gif", onchange: "readURL(this)" %>
+                                                            </div>
+                                                        </span>
+                                                    </div><!-- /input-group image-preview [TO HERE]-->
+                                                    <p class="help-block">
+                                                        <%= I18n.t("page.employer_personal_profile_edit.step1_row1_description") %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_edit.step1_row2") %><a href="javascript:;" class="show-tip" data-original-title="<h4><%= I18n.t("page.employer_personal_profile_edit.step1_row2_exclamation") %>">
+                                                    <i class="fa fa fa-info-circle" ></i>
+                                                </a></label>
+
+                                                <div class="col-md-10">
+                                                    <!-- <textarea name="introduction" class="form-control" rows="3" placeholder="雇主簡介"></textarea> -->
+                                                    <%= f.text_area :brief_introduction, class: "form-control", rows: "3", placeholder: "雇主簡介" %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_edit.step1_row3") %>
+                                                    <a href="javascript:;" class="show-tip" data-original-title="<h4><%= I18n.t("page.employer_personal_profile_edit.step1_row3_exclamation") %>">
+                                                        <i class="fa fa fa-info-circle" ></i>
+                                                    </a>
+                                                </label>
+                                                <div class="col-md-10">
+                                                    <!-- <textarea name="review" class="form-control" rows="3" placeholder="詳細介紹"></textarea> -->
+                                                    <%= f.text_area :introduction, class: "form-control", rows: "3", placeholder: "詳細介紹" %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_edit.step1_row4") %></label>
+                                                <div class="col-md-10">
+                                                    <!-- <input type="text" class="form-control tags" name="website" placeholder="選填，請輸入您的網址" value=""/> -->
+                                                    <%= f.text_field :website, class: "form-control tags", placeholder: I18n.t("page.employer_personal_profile_edit.step1_row4_placeholder") %>
+                                                    <!-- <p class="help-block">
+                                                        個人網站
+                                                    </p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane active" id="tab2">
+                                    <div class=" portlet box light-grey">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <%= I18n.t("page.employer_personal_profile_edit.step2_segement") %>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_edit.step2_segement_row1") %></label>
+                                                <div class="col-md-10">
+                                                    <%= f.localized_country_select :country_code, [], {:include_blank => I18n.t("page.employer_personal_profile_edit.step2_segement_row1_includeblank")}, {:class => 'form-control edit'} %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_edit.step2_segement_row2") %></label>
+                                                <div class="col-md-10">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <!-- <input type="text" name="zip" class="form-control" placeholder="郵遞區號" data-isEmpty="請輸入郵遞區號"> -->
+                                                        <%= f.text_field :zip, class: "form-control", placeholder: I18n.t("page.employer_personal_profile_edit.step2_segement_row2_placeholder"), "data-isEmpty" => I18n.t("page.employer_personal_profile_edit.step2_segement_row2_empty") %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_edit.step2_segement_row3") %></label>
+                                                <div class="col-md-10">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <!-- <input type="text" name="city" class="form-control" placeholder="城市" data-isEmpty="請輸入城市"> -->
+                                                        <%= f.text_field :city, class: "form-control", placeholder: I18n.t("page.employer_personal_profile_edit.step2_segement_row3_placeholder"), data: {isEmpty: I18n.t("page.employer_personal_profile_edit.step2_segement_row3_empty")}%>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label" for="timezone"><%= I18n.t("page.employer_personal_profile_edit.step2_segement_row4") %></label>
+                                                <div class="col-md-10">
+                                                    <%= f.time_zone_select :time_zone, nil, {}, {:class => 'form-control edit'}  %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab3">
+                                    <h3 class="block"><%= I18n.t("page.employer_personal_profile_edit.step3_confirmation") %></h3>
+                                    <div class=" portlet box light-grey">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <%= I18n.t("page.employer_personal_profile_edit.step3_segment1") %>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <p class="form-control-static" data-display="status"><%= I18n.t("page.employer_personal_profile_edit.step3_segment1_personal") %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" portlet box light-grey">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <%= I18n.t("page.employer_personal_profile_edit.step3_segment2") %>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_personal_profile_edit.step1_row1") %></label>
+                                                <div class="col-md-10">
+                                                    <!-- <img src="/img/staff.png" class="avatar" alt=""> -->
+                                                    <%= image_tag url_for(:controller => "users/employer/personal/profiles", :action => "show_image", :id => @personal.id), id: "blah1", class: "avatar" %>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_personal_profile_edit.step1_row2") %></label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static text-wrap" data-display="user[brief_introduction]">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_personal_profile_edit.step1_row3") %></label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static text-wrap" data-display="user[introduction]">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_personal_profile_edit.step1_row4") %></label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static text-wrap" data-display="user[website]">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" portlet box light-grey">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <%= I18n.t("page.employer_personal_profile_edit.step3_segment3") %>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_personal_profile_edit.step2_segement_row1") %></label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static" data-display="user[country_code]">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_personal_profile_edit.step2_segement_row2") %></label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static" data-display="user[zip]">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_personal_profile_edit.step2_segement_row3") %></label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static" data-display="user[city]">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2"><%= I18n.t("page.employer_personal_profile_edit.step2_segement_row4") %></label>
+                                                <div class="col-md-10">
+                                                    <p class="form-control-static" data-display="timezoon">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="btns">
+                                        <button type="button" class="btn btn-default btn-lg left button-previous"><i class="fa fa-long-arrow-left"></i> <%= I18n.t("basic.button.previous_step") %></button>
+                                        <button type="button" class="btn btn-default btn-lg right button-next"><%= I18n.t("basic.button.next_step") %> <i class="fa fa-long-arrow-right"></i></button>
+                                        <button type="submit" class="btn btn-primary btn-lg right button-submit"><%= I18n.t("page.employer_personal_profile_edit.button_save") %></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- </form> -->
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- END MAIN CONTENT -->
+</div>
+<!-- END PAGE -->
+<!-- BEGIN FOOTER -->
+<div class="footer"><img class="footer-logo" src="/img/logo103.png" alt="">
+    <div class="footer-nav">
+        <%= link_to I18n.t("page.footer.about"), index_about_path %>
+        <span class="bar">|</span>
+        <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
+        <span class="bar">|</span>
+        <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
+        <span class="bar">|</span>
+        <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
+    </div>
+    <div style="margin-top:12px;">
+        <span id="siteseal">
+            <script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=6EabjzhFVsN0Ek7Z9eGWGUwWv7uWRVt7AtmVMPmKs7pzCryNcCDdV"></script>
+        </span>
+    </div>
+</div>
+<!-- END FOOTER -->
+
+<!-- BEGIN JAVASCRIPTS -->
+<!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="/plugins/html5shiv.min.js"></script>
+            <script src="/plugins/respond.min.js"></script>
+            <![endif]-->
+
+            <script src="/plugins/jquery-1.11.0.min.js"></script>
+            <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+            <!-- END 核心插件 -->
+            <!-- BEGIN 頁面插件 -->
+            <script src="/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+            <script src="/plugins/select2/select2.min.js"></script>
+            <script type="text/javascript" src="/plugins/jquery-validation/dist/jquery.validate.js"></script>
+            <script type="text/javascript" src="/plugins/jquery-validation/dist/myMethods.js"></script>
+            <script src="/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+            <script src="/plugins/bootbox/bootbox.min.js"></script>
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="/js/script.js"></script>
+            <script type="text/javascript" src="/js/page/create_profile.js"></script>
+            <script type="text/javascript" src="/js/element.js"></script>
+            <script type="text/javascript" src="/js/google_analytics.js"></script>
+            <script>
+                jQuery(document).ready(function() {
+                   Web.init();
+                   CreateProfile.init();
+               });
+
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $(".avatar").attr('src', e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
+            <!-- END JAVASCRIPTS -->
+            <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="/plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+    </body>
+    </html>

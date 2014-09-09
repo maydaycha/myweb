@@ -24,9 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def is_admin?
-    return session[:admin] != nil
-  end
+
 
 
   def set_locale
@@ -36,24 +34,38 @@ class ApplicationController < ActionController::Base
     if I18n.locale.to_s.downcase == 'zh-tw'
       I18n.locale = 'zh-TW'
     end
-    I18n.locale = 'zh-TW'
+    I18n.locale = 'en'
     logger.info "* Locale set to '#{I18n.locale}'"
   end
 
 
   def after_sign_in_path_for(user)
-    if current_user.step == 1
-      edit_users_profile_path(user)
-    elsif current_user.step == 2
-      root_path
+    if user.try(:is_admin?)
+      admin_root_path
     else
-      new_users_skill_category_path
+      if current_user.step == 1
+        edit_users_profile_path(user)
+      elsif current_user.step == 2
+        root_path
+      else
+        if not current_user.current_role.nil?
+          if current_user.current_role[0] == 'p'
+            edit_users_employer_personal_profile_path(current_user.current_role[1, current_user.current_role.length - 1])
+          elsif current_user.current_role[0] == 'c'
+            edit_users_employer_company_profile_path(current_user.current_role[1, current_user.current_role.length - 1])
+          end
+        else
+          new_users_skill_category_path
+        end
+      end
     end
   end
 
   def after_sign_out_path_for(resource_or_scope)
     root_path
   end
+
+
 
   protected
 
@@ -70,6 +82,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end
+
+
 
   private
 
@@ -89,3 +103,4 @@ class ApplicationController < ActionController::Base
   end
 
 end
+

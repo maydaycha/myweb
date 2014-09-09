@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 zh-TW:
   error:
     recaptcha: "驗證碼錯誤，請重新輸入並再次送出。"
@@ -65,18 +67,6 @@ zh-TW:
 
     Telework保留修改隱私權政策內容之權利，若有修改時，我們不會個別通知，但會於本網站上公佈新修改之內容。如有任何疑問，歡迎至客服中心反應，我們將儘速為您處理。
 
-
-  reset_password_content_html: |
-    Hi %{username}!
-    點擊以下連結重新設定您的密碼。
-    %{href}
-    如果您沒有要求重新設定密碼的需求，請忽略本信件。
-
-    TeleWork團隊致上
-
-  reset_password_link:  "重新設定我的密碼"
-
-
   main_skill_category: [
     {name: "IT、軟體"},
     {name: "工程、科學"},
@@ -85,472 +75,673 @@ zh-TW:
     {name: "行政總務、客戶服務"},
     {name: "商業、會計、法務"},
     {name: "寫作、翻譯"},
-    {name: "專業諮詢"}]
-
-    # IT: "IT、軟體"
-    # engineeringScience: "工程、科學"
-    # designCreativeWork: "設計、創意"
-    # salesMarketing: "業務、行銷"
-    # administrativeCustomerServices: "行政總務、客戶服務"
-    # businessAccountingLegal: "商業、會計、法務"
-    # writingTranslation: "寫作、翻譯"
-    # consulting: "專業諮詢"
+    {name: "專業諮詢"}
+  ]
 
   sub_skill_category: [
-    [{name: "程式設計", title: "補充文字"},
-    {name: "程式測試/除錯", title: "補充文字"},
-    {name: "電子商務平台", title: "補充文字"},
-    {name: "網站開發", title: "補充文字"},
-    {name: "網站企劃", title: "補充文字"},
-    {name: "網站驗收", title: "補充文字"},
-    {name: "網頁應用程式", title: "補充文字"},
-    {name: "手機應用程式", title: "補充文字"},
-    {name: "軟體介面程式", title: "補充文字"},
-    {name: "工具軟體", title: "補充文字"},
-    {name: "娛樂及遊戲應用程式", title: "補充文字"},
-    {name: "腳本語言 (Scripting)", title: "補充文字"},
-    {name: "外掛程式", title: "補充文字"},
-    {name: "資訊計劃管理", title: "補充文字"},
-    {name: "網路電話 (VoIP)", title: "補充文字"},
-    {name: "資訊系統架構", title: "補充文字"},
-    {name: "資訊系統管理", title: "補充文字"},
-    {name: "資訊系統佈建", title: "補充文字"},
-    {name: "企業資訊系統管理", title: "補充文字"},
-    {name: "其他 - 資訊科技及軟體", title: "補充文字"}],
-
-    [{name: "資料探勘、分析", title: "補充文字"},
-    {name: "CAD / CAM 工程開發", title: "補充文字"},
-    {name: "生產工程", title: "補充文字"},
-    {name: "生產開發", title: "補充文字"},
-    {name: "工業工程", title: "補充文字"},
-    {name: "化學工程", title: "補充文字"},
-    {name: "材料工程", title: "補充文字"},
-    {name: "電子工程", title: "補充文字"},
-    {name: "機械工程", title: "補充文字"},
-    {name: "生物工程", title: "補充文字"},
-    {name: "數理統計", title: "補充文字"},
-    {name: "品質控制分析", title: "補充文字"},
-    {name: "設計工程", title: "補充文字"},
-    {name: "工程專案管理", title: "補充文字"},
-    {name: "數學", title: "補充文字"},
-    {name: "物理", title: "補充文字"},
-    {name: "化學", title: "補充文字"},
-    {name: "其他 - 工程與科學", title: "補充文字"}],
-
-    [{name: "圖像設計", title: "補充文字"},
-    {name: "Logo、企業識別設計", title: "補充文字"},
-    {name: "視覺設計", title: "補充文字"},
-    {name: "繪圖", title: "補充文字"},
-    {name: "印刷設計", title: "補充文字"},
-    {name: "照相攝影", title: "補充文字"},
-    {name: "電腦輔助設計", title: "補充文字"},
-    {name: "3D 設計", title: "補充文字"},
-    {name: "音效設計", title: "補充文字"},
-    {name: "影音設計", title: "補充文字"},
-    {name: "配音", title: "補充文字"},
-    {name: "動畫設計", title: "補充文字"},
-    {name: "版型設計", title: "補充文字"},
-    {name: "網站設計", title: "補充文字"},
-    {name: "使用者介面設計", title: "補充文字"},
-    {name: "服飾設計", title: "補充文字"},
-    {name: "工業設計", title: "補充文字"},
-    {name: "其他 - 設計與創意", title: "補充文字"}],
-
-    [{name: "促銷", title: "補充文字"},
-    {name: "電子郵件及網路行銷", title: "補充文字"},
-    {name: "電話行銷", title: "補充文字"},
-    {name: "搜尋引擎優化與行銷", title: "補充文字"},
-    {name: "社群行銷", title: "補充文字"},
-    {name: "客戶與媒體關係", title: "補充文字"},
-    {name: "商業計畫與策略", title: "補充文字"},
-    {name: "市場研究", title: "補充文字"},
-    {name: "業務推廣", title: "補充文字"},
-    {name: "其他 - 業務、行銷", title: "補充文字"}],
-
-    [{name: "打字及數據輸入", title: "補充文字"},
-    {name: "資訊助理", title: "補充文字"},
-    {name: "業務助理", title: "補充文字"},
-    {name: "會計助理", title: "補充文字"},
-    {name: "商務書信、商務電訊", title: "補充文字"},
-    {name: "會議記錄、聽譯、轉稿", title: "補充文字"},
-    {name: "網路客戶服務、支援", title: "補充文字"},
-    {name: "外地支援、到場服務", title: "補充文字"},
-    {name: "報價單、訂單處理", title: "補充文字"},
-    {name: "庫存處理", title: "補充文字"},
-    {name: "其他 - 行政總務、客戶服務", title: "補充文字"}],
-
-    [{name: "會計服務", title: "補充文字"},
-    {name: "電腦帳務系統", title: "補充文字"},
-    {name: "薪資", title: "補充文字"},
-    {name: "財務服務", title: "補充文字"},
-    {name: "財務規畫和預測", title: "補充文字"},
-    {name: "財務報表", title: "補充文字"},
-    {name: "採購流程", title: "補充文字"},
-    {name: "法務", title: "補充文字"},
-    {name: "智財權保護", title: "補充文字"},
-    {name: "專案管理", title: "補充文字"},
-    {name: "人力資源", title: "補充文字"},
-    {name: "人員招募", title: "補充文字"},
-    {name: "精算", title: "補充文字"},
-    {name: "其他 - 商業服務", title: "補充文字"}],
-
-    [{name: "部落格專文寫作", title: "補充文字"},
-    {name: "代筆、代寫", title: "補充文字"},
-    {name: "推文寫作", title: "補充文字"},
-    {name: "文案創作", title: "補充文字"},
-    {name: "社論、專欄寫作", title: "補充文字"},
-    {name: "在線新聞寫作", title: "補充文字"},
-    {name: "技術文件寫作", title: "補充文字"},
-    {name: "文獻報告總結", title: "補充文字"},
-    {name: "翻譯、口譯", title: "補充文字"},
-    {name: "其他 - 寫作、翻譯", title: "補充文字"}],
-
-    [{name: "法律顧問", title: "補充文字"},
-    {name: "旅遊顧問", title: "補充文字"},
-    {name: "移民與留學顧問", title: "補充文字"},
-    {name: "科技顧問", title: "補充文字"},
-    {name: "廚藝顧問", title: "補充文字"},
-    {name: "語言與溝通顧問", title: "補充文字"},
-    {name: "行銷顧問", title: "補充文字"},
-    {name: "業務顧問", title: "補充文字"},
-    {name: "商業顧問", title: "補充文字"},
-    {name: "顧問分析", title: "補充文字"},
-    {name: "服務顧問", title: "補充文字"},
-    {name: "其他 - 顧問", title: "補充文字"}]
+    [
+      {name: "程式設計", title: ""},
+      {name: "程式測試/除錯", title: ""},
+      {name: "電子商務平台", title: ""},
+      {name: "網站開發", title: ""},
+      {name: "網站企劃", title: ""},
+      {name: "網站驗收", title: ""},
+      {name: "網頁應用程式", title: ""},
+      {name: "手機應用程式", title: ""},
+      {name: "軟體介面程式", title: ""},
+      {name: "工具軟體", title: ""},
+      {name: "娛樂及遊戲應用程式", title: ""},
+      {name: "腳本語言 (Scripting)", title: ""},
+      {name: "外掛程式", title: ""},
+      {name: "資訊計劃管理", title: ""},
+      {name: "網路電話 (VoIP)", title: ""},
+      {name: "資訊系統架構", title: ""},
+      {name: "資訊系統管理", title: ""},
+      {name: "資訊系統佈建", title: ""},
+      {name: "企業資訊系統管理", title: ""},
+      {name: "其他 - 資訊科技及軟體", title: ""}
+    ],
+    [
+      {name: "資料探勘、分析", title: ""},
+      {name: "CAD / CAM 工程開發", title: ""},
+      {name: "生產工程", title: ""},
+      {name: "生產開發", title: ""},
+      {name: "工業工程", title: ""},
+      {name: "化學工程", title: ""},
+      {name: "材料工程", title: ""},
+      {name: "電子工程", title: ""},
+      {name: "機械工程", title: ""},
+      {name: "生物工程", title: ""},
+      {name: "數理統計", title: ""},
+      {name: "品質控制分析", title: ""},
+      {name: "設計工程", title: ""},
+      {name: "工程專案管理", title: ""},
+      {name: "數學", title: ""},
+      {name: "物理", title: ""},
+      {name: "化學", title: ""},
+      {name: "其他 - 工程與科學", title: ""}
+    ],
+    [
+      {name: "圖像設計", title: ""},
+      {name: "Logo、企業識別設計", title: ""},
+      {name: "視覺設計", title: ""},
+      {name: "繪圖", title: ""},
+      {name: "印刷設計", title: ""},
+      {name: "照相攝影", title: ""},
+      {name: "電腦輔助設計", title: ""},
+      {name: "3D 設計", title: ""},
+      {name: "音效設計", title: ""},
+      {name: "影音設計", title: ""},
+      {name: "配音", title: ""},
+      {name: "動畫設計", title: ""},
+      {name: "版型設計", title: ""},
+      {name: "網站設計", title: ""},
+      {name: "使用者介面設計", title: ""},
+      {name: "服飾設計", title: ""},
+      {name: "工業設計", title: ""},
+      {name: "其他 - 設計與創意", title: ""}
+    ],
+    [
+      {name: "促銷", title: ""},
+      {name: "電子郵件及網路行銷", title: ""},
+      {name: "電話行銷", title: ""},
+      {name: "搜尋引擎優化與行銷", title: ""},
+      {name: "社群行銷", title: ""},
+      {name: "客戶與媒體關係", title: ""},
+      {name: "商業計畫與策略", title: ""},
+      {name: "市場研究", title: ""},
+      {name: "業務推廣", title: ""},
+      {name: "其他 - 業務、行銷", title: ""}
+    ],
+    [
+      {name: "打字及數據輸入", title: ""},
+      {name: "資訊助理", title: ""},
+      {name: "業務助理", title: ""},
+      {name: "會計助理", title: ""},
+      {name: "商務書信、商務電訊", title: ""},
+      {name: "會議記錄、聽譯、轉稿", title: ""},
+      {name: "網路客戶服務、支援", title: ""},
+      {name: "外地支援、到場服務", title: ""},
+      {name: "報價單、訂單處理", title: ""},
+      {name: "庫存處理", title: ""},
+      {name: "其他 - 行政總務、客戶服務", title: ""}
+    ],
+    [
+      {name: "會計服務", title: ""},
+      {name: "電腦帳務系統", title: ""},
+      {name: "薪資", title: ""},
+      {name: "財務服務", title: ""},
+      {name: "財務規畫和預測", title: ""},
+      {name: "財務報表", title: ""},
+      {name: "採購流程", title: ""},
+      {name: "法務", title: ""},
+      {name: "智財權保護", title: ""},
+      {name: "專案管理", title: ""},
+      {name: "人力資源", title: ""},
+      {name: "人員招募", title: ""},
+      {name: "精算", title: ""},
+      {name: "其他 - 商業服務", title: ""}
+    ],
+    [
+    {name: "部落格專文寫作", title: ""},
+    {name: "代筆、代寫", title: ""},
+    {name: "推文寫作", title: ""},
+    {name: "文案創作", title: ""},
+    {name: "社論、專欄寫作", title: ""},
+    {name: "在線新聞寫作", title: ""},
+    {name: "技術文件寫作", title: ""},
+    {name: "文獻報告總結", title: ""},
+    {name: "翻譯、口譯", title: ""},
+    {name: "其他 - 寫作、翻譯", title: ""}
+    ],
+    [
+      {name: "法律顧問", title: ""},
+      {name: "旅遊顧問", title: ""},
+      {name: "移民與留學顧問", title: ""},
+      {name: "科技顧問", title: ""},
+      {name: "廚藝顧問", title: ""},
+      {name: "語言與溝通顧問", title: ""},
+      {name: "行銷顧問", title: ""},
+      {name: "業務顧問", title: ""},
+      {name: "商業顧問", title: ""},
+      {name: "顧問分析", title: ""},
+      {name: "服務顧問", title: ""},
+      {name: "其他 - 顧問", title: ""}
     ]
+  ]
 
 
-  visite_site: 拜訪網站
-  welcome: 歡迎
-  profile: 個人資料
-  logout: 登出
-  users: 使用者
-  roles: 角色
-  orders: 訂單
-  courses: 課程
-  tag_courses: 課程標簽
-  instructors: 講師
-  materials: 教材
-  tag_materials: 教材標簽
-  course_suggestions: 課程建議
-  share_urls: 網站分享
-  posts: 文章
-  tag_posts: 文章標簽
-  category_posts: 文章分類
-  jobs: 工作
-  tag_jobs: 工作標簽
-  home: 首頁
-  search: 搜尋
-  id: 編號
-  email: 電子郵件
-  phone: 電話
-  actions: 操作
-  show: 詳細資料
-  change_role: 更改角色
-  delete: 刪除
-  description: 描述
-  avatar: 大頭照
-  back: 回到列表
-  cancel: 取消
-  confirm: 確認
-  Are_you_sure?: 你確定嗎？
-  Can_not_delete_yourself: 不能刪除自己
-  API_Key_Generate_sussefully: 成功產生 API Key
-  status: 狀態
-  address: 地址
-  order_detail: 訂單細節
-  orderable_name: 產品名稱
-  orderable_description: 產品描述
-  orderable_price: 產品價格
-  status_history: 狀態歷史
-  time_title: 時間
-  add: 新增
-  start_time: 開始時間
-  end_time: 結束時間
-  register_end_time: 註冊截止時間
-  price: 價錢
-  edit: 編輯
-  online: 上線
-  offline: 下線
-  successfully_created: 新增成功
-  successfully_updated: 更新成功
-  successfully_deleted: 刪除成功
-  successfully_online: 上線成功
-  successfully_offline: 下線成功
-  successfully_approve: 同意成功
-  successfully_reject: 拒絕成功
-  cover: 封面
-  suitable_people: 適合人士
-  tag: 標簽
-  slug: 網址
-  file: 檔案
-  file_name: 檔案名稱
-  file_type: 檔案格式
-  file_size: 檔案大小
-  download: 下載
-  title: 標題
-  content: 內容
-  reply: 回覆
-  replyer: 回覆者
-  url: 網址
-  approve: 同意
-  reject: 拒絕
-  category: 分類
-  job_title: 職位名稱
-  company_name: 公司名稱
-  link: 超連結
-  author: 作者
-  resume: 履歷
-  location: 地點
-  skill: 技能
-  characteristic: 性格
-  benefit: 福利
-  nationality: 國籍
-  cover_letter: 自傳
-  attachment: 附件
-  remember_me: 記住我
-  sign_in: 登入
-  sign_up: 註冊
-  password: 密碼
-  Password: 密碼
-  password_confirmation: 確認密碼
-  current_password: 目前密碼
-  leave_it_blank_if_you_don_want_to_change_it: 如果不想更改密碼的話就留空白
-  we_need_your_current_password_to_confirm_your_changes: 我們需要你的目前的密碼來確認你的更改
-  lock: 封鎖
-  unlock: 解除封鎖
-  unable_to_update_user: 無法更新使用者
-
-  admin:
-    users:
-      name: 姓名
-    instructors:
-      name: 姓名
-    courses:
-      name: 課程名稱
-    tag:
-      name: 標簽名稱
-    materials:
-      name: 教材名稱
-    category:
-      name: 分類名稱
-
-  date:
-    abbr_day_names:
-    - 日
-    - 一
-    - 二
-    - 三
-    - 四
-    - 五
-    - 六
-    abbr_month_names:
-    -
-    - 1月
-    - 2月
-    - 3月
-    - 4月
-    - 5月
-    - 6月
-    - 7月
-    - 8月
-    - 9月
-    - 10月
-    - 11月
-    - 12月
-    day_names:
-    - 星期日
-    - 星期一
-    - 星期二
-    - 星期三
-    - 星期四
-    - 星期五
-    - 星期六
-    formats:
-      default: ! '%Y/%m/%d'
-      long: ! '%Y年%b%d日'
-      short: ! '%b%d日'
-    month_names:
-    -
-    - 一月
-    - 二月
-    - 三月
-    - 四月
-    - 五月
-    - 六月
-    - 七月
-    - 八月
-    - 九月
-    - 十月
-    - 十一月
-    - 十二月
-    order:
-    - :year
-    - :month
-    - :day
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: 大約一小時
-        other: 大約 %{count} 小時
-      about_x_months:
-        one: 大約一個月
-        other: 大約 %{count} 個月
-      about_x_years:
-        one: 大約一年
-        other: 大約 %{count} 年
-      almost_x_years:
-        one: 接近一年
-        other: 接近 %{count} 年
-      half_a_minute: 半分鐘
-      less_than_x_minutes:
-        one: 不到一分鐘
-        other: 不到 %{count} 分鐘
-      less_than_x_seconds:
-        one: 不到一秒
-        other: 不到 %{count} 秒
-      over_x_years:
-        one: 一年多
-        other: '%{count} 年多'
-      x_days:
-        one: 一天
-        other: '%{count} 天'
-      x_minutes:
-        one: 一分鐘
-        other: '%{count} 分鐘'
-      x_months:
-        one: 一個月
-        other: '%{count} 個月'
-      x_seconds:
-        one: 一秒
-        other: '%{count} 秒'
-    prompts:
-      day: 日
-      hour: 時
-      minute: 分
-      month: 月
-      second: 秒
-      year: 年
-  errors: &errors
-    format: '%{attribute} %{message}'
-    messages:
-      accepted: 必須是可被接受的
-      blank: 不能是空白字元
-      confirmation: 不符合確認值
-      empty: 不能留空
-      equal_to: 必須等於 %{count}
-      even: 必須是偶數
-      exclusion: 是被保留的關鍵字
-      greater_than: 必須大於 %{count}
-      greater_than_or_equal_to: 必須大於或等於 %{count}
-      inclusion: 沒有包含在列表中
-      invalid: 是無效的
-      less_than: 必須小於 %{count}
-      less_than_or_equal_to: 必須小於或等於 %{count}
-      not_a_number: 不是數字
-      not_an_integer: 必須是整數
-      odd: 必須是奇數
-      record_invalid: '校驗失敗: %{errors}'
-      restrict_dependent_destroy: 因還有需要此記錄的其他記錄, 所以無法移除記錄
-      taken: 已經被使用
-      too_long: 過長（最長是 %{count} 個字）
-      too_short: 過短（最短是 %{count} 個字）
-      wrong_length: 字數錯誤（必須是 %{count} 個字）
-      expired: "已經過期，請重新申請一個"
-      not_found: "找不到"
-      already_confirmed: "已經驗證，請直接登入"
-      not_locked: "被鎖定了"
-      not_saved:
-        one: "有一個錯誤導致%{resource}不能被儲存："
-        other: "有 %{count} 個錯誤導致%{resource}不能被儲存："
-    template:
-      body: 以下欄位發生問題：
-      header:
-        one: 有 1 個錯誤發生使得「%{model}」無法被儲存。
-        other: 有 %{count} 個錯誤發生使得「%{model}」無法被儲存。
-  helpers:
-    select:
-      prompt: 請選擇
-    submit:
-      create: 新增%{model}
-      submit: 儲存%{model}
-      update: 更新%{model}
-  number:
-    currency:
-      format:
-        delimiter: ','
-        format: '%u %n'
-        precision: 0
-        separator: .
-        significant: false
-        strip_insignificant_zeros: false
-        unit: NT$
-    format:
-      delimiter: ','
-      precision: 3
-      separator: .
-      significant: false
-      strip_insignificant_zeros: false
-    human:
-      decimal_units:
-        format: '%n %u'
-        units:
-          billion: 十億
-          million: 百萬
-          quadrillion: 千兆
-          thousand: 千
-          trillion: 兆
-          unit: ''
-      format:
-        delimiter: ''
-        precision: 1
-        significant: false
-        strip_insignificant_zeros: false
-      storage_units:
-        format: ! '%n %u'
-        units:
-          byte: 位元組
-          gb: GB
-          kb: KB
-          mb: MB
-          tb: TB
-    percentage:
-      format:
-        delimiter: ''
-    precision:
-      format:
-        delimiter: ''
-  support:
-    array:
-      last_word_connector: ', 和 '
-      two_words_connector: ' 和 '
-      words_connector: ', '
-  time:
-    am: 上午
-    formats:
-      default: ! '%Y年%b%d日 %A %H:%M:%S'
-      long: ! '%Y年%b%d日 %H:%M'
-      short: ! '%b%d日 %H:%M'
-    pm: 下午
-  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
-  activemodel:
-    errors:
-      <<: *errors
-  activerecord:
-    errors:
-      <<: *errors
-  views:
-     pagination:
-       first: "&laquo; First"
-       last: "Last &raquo;"
-       previous: "&larr; 上一頁"
-       next: "下一頁 &rarr;"
-       truncate: "..."
-
-  ckeditor:
-    page_title: "CKEditor Files Manager"
-    confirm_delete: "Delete file?"
-    buttons:
-      cancel: "Cancel"
-      upload: "Upload"
-      delete: "Delete"
+  basic:
+    button:
+      add: "新增"
+      edit: "修改"
+      delete: "刪除"
+      close: "關閉"
+      save: "儲存"
+      collapse: "收合"
+      clear: "清除"
+      previous_step: "上一步"
+      next_step: "下一步"
+    alert:
+      warning_on_load: "尚未儲存的資料都將遺失"
+  page:
+    title: "快樂工作"
+    header:
+      settings: "個人設定"
+      logout: "會員登出"
+      login: "會員登入"
+      signup: "免費註冊"
+    footer:
+      about: "關於我們"
+      privacy: "隱私條款"
+      termofuse: "使用條款"
+      contact: "聯絡客服"
+    index:
+      button_indialog_link1: "最適合您的案件都在這，立即免費註冊！"
+      button_indialog_link2: "找到對的人才，事倍功半！"
+      button_indialog_link3: "好事就快發生，即將上線！"
+      swiper1_title1: "會員募集中"
+      swiper1_title2: "這個位子留給你.."
+      swiper2_title1: "遠距工作"
+      swiper2_title2: "讓工作和世界接軌"
+      swiper3_title1: "快樂工作"
+      swiper3_title2: "讓您快樂接案"
+      frame_login_title: "遠距工作，免費註冊"
+      frame_login_title_min: "免費註冊，即刻使用"
+      input_placeholder_username: "使用者名稱"
+      input_placeholder_email: "電子郵件"
+      frame_login_button: "註冊會員"
+      frame_login_social: "使用OPEN ID快速註冊"
+      container_title: "各類遠距工作者招募中"
+      tabA1_title: "我是雇主，想找遠距工作人才"
+      tabA2_title: "我是遠距工作者，想要找案件"
+      tabA1_step1_title: "刊登案件"
+      tabA1_step2_title: "挑選合適人才"
+      tabA1_step3_title: "訂定工作契約"
+      tabA1_step4_title: "執行契約，依約付款"
+      tabA2_step1_title: "新增個人資料"
+      tabA2_step2_title: "找到適合案件"
+      tabA2_step3_title: "訂定工作契約"
+      tabA2_step4_title: "執行契約，獲得收益"
+      tabA1_step1_cotent1: "STEP1 / 刊登案件"
+      tabA1_step1_cotent2: "建立您的專屬人才網"
+      tabA1_step1_cotent3: "委外工作找不到夠專業的人來執行嗎？那就立刻到快樂工作網發佈案件"
+      tabA1_step2_cotent1: "STEP2 / 挑選合適人才"
+      tabA1_step2_cotent2: "簡明的選才流程"
+      tabA1_step2_cotent3: "除了應徵者的學經歷，作品集及過去的歷史紀錄的資料外，並能用線上問答功能，挑選合適人才。"
+      tabA1_step3_cotent1: "STEP3 / 訂定工作契約"
+      tabA1_step3_cotent2: "工作契約一目了然"
+      tabA1_step3_cotent3: "工作目標，時程要求及付款計畫都包含在工作契約之中，聘雇雙方執行契約避免誤解。"
+      tabA1_step4_cotent1: "STEP4 / 執行契約，依約付款"
+      tabA1_step4_cotent2: "依約付款，建立雇主公信力"
+      tabA1_step4_cotent3: "目標完成後，依約付款，聘雇雙方互留考核和評價，建立自己的公信力。"
+      tabA2_step1_cotent1: "STEP1 / 新增個人資料"
+      tabA2_step1_cotent2: "一展長才，從新增您的專長開始"
+      tabA2_step1_cotent3: "分享您的專業技能和認證，工作經歷，您的作品集與學業資歷，更有助於您開拓新的案件，增加雇主對您的認識。"
+      tabA2_step2_cotent1: "STEP2 / 找到適合案件"
+      tabA2_step2_cotent2: "挑選你想要的案件"
+      tabA2_step2_cotent3: "您可根據專長挑選案件，應徵案件後可借助線上問答和雇主更進一步了解案件內容。"
+      tabA2_step3_cotent1: "STEP3 / 訂定工作契約"
+      tabA2_step3_cotent2: "工作契約一目了然"
+      tabA2_step3_cotent3: "工作目標，時程要求及付款計畫都包含在工作契約之中，聘雇雙方執行契約避免誤解。"
+      tabA2_step4_cotent1: "STEP4 / 執行契約，獲得收益"
+      tabA2_step4_cotent2: "依約收款，建立個人信用"
+      tabA2_step4_cotent3: "目標達成後，依約收款，聘雇雙方互留考核和評價，建立個人的信用，有助於爭取下一個案件。"
+      tabB1_title: "陪你闖蕩世界"
+      tabB2_title: "不錯過孩子的成長"
+      tabB3_title: "渡過人生的意外"
+      tabB4_title: "永不嫌棄你，陪你到老"
+      tabB1_content1: "不論你身處於人生的哪一個場景"
+      tabB1_content2: "遠距工作配合你的人生"
+      tabB1_content3: "忠實的留在你身邊"
+      tabB2_content1: "不論你身處於人生的哪一個場景"
+      tabB2_content2: "遠距工作配合你的人生"
+      tabB2_content3: "忠實的留在你身邊"
+      tabB3_content1: "不論你身處於人生的哪一個場景"
+      tabB3_content2: "遠距工作配合你的人生"
+      tabB3_content3: "忠實的留在你身邊"
+      tabB4_content1: "不論你身處於人生的哪一個場景"
+      tabB4_content2: "遠距工作配合你的人生"
+      tabB4_content3: "忠實的留在你身邊"
+      frame1_title: "雇主一二三"
+      frame1_step1: "刊登案件"
+      frame1_step2: "選才訂約"
+      frame1_step3: "依約付款"
+      frame2_title: "接案一二三"
+      frame2_step1: "尋找案件"
+      frame2_step2: "選案訂約"
+      frame2_step3: "依約收款"
+    sign_up:
+      container_title: "請先選擇您想註冊的身分"
+      button_freelancer: "我是遠距工作者我想要接案"
+      button_employer: "我是雇主我想找遠距工作者"
+      button_signup: "立即註冊"
+    sign_up_freelancer:
+      termofuse: "使用條約"
+      privacy: "隱私權條款"
+      container_title: "免費建立個人帳號"
+      container_description: "您也可以使用其他OpenID快速註冊"
+      submit_alert: "請檢查您輸入的資料"
+      input_placeholder_first_name: "姓氏(公開資訊，中英文皆可)"
+      input_empty_first_name: "請輸入姓氏"
+      input_placeholder_last_name: "名字(公開資訊，中英文皆可)"
+      input_empty_last_name: "請輸入名字"
+      input_placeholder_email: "電子郵件"
+      input_empty_email: "請輸入電子郵件"
+      input_exist_email: "Email已經有人使用"
+      input_includeblank_country: "所在地區"
+      input_placeholder_username: "使用者帳號(隱密資訊，為您登入的帳號，請填入英數字元)"
+      input_empty_username: "請使用字母數字，做為您的使用者帳號"
+      input_exist_username: "帳戶名稱已經有人使用"
+      input_placeholder_password: "設定密碼(長度必須大於等於8英數字元，包含大小寫英文字元，不包含特殊符號)"
+      input_empty_password: "密碼至少要有八個字元，不包含*/!~等特殊符號"
+      input_error_password: "密碼至少要有八個字元，不包含*/!~等特殊符號"
+      input_placeholder_password_confirmation: "請再一次輸入密碼"
+      input_empty_password_confirmation: "請再一次輸入密碼"
+      input_inconsistent_password_confirmation: "密碼與先前輸入的不一致"
+      input_placeholder_how_to_know: "從何處得知網站訊息? "
+      input_exclamation: "如果您是透過朋友推薦得知本網站，建議您填寫朋友姓名。"
+      input_description_captcha: "為避免惡意註冊，請輸入下方顯示的英數字母。"
+      input_receive_information: "我想收到關於網站最新的資訊及動態，若您不想收到類似訊息，請取消勾選。"
+      button_submit: "我要註冊"
+      bottom_description: "完成註冊代表您同意本網站的"
+    sign_up_employer:
+      termofuse: "使用條約"
+      privacy: "隱私權條款"
+      container_title: "建立雇主帳號"
+      container_description: "您也可以使用其他OpenID快速註冊"
+      tab1_title: "建立個人帳戶"
+      tab2_title: "建立企業帳戶"
+      submit_alert: "請檢查您輸入的資料"
+      input_placeholder_first_name: "姓氏(公開資訊，中英文皆可)"
+      input_empty_first_name: "請輸入姓氏"
+      input_placeholder_last_name: "名字(公開資訊，中英文皆可)"
+      input_empty_last_name: "請輸入名字"
+      input_placeholder_email: "電子郵件"
+      input_empty_email: "請輸入電子郵件"
+      input_error_email: "請填入有效的email信箱"
+      input_exist_email: "Email已經有人使用"
+      input_placeholder_username: "使用者帳號(隱密資訊，為您登入的帳號，請填入英數字元)"
+      input_empty_username: "請使用字母數字，做為您的使用者帳號"
+      input_exist_username: "帳戶名稱已經有人使用"
+      input_placeholder_password: "設定密碼(長度必須大於等於8英數字元，包含大小寫英文字元，不包含特殊符號)"
+      input_empty_password: "密碼至少要有八個字元，不包含*/!~等特殊符號"
+      input_error_password: "密碼至少要有八個字元，不包含*/!~等特殊符號"
+      input_placeholder_password_confirmation: "請再一次輸入密碼"
+      input_empty_password_confirmation: "請再一次輸入密碼"
+      input_inconsistent_password_confirmation: "密碼與先前輸入的不一致"
+      input_description_captcha: "為避免惡意註冊，請輸入下方顯示的英數字母。"
+      input_receive_information: "我想收到關於網站最新的資訊及動態，若您不想收到類似訊息，請取消勾選。"
+      button_submit: "我要註冊"
+      bottom_description: "完成註冊代表您同意本網站的"
+      input_placeholder_company: "公司 / 組織 (公開資訊)"
+      input_empty_company: "必填欄位，請輸入您的公司或組織，中英文或英文名稱"
+    verify_email_sent:
+      container_content: "您的帳戶已建立! 請立即檢查您的電子郵件信箱，並且點選信件內的啟用連結。"
+      container_sendto: "啟用信件已傳送到 "
+    verify_email:
+      configuration: "恭喜你完成註冊"
+      dear: "親愛的會員您好:"
+      content: "感謝您的註冊，請點擊下列聯結，已確定您的Email信箱"
+      button_enable: "點這裡啟用"
+      not_work: "*如果您無法打開此連結,請複製以下連結，到您的瀏覽器，以完成啟用。"
+    verify_email_success: # confimations/show.html.erb
+      account_work: "您的帳戶已啟用"
+      wait_for_login: "5秒後帶您到登入畫面"
+      button_gohome: "回首頁"
+    sign_in:
+      container_title: "登入帳戶"
+      container_description: "您也可以使用其他OpenID登入"
+      input_placeholder_username: "請輸入帳號"
+      input_empty_username: "請輸入Email帳號"
+      input_placeholder_password: "密碼"
+      input_rememberme: "記住我"
+      link_forget: "忘記帳號或密碼"
+      button_login: "登入"
+      submit_alert: "請檢查您輸入的資料"
+    forget_password:
+      container_title: "忘記密碼?"
+      container_description: "請輸入您的Email"
+      input_placeholder_email: "請輸入您的Email"
+      input_empty_email: "請輸入您的Email"
+      button_submit: "寄送郵件"
+    forget_password_email_sent:
+      container_title: "郵件已傳送"
+      container_description: "請檢查您的郵件"
+    forget_password_email:
+      container_title: "Hi, "
+      container_description: "點擊以下連結重新設定您的密碼。"
+      bottom_description: "如果您沒有要求重新設定密碼，請忽視本郵件"
+      button_reset: "重新設定我的密碼"
+      footer: "Telework 團隊致上"
+    forget_password_reset:
+      container_title: "更改您的密碼"
+      container_description: "請輸入您的新密碼"
+      input_placeholder_password: "請輸入您的密碼"
+      input_empty_password: "請輸入您的密碼"
+      input_placeholder_password_confirmation: "請輸入您的密碼"
+      input_empty_password_confirmation: "請輸入您的密碼"
+      button_submit: "確認送出"
+    forget_password_expired:
+      container_title: "密碼已經更改過"
+      container_description: "這個連結已經失效"
+      button_goHome: "回首頁"
+    skill_category_main:
+      container_title: "認證完成，歡迎您 "
+      container_description: "請繼續完成您的遠距工作者帳戶設定"
+      container_choose_description: " 請先選擇您的專業類別"
+      choose_empty_alert: "請選擇一個專長類別"
+      button_next: "下一步 "
+    skill_category_sub:
+      container_title: "認證完成，歡迎您 "
+      container_description: "請繼續完成您的遠距工作者帳戶設定"
+      container_choose_description: " 請先選擇您的專業類別"
+      container_main: "您是哪一種 %{main_skill_category} 人員？（可複選）"
+      choose_empty_alert: "請選擇一個專業類別"
+      button_previous: " 上一步"
+      button_save: "確定儲存"
+    profile_edit:
+      container_title: "建立個人資料"
+      step1_title: " 自我介紹"
+      step2_title: " 經歷及技能"
+      step3_title: " 完成編輯"
+      submit_alert: "請檢查您輸入的資料"
+      submit_correct: "資料正確"
+      step1_segment1_title: "個人或小型工作室"
+      step1_segment1_option1: "我是專職的自由工作者"
+      step1_segment1_option2: "我是兼職的自由工作者"
+      step1_segment1_option3: "我們是小於5人的工作室"
+      step1_segment1_option4: "我們是大於5人的工作室"
+      step1_segment2_title: "介紹自己"
+      step1_segment2_picture_title: "新增圖像"
+      step1_segment2_picture_description: "新增圖像"
+      step1_segment2_brief_title: "個人簡介(僅限100字) "
+      step1_segment2_brief_exclamation: "<h4>簡潔有力的文字描述您工作，例如:</h4><ul><li>有十年經驗的行動裝置程式開發人員</li><li>有五年經驗的紐約州執業律師</li><li>曾獲得德國紅點設計大獎</li></ul>"
+      step1_segment2_brief_placeholder: "個人簡介"
+      step1_segment2_intro_title: "詳細介紹(僅限1000字) "
+      step1_segment2_intro_exclamation: "<h4>讓您完整的來介紹自己的工作經歷，有助於雇主更了解您的專長。</h4><p>藉此可以強調您的優勢和技能，或是參與過的專案，也能將您的教育背景呈現。言簡意賅，記得別讓您的簡介出錯。</p>"
+      step1_segment2_skill_title: "技能專長"
+      step1_segment2_skill_description: "技能專長"
+      step1_segment2_alert_limit: "目前只能擁有5項技能"
+      step2_segment1_title: "待遇需求"
+      step2_segment1_pay_title: "每小時工資(美金)"
+      step2_segment1_pay_placeholder: "每小時工資(美金)"
+      step2_segment1_pay_empty: "請輸入期望的工資"
+      step2_segment1_pay_end: "USD /HR"
+      step2_segment2_title: "所在位置"
+      step2_segment2_location_title: "所在地區"
+      step2_segment2_location_includeblank: "所在地區"
+      step2_segment2_zipcode_title: "郵遞區號"
+      step2_segment2_zipcode_placeholder: "郵遞區號"
+      step2_segment2_zipcode_empty: "請輸入郵遞區號"
+      step2_segment2_city_title: "城市"
+      step2_segment2_city_placeholder: "城市"
+      step2_segment2_city_empty: "請輸入城市"
+      step3_confirmation: "請確認您輸入的資訊"
+      step3_picture: "個人圖像"
+      step3_brief: "個人簡介"
+      step3_intro: "個人評介"
+      step3_skill: "技能專長"
+      button_previous: " 上一步"
+      button_next: "下一步 "
+      button_save: "確認送出"
+    profile_show:
+      container_title: "個人設定"
+      container_notice: "完整的個人資訊能增加您接案的機會，建議您優先處理以下項目"
+      container_notice_item1: "1. 教育程度"
+      container_notice_item2: "2. 工作經歷"
+      container_notice_item3: "3. 作品集"
+      tabA_title: "我的個人資料"
+      tabB_title: "變更密碼"
+      tabA_segment1_title: "帳戶概觀"
+      tabA_segment1_row1: "使用者名稱"
+      tabA_segment1_row2: "姓氏"
+      tabA_segment1_row2_placeholder: "姓氏"
+      tabA_segment1_row3: "名字"
+      tabA_segment1_row3_placeholder: "名字"
+      tabA_segment1_row4: "個人簡述"
+      tabA_segment1_row4_placeholder: "個人簡述"
+      tabA_segment1_row4_description: "(僅限100字)"
+      tabA_segment1_row5: "詳細介紹"
+      tabA_segment1_row5_placeholder: "個人詳細介紹"
+      tabA_segment1_row5_description: "(僅限100字)"
+      tabA_segment1_row6: "個人圖像"
+      tabA_segment1_row7: "電子郵件"
+      tabA_segment1_row7_placeholder: "電子郵件"
+      tabA_segment1_row8: "每小時工資"
+      tabA_segment1_row8_placeholder: "每小時工資"
+      tabA_segment1_row8_unit: "USD/HR"
+      tabA_segment2_title: "專業類別"
+      tabA_segment2_row1: "主類別"
+      tabA_segment2_row2: "子類別"
+      tabA_segment3_title: "技能"
+      tabA_segment3_description: "如果您欲新增更多的技能。您必須完成下列項目："
+      tabA_segment3_description_details: "1. 工作經歷　2. 教育程度　3. 作品集"
+      tabA_segment3_defaulttext: "技能標籤"
+      tabA_segment3_alert_limit: "目前只能擁有8項技能"
+      tabA_segment4_title: "工作經歷"
+      tabA_segment4_empty: "尚未新增工作經歷"
+      tabA_segment4_edit: "編輯工作經歷"
+      tabA_segment4_add: "新增工作經歷"
+      tabA_segment4_error: "上傳失敗"
+      tabA_segment4_row1: "起"
+      tabA_segment4_row1_placeholder: "起"
+      tabA_segment4_row1_empty: "請填寫工作開始時間"
+      tabA_segment4_row2: "訖"
+      tabA_segment4_row2_placeholder: "訖"
+      tabA_segment4_row2_error: "訖日在起日之前"
+      tabA_segment4_row3: "公司"
+      tabA_segment4_row3_placeholder: "公司"
+      tabA_segment4_row3_empty: "公司名稱 尚未填寫"
+      tabA_segment4_row4: "職位/職責"
+      tabA_segment4_row4_placeholder: "職位/職責"
+      tabA_segment4_row4_empty: 職位/職責 尚未填寫"
+      tabA_segment4_row5: "描述"
+      tabA_segment4_row5_placeholder: "說明"
+      tabA_segment4_row6: "刪除/編輯"
+      tabA_segment5_title: "教育程度"
+      tabA_segment5_empty: "尚未新增教育程度"
+      tabA_segment5_edit: "編輯教育程度"
+      tabA_segment5_add: "新增教育程度"
+      tabA_segment5_row1: "起"
+      tabA_segment5_row1_placeholder: "起"
+      tabA_segment5_row1_empty: "請填寫教育開始時間"
+      tabA_segment5_row2: "訖"
+      tabA_segment5_row2_placeholder: "訖"
+      tabA_segment5_row2_error: "訖日在起日之前"
+      tabA_segment5_row3: "學校"
+      tabA_segment5_row3_placeholder: "學校"
+      tabA_segment5_row3_empty: "請填寫學校"
+      tabA_segment5_row4: "系所/專長"
+      tabA_segment5_row4_placeholder: "系所/專長"
+      tabA_segment5_row4_empty: "請填寫系所/專長"
+      tabA_segment5_row5: "說明"
+      tabA_segment5_row5_placeholder: "說明"
+      tabA_segment5_row6: "刪除"
+      tabA_segment6_title: "作品集"
+      tabA_segment6_empty: "尚未新增作品集"
+      tabA_segment6_edit: "編輯作品集"
+      tabA_segment6_add: "新增作品集"
+      tabA_segment6_row1: "作品集名稱"
+      tabA_segment6_row1_placeholder: "作品名稱"
+      tabA_segment6_row1_empty: "請填寫作品名稱"
+      tabA_segment6_row2_placeholder: "作品描述"
+      tabA_segment6_row2_empty: "請填寫作品描述"
+      tabA_segment6_row3: "圖片縮圖"
+      tabA_segment6_row3_description1: "上傳檔案"
+      tabA_segment6_row3_description2: "上傳縮圖"
+      tabA_segment6_row4: "附加檔案名稱"
+      tabA_segment6_row4_error: "您上傳的檔案已超過 2MB 的限制"
+      tabA_segment6_row4_placeholder: "上傳檔案/文件"
+      tabA_segment6_row5_empty: "請填寫主類別"
+      tabA_segment6_row5_main: "主類別"
+      tabA_segment6_row5_empty: "請填寫子類別"
+      tabA_segment6_row6_sub: "子類別"
+      tabA_segment6_row7_placeholder: "完成時間"
+      tabA_segment6_row8_placeholder: "技能"
+      tabA_segment6_row9: "刪除"
+      tabA_segment6_bottom: "請確保您有此作品的著作權"
+      tabA_segment7_title: "相關證照"
+      tabA_segment7_edit: "編輯相關證照"
+      tabA_segment7_add:  "新增相關證照"
+      tabA_segment7_row1: "證照"
+      tabA_segment7_row1_placeholder: "證照名稱"
+      tabA_segment7_row1_empty: "證照名稱"
+      tabA_segment7_row2: "來源"
+      tabA_segment7_row2_placeholder: "證照發行機構"
+      tabA_segment7_row3: "獲得時間"
+      tabA_segment7_row3_placeholder: "獲得證照時間"
+      tabA_segment7_row4: "描述"
+      tabA_segment7_row4_placeholder: "說明"
+      button_goHome: "資料填寫完成回到首頁"
+      tabB_segment: "變更密碼"
+      tabB_segment_row1: "舊密碼"
+      tabB_segment_row1_description: "如果您想要變更您的密碼，請先輸入您的舊密碼"
+      tabB_segment_row1_empty: "當前密碼不能為空"
+      tabB_segment_row1_error: "密碼錯誤"
+      tabB_segment_row2: "新密碼"
+      tabB_segment_row2_description: "密碼長度必須大於等於8英數字元，包含大小寫英文符號，不包含特殊符號。"
+      tabB_segment_row2_empty: "密碼至少要有八個字元，不包含*/!~等特殊符號"
+      tabB_segment_row2_error: "密碼至少要有八個字元，不包含*/!~等特殊符號"
+      tabB_segment_row3: "再次輸入新密碼"
+      tabB_segment_row3_inconsistent: "密碼與先前輸入的不一致"
+    employer_personal_profile_edit:
+      container_title: "填寫資料"
+      step1_title: "自我介紹"
+      step2_title: "聯絡資訊"
+      step3_title: "完成編輯"
+      submit_alert: "請檢查您輸入的資料"
+      submit_correct: "資料正確"
+      step1_segment: "介紹自己"
+      step1_row1: "個人圖像"
+      step1_row1_choose: "選擇檔案"
+      step1_row1_description: "一張好的相片, 能更增進遠距工具者的信賴感。"
+      step1_row2: "雇主簡介(僅限20字)"
+      step1_row2_exclamation: "簡短的描述介紹自己，這個介紹會出現在您的公開資訊上。"
+      step1_row2_placeholder: "雇主簡介"
+      step1_row3: "詳細介紹(僅限1000字)"
+      step1_row3_exclamation: "完整詳細介紹關於您自己，幫助遠距工作者更了解您的需求。"
+      step1_row3_placeholder: "詳細介紹"
+      step1_row4: "個人網站"
+      step1_row4_placeholder: "選填，請輸入您的網址"
+      step2_segement: "所在地區"
+      step2_segement_row1: "所在地區"
+      step2_segement_row1_includeblank: "所在地區"
+      step2_segement_row2: "郵遞區號"
+      step2_segement_row2_placeholder: "郵遞區號"
+      step2_segement_row2_empty: "請輸入郵遞區號"
+      step2_segement_row3: "城市"
+      step2_segement_row3_placeholder: "城市"
+      step2_segement_row3_empty: "請輸入城市"
+      step2_segement_row4: "時區"
+      step3_confirmation: "請確認您輸入的資訊"
+      step3_segment1: "雇主帳戶型態"
+      step3_segment1_personal: "個人雇主"
+      step3_segment2: "介紹自己"
+      step3_segment3: "聯絡資訊"
+      button_save: "確認送出"
+    employer_personal_profile_show:
+      container_title: "個人設定"
+      tabA_title: "我的雇主資料"
+      tabB_title: "變更密碼"
+      tabA_segment: "帳戶概觀"
+      tabA_segment_row1: "個人圖像"
+      tabA_segment_row1_choose: "選擇檔案"
+      tabA_segment_row2: "使用者名稱"
+      tabA_segment_row2_placeholder: "User ID"
+      tabA_segment_row3: "姓氏"
+      tabA_segment_row3_placeholder: "姓氏"
+      tabA_segment_row4: "名字"
+      tabA_segment_row4_placeholder: "名字"
+      tabA_segment_row5: "電子郵件"
+      tabA_segment_row5_placeholder: "電子郵件"
+      tabA_segment_row6: "個人網站"
+      tabA_segment_row7: "雇主簡介"
+      tabA_segment_row7_comment: "(僅限20字)"
+      tabA_segment_row8: "詳細介紹"
+      tabA_segment_row8_comment: "(僅限1000字)"
+      button_gohome: "資料填寫完成回到首頁"
+      tabB_segment: "變更密碼"
+      tabB_segment_row1: "舊密碼"
+      tabB_segment_row1_description: "如果您想要變更您的密碼，請先輸入您的舊密碼"
+      tabB_segment_row1_empty: "當前密碼不能為空"
+      tabB_segment_row1_error: "密碼錯誤"
+      tabB_segment_row2: "新密碼"
+      tabB_segment_row2_description: "密碼長度必須大於等於8英數字元，包含大小寫英文符號，不包含特殊符號。"
+      tabB_segment_row2_empty: "密碼至少要有八個字元，不包含*/!~等特殊符號"
+      tabB_segment_row2_error: "密碼至少要有八個字元，不包含*/!~等特殊符號"
+      tabB_segment_row3: "再次輸入新密碼"
+      tabB_segment_row3_inconsistent: "密碼與先前輸入的不一致"
+    employer_company_profile_edit:
+      container_title: "填寫資料"
+      step1_title: "自我介紹"
+      step2_title: "聯絡資訊"
+      step3_title: "完成編輯"
+      submit_alert: "請檢查您輸入的資料"
+      submit_correct: "資料正確"
+      step1_segment: "介紹自己"
+      step1_row1: "企業圖像"
+      step1_row1_choose: "選擇檔案"
+      step1_row1_description: "建議您始使用公司Logo,增加企業識別形象。"
+      step1_row2: "企業名稱"
+      step1_row2_placeholder: "企業名稱"
+      step1_row3: "企業簡介(僅限20字)"
+      step1_row3_exclamation: "簡短的描述您的企業，這個介紹會出現在您的公開資訊上"
+      step1_row3_placeholder: "企業簡介"
+      step1_row4: "詳細介紹(僅限1000字)"
+      step1_row4_exclamation: "完整的介紹您的公司，或是相關業務內容，幫助遠距工作者能夠了解您的需求，讓您的工作更快找到對的人選。"
+      step1_row4_placeholder: "詳細介紹"
+      step1_row5: "企業網站"
+      step1_row5_placeholder: "選填，請輸入您的網址"
+      step2_segement: "所在地區"
+      step2_segement_row1: "所在地區"
+      step2_segement_row1_includeblank: "所在地區"
+      step2_segement_row2: "郵遞區號"
+      step2_segement_row2_placeholder: "郵遞區號"
+      step2_segement_row2_empty: "請輸入郵遞區號"
+      step2_segement_row3: "城市"
+      step2_segement_row3_placeholder: "城市"
+      step2_segement_row3_empty: "請輸入城市"
+      step2_segement_row4: "時區"
+      step2_segement_row5: "統一編號"
+      step2_segement_row5_placeholder: "選填，請輸入統一編號"
+      step3_confirmation: "請確認您輸入的資訊"
+      step3_segment1: "雇主帳戶型態"
+      step3_segment1_company: "企業雇主"
+      step3_segment2: "介紹自己"
+      step3_segment3: "聯絡資訊"
+      button_save: "確認送出"
+    employer_company_profile_show:
+      container_title: "個人設定"
+      tabA_title: "我的企業資料"
+      tabB_title: "變更密碼"
+      tabA_segment: "帳戶概觀"
+      tabA_segment_row1: "企業圖像"
+      tabA_segment_row1_choose: "選擇檔案"
+      tabA_segment_row2: "使用者名稱"
+      tabA_segment_row2_placeholder: "User ID"
+      tabA_segment_row3: "姓氏"
+      tabA_segment_row3_placeholder: "姓氏"
+      tabA_segment_row4: "名字"
+      tabA_segment_row4_placeholder: "名字"
+      tabA_segment_row5: "電子郵件"
+      tabA_segment_row5_placeholder: "電子郵件"
+      tabA_segment_row6: "企業名稱"
+      tabA_segment_row7: "統一編號"
+      tabA_segment_row8: "企業網站"
+      tabA_segment_row9: "雇主簡介"
+      tabA_segment_row9_comment: "(僅限20字)"
+      tabA_segment_row10: "詳細介紹"
+      tabA_segment_row10_comment: "(僅限1000字)"
+      button_gohome: "資料填寫完成回到首頁"
+      tabB_segment: "變更密碼"
+      tabB_segment_row1: "舊密碼"
+      tabB_segment_row1_description: "如果您想要變更您的密碼，請先輸入您的舊密碼"
+      tabB_segment_row1_empty: "當前密碼不能為空"
+      tabB_segment_row1_error: "密碼錯誤"
+      tabB_segment_row2: "新密碼"
+      tabB_segment_row2_description: "密碼長度必須大於等於8英數字元，包含大小寫英文符號，不包含特殊符號。"
+      tabB_segment_row2_empty: "密碼至少要有八個字元，不包含*/!~等特殊符號"
+      tabB_segment_row2_error: "密碼至少要有八個字元，不包含*/!~等特殊符號"
+      tabB_segment_row3: "再次輸入新密碼"
+      tabB_segment_row3_inconsistent: "密碼與先前輸入的不一致"

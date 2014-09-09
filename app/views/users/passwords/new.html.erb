@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="" name="description"/>
 <meta content="" name="author"/>
-<title>快樂工作</title>
+<title><%= I18n.t("page.title") %></title>
 
 <!-- BEGIN STYLE -->
 <!-- BEGIN 核心樣式 -->
@@ -57,11 +57,11 @@
         <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
             <ul class="nav navbar-nav">
                 <% if user_signed_in? %>
-                <li><%= link_to "個人設定", users_profile_path(current_user)  %></li>
-                <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
                 <% else %>
-                <li><%= link_to "會員登入", new_user_session_path %></li>
-                <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
                 <% end %>
             </ul>
         </div>
@@ -86,13 +86,13 @@
                 </div>
                 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
                 <div class="col-md-9 col-xs-8 content">
-                    <h1 class="title" style="text-align:left; margin-top:0px; padding:0;">忘記密碼?</h1>
-                    <h3>請輸入您的Email</h3>
+                    <h1 class="title" style="text-align:left; margin-top:0px; padding:0;"><%= I18n.t("page.forget_password.container_title") %></h1>
+                    <h3><%= I18n.t("page.forget_password.container_description") %></h3>
                     <!-- <input type="text" class="form-control" name="username" placeholder="請輸入您的Email" data-isEmpty="請輸入您的Email"> -->
-                    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "請輸入您的Email", "data-isEmpty" => "請輸入您的Email" %>
+                    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: I18n.t("page.forget_password.input_placeholder_email"), "data-isEmpty" => I18n.t("page.forget_password.input_empty_email") %>
 
                     <!-- <a href="/#" class="btn btn-success">寄送郵件</a> -->
-                    <%= f.submit "寄送郵件", class: "btn btn-success" %>
+                    <%= f.submit I18n.t("page.forget_password.button_submit"), class: "btn btn-success" %>
                 </div>
                 <% end %>
             </div>
@@ -105,13 +105,13 @@
     <div class="footer">
         <img class="footer-logo" src="/img/logo103.png" alt="">
         <div class="footer-nav">
-            <%= link_to "關於我們", index_about_path %>
+            <%= link_to I18n.t("page.footer.about"), index_about_path %>
             <span class="bar">|</span>
-            <%= link_to "隱私條款", index_rule_path %>
+            <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
             <span class="bar">|</span>
-            <%= link_to "使用條款", index_rule_path %>
+            <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
             <span class="bar">|</span>
-            <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
+            <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
         </div>
     </div>
     <!-- END FOOTER -->
@@ -131,6 +131,7 @@
         <!-- END 頁面插件 -->
         <script type="text/javascript" src="/js/script.js"></script>
         <!--<script type="text/javascript" src="/js/page/index.js"></script>-->
+        <script type="text/javascript" src="/js/google_analytics.js"></script>
         <script>
             jQuery(document).ready(function() {
              Web.init();

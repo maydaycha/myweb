@@ -18,17 +18,16 @@ class Users::ProfilesController < ApplicationController
   def edit
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
     response.headers["Pragma"] = "no-cache"
-    @user = User.find(params[:id])
   end
 
 
   def update
     UserSkill.where(user_id: current_user.id).delete_all
-    
-    foeign_skills = []
-    params[:user][:user_skills].split(",").each{ |e| foeign_skills << current_user.user_skills.create!(name: e) }
-    
-    params[:user][:user_skills] = foeign_skills
+
+    foreign_skills = []
+    params[:user][:user_skills].split(",").each{ |e| foreign_skills << current_user.user_skills.create!(name: e) }
+
+    params[:user][:user_skills] = foreign_skills
     params[:user][:picture] = open(params[:image].tempfile).read if params[:image]
     params[:user][:step] = 2
 
@@ -45,10 +44,13 @@ class Users::ProfilesController < ApplicationController
   end
 
 
+
+
+
   def ajax_updae
     case params[:request]
     when "update_basic_info"
-      current_user.update!(introduction: params[:introduction], review: params[:review], first_name: params[:first_name], last_name: params[:last_name], hourly_pay: params[:money])
+      current_user.update!(brief_introduction: params[:brief_introduction], introduction: params[:introduction], first_name: params[:first_name], last_name: params[:last_name], hourly_pay: params[:money])
       render json: current_user
 
     when "update_location"
@@ -104,11 +106,7 @@ class Users::ProfilesController < ApplicationController
 
     when "update_certification"
       @certificate = UserCertification.find(params[:id])
-      @certificate.name = params[:name]
-      @certificate.source = params[:source]
-      @certificate.get_time = params[:get_time]
-      @certificate.description = params[:description]
-      @certificate.save
+      @certificate.update!(name: params[:name], source: params[:source], get_time: params[:get_time], description: params[:description])
       render json: current_user.user_certifications
 
     when 'add_certification'
@@ -172,7 +170,7 @@ class Users::ProfilesController < ApplicationController
     if user_signed_in?
       user = User.find(params[:id])
       if user.picture == nil
-        render :text => open("public/img/staff.png", "rb").read
+        send_file "public/img/staff.png"
       else
         send_data user.picture, :type => 'image/png', :disposition => 'inline'
       end
@@ -192,6 +190,11 @@ class Users::ProfilesController < ApplicationController
     else
       send_data @user.user_portfolios[params[:index].to_i].picture1, :type => 'image/png', :disposition => 'inline'
     end
+  end
+
+
+  def download_portfolio_document
+    send_data current_user.user_portfolios[params[:index].to_i].document_content, filename: current_user.user_portfolios[params[:index].to_i].document_name + ".pdf"
   end
 
 

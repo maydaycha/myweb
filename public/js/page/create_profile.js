@@ -109,6 +109,9 @@ var CreateProfile = function(){
             errorClass: 'help-block', // default input error message class
             focusInvalid: false, // do not focus the last invalid input
             rules: {
+                'user[worker_type]': {
+                    required: true
+                },
                 'user[hourly_pay]': {
                     required: true
                 },
@@ -118,22 +121,29 @@ var CreateProfile = function(){
                 'user[city]': {
                     required: true
                 },
-                'user[introduction]': {
-                    maxlength: 200
+                'user[brief_introduction]': {
+                    maxlength: 20
                 },
-                'user[review]': {
+                'user[introduction]': {
                     maxlength: 1000
+                },
+                'user[website]': {
+                    complete_url: true
+                },
+                'user[vat_number]': {
+                    digits: true,
+                    maxlength: 8
                 }
             },
 
             errorPlacement: function (error, element) { // render error placement for each input type
             	var text;
             	if(error.text()=='This field is required.'){
-            		text = form.find('input[id='+error.attr('for')+']').attr('data-isempty');
+            		text = form.find('input[id="'+error.attr('for')+'"]').attr('data-isempty');
             		error.text(text);
             	}
             	else if(error.text()!=''){
-            		text = form.find('input[id='+error.attr('for')+']').attr('data-isError');
+            		text = form.find('input[id="'+error.attr('for')+'"]').attr('data-isError');
             		error.text(text);
             	}
                 var icon = $(element).parent('.input-icon').children('i');
@@ -186,12 +196,12 @@ var CreateProfile = function(){
             },
             async: false
         });
-        if (result == false) 
+        if (result == false)
             $(this).removeTag(value);
 
         var skills_arr = $(this).val().split(',');
         if (skills_arr.length > 5) {
-            alert('目前只能擁有5項技能');
+            alert($('#skill-tags').attr('alert-limit'));
             $(this).removeTag(value);
         }
     }

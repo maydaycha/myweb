@@ -1,6 +1,5 @@
 #encoding: UTF-8
 {  "zh-TW" => {
-
  :countries => {
     "AD" => "安道爾",
     "AE" => "阿拉伯聯合大公國",

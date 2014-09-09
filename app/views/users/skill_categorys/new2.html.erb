@@ -8,7 +8,7 @@
     <meta content="" name="author"/>
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="expires" content="0">
-    <title>快樂工作</title>
+    <title><%= I18n.t("page.title") %></title>
 
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
@@ -60,10 +60,11 @@
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
-                    <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                    <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                    <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
                     <% else %>
-                    <li><%= link_to "會員登入", new_user_session_path %></li>
-                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                    <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                    <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
                     <% end %>
                 </ul>
             </div>
@@ -72,24 +73,24 @@
         <!-- BEGIN PAGE -->
         <div class="page-content">
             <!-- BEGIN TITLE -->
-            <h1 class="title">認證完成，歡迎您 <span class="white-space-nowrap"><span class="point"><%= current_user.first_name + current_user.last_name %></span>！</span></h1>
-            <p class="subtitle">請繼續完成您的遠距工作者帳戶設定</p>
+            <h1 class="title"><%= I18n.t("page.skill_category_sub.container_title") %><span class="white-space-nowrap"><span class="point"><%= current_user.first_name %>, <%= current_user.last_name %></span>！</span></h1>
+            <p class="subtitle"><%= I18n.t("page.skill_category_sub.container_description") %></p>
             <!-- END TITLE -->
             <!-- BEGIN MAIN CONTENT -->
             <div class="main-content">
-                <h2 class="title"><i class="fa fa-chevron-circle-right"></i> 請先選擇您的專業類別</h2>
+                <h2 class="title"><i class="fa fa-chevron-circle-right"></i><%= I18n.t("page.skill_category_sub.container_choose_description") %></h2>
                 <!-- BEGIN CLASS -->
-                <!-- <%= t("sub_skill_category") %> -->
                 <div class="class">
                     <div class="row">
-                        <%= form_for :user_skill_category, url: users_skill_categorys_path, html: {class: "class-form", data: {isempty: "請選擇一個專長類別"}} do |f| %>
+                        <%= form_for :user_skill_category, url: users_skill_categorys_path, html: {class: "class-form", data: {isempty: I18n.t("page.skill_category.choose_empty_alert")}} do |f| %>
                         <input type="hidden" value="<%= user_skill_category_id %>" name="user_skill_category_id">
                         <div class="col-md-3 col-xs-4 image">
-                            <img src="/img/class/class_<%= @category_index+1 %>.jpg" alt="IT、軟體">
+                            <img src="/img/class/class_<%= @category_index+1 %>.jpg" alt="<%= t("main_skill_category")[@category_index]['name'] %>">
                             <p><%= t("main_skill_category")[@category_index]['name'] %></p>
                         </div>
                         <div class="col-md-9 col-xs-8 content">
-                            <p class="title">您是哪一種 <span class="point"><%= t("main_skill_category")[@category_index]['name'] %></span> 人員？（可複選）</p>
+                            <p class="title"><%= raw I18n.t("page.skill_category_sub.container_main", main_skill_category: '<span class="point">' + t("main_skill_category")[@category_index]['name'] + '</span>') %>
+                            </p>
                             <% t("sub_skill_category")[@category_index].each_with_index do |cate, index| %>
                             <div class="item">
                                 <% if current_user.user_skill_categories.size > 0 %>
@@ -118,8 +119,8 @@
                             <% end %>
                         </div>
                         <div class="btns">
-                            <a href="/users/skill_categorys/new" class="btn btn-default btn-lg left"><i class="fa fa-long-arrow-left"></i> 上一步</a>
-                            <button type="submit" class="btn btn-primary btn-lg right">確定儲存</i></button>
+                            <a href="/users/skill_categorys/new" class="btn btn-default btn-lg left"><i class="fa fa-long-arrow-left"></i><%= I18n.t("page.skill_category_sub.button_previous") %></a>
+                            <button type="submit" class="btn btn-primary btn-lg right"><%= I18n.t("page.skill_category_sub.button_save") %></i></button>
                         </div>
                         <!-- </form> -->
                         <% end %>
@@ -134,13 +135,13 @@
         <div class="footer">
             <img class="footer-logo" src="/img/logo103.png" alt="">
             <div class="footer-nav">
-                <%= link_to "關於我們", index_about_path %>
+                <%= link_to I18n.t("page.footer.about"), index_about_path %>
                 <span class="bar">|</span>
-                <%= link_to "隱私條款", index_rule_path %>
+                <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
                 <span class="bar">|</span>
-                <%= link_to "使用條款", index_rule_path %>
+                <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
                 <span class="bar">|</span>
-                <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
+                <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
             </ul>
         </div>
         <!-- END FOOTER -->
@@ -161,6 +162,7 @@
             <!-- END 頁面插件 -->
             <script type="text/javascript" src="/js/script.js"></script>
             <script type="text/javascript" src="/js/page/edit_category.js"></script>
+            <script type="text/javascript" src="/js/google_analytics.js"></script>
             <script>
                 jQuery(document).ready(function() {
                      Web.init();

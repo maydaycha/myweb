@@ -1,9 +1,78 @@
 var PersonalProfile = function(){
 	var formValidation = function() {
-        var form = $('#password-form');
+        var form = $('#contact-form2');
+        var password_form = $('#password-form');
         var error = $('.alert-danger', form);
 
         form.validate({
+            errorElement: 'span', //default input error message container
+            errorClass: 'help-block', // default input error message class
+            focusInvalid: false, // do not focus the last invalid input
+            ignore: "",
+            rules: {
+                "brief_introduction": {
+                    maxlength: 100
+                },
+                "introduction": {
+                    maxlength: 1000
+                },
+                "website": {
+                	complete_url: true
+                }
+            },
+
+            invalidHandler: function (event, validator) { //display error alert on form submit
+                error.show();
+                Web.scrollTo(error, 200);
+            },
+
+            errorPlacement: function (error, element) { // render error placement for each input type
+            	var text;
+            	if(error.text()=='This field is required.'){
+            		text = form.find('input[id='+error.attr('for')+']').attr('data-isempty');
+            		error.text(text);
+            	}
+            	else if(error.text()=='This field has already existed'){
+            		text = form.find('input[id='+error.attr('for')+']').attr('data-isExists');
+            		error.text(text);
+            	}
+                else if(error.text()=='This field has isInconsistent data'){
+                    text = form.find('input[id='+error.attr('for')+']').attr('data-isInconsistent');
+                    error.text(text);
+                }else if(error.text()!=''){
+            		text = form.find('input[id='+error.attr('for')+']').attr('data-isError');
+            		error.text(text);
+            	}
+                var icon = $(element).parent('.input-icon').children('i');
+                $(element).closest('i')
+                icon.removeClass('fa-check').addClass("fa-warning");
+                icon.attr("data-original-title", error.text()).tooltip({'container': 'body'});
+            },
+
+            highlight: function (element) { // hightlight error inputs
+                $(element).closest('.form-group').addClass('has-error'); // set error class to the control group
+            },
+
+            unhighlight: function (element) { // revert the change done by hightlight
+                $(element).closest('.form-group').removeClass('has-error'); // set error class to the control group
+                console.log("no error")
+            },
+
+            success: function (label, element) {
+                var icon = $(element).parent('.input-icon').children('i');
+                $(element).closest('.form-group').removeClass('has-error').addClass('has-success'); // set success class to the control group
+                icon.removeClass("fa-warning").addClass("fa-check");
+            },
+
+            // submitHandler: function (form) {
+            //     error.hide();
+            //     form.off('submit');
+            //     form.submit();
+            // }
+        });
+
+
+		password_form.validate({
             errorElement: 'span', //default input error message container
             errorClass: 'help-block', // default input error message class
             focusInvalid: false, // do not focus the last invalid input
@@ -68,12 +137,6 @@ var PersonalProfile = function(){
                 $(element).closest('.form-group').removeClass('has-error').addClass('has-success'); // set success class to the control group
                 icon.removeClass("fa-warning").addClass("fa-check");
             },
-
-            // submitHandler: function (form) {
-            //     error.hide();
-            //     form.off('submit');
-            //     form.submit();
-            // }
         });
     }
 
@@ -112,7 +175,7 @@ var PersonalProfile = function(){
 
 	    var skills_arr = $(this).val().split(',');
 	    if (skills_arr.length > 8) {
-	    	alert('目前只能擁有8項技能');
+	    	alert($('#skill-tags').attr('alert-limit'));
 	    	$(this).removeTag(value);
 	    }
 	}
@@ -120,7 +183,7 @@ var PersonalProfile = function(){
 	var initSkillTags = function(){
 		$('#skill-tags').tagsInput({
 			width: 'auto',
-			defaultText: "技能標籤",
+			defaultText: $('#skill-tags').attr('defaultText'),
 			maxCount: 3,
 			placeholderColor: '#999',
 			autocomplete_url:'/skills/autocomplete',
@@ -128,7 +191,7 @@ var PersonalProfile = function(){
 		});
 		$('#addWorks-skill-tags').tagsInput({
 			width: 'auto',
-			defaultText: "技能標籤",
+			defaultText: $('#skill-tags').attr('defaultText'),
 			maxCount: 3,
 			placeholderColor: "#999",
 			autocomplete_url:'/skills/autocomplete',
@@ -163,16 +226,16 @@ var PersonalProfile = function(){
 		$('#btn-addExperience').on('click',function(){
 			var tr = $($('.rowExperience-simple').html());
 			if( $('#experience-modal input[name=start]').val() == "") {
-				alert('請填寫工作開始時間')
+				alert($('#experience-modal input[name=start]').attr('data-isEmpty'))
 				return
 			} else if( $('#experience-modal input[name=end]').val() != "" && $('#experience-modal input[name=start]').val() > $('#experience-modal input[name=end]').val()) {
-				alert('訖日在起日之前');
+				alert($('#experience-modal input[name=end]').attr('data-isError'));
 				return;
 			} else if( $('#experience-modal input[name=organization]').val() == "" ) {
-				alert('公司名稱 尚未填寫');
+				alert($('#experience-modal input[name=organization]').attr('data-isEmpty'));
 				return;
 			} else if( $('#experience-modal input[name=office]').val() == "" ) {
-				alert('職位/職責 尚未填寫');
+				alert($('#experience-modal input[name=office]').attr('data-isEmpty'));
 				return;
 			}
 			tr.find('.start').text($('#experience-modal input[name=start]').val());
@@ -232,16 +295,16 @@ var editExperience = function(tr){
 		// console.log(modal.find('input[name=start]').val());
 		// console.log(modal.find('input[name=end]').val());
 		if( modal.find('input[name=start]').val() == "") {
-			alert('請填寫工作開始時間')
+			alert(modal.find('input[name=start]').attr('data-isEmpty'))
 			return;
 		}else if( modal.find('input[name=end]').val() != "" && modal.find('input[name=start]').val() > modal.find('input[name=end]').val()) {
-			alert('訖日在起日之前');
+			alert(modal.find('input[name=end]').attr('data-isError'));
 			return;
 		}else if( modal.find('input[name=organization]').val() == "" ) {
-			alert('公司名稱 尚未填寫');
+			alert(modal.find('input[name=organization]').attr('data-isEmpty'));
 			return;
 		} else if( modal.find('input[name=office]').val() == "" ) {
-			alert('職位/職責 尚未填寫');
+			alert(modal.find('input[name=office]').attr('data-isEmpty'));
 			return;
 		}
 
@@ -294,16 +357,16 @@ var rowEducation_idx = 0;
 var initAddEducation = function(){
 	$('#btn-addEducation').on('click',function(){
 		if($('#education-modal input[name=start]').val() == "") {
-			alert('請填寫教育開始時間');
+			alert($('#education-modal input[name=start]').attr('data-isEmpty'));
 			return;
 		} else if( $('#education-modal input[name=end]').val() != "" && $('#education-modal input[name=start]').val() > $('#education-modal input[name=end]').val()) {
-			alert('訖日在起日之前');
+			alert($('#education-modal input[name=end]').attr('data-isError'));
 			return;
 		} else if($('#education-modal input[name=organization]').val() == "") {
-			alert('請填寫學校');
+			alert($('#education-modal input[name=organization]').attr('data-isEmpty'));
 			return;
 		} else if($('#education-modal input[name=office]').val() == "") {
-			alert('請填寫系所/專長');
+			alert($('#education-modal input[name=office]').attr('data-isEmpty'));
 			return;
 		}
 		var tr = $($('.rowEducation-simple').html());
@@ -364,16 +427,16 @@ var editEducation = function(tr){
 	modal.find('textarea[name=description]').val(tr.find('.description').text());
 	modal.find('.btn-editEducation').on('click',function(){
 		if(modal.find('input[name=start]').val() == "") {
-			alert('請填寫教育開始時間');
+			alert(modal.find('input[name=start]').attr('data-isEmpty'));
 			return;
 		} else if( modal.find('input[name=end]').val() != "" && modal.find('input[name=start]').val() > modal.find('input[name=end]').val()) {
-			alert('訖日在起日之前');
+			alert(modal.find('input[name=end]').attr('data-isError'));
 			return;
 		} else if(modal.find('input[name=organization]').val() == "") {
-			alert('請填寫學校');
+			alert(modal.find('input[name=organization]').attr('data-isEmpty'));
 			return;
 		} else if( modal.find('input[name=office]').val() == "") {
-			alert('請填寫系所/專長');
+			alert(modal.find('input[name=office]').attr('data-isEmpty'));
 			return;
 		}
 
@@ -430,8 +493,10 @@ var initAddCertificate = function(){
 	});
 
 	$('#btn-addCertificate').on('click', function(){
+		console.log($('#certificate-modal input[name=certificate]').val());
+		console.log($('#certificate-modal input[name=certificate]').attr('data-isEmpty'));
 		if($('#certificate-modal input[name=certificate]').val() == "") {
-			alert('請填寫證照名稱');
+			alert($('#certificate-modal input[name=certificate]').attr('data-isEmpty'));
 			return;
 		}
 		var tr = $($('.rowCertificate-simple').html());
@@ -486,7 +551,7 @@ var editCertificate = function(tr){
 	modal.find('textarea[name=description]').val(tr.find('.description').text());
 	modal.find('.btn-editCertificate').on('click',function(){
 		if(modal.find('input[name=certificate]').val() == "") {
-			alert('請填寫證照名稱');
+			alert(modal.find('input[name=certificate]').attr('data-isEmpty'));
 			return;
 		}
 
@@ -533,18 +598,17 @@ var initWorksTable = function(){
 
 var initAddWorks = function() {
 	$("#btn-addWorks").on('click', function() {
-		//console.log($('#works-modal input[name=subClass]').val());
 		if($('#works-modal input[name=title]').val() == "") {
-			alert('請填寫作品名稱');
+			alert($('#works-modal input[name=title]').attr('data-isEmpty'));
 			return;
-		} else if($('#works-modal input[name=description]').val() == "") {
-			alert('請填寫作品描述');
+		} else if($('#works-modal textarea[name=description]').val() == "") {
+			alert($('#works-modal textarea[name=description]').attr('data-isEmpty'));
 			return;
 		} else if($('#works-modal select[name=mainClass]').val() == -1) {
-			alert('請填寫主類別');
+			alert($('#works-modal select[name=mainClass]').attr('data-isEmpty'));
 			return;
 		}  else if($('#works-modal select[name=subClass]').val() == -1) {
-			alert('請填寫子類別');
+			alert($('#works-modal select[name=subClass]').attr('data-isEmpty') );
 			return;
 		}
 		var fd = new FormData();

@@ -6,7 +6,7 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
         <meta content="" name="description"/>
         <meta content="" name="author"/>
-        <title>快樂工作</title>
+        <title><%= I18n.t("page.title") %></title>
 
         <!-- BEGIN STYLE -->
         <!-- BEGIN 核心樣式 -->
@@ -60,11 +60,11 @@
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
-                    <li><%= link_to "個人設定", users_profile_path(current_user)  %></li>
-                    <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                    <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                    <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
                     <% else %>
-                    <li><%= link_to "會員登入", new_user_session_path %></li>
-                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                    <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                    <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
                     <% end %>
                 </ul>
             </div>
@@ -74,22 +74,22 @@
         <div class="page-content">
             <!-- BEGIN MAIN CONTENT -->
             <div class="main-content">
-                <h2 class="title"><i class="fa fa-chevron-circle-right"></i> 請先選擇您想註冊的身分</h2>
+                <h2 class="title"><i class="fa fa-chevron-circle-right"></i> <%= I18n.t("page.sign_up.container_title") %></h2>
                 <div class="row">
                     <div class="col-sm-6 col-xs-12 status">
                         <a href="/users/sign_up">
                             <img class="default" src="/img/staff.png" alt="">
-                            <span class="btn btn-info btn-lg default">我是遠距工作者我想要接案</span>
+                            <span class="btn btn-info btn-lg default"><%= I18n.t("page.sign_up.button_freelancer") %></span>
                             <img class="hover" src="/img/go.png" alt="">
-                            <span class="btn btn-success btn-lg hover">立即註冊</span>
+                            <span class="btn btn-success btn-lg hover"><%= I18n.t("page.sign_up.button_signup") %></span>
                         </a>
                     </div>
                     <div class="col-sm-6 col-xs-12 status">
-                        <a>
+                        <a href="/users/employer_new">
                             <img class="default" src="/img/employer.png" alt="">
-                            <span class="btn btn-info btn-lg default">我是雇主我想找遠距工作者</span>
-                            <img class="hover" src="/img/comingSoon.png" alt="">
-                            <span class="btn btn-danger btn-lg hover">即將開放</span>
+                            <span class="btn btn-info btn-lg default"><%= I18n.t("page.sign_up.button_employer") %></span>
+                            <img class="hover" src="/img/go.png" alt="">
+                            <span class="btn btn-success btn-lg hover"><%= I18n.t("page.sign_up.button_signup") %></span>
                         </a>
                     </div>
                 </div>
@@ -101,14 +101,14 @@
         <div class="footer">
             <img class="footer-logo" src="/img/logo103.png" alt="">
             <div class="footer-nav">
-                <%= link_to "關於我們", index_about_path %>
+                <%= link_to I18n.t("page.footer.about"), index_about_path %>
                 <span class="bar">|</span>
-                <%= link_to "隱私條款", index_rule_path %>
+                <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
                 <span class="bar">|</span>
-                <%= link_to "使用條款", index_rule_path %>
+                <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
                 <span class="bar">|</span>
-                <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
-            </ul>
+                <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
+            </div>
         </div>
         <!-- END FOOTER -->
 
@@ -127,6 +127,7 @@
         <!-- END 頁面插件 -->
         <script type="text/javascript" src="/js/script.js"></script>
         <!--<script type="text/javascript" src="/js/page/index.js"></script>-->
+        <script type="text/javascript" src="/js/google_analytics.js"></script>
         <script>
             jQuery(document).ready(function() {
                Web.init();

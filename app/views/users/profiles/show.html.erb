@@ -8,9 +8,8 @@
     <meta content="" name="author"/>
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="expires" content="0">
-    <title>快樂工作</title>
+    <title><%= I18n.t("page.title") %></title>
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script> -->
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
     <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
@@ -37,7 +36,7 @@
         <link rel="stylesheet" type="text/css" href="/css/alert.css">
         <link rel="stylesheet" type="text/css" href="/css/page/personal_profile.css">
         <link rel="stylesheet" type="text/css" href="/css/progress_bar.css">
-        <link rel="shortcut icon" href="favicon.ico"/>
+        <link rel="shortcut icon" href="/favicon.ico"/>
         <!-- END STYLE -->
         <!-- JQuery Datepicker style -->
         <style type="text/css">
@@ -78,10 +77,11 @@
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
-                    <li><%= link_to "會員登出", destroy_user_session_path, method: :delete %></li>
+                    <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                    <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
                     <% else %>
-                    <li><%= link_to "會員登入", new_user_session_path %></li>
-                    <li><%= link_to "免費註冊", index_sign_up_path %></li>
+                    <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                    <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
                     <% end %>
                 </ul>
             </div>
@@ -92,15 +92,15 @@
 
 
         <div class="page-content">
-            <h1 class="title">個人設定</h1>
+            <h1 class="title"><%= I18n.t("page.profile_show.container_title") %></h1>
             <div class="container alert-warning alert-bordered" id="content_alert" >
                 <div class="row">
                     <div class="col-md-11 col-sm-11" style="padding-top:25px;">
-                        <p class="subtitle">完整的個人資訊能增加您接案的機會，建議您優先處理以下項目</p>
+                        <p class="subtitle"><%= I18n.t("page.profile_show.container_notice") %></p>
                         <ul class="subtitle">
-                            <li class="point">1. 教育程度</li>
-                            <li class="point">2. 工作經歷</li>
-                            <li class="point">3. 作品集</li>
+                            <li class="point"><%= I18n.t("page.profile_show.container_notice_item1") %></li>
+                            <li class="point"><%= I18n.t("page.profile_show.container_notice_item2") %></li>
+                            <li class="point"><%= I18n.t("page.profile_show.container_notice_item3") %></li>
                         </ul>
                     </div>
                     <div class="col-md-1 col-sm-1" style=" text-align:right; padding-top:35px; padding-left:5px;">
@@ -110,6 +110,7 @@
                 </div>
             </div>
             <div class="container alert-bordered" >
+                <div id="warning_on_load" style="display: none;"><%= I18n.t("basic.alert.warning_on_load") %></div>
                 <div class="row">
                     <p></p>
                 <% if notice %>
@@ -127,8 +128,8 @@
                 <!-- BEGIN TABS -->
                 <ul class="nav nav-tabs nav-justified">
                     <!-- <li class="active"><a href="#contact" data-toggle="tab">我的連絡資訊</a></li> -->
-                    <li class="active"><a href="#profile" data-toggle="tab" onclick="hide_message()">我的個人資料</a></li>
-                    <li><a href="#password" data-toggle="tab" onclick="hide_message()">變更密碼</a></li>
+                    <li class="active"><a href="#profile" data-toggle="tab" onclick="hide_message()"><%= I18n.t("page.profile_show.tabA_title") %></a></li>
+                    <li><a href="#password" data-toggle="tab" onclick="hide_message()"><%= I18n.t("page.profile_show.tabB_title") %></a></li>
                 </ul>
                 <!-- END TABS -->
 
@@ -205,7 +206,7 @@
                                 </div>
                             </div>
                             <div class="portlet-body">
-                                <form action="#" id="contact-form2" class="form-horizontal" role="form">
+                                <form action="#" id="contact-form1" class="form-horizontal" role="form">
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">時區</label>
                                         <div class="col-md-10">
@@ -505,13 +506,13 @@
                         <div class="portlet box light-grey show-view" id="profile-portlet1">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    帳戶概觀
+                                    <%= I18n.t("page.profile_show.tabA_segment1_title") %>
                                 </div>
                                 <div class="tools">
-                                    <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet1" onclick="javascript: expand_count++;">
-                                        <i class="fa fa-pencil-square-o"></i>編輯
+                                    <a href="javascript:;" class="tool-edit view" data-original-title="<%= I18n.t("basic.button.edit") %>" data-portlet="#profile-portlet1" onclick="javascript: expand_count++;">
+                                        <i class="fa fa-pencil-square-o"></i><%= I18n.t("basic.button.collapse") %>
                                     </a>
-                                    <a href="javascript:;" onclick="update_basic_info(2)" class="edit" data-original-title="收合" data-portlet="#profile-portlet1">
+                                    <a href="javascript:;" onclick="update_basic_info(2)" class="edit" data-original-title="<%= I18n.t("basic.button.collapse") %>" data-portlet="#profile-portlet1">
                                     <i class="fa fa-chevron-up"></i>
                                 </a>
                                     <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet1"> -->
@@ -522,7 +523,7 @@
                             <div class="portlet-body">
                                 <form action="javascript: return false;" id="contact-form2" class="form-horizontal" role="form">
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">使用者名稱</label>
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabA_segment1_row1") %></label>
                                         <div class="col-md-10">
                                             <p class="form-control-static view" id="username"><%= current_user.username %> </p>
                                             <input type="text" class="form-control edit" placeholder="姓名" value="<%= current_user.username %>" disabled>
@@ -530,61 +531,61 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">姓氏</label>
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabA_segment1_row2") %></label>
                                         <div class="col-md-10">
                                             <p class="form-control-static view" id="first_name"><%= current_user.first_name %></p>
-                                            <input type="text" name="first_name" class="form-control edit" placeholder="姓氏" value="<%= current_user.first_name %>" onkeydown="return constrain_Eng_and_num(event)">
+                                            <input type="text" name="first_name" class="form-control edit" placeholder="<%= I18n.t("page.profile_show.tabA_segment1_row2_placeholder") %>" value="<%= current_user.first_name %>" onkeydown="return constrain_Eng_and_num(event)">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">名字</label>
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabA_segment1_row3") %></label>
                                         <div class="col-md-10">
                                             <p class="form-control-static view" id="last_name"><%= current_user.last_name %></p>
-                                            <input type="text" name="last_name" class="form-control edit" placeholder="名字" value="<%= current_user.last_name %>" onkeydown="return constrain_Eng_and_num(event)">
+                                            <input type="text" name="last_name" class="form-control edit" placeholder="<%= I18n.t("page.profile_show.tabA_segment1_row3_placeholder") %>" value="<%= current_user.last_name %>" onkeydown="return constrain_Eng_and_num(event)">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">個人簡述</label>
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabA_segment1_row4") %><br><%= I18n.t("page.profile_show.tabA_segment1_row4_description") %></label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view" id="brief_introduction"><%= current_user.brief_introduction %></p>
+                                            <input type="text" name="brief_introduction" class="form-control edit" placeholder="<%= I18n.t("page.profile_show.tabA_segment1_row4_placeholder") %>" value="<%= current_user.brief_introduction %>" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabA_segment1_row5") %></label>
                                         <div class="col-md-10">
                                             <p class="form-control-static view" id="introduction"><%= current_user.introduction %></p>
-                                            <input type="text" name="introduction" class="form-control edit" placeholder="個人簡述" value="<%= current_user.introduction %>" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">詳細介紹<br>(僅限1000字)</label>
-                                        <div class="col-md-10">
-                                            <p class="form-control-static view" id="review"><%= current_user.review %></p>
-                                            <textarea name="review" class="form-control edit" rows="3" placeholder="個人詳細介紹"><%= current_user.review %></textarea>
+                                            <textarea name="introduction" class="form-control edit" rows="3" placeholder="<%= I18n.t("page.profile_show.tabA_segment1_row5_placeholder") %>"><%= current_user.introduction %></textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">個人圖像</label>
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabA_segment1_row6") %></label>
                                         <div class="col-md-10 divcss5">
                                             <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id), id: "blah1" %>
                                             <input type="file" name="image" class="form-control edit" id="profile_img2" onchange="readURL(this)">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">電子郵件</label>
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabA_segment1_row7") %></label>
                                         <div class="col-md-10">
                                             <p class="form-control-static view" id="email2"><%= current_user.email %></p>
-                                            <input type="text" class="form-control edit" placeholder="電子郵件" value="<%= current_user.email %>" disabled>
+                                            <input type="text" class="form-control edit" placeholder="<%= I18n.t("page.profile_show.tabA_segment1_row7_placeholder") %>" value="<%= current_user.email %>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">每小時工資</label>
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabA_segment1_row8") %></label>
                                         <div class="col-md-10">
-                                            <p class="form-control-static view"  id="money2">$<%= current_user.hourly_pay.to_f.round(0) %> USD/HR</p>
+                                            <p class="form-control-static view"  id="money2">$<%= current_user.hourly_pay.to_f.round(0) %> <%= I18n.t("page.profile_show.tabA_segment1_row8_unit") %></p>
                                             <div class="input-group edit">
-                                                <input type="text" name="money" class="form-control text-left" placeholder="每小時工資" value="<%= current_user.hourly_pay.to_f.round(0) %>">
+                                                <input type="text" name="money" class="form-control text-left" placeholder="<%= I18n.t("page.profile_show.tabA_segment1_row8_placeholder") %>" value="<%= current_user.hourly_pay.to_f.round(0) %>">
                                                 <span class="input-group-addon">
-                                                 USD/HR
+                                                 <%= I18n.t("page.profile_show.tabA_segment1_row8_unit") %>
                                              </span>
                                          </div>
                                      </div>
                                      <div class="pull-right" style="margin:20px 16px 0 0;">
-                                        <button onclick="update_basic_info(2)" class="btn btn-default edit prevent" data-original-title="收合" data-portlet="#profile-portlet1" >收合</button>
+                                        <button onclick="update_basic_info(2)" class="btn btn-default edit prevent" data-original-title="<%= I18n.t("basic.button.collapse")%>" data-portlet="#profile-portlet1" ><%= I18n.t("basic.button.collapse")%></button>
                                     </div>
                                 </div>
                             </form>
@@ -593,25 +594,16 @@
                     <div class="portlet box light-grey show-view" id="profile-portlet2">
                         <div class="portlet-title">
                             <div class="caption">
-                                專業類別
+                                <%= I18n.t("page.profile_show.tabA_segment2_title") %>
                             </div>
-                            <!-- <div class="tools">
-                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet2">
-                                    <i class="fa fa-pencil-square-o"></i>編輯
-                                </a>
-                                <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#education-modal">
-                                    <i class="fa fa-floppy-o"></i>
-                                </a>
-                            </div> -->
-
                             <div class="tools">
-                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet2" onclick="javascript: expand_count++;">
-                                    <i class="fa fa-pencil-square-o"></i> 編輯
+                                <a href="javascript:;" class="tool-edit view" data-original-title="<%= I18n.t("basic.button.edit") %>" data-portlet="#profile-portlet2" onclick="javascript: expand_count++;">
+                                    <i class="fa fa-pencil-square-o"></i> <%= I18n.t("basic.button.edit") %>
                                 </a>
-                                <a onclick="addCategoryList()" class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#category-modal">
+                                <a onclick="addCategoryList()" class="tool-add edit" data-original-title="<%= I18n.t("basic.button.add") %>" data-toggle="modal" href="#category-modal">
                                     <i class="fa fa-plus"></i>
                                 </a>
-                                <a href="javascript:;" onclick="update_category()" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet2">
+                                <a href="javascript:;" onclick="update_category()" class="tool-save edit" data-original-title="<%= I18n.t("basic.button.collapse") %>" data-portlet="#profile-portlet2">
                                     <i class="fa fa-chevron-up"></i>
                                 </a>
                             </div>
@@ -624,7 +616,7 @@
                                     <% @skill_main_categoies.each do |s| %>
                                     <span class="category_delete_container">
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">主類別</label>
+                                            <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabA_segment2_row1") %></label>
                                             <div class="col-md-9">
                                                 <p class="form-control-static view main_category"><%= t(:main_skill_category)[s.main_skill_id]['name'] %></p>
 
@@ -643,14 +635,14 @@
                                             <% if @skill_category_first %>
                                             <div class="col-md-1">
                                                 <div class="edit">
-                                                    <button type="button" class="btn btn-danger btn-xs btn-delete"onclick="$(this).parent().parent().parent().parent().remove();">刪除</button>
+                                                    <button type="button" class="btn btn-danger btn-xs btn-delete"onclick="$(this).parent().parent().parent().parent().remove();"><%= I18n.t("basic.button.delete") %></button>
                                                 </div>
                                             </div>
                                             <% end %>
                                             <% @skill_category_first = true %>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">子類別</label>
+                                            <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabA_segment2_row2") %></label>
                                             <div class="col-md-10">
                                                 <p class="form-control-static view sub_category">
                                                     <%= current_user.user_skill_categories.where(:main_skill_id => s.main_skill_id).map { |f| t(:sub_skill_category)[s.main_skill_id.to_i][f.sub_skill_id.to_i]['name'] }.join ', ' %>
@@ -673,7 +665,7 @@
                                 </span>
                                 <div class="form-group">
                                     <div class="pull-right" style="margin:0 16px 0 0;">
-                                        <button onclick="update_category()" class="btn btn-default tool-save edit prevent" data-portlet="#profile-portlet2">收合</button>
+                                        <button onclick="update_category()" class="btn btn-default tool-save edit prevent" data-portlet="#profile-portlet2"><%= I18n.t("basic.button.collapse")%></button>
                                     </div>
                                 </div>
                             </form>
@@ -682,13 +674,13 @@
                     <div class="portlet box light-grey show-view" id="profile-portlet3">
                         <div class="portlet-title">
                             <div class="caption">
-                                技能
+                                <%= I18n.t("page.profile_show.tabA_segment3_title")%>
                             </div>
                             <div class="tools">
-                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet3" onclick="javascript: expand_count++;">
-                                    <i class="fa fa-pencil-square-o"></i>編輯
+                                <a href="javascript:;" class="tool-edit view" data-original-title="<%= I18n.t("basic.button.edit") %>" data-portlet="#profile-portlet3" onclick="javascript: expand_count++;">
+                                    <i class="fa fa-pencil-square-o"></i><%= I18n.t("basic.button.edit") %>
                                 </a>
-                                <a href="javascript:;" class="tool-save edit"  onclick="update_skill()" data-original-title="收合" data-portlet="#profile-portlet3">
+                                <a href="javascript:;" class="tool-save edit"  onclick="update_skill()" data-original-title="<%= I18n.t("basic.button.collapse") %>" data-portlet="#profile-portlet3">
                                     <i class="fa fa-chevron-up"></i>
                                 </a>
                                 <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet3" onclick="update_skill()"> -->
@@ -699,13 +691,13 @@
                         <div class="portlet-body">
                             <p class="form-control-static view" id="skill"><%= current_user.user_skills.map{|e| e.name}.join(", ") %></p>
                             <form action="javascript: return false;" id="contact-form1" class="form-horizontal edit" role="form">
-                                <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>"/>
+                                <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>" defaultText="<%= I18n.t("page.profile_show.tabA_segment3_defaulttext")%>" alert-limit="<%= I18n.t("page.profile_show.tabA_segment3_alert_limit")%>" />
                                 <div class="pull-right" style="margin:8px 0px 0 0;">
-                                    <button class="btn btn-default tool-save edit" data-original-title="收合" data-portlet="#profile-portlet3" onclick="update_skill()">收合</button>
+                                    <button class="btn btn-default tool-save edit" data-original-title="<%= I18n.t("basic.button.collapse") %>" data-portlet="#profile-portlet3" onclick="update_skill()"><%= I18n.t("basic.button.collapse") %></button>
                                 </div>
                                 <p class="help-block">
-                                    如果您欲新增更多的技能。您必須完成下列項目：<br>
-                                    1. 工作經歷　2. 教育程度　3. 作品集
+                                    <%= I18n.t("page.profile_show.tabA_segment3_description")%><br>
+                                    <%= I18n.t("page.profile_show.tabA_segment3_description_details")%>
                                 </p>
                             </form>
                         </div>
@@ -713,16 +705,16 @@
                     <div class="portlet box light-grey show-view" id="profile-portlet4">
                         <div class="portlet-title">
                             <div class="caption">
-                                工作經歷
+                                <%= I18n.t("page.profile_show.tabA_segment4_title")%>
                             </div>
                             <div class="tools">
-                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet4" onclick="javascript: expand_count++;">
-                                    <i class="fa fa-pencil-square-o"></i>編輯
+                                <a href="javascript:;" class="tool-edit view" data-original-title="<%= I18n.t("basic.button.edit") %>" data-portlet="#profile-portlet4" onclick="javascript: expand_count++;">
+                                    <i class="fa fa-pencil-square-o"></i><%= I18n.t("basic.button.edit") %>
                                 </a>
-                                <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#experience-modal">
+                                <a class="tool-add edit" data-original-title="<%= I18n.t("basic.button.add") %>" data-toggle="modal" href="#experience-modal">
                                     <i class="fa fa-plus"></i>
                                 </a>
-                                <a href="javascript:;" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet4">
+                                <a href="javascript:;" class="tool-save edit" data-original-title="<%= I18n.t("basic.button.collapse") %>" data-portlet="#profile-portlet4">
                                     <i class="fa fa-chevron-up" onclick="javascript: expand_count--;"></i>
                                 </a>
                             </div>
@@ -731,12 +723,12 @@
                             <% if current_user.user_experiences %>
                             <table class="table" id="experience-table">
                                 <tr>
-                                    <th>起</th>
-                                    <th>訖</th>
-                                    <th>公司</th>
-                                    <th>職位/職責</th>
-                                    <th>描述</th>
-                                    <th class="edit">刪除/編輯</th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment4_row1")%></th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment4_row2")%></th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment4_row3")%></th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment4_row4")%></th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment4_row5")%></th>
+                                    <th class="edit"><%= I18n.t("page.profile_show.tabA_segment4_row6")%></th>
                                 </tr>
                                 <% current_user.user_experiences.each do |e| %>
                                 <tr>
@@ -747,14 +739,14 @@
                                     <td class="office"><%= e.office %></td>
                                     <td class="description text-over"><%= e.description %></td>
                                     <td class="edit btns">
-                                        <button type="button" class="btn btn-danger btn-xs btn-delete" onclick="delete_experience(<%= e.id %>)">刪除</button>
-                                        <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                        <button type="button" class="btn btn-danger btn-xs btn-delete" onclick="delete_experience(<%= e.id %>)"><%= I18n.t("basic.button.delete") %></button>
+                                        <button type="button" class="btn btn-info btn-xs btn-edit"><%= I18n.t("basic.button.edit") %></button>
                                     </td>
                                 </tr>
                                 <% end %>
                             </table>
                             <% else %>
-                            尚未新增工作經歷
+                            <%= I18n.t("page.profile_show.tabA_segment4_empty") %>
                             <% end %>
                             <table class="rowExperience-simple display-none">
                                 <tr>
@@ -764,8 +756,8 @@
                                     <td class="office"></td>
                                     <td class="description text-over"></td>
                                     <td class="edit btns">
-                                        <button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button>
-                                        <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                        <button type="button" class="btn btn-danger btn-xs btn-delete"><%= I18n.t("basic.button.delete") %></button>
+                                        <button type="button" class="btn btn-info btn-xs btn-edit"><%= I18n.t("basic.button.edit") %></button>
                                     </td>
                                 </tr>
                             </table>
@@ -774,12 +766,12 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title">編輯工作經歷</h4>
+                                                <h4 class="modal-title"><%= I18n.t("page.profile_show.tabA_segment4_edit") %></h4>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                        <input type="text" name="start" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment4_row1_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment4_row1_empty")%>" readonly>
                                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                         </span>
@@ -787,25 +779,25 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                        <input type="text" name="end" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment4_row2_placeholder")%>" data-isError="<%= I18n.t("page.profile_show.tabA_segment4_row2_error")%>" readonly>
                                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                         </span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="organization" class="form-control" placeholder="公司">
+                                                    <input type="text" name="organization" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment4_row3_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment4_row3_empty")%> 尚未填寫">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="office" class="form-control" placeholder="職位/職責">
+                                                    <input type="text" name="office" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment4_row4_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment4_row4_empty")%>">
                                                 </div>
                                                 <div class="form-group">
-                                                    <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
+                                                    <textarea name="description" class="form-control" rows="5" placeholder="<%= I18n.t("page.profile_show.tabA_segment4_row5_placeholder")%>"></textarea>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary btn-editExperience">儲存</button>
-                                                <button type="button" class="btn default btn-close" data-dismiss="modal">關閉</button>
+                                                <button type="button" class="btn btn-primary btn-editExperience"><%= I18n.t("basic.button.save") %></button>
+                                                <button type="button" class="btn default btn-close" data-dismiss="modal"><%= I18n.t("basic.button.close") %></button>
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->
@@ -814,18 +806,18 @@
                                 </div>
                             </div>
                             <div class=" text-right">
-                                <button class="btn btn-default tool-save edit" data-portlet="#profile-portlet4" onclick="javascript: expand_count--">收合</button>
+                                <button class="btn btn-default tool-save edit" data-portlet="#profile-portlet4" onclick="javascript: expand_count--"><%= I18n.t("basic.button.collapse") %></button>
                             </div>
                             <div class="modal fade" id="experience-modal" tabindex="-1" role="experience-modal" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title">新增工作經歷</h4>
+                                            <h4 class="modal-title"><%= I18n.t("page.profile_show.tabA_segment4_add") %></h4>
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                    <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                    <input type="text" name="start" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment4_row1_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment4_row1_empty")%>" readonly>
                                                     <span class="input-group-btn">
                                                         <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                     </span>
@@ -833,25 +825,25 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                    <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                    <input type="text" name="end" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment4_row2_placeholder")%>" data-isError="<%= I18n.t("page.profile_show.tabA_segment4_row2_error")%>" readonly>
                                                     <span class="input-group-btn">
                                                         <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                     </span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="organization" class="form-control" placeholder="公司">
+                                                <input type="text" name="organization" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment4_row3_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment4_row3_empty")%>">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="office" class="form-control" placeholder="職位/職責">
+                                                <input type="text" name="office" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment4_row4_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment4_row4_empty")%>">
                                             </div>
                                             <div class="form-group">
-                                                <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
+                                                <textarea name="description" class="form-control" rows="5" placeholder="<%= I18n.t("page.profile_show.tabA_segment5_row2_placeholder")%>"></textarea>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" id="btn-addExperience">新增</button>
-                                            <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                                            <button type="button" class="btn btn-primary" id="btn-addExperience"><%= I18n.t("basic.button.add") %></button>
+                                            <button type="button" class="btn default" data-dismiss="modal"><%= I18n.t("basic.button.close") %></button>
                                         </div>
                                     </div>
                                     <!-- /.modal-content -->
@@ -865,16 +857,16 @@
                     <div class="portlet box light-grey show-view" id="profile-portlet5">
                         <div class="portlet-title">
                             <div class="caption">
-                                教育程度
+                                <%= I18n.t("page.profile_show.tabA_segment5_title")%>
                             </div>
                             <div class="tools">
-                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet5" onclick="javascript: expand_count++;">
-                                    <i class="fa fa-pencil-square-o"></i>編輯
+                                <a href="javascript:;" class="tool-edit view" data-original-title="<%= I18n.t("basic.button.edit") %>" data-portlet="#profile-portlet5" onclick="javascript: expand_count++;">
+                                    <i class="fa fa-pencil-square-o"></i><%= I18n.t("basic.button.edit") %>
                                 </a>
-                                <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#education-modal">
+                                <a class="tool-add edit" data-original-title="<%= I18n.t("basic.button.add") %>" data-toggle="modal" href="#education-modal">
                                     <i class="fa fa-plus"></i>
                                 </a>
-                                <a href="javascript:;" onclick="update_category()" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet5">
+                                <a href="javascript:;" onclick="update_category()" class="tool-save edit" data-original-title="<%= I18n.t("basic.button.collapse") %>" data-portlet="#profile-portlet5">
                                     <i class="fa fa-chevron-up" onclick="javascript: expand_count--;"></i>
                                 </a>
                                 <!-- <a href="javascript:;" class="tool-save edit" data-original-title="儲存" data-portlet="#profile-portlet5"> -->
@@ -885,12 +877,12 @@
                             <% if current_user.user_educations %>
                             <table class="table" id="education-table">
                                 <tr>
-                                    <th>起</th>
-                                    <th>訖</th>
-                                    <th>學校</th>
-                                    <th>系所/專長</th>
-                                    <th>說明</th>
-                                    <th class="edit">刪除</th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment5_row1")%></th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment5_row2")%></th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment5_row3")%></th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment5_row4")%></th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment5_row5")%></th>
+                                    <th class="edit"><%= I18n.t("page.profile_show.tabA_segment5_row6")%></th>
                                 </tr>
                                 <% current_user.user_educations.each do |e| %>
                                 <tr>
@@ -901,14 +893,14 @@
                                     <td class="office"><%= e.department %></td>
                                     <td class="description text-over"><%= e.description %></td>
                                     <td class="edit btns">
-                                        <button type="button" class="btn btn-danger btn-xs btn-delete" onclick="delete_education(<%= e.id %>)">刪除</button>
-                                        <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                        <button type="button" class="btn btn-danger btn-xs btn-delete" onclick="delete_education(<%= e.id %>)"><%= I18n.t("basic.button.delete") %></button>
+                                        <button type="button" class="btn btn-info btn-xs btn-edit"><%= I18n.t("basic.button.edit") %></button>
                                     </td>
                                 </tr>
                                 <% end %>
                             </table>
                             <% else %>
-                            尚未新增教育程度
+                            <%= I18n.t("page.profile_show.tabA_segment5_empty")%>
                             <% end %>
                             <table class="rowEducation-simple display-none">
                                 <tr>
@@ -918,8 +910,8 @@
                                     <td class="office"></td>
                                     <td class="description text-over"></td>
                                     <td class="edit btns">
-                                        <button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button>
-                                        <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                        <button type="button" class="btn btn-danger btn-xs btn-delete"><%= I18n.t("basic.button.delete") %></button>
+                                        <button type="button" class="btn btn-info btn-xs btn-edit"><%= I18n.t("basic.button.edit") %></button>
                                     </td>
                                 </tr>
                             </table>
@@ -928,12 +920,12 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title">編輯教育程度</h4>
+                                                <h4 class="modal-title"><%= I18n.t("page.profile_show.tabA_segment5_edit")%></h4>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                        <input type="text" name="start" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment5_row1_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment5_row1_empty")%>" readonly>
                                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                         </span>
@@ -941,25 +933,25 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                        <input type="text" name="end" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment5_row2_placeholder")%>" data-isError="<%= I18n.t("page.profile_show.tabA_segment5_row2_error")%>" readonly>
                                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                         </span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="organization" class="form-control" placeholder="學校">
+                                                    <input type="text" name="organization" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment5_row3_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment5_row3_empty")%>">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="office" class="form-control" placeholder="系所/專長">
+                                                    <input type="text" name="office" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment5_row4_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment5_row4_empty")%>">
                                                 </div>
                                                 <div class="form-group">
-                                                    <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
+                                                    <textarea name="description" class="form-control" rows="5" placeholder="<%= I18n.t("page.profile_show.tabA_segment5_row5_placeholder")%>"></textarea>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary btn-editEducation">儲存</button>
-                                                <button type="button" class="btn default btn-close" data-dismiss="modal">關閉</button>
+                                                <button type="button" class="btn btn-primary btn-editEducation"><%= I18n.t("basic.button.save") %></button>
+                                                <button type="button" class="btn default btn-close" data-dismiss="modal"><%= I18n.t("basic.button.close") %></button>
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->
@@ -969,18 +961,18 @@
                             </div>
 
                             <div class="text-right">
-                                <button class="btn btn-default tool-save edit" data-portlet="#profile-portlet5" onclick="javascript: expand_count--;">收合</button>
+                                <button class="btn btn-default tool-save edit" data-portlet="#profile-portlet5" onclick="javascript: expand_count--;"><%= I18n.t("basic.button.collapse") %></button>
                             </div>
                             <div class="modal fade" id="education-modal" tabindex="-1" role="education-modal" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title">新增教育程度</h4>
+                                            <h4 class="modal-title"><%= I18n.t("page.profile_show.tabA_segment5_add")%></h4>
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                    <input type="text" name="start" class="form-control" placeholder="起" readonly>
+                                                    <input type="text" name="start" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment5_row1_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment5_row1_empty")%>" readonly>
                                                     <span class="input-group-btn">
                                                         <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                     </span>
@@ -988,23 +980,23 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                    <input type="text" name="end" class="form-control" placeholder="訖" readonly>
+                                                    <input type="text" name="end" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment5_row2_placeholder")%>" data-isError="<%= I18n.t("page.profile_show.tabA_segment5_row2_error")%>" readonly>
                                                     <span class="input-group-btn">
                                                         <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                     </span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="organization" class="form-control" placeholder="學校">
+                                                <input type="text" name="organization" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment5_row3_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment5_row3_empty")%>">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="office" class="form-control" placeholder="系所/專長">
+                                                <input type="text" name="office" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment5_row4_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment5_row4_empty")%>">
                                             </div>
-                                            <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
+                                            <textarea name="description" class="form-control" rows="5" placeholder="<%= I18n.t("page.profile_show.tabA_segment5_row5_placeholder")%>"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" id="btn-addEducation">新增</button>
-                                            <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                                            <button type="button" class="btn btn-primary" id="btn-addEducation"><%= I18n.t("basic.button.save") %></button>
+                                            <button type="button" class="btn default" data-dismiss="modal"><%= I18n.t("basic.button.close") %></button>
                                         </div>
                                     </div>
                                     <!-- /.modal-content -->
@@ -1016,74 +1008,76 @@
                     <div class="portlet box light-grey show-view" id="profile-portlet6">
                         <div class="portlet-title">
                             <div class="caption">
-                                作品集
+                                <%= I18n.t("page.profile_show.tabA_segment6_title")%>
                             </div>
                             <div class="tools">
-                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet6" onclick="javascript: expand_count++;">
-                                    <i class="fa fa-pencil-square-o"></i> 編輯
+                                <a href="javascript:;" class="tool-edit view" data-original-title="<%= I18n.t("basic.button.edit") %>" data-portlet="#profile-portlet6" onclick="javascript: expand_count++;">
+                                    <i class="fa fa-pencil-square-o"></i> <%= I18n.t("basic.button.edit") %>
                                 </a>
                                 <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#works-modal">
                                     <i class="fa fa-plus"></i>
                                 </a>
-                                <a href="javascript:;" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet6">
+                                <a href="javascript:;" class="tool-save edit" data-original-title="<%= I18n.t("basic.button.collapse") %>" data-portlet="#profile-portlet6">
                                     <i class="fa fa-chevron-up" onclick="javascript: expand_count--;"></i>
                                 </a>
                             </div>
-                            <div class="modal fade" id="works-modal" tabindex="-1" aria-hidden="true">
+                            <div class="modal fade" id="works-modal" tabindex="-1" aria-hidden="true" data-isError="<%= I18n.t("page.profile_show.tabA_segment4_error")%>">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title">新增作品集</h4>
+                                            <h4 class="modal-title"><%= I18n.t("page.profile_show.tabA_segment6_add")%></h4>
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <input type="text" name="title" class="form-control" placeholder="作品名稱">
+                                                <input type="text" name="title" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment6_row1_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment6_row1_empty")%>">
                                             </div>
                                             <div class="form-group">
-                                                <textarea id="addWoeks-description" name="description" class="form-control" maxlength="4000" rows="3" placeholder="作品描述"></textarea>
+                                                <textarea id="addWoeks-description" name="description" class="form-control" maxlength="4000" rows="3" placeholder="<%= I18n.t("page.profile_show.tabA_segment6_row2_placeholder")%>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment6_row2_empty")%>"></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <!--<input type="file" name="file" class="form-control">-->
                                                 <form class="dropzone dz-clickable", action="/users/profiles/ajax_updae" id="addWorksfile">
-                                                    <div class="dz-default dz-message"><span>上傳檔案</span></div>
+                                                    <div class="dz-default dz-message"><span><%= I18n.t("page.profile_show.tabA_segment6_row3_description1")%></span></div>
                                                 </form>
-                                                <p class="help-block">上傳縮圖</p>
+                                                <p class="help-block"><%= I18n.t("page.profile_show.tabA_segment6_row3_description2")%></p>
                                             </div>
                                             <div class="form-group">
-                                                <input type="file" name="thumbnail" class="form-control" accept="application/pdf" onchange="check_document_size()">
-                                                <p class="help-block">上傳檔案/文件</p>
+                                                <input type="file" name="thumbnail" class="form-control" accept="application/pdf" onchange="check_document_size()" data-isError="<%= I18n.t("page.profile_show.tabA_segment6_row4_error")%>">
+                                                <p class="help-block"><%= I18n.t("page.profile_show.tabA_segment6_row4_placeholder")%></p>
                                             </div>
                                             <div class="form-group">
-                                                <select name="mainClass" class="form-control", id="work_main_class">
-                                                    <option value="-1" selected>主類別</option>
+                                                <div id="main_category" style="display: none;"><%= I18n.t("page.profile_show.tabA_segment6_row5_main")%></div>
+                                                <select name="mainClass" class="form-control", id="work_main_class" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment6_row5_empty")%>">
+                                                    <option value="-1" selected><%= I18n.t("page.profile_show.tabA_segment6_row5_main")%></option>
                                                     <% t(:main_skill_category).each_with_index do |e, index| %>
                                                     <option value="<%= index %>"><%= e['name'] %></option>
                                                     <% end %>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select name="subClass" class="form-control select2" id="work_subClass_select2">
-                                                    <option value="-1" selected>子類別</option>
+                                                <div id="sub_category" style="display: none;"><%= I18n.t("page.profile_show.tabA_segment6_row6_sub")%></div>
+                                                <select name="subClass" class="form-control select2" id="work_subClass_select2" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment6_row5_empty")%>">
+                                                    <option value="-1" selected><%= I18n.t("page.profile_show.tabA_segment6_row6_sub")%></option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                    <input type="text" name="start" class="form-control" placeholder="完成時間" readonly>
+                                                    <input type="text" name="start" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment6_row7_placeholder")%>" readonly>
                                                     <span class="input-group-btn">
                                                         <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                     </span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input id="addWorks-skill-tags" name="skill" type="text" class="form-control tags" placeholder="技能" value=""/>
+                                                <input id="addWorks-skill-tags" name="skill" type="text" class="form-control tags" placeholder="<%= I18n.t("page.profile_show.tabA_segment6_row8_placeholder")%>" value=""/>
                                             </div>
 
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" id="btn-addWorks">新增</button>
-                                            <button type="button" class="btn default" data-dismiss="modal">關閉</button>
-                                            <p class="help-block">請確保您有此作品的著作權</p>
+                                            <button type="button" class="btn btn-primary" id="btn-addWorks"><%= I18n.t("basic.button.save") %></button>
+                                            <button type="button" class="btn default" data-dismiss="modal"><%= I18n.t("basic.button.close") %></button>
+                                            <p class="help-block"><%= I18n.t("page.profile_show.tabA_segment6_bottom")%></p>
                                         </div>
                                     </div>
                                     <!-- /.modal-content -->
@@ -1094,10 +1088,10 @@
                         <div class="portlet-body">
                             <table class="table" id="works-table">
                                 <tr>
-                                    <th width="20%">圖片縮圖</th>
-                                    <th width="30%">作品集名稱</th>
-                                    <th width="30%">附加檔案名稱</th>
-                                    <th class="edit">刪除</th>
+                                    <th width="20%"><%= I18n.t("page.profile_show.tabA_segment6_row3")%></th>
+                                    <th width="30%"><%= I18n.t("page.profile_show.tabA_segment6_row1")%></th>
+                                    <th width="30%"><%= I18n.t("page.profile_show.tabA_segment6_row4")%></th>
+                                    <th class="edit"><%= I18n.t("page.profile_show.tabA_segment6_row9") %></th>
                                 </tr>
                                 <% current_user.user_portfolios.each_with_index do |e, index|%>
                                 <tr>
@@ -1108,13 +1102,17 @@
                                     </td>
 
                                     <td><%= e.name %></td>
-                                    <td><%= e.document_name %></td>
-                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="delete_portfolio(<%= e.id %>)">刪除</button></td>
+                                    <% if e.document_name.nil? %>
+                                        <td></td>
+                                    <% else %>
+                                        <td><%= link_to e.document_name, users_download_document_path(index) %></td>
+                                    <% end %>
+                                    <td class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete" onclick="delete_portfolio(<%= e.id %>)"><%= I18n.t("basic.button.delete") %></button></td>
                                 </tr>
                                 <% end %>
                             </table>
                             <div class=" text-right">
-                                <button onclick="javascript: expand_count--"  class="btn btn-default tool-save edit" data-portlet="#profile-portlet6">收合</button>
+                                <button onclick="javascript: expand_count--"  class="btn btn-default tool-save edit" data-portlet="#profile-portlet6"><%= I18n.t("basic.button.collapse") %></button>
                             </div>
                         </div>
                     </div>
@@ -1122,16 +1120,16 @@
                     <div class="portlet box light-grey show-view" id="profile-portlet7">
                         <div class="portlet-title">
                             <div class="caption">
-                                相關證照
+                                <%= I18n.t("page.profile_show.tabA_segment7_title") %>
                             </div>
                             <div class="tools">
-                                <a href="javascript:;" class="tool-edit view" data-original-title="編輯" data-portlet="#profile-portlet7" onclick="javascript: expand_count++;">
-                                    <i class="fa fa-pencil-square-o"></i> 編輯
+                                <a href="javascript:;" class="tool-edit view" data-original-title="<%= I18n.t("basic.button.edit") %>" data-portlet="#profile-portlet7" onclick="javascript: expand_count++;">
+                                    <i class="fa fa-pencil-square-o"></i> <%= I18n.t("basic.button.edit") %>
                                 </a>
                                 <a class="tool-add edit" data-original-title="新增" data-toggle="modal" href="#certificate-modal">
                                     <i class="fa fa-plus"></i>
                                 </a>
-                                <a href="javascript:;" class="tool-save edit" data-original-title="收合" data-portlet="#profile-portlet7">
+                                <a href="javascript:;" class="tool-save edit" data-original-title="<%= I18n.t("basic.button.collapse") %>" data-portlet="#profile-portlet7">
                                     <i class="fa fa-chevron-up" onclick="javascript: expand_count--;"></i>
                                 </a>
                             </div>
@@ -1139,12 +1137,12 @@
                         <div class="portlet-body">
                             <table class="table" id="certificate-table">
                                 <tr>
-                                    <th>證照</th>
-                                    <th>來源</th>
-                                    <th>獲得時間</th>
-                                    <th>描述</th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment7_row1") %></th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment7_row2") %></th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment7_row3") %></th>
+                                    <th><%= I18n.t("page.profile_show.tabA_segment7_row4") %></th>
 
-                                    <th class="edit">刪除</th>
+                                    <th class="edit"><%= I18n.t("basic.button.delete") %></th>
                                 </tr>
                                 <% current_user.user_certifications.each do |e| %>
                                 <tr>
@@ -1154,8 +1152,8 @@
                                     <td class="start"><%= e.get_time %></td>
                                     <td class="description text-over"><%= e.description %></td>
                                     <td class="edit btns">
-                                        <button type="button" class="btn btn-danger btn-xs btn-delete" onclick="delete_certification(<%= e.id %>)">刪除</button>
-                                        <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                        <button type="button" class="btn btn-danger btn-xs btn-delete" onclick="delete_certification(<%= e.id %>)"><%= I18n.t("basic.button.delete") %></button>
+                                        <button type="button" class="btn btn-info btn-xs btn-edit"><%= I18n.t("basic.button.edit") %></button>
                                     </td>
                                 </tr>
                                 <% end %>
@@ -1167,8 +1165,8 @@
                                     <td class="start"></td>
                                     <td class="description text-over"></td>
                                     <td class="edit btns">
-                                        <button type="button" class="btn btn-danger btn-xs btn-delete">刪除</button>
-                                        <button type="button" class="btn btn-info btn-xs btn-edit">編輯</button>
+                                        <button type="button" class="btn btn-danger btn-xs btn-delete"><%= I18n.t("basic.button.delete") %></button>
+                                        <button type="button" class="btn btn-info btn-xs btn-edit"><%= I18n.t("basic.button.edit") %></button>
                                     </td>
                                 </tr>
                             </table>
@@ -1177,30 +1175,30 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title">編輯工作經歷</h4>
+                                                <h4 class="modal-title"><%= I18n.t("page.profile_show.tabA_segment7_edit") %></h4>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">
-                                                    <input type="text" name="certificate" class="form-control" placeholder="證照名稱">
+                                                    <input type="text" name="certificate" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment7_row1_placeholder") %>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment7_row1_empty") %>">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="cer-source" class="form-control" placeholder="證照發行機構">
+                                                    <input type="text" name="cer-source" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment7_row2_placeholder") %>">
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                        <input type="text" name="start" class="form-control" placeholder="獲得證照時間" readonly>
+                                                        <input type="text" name="start" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment7_row3_placeholder") %>" readonly>
                                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                         </span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <textarea name="description" class="form-control" rows="5" placeholder="說明"></textarea>
+                                                    <textarea name="description" class="form-control" rows="5" placeholder="<%= I18n.t("page.profile_show.tabA_segment7_row4_placeholder") %>"></textarea>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary btn-editCertificate">儲存</button>
-                                                <button type="button" class="btn default btn-close" data-dismiss="modal">關閉</button>
+                                                <button type="button" class="btn btn-primary btn-editCertificate"><%= I18n.t("basic.button.save") %></button>
+                                                <button type="button" class="btn default btn-close" data-dismiss="modal"><%= I18n.t("basic.button.close") %></button>
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->
@@ -1209,37 +1207,37 @@
                                 </div>
                             </div>
                             <div class=" text-right">
-                                <button onclick="javascript: expand_count--"  class="btn btn-default tool-save edit" data-portlet="#profile-portlet7">收合</button>
+                                <button onclick="javascript: expand_count--"  class="btn btn-default tool-save edit" data-portlet="#profile-portlet7"><%= I18n.t("basic.button.collapse") %></button>
                             </div>
                             <div class="modal fade" id="certificate-modal" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title">新增相關證照</h4>
+                                            <h4 class="modal-title"><%= I18n.t("page.profile_show.tabA_segment7_add") %></h4>
                                         </div>
                                         <div class="modal-body">
 
                                             <div class="form-group">
-                                                <input type="text" name="certificate" class="form-control" placeholder="證照">
+                                                <input type="text" name="certificate" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment7_row1_placeholder") %>" data-isEmpty="<%= I18n.t("page.profile_show.tabA_segment7_row1_empty") %>">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="cer-source" class="form-control" placeholder="證照發行機構">
+                                                <input type="text" name="cer-source" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment7_row2_placeholder") %>">
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                                                    <input type="text" name="start" class="form-control" placeholder="獲得證照時間" readonly>
+                                                    <input type="text" name="start" class="form-control" placeholder="<%= I18n.t("page.profile_show.tabA_segment7_row3_placeholder") %>" readonly>
                                                     <span class="input-group-btn">
                                                         <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                     </span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <textarea name="description" class="form-control" rows="5" placeholder="描述"></textarea>
+                                                <textarea name="description" class="form-control" rows="5" placeholder="<%= I18n.t("page.profile_show.tabA_segment7_row4_placeholder") %>"></textarea>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" id="btn-addCertificate">新增</button>
-                                            <button type="button" class="btn default" data-dismiss="modal">關閉</button>
+                                            <button type="button" class="btn btn-primary" id="btn-addCertificate"><%= I18n.t("basic.button.save") %></button>
+                                            <button type="button" class="btn default" data-dismiss="modal"><%= I18n.t("basic.button.close") %></button>
                                         </div>
                                     </div>
                                     <!-- /.modal-content -->
@@ -1249,14 +1247,14 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <a href="/" class="btn btn-danger">資料填寫完成回到首頁</a>
+                        <a href="/" class="btn btn-danger"><%= I18n.t("page.profile_show.button_goHome") %></a>
                     </div>
                 </div>
                 <div class="tab-pane" id="password">
                     <div class="portlet box light-grey show-view" id="password-portlet">
                         <div class="portlet-title">
                             <div class="caption">
-                                變更密碼
+                                <%= I18n.t("page.profile_show.tabB_segment") %>
                             </div>
                             <div class="tools">
                                 <!-- <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
@@ -1268,48 +1266,48 @@
                             <%= form_for(@user, url: "/users", html: { id: "password-form", method: :put, class: "form-horizontal", role: "form"}) do |f| %>
                             <!-- <form action="#" id="contact-form1" class="form-horizontal" role="form"> -->
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">舊密碼</label>
+                                    <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabB_segment_row1") %></label>
                                     <div class="col-md-10">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                             <div class="input-icon right">
                                                 <i class="fa"></i>
-                                                <%= f.password_field :current_password, autocomplete: "off", class: "form-control", data: {isEmpty: "當前密碼不能為空", isError: "密碼錯誤"} %>
+                                                <%= f.password_field :current_password, autocomplete: "off", class: "form-control", data: {isEmpty: I18n.t("page.profile_show.tabB_segment_row1_empty"), isError: I18n.t("page.profile_show.tabB_segment_row1_error")} %>
                                             </div>
                                         </div>
                                         <p class="help-block">
-                                            如果您想要變更您的密碼，請先輸入您的舊密碼
+                                            <%= I18n.t("page.profile_show.tabB_segment_row1_description") %>
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">新密碼</label>
+                                    <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabB_segment_row2") %></label>
                                     <div class="col-md-10">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                             <div class="input-icon right">
-                                                <i class="fa fa-warning" data-original-title="密碼至少要有六個字元，不包含*/!~等特殊符號"></i>
-                                                <%= f.password_field :password, autocomplete: "off", class: "form-control", data: {isEmpty: "密碼至少要有八個字元，不包含*/!~等特殊符號", isError: "密碼至少要有八個字元，不包含*/!~等特殊符號"} %>
+                                                <i class="fa fa-warning"></i>
+                                                <%= f.password_field :password, autocomplete: "off", class: "form-control", data: {isEmpty: I18n.t("page.profile_show.tabB_segment_row2_empty"), isError: I18n.t("page.profile_show.tabB_segment_row2_error")} %>
                                             </div>
                                         </div>
                                         <p class="help-block">
-                                            密碼長度必須大於等於8英數字元，包含大小寫英文符號，不包含特殊符號。
+                                            <%= I18n.t("page.profile_show.tabB_segment_row2_description") %>
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">再次輸入新密碼</label>
+                                    <label class="col-md-2 control-label"><%= I18n.t("page.profile_show.tabB_segment_row3") %></label>
                                     <div class="col-md-10">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", "data-isInconsistent" => "密碼與先前輸入的不一致" %>
+                                            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", "data-isInconsistent" => I18n.t("page.profile_show.tabB_segment_row3_inconsistent") %>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group" style="margin:20px 16px 0 0;">
-                                    <%= f.submit "儲存", class: "btn btn-default pull-right", onclick: "warn_on_unload=''" %>
+                                    <%= f.submit I18n.t("basic.button.save"), class: "btn btn-default pull-right", onclick: "warn_on_unload=''" %>
                                 </div>
                             <!-- </form> -->
                             <% end %>
@@ -1326,16 +1324,17 @@
     <div class="footer">
         <img class="footer-logo" src="/img/logo103.png" alt="">
         <div class="footer-nav">
-            <%= link_to "關於我們", index_about_path %>
+            <%= link_to I18n.t("page.footer.about"), index_about_path %>
             <span class="bar">|</span>
-            <%= link_to "隱私條款", index_rule_path %>
+            <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
             <span class="bar">|</span>
-            <%= link_to "使用條款", index_rule_path %>
+            <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
             <span class="bar">|</span>
-            <%= mail_to "service@sun-innovation.com", "聯絡客服" %>
+            <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
         </div>
     </div>
     <!-- END FOOTER -->
+
 
     <!-- BEGIN JAVASCRIPTS -->
     <!-- BEGIN 核心插件 -->
@@ -1366,12 +1365,13 @@
 <!-- END 頁面插件 -->
 <script type="text/javascript" src="/js/script.js"></script>
 <script type="text/javascript" src="/js/page/personal_profile.js"></script>
+<script type="text/javascript" src="/js/google_analytics.js"></script>
 
 <script>
     // Dropzone.autoDiscover = false;
 
 
-    var warn_on_unload = "尚未儲存的資料都將遺失"
+    var warn_on_unload = $('#warning_on_load').html();
     var expand_count = 0
 
     jQuery(document).ready(function() {
@@ -1401,12 +1401,11 @@
         $("#work_main_class").change( function() {
             if ($(this).val() < 0) {
                 $("#work_subClass_select2 option").remove();
-                $("#work_subClass_select2").append($("<option></option>").attr("value", -1).text("子類別"));
+                $("#work_subClass_select2").append($("<option></option>").attr("value", -1).text($('#sub_category').val()));
                 return;
             }
 
             var request_obj = {
-                // request: "get_sub_category",
                 main_category_id: $(this).val()
             };
 
@@ -1435,30 +1434,31 @@
             addWorksfile = this;
             myDropzone = this;
             $(".removeAllImages").click(function () {
-                addWorksfile.removeAllFiles();
+                addWorksfile.removeAllFiles()
             });
             this.on("sendingmultiple", function(file, xhr, formData) {
                 $("#loader").show()
                 if( typeof $("#works-modal input[name=thumbnail]")[0].files[0] != 'undefined' ) {
-                    formData.append('document_name', $("#works-modal input[name=thumbnail]")[0].files[0].name);
-                    formData.append('document_content', $("#works-modal input[name=thumbnail]")[0].files[0]);
+                    formData.append('document_name', $("#works-modal input[name=thumbnail]")[0].files[0].name)
+                    formData.append('document_content', $("#works-modal input[name=thumbnail]")[0].files[0])
                 }
-                formData.append('name', $("#works-modal input[name=title]").val());
-                formData.append('description', $("#works-modal textarea[name=description]").val());
-                formData.append('main_skill_id', $("#work_main_class").val());
-                formData.append('sub_skill_id', $("#work_subClass_select2").val());
-                formData.append('date', $("#works-modal input[name=start]").val());
-                formData.append('skill', $("#works-modal input[name=skill]").val());
+                formData.append('name', $("#works-modal input[name=title]").val())
+                formData.append('description', $("#works-modal textarea[name=description]").val())
+                formData.append('main_skill_id', $("#work_main_class").val())
+                formData.append('sub_skill_id', $("#work_subClass_select2").val())
+                formData.append('date', $("#works-modal input[name=start]").val())
+                formData.append('skill', $("#works-modal input[name=skill]").val())
                 formData.append('request', "add_portfolio");
                 warn_on_unload = ''
             });
 
+            this.on("processing", function() {
+                // location.reload()
+            })
+
             this.on("successmultiple", function(file, foo) {
-                //console.log(file);
-                //console.log(foo);
-                // $("#loader").hide()
-                location.reload();
-            });
+                location.reload()
+            })
         },
         paramName: "file",
         maxFilesize: 0.5,
@@ -1477,23 +1477,20 @@
 <script>
 
    $(function(){
-    $(".prevent").click(function(event){
-        event.preventDefault();
-    });
+        $(".prevent").click(function(event){
+            event.preventDefault()
+        })
 
-    $("#search_skill tr").hover( function() {
-        $(this).css('color','#ffffff');
-    }, function() {
-      $(this).css('color','#000000');
-  });
+        $("#search_skill tr").hover( function() {
+            $(this).css('color','#ffffff')
+        }, function() {
+          $(this).css('color','#000000')
+        })
 
-    $("#search_skill tr").click( function() {
-        //console.log($(this).children("td").text());
-        $("#search").val($(this).children("td").text());
-    });
-
-
-    });
+        $("#search_skill tr").click( function() {
+            $("#search").val($(this).children("td").text())
+        })
+    })
 
    function constrain_Eng_and_num(e) {
         var keynum, keychar, check
@@ -1503,7 +1500,6 @@
         } else if(e.which) {  // Netscape/Firefox/Opera
             keynum = e.which
         }
-        // console.log(keynum)
         if( keynum == 8 || keynum == 9 || keynum == 13 || keynum == 189 || keynum == 229) return true
         keychar = String.fromCharCode(keynum)
         check = /\w/
@@ -1514,40 +1510,42 @@
 
    var readURL = function(input) {
     if (input.files && input.files[0]) {
-        var reader = new FileReader();
+        var reader = new FileReader()
         reader.onload = function (e) {
-            var img = $("#"+input.id).prev();
-                //console.log(img[0].id);
-                $("#"+img[0].id).attr('src', e.target.result);
-            };
-            reader.readAsDataURL(input.files[0]);
+            var img = $("#"+input.id).prev()
+                $("#"+img[0].id).attr('src', e.target.result)
+            }
+            reader.readAsDataURL(input.files[0])
         }
     }
 
     function upload_img(form_num) {
-        var profile_img = document.getElementById("profile_img"+ form_num);
-        var file = profile_img.files[0];
-        var fd = new FormData();
-        fd.append('profile_img', file);
+        var profile_img = document.getElementById("profile_img"+ form_num)
+        var file = profile_img.files[0]
+        var fd = new FormData()
+        fd.append('profile_img', file)
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('post', '/users/profiles/ajax_upload_img', true);
+        var xhr = new XMLHttpRequest()
+        xhr.open('post', '/users/profiles/ajax_upload_img', true)
 
-        xhr.setRequestHeader("X-File-Name", file.name);
-        xhr.setRequestHeader("X-File-Size", file.size);
-        xhr.setRequestHeader("X-File-Type", file.type);
+        xhr.setRequestHeader("X-File-Name", file.name)
+        xhr.setRequestHeader("X-File-Size", file.size)
+        xhr.setRequestHeader("X-File-Type", file.type)
         xhr.onload = function() {
             if (this.status == 200) {
-                //console.log("upload file success");
                 $("#loader").hide()
-            };
-        };
-        xhr.send(fd);
+            }
+        }
+        xhr.send(fd)
     }
 
 
 
     var update_basic_info = function(form_num) {
+        if( $(".has-error").length > 0 ) {
+            $("body").animate({scrollTop: "300px"})
+            return
+        }
         var double_check = 2
         if( $("#contact-form" + form_num + " input[name='first_name']").val() == '' ) {
             $("#contact-form" + form_num + " input[name='first_name']").focus()
@@ -1563,42 +1561,38 @@
         }
         if(double_check == 0) {
             var portlet = $("#profile-portlet1")
-            console.log(portlet)
-            portlet.removeClass('show-edit');
-            portlet.addClass('show-view');
+            portlet.removeClass('show-edit')
+            portlet.addClass('show-view')
         } else {
             $("body").animate({scrollTop: "300px"})
-            // window.scrollTo(0, -200)
             return
         }
 
         var obj = {
             request: "update_basic_info",
-            introduction: $("#contact-form" + form_num + " input[name='introduction']").val(),
-            review: $("#contact-form" + form_num + " textarea[name='review']").val(),
+            brief_introduction: $("#contact-form" + form_num + " input[name='brief_introduction']").val(),
+            introduction: $("#contact-form" + form_num + " textarea[name='introduction']").val(),
             first_name: $("#contact-form" + form_num + " input[name='first_name']").val(),
             last_name: $("#contact-form" + form_num + " input[name='last_name']").val(),
             money: $("#contact-form" + form_num + " input[name='money']").val()
         }
         $("#loader").show()
-        console.log("test")
         $.ajax({
             url: "/users/profiles/ajax_updae",
             type: "post",
             dataType: "json",
             data: obj,
             success: function(data) {
+                $("#brief_introduction").text(data.brief_introduction)
                 $("#introduction").text(data.introduction)
-                $("#review").text(data.review)
                 $("#first_name").text(data.first_name)
                 $("#last_name").text(data.last_name)
                 $("#money2").text('$' + data.hourly_pay + ' USD/HR')
                 if( typeof document.getElementById("profile_img"+ form_num).files[0] != 'undefined' ) upload_img(form_num)
                 else $("#loader").hide()
-                expand_count--;
+                expand_count--
             }
         });
-
     }
 
     var addCategoryList = function(){
@@ -1606,7 +1600,7 @@
             return 0;
 
         var span = $('<span class="category_delete_container"><span>');
-        var div1 = $('<div class="form-group"><label class="col-md-2 control-label">主類別</label><div>');
+        var div1 = $('<div class="form-group"><label class="col-md-2 control-label">'+$('#main_category').val()+'</label><div>');
         var div1_div1 = $('<div class="col-md-9"></div>')
         var p = $('<p class="form-control-static view main_category"><%= t(:main_skill_category)[0]["name"] %></p>')
         var div_main = $('<div class="edit" class="input-group"></div>');
@@ -1617,12 +1611,12 @@
         div_main.append(main_select);
         div1_div1.append(p);
         div1_div1.append(div_main);
-        var div1_div2 = $('<div class="col-md-1"><div class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete"onclick="$(this).parent().parent().parent().parent().remove();">刪除</button></div></div>');
+        var div1_div2 = $('<div class="col-md-1"><div class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete"onclick="$(this).parent().parent().parent().parent().remove();">'+$('.btn-delete:first').html()+'</button></div></div>');
         div1.append(div1_div1);
         div1.append(div1_div2);
 
         var div2 = $('<div class="form-group"><div>');
-        var div2_label = $('<label class="col-md-2 control-label">子類別</label>');
+        var div2_label = $('<label class="col-md-2 control-label">'+$('#sub_category').val()+'</label>');
         var div2_div = $('<div class="col-md-10"></div>');
         var div2_p = $('<p class="form-control-static view sub_category"><%= t(:sub_skill_category)[0][0]['name'] %></p>');
         var div2_sub = $('<div class="edit"><div>');
@@ -1632,36 +1626,35 @@
         sub_select.append('<option value="<%= i %>"><%= x['name'] %></option>');
         <% end %>
 
-        div2_sub.append(sub_select);
-        div2_div.append(div2_p);
-        div2_div.append(div2_sub);
-        div2.append(div2_label);
-        div2.append(div2_div);
+        div2_sub.append(sub_select)
+        div2_div.append(div2_p)
+        div2_div.append(div2_sub)
+        div2.append(div2_label)
+        div2.append(div2_div)
 
-        span.append(div1);
-        span.append(div2);
+        span.append(div1)
+        span.append(div2)
 
-        $('#category-list').append(span);
+        $('#category-list').append(span)
 
         sub_select.select2({
-            placeholder: "Select a State",
+            placeholder: "",
             allowClear: true
-        });
+        })
 
-        main_select.change(main_class_change);
+        main_select.change(main_class_change)
     }
 
 
     var main_class_change = function(){
-        var parent = $(this).parent().parent().parent().parent();
+        var parent = $(this).parent().parent().parent().parent()
         var request_obj = {
             // request: "get_sub_category",
             main_category_id: $(this).val()
-        };
-        //console.log(parent);
-        $(parent).find(".select2-search-choice").remove();
+        }
+        $(parent).find(".select2-search-choice").remove()
 
-        var select = $(parent).find('select.subClass_select2');
+        var select = $(parent).find('select.subClass_select2')
 
         select.attr("disabled", true)
         $.ajax({
@@ -1672,12 +1665,10 @@
             contentType: 'application/json',
             async: false,
             success: function(data) {
-                //console.log(data);
-                $(parent).find('select.subClass_select2 option').remove();
+                $(parent).find('select.subClass_select2 option').remove()
 
-                //console.log(select);
                 for(var key in data) {
-                   select.append($("<option></option>").attr("value", key).text(data[key].name));
+                   select.append($("<option></option>").attr("value", key).text(data[key].name))
                }
                select.attr("disabled", false)
            }
@@ -1685,7 +1676,7 @@
     }
 
     var cancel_basic_info = function(){
-        $('#blah1').attr("src", "<%= image_path url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id) %>");
+        $('#blah1').attr("src", "<%= image_path url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id) %>")
     }
 
     var update_location = function() {
@@ -1693,19 +1684,17 @@
             request: "update_location",
             timeZone: $("#contact-form2 select[name='timeZone']").val(),
             country: $("#contact-form2 select[name='country']").val(),
-        };
-        //console.log(obj);
+        }
         $.ajax({
             url: "/users/profiles/ajax_updae",
             type: "post",
             dataType: "json",
             data: obj,
             success: function(data) {
-                //console.log(data);
-                $("#time_zone").html(obj.timeZone);
-                $("#country").html(obj.country);
+                $("#time_zone").html(obj.timeZone)
+                $("#country").html(obj.country)
             }
-        });
+        })
 
     }
 
@@ -1717,22 +1706,21 @@
         }
 
         $(".main_class").each(function( index ) {
-            var parent = $(this).parent().parent().parent().parent();
+            var parent = $(this).parent().parent().parent().parent()
 
             obj.data.push({
                 main_category: $(this).val(),
                 sub_category: parent.find('select.subClass_select2').val()
-            });
+            })
 
-            var str = "";
+            var str = ""
             parent.find('select.subClass_select2 option:selected').each(function () {
-                str += $(this).text() + ", ";
-            });
-            str = str.substring(0, str.length - 2);
+                str += $(this).text() + ", "
+            })
+            str = str.substring(0, str.length - 2)
             parent.find('.main_category').html($(this).find('option:selected').text())
-            parent.find('.sub_category').html(str);
-        });
-        //console.log(obj);
+            parent.find('.sub_category').html(str)
+        })
         $("#loader").show()
         $.ajax({
             url: "/users/profiles/ajax_updae",
@@ -1741,7 +1729,7 @@
             data: obj,
             success: function(data) {
                 $("#loader").hide()
-                expand_count--;
+                expand_count--
             }
         })
     }
@@ -1750,7 +1738,7 @@
         var obj = {
             request: "update_skill",
             skill: $("#contact-form1 input[name='skill']").val(),
-        };
+        }
         $("#loader").show()
         $.ajax({
             url: "/users/profiles/ajax_updae",
@@ -1758,11 +1746,11 @@
             dataType: "json",
             data: obj,
             success: function(data) {
-                $("#skill").html( obj.skill.replace(/,/g, ", ") );
+                $("#skill").html( obj.skill.replace(/,/g, ", ") )
                 $("#loader").hide()
                 expand_count--
             }
-        });
+        })
     }
 
     var delete_experience = function(id) {
@@ -1780,7 +1768,7 @@
             success: function(data) {
                 $("#loader").hide()
             }
-        });
+        })
     }
 
     var delete_education = function(id) {
@@ -1798,7 +1786,7 @@
             success: function(data) {
                 $("#loader").hide()
             }
-        });
+        })
     }
 
     var add_portfolio = function() {
@@ -1830,11 +1818,10 @@
                 // $("#loader").hide()
                 location.reload()
             } else {
-                alert("上傳失敗")
+                alert($("#works-modal").attr('data-isError'))
                 location.reload()
             }
         }
-        
         xhr.send(fd)
     }
 
@@ -1842,7 +1829,7 @@
         var request_obj = {
             request: "delete_portfolio",
             id: id
-        };
+        }
         $.ajax({
             url: "/users/profiles/ajax_updae",
             type: "post",
@@ -1850,15 +1837,15 @@
             data: JSON.stringify(request_obj),
             contentType: 'application/json',
             success: function(data) {
-                // console.log(data)
             }
-        });
+        })
     }
 
     var check_document_size = function() {
         var file_size = $("#works-modal input[name=thumbnail]")[0].files[0].size
         if( file_size / Math.pow(10,6) > 2 ) {
-            alert("您上傳的檔案已超過 2MB 的限制")
+            alert($("#works-modal input[name=thumbnail]").attr('data-isError'))
+            $("#works-modal input[name=thumbnail]").val('')
             $("#btn-addWorks").attr('disabled', true)
         } else {
             $("#btn-addWorks").attr('disabled', false)
@@ -1873,7 +1860,6 @@
             id: id
         }
         $("#loader").show()
-        // console.log(request_obj);
         $.ajax({
             url: "/users/profiles/ajax_updae",
             type: "post",
@@ -1883,7 +1869,7 @@
             success: function(data) {
                 $("#loader").hide()
             }
-        });
+        })
     }
 
     var hide_message = function() {
@@ -1899,11 +1885,11 @@
     <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
     <script>
         $(function() {
-            $('input, textarea').placeholder();
+            $('input, textarea').placeholder()
             $('.main-content').each(function() {
-                PIE.attach(this);
-            });
-});
+                PIE.attach(this)
+            })
+})
 </script>
 <![endif]-->
 <!-- END PIE -->

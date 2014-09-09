@@ -1,5 +1,7 @@
 Sun::Application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   captcha_route
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -57,10 +59,6 @@ Sun::Application.routes.draw do
   #   end
 
 
-
-  get "admins/index"
-  get "admins/login"
-  get "admins/authenticaiotn"
 
 
   # freelancer api
@@ -124,16 +122,38 @@ Sun::Application.routes.draw do
       post 'upload_portfolio_picture'
       get 'upload_portfolio_picture'
     end
+    namespace :employer do
+      namespace :company do
+        resources :profiles
+        namespace :profiles do
+          post 'ajax_updae'
+          post 'ajax_upload_img'
+        end
+      end
+      namespace :personal do
+        resources :profiles
+        namespace :profiles do
+          post 'ajax_updae'
+          post 'ajax_upload_img'
+        end
+      end
+    end
   end
 
   post 'users/profiles/check_password' => 'users/profiles#check_password'
   post 'users/profiles/get_sub_category' => 'users/profiles#get_sub_category'
   get 'users/profiles/show_image/:id' => 'users/profiles#show_image'
-  get 'import_from_csv' => 'skills#import_from_csv'
   get 'users/profiles/show_portfolio_image/:index' => 'users/profiles#show_portfolio_image'
+  get 'users/profiles/download_document/:index' => 'users/profiles#download_portfolio_document', as: "users_download_document"
+
+  get 'users/employer/company/show_image/:id' => 'users/employer/company/profiles#show_image'
+  get 'users/employer/personal/show_image/:id' => 'users/employer/personal/profiles#show_image'
+
+  get 'import_from_csv' => 'skills#import_from_csv'
 
   get 'skills/exist' => 'skills#exist'
   get 'skills/autocomplete' => 'skills#autocomplete'
+
 
 
   namespace :index do
@@ -146,7 +166,6 @@ Sun::Application.routes.draw do
   get 'contact' => 'index#contact', :as => :index_contact
 
   namespace :users do
-
     post 'add_to_favorite'
     delete 'remove_from_favorite'
     get 'check_email'
@@ -168,10 +187,14 @@ Sun::Application.routes.draw do
 
   devise_scope :user do
     get 'users/new2', to: 'users/registrations#new2', :as => :new2_user_registration
+    get 'users/employer_new', to: 'users/registrations#employer_new', :as => :new_employer_user_registration
+    get 'users/employer_new_social', to: 'users/registrations#employer_new_social', :as => :new_employer_social_user_registration
     get 'users/verify_email', to: 'users/registrations#verify_email', :as => :verify_user_registration
     get 'users/verify_success', to: 'users/registrations#verify_success', :as => :verify_user_registration_success
     get 'users/email_success', to: 'users/passwords#email_success', :as => :email_success
     get 'users/edit_error', to: 'users/passwords#edit_error', :as => :edit_passwords_error
   end
+
+
 
 end

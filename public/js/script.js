@@ -37,3 +37,17 @@ var Web = function(){
 	}
 }();
 
+function constrain_Eng_and_num(e) {
+    var keynum, keychar, check
+     // IE
+    if(window.event) {
+        keynum = e.keyCode
+    } else if(e.which) {  // Netscape/Firefox/Opera
+        keynum = e.which
+    }
+    if( keynum == 8 || keynum == 9 || keynum == 13 || keynum == 189 || keynum == 229) return true
+    keychar = String.fromCharCode(keynum)
+    check = /\w/
+    check_digital = /[0-9]/
+    return check.test(keychar) && !check_digital.test(keychar)
+}

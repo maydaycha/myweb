@@ -11,7 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521175023) do
+ActiveRecord::Schema.define(version: 20140626073051) do
+
+  create_table "active_admin_comments", force: true do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "admin_users", force: true do |t|
+    t.string   "email",               default: "",    null: false
+    t.string   "encrypted_password",  default: "",    null: false
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",       default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "username",                            null: false
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_service",          default: false
+    t.boolean  "is_translator",       default: false
+  end
+
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+
+  create_table "comments", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
@@ -126,6 +166,40 @@ ActiveRecord::Schema.define(version: 20140521175023) do
     t.string   "description", limit: 1000
   end
 
+  create_table "user_employer_companies", force: true do |t|
+    t.integer  "user_id"
+    t.string   "first_name",                                          null: false
+    t.string   "last_name",                                           null: false
+    t.string   "company_name",                                        null: false
+    t.binary   "picture",            limit: 16777215
+    t.string   "brief_introduction"
+    t.string   "introduction"
+    t.string   "website"
+    t.string   "country_code"
+    t.string   "city"
+    t.integer  "zip"
+    t.string   "time_zone",                           default: "UTC"
+    t.integer  "vat_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_employer_personals", force: true do |t|
+    t.integer  "user_id"
+    t.string   "first_name",                                          null: false
+    t.string   "last_name",                                           null: false
+    t.binary   "picture",            limit: 16777215
+    t.string   "brief_introduction"
+    t.string   "introduction"
+    t.string   "website"
+    t.string   "country_code"
+    t.string   "city"
+    t.integer  "zip"
+    t.string   "time_zone",                           default: "UTC"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_experiences", force: true do |t|
     t.string   "organization"
     t.string   "office"
@@ -162,7 +236,7 @@ ActiveRecord::Schema.define(version: 20140521175023) do
   create_table "user_skill_categories", force: true do |t|
     t.integer  "user_id"
     t.integer  "main_skill_id"
-    t.string   "sub_skill_id"
+    t.integer  "sub_skill_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -204,22 +278,22 @@ ActiveRecord::Schema.define(version: 20140521175023) do
     t.string   "username",                                                null: false
     t.string   "first_name",                                              null: false
     t.string   "last_name",                                               null: false
-    t.string   "country_code",                                            null: false
+    t.string   "country_code"
     t.string   "time_zone",                               default: "UTC"
     t.string   "how_to_know"
     t.boolean  "receive_information"
     t.binary   "picture",                limit: 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "introduction"
-    t.text     "review"
+    t.string   "brief_introduction"
+    t.text     "introduction"
     t.string   "image"
     t.integer  "worker_type"
     t.float    "hourly_pay"
     t.string   "city"
     t.integer  "zip"
     t.integer  "step"
-    t.string   "sketch"
+    t.string   "current_role"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

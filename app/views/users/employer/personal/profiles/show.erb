@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+        <title><%= I18n.t("page.title") %></title>
+
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <link rel="stylesheet" href="/plugins/jquery-tags-input/jquery.tagsinput.css">
+        <link rel="stylesheet" href="/plugins/select2/select2.css">
+        <link rel="stylesheet" href="/plugins/select2/select2-metronic.css">
+        <link rel="stylesheet" href="/plugins/bootstrap-datepicker/css/datepicker.css">
+        <link rel="stylesheet" href="/plugins/dropzone/css/dropzone.css">
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/alert.css">
+        <link rel="stylesheet" type="text/css" href="/css/page/personal_profile.css">
+        <link rel="shortcut icon" href="/favicon.ico"/>
+        <!-- END STYLE -->
+    </head>
+    <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                    <i class="fa fa-search"></i>
+                </button>
+            -->
+            <a class="navbar-brand" href="/index.html"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
+        </div>
+        <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+              <!--  <div class="navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div> -->
+            </div>
+            <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <% if user_signed_in? %>
+                    <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                    <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
+                    <% else %>
+                    <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                    <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <!-- END NAVBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <h1 class="title"><%= I18n.t("page.employer_personal_profile_show.container_title") %></h1>
+            <div id="warning_on_load" style="display: none;"><%= I18n.t("basic.alert.warning_on_load") %></div>
+            <!-- BEGIN MAIN CONTENT -->
+            <div class="main-content">
+                <!-- BEGIN TABS -->
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="/#profile" data-toggle="tab"><%= I18n.t("page.employer_personal_profile_show.tabA_title") %></a></li>
+                    <li><a href="/#password" data-toggle="tab"><%= I18n.t("page.employer_personal_profile_show.tabB_title") %></a></li>
+                </ul>
+                <!-- END TABS -->
+                <!-- BEGIN TAB CONTENT -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="profile">
+                        <div class="portlet box light-grey show-view" id="profile-portlet1">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <%= I18n.t("page.employer_personal_profile_show.tabA_segment") %>
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="tool-edit view" data-original-title="<%= I18n.t('basic.button.edit') %>" data-portlet="#profile-portlet1" onclick="javascript: expand_count++;">
+                                        <i class="fa fa-pencil-square-o"></i> <%= I18n.t('basic.button.edit') %>
+                                    </a>
+                                    <a href="javascript:;" class="edit" data-original-title="<%= I18n.t('basic.button.collapse') %>" data-portlet="#profile-portlet1" onclick="update_basic_info(2)">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="mycontact" class="portlet-body">
+                                <form  action="#" id="contact-form2" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_show.tabA_segment_row1") %></label>
+                                        <div class="col-md-10">
+                                            <!-- <img src="/img/staff.png" class="avatar" alt=""> -->
+                                            <%= image_tag url_for(:controller => "users/employer/personal/profiles", :action => "show_image", :id => @personal.id), id: "blah1", class: "avatar" %>
+                                            <div class="input-group image-preview edit">
+                                                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                                                <span class="input-group-btn">
+                                                    <!-- image-preview-clear button -->
+                                                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                                                        <span class="glyphicon glyphicon-remove"></span> <%= I18n.t('basic.button.clear') %>
+                                                    </button>
+                                                    <!-- image-preview-input -->
+                                                    <div class="btn btn-default image-preview-input">
+                                                        <span class="glyphicon glyphicon-folder-open"></span>
+                                                        <span class="image-preview-input-title"><%= I18n.t("page.employer_personal_profile_show.tabA_segment_row1_choose") %></span>
+                                                        <input class="" id="profile_img2" name="image" type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" onchange="readURL(this)"/> <!-- rename it -->
+                                                    </div>
+                                                </span>
+                                            </div><!-- /input-group image-preview [TO HERE]-->
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_show.tabA_segment_row2") %></label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view"><%= current_user.username %></p>
+                                            <input type="text" name="userid" class="form-control edit" placeholder="<%= I18n.t("page.employer_personal_profile_show.tabA_segment_row2_placeholder") %>" value="<%= current_user.username %>" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_show.tabA_segment_row3") %></label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view" data-display="lastname" id="last_name"><%= current_user.last_name %></p>
+                                            <input type="text" name="last_name" class="form-control edit" placeholder="<%= I18n.t("page.employer_personal_profile_show.tabA_segment_row3_placeholder") %>" value="<%= current_user.last_name %>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_show.tabA_segment_row4") %></label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view" id="first_name"><%= current_user.first_name %></p>
+                                            <input type="text" name="first_name" class="form-control edit" placeholder="<%= I18n.t("page.employer_personal_profile_show.tabA_segment_row4_placeholder") %>" value="<%= current_user.first_name %>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_show.tabA_segment_row5") %></label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view"><%= current_user.email %></p>
+                                            <input type="text" name="email" class="form-control edit" placeholder="<%= I18n.t("page.employer_personal_profile_show.tabA_segment_row5_placeholder") %>" value="<%= current_user.email %>" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_show.tabA_segment_row6") %></label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view" data-disply="website" id="website"><%= @personal.website %></p>
+                                            <input type="text" name="website" class="form-control edit" value="<%= @personal.website %>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_show.tabA_segment_row7") %> <p><%= I18n.t("page.employer_personal_profile_show.tabA_segment_row7_comment") %></p></label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view" id="brief_introduction"><%= @personal.brief_introduction %></p>
+                                            <input type="text" name="brief_introduction" class="form-control edit" value="<%= @personal.brief_introduction %>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_show.tabA_segment_row8") %><p><%= I18n.t("page.employer_personal_profile_show.tabA_segment_row8_comment") %></p></label>
+                                        <div class="col-md-10">
+                                            <p class="form-control-static view" id="introduction"><%= @personal.introduction %></p>
+                                            <textarea name="introduction" class="form-control edit" rows="3"><%= @personal.introduction %></textarea>
+                                        </div>
+                                        <div class="pull-right" style="margin:20px 16px 0 0;">
+                                        <button class="btn btn-default edit prevent" data-original-title="<%= I18n.t('basic.button.collapse') %>" data-portlet="#profile-portlet1" onclick="update_basic_info(2)"><%= I18n.t('basic.button.collapse') %></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a href="/" class="btn btn-danger"><%= I18n.t("page.employer_personal_profile_show.button_gohome") %></a>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="password">
+                        <div class="portlet box light-grey show-view" id="password-portlet">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <%= I18n.t("page.employer_personal_profile_show.tabB_segment") %>
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="tool-save" data-original-title="儲存" data-portlet="#password-portlet">
+                                        <i class="fa fa-floppy-o"></i>
+                                    </a>
+                                </div>
+                            </div>
+                                <div class="portlet-body">
+                                <%= form_for(current_user, url: "/users", html: { id: "password-form", method: :put, class: "form-horizontal", role: "form"}) do |f| %>
+                                <!-- <form action="#" id="contact-form1" class="form-horizontal" role="form"> -->
+                                    <input name="from" value="personal" style="display: none"> <!-- for redirect after update password -->
+                                    <input name="personal_id" value="<%= @personal.id %>" style="display: none"> <!-- for redirect after update password -->
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_show.tabB_segment_row1") %></label>
+                                        <div class="col-md-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                <div class="input-icon right">
+                                                    <i class="fa"></i>
+                                                    <%= f.password_field :current_password, autocomplete: "off", class: "form-control", data: {isEmpty: I18n.t("page.employer_personal_profile_show.tabB_segment_row1_empty"), isError: I18n.t("page.employer_personal_profile_show.tabB_segment_row1_error")} %>
+                                                </div>
+                                            </div>
+                                            <p class="help-block">
+                                                <%= I18n.t("page.employer_personal_profile_show.tabB_segment_row1_description") %>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_show.tabB_segment_row2") %></label>
+                                        <div class="col-md-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                <div class="input-icon right">
+                                                    <i class="fa fa-warning" data-original-title="密碼至少要有六個字元，不包含*/!~等特殊符號"></i>
+                                                    <%= f.password_field :password, autocomplete: "off", class: "form-control", data: {isEmpty: I18n.t("page.employer_personal_profile_show.tabB_segment_row2_empty"), isError: I18n.t("page.employer_personal_profile_show.tabB_segment_row2_error")} %>
+                                                </div>
+                                            </div>
+                                            <p class="help-block">
+                                                <%= I18n.t("page.employer_personal_profile_show.tabB_segment_row2_description") %>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label"><%= I18n.t("page.employer_personal_profile_show.tabB_segment_row3") %></label>
+                                        <div class="col-md-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", "data-isInconsistent" => I18n.t("page.employer_personal_profile_show.tabB_segment_row3_inconsistent") %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin:20px 16px 0 0;">
+                                        <%= f.submit I18n.t('basic.button.save'), class: "btn btn-default pull-right", onclick: "warn_on_unload=''" %>
+                                    </div>
+                                <!-- </form> -->
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BEGIN END CONTENT -->
+            </div>
+            <!-- END MAIN CONTENT -->
+        </div>
+        <!-- END PAGE -->
+        <!-- BEGIN FOOTER -->
+        <div class="footer"><img class="footer-logo" src="/img/logo103.png" alt="">
+            <div class="footer-nav">
+                <%= link_to I18n.t("page.footer.about"), index_about_path %>
+                <span class="bar">|</span>
+                <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
+                <span class="bar">|</span>
+                <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
+                <span class="bar">|</span>
+                <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
+            </div>
+            <div style="margin-top:12px;">
+                <span id="siteseal">
+                    <script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=6EabjzhFVsN0Ek7Z9eGWGUwWv7uWRVt7AtmVMPmKs7pzCryNcCDdV"></script>
+                </span>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+
+        <!-- BEGIN JAVASCRIPTS -->
+        <!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="/plugins/html5shiv.min.js"></script>
+            <script src="/plugins/respond.min.js"></script>
+            <![endif]-->
+
+            <script src="/plugins/jquery-1.11.0.min.js"></script>
+            <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+            <script type="text/javascript" src="/plugins/jquery-validation/dist/jquery.validate.js"></script>
+            <script type="text/javascript" src="/plugins/jquery-validation/dist/myMethods.js"></script>
+            <!-- END 核心插件 -->
+            <!-- BEGIN 頁面插件 -->
+            <script src="/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+            <script src="/plugins/select2/select2.min.js"></script>
+            <script src="/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+            <script src="/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+            <script src="/plugins/dropzone/dropzone.js"></script>
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="/js/script.js"></script>
+            <script type="text/javascript" src="/js/page/company_profile.js"></script>
+            <!-- <script type="text/javascript" src="/js/page/employer_profile-test.js"></script> -->
+            <script type="text/javascript" src="/js/element.js"></script>
+            <script type="text/javascript" src="/js/google_analytics.js"></script>
+            <script>
+                var warn_on_unload = $('#warning_on_load').html();
+                var expand_count = 0
+
+                jQuery(document).ready(function() {
+                 Web.init();
+                 PersonalProfile.init();
+
+                 $(".prevent").click(function(event){
+                      event.preventDefault()
+                })
+
+                 window.onbeforeunload = function(e) {
+                       if( expand_count > 0 && warn_on_unload != '') return warn_on_unload
+                    }
+                });
+
+                var update_basic_info = function(form_num) {
+                    if( $(".has-error").length > 0 ) {
+                        $("body").animate({scrollTop: "300px"})
+                        return
+                    }
+                    var double_check = 2
+                    if( $("#contact-form" + form_num + " input[name='first_name']").val() == '' ) {
+                        $("#contact-form" + form_num + " input[name='first_name']").focus()
+                        $("#contact-form" + form_num + " input[name='first_name']").css("border-color", "red")
+                    } else {
+                        double_check--
+                    }
+                    if( $("#contact-form" + form_num + " input[name='last_name']").val() == '' ) {
+                        $("#contact-form" + form_num + " input[name='last_name']").focus()
+                        $("#contact-form" + form_num + " input[name='last_name']").css("border-color", "red")
+                    } else {
+                        double_check--
+                    }
+                    if(double_check == 0) {
+                        var portlet = $("#profile-portlet1")
+//                        console.log(portlet)
+                        portlet.removeClass('show-edit')
+                        portlet.addClass('show-view')
+                    } else {
+                        $("body").animate({scrollTop: "300px"})
+                        return
+                    }
+                    var obj = {
+                        "request": "update_basic_info",
+                        "user[first_name]": $("#contact-form" + form_num + " input[name='first_name']").val(),
+                        "user[last_name]": $("#contact-form" + form_num + " input[name='last_name']").val(),
+                        "personal[id]": "<%= @personal.id %>",
+                        "personal[brief_introduction]": $("#contact-form" + form_num + " input[name='brief_introduction']").val(),
+                        "personal[introduction]": $("#contact-form" + form_num + " textarea[name='introduction']").val(),
+                        "personal[website]": $("#contact-form" + form_num + " input[name='website']").val(),
+                    }
+                    $("#loader").show()
+                    //console.log(obj)
+                    $.ajax({
+                        url: "/users/employer/personal/profiles/ajax_updae",
+                        type: "post",
+                        dataType: "json",
+                        data: obj,
+                        success: function(data) {
+                            //console.log(data)
+                            $("#brief_introduction").text(data.personal.brief_introduction)
+                            $("#introduction").text(data.personal.introduction)
+                            $("#first_name").text(data.user.first_name)
+                            $("#last_name").text(data.user.last_name)
+                            //console.log(document.getElementById("profile_img"+ form_num))
+                            if( typeof document.getElementById("profile_img"+ form_num).files[0] != 'undefined' ) upload_img(form_num)
+                            else $("#loader").hide()
+                            expand_count--
+                        }
+                    });
+                }
+
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $(".avatar").attr('src', e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+
+                function upload_img(form_num) {
+                    var profile_img = document.getElementById("profile_img"+ form_num)
+                    var file = profile_img.files[0]
+                    var fd = new FormData()
+                    fd.append('profile_img', file)
+                    fd.append('personal[id]', "<%= @personal.id %>")
+
+                    var xhr = new XMLHttpRequest()
+                    xhr.open('post', '/users/employer/personal/profiles/ajax_upload_img', true)
+
+                    xhr.setRequestHeader("X-File-Name", file.name)
+                    xhr.setRequestHeader("X-File-Size", file.size)
+                    xhr.setRequestHeader("X-File-Type", file.type)
+                    xhr.onload = function() {
+                        if (this.status == 200) {
+                            //console.log("upload file success")
+                            $("#loader").hide()
+                        }
+                    }
+                    xhr.send(fd)
+                }
+
+
+
+            </script>
+
+            <!-- END JAVASCRIPTS -->
+            <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="/plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+    </body>
+    </html>

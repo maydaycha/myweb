@@ -10,20 +10,24 @@ class User < ActiveRecord::Base
 
   validates_presence_of :first_name, :message => "姓氏未填寫"
   validates_presence_of :last_name, :message => "名字未填寫"
-  validates_presence_of :country_code, :message => "地區未選取"
+  # validates_presence_of :country_code, :message => "地區未選取"
   validates_presence_of :email, :message => "Email未填寫"
   validates_presence_of :username, :message => "帳號未填寫"
   validates_uniqueness_of :email, :message => "Email重複了"
   validates_uniqueness_of :username, :message => "帳號重複了"
 
-  has_many :user_authentications
-  has_many :user_skills
-  has_many :user_skill_categories
-  has_many :user_educations
-  has_many :user_experiences
-  has_many :user_favorites
-  has_many :user_certifications
-  has_many :user_portfolios
+  has_many :user_authentications, dependent: :destroy
+  has_many :user_employer_personals, dependent: :destroy
+  has_many :user_employer_companies, dependent: :destroy
+  has_many :user_skills, dependent: :destroy
+  has_many :user_skill_categories, dependent: :destroy
+  has_many :user_educations, dependent: :destroy
+  has_many :user_experiences, dependent: :destroy
+  has_many :user_favorites, dependent: :destroy
+  has_many :user_certifications, dependent: :destroy
+  has_many :user_portfolios, dependent: :destroy
+
+  accepts_nested_attributes_for :user_skill_categories
 
   def self.has_email?(email)
     self.where(:email => email).limit(1).size > 0
@@ -73,6 +77,8 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+
 
 
 

@@ -13,7 +13,6 @@ class FreelancerController < ApplicationController
 
   def getUsersBySearch
     @content = @access_token.get('http://api.freelancer.com/User/getUserDetails.json?username=LibraMa')
-    puts "test"
     render :json => @content.body
   end
 
