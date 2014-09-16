@@ -167,9 +167,9 @@ Sun::Application.routes.draw do
 
   namespace :users do
     post 'add_to_favorite'
-    delete 'remove_from_favorite'
     get 'check_email'
     get 'check_username'
+    delete 'remove_from_favorite'
   end
 
   scope :users do
