@@ -253,7 +253,9 @@ Devise.setup do |config|
   end
   config.omniauth :facebook, facebook_api_key, facebook_api_secret, :scope => 'email,read_stream,publish_stream,user_about_me,user_birthday,offline_access,user_relationships,user_likes,user_education_history,user_hometown,user_relationship_details,user_location,user_website,user_work_history,publish_actions'
 
-  config.omniauth :google_oauth2, google_api_key, google_api_secret, {client_options: {ssl: {ca_file: Rails.root.join("cacert.pem").to_s}}}
+  # config.omniauth :google_oauth2, google_api_key, google_api_secret, {client_options: {ssl: {ca_file: Rails.root.join("cacert.pem").to_s}}}
+
+  config.omniauth :google_oauth2, google_api_key, google_api_secret
 
   config.omniauth :weibo, weibo_api_key, weibo_api_secret
 
