@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626073051) do
+ActiveRecord::Schema.define(version: 20140918052647) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140626073051) do
     t.string   "last_name",                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_service",          default: false
+    t.boolean  "is_service"
     t.boolean  "is_translator",       default: false
   end
 
@@ -87,6 +87,12 @@ ActiveRecord::Schema.define(version: 20140626073051) do
     t.integer  "word_count",     default: 0
   end
 
+  create_table "project_questions", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "projects", force: true do |t|
     t.integer  "outside_id"
     t.string   "name"
@@ -101,15 +107,26 @@ ActiveRecord::Schema.define(version: 20140626073051) do
     t.string   "require_skills_chinese"
     t.text     "description_chinese"
     t.integer  "project_category"
-    t.integer  "is_translation",         default: 0
-    t.integer  "translators",            default: 0
-    t.integer  "currency",               default: 0
+    t.integer  "is_translation",                          default: 0
+    t.integer  "translators",                             default: 0
+    t.integer  "currency",                                default: 0
     t.datetime "start_date"
     t.datetime "end_date"
     t.string   "currency_code"
     t.float    "currency_exchangerate"
     t.text     "public_message"
-    t.integer  "word_count",             default: 0
+    t.integer  "word_count",                              default: 0
+    t.boolean  "is_emergency",                            default: false
+    t.integer  "required_user_level",                     default: 1
+    t.integer  "work_type"
+    t.integer  "visibility",                              default: 1
+    t.binary   "file",                   limit: 16777215
+    t.integer  "satisfication"
+    t.integer  "worked_hours"
+    t.string   "worker_location"
+    t.integer  "english_level"
+    t.boolean  "required_user_intro",                     default: false
+    t.integer  "payment_type",                            default: 1
   end
 
   create_table "skills", force: true do |t|
