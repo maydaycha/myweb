@@ -234,18 +234,33 @@ Devise.setup do |config|
     facebook_api_secret = '624c4fcca5293637eb2c739d7aaf79cd'
     google_api_key = '786892635648-gqheuekk9g0v835376t68cof3sj93e10.apps.googleusercontent.com'
     google_api_secret = 'ZbAIFBiq_ZqtCWfo5Du0NKXL'
+    weibo_api_key = '1859481800'
+    weibo_api_secret = '0ad706e569762523ad4ca6b77f522606'
+    linkedin_api_key = '7516tgo12f063l'
+    linkedin_api_secret = 'rEqEEK4qPBleE4IT'
   elsif Rails.env.development?
     facebook_api_key = '604013183007004'
     facebook_api_secret = '624c4fcca5293637eb2c739d7aaf79cd'
     google_api_key = '166356475377-irdr0jmt07m5o787hgkv2309npjod88r.apps.googleusercontent.com'
     google_api_secret = 'UGUnlIEyqwj4cEDQApuJqVi8'
+    weibo_api_key = '1859481800'
+    weibo_api_secret = '0ad706e569762523ad4ca6b77f522606'
+    linkedin_api_key = '7516tgo12f063l'
+    linkedin_api_secret = 'rEqEEK4qPBleE4IT'
   else
     # test env
     # set the app parameter
   end
   config.omniauth :facebook, facebook_api_key, facebook_api_secret, :scope => 'email,read_stream,publish_stream,user_about_me,user_birthday,offline_access,user_relationships,user_likes,user_education_history,user_hometown,user_relationship_details,user_location,user_website,user_work_history,publish_actions'
 
-  config.omniauth :google_oauth2, google_api_key, google_api_secret, {client_options: {ssl: {ca_file: Rails.root.join("cacert.pem").to_s}}}
+  # config.omniauth :google_oauth2, google_api_key, google_api_secret, {client_options: {ssl: {ca_file: Rails.root.join("cacert.pem").to_s}}}
+
+  config.omniauth :google_oauth2, google_api_key, google_api_secret
+
+  config.omniauth :weibo, weibo_api_key, weibo_api_secret
+
+  config.omniauth :linkedin, linkedin_api_key, linkedin_api_secret, :scope => 'r_fullprofile r_emailaddress r_network'
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

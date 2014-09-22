@@ -101,15 +101,10 @@
     <div class="box">
       <p class="social-text"><%= I18n.t("page.sign_up_freelancer.container_description") %></p>
       <ul class="social-icons">
-        <li>
-          <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "facebook", data:{original:{title:"facebook"}} %>
-        </li>
-        <li>
-          <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
-        </li>
-        <!-- <li>
-          <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "yahoo", data:{original:{title:"Yahoo!"}} %>
-        </li> -->
+        <li><%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "facebook", data:{original:{title:"facebook"}} %></li>
+        <li><%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %></li>
+        <li><%= link_to "Weibo", user_omniauth_authorize_path(:weibo), class: "yahoo", data:{original:{title:"Yahoo!"}} %></li>
+        <li><%= link_to "Linkedin", user_omniauth_authorize_path(:linkedin, :state => :STATE), class: "yahoo", data:{original:{title:"Yahoo!"}} %></li>
       </ul>
     </div>
   </div>

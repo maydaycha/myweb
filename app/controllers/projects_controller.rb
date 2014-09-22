@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
   end
   
   def create
-    params[:project].file = open( params[:project][:file].tempfile ).read
+    params[:project][:file] = open( params[:project][:file].tempfile ).read
     @project = Project.new(params.permit![:project])
   end
 
