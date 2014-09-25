@@ -7,5 +7,4 @@ class AdminUser < ActiveRecord::Base
     # self.email && ENV['ADMIN_EMAILS'].to_s.include?(self.email)
     return true
   end
-
 end

@@ -36,6 +36,15 @@ class ProjectsController < ApplicationController
     redirect_to project_path(@project)
   end
 
+  def new
+    @project = Project.new
+  end
+  
+  def create
+    params[:project][:file] = open( params[:project][:file].tempfile ).read
+    @project = Project.new(params.permit![:project])
+  end
+
   def destroy
     @project = Project.find(params[:id])
     @project.destroy

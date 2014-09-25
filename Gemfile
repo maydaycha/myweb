@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.0.0"
+# ruby "2.0.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
@@ -55,8 +55,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'oauth'
-
 gem 'mysql2'
 
 # ActiveRecord session
@@ -67,10 +65,14 @@ gem "recaptcha", :require => "recaptcha/rails"
 gem 'certified'
 # gem 'thin'
 
+
+gem 'oauth'
 gem 'omniauth'
 gem 'omniauth-facebook','1.4.0'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'omniauth-weibo-oauth2'
+gem 'omniauth-linkedin'
+
 
 gem 'devise'
 # gem 'devise_security_extension'
@@ -95,3 +97,4 @@ gem 'easy_captcha'
 # admin
 gem 'activeadmin', github: 'gregbell/active_admin'
 # gem "meta_search",    '>= 1.1.0.pre'
+

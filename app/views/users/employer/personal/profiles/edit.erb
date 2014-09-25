@@ -47,7 +47,7 @@
                     <i class="fa fa-search"></i>
                 </button>
             -->
-            <a class="navbar-brand" href="/index.html"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
+            <a class="navbar-brand" href="/"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
         </div>
             <!--
             <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
@@ -66,6 +66,7 @@
                 <% if user_signed_in? %>
                 <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
                 <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to I18n.t("page.header.add_project"), new_project_path %></li>
                 <% else %>
                 <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
                 <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>

@@ -61,11 +61,11 @@
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
-                    <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
-                    <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
+                        <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                        <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
                     <% else %>
-                    <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
-                    <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
+                        <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                        <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
                     <% end %>
                 </ul>
             </div>
