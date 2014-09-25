@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title>快樂工作</title>
+
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <link rel="stylesheet" href="../../plugins/jquery-tags-input/jquery.tagsinput.css">
+
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="../../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../css/alert.css">
+        <link rel="stylesheet" type="text/css" href="../../css/page/personal_profile.css">
+        <link rel="stylesheet" type="text/css" href="../../css/loginmain.css">
+        <link rel="shortcut icon" href="../../favicon.ico"/>
+        <!-- END STYLE -->
+    </head>
+    <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="clearfix">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+         <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+            <i class="fa fa-search"></i>
+        </button> -->
+        <a class="navbar-brand" href="../../index.html"><img class="navbar-logo" src="../../img/logo208.png" alt="快樂工作"></a>
+    </div>
+       <!--  <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+          <div class="navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </div>
+      </div> -->
+      <div class="navbar-collapse navbar-collapse-nav collapse navbar-left">
+          <ul class="nav navbar-nav">
+           <li><a href="#">雇主設定</a></li>
+           <li><a href="#">遠距工作者設定</a></li>
+       </ul>
+   </div>
+   <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li class="dropdown"> 
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle image-responsive" src="../../img/class/class_3.jpg" style="width: 30px;height:30px;" alt="img"> &nbsp;Chris,Chou <b class="caret"></b></a>
+          <ul class="dropdown-menu user-dropdown">
+            <li class="color-blue"><span>Hi,<a href="#">Chris,Chou</a></span></li>
+            <li class="divider"></li>
+            <li><a href="#">切換到(User ID)</a></li>
+            <li><a href="#">個人設定</a></li>
+            <li><a href="#">金融帳戶設定</a></li>
+            <li><a href="#">帳戶驗證</a></li>
+            <li><a href="#">會員登出</a></li>
+        </ul>
+    </li>
+    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-lg fa-bell"></i></span>&nbsp;<span class="badge">2</span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">(通知訊息內容)<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
+        <li class="divider"></li>
+        <li><a href="#">(通知訊息內容)<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
+    </ul>
+</li>
+<li><a href="#"><span><i class="fa fa-lg fa-refresh"></i></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- END NAVBAR --> 
+<!-- BEGIN PAGE -->
+<div class="page-content bottom50">
+  <div class="container top50">
+    <div class="myTabs">
+        <!--ROW-->
+        <div class="row right10 left10">
+            <div class="col-xs-12">
+                <div class="alert alert-info" role="alert"><p>您必須先設定付款方式，才能開始雇用遠距工作者。</p></div>
+                <hr>
+                <button class="btn btn-info">新增付款方式</button>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                        <th>付款方式</th>
+                        <th>動作</th>
+                        <th>自動匯款狀態</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td colspan="3">您還沒有設定金融帳戶</td>
+                  </tr>
+              </tbody>
+          </table>
+          <hr>
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                    <th>付款方式</th>
+                    <th>動作</th>
+                    <th>自動匯款狀態</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><i class="fa fa-cc-paypal fa-4x Cblue"></i></td>
+                  <td>
+                  (主要帳戶沒有動作選項)
+                  </td>
+                  <td>主要帳戶</td>
+              </tr>
+              <tr>
+                  <td><i class="fa fa-cc-mastercard fa-4x Corange"></i></td>
+                  <td>
+                     <div class="btn-group">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        選擇一個動作 <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">設定為主要帳戶</a></li>
+                        <li><a href="#">刪除</a></li>
+                    </ul>
+                </div>
+            </td>
+            <td>次要帳戶</td>
+        </tr>
+    </tbody>
+</table>
+</div>         
+</div>
+<!--/END ROW-->
+
+</div>
+</div>
+</div>
+<!-- END PAGE -->
+<!-- BEGIN FOOTER -->
+<script language="javascript" type="text/javascript" 
+src="../../masterpage/footer.txt"></script>
+<!-- END FOOTER -->
+
+<!-- BEGIN JAVASCRIPTS -->
+<!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+            <![endif]-->
+
+            <script src="../../plugins/jquery-1.11.0.min.js"></script>
+            <script src="../../plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
+            <!-- END 核心插件 -->
+            <!-- BEGIN 頁面插件 -->
+
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="../../js/script.js"></script>
+            <script type="text/javascript" src="../../js/page/personal_profile.js"></script>
+            <script>
+                jQuery(document).ready(function() {    
+                   Web.init();
+                   PersonalProfile.init();
+               });
+            </script>
+            <!-- END JAVASCRIPTS -->
+            <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+    </body>
+    </html>

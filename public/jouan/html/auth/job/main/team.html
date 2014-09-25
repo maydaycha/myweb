@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+  <title>快樂工作</title>
+
+  <!-- BEGIN STYLE -->
+  <!-- BEGIN 核心樣式 -->
+  <link rel="stylesheet" href="../../../../plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../plugins/font-awesome/css/font-awesome.min.css">
+<!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="../../../../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/expanding_list.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/alert.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/loginmain.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/page/search_page.css"> 
+        <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
+        <link rel="shortcut icon" href="../../../../favicon.ico"/>
+      </head>
+      <!-- END STYLE -->
+    </head>
+    <body>
+      <!-- BEGIN NAVBAR -->
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="clearfix">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+         <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+            <i class="fa fa-search"></i>
+          </button> -->
+          <a class="navbar-brand" href="../../../../index.html"><img class="navbar-logo" src="../../../../img/logo208.png" alt="快樂工作"></a>
+        </div>
+       <!--  <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+          <div class="navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </div>
+        </div> -->
+        <div class="navbar-collapse navbar-collapse-nav collapse navbar-left">
+          <ul class="nav navbar-nav nav-yellow">
+            <li><a href="hire.html" >招募遠距工作者</a></li>
+            <li class="myactive"><a href="team.html">團隊管理</a></li>
+            <li><a href="report.html">報表</a></li>
+            <li><a href="sms_in.html">訊息</a></li>
+          </ul>
+        </div>
+        <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li class="dropdown"> 
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle image-responsive" src="../../../../img/class/class_3.jpg" style="width: 30px;height:30px;" alt="img"> &nbsp;Chris,Chou <b class="caret"></b></a>
+              <ul class="dropdown-menu user-dropdown">
+                <li class="color-blue"><span>Hi,<a href="#">Chris,Chou</a></span></li>
+                <li class="divider"></li>
+                <li><a href="#">切換到(User ID)</a></li>
+                <li><a href="#">個人設定</a></li>
+                <li><a href="#">會員登出</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-lg fa-bell"></i></span>&nbsp;<span class="badge">2</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">(通知訊息內容)<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
+                <li class="divider"></li>
+                <li><a href="#">(通知訊息內容)<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
+              </ul>
+            </li>
+            <li><a href="#"><span><i class="fa fa-lg fa-refresh"></i></span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-border-yellow"></div>
+    </div>
+
+    <!-- END NAVBAR --> 
+    <!-- BEGIN PAGE -->
+    <div class="page-content page-yellow" style="margin-bottom:50px;">
+      <div class="container" style="margin-top: 50px;">
+        <ul id="myTab" class="nav nav-tabs navmargin">
+          <li class="active"><a id="tab-1" href="#one" data-toggle="tab">我的遠距工作者</a></li>
+          <li ><a id="tab-2" href="#two" data-toggle="tab">工作日誌 </a></li>
+          <li><a id="tab-3" href="#three" data-toggle="tab">合約</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content myTabs" >
+          <div class="tab-pane fade in active" id="one">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                  </span>
+                </div>
+                <ul class="nav nav-pills nav-stacked">
+                  <li><a href="#freelancer-1" id="pills-1" data-toggle="tab">等待接受中</a></li>
+                  <li><a href="#freelancer-2" id="pills-2" data-toggle="tab">雇用中</a></li>
+                  <li><a href="#freelancer-3" id="pills-3" data-toggle="tab">發過訊息</a></li>
+                  <li><a href="#freelancer-4" id="pills-4" data-toggle="tab">儲存過的</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-9">
+               <div class="tab-content">
+                 <div class="tab-pane" id="freelancer-1">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="panel panel-default">
+                        <div class="panel-body">
+
+                          <div class="row">
+                            <div class="col-xs-5 col-md-4">
+                              <div class="media">
+                                <a class="pull-left" href="#">
+                                  <img class="media-object" src="../../../../img/default-pic.png" style="width:60px; height:60px;" alt="img">
+                                </a>
+                                <div class="media-body" >
+
+                                  <h4 class="media-heading" >Steven C. LLC </h4>
+                                  <div class="Cgray" style="line-height:0.7em;">
+                                    <p>案件名稱</p>
+                                    <p>Mon 1:39pm</p>
+                                    <p>Russia</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-xs-4 col-md-4 text-center-md">
+                              <p style="margin:0 auto 2px auto;">固定薪資$10美金</p>
+                              <p style="margin:0 auto 2px auto;">案件薪資上限$10美金</p>
+                              <p>等待回應中</p>
+                            </div>
+                            <div class="col-xs-3 col-md-4 text-center-md">
+                              <div class="form-group">
+                               <div class="btn-group">
+                                 <button type="button" class="btn btn-default btn-group-lg">
+                                  檢視合約
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane active" id="freelancer-2">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-xs-7 col-md-4">
+                            <div class="media">
+                              <a class="pull-left" href="#">
+                                <img class="media-object" src="../../../../img/default-pic.png" style="width:60px; height:60px;" alt="img">
+                              </a>
+                              <div class="media-body" >
+                                <h4 class="media-heading"> Steven C. LLC </h4>
+                                <div class="Cgray" style="line-height:0.7em;">
+                                  <p>案件名稱</p>
+                                  <p>Mon 1:39pm</p>
+                                  <p>Russia</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-2 col-md-3 text-center-md">固定薪資</div>
+                          <div class="col-xs-3 col-md-3 text-center-md">
+                            <h4 style="margin:0 auto 2px auto;"><strong>已付$60</strong></h4> 共$100</div>
+                            <div class="hidden-xs col-md-2 text-center-md">
+                              <div class="form-group">
+                               <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-group-lg dropdown-toggle" data-toggle="dropdown">
+                                  動作
+                                  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu text-left">
+                                  <li><a href="#">發送訊息</a></li>
+                                  <li><a href="#">檢視工作日誌</a></li>
+                                  <li><a href="#">檢視Timesheet</a></li>
+                                  <li><a href="#">Change weekly limit</a></li>
+                                  <li><a href="#">給獎勵津貼</a></li>
+                                  <li><a href="#">Increase Rate</a></li>
+                                  <li><a href="#">檢視合約</a></li>
+                                  <li><a href="#">檢視作品集</a></li>
+                                  <li><a href="#">結束合約</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12 visible-xs">
+                            <div class="form-group">
+                             <div class="btn-group" style="width: 100%">
+                               <button type="button" class="btn btn-default btn-group-lg btn-block dropdown-toggle" data-toggle="dropdown">
+                                動作
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu text-left" >
+                                <li><a href="#">發送訊息</a></li>
+                                <li><a href="#">檢視工作日誌</a></li>
+                                <li><a href="#">檢視Timesheet</a></li>
+                                <li><a href="#">Change weekly limit</a></li>
+                                <li><a href="#">給獎勵津貼</a></li>
+                                <li><a href="#">Increase Rate</a></li>
+                                <li><a href="#">檢視合約</a></li>
+                                <li><a href="#">檢視作品集</a></li>
+                                <li><a href="#">結束合約</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div> 
+                      <hr class="visible-xs"> 
+                      <div class="row">
+                        <div class="col-xs-7 col-md-4">
+                          <div class="media">
+                            <a class="pull-left" href="#">
+                              <img class="media-object" src="../../../../img/default-pic.png" style="width:60px; height:60px;" alt="img">
+                            </a>
+                            <div class="media-body" >
+                              <h4 class="media-heading" > Steven C. LLC </h4>
+                              <div class="Cgray" style="line-height:0.7em;">
+                                <p>案件名稱</p>
+                                <p>Mon 1:39pm</p>
+                                <p>Russia</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-2 col-md-3 text-center-md">
+                          <p class="Cblue" style="margin:0 auto 2px auto;">目前正在工作</p>
+                          設定系統環境</div>
+                          <div class="col-xs-2 col-md-3 text-center-md">
+                            <h4 style="margin:0 auto 2px auto;"><strong>已工作3:20</strong></h4> 
+                            應付金額$40
+                          </div>
+                          <div class="col-xs-3 col-md-2 text-center-md">
+                            <div class="form-group">
+                             <div class="btn-group">
+                              <button type="button" class="btn btn-default btn-group-lg dropdown-toggle" data-toggle="dropdown">
+                                動作
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu text-left">
+                                <li><a href="#">發送訊息</a></li>
+                                <li><a href="#">檢視工作日誌</a></li>
+                                <li><a href="#">檢視Timesheet</a></li>
+                                <li><a href="#">Change weekly limit</a></li>
+                                <li><a href="#">給獎勵津貼</a></li>
+                                <li><a href="#">Increase Rate</a></li>
+                                <li><a href="#">檢視合約</a></li>
+                                <li><a href="#">檢視作品集</a></li>
+                                <li><a href="#">結束合約</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-xs-7 col-md-4">
+                            <div class="media">
+                              <a class="pull-left" href="#">
+                                <img class="media-object" src="../../../../img/default-pic.png" style="width:60px; height:60px;" alt="img">
+                              </a>
+                              <div class="media-body" >
+                                <h4 class="media-heading"> Steven C. LLC </h4>
+                                <div class="Cgray" style="line-height:0.7em;">
+                                  <p>案件名稱</p>
+                                  <p>Mon 1:39pm</p>
+                                  <p>Russia</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-2 col-md-3 text-center-md">固定薪資</div>
+                          <div class="col-xs-3 col-md-3 text-center-md">
+                            <h4 style="margin:0 auto 2px auto;"><strong>已付$60</strong></h4> 共$100</div>
+                            <div class="hidden-xs col-md-2 text-center-md">
+                              <div class="form-group">
+                               <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-group-lg dropdown-toggle" data-toggle="dropdown">
+                                  動作
+                                  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu text-left">
+                                  <li><a href="#">發送訊息</a></li>
+                                  <li><a href="#">檢視工作日誌</a></li>
+                                  <li><a href="#">檢視Timesheet</a></li>
+                                  <li><a href="#">Change weekly limit</a></li>
+                                  <li><a href="#">給獎勵津貼</a></li>
+                                  <li><a href="#">Increase Rate</a></li>
+                                  <li><a href="#">檢視合約</a></li>
+                                  <li><a href="#">檢視作品集</a></li>
+                                  <li><a href="#">結束合約</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12 visible-xs">
+                            <div class="form-group" >
+                             <div class="btn-group" style="width: 100%;">
+                               <button type="button" class="btn btn-default btn-group-lg btn-block dropdown-toggle" data-toggle="dropdown">
+                                動作
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu text-left">
+                                <li><a href="#">發送訊息</a></li>
+                                <li><a href="#">檢視工作日誌</a></li>
+                                <li><a href="#">檢視Timesheet</a></li>
+                                <li><a href="#">Change weekly limit</a></li>
+                                <li><a href="#">給獎勵津貼</a></li>
+                                <li><a href="#">Increase Rate</a></li>
+                                <li><a href="#">檢視合約</a></li>
+                                <li><a href="#">檢視作品集</a></li>
+                                <li><a href="#">結束合約</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div> 
+                      <hr class="visible-xs"> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="freelancer-3">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-xs-5 col-md-4">
+                        <div class="media">
+                          <a class="pull-left" href="#">
+                            <img class="media-object" src="../../../../img/default-pic.png" style="width:60px; height:60px;" alt="img">
+                          </a>
+                          <div class="media-body" >
+                            <h4 class="media-heading" > Steven C. LLC </h4>
+                            <div class="Cgray" style="line-height:0.7em;">
+                              <p>案件名稱</p>
+                              <p>Mon 1:39pm</p>
+                              <p>Russia</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-4 col-md-4 text-center-md">
+                        <p style="margin:0 auto 2px auto;">上次發送訊息</p>
+                        2014/05/12<a class="Cblue" href="#">檢視</a></div>
+                        <div class="col-xs-3 col-md-4 text-center-md">
+                          <div class="form-group">
+                           <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-group-lg dropdown-toggle" data-toggle="dropdown">
+                              動作
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu text-left">
+                              <li><a href="#">檢視所有訊息</a></li>
+                              <li><a href="#">邀請至案件</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="freelancer-4">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+
+                    <div class="row">
+                      <div class="col-xs-5 col-md-4">
+                        <div class="media">
+                          <a class="pull-left" href="#">
+                            <img class="media-object" src="../../../../img/default-pic.png" style="width:60px; height:60px;" alt="img">
+                          </a>
+                          <div class="media-body" >
+                            <h4 class="media-heading" > Steven C. LLC </h4>
+                            <div class="Cgray" style="line-height:0.7em;">
+                              <p>案件名稱</p>
+                              <p>Mon 1:39pm</p>
+                              <p>Russia</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-4 col-md-4 text-center-md">
+                        <p style="margin:0 auto 2px auto;">備註:Good freelancer, quick reponse</p>
+                      </div>
+                      <div class="col-xs-3 col-md-4 text-center-md">
+                        <div class="form-group">
+                         <div class="btn-group">
+                          <button type="button" class="btn btn-default btn-group-lg dropdown-toggle" data-toggle="dropdown">
+                            動作
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu text-left">
+                            <li><a href="#">邀請至案件</a></li>
+                            <li><a href="#">編輯備註</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+<div class="tab-pane fade in " id="two"> <!--BEGIN PANEL 02-->
+ <div class="row" style="margin:auto 5px 20px 5px;">
+  <div class="col-sm-4">
+    <select class="form-control">
+      <option>選一個遠距工作者</option>
+      <option>Harry Jouncen</option>
+      <option>Terry Moke</option>
+      <option>Tom White</option>
+      <option>Kevin Black</option>
+    </select>
+  </div>
+  <div class="col-sm-6">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> 包含曾經雇用過的遠距工作者
+      </label>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin:auto 5px;">
+  <div class="col-sm-12">
+    <div class="well">
+      <div class="row">
+        <div class="col-sm-3">
+
+          <select class="form-control">
+            <option>時區選擇</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="col-sm-6 text-center callander-txt">
+          <a href="#"><i class="fa fa-chevron-left"></i> </a>
+          <a href="#">Thu,Sep 12, 2013 </a>
+          <a href="#"><i class="fa fa-calendar"></i> </a>
+          <a href="#"><i class="fa fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin:auto 5px;">
+  <div class="col-sm-12">
+    <div class="table-responsive">
+      <table class="table table-condensed table-striped workdiary" style="table-layout:;">
+       <tr>
+         <td></td>
+         <td></td>
+         <td class="working time-txt" >翻譯案件，將中文翻譯成英文</td>
+         <td colspan="3" class="working time-txt">翻譯案件，將中文翻譯成英文</td>
+         <td ></td>
+       </tr>
+       <tr>
+        <td class="time"><h4><strong>15時</strong></h4></td>
+        <td></td>
+        <td><img style="width: 165px; display: block;" src="../../../../img/1.png" alt="img"></td>
+        <td><img style="width: 165px; display: block;" src="../../../../img/1.png" alt="img"></td>
+        <td><img style="width: 165px; display: block;" src="../../../../img/1.png" alt="img"></td>
+        <td><img style="width: 165px; display: block;" src="../../../../img/1.png" alt="img"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>15:00</td>
+        <td>
+          <div class="row">
+            <div class="col-xs-3">15:10</div> 
+            <div class="capsulated col-xs-9" >
+              <div class="outer" style="margin-top:5%;">
+                <div class="inner">
+                  <ul><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="row">
+            <div class="col-xs-3">15:20</div> 
+            <div class="capsulated col-xs-9" >
+              <div class="outer" style="margin-top:5%;">
+                <div class="inner">
+                  <ul><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="row">
+            <div class="col-xs-3">15:30</div> 
+            <div class="capsulated col-xs-9" >
+              <div class="outer" style="margin-top:5%;">
+                <div class="inner">
+                  <ul><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="row">
+            <div class="col-xs-3">15:40</div> 
+            <div class="capsulated col-xs-9" >
+              <div class="outer" style="margin-top:5%;">
+                <div class="inner">
+                  <ul><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>15:50</td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div><!--END TAB-PANE 02-->
+<div class="tab-pane fade" id="three">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-md-10">
+        <h3>案件列表</h3>
+        <hr>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="input-group" style="margin-top:10px;">
+              <input type="text" class="form-control" placeholder="輸入案件名稱">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+              </span> </div>
+            </div>
+            <div class="col-sm-4">
+              <label class="checkbox-inline" style=" padding-top:15px;">
+                <input type="checkbox" id="inlineCheckbox1" value="option1">
+                只搜尋終止合約 </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div style="margin:10px 0; border:lightgrey 1px solid;">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>案件名稱</th>
+                    <th>合約時間</th>
+                    <th>案件類型</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <h4><a href="#">遠距工作者名字</a></h4>
+                      <a href="case.html">Sun Information/SEO/SMM for New e-commerce website</a>
+                    </td>
+                    <td>
+                      <p>Starts May 03, 2014</p>
+                      <a href="#">再次雇用</a>
+                    </td>
+                    <td><p>固定薪資</p>
+                      <p>$12美金 (60% 訂金)</p></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h4><a href="#">遠距工作者名字</a></h4>
+                        <a href="case.html">Sun Information/SEO/SMM for New e-commerce website</a>
+                      </td>
+                      <td>
+                        <p>Starts May 03, 2014</p>
+                        <a href="#">再次雇用</a>
+                      </td>
+                      <td><p>固定薪資</p>
+                        <p>$10美金 (20% 訂金)</p></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h4><a href="#">遠距工作者名字</a></h4>
+                          <a href="case.html">Sun Information/SEO/SMM for New e-commerce website</a></td>
+                          <td>
+                            <p>Starts May 03, 2014</p>
+                            <a href="#">再次雇用</a>
+                          </td>
+                          <td><p>時薪制</p>
+                            <p>每小時$5美金 (週薪$25美金)</p></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END PAGE --> 
+      <!-- BEGIN FOOTER -->
+      <script language="javascript" type="text/javascript" 
+      src="../../../../masterpage/footer.txt"></script>
+      <!-- END FOOTER --> 
+
+      <!-- BEGIN JAVASCRIPTS --> 
+      <!-- BEGIN 核心插件 --> 
+<!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+            <![endif]--> 
+
+            <script src="../../../../plugins/jquery-1.11.0.min.js"></script> 
+            <script src="../../../../plugins/bootstrap/js/bootstrap.min.js"></script> 
+            <script src="../../../../plugins/jquery-placeholder/jquery.placeholder.js"></script> 
+            <!-- END 核心插件 --> 
+            <!-- BEGIN 頁面插件 -->
+
+            <!-- END 頁面插件 --> 
+            <script type="text/javascript" src="../../../../js/script.js"></script> 
+            <script type="text/javascript" src="../../../../js/loginmain.js"></script>
+            <script type="text/javascript" src="../../../../js/element.js"></script> 
+            <script type="text/javascript" src="../../../../js/expanding_list.js"></script>
+            <!--<script type="text/javascript" src="js/page/index.js"></script>--> 
+            <script>
+              jQuery(document).ready(function() {    
+               Web.init();
+               //Index.init();
+             });
+            </script> 
+            <script type="text/javascript" src="../../../../js/bootstrap-tabcollapse-yellow.js"></script> 
+            <script type="text/javascript">
+              $('#myTab').tabCollapse();
+              $('#testTabs').tabCollapse();
+              $('#testTabs01').tabCollapse();
+            </script> 
+
+            <script type="text/javascript">
+             $(document).ready(function() {
+              $("input[name$='feetype']").click(function() {
+                var test = $(this).val();
+
+                $("div.desc").hide();
+                $("#feetype" + test).show();
+              });
+            });
+           </script>
+
+           <!-- END JAVASCRIPTS --> 
+           <!-- BEGIN PIE --> 
+<!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]--> 
+        <!-- END PIE -->
+      </body>
+      </html>

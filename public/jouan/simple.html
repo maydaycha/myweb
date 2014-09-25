@@ -1,16 +1,17 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-        <meta content="" name="description"/>
-        <meta content="" name="author"/>
-        <title>快樂工作</title>
-        
-        <!-- BEGIN STYLE -->
-        <!-- BEGIN 核心樣式 -->
-        <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title>快樂工作</title>
+
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.min.css">
         <!--[if gte IE 9]>
         <style type="text/css">
         .gradient {
@@ -64,20 +65,21 @@
         <!-- END NAVBAR -->
         <!-- BEGIN PAGE -->
         <div class="page-content">
+            <br/><!-- padding for jsfiddle -->
+            <h6>datetimepicker1</h6>
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker1">
+                    <input type="text" class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
+                </div>
+            </div>
+
 
         </div>
         <!-- END PAGE -->
         <!-- BEGIN FOOTER -->
-        <div class="footer">
-            <img class="footer-logo" src="img/logo103.png" alt="">
-            <div class="footer-nav">
-                <a href="about.html">關於我們</a>
-                <span class="bar">|</span>
-                <a href="rule.html">隱私條款</a>
-                <span class="bar">|</span>
-                <a href="rule.html">使用條款</a>
-            </div>
-        </div>
+        <script language="javascript" type="text/javascript" 
+        src="masterpage/footer.txt"></script>
         <!-- END FOOTER -->
         
         <!-- BEGIN JAVASCRIPTS -->
@@ -85,24 +87,38 @@
         <!--[if lt IE 9]>
             <script src="plugins/html5shiv.min.js"></script>
             <script src="plugins/respond.min.js"></script>
-        <![endif]-->
+            <![endif]-->
 
-        <script src="plugins/jquery-1.11.0.min.js"></script>
-        <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
-        <!-- END 核心插件 -->
-        <!-- BEGIN 頁面插件 -->
-        <!-- END 頁面插件 -->
-        <script type="text/javascript" src="js/script.js"></script>
-        <!--<script type="text/javascript" src="js/page/index.js"></script>-->
-        <script>
-            jQuery(document).ready(function() {    
-               Web.init();
+            <script src="plugins/jquery-1.11.0.min.js"></script>
+            <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+            
+
+            <!-- END 核心插件 -->
+            <!-- BEGIN 頁面插件 -->
+            <script src="plugins/bootstrap-datetimepicker-master/build/js/moment.js"></script>
+            <script src="plugins/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.js"></script>
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="js/script.js"></script>
+            <!--<script type="text/javascript" src="js/page/index.js"></script>-->
+            <script>
+                jQuery(document).ready(function() {    
+                 Web.init();
                //Index.init();
-            });
-        </script>
-        <!-- END JAVASCRIPTS -->
-        <!-- BEGIN PIE -->
+           });
+            </script>
+            <script type="text/javascript">
+                $(function(){
+                    $('#datetimepicker1').datetimepicker({
+                        pickTime: false,
+                        icons: {
+                            date: "fa fa-calendar",
+                        }
+                    });
+                });
+            </script>
+            <!-- END JAVASCRIPTS -->
+            <!-- BEGIN PIE -->
         <!--[if lte IE 9]>
         <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
         <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
@@ -117,4 +133,4 @@
         <![endif]-->
         <!-- END PIE -->
     </body>
-</html>
+    </html>
