@@ -1,38 +1,17 @@
-<ul>
-    <il>Name:</il>
-    <ul>
-        <li><%= @project.name %></li>
-        <li><%= @project.name_chinese %></li>
-    </ul>
-</ul>
-<ul>
-    <il>require_skills: </il>
-    <ul>
-        <li><%= @project.require_skills %></li>
-        <li><%= @project.require_skills_chinese %></li>
-    </ul>
-</ul>
-<ul>
-    <li>Description: </li>
-    <ul>
-        <li><%= @project.description %></li>
-        <li><%= @project.description_chinese %></li>
-    </ul>
-</ul>
-<% if @project.has_public_mesage? %>
-<ul>
-    <li>Public message</li>
-    <ul>
-        <% @project.get_public_message.each do |m| %>
-        <li><%= m.text %></li>
-        <% end %>
-    </ul>
-</ul>
-<% end %>
-<ul>
-    <li>budget: </li>
-    <ul>
-        <li>origin => <%= @project.currency_code  %>: <%= @project.budget.split(/,/)[0].to_f %> ~ <%= @project.budget.split(/,/)[1].to_f %></li>
-        <li>equals to => min: <%=@project.budget.split(/,/)[0].to_f * @project.currency_exchangerate %>, max: <%=@project.budget.split(/,/)[1].to_f * @project.currency_exchangerate %> USD</li>
-    </ul>
-</ul>
+<h1>案件類別</h1>
+<strong>主類別</strong>
+<p><%= @project.main_skill %></p>
+<strong>次類別</strong>
+<p><%= @project.sub_skill %></p>
+
+<h1>案件類別</h1>
+
+<strong>案件名稱</strong>
+<p><%= @project.name %></p>
+
+<strong>工作內容</strong>
+<p><%= @project.description %></p>
+
+<strong>案件技能</strong>
+<p><%= @project.require_skills %></p>
+

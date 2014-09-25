@@ -37,18 +37,32 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @main_skill_id = params[:main].nil? ? -1 : params[:main].to_i
+    @sub_skill_id = params[:sub].nil? ? -1 : params[:sub].to_i
     @project = Project.new
   end
   
   def create
+    # return render json: params
     params[:project][:file] = open( params[:project][:file].tempfile ).read
+    params[:project][:main_skill] = params[:mainClass]
+    params[:project][:sub_skill] = params[:subClass]
     @project = Project.new(params.permit![:project])
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to @project, notice: 'Idea was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @project }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    redirect_to projects_path
+    redirect_to projects_path(params[:id])
   end
 
   def update_budget
