@@ -1,0 +1,44 @@
+/*gallery*/
+.gallery{
+  
+    .thumbnail {
+  position: relative;
+  overflow: hidden;
+  &:hover .caption {
+    top: 0%;
+  }
+}
+
+.caption {
+  position: absolute;
+  top: -100%;
+  right: 0;
+  background: rgba(68, 178, 224, 0.7);
+  width: 100%;
+  height: 100%;
+  padding: 2%;
+  text-align: center;
+  color: #fff !important;
+  z-index: 2;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.thumbnail-title {
+  color: #319ACA;
+  text-align: center;
+}
+}
+
+  .modal-dialog {}
+          .thumbnail {margin-bottom:6px;}
+
+          .carousel-control.left,.carousel-control.right{
+            background-image:none;
+            margin-top:10%;
+            margin-left: 8px;
+            width:5%;
+          }

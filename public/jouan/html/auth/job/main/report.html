@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+  <title>快樂工作</title>
+
+  <!-- BEGIN STYLE -->
+  <!-- BEGIN 核心樣式 -->
+  <link rel="stylesheet" href="../../../../plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../plugins/font-awesome/css/font-awesome.min.css">
+<!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="../../../../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/expanding_list.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/alert.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/loginmain.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/page/search_page.css"> 
+        <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
+        <link rel="shortcut icon" href="../../../../favicon.ico"/>
+      </head>
+      <!-- END STYLE -->
+    </head>
+    <body>
+      <!-- BEGIN NAVBAR -->
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="clearfix">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+         <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+            <i class="fa fa-search"></i>
+          </button> -->
+          <a class="navbar-brand" href="../../../../index.html"><img class="navbar-logo" src="../../../../img/logo208.png" alt="快樂工作"></a>
+        </div>
+       <!--  <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+          <div class="navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </div>
+        </div> -->
+        <div class="navbar-collapse navbar-collapse-nav collapse navbar-left">
+          <ul class="nav navbar-nav nav-yellow">
+            <li><a href="hire.html" >招募遠距工作者</a></li>
+            <li><a href="team.html">團隊管理</a></li>
+            <li class="myactive"><a href="report.html">報表</a></li>
+            <li><a href="sms_in.html">訊息</a></li>
+          </ul>
+        </div>
+        <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li class="dropdown"> 
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle image-responsive" src="../../../../img/class/class_3.jpg" style="width: 30px;height:30px;" alt="img"> &nbsp;Chris,Chou <b class="caret"></b></a>
+              <ul class="dropdown-menu user-dropdown">
+                <li class="color-blue"><span>Hi,<a href="#">Chris,Chou</a></span></li>
+                <li class="divider"></li>
+                <li><a href="#">切換到(User ID)</a></li>
+                <li><a href="#">個人設定</a></li>
+                <li><a href="#">會員登出</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-lg fa-bell"></i></span>&nbsp;<span class="badge">2</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">(通知訊息內容)<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
+                <li class="divider"></li>
+                <li><a href="#">(通知訊息內容)<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
+              </ul>
+            </li>
+            <li><a href="#"><span><i class="fa fa-lg fa-refresh"></i></span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-border-yellow"></div>
+    </div>
+
+    <!-- END NAVBAR --> 
+    <!-- BEGIN PAGE -->
+    <div class="page-content page-yellow" style="margin-bottom:50px;">
+      <div class="container" style="margin-top: 50px;">
+        <ul id="myTab" class="nav nav-tabs navmargin">
+          <li class="active"><a href="#weekreport" data-toggle="tab">週報表</a></li>
+          <li ><a href="#transfer" data-toggle="tab">轉帳紀錄</a></li>
+          <li><a href="#work" data-toggle="tab">工時統計</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content myTabs" >
+          <div class="tab-pane fade in active" id="weekreport">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="col-md-12">
+                  <h3>週報表</h3>
+                  <div class="well">
+                    <div class="row">
+                      <div class="col-sm-8 col-md-9 text-left-sm text-center callander-txt">
+                        <a href="#"><i class="fa fa-chevron-left"></i> </a>
+                        <a href="#">Thu,Sep 12, 2013 </a>
+                        <a href="#"><i class="fa fa-calendar"></i> </a>
+                        <a href="#"><i class="fa fa-chevron-right"></i></a>
+                      </div>
+                      <hr class="visible-xs">
+                      <div class="col-sm-4 col-md-3">
+                        <p class="Cnavy">時薪制 <span class="pull-right">$12美金</span></p>
+                        <p class="Cnavy">固定薪資/其他 <span class="pull-right">$20美金</span></p>
+                        <hr class="marpad">
+                        <p class="Cblack" style="font-size:1.1em;"><strong>總金額<span class="pull-right">$20美金</span></strong></p>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+
+                  <h3 class="Corange">時薪制</h3>
+                  <hr>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>案件</th>
+                          <th>週一</th>
+                          <th>週二</th>
+                          <th>週三</th>
+                          <th>週四</th>
+                          <th class="success">週五</th>
+                          <th>週六</th>
+                          <th>週日</th>
+                          <th>工作時數</th>
+                          
+                          <th>總收益</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="col-sm-4">
+                            <img class="pull-left" style="width: 60px; margin-right:10px; display: block;" src="../../../../img/default-pic.png" alt="img">
+                            <h4><a style="color: #0074D9;" href="#">Tom White</a></h4>
+                            <a href="#">Sun Information/SEO/SMM for New e-commerce website</a>
+                          </td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td class="success">$0.2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>5HRs</td>
+                          
+                          <td>$0.2</td>
+                        </tr>
+                        <tr>
+                          <td class="col-sm-4">
+                            <img class="pull-left" style="width: 60px; margin-right:10px; display: block;" src="../../../../img/default-pic.png" alt="img">
+                            <h4><a style="color: #0074D9;" href="#">Tom White</a></h4>
+                            <a href="#">Sun Information/SEO/SMM for New e-commerce website</a>
+                          </td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td class="success">$0.2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          
+                          <td>$0.0</td>
+                        </tr>
+                        <tr>
+                          <td class="col-sm-4">
+                            <img class="pull-left" style="width: 60px; margin-right:10px; display: block;" src="../../../../img/default-pic.png" alt="img">
+                            <h4><a style="color: #0074D9;" href="#">Tom White</a></h4>
+                            <a href="#">Sun Information/SEO/SMM for New e-commerce website</a>
+                          </td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td class="success">$0.2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          
+                          <td>$0.0</td>
+                        </tr>
+                        <tr>
+                          <td class="col-sm-4"></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>總計</td>
+                          <td>5H/0M/0S</td>
+
+                          <td>$0.2</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="table-responsive">
+                    <br><br>
+                    <h3 class="Corange">固定薪資/其他</h3>
+                    <hr>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>案件</th>
+                          <th>日期</th>
+                          <th>項目名稱</th> 
+                          <th>金額</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="col-sm-7">
+                            <img class="pull-left" style="width: 60px; margin-right:10px; display: block;" src="../../../../img/default-pic.png" alt="img">
+                            <h4><a style="color: #0074D9;" href="#">Tom White</a></h4>
+                            <a href="#">Sun Information/SEO/SMM for New e-commerce website</a>
+                          </td>
+                          <td>2014/05/10</td>
+                          <td>(項目名稱)</td>
+                          <td>$8.00</td>
+                        </tr>
+                        <tr>
+                          <td class="col-sm-7">
+                            <img class="pull-left" style="width: 60px; margin-right:10px; display: block;" src="../../../../img/default-pic.png" alt="img">
+                            <h4><a style="color: #0074D9;" href="#">Tom White</a></h4>
+                            <a href="#">Sun Information/SEO/SMM for New e-commerce website</a>
+                          </td>
+                          <td>2014/05/10</td>
+                          <td>(項目名稱)</td>
+                          <td>$8.00</td>
+                        </tr>
+
+                        <tr>
+                          <td class="col-sm-7"></td>
+                          <td></td>
+                          <td>總計</td>
+                          <td>$16.00</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade in " id="transfer">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="col-md-12">
+                 <div class="well">
+                   <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                          <input type="text" name="" class="form-control" placeholder="起" readonly>
+                          <span class="input-group-btn">
+                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                          <input type="text" name="" class="form-control" placeholder="迄" readonly>
+                          <span class="input-group-btn">
+                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <select class="form-control">
+                        <option>所有轉帳紀錄</option>
+                        <option>2014/03/25</option>
+                        <option>2014/04/25</option>
+                        <option>2014/05/25</option>
+                        <option>2014/06/25</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-3">
+                      <select class="form-control">
+                        <option>所有遠距工作者</option>
+                        <option>Harry Jouncen</option>
+                        <option>Terry Moke</option>
+                        <option>Tom White</option>
+                        <option>Kevin Black</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <h3>待確認款項</h3>
+                <hr>
+
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>日期</th>
+                      <th>類型</th>
+                      <th>描述</th>
+                      <th>遠距工作者</th>
+                      <th>金額</th>
+                      <th>結餘</th>
+                      <th>詳情</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Pending</td>
+                      <td>Refund</td>
+                      <td>Hi please check your account</td>
+                      <td>Terry White</td>
+                      <td>$5.00</td>
+                      <td>Pending</td>
+                      <td><a href="#">Detail</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <br>
+                <h3>轉帳紀錄</h3>
+                <hr>
+
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>日期</th>
+                      <th>類型</th>
+                      <th>描述</th>
+                      <th>遠距工作者</th>
+                      <th>金額</th>
+                      <th>結餘</th>
+                      <th>詳情</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jun 16, 2014</td>
+                      <td>Payment</td>
+                      <td>PayPal deposut (sonicaqua@gmail.com)</td>
+                      <td></td>
+                      <td>$18.01</td>
+                      <td>$0.00</td>
+                      <td><a href="#">Detail</a></td>
+                    </tr>
+                    <tr>
+                      <td>Jun 16, 2014</td>
+                      <td>Salary</td>
+                      <td>Salary for 06/09/2014 - 06/15/2014</td>
+                      <td>Terry White</td>
+                      <td>($8.00)</td>
+                      <td>($18.01)</td>
+                      <td><a href="#">Detail</a></td>
+                    </tr>
+                    <tr>
+                      <td>Jun 16, 2014</td>
+                      <td>Salary</td>
+                      <td>Salary for 06/09/2014 - 06/15/2014</td>
+                      <td>Terry White</td>
+                      <td>($8.00)</td>
+                      <td>($10.01)</td>
+                      <td><a href="#">Detail</a></td>
+                    </tr>
+                    <tr>
+                      <td>Jun 16, 2014</td>
+                      <td>Hourly</td>
+                      <td>06/09/2014-06/15/2014 - 0:20 hrs @$6.00/hr</td>
+                      <td>Terry White</td>
+                      <td>($2.00)</td>
+                      <td>($2.01)</td>
+                      <td><a href="#">Detail</a></td>
+                    </tr>
+                    <tr>
+                      <td>Jun 16, 2014</td>
+                      <td>Upfront Payment</td>
+                      <td>Required upfront payment of 100%</td>
+                      <td>Terry White</td>
+                      <td>($0.01)</td>
+                      <td>($0.01)</td>
+                      <td><a href="#">Detail</a></td>
+                    </tr>
+                    <tr>
+                      <td>Jun 12, 2014</td>
+                      <td>Credit</td>
+                      <td>Deposit Refund - MasterCard 8048</td>
+                      <td></td>
+                      <td>($10.00)</td>
+                      <td>($0.00)</td>
+                      <td><a href="#">Detail</a></td>
+                    </tr>
+                    <tr>
+                      <td>Jun 12, 2014</td>
+                      <td>Payment</td>
+                      <td>Refundable Deposit- MasterCard 8048</td>
+                      <td></td>
+                      <td>$10.00</td>
+                      <td>$10.00</td>
+                      <td><a href="#">Detail</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="col-sm-6 col-sm-offset-6">
+                  <br>
+                  <h3>記錄總結(2014/05/09-2014/05/15)</h3>
+                  <hr>
+
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th><strong>Beginning Balance</strong></th>
+                        <th><strong>$0.00</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Total Debits</td>
+                        <td>$28.01</td>
+                      </tr>
+                      <tr>
+                        <td>Total Credits</td>
+                        <td>$28.01</td>
+                      </tr>
+                      <tr>
+                        <td>Total Change</td>
+                        <td>$0.00</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Ending Balance</strong></td>
+                        <td>$0.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="work">
+         <div class="row">
+          <div class="col-sm-12">
+            <div class="col-md-12">
+             <div class="well">
+               <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                      <input type="text" name="" class="form-control" placeholder="開始日" readonly>
+                      <span class="input-group-btn">
+                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                      <input type="text" name="" class="form-control" placeholder="結束日" readonly>
+                      <span class="input-group-btn">
+                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                 <button class="btn btn-warning hidden-xs">查詢</button>
+                <div class="col-sm-3 visible-xs"><button class="btn btn-warning btn-block">查詢</button></div>
+              </div>
+            </div>
+            <br>
+            <h4>雇主: (雇主帳號名字)</h4>
+            <h4>時間: (日期區間)</h4>
+            <hr>
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>遠距工作者</th>
+                  <th colspan="2">工作描述</th>
+                  
+                  <th>總時數</th>
+                  <th>總金額</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="warning">
+                  <td>遠距工作者1名字</td>
+                  <td colspan="2" >工作日誌上的項目描述</td>
+                  
+                  <td>(項目時數)</td>
+                  <td>(產生的金額)</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="2" >工作日誌上的項目描述</td>
+                  
+                  <td>(項目時數)</td>
+                  <td>(產生的金額)</td>
+                </tr>
+                <tr class="Corange">
+                  <td></td>
+                  <td ></td>
+                  <td class="text-right"><strong>個人小計</strong></td>
+                  <td><strong>(小計時數)</strong></td>
+                  <td><strong>(小計產生的金額)</strong></td>
+                </tr>
+              </tbody>
+              <br>
+            </table>
+
+            <table class="table table-striped">
+            
+              <tbody>
+                <tr class="warning">
+                  <td>遠距工作者2名字</td>
+                  <td colspan="2" >工作日誌上的項目描述</td>
+                  
+                  <td>(項目時數)</td>
+                  <td>(產生的金額)</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="2" >工作日誌上的項目描述</td>
+                  
+                  <td>(項目時數)</td>
+                  <td>(產生的金額)</td>
+                </tr>
+                <tr class="Corange">
+                  <td></td>
+                  <td ></td>
+                  <td class="text-right"><strong>個人小計</strong></td>
+                  <td><strong>(小計時數)</strong></td>
+                  <td><strong>(小計產生的金額)</strong></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td><strong>所有遠距工作者</strong></td>
+                  <td></td>
+                  <td></td>
+                  <td><strong>(總計時數)</strong></td>
+                  <td><strong>(總計產生的金額)</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="finish">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="col-md-12">
+            <h3>已完成的案件</h3>
+            <h4>$0.20 USD</h4>
+
+            <div class="form-inline alert alert-info" style="margin:30px auto;">
+              <div class="form-group">
+                <label>起</label>
+                <input type="test" class="form-control" placeholder="起">
+              </div>
+              <div class="form-group">
+                <label>迄</label>
+                <input type="test" class="form-control" placeholder="迄">
+              </div>
+
+              <button class="btn btn-info">Go</button>
+            </div>
+            <hr style="margin:60px 0;">
+
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>案件名稱</th>
+                  <th>週一</th>
+                  <th>週二</th>
+                  <th>週三</th>
+                  <th>週四</th>
+                  <th class="success">週五</th>
+                  <th>週六</th>
+                  <th>週日</th>
+                  <th>工作時數</th>
+                  <th>每小時收益</th>
+                  <th>總收益</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-sm-4"><a href="#">Sun Information/SEO/SMM for New e-commerce website</a></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td class="success">$0.2</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>5HRs</td>
+                  <td>$1.0/HR</td>
+                  <td>$0.2</td>
+                </tr>
+                <tr>
+                  <td class="col-sm-4"><a href="#">Sun Information/SEO/SMM for New e-commerce website</a></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td class="success">$0.2</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>$1.0/HR</td>
+                  <td>$0.0</td>
+                </tr>
+                <tr>
+                  <td class="col-sm-4"><a href="#">Sun Information/SEO/SMM for New e-commerce website</a></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td class="success">$0.2</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>$固定薪資制
+                    $100</td>
+                    <td>$0.0</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-4"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>總計</td>
+                    <td>5H/0M/0S</td>
+                    <td>$1.0/HR</td>
+                    <td>$0.2</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- <div id="more"></div> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END PAGE --> 
+<!-- BEGIN FOOTER -->
+<script language="javascript" type="text/javascript" 
+src="../../../../masterpage/footer.txt"></script>
+<!-- END FOOTER --> 
+
+<!-- BEGIN JAVASCRIPTS --> 
+<!-- BEGIN 核心插件 --> 
+<!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+            <![endif]--> 
+
+            <script src="../../../../plugins/jquery-1.11.0.min.js"></script> 
+            <script src="../../../../plugins/bootstrap/js/bootstrap.min.js"></script> 
+            <script src="../../../../plugins/jquery-placeholder/jquery.placeholder.js"></script> 
+            <!-- END 核心插件 --> 
+            <!-- BEGIN 頁面插件 -->
+
+            <!-- END 頁面插件 --> 
+            <script type="text/javascript" src="../../../../js/script.js"></script> 
+            <script type="text/javascript" src="../../../../js/loginmain.js"></script>
+            <script type="text/javascript" src="../../../../js/element.js"></script> 
+            <script type="text/javascript" src="../../../../js/expanding_list.js"></script>
+            <!--<script type="text/javascript" src="js/page/index.js"></script>--> 
+            <script>
+              jQuery(document).ready(function() {    
+               Web.init();
+               //Index.init();
+             });
+            </script> 
+            <script type="text/javascript" src="../../../../js/bootstrap-tabcollapse-yellow.js"></script> 
+            <script type="text/javascript">
+              $('#myTab').tabCollapse();
+              $('#testTabs').tabCollapse();
+              $('#testTabs01').tabCollapse();
+            </script> 
+
+            <script type="text/javascript">
+             $(document).ready(function() {
+              $("input[name$='feetype']").click(function() {
+                var test = $(this).val();
+
+                $("div.desc").hide();
+                $("#feetype" + test).show();
+              });
+            });
+           </script>
+
+           <!-- END JAVASCRIPTS --> 
+           <!-- BEGIN PIE --> 
+<!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]--> 
+        <!-- END PIE -->
+      </body>
+      </html>

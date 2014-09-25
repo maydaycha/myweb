@@ -1,0 +1,182 @@
+
+
+.image-preview-input {
+    position: relative;
+	overflow: hidden;
+	margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+    input[type=file] {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
+		padding: 0;
+		font-size: 20px;
+		cursor: pointer;
+		opacity: 0;
+		filter: alpha(opacity=0);
+	}
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
+
+
+/********product choose*********/
+
+	div.product-chooser.disabled div.product-chooser-item {
+	  zoom: 1;
+	  filter: alpha(opacity = 60);
+	  opacity: 0.6;
+	  cursor: default;
+	}
+
+
+	div.product-chooser div.product-chooser-item{
+		padding: 11px;
+		border-radius: 6px;
+		cursor: pointer;
+		position: relative;
+		border: 1px solid #efefef;
+		margin-bottom: 10px;
+        margin-left: 0;
+        margin-right: 0;
+
+        	& .chooser-title{
+        		margin: 10px 12px 5px 12px;
+
+        	}
+
+	        &.selected{
+			border: 4px solid #428bca;
+			background: rgba($silver, 0.2);
+			padding: 8px;
+			filter: alpha(opacity=100);
+			opacity: 1;
+			.chooser-title{
+			 	color:$blue;
+
+			}
+		}
+		& img{
+			padding: 0;
+		}
+		& span.title{
+			display: block;
+			margin: 10px 0 5px 0;
+			font-weight: bold;
+			font-size: 12px;
+		}
+		& span.description{
+			font-size: 12px;
+		}
+		& input{
+			position: absolute;
+			left: 0;
+			top: 0;
+			visibility:hidden;
+		}
+	}
+	
+
+	/******form style*******/
+
+	* {
+  box-sizing: border-box;
+}
+
+	.form-style{
+		form {
+  
+  margin: 20px;
+	  .lable-group{
+	    position: relative;
+	    overflow: hidden;
+
+			    	input, textarea {
+		    //width: 100%;//
+		    border: 1px solid lightgray; 
+		    background: none;
+		    position: relative;
+		    top: 0;
+		    left: 0;
+		    z-index: 1;
+		    padding: 8px 12px;
+		    outline: 0;
+		    &:valid {
+		      // Hides the label
+		      background: white; 
+		    }
+		    &:focus {
+		      border-color: $aqua;
+		    }
+		    &:focus + label {
+		      background: $aqua;
+		      height:100%;
+		      color: white;
+		      font-size: 70%;
+		      padding: 1px 6px;
+		      z-index: 2;
+		      text-transform: uppercase;
+		    }
+		  }
+		  label {
+		    transition: // not padding
+		      background 0.2s,
+		      color 0.2s,
+		      top 0.2s,
+		      bottom 0.2s,
+		      right 0.2s,
+		      left 0.2s;
+		    position: absolute;
+		    color: #999;
+		    padding: 7px 6px;
+		  }
+		  textarea {
+		    display: block;
+		    resize: vertical;
+		  }
+		}
+
+
+
+	  }
+  
+
+form.go-bottom {
+  input, textarea {
+    padding: 12px 12px; 
+  }
+  label {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  input:focus, textarea:focus {
+    padding: 4px 6px 20px 6px; 
+  }
+  input:focus + label, textarea:focus + label {
+    top: 100%;
+    margin-top: -16px;
+  }
+}
+form.go-right {
+  label {
+    top: 2px;
+    right: 100%;
+    width: 100%;
+    margin-right: -100%;
+    bottom: 2px;
+  }
+  input:focus + label, textarea:focus + label {
+    right: 0;
+    margin-right: 0;
+    width: 40%;
+    padding-top: 5px;
+  }
+}
+
+	}

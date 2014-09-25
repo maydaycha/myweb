@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+  <title>快樂工作</title>
+
+  <!-- BEGIN STYLE -->
+  <!-- BEGIN 核心樣式 -->
+  <link rel="stylesheet" href="../../../../plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../plugins/font-awesome/css/font-awesome.min.css">
+<!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="../../../../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/expanding_list.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/alert.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/loginmain.css"> 
+        <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
+        <link rel="shortcut icon" href="../../../../favicon.ico"/>
+      </head>
+      <!-- END STYLE -->
+    </head>
+    <body>
+      <!-- BEGIN NAVBAR -->
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="clearfix">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+         <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+            <i class="fa fa-search"></i>
+          </button> -->
+          <a class="navbar-brand" href="../../../../index.html"><img class="navbar-logo" src="../../../../img/logo208.png" alt="快樂工作"></a>
+        </div>
+       <!--  <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+          <div class="navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </div>
+        </div> -->
+        <div class="navbar-collapse navbar-collapse-nav collapse navbar-left">
+          <ul class="nav navbar-nav nav-yellow">
+            <li class="myactive"><a href="hire.html" >招募遠距工作者</a></li>
+            <li><a href="team.html">團隊管理</a></li>
+            <li><a href="report.html">報表</a></li>
+            <li><a href="sms_in.html">訊息</a></li>
+          </ul>
+        </div>
+        <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li class="dropdown"> 
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle image-responsive" src="../../../../img/class/class_3.jpg" style="width: 30px;height:30px;" alt="img"> &nbsp;Chris,Chou <b class="caret"></b></a>
+              <ul class="dropdown-menu user-dropdown">
+                <li class="color-blue"><span>Hi,<a href="#">Chris,Chou</a></span></li>
+                <li class="divider"></li>
+                <li><a href="#">切換到(User ID)</a></li>
+                <li><a href="#">個人設定</a></li>
+                <li><a href="#">會員登出</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-lg fa-bell"></i></span>&nbsp;<span class="badge">2</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">(通知訊息內容)<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
+                <li class="divider"></li>
+                <li><a href="#">(通知訊息內容)<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
+              </ul>
+            </li>
+            <li><a href="#"><span><i class="fa fa-lg fa-refresh"></i></span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-border-yellow"></div>
+    </div>
+
+    <!-- END NAVBAR --> 
+    <!-- BEGIN PAGE -->
+    <div class="page-content page-yellow" style="margin-bottom:50px;">
+      <div class="container" style="margin-top: 50px;">
+        <div class="myTabs form-style">
+
+          <form role="form" class="form-horizontal go-bottom" id="formfield" action="inc/Controller/OperatorController.php" method="post"  enctype="multipart/form-data" onsubmit="return validateForm();">
+            <input type="hidden" name="action" value="add_form" /> 
+
+
+
+            <div class="row">
+              <div class="col-md-3 text-right-md text-left-sm marpad-left">
+                <strong> 姓氏 </strong>
+              </div>
+              <div class="col-md-9">
+                <div class="form-group lable-group">
+                  <input  name="firstname" id="firstname" type="text" class="form-control" required>
+                  <label for="name">請輸入您的姓氏</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 text-right-md text-left-sm marpad-left">
+                <strong> 名字 </strong>
+              </div>
+              <div class="col-md-9">
+                <div class="form-group lable-group">
+                  <input  name="lastname" id="lastname" type="text" class="form-control" required>
+                  <label for="name">請輸入您的名字</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 text-right-md text-left-sm marpad-left">
+                <strong> 意願 </strong>
+              </div>
+              <div class="col-md-9">
+                <div class="form-group lable-group">
+                  <input type="checkbox" name="checkbox" id="checkbox"> 如果同意請打勾
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Agreement</label>
+              <input type="checkbox" name="checkbox" id="checkbox"> check it
+            </div>
+            <div class="form-group">
+              <label>Agreement</label>
+              <select id="selectbox" class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+
+          </div>
+
+          <input type="button" name="btn" value="Submit" id="submitBtn" data-toggle="modal" data-target="#confirm-submit" class="btn btn-default" />
+          <input type="button" name="btn" value="Reset" onclick="window.location='fillup.php'" class="btn btn-default" data-modal-type="confirm"/>
+        </form>
+
+        <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                預覽確認
+              </div>
+              <div class="modal-body">
+                您確定要傳送嗎?
+                <table class="table">
+                  <tr>
+                    <th>姓氏</th>
+                    <td id="lname"></td>
+                  </tr>
+                  <tr>
+                    <th>名字</th>
+                    <td id="fname"></td>
+                  </tr>
+                  <tr>
+                    <th>意願</th>
+                    <td id="cbox"></td>
+                  </tr>
+                  <tr>
+                    <th>checkbok</th>
+                    <td id="cbox"></td>
+                  </tr>
+                  <tr>
+                    <th>SELECT</th>
+                    <td id="sbox"></td>
+                  </tr>
+
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <a href="#" id="submit" class="btn btn-success success">傳送</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--   <div class="form-style">
+            <form action="#" class=" form-horizontal go-bottom" role="form">
+              <div class="row">
+                <div class="col-md-3 text-right-md text-left-sm marpad-left">
+                  <strong> 案件合約名稱 </strong>
+                </div>
+                <div class="col-md-9">
+                  <div class="form-group lable-group">
+                    <input name="name" type="text" class="form-control" required>
+                    <label for="name">案件名稱(自動帶入)</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 text-right-md text-left-sm marpad-left">
+                  <strong> 名稱 </strong>
+                </div>
+                <div class="col-md-9">
+                  <div class="form-group lable-group">
+                    <input name="name" type="text" class="form-control" required>
+                    <label for="name">名稱</label>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- END PAGE --> 
+    <!-- BEGIN FOOTER -->
+    <script language="javascript" type="text/javascript" 
+    src="../../../../masterpage/footer.txt"></script>
+    <!-- END FOOTER --> 
+
+    <!-- BEGIN JAVASCRIPTS --> 
+    <!-- BEGIN 核心插件 --> 
+<!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+            <![endif]--> 
+
+            <script src="../../../../plugins/jquery-1.11.0.min.js"></script> 
+            <script src="../../../../plugins/bootstrap/js/bootstrap.min.js"></script> 
+            <script src="../../../../plugins/jquery-placeholder/jquery.placeholder.js"></script> 
+            <!-- END 核心插件 --> 
+            <!-- BEGIN 頁面插件 -->
+
+            <!-- END 頁面插件 --> 
+            <script type="text/javascript" src="../../../../js/script.js"></script> 
+            <script type="text/javascript" src="../../../../js/loginmain.js"></script>
+            <script type="text/javascript" src="../../../../js/element.js"></script> 
+            <script type="text/javascript" src="../../../../js/expanding_list.js"></script>
+            <!--<script type="text/javascript" src="js/page/index.js"></script>--> 
+            <script>
+              jQuery(document).ready(function() {    
+               Web.init();
+               //Index.init();
+             });
+            </script> 
+            <script type="text/javascript" src="../../../../js/bootstrap-tabcollapse-yellow.js"></script> 
+            <script type="text/javascript">
+              $('#myTab').tabCollapse();
+              $('#testTabs').tabCollapse();
+              $('#testTabs01').tabCollapse();
+            </script> 
+
+            <script type="text/javascript">
+             $(document).ready(function() {
+              $("input[name$='feetype']").click(function() {
+                var test = $(this).val();
+
+                $("div.desc").hide();
+                $("#feetype" + test).show();
+              });
+            });
+           </script>
+
+           <script type="text/javascript">
+             $(document).ready(function() {
+              $("input[name$='limit']").click(function() {
+                var test = $(this).val();
+
+                $("div.limit-time").hide();
+                $("#limit" + test).show();
+              });
+            });
+           </script>
+           <script type="text/javascript">
+            $('#submitBtn').click(function() {
+             $('#lname').html($('#lastname').val());
+             $('#fname').html($('#firstname').val());
+             $('#sbox').html($('#selectbox').val());
+             if ($('#checkbox').is(":checked")) {
+               $('#cbox').html( "yes" );
+             }
+             else{
+               $('#cbox').html( "No" );
+             }  
+           });
+
+            $('#submit').click(function(){
+              alert('submitting');
+              $('#formfield').submit();
+            });
+          </script>
+
+          <!-- END JAVASCRIPTS --> 
+          <!-- BEGIN PIE --> 
+<!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]--> 
+        <!-- END PIE -->
+      </body>
+      </html>

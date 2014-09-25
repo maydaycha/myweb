@@ -1,0 +1,603 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+        <title>快樂工作</title>
+		
+        <!-- BEGIN STYLE -->
+        <!-- BEGIN 核心樣式 -->
+        <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <link rel="stylesheet" href="../plugins/swiper-master/dist/idangerous.swiper.css">
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" href="../css/socialIcons.css">
+        <link rel="stylesheet" type="text/css" href="../css/page/index.css">
+        <link rel="stylesheet" type="text/css" href="../css/Tabbed_Slider_Carousel.css">
+        <link rel="shortcut icon" href="../favicon.ico"/>
+        <!-- END STYLE -->
+    </head>
+    <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <!--    <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                    <i class="fa fa-search"></i>
+                </button> -->
+                <a class="navbar-brand" href="../index.html"><img class="navbar-logo" src="../img/logo208.png" alt="快樂工作"></a>
+            </div>
+            <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+              <!--  <div class="navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>    Search bar-->
+            </div>
+            <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="../login.html">會員登入</a></li>
+                    <li><a href="../sign_up.html">免費註冊</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- END NAVBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <!-- BEGIN MODAL -->
+            <div class="modal fade" id="class-lightbox" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <a href="../freelancer_sign_up.html" class="btn btn-primary btn-lg">最適合您的案件都在這，立即免費註冊！</a>
+                            </div>
+                            <div class="form-group">
+                                <a href="../freelancer_sign_up.html" class="btn btn-success btn-lg">找到對的人才，事倍功半！</a>
+                            </div>
+                            <div class="form-group">
+                                <a href="../freelancer_sign_up.html" class="btn btn-info btn-lg disabled">好事就快發生，即將上線！</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- END MODAL -->
+            <!-- BEGIN SWIPER -->
+            <div class="swiper-1">
+                <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a> 
+                <a class="arrow-right arrow " href="#"><i class="fa fa-angle-right"></i></a>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="content-slide">
+                                <img src="../img/swiper/swiper4.jpg" alt="img">
+                                <div class="text">
+                                    <p class="title" style="color:black;"><strong>會員募集中</strong></p>
+                                    <p class="content">這個位子留給你..</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="content-slide">
+                                <img src="../img/swiper/swiper3.jpg" alt="img">
+                                 <div class="text">
+                                    <p class="title" style="color:black;"><strong>遠距工作</strong></p>
+                                    <p class="content">讓工作和世界接軌</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="content-slide">
+                                <img src="../img/swiper/swiper2.jpg" alt="img">
+                                 <div class="text">
+                                    <p class="title" style="color:black;"><strong>快樂工作</strong></p>
+                                    <p class="content">讓您快樂接案</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination"></div>
+            </div>
+            <!-- END SWIPER -->
+            <!-- BEGIN LOGIN -->
+            <div class="login">
+                <p class="title">免費註冊，即刻使用</p>
+                <form action="" class="login-form">
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                        <input type="text" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="input-icon">
+                        <i class="fa fa-lock"></i>
+                        <input type="text" class="form-control" placeholder="Password">
+                    </div>
+                    <input type="submit" class="btn" value="註冊會員">
+                </form>
+                <div class="social">
+                    <p class="social-text">使用OPEN ID快速註冊</p>
+                    <ul class="social-icons">
+                        <li>
+                            <a class="facebook" data-original-title="facebook" href="#">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="googleplus" data-original-title="Goole Plus" href="#">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="yahoo" data-original-title="Yahoo!" href="#">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="login_min">
+                <a href="../register.html">
+                    <p class="title">免費註冊，即刻使用</p>
+                </a>
+            </div>
+            <!-- END LOGIN -->
+            <!-- BEGIN CLASS -->
+            <div class="class">
+            	<h1 style="text-align:center; color:#E05E3E;">各類遠距工作者招募中</h1>
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-6 item">
+                        <a data-toggle="modal" href="#class-lightbox">
+                            <img src="../img/class/class_1.jpg" alt="IT & software">
+                            <p>IT、軟體</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 item">
+                        <a data-toggle="modal" href="#class-lightbox">
+                            <img src="../img/class/class_2.jpg" alt="工程 & 科學">
+                            <p>工程、科學</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 item">
+                        <a data-toggle="modal" href="#class-lightbox">
+                            <img src="../img/class/class_3.jpg" alt="design">
+                            <p>設計、創意</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 item">
+                        <a data-toggle="modal" href="#class-lightbox">
+                            <img src="../img/class/class_4.jpg" alt="marketing">
+                            <p>業務、行銷</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 item">
+                        <a data-toggle="modal" href="#class-lightbox">
+                            <img src="../img/class/class_5.jpg" alt="img">
+                            <p>行政總務、客戶服務</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 item">
+                        <a data-toggle="modal" href="#class-lightbox">
+                            <img src="../img/class/class_6.jpg" alt="accounting">
+                            <p>商業、會計、法務</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 item">
+                        <a data-toggle="modal" href="#class-lightbox">
+                            <img src="../img/class/class_7.jpg" alt="writing">
+                            <p>寫作、翻譯</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 item">
+                        <a data-toggle="modal" href="#class-lightbox">
+                            <img src="../img/class/class_8.jpg" alt="img">
+                            <p>專業諮詢</p>
+                        </a>
+                    </div>
+                </div>
+               <!-- <div class="input-group">
+                    <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div> -->
+            </div>
+            <!-- END CLASS -->
+            
+            
+            
+            
+            
+            <!-- BEGIN WORKS -->
+           <div class="works">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active">
+                        <a href="#work1" data-toggle="tab" style="font-size:1.5em; font-weight:bold;">
+                            我是雇主，想找遠距工作人才
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="#work2" data-toggle="tab" style="font-size:1.5em; font-weight:bold;">
+                            我是遠距工作者，想要找案件
+                        </a>
+                        
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="work1">
+                        <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a> 
+                        <a class="arrow-right arrow " href="#"><i class="fa fa-angle-right"></i></a>
+                        <div class="cover"></div>
+                        <div class="tabs">
+                            <table>
+                                <tr>
+                                    <td><a href="#" class="active">刊登案件</a></td>
+                                    <td><span class="nav_arrow"></span></td>
+                                    <td><a href="#">挑選合適人才</a></td>
+                                    <td><span class="nav_arrow"></span></td>
+                                    <td><a href="#">訂定工作契約</a></td>
+                                    <td><span class="nav_arrow"></span></td>
+                                    <td><a href="#">執行契約,依約付款</a></td>
+                                </tr>
+                            </table>
+                            <img class="nav_line" src="../img/works/nav_line.png" alt="line">
+                        </div>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <img class="back" src="../img/works/works_1_2.jpg" alt="ing">
+                                        <img class="back_min" src="../img/works/works_min_1_2.jpg" alt="img">
+                                        <div class="text hidden-xs hidden-sm" style="position:relative; float:left; padding-left:60px;">
+                                            <p class="step">STEP1 / 刊登案件</p>
+                                            <p class="title">建立您的專屬人才網</p>
+                                            <p class="content">委外工作找不到夠專業的人來執行嗎?那就立刻到快樂工作網發佈案件</p>
+                                        </div>
+                                        <div class="text hidden-md hidden-lg">
+                                            <p class="step">STEP1 / 刊登案件</p>
+                                            <p class="title">建立您的專屬人才網</p>
+                                            <p class="content">委外工作找不到夠專業的人來執行嗎?那就立刻到快樂工作網發佈案件</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <img class="back" src="../img/works/works_1_2.jpg" alt="img">
+                                        <img class="back_min" src="../img/works/works_min_1_2.jpg" alt="img">
+                                        <div class="text hidden-xs hidden-sm" style="position:relative; float:left; padding-left:60px;">
+                                            <p class="step">STEP2 / 挑選合適人才</p>
+                                            <p class="title">簡明的選才流程</p>
+                                            <p class="content">除了應徵者的學經歷，作品集及過去的歷史紀錄的資料外，並能用線上問答功能，挑選合適人才。</p>
+                                        </div>
+                                        <div class="text hidden-md hidden-lg">
+                                            <p class="step">STEP2 / 挑選合適人才</p>
+                                            <p class="title">簡明的選才流程</p>
+                                            <p class="content">除了應徵者的學經歷，作品集及過去的歷史紀錄的資料外，並能用線上問答功能，挑選合適人才。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <img class="back" src="../img/works/works_1_2.jpg" alt="img">
+                                        <img class="back_min" src="../img/works/works_min_1_2.jpg" alt="img">
+                                        <div class="text hidden-xs hidden-sm" style="position:relative; float:left; padding-left:60px;">
+                                            <p class="step">STEP3 / 訂定工作契約</p>
+                                            <p class="title">工作契約一目了然</p>
+                                            <p class="content">工作目標,時程要求及付款計畫都包含在工作契約之中，聘雇雙方執行契約避免誤解。</p>
+                                        </div>
+                                        <div class="text hidden-md hidden-lg">
+                                            <p class="step">STEP3 / 訂定工作契約</p>
+                                            <p class="title">工作契約一目了然</p>
+                                            <p class="content">工作目標,時程要求及付款計畫都包含在工作契約之中，聘雇雙方執行契約避免誤解。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <img class="back" src="../img/works/works_1_2.jpg" alt="img">
+                                        <img class="back_min" src="../img/works/works_min_1_2.jpg" alt="img">
+                                        <div class="text hidden-xs hidden-sm" style="position:relative; float:left; padding-left:60px;">
+                                            <p class="step">STEP4 / 執行契約,依約付款</p>
+                                            <p class="title">依約付款，建立雇主公信力</p>
+                                            <p class="content">目標完成後，依約付款，聘雇雙方互留考核和評價，建立自己的公信力。</p>
+                                        </div>
+                                        <div class="text hidden-md hidden-lg">
+                                            <p class="step">STEP4 / 執行契約,依約付款</p>
+                                            <p class="title">依約付款，建立雇主公信力</p>
+                                            <p class="content">目標完成後，依約付款，聘雇雙方互留考核和評價，建立自己的公信力。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane active" id="work2">
+                        <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a> 
+                        <a class="arrow-right arrow " href="#"><i class="fa fa-angle-right"></i></a>
+                        <div class="cover"></div>
+                        <div class="tabs">
+                            <table>
+                                <tr>
+                                    <td><a href="#" class="active">新增個人資料</a></td>
+                                    <td><span class="nav_arrow"></span></td>
+                                    <td><a href="#">找到適合案件</a></td>
+                                    <td><span class="nav_arrow"></span></td>
+                                    <td><a href="#">訂定工作契約</a></td>
+                                    <td><span class="nav_arrow"></span></td>
+                                    <td><a href="#">執行契約,獲得收益</a></td>
+                                </tr>
+                            </table>
+                            <img class="nav_line" src="../img/works/nav_line.png" alt="img">
+                        </div>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <img class="back" src="../img/works/works_1_1.jpg" alt="img">
+                                        <img class="back_min" src="../img/works/works_min_1_1.jpg" alt="img">
+                                        <div class="text" style=" float:right; padding-right:60px;">
+                                            <p class="step">STEP1 / 新增個人資料</p>
+                                            <p class="title">一展長才，從新增您的專長開始</p>
+                                            <p class="content">分享您的專業技能和認證，工作經歷，您的作品集與學業資歷，更有助於您開拓新的案件，增加雇主對您的認識喔!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <img class="back" src="../img/works/works_1_1.jpg" alt="img">
+                                        <img class="back_min" src="../img/works/works_min_1_1.jpg" alt="img">
+                                        <div class="text" style=" float:right; padding-right:60px;">
+                                            <p class="step">STEP2 / 找到適合案件</p>
+                                            <p class="title">挑選你想要的案件</p>
+                                            <p class="content">您可根據專長挑選案件，應徵案件後可借助線上問答和雇主更進一步了解案件內容。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <img class="back" src="../img/works/works_1_1.jpg" alt="img">
+                                        <img class="back_min" src="../img/works/works_min_1_1.jpg" alt="img">
+                                        <div class="text" style=" float:right; padding-right:60px;">
+                                            <p class="step">STEP3 / 訂定工作契約</p>
+                                            <p class="title">工作契約一目了然</p>
+                                            <p class="content">工作目標,時程要求及付款計畫都包含在工作契約之中，聘雇雙方執行契約避免誤解。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <img class="back" src="../img/works/works_1_1.jpg" alt="img">
+                                        <img class="back_min" src="../img/works/works_min_1_1.jpg" alt="img">
+                                        <div class="text" style=" float:right; padding-right:60px;">
+                                            <p class="step">STEP4 / 執行契約,獲得收益</p>
+                                            <p class="title">依約收款，建立個人信用</p>
+                                            <p class="content">目標達成後，依約收款，聘雇雙方互留考核和評價，建立個人的信用，有助於爭取下一個案件。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END WORKS -->
+            
+            
+            
+            
+            
+            
+            <div class="marpad"> <!--TABBED SLIDER-->
+                <div id="custom_carousel" class="carousel slide" data-ride="carousel" data-interval="2500">
+                    <div class="controls">
+                        <ul class="nav hidden-xs a-color">
+                            <li data-target="#custom_carousel" data-slide-to="0" class="active"><a href="#">陪你闖蕩世界</a></li>
+                            <li data-target="#custom_carousel" data-slide-to="1"><a href="#">不錯過孩子的成長</a></li>
+                            <li data-target="#custom_carousel" data-slide-to="2"><a href="#">渡過人生的意外</a></li>
+                            <li data-target="#custom_carousel" data-slide-to="3"><a href="#">永不嫌棄你，陪你到老</a></li>
+                        </ul>
+                    </div>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-3 col-xs-3 hidden-xs hidden-sm marpad"><img src="../img/teleworklife/telework01.jpg"></div>
+                                    <div class="col-xs-3 hidden-lg hidden-md marpad img-dark"><img src="../img/teleworklife/telework01.jpg" style="position:relative; margin-left: -160px;"></div>
+                                    <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
+                                        <div class="tab-slider-tex hidden-sm hidden-xs"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
+                                        <div class="tab-slider-tex02 hidden-lg hidden-md"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
+                                    </div>
+                                </div>
+                            </div>            
+                        </div> 
+                        <div class="item">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-3 col-xs-3 hidden-xs hidden-sm hidden-md marpad"><img src="../img/teleworklife/telework02.jpg"></div>
+                                    <div class="col-xs-3 hidden-lg hidden-xs hidden-sm marpad"><img src="../img/teleworklife/telework02.jpg" style="position:relative; margin-left: -360px;"></div>
+                                    <div class="col-xs-3 hidden-lg hidden-md img-dark marpad"><img src="../img/teleworklife/telework02.jpg" style="position:relative; margin-left: -360px;"></div>
+                                    <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
+                                        <div class="tab-slider-tex hidden-sm hidden-xs "><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
+                                        <div class="tab-slider-tex02 hidden-lg hidden-md"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
+                                    </div>
+                                </div>
+                            </div>            
+                        </div> 
+                        <div class="item">
+                            <div class="container-fluid">
+                                 <div class="row">
+                                    <div class="col-md-3 col-xs-3 hidden-md hidden-xs hidden-sm marpad"><img src="../img/teleworklife/telework03.jpg"></div>
+                                    <div class="col-xs-3 hidden-lg  marpad img-dark"><img src="../img/teleworklife/telework03.jpg" style="position:relative; margin-left: -360px;"></div>
+                                    <div class="col-md-5 col-xs-9 pull-right">
+                                       <div class="tab-slider-tex hidden-sm hidden-xs"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
+                                       <div class="tab-slider-tex02 hidden-lg hidden-md"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
+                                    </div>
+                                </div>
+                            </div>           
+                        </div> 
+                        <div class="item">
+                            <div class="container-fluid">
+                                 <div class="row">
+                                   <div class="col-md-3 col-xs-3 hidden-md hidden-xs hidden-sm marpad"><img src="../img/teleworklife/telework04.jpg"></div>
+                                   <div class="col-xs-3 hidden-lg marpad hidden-xs hidden-sm"><img src="../img/teleworklife/telework04.jpg" style="position:relative; margin-left: -160px;"></div>
+                                    <div class="col-xs-3 hidden-lg hidden-md  marpad img-dark"><img src="../img/teleworklife/telework04.jpg" style="position:relative; margin-left: -160px;"></div>
+                                    <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
+                                        <div class="tab-slider-tex hidden-sm hidden-xs"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
+                                        <div class="tab-slider-tex02 hidden-lg hidden-md"><p>不論你身處於人生的哪一個場景</p><p>遠距工作配合你的人生</p><p>忠實的留在你身邊</p></div>
+                                    </div>
+                                </div>
+                            </div>           
+                        </div> 
+                    <!-- End Item -->
+                    </div>
+                    <!-- End Carousel Inner -->
+                    
+                </div>
+                <!-- End Carousel -->
+			</div><!--END TABBED SLIDER-->
+            
+            
+            
+            
+            
+            <!-- BEGIN DOWN -->
+            <div class="row down" style="margin-bottom:0px; padding-bottom:0px;">
+                <div class="box employer">
+                    <p class="title">
+                        雇主一二三
+                        <!--<img src="img/works/title_arrow.png" alt="img">-->
+                    </p>
+                    <table class="content">
+                        <tr>
+                            <td class="padding" rowspan="2"></td>
+                            <td class="item"><img src="../img/works/employer_1.png" alt="img"></td>
+                            <td class="arrow"><img src="../img/works/employer_arrow.png" alt="img"></td>
+                            <td class="item"><img src="../img/works/employer_2.png" alt="img"></td>
+                            <td class="arrow"><img src="../img/works/employer_arrow.png" alt="img"></td>
+                            <td class="item"><img src="../img/works/employer_3.png" alt="img"></td>
+                            <td class="padding" rowspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td class="text">刊登案件</td>
+                            <td></td>
+                            <td class="text">選才訂約</td>
+                            <td></td>
+                            <td class="text">依約付款</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="box staff">
+                    <p class="title">
+                        接案一二三
+                        <!--<img src="img/works/title_arrow.png" alt="img">-->
+                    </p>
+                    <table class="content">
+                        <tr>
+                            <td class="padding" rowspan="2"></td>
+                            <td class="item"><img src="../img/works/staff_1.png" alt="img"></td>
+                            <td class="arrow"><img src="../img/works/staff_arrow.png" alt="img"></td>
+                            <td class="item"><img src="../img/works/staff_2.png" alt="img"></td>
+                            <td class="arrow"><img src="../img/works/staff_arrow.png" alt="img"></td>
+                            <td class="item"><img src="../img/works/staff_3.png" alt="img"></td>
+                            <td class="padding" rowspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td class="text">尋找案件</td>
+                            <td></td>
+                            <td class="text">選案訂約</td>
+                            <td></td>
+                            <td class="text">依約收款</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- END DOWN -->
+            
+            
+             
+            
+        </div>
+        <!-- END PAGE -->
+        <!-- BEGIN FOOTER -->
+        <script language="javascript" type="text/javascript" 
+  src="../masterpage/footer.txt"></script>
+        <!-- END FOOTER -->
+        
+        <!-- BEGIN JAVASCRIPTS -->
+        <!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../plugins/jquery-1.11.0.min.js"></script>
+        <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <!-- END 核心插件 -->
+        <!-- BEGIN 頁面插件 -->
+        <script src="../plugins/swiper-master/dist/idangerous.swiper-2.4.min.js"></script>
+        <!-- END 頁面插件 -->
+        <script type="text/javascript" src="../js/script.js"></script>
+        <script type="text/javascript" src="../js/page/index.js"></script>
+        <script>
+            jQuery(document).ready(function() {    
+               Web.init();
+               Index.init();
+            });
+        </script>
+        
+        
+        <script>
+			// JavaScript Document
+
+		$(document).ready(function(ev){
+			$('#custom_carousel').on('slide.bs.carousel', function (evt) {
+			  $('#custom_carousel .controls li.active').removeClass('active');
+			  $('#custom_carousel .controls li:eq('+$(evt.relatedTarget).index()+')').addClass('active');
+			})
+		});
+		
+		</script>
+        
+        
+        <!-- END JAVASCRIPTS -->
+        <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.class .item p,.class .item img').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+    </body>
+</html>

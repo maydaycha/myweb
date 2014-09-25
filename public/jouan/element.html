@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title>快樂工作</title>
+
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap-tagsinput/bootstrap-tagsinput.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/element.css">
+        <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <style type="text/css">
+
+        </style>
+        <!-- END STYLE -->
+    </head>
+    <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                    <i class="fa fa-search"></i>
+                </button>
+                <a class="navbar-brand" href="index.html"><img class="navbar-logo" src="img/logo208.png" alt="快樂工作"></a>
+            </div>
+            <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+                <div class="navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="login.html">會員登入</a></li>
+                    <li><a href="sign_up.html">免費註冊</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- END NAVBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <div class="container hidden-xs">
+                <nav>
+                    <ul class="nav nav-pills">
+                      <li class="active"><a href="#">Home</a></li>
+                      <li><a href="#">Profile</a></li>
+                      <li><a href="#">Messages</a></li>
+                  </ul>
+              </nav>
+          </div>
+          <div class="container visible-xs">
+            <div class="row">
+                <div id="filter-panel" class="collapse filter-panel">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <ul class="nav nav-pills">
+                              <li class="active"><a href="#">Home</a></li>
+                              <li><a href="#">Profile</a></li>
+                              <li><a href="#">Messages</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>    
+              <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
+                <span class="glyphicon glyphicon-cog"></span> Advanced Search
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">    
+            <div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">  
+                <!-- image-preview-filename input [CUT FROM HERE]-->
+                <div class="input-group image-preview">
+                    <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                    <span class="input-group-btn">
+                        <!-- image-preview-clear button -->
+                        <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                            <span class="glyphicon glyphicon-remove"></span> 清除
+                        </button>
+                        <!-- image-preview-input -->
+                        <div class="btn btn-default image-preview-input">
+                            <span class="glyphicon glyphicon-folder-open"></span>
+                            <span class="image-preview-input-title">選擇檔案</span>
+                            <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                        </div>
+                    </span>
+                </div><!-- /input-group image-preview [TO HERE]--> 
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Normal</h2>
+        <div class="row form-group product-chooser">
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="product-chooser-item selected">
+                    <img src="http://renswijnmalen.nl/bootstrap/desktop_mobile.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Mobile and Desktop">
+                    <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
+                        <span class="title">Mobile and Desktop</span>
+                        <span class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</span>
+                        <input type="radio" name="product" value="mobile_desktop" checked="checked">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="product-chooser-item">
+                    <img src="http://renswijnmalen.nl/bootstrap/desktop.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Desktop">
+                    <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
+                        <span class="title">Desktop</span>
+                        <span class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</span>
+                        <input type="radio" name="product" value="desktop">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="product-chooser-item">
+                    <img src="http://renswijnmalen.nl/bootstrap/mobile.png" class="img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12" alt="Mobile">
+                    <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
+                        <span class="title">Mobile</span>
+                        <span class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</span>
+                        <input type="radio" name="product" value="mobile">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container form-style">
+        <form class="go-bottom">
+          <h2>To Bottom</h2>
+          <div class="form-group lable-group">
+            <input id="name" name="name" type="text" class="form-control" required>
+            <label for="name">Your name</label>
+        </div>
+        <div class="form-group lable-group">
+            <input id="phone" name="phone" type="tel" class="form-control" required>
+            <label for="phone">Primary Phone</label>
+        </div>
+        <div class="form-group lable-group">
+            <textarea id="message" name="phone" class="form-control" required></textarea>
+            <label for="message">Message</label>
+        </div>
+    </form>
+
+    <form class="go-right">
+      <h2>To Right</h2>
+      <div class="form-group lable-group">
+        <input id="name" name="name" class="form-control" type="text" required>
+        <label for="name">Your Name</label>
+    </div>
+    
+    <div class="form-group lable-group">
+        <input id="phone" name="phone" type="tel" class="form-control" required>
+        <label for="phone">Primary Phone</label>
+    </div>
+
+    <div class="form-group lable-group">
+        <textarea id="message" name="phone" class="form-control" required></textarea>
+        <label for="message">Message</label>
+    </div>
+</form>
+</div>
+
+<div class="container form-style">
+    <form class="go-bottom">
+      <div class="form-group lable-group">
+        <input id="Email" name="email" type="text" class="form-control" required>
+
+        <label for="exampleInputEmail1">Email address</label>
+    </div>
+</form>
+
+</div>
+<div class="container form-style">
+
+    <form class="go-bottom">
+        <div class="form-group lable-group">
+            <textarea class="form-control" rows="3"></textarea>
+
+            <label for="exampleInputEmail1">Email address</label>
+        </div>
+    </form>
+
+</div>
+
+<div class="container">
+    <div class="row">
+      <form action="#" class="form-horizontal go-bottom" role="form">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="form-group">
+                <label class="col-md-3 control-label">為您的案件命名</label>
+                <div class="col-md-9">
+                  <input type="text" name="name" class="form-control" placeholder="為您的案件命名" value="">
+              </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">描述您的案件工作內容</label>
+            <div class="col-md-9">
+                <textarea name="detail" class="form-control" rows="5" placeholder="說明"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">案件需求技能</label>
+            <div class="col-md-9">
+              <input type="text" name="name" class="form-control" placeholder="輸入技能" value="">
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">急件</label>
+        <div class="col-md-9">
+          <input type="checkbox" style="margin-top:10px;"> 我需要急件處理
+      </div>
+  </div>
+</div>
+</form>
+</div>
+</div>
+
+<div class="container">
+    <label class="btn btn-success">
+       2 Cars<input type="radio" name="cars" checked="checked" value="2" style="display: none;" />
+   </label>
+   <label class="btn btn-success">
+    3 Cars<input type="radio" name="cars" value="3" style="display: none;" />
+</label>
+<hr>
+<div id="Cars2" class="desc">
+
+    <p>2 Cars Selected</p>
+
+    <label class="btn btn-success">
+        4 Cars<input type="radio" name="nradio" checked="checked" value="2" style="display: none;" />
+    </label>
+    <label class="btn btn-success">
+        5 Cars<input type="radio" name="nradio" value="3" style="display: none;" />
+    </label>
+    <div id="nradio2" class="box">Hi</div>
+    <div id="nradio3" class="box" style="display: none;">Hello</div>
+
+</div>
+
+<div id="Cars3" class="desc" style="display: none;">
+
+    3 Cars
+</div>
+
+</div>
+<div class="container">
+    <div class="row">
+        <h2>Any image, size doesn´t matter, centered and respecting ratio</h2>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <p> Image in to circl</p>
+            <div  class="ratio img-responsive img-rounded" style="background-image: url(img/demopage/image-2.jpg);"></div>
+        </div>
+        <div class="col-sm-10">
+            <p> Real image</p>
+            <img src="img/demopage/image-2.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="input-group search-panel" style="margin-top:10px;"> 
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span id="search_concept">測驗類別</span> <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">工程科學</a></li>
+            <li><a href="#">設計</a></li>
+            <li><a href="#">網頁設計</a></li>
+            <li class="divider"></li>
+            <li><a href="#">IT軟體</a></li>
+        </ul>
+    </span>
+    <input type="hidden" name="search_param" value="all" id="search_param">         
+    <input type="text" class="form-control" name="x" placeholder="搜尋您的測驗...">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+  </span>
+</div>
+</div>
+<hr>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Collapsible Group Item #1
+      </a>
+  </h4>
+</div>
+<div id="collapseOne" class="panel-collapse collapse in">
+  <div class="panel-body">
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+</div>
+</div>
+</div>
+</div>
+
+<hr>
+
+<div class="form-group">
+    <label class="col-md-3 control-label">
+        <input type="text" name="name" class="form-control" placeholder="" data-role="tagsinput" value="">
+    </label>
+    <div class="col-md-9">
+        <select multiple data-role="tagsinput">  
+        </select>
+    </div>
+</div>
+
+</div>
+
+<!-- END PAGE -->
+<!-- BEGIN FOOTER -->
+<script language="javascript" type="text/javascript" 
+src="masterpage/footer.txt"></script>
+<!-- END FOOTER -->
+
+<!-- BEGIN JAVASCRIPTS -->
+<!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+            <![endif]-->
+
+            <script src="plugins/jquery-1.11.0.min.js"></script>
+            <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+            <script src="plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+            <!-- END 核心插件 -->
+            <!-- BEGIN 頁面插件 -->
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="js/script.js"></script>
+            <script type="text/javascript" src="js/element.js"></script>
+            <!--<script type="text/javascript" src="js/page/index.js"></script>-->
+            <script>
+                jQuery(document).ready(function() {    
+                 Web.init();
+               //Index.init();
+           });
+            </script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $("input[name$='cars']").click(function() {
+                        var test = $(this).val();
+
+                        $("div.desc").hide();
+                        $("#Cars" + test).show();
+                    });
+                });
+            </script>
+            
+            
+            <!-- END JAVASCRIPTS -->
+            <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+        <!-- END PIE -->
+    </body>
+    </html>

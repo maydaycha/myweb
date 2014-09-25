@@ -15,6 +15,12 @@ var SingUp = function(){
                 email: {
                     required: true,
                     email: true
+                },
+                username: {
+                    required: true
+                },
+                password: {
+                    required: true
                 }
             },
 
@@ -81,6 +87,12 @@ var SingUp = function(){
                     email: true
                 },
                 organization: {
+                    required: true
+                },
+                username: {
+                    required: true
+                },
+                password: {
                     required: true
                 }
             },

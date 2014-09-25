@@ -4,9 +4,45 @@
 $color_a1: #ddd;
 $color_a2: #B4CCA7;
 
+
+
+// Cool
+
+$aqua:  #7FDBFF;
+$blue:  #0074D9;
+$navy:  #001F3F;
+$teal:  #39CCCC;
+$green: #2ECC40;
+$olive: #3D9970;
+$lime:  #01FF70;
+
+// Warm
+
+$yellow:  #FFDC00;
+$orange:  #FF851B;
+$red:     #FF4136;
+$fuchsia: #F012BE;
+$purple:  #B10DC9;
+$maroon:  #85144B;
+
+// Gray Scale
+
+$white:  #fff;
+$silver: #ddd;
+$gray:   #aaa;
+$black:  #111;
+
+
+
+
 @mixin marpad {
 	margin:0px;
 	padding:0px;
+}
+
+@mixin marpad-left{
+  margin-left:0px;
+  padding-left:0px;
 }
 
 @mixin opena{
@@ -298,7 +334,7 @@ Portlets
   clear: both;
 }
 
-.portlet > .portlet-title > .caption {
+.portlet > .portlet-title > .title-tex {
   float: left;
   display: inline-block;
   font-size: 18px;
@@ -306,10 +342,10 @@ Portlets
   font-weight: 400;
   margin: 0;
   padding: 0;
-  margin-bottom: 8px; 
+  margin-bottom: 6px; 
 }
 
-.portlet > .portlet-title > .caption > i {
+.portlet > .portlet-title > .title-tex > i {
   float: left;
   margin-top: 4px;
   display: inline-block !important;
@@ -318,22 +354,22 @@ Portlets
   color: #666;
 }
 
-.portlet.blue > .portlet-title > .caption,
-.portlet.green > .portlet-title > .caption, 
-.portlet.yellow > .portlet-title > .caption,
-.portlet.red > .portlet-title > .caption, 
-.portlet.purple > .portlet-title > .caption, 
-.portlet.grey > .portlet-title > .caption {
+.portlet.blue > .portlet-title > .title-tex,
+.portlet.green > .portlet-title > .title-tex, 
+.portlet.yellow > .portlet-title > .title-tex,
+.portlet.red > .portlet-title > .title-tex, 
+.portlet.purple > .portlet-title > .title-tex, 
+.portlet.grey > .portlet-title > .title-tex {
   color: #fff;
 }
 
-.portlet.box.blue > .portlet-title > .caption > i, 
-.portlet.box.green > .portlet-title > .caption > i,
-.portlet.box.grey > .portlet-title > .caption > i,
-.portlet.box.yellow > .portlet-title > .caption > i, 
-.portlet.box.red > .portlet-title > .caption > i,  
-.portlet.box.purple > .portlet-title > .caption > i, 
-.portlet.box.light-grey > .portlet-title > .caption > i{
+.portlet.box.blue > .portlet-title > .title-tex > i, 
+.portlet.box.green > .portlet-title > .title-tex > i,
+.portlet.box.grey > .portlet-title > .title-tex> i,
+.portlet.box.yellow > .portlet-title > .title-tex > i, 
+.portlet.box.red > .portlet-title > .title-tex > i,  
+.portlet.box.purple > .portlet-title > .title-tex > i, 
+.portlet.box.light-grey > .portlet-title > .title-tex > i{
   color: #fff;
 }
 
@@ -688,13 +724,105 @@ Box portlet
 .marpad{
 	@include marpad;
 	}
+
+.marpad-left{
+  @include marpad-left;
+  }
+
+ .marpad-top{
+  margin-top:0px;
+  padding-top:0px;
+  }
+
+  @media (max-width: 992px){
+    .marpad-left-md{
+      @include marpad-left;
+    }
+  }
+
+.top5 { margin-top:5px; }
+.top7 { margin-top:7px; }
+.top10 { margin-top:10px; }
+.top15 { margin-top:15px; }
+.top17 { margin-top:17px; }
+.top30 { margin-top:30px; }
+.top50 { margin-top:50px; }
+.top100 { margin-top:100px; }
+.top150 { margin-top:150px; }
+
+.right5 { margin-right:5px; }
+.right7 { margin-right:7px; }
+.right10 { margin-right:10px !important; }
+.right15 { margin-right:15px; }
+.right17 { margin-right:17px; }
+.right30 { margin-right:30px; }
+.right50 { margin-right:50px; }
+
+.left5 { margin-left:5px; }
+.left7 { margin-left:7px; }
+.left10 { margin-left:10px; }
+.left15 { margin-left:15px; }
+.left17 { margin-left:17px; }
+.left30 { margin-left:30px; }
+.left50 { margin-left:50px; }
+
+.bottom5 { margin-bottom:5px; }
+.bottom7 { margin-bottom:7px; }
+.bottom10 { margin-bottom:10px; }
+.bottom15 { margin-bottom:15px; }
+.bottom17 { margin-bottom:17px; }
+.bottom30 { margin-bottom:30px; }
+.bottom50 { margin-bottom:50px; }
+.bottom100 { margin-bottom:100px; }
+.bottom150 { margin-bottom:150px; }
+
+/*******************PADDING************************/
+
+.ptop5 { padding-top:5px; }
+.ptop7 { padding-top:7px; }
+.ptop10 { padding-top:10px; }
+.ptop15 { padding-top:15px; }
+.ptop17 { padding-top:17px; }
+.ptop30 { padding-top:30px; }
+.ptop50 { padding-top:50px; }
+
+.pLeftRight5{ 
+	padding-left:5px;
+	padding-right:5px;
+	}
+.pLeftRight7{ 
+	padding-left:7px;
+	padding-right:7px;
+	}
+.pLeftRight10{ 
+	padding-left:10px;
+	padding-right:10px;
+	}
+.pLeftRight15{ 
+	padding-left:15px;
+	padding-right:15px;
+	}
+.pLeftRight17{ 
+	padding-left:17px;
+	padding-right:17px;
+	}
+.pLeftRight20{ 
+	padding-left:20px;
+	padding-right:20px;
+	}
+.pLeftRight30{ 
+	padding-left:30px;
+	padding-right:30px;
+	}
+
+/*****************MARPAD*********************/
 	
 .navbar-nav>li>a{
 	.navbar-default &:focus{
 	color:hsla(0,0%,100%,1.00);
 	}
 	.navbar-default &:hover{
-	color:#B4CCA7;
+	color: $color_a2;
 	}
 }
 
@@ -703,9 +831,7 @@ Box portlet
 	
 }
 
-
-
-@media (min-width: 768px) {
+@media (min-width: 768px ) {
 /*drop down menu*/
 
 .dropdown-menu>li>a {
@@ -743,13 +869,27 @@ Box portlet
 	
 
 .text-over{
-	max-width: 15em;
+	 max-width: 15em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;}
 
+.text-wrap{
+  word-wrap:break-word;
+}
+
+@import "_profolio.scss";
+@import "_skins.scss";
+@import "_element.scss";
 
 /*ABOUT COLOR*/
+
+.Cdarkblue{
+	color:#138FBC !important;
+}
+.Cskyblue{
+	color:#00A3FF;
+}
 
 .color-blue{
   color:#72A8D9;
@@ -772,4 +912,100 @@ Box portlet
   color:grey;
 }
 
-@import "_profolio.scss";
+
+a {
+  transition: color .3s ease-in-out;
+}
+
+/***************TEXT ALIGN TOOL******************/
+
+.text-left-xs {
+  text-align: left;
+}
+
+.text-right-xs {
+  text-align: right;
+}
+
+.text-center-xs {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .text-left-sm {
+    text-align: left;
+  }
+
+  .text-right-sm {
+    text-align: right;
+  }
+
+  .text-center-sm {
+    text-align: center;
+  }
+
+}
+
+@media (min-width: 992px) {
+  .text-left-md {
+    text-align: left;
+  }
+
+  .text-right-md {
+    text-align: right;
+  }
+
+  .text-center-md {
+    text-align: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .text-left-lg {
+    text-align: left;
+  }
+
+  .text-right-lg {
+    text-align: right;
+  }
+
+  .text-center-lg {
+    text-align: center;
+  }
+}
+
+/*************Skill Label style **************/
+
+ .skill-label-style{
+  a{
+   background:$gray;
+   color:$white;
+   text-decoration:none;
+  }
+  a:hover{
+   background:$blue;
+   color:$white;
+   text-decoration:none;
+  }
+}
+
+
+
+/***************img responsive******************/
+
+.ratio {
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                height: 0;
+                padding-bottom: 100%;
+                position: relative;
+                width: 100%;
+            }
+            
+            .img-responsive {
+                display: inline-block;
+                height: auto;
+                max-width: 100%;
+            }
