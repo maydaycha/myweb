@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta content="" name="description"/>
-    <meta content="" name="author"/>
-    <title><%= I18n.t("page.title") %></title>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+  <title>快樂工作</title>
 
-    <!-- BEGIN STYLE -->
-    <!-- BEGIN 核心樣式 -->
-    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
-        <!--[if gte IE 9]>
+  <!-- BEGIN STYLE -->
+  <!-- BEGIN 核心樣式 -->
+  <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/plugins/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.min.css">
+<!--[if gte IE 9]>
         <style type="text/css">
         .gradient {
         filter: none;
@@ -20,278 +21,1028 @@
         <![endif]-->
         <!-- END 核心樣式 -->
         <!-- BEGIN 頁面插件樣式 -->
-        <link rel="stylesheet" href="/plugins/select2/select2-metronic.css">
-        <link rel="stylesheet" href="/plugins/select2/select2.css">
-        <link rel="stylesheet" href="/plugins/jquery-tags-input/jquery.tagsinput.css">
         <!-- END 頁面插件樣式 -->
         <!-- BEGIN 主題樣式 -->
         <!-- END 主題樣式 -->
         <link rel="stylesheet" type="text/css" href="/css/style.css">
-        <link rel="stylesheet" type="text/css" href="/css/page/create_profile.css">
+        <link rel="stylesheet" type="text/css" href="/css/expanding_list.css">
+        <link rel="stylesheet" type="text/css" href="/css/alert.css">
+        <link rel="stylesheet" type="text/css" href="/css/loginmain.css">
+        <link rel="stylesheet" type="text/css" href="/css/pstyle.css"> 
+        <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
         <link rel="shortcut icon" href="/favicon.ico"/>
-        <!-- END STYLE -->
     </head>
-    <body>
-        <!-- BEGIN NAVBAR -->
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!--
-                <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
-                    <i class="fa fa-search"></i>
-                </button>
-            -->
-            <a class="navbar-brand" href="/"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
+    <!-- END STYLE -->
+</head>
+<body>
+  <!-- BEGIN NAVBAR -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="clearfix">  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+         <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+            <i class="fa fa-search"></i>
+        </button> -->
+        <a class="navbar-brand" href="/index.html"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
+    </div>
+       <!--  <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+          <div class="navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </div>
+      </div> -->
+      <div class="navbar-collapse navbar-collapse-nav collapse navbar-left">
+          <ul class="nav navbar-nav nav-yellow">
+            <li class="myactive"><a href="hire.html" >招募遠距工作者</a></li>
+            <li><a href="team.html">團隊管理</a></li>
+            <li><a href="report.html">報表</a></li>
+            <li><a href="sms_in.html">訊息</a></li>
+        </ul>
+    </div>
+    <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li class="dropdown"> 
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle image-responsive" src="/img/class/class_3.jpg" style="width: 30px;height:30px;" alt="img"> &nbsp;Chris,Chou <b class="caret"></b></a>
+          <ul class="dropdown-menu user-dropdown">
+            <li class="color-blue"><span>Hi,<a href="#">Chris,Chou</a></span></li>
+            <li class="divider"></li>
+            <li><a href="#">切換到(User ID)</a></li>
+            <li><a href="#">個人設定</a></li>
+            <li><a href="#">會員登出</a></li>
+        </ul>
+    </li>
+    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-lg fa-bell"></i></span>&nbsp;<span class="badge">2</span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">(通知訊息內容)<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
+        <li class="divider"></li>
+        <li><a href="#">(通知訊息內容)<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
+    </ul>
+</li>
+<li><a href="#"><span><i class="fa fa-lg fa-refresh"></i></span></a></li>
+</ul>
+</div>
+</div>
+<div class="nav-border-yellow"></div>
+</div>
+
+<!-- END NAVBAR --> 
+<!-- BEGIN PAGE -->
+<div class="page-content page-yellow bottom50">
+  <div class="container" style="margin-top: 50px;">
+    <ul id="myTab" class="nav nav-tabs navmargin">
+      <li class="active"><a id="tab-1" href="#one" data-toggle="tab">開放申請案件</a></li>
+      <li ><a id="tab-2" href="#two" data-toggle="tab">新增案件 </a></li>
+      <li><a id="tab-3" href="#three" data-toggle="tab">瀏覽遠距工作者</a></li>
+      <li><a id="tab-4" href="#four" data-toggle="tab">我儲存的遠距工作者<span class="badge">2</span></a></li>
+  </ul>
+  <div id="myTabContent" class="tab-content myTabs" >
+      <div class="tab-pane fade in active" id="one">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-xs-9">
+                 <div class="input-group">
+                  <input type="text" class="form-control" placeholder="搜尋遠距工作者">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
         </div>
-            <!--
-            <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
-                <div class="navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                        </span>
+        <div class="col-xs-3">
+            <button type="button" class="btn btn-success btn-block">刊登案件</button>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 marpad" style="margin-top:5px;"><a href="#" data-tab-destination="tab-3" class="btn btn-link">依照類別瀏覽遠距工作者 <i class="fa fa-angle-double-right"></i></a></div>
+  </div>
+  <hr>
+  <div class="row">
+      <div class="col-md-12">
+        <div class="portlet box yellow">
+          <div class="portlet-title">
+            <div style="font-size:1.2em;"> 目前正在招募的工作 </div>
+        </div>
+        <div class="portlet-body text-center">
+           <p>您現在還沒有招募的案件，您可以</p>
+           <p><a href="#" data-tab-destination="tab-2">刊登案件</a>或<a href="#" data-tab-destination="tab-3">搜尋遠距工作者</a></p>
+       </div>
+   </div>
+</div>
+</div>
+<div class="row"><!--BEGIN PORTLET ROW 01-->
+    <div class="col-md-12">
+      <div class="portlet box yellow marpad"><!--BEGIN PORTLET YELLOW 01-->
+        <div class="portlet-title">
+          <div style="font-size:1.2em;"> 目前正在招募的工作 </div>
+      </div>
+      <div class="portlet-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>案件名稱</th>
+                <th>申請人數</th>
+                <th>來訊人數</th>
+                <th>候選人數</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="line-height:1.5;">
+              <h4><a href="hire-list.html">翻譯案件，將中文翻譯成英文、德文、法文、俄文</a></h4>
+              <span class="btn-group btn-group-table" data-toggle="buttons">
+                <label class="btn btn-info btn-sm">
+                  <input type="radio" name="options" id="option1"> 公開式案件
+              </label>
+              <label class="btn btn-info btn-sm">
+                  <input type="radio" name="options" id="option2"> 登入後公開
+              </label>
+              <label class="btn btn-info btn-sm">
+                  <input type="radio" name="options" id="option3"> 隱藏式案件
+              </label>
+          </span>
+          <p class="marpad">固定預算 | 2014/05/19 由您發佈</p>
+          <a href="#">檢視推薦遠距工作</a>
+      </td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+  </tr>
+  <tr>
+    <td style="line-height:1.5;">
+      <h4><a href="hire-list.html">拯救Facebook 搜尋災難，QSearch 找回我們的臉書訊息</a></h4>
+      <span class="btn-group btn-group-table" data-toggle="buttons">
+        <label class="btn btn-info btn-sm">
+          <input type="radio" name="options" id="option1"> 公開式案件
+      </label>
+      <label class="btn btn-info btn-sm">
+          <input type="radio" name="options" id="option2"> 登入後公開
+      </label>
+      <label class="btn btn-info btn-sm">
+          <input type="radio" name="options" id="option3"> 隱藏式案件
+      </label>
+  </span>
+  <p class="marpad">固定預算 | 2014/05/19 由您發佈</p>
+  <a href="#">檢視推薦遠距工作</a>
+</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><!--END PORTLET YELLOW 01-->
+</div>
+</div><!--END PORTLET ROW 01-->
+<div class="row">
+    <div class="col-md-12 marpad"><a href="employer-post-history.html" class="btn btn-link">檢視曾經開登的工作 <i class="fa fa-angle-double-right"></i></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane fade in " id="two"> <!--BEGIN PANEL 02-->
+    <%= bootstrap_form_for @project, url: projects_path(@project), method: :post, html: {class: "form-horizontal", id: "submit_form"} do |f| %>
+    <div class="form-group">
+        <div>
+            <p class="form-control-static view">主類別</p>
+            <div style="margin-top:5px;">
+                <select name="main" id="mainClass_select" class="edit form-control">
+                    <option value="-1">所有類別</option>
+                    <% t(:main_skill_category).each_with_index do |main_one, index| %>
+                    <% if index == @main_skill_id %>
+                    <option value="<%= index %>" selected><%= main_one['name'] %></option>
+                    <% else %>
+                    <option value="<%= index %>"><%= main_one['name'] %></option>
+                    <% end %>
+                    <% end %>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            <p class="form-control-static view">子類別</p>
+            <div style="margin-top:5px;">
+                <select name="sub" id="subClass_select2" class="form-control" >
+                    <option value="-1">所有類別</option>
+                    <% t(:sub_skill_category)[@main_skill_id].each_with_index do |sub_one, index| %>
+                    <% if index == @sub_skill_id %>
+                    <option value="<%= index %>" selected><%= sub_one['name'] %></option>
+                    <% else %>
+                    <option value="<%= index %>"><%= sub_one['name'] %></option>
+                    <% end %>
+                    <% end %>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 text-right-md text-left-sm marpad-left">
+          <strong>案件名稱</strong>
+      </div>
+      <div class="col-md-9">
+          <div class="form-group lable-group">
+            <!-- <input name="name" type="text" class="form-control" required> -->
+            <%= f.text_field :name, :required => true %>
+            <label for="name">為您的案件命名</label>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 text-right-md text-left-sm marpad-left">
+      <strong>工作內容</strong>
+  </div>
+  <div class="col-md-9">
+      <div class="form-group lable-group">
+        <!-- <textarea  name="detail" class="form-control" rows="5" required></textarea> -->
+        <%= f.text_area :description, :required => true %>
+        <label for="detail">描述您的案件工作內容</label>
+    </div>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 text-right-md text-left-sm marpad-left">
+      <strong>案件技能</strong>
+  </div>
+  <div class="col-md-9">
+      <div class="form-group lable-group">
+        <!-- <input name="skill" type="text" class="form-control" required> -->
+        <%= f.text_area :require_skills, :required => true %>
+        <label for="name">請輸入案件需求技能</label>
+    </div>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 text-right-md text-left-sm marpad-left"><strong>急件</strong></div>
+    <div class="col-md-9 text-left">
+      <div class="form-group">
+        <div style="margin-left:0px; text-align:left;">
+          <%= f.check_box :is_emergency %> 我需要急件處理
+      </div>
+  </div>
+</div>
+</div>
+
+<hr>
+<div><!-- BEGIN CASE TYPE -->
+    <div class="row" style="margin-bottom:25px;"> 
+      <div class="col-md-8 col-md-offset-1">
+        <div class="row">
+
+          <div class="col-md-3">
+            <p class="Colive marpad" style="font-size:1.7em;"><strong>案件類型</strong></p>
+            <p class="Cgray">請選擇右方類型:</p>
+        </div>
+        <div class="col-md-9">
+           <div class="row">
+            <div class="radio-toolbar form-group">
+             <div class="col-sm-3">
+               <input id="radio1" type="radio" name="feetype" value="2"  checked/>
+               <label for="radio1" class="btn btn-default">時薪制</label>
+           </div>
+
+           <div class="col-sm-3">
+               <input type="radio" id="radio2" name="feetype" value="3"/>
+               <label class="btn btn-default" for="radio2">固定薪資</label>
+           </div>
+       </div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="feetype2" class="desc"><!--BEGIN 時薪制-->
+    <%= f.hidden_field :payment_type, checked: true %>
+    <div class="row">
+        <div class="col-md-3 text-right-md text-left-sm marpad-left visible-xs visible-sm"><strong>遠距工作者的經驗程度:</strong></div>
+        <div class="col-md-3 text-right-md text-left-sm marpad-left hidden-xs hidden-sm"><strong>遠距工作者的</strong><p><strong>經驗程度:</strong></p></div>
+        <div class="col-md-9">
+          <div class="row"> <!-- BEGIN PRODUCT-CHOOSER -->
+            <div class="col-md-12 marpad">
+              <div class="row form-group product-chooser">
+                                        <!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                          <div class="product-chooser-item selected">
+                                            <div class="chooser-title"><h4>入門</h4></div>
+                                            <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
+                                              <span class="description">具備入門等級的相關經歷，此類案件通常不會執行太過困難的任務。</span>
+                                              <input type="radio" name="product" value="mobile_desktop" checked="checked">
+                                            </div>
+                                            <div class="clear"></div>
+                                          </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                          <div class="product-chooser-item">
+                                            <div class="chooser-title"><h4>中階</h4></div>
+                                            <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
+                                              <span class="description">處理過類似案件，具備經驗能處理較為進階的任務。</span>
+                                              <input type="radio" name="product" value="desktop">
+                                            </div>
+                                            <div class="clear"></div>
+                                          </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                          <div class="product-chooser-item">
+                                           <div class="chooser-title"><h4>專家</h4></div>
+                                           <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
+                                            <span class="description">專家等級，能處理進階任務，替雇主創造價值。</span>
+                                            <input type="radio" name="product" value="mobile">
+                                          </div>
+                                          <div class="clear"></div>
+                                        </div>
+                                    </div> -->
+                                    <%= f.radio_button :required_user_level, 1, checked: true %>入門
+                                    <%= f.radio_button :required_user_level, 2 %>中階
+                                    <%= f.radio_button :required_user_level, 3 %>專家
+
+                                </div>
+                            </div>
+                        </div><!-- END PRODUCT-CHOOSER -->
                     </div>
                 </div>
+
+                <div class="row">
+                  <div class="col-md-3 text-right-md text-left-sm marpad-left"><strong>案件預計工期</strong></div>
+                  <div class="col-md-9">
+                    <div class="form-group">
+                      <%= f.radio_button :end_date, 1, checked: true %>3日
+                      <%= f.radio_button :end_date, 2 %>7日
+                      <%= f.radio_button :end_date, 3 %>14日
+                      <%= f.radio_button :end_date, 4 %>1個月
+                      <%= f.radio_button :end_date, 5 %>3個月
+                  </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-md-3 text-right-md text-left-xs marpad-left"><strong>全職/兼職</strong></div>
+              <div class="col-md-9">
+                <div class="form-group">
+                  <%= f.radio_button :work_type, 1, checked: true %>全職
+                  <%= f.radio_button :work_type, 2 %>兼職
+              </div>
+          </div>
+      </div>
+  </div><!-- END CASE TYPE -->
+</div><!--END 時薪制-->
+<div id="feetype3" class="desc" style="display: none;"><!-- BEGIN CASE TYPE 固定薪資 -->
+  <div class="row">
+    <div class="col-md-3 text-right-md text-left-sm marpad-left">
+      <strong>案件預算</strong>
+  </div>
+  <div class="col-md-9">
+      <div class="form-group lable-group">
+        <div class="input-group">
+          <input type="text" name="butget" class="form-control" required>
+          <label for="budget">請輸入案件預算</label>
+          <span class="input-group-addon" style="z-index: 10;
+          position: relative;">
+          USD
+      </span>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-md-3 text-right-md text-left-sm marpad-left">
+    <strong>預計完成日期</strong>
+</div>
+<div class="col-md-9">
+
+    <div class="form-group">
+      <div class="input-group date" id="datetimepicker1">
+        <input type="text" class="form-control" />
+        <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
+    </div>
+</div>
+
+</div>
+</div>
+</div><!-- END CASE TYPE 固定薪資 -->
+<hr>
+<div class="row">
+    <div class="col-md-3 text-right-md text-left-sm marpad-left"><strong>能見度設定</strong></div>
+    <div class="col-md-9">
+      <div class="form-group">
+        <%= f.radio_button :visibility, 1, checked: true %>開放式
+        <%= f.radio_button :visibility, 2 %>僅限Telework會員
+        <%= f.radio_button :visibility, 3 %>隱藏式
+    </div>
+</div>
+</div>
+<div class="row"> <!-- BEGIN FILE UPLOAD ROW-->
+    <div class="col-md-3 text-right-md text-left-sm"><strong>上傳附加檔案</strong><p>(選擇性)</p></div>
+    <div class="col-md-9">
+      <div class="form-group">
+        <!-- image-preview-filename input [CUT FROM HERE]-->
+        <%= f.file_field :file %><!-- /input-group image-preview [TO HERE]--> 
+        <p class="help-block">
+          檔案不得超過5MB, 僅限jpg,png,pdf等格式。
+      </p>
+  </div>
+</div>
+</div><!-- END FILE UPLOAD ROW-->
+
+<div class="row">
+    <div class="col-md-9 col-md-offset-2"><!--BEGIN COL-MD-10-->
+      <h3 class="Corange">期待認證等級</h3>
+      <hr>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="form-control-static text-right-md text-left-sm marpad-left"><strong>獲得的滿意度最低</strong></p>
+        </div>
+        <div class="col-sm-9">
+            <div style="margin-top:5px;">
+                <select name="project[satisfication]">
+                    <option value="0">任何分數</option>
+                    <option value="1">60</option>
+                    <option value="2">70</option>
+                    <option value="3">80</option>
+                    <option value="4">90</option>
+                    <option value="5">100以上</option>
+                </select>
             </div>
-        -->
-        <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
-            <ul class="nav navbar-nav">
-                <% if user_signed_in? %>
-                <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
-                <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
-                <li><%= link_to I18n.t("page.header.add_project"), new_project_path %></li>
-                <% else %>
-                <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
-                <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
-                <% end %>
-            </ul>
         </div>
     </div>
-    <!-- END NAVBAR -->
-    <!-- BEGIN PAGE -->
-    <div class="page-content">
-        <!-- BEGIN TITLE -->
-        <!-- END TITLE -->
-        <!-- BEGIN MAIN CONTENT -->
-        <div class="main-content">
+</div>
 
+<div class="form-group">
+    <div class="row">
+      <div class="col-sm-3">
+        <p class="form-control-static text-right-md text-left-sm marpad-left"><strong>已工作時數最低</strong></p>
+    </div>
+    <div class="col-sm-9">
+        <div style="margin-top:5px;">
+          <select name="project[worked_hours]">
+            <option value="0">任何時數</option>
+            <option value="1">1小時</option>
+            <option value="2">5小時</option>
+            <option value="3">10小時</option>
+            <option value="4">20小時</option>
+            <option value="5">30小時以上</option>
+        </select>
+    </div>
+</div>
+</div>
+</div>
 
-<%= form_for @project, url: projects_path(@project), method: :post, html: {class: "form-horizontal", id: "submit_form"} do |f| %>
+<div class="form-group">
+    <div class="row">
+      <div class="col-sm-3">
+        <p class="form-control-static text-right-md text-left-sm marpad-left"><strong>所在地區</strong></p>
+    </div>
+    <div class="col-sm-9">
+        <div style="margin-top:5px;">
+          <select name="project[worker_location]">
+              <option value="0">任何地區</option>
+              <option value="1">亞洲</option>
+              <option value="2">歐洲</option>
+              <option value="3">南美洲</option>
+              <option value="4">北美洲</option>
+              <option value="5">大洋洲</option>
+          </select>
+      </div>
+  </div>
+</div>
+</div>
 
-<p>
-<%= f.label "選擇案件類別" %>
-<select name="mainClass" class="input-group">
-	<%= t(:main_skill_category).each_with_index do |s ,index| %>
-	<option>
-		<%= s['name'] %>
-	</option>
-	<% end %>
-</select>
-<select name="mainClass" class="input-group">
-	<%= t(:sub_skill_category).each do |s| %>
+<div class="form-group">
+    <div class="row">
+      <div class="col-sm-3">
+        <p class="form-control-static text-right-md text-left-sm marpad-left"><strong>英文程度</strong></p>
+    </div>
+    <div class="col-sm-9">
+        <div style="margin-top:5px;">
+          <select name="project[english_level]">
+              <option value="0">請選擇偏好英語程度</option>
+              <option value="1">精通</option>
+              <option value="2">流暢</option>
+              <option value="3">普通</option>
+              <option value="4">略懂</option>
+          </select>
+      </div>
+  </div>
+</div>
+</div>
+</div><!--END COL-md-10-->
+</div>
 
-	<%= s.each do |x| %>
-	<option>
-		<%= x['name'] %>
-	</option>
-	<% end %>
-	<% end %>
-</select>
-</p>
+<div class="row"><!--BEGIN PANEL02 PORTLET ROW 04-->
+    <div class="col-md-12">
+      <div class="portlet box yellow"> <!--BEGIN PORTLET YELLOW 04-->
+        <div class="portlet-title">
+          <div style="font-size:1.2em;"> 需要申請者填寫自我介紹 </div>
+      </div>
+      <div class="portlet-body">
+          <div class="row">
+            <div class="col-md-9 col-md-offset-2"><!--BEGIN COL-SM-10-->
+              <h3 class="Corange">需填寫自我介紹</h3>
+              <hr>
+              <div class="form-group">
+                <div style="margin-left:0px; text-align:left;">
+                  <%= f.check_box :required_user_intro %> 需要申請者填寫個人介紹才能申請本工作
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div><!--END PORTLET YELLOW 04-->
+</div>
+</div><!--END PANEL02 PORTLET ROW 04-->
 
-<p>
-<%= f.label :name, "案件名稱" %>
-<%= f.text_field :name %>
-</p>
+<div class="row"><!--BEGIN PANEL02 PORTLET ROW 05-->
+    <div class="col-md-12">
+      <div class="portlet box yellow"> <!--BEGIN PORTLET YELLOW 05-->
+        <div class="portlet-title">
+          <div style="font-size:1.2em;"> 隱藏項目(申請者填寫個人介紹才能申請本工作) </div>
+      </div>
+      <div class="portlet-body">
+          <div class="row">
+            <div class="col-md-9 col-md-offset-2"><!--BEGIN COL-SM-10-->
+              <h3 class="Corange">問題</h3>
+              <hr>
 
-<p>
-<%= f.label :description, "工作內容" %>
-<%= f.text_area :description %>
-</p>
+              <div class="form-style ">
+                <form action="#" class=" form-horizontal go-bottom" role="form">
 
-<p>
-<%= f.label :description, "案件技能" %>
-<%= f.text_area :description %>
-</p>
+                  <div class="row">
 
-<p>
-<%= f.label :is_emergency, "急件" %>
-<%= f.check_box :is_emergency %>我需要急件處理
-</p>
+                    <div class="col-md-12 marpad" style="padding:5px 8px;">
+                      <div class="form-group lable-group">
+                        <input name="question1" type="text" class="form-control" required>
+                        <label for="question">輸入您對於申請者的其他提問。例如：您認為這個案件的最大挑戰是什麼?</label>
+                    </div>
+                </div>
 
-<p>
-<%= f.label :payment_type, "案件類型" %>
-<%= f.radio_button :payment_type, 1, checked: true %>時薪制
-<%= f.radio_button :payment_type, 2 %>固定薪資
-</p>
+                <div class="col-md-12 marpad" style="padding:5px 8px;">
+                  <div class="form-group lable-group">
+                    <input name="question2" type="text" class="form-control" required>
+                    <label for="question2">輸入您對於申請者的其他提問。例如：您是否通過除了本網站提供之外的認證測驗?</label>
+                </div>
+            </div>
 
-<% if :payment_type == 1 %>
+            <div class="col-md-12 marpad">
+              <div class="form-group">
+                 <button class="btn btn-link"><i class="fa fa-plus"></i> 新增其他問題</button>
+             </div>
+         </div>
 
-<p>
-<%= f.label :required_user_level, "遠距工作者的經驗程度" %>
-<%= f.radio_button :required_user_level, 1, checked: true %>入門
-<%= f.radio_button :required_user_level, 2 %>中階
-<%= f.radio_button :required_user_level, 3 %>專家
-</p>
+     </div>
+ </form>
+</div>
 
-<p>
-<%= f.label :end_date, "案件預計工期" %>
-<%= f.radio_button :end_date, 1, checked: true %>3日
-<%= f.radio_button :end_date, 2 %>7日
-<%= f.radio_button :end_date, 3 %>14日
-<%= f.radio_button :end_date, 4 %>1個月
-<%= f.radio_button :end_date, 5 %>3個月
-</p>
+</div>
+</div>
+</div>
+</div><!--END PORTLET YELLOW 05-->
+</div>
+</div><!--END PANEL02 PORTLET ROW 05-->
 
-<% else %>
-
-<% end %>
-
-<p>
-<%= f.label :work_type, "全職/兼職" %>
-<%= f.radio_button :work_type, 1, checked: true %>全職
-<%= f.radio_button :work_type, 2 %>兼職
-</p>
-
-<p>
-<%= f.label :visibility, "能見度設定" %>
-<%= f.radio_button :visibility, 1, checked: true %>開放式
-<%= f.radio_button :visibility, 2 %>僅限Telework會員
-<%= f.radio_button :visibility, 3 %>隱藏式
-</p>
-
-<p>
-<%= f.label :file, "上傳附加檔案" %>
-<%= f.file_field :file %>
-</p>
-
-<p>
-<%= f.label :satisfication, "獲得的滿意度最低" %>
-<select name="project[satisfication]">
-  <option value="0">60</option>
-  <option value="1">70</option>
-  <option value="2">80</option>
-  <option value="3">90</option>
-  <option value="4">100以上</option>
-</select>
-</p>
-
-<p>
-<%= f.label :worked_hours, "已工作時數最低" %>
-<select name="project[worked_hours]">
-  <option value="0">1小時</option>
-  <option value="1">5小時</option>
-  <option value="2">10小時</option>
-  <option value="3">20小時</option>
-  <option value="4">30小時以上</option>
-</select>
-</p>
-
-<p>
-<%= f.label :worker_location, "所在地區" %>
-<select name="project[worker_location]">
-  <option value="0">1</option>
-  <option value="1">2</option>
-  <option value="2">3</option>
-  <option value="3">4</option>
-  <option value="4">5</option>
-</select>
-</p>
-
-<p>
-<%= f.label :english_levelenglish_level, "英文程度" %>
-<select name="project[english_level]">
-  <option value="0">好</option>
-  <option value="1">普通</option>
-  <option value="2">差</option>
-</select>
-</p>
-
-<p>
-<%= f.label :required_user_introrequired_user_intro, "需填寫自我介紹" %>
-<%= f.check_box :required_user_intro %>需要申請者填寫個人介紹才能申請本工作
-</p>
-
-<p>
 <%= f.submit %>
-</p>
 
 <% end %>
+</div><!--END TAB-PANE 02-->
+<div class="tab-pane fade" id="three">
 
 
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="input-group" style="padding:20px 24px;">
+        <input type="text" class="form-control" placeholder="搜尋遠距工作者">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+      </span>
+  </div>
 </div>
-<!-- END MAIN CONTENT -->
+<div class="col-sm-12">
+  <div class="row panel-box" ><!--樹狀圖 ROW 01 Expanding list-->
+    <div class="col-md-3"> <!--樹狀圖 01 Expanding list 01 IT、軟體-->
+      <div class="panel panel-warning" >
+        <div class="panel-heading clickable ">
+          <h3 class="panel-title" >IT 、 軟體</h3> 
+          <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
+      </div>
+      <ul class="panel-body list-group" style="display: block;">
+          <li class="list-group-item clickable"><a href="#">所有類別</a></li>
+          <li class="list-group-item clickable"><a href="#">程式設計</a></li>
+          <li class="list-group-item clickable"><a href="#">程式測試/除錯</a></li>
+          <li class="list-group-item clickable"><a href="#">電子商務平台</a></li>
+          <li class="list-group-item clickable"><a href="#">網站開發</a></li>
+          <li class="list-group-item clickable"><a href="#">網站企劃</a></li>
+          <li class="list-group-item clickable"><a href="#">網站驗收</a></li>
+          <li class="list-group-item clickable"><a href="#">網頁應用程式</a></li>
+          <li class="list-group-item clickable"><a href="#">手機應用程式</a></li>
+          <li class="list-group-item clickable"><a href="#">軟體介面程式</a></li>
+          <li class="list-group-item clickable"><a href="#">工具軟體 </a></li>
+          <li class="list-group-item clickable"><a href="#">娛樂及遊戲應用程式</a></li>
+          <li class="list-group-item clickable"><a href="#">腳本語言 (Scripting)</a></li>
+          <li class="list-group-item clickable"><a href="#">外掛程式 </a></li>
+          <li class="list-group-item clickable"><a href="#">資訊計劃管理</a></li>
+          <li class="list-group-item clickable"><a href="#">網路電話 (VoIP)發</a></li>
+          <li class="list-group-item clickable"><a href="#">資訊系統架構</a></li>
+          <li class="list-group-item clickable"><a href="#">資訊系統管理</a></li>
+          <li class="list-group-item clickable"><a href="#">資訊系統佈建</a></li>
+          <li class="list-group-item clickable"><a href="#">企業資訊系統管理</a></li>
+          <li class="list-group-item clickable"><a href="#">其他 &ndash; 資訊科技及軟體</a></li>
+      </ul>
+  </div>
 </div>
-<!-- END PAGE -->
+<div class="col-md-3"> <!--樹狀圖 02 Expanding list 02 工程與科學-->
+  <div class="panel panel-warning">
+    <div class="panel-heading clickable">
+      <h3 class="panel-title">工程與科學</h3>
+      <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
+  </div>
+  <ul class="panel-body list-group" style="display: block;">
+      <li class="list-group-item clickable"><a href="#">所有類別</a></li>
+      <li class="list-group-item clickable"><a href="#">資料探勘 &amp; 分析</a></li>
+      <li class="list-group-item clickable"><a href="#">CAD &frasl; CAM 工程開發</a></li>
+      <li class="list-group-item clickable"><a href="#">生產工程</a></li>
+      <li class="list-group-item clickable"><a href="#">生產開發</a></li>
+      <li class="list-group-item clickable"><a href="#">工業工程</a></li>
+      <li class="list-group-item clickable"><a href="#">化學工程</a></li>
+      <li class="list-group-item clickable"><a href="#">材料工程</a></li>
+      <li class="list-group-item clickable"><a href="#">電子工程</a></li>
+      <li class="list-group-item clickable"><a href="#">機械工程</a></li>
+      <li class="list-group-item clickable"><a href="#">生物工程</a></li>
+      <li class="list-group-item clickable"><a href="#">數理統計</a></li>
+      <li class="list-group-item clickable"><a href="#">設計工程</a></li>
+      <li class="list-group-item clickable"><a href="#">品質控制分析</a></li>
+      <li class="list-group-item clickable"><a href="#">工程專案管理</a></li>
+      <li class="list-group-item clickable"><a href="#">數學</a></li>
+      <li class="list-group-item clickable"><a href="#">物理</a></li>
+      <li class="list-group-item clickable"><a href="#">化學</a></li>
+      <li class="list-group-item clickable"><a href="#">其他 &ndash; 工程與科學</a></li>
+  </ul>
+</div>
+</div>
+<div class="col-md-3"> <!--樹狀圖 03 Expanding list 03-->
+  <div class="panel panel-warning">
+    <div class="panel-heading clickable">
+      <h3 class="panel-title">設計 、 創意</h3>
+      <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
+  </div>
+  <ul class="panel-body list-group" style="display: block;">
+      <li class="list-group-item clickable"><a href="#">所有類別</a></li>
+      <li class="list-group-item clickable"><a href="#">圖像設計</a></li>
+      <li class="list-group-item clickable"><a href="#">Logo 設計</a></li>
+      <li class="list-group-item clickable"><a href="#">繪圖</a></li>
+      <li class="list-group-item clickable"><a href="#">印刷設計</a></li>
+      <li class="list-group-item clickable"><a href="#">3D 建模</a></li>
+      <li class="list-group-item clickable"><a href="#">音效設計</a></li>
+      <li class="list-group-item clickable"><a href="#">影音設計</a></li>
+      <li class="list-group-item clickable"><a href="#">Voice Talent</a></li>
+      <li class="list-group-item clickable"><a href="#">動畫設計</a></li>
+      <li class="list-group-item clickable"><a href="#">簡報設計</a></li>
+      <li class="list-group-item clickable"><a href="#">網站設計</a></li>
+      <li class="list-group-item clickable"><a href="#">UI設計</a></li>
+      <li class="list-group-item clickable"><a href="#">其他 &ndash; 設計 &amp; 多媒體</a></li>
+  </ul>
+</div>
+</div>
+<div class="col-md-3"> <!--樹狀圖 04 Expanding list 04-->
+  <div class="panel panel-warning">
+    <div class="panel-heading clickable">
+      <h3 class="panel-title">業務 、 行銷</h3>
+      <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
+  </div>
+  <ul class="panel-body list-group" style="display: block;">
+      <li class="list-group-item clickable"><a href="#">所有類別</a></li>
+      <li class="list-group-item clickable"><a href="#">廣告</a></li>
+      <li class="list-group-item clickable"><a href="#">電子郵件行銷</a></li>
+      <li class="list-group-item clickable"><a href="#">SEO &ndash; 搜尋引擎優化</a></li>
+      <li class="list-group-item clickable"><a href="#">SEM &ndash;  搜尋引擎行銷</a></li>
+      <li class="list-group-item clickable"><a href="#">SMM &ndash;  社群行銷</a></li>
+      <li class="list-group-item clickable"><a href="#">PR &ndash;  公關</a></li>
+      <li class="list-group-item clickable"><a href="#">電話行銷</a></li>
+      <li class="list-group-item clickable"><a href="#">商業計畫、行銷策略</a></li>
+      <li class="list-group-item clickable"><a href="#">行銷研究</a></li>
+      <li class="list-group-item clickable"><a href="#">銷售</a></li>
+      <li class="list-group-item clickable"><a href="#">其他 &ndash;  業務 &amp; 行銷</a></li>
+  </ul>
+</div>
+</div>
+</div> <!--END 樹狀圖 ROW 01-->
+<div class="row panel-box"><!--樹狀圖 ROW 02 Expanding list-->
+    <div class="col-md-3"> <!--樹狀圖 05 Expanding list 05-->
+      <div class="panel panel-warning">
+        <div class="panel-heading clickable">
+          <h3 class="panel-title" style="font-size:1.1em">行政總務、客戶支援</h3>
+          <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
+      </div>
+      <ul class="panel-body list-group" style="display: block;">
+          <li class="list-group-item clickable"><a href="#">所有類別</a></li>
+          <li class="list-group-item clickable"><a href="#">數據輸入</a></li>
+          <li class="list-group-item clickable"><a href="#">個人助理</a></li>
+          <li class="list-group-item clickable"><a href="#">網路調查</a></li>
+          <li class="list-group-item clickable"><a href="#">電子郵件回覆助理</a></li>
+          <li class="list-group-item clickable"><a href="#">聽譯、逐字稿</a></li>
+          <li class="list-group-item clickable"><a href="#">其他 &ndash; 行政支援</a></li>
+          <li class="list-group-item clickable"><a href="#">客戶服務 &amp; 支援</a></li>
+          <li class="list-group-item clickable"><a href="#">技術支援</a></li>
+          <li class="list-group-item clickable"><a href="#">電話支援</a></li>
+          <li class="list-group-item clickable"><a href="#">訂單處理</a></li>
+          <li class="list-group-item clickable"><a href="#">其他 &ndash; 客戶服務</a></li>
+      </ul>
+  </div>
+</div>
+<div class="col-md-3"> <!--樹狀圖 06 Expanding list 06 -->
+  <div class="panel panel-warning ">
+    <div class="panel-heading clickable">
+      <h3 class="panel-title">商業、會計、法務</h3>
+      <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
+  </div>
+  <ul class="panel-body list-group" style="display: block;">
+      <li class="list-group-item clickable"><a href="#">所有類別</a></li>
+      <li class="list-group-item clickable"><a href="#">會計</a></li>
+      <li class="list-group-item clickable"><a href="#">帳務</a></li>
+      <li class="list-group-item clickable"><a href="#">HR</a></li>
+      <li class="list-group-item clickable"><a href="#">財經計劃</a></li>
+      <li class="list-group-item clickable"><a href="#">付款</a></li>
+      <li class="list-group-item clickable"><a href="#">法務</a></li>
+      <li class="list-group-item clickable"><a href="#">專案管理</a></li>
+      <li class="list-group-item clickable"><a href="#">人員招募</a></li>
+      <li class="list-group-item clickable"><a href="#">數據分析</a></li>
+      <li class="list-group-item clickable"><a href="#">其他 &ndash; 商業服務</a></li>
+  </ul>
+</div>
+</div>
+<div class="col-md-3"> <!--樹狀圖 07 Expanding list 07-->
+  <div class="panel panel-warning">
+    <div class="panel-heading clickable">
+      <h3 class="panel-title">寫作、翻譯</h3>
+      <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
+  </div>
+  <ul class="panel-body list-group" style="display: block;">
+      <li class="list-group-item clickable"><a href="#">所有類別</a></li>
+      <li class="list-group-item clickable"><a href="#">技術文件寫作</a></li>
+      <li class="list-group-item clickable"><a href="#">網頁內容寫作</a></li>
+      <li class="list-group-item clickable"><a href="#">部落格專文寫作</a></li>
+      <li class="list-group-item clickable"><a href="#">文宣寫作</a></li>
+      <li class="list-group-item clickable"><a href="#">翻譯</a></li>
+      <li class="list-group-item clickable"><a href="#">創意寫作</a></li>
+      <li class="list-group-item clickable"><a href="#">其他 &ndash; 寫作&amp;翻譯</a></li>
+  </ul>
+</div>
+</div>
+<div class="col-md-3"> <!--樹狀圖 08 Expanding list 08-->
+  <div class="panel panel-warning">
+    <div class="panel-heading clickable">
+      <h3 class="panel-title">專業諮詢</h3>
+      <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
+  </div>
+  <ul class="panel-body list-group" style="display: block;">
+      <li class="list-group-item clickable"><a href="#">所有類別</a></li>
+      <li class="list-group-item clickable"><a href="#">助理顧問</a></li>
+      <li class="list-group-item clickable"><a href="#">溝通顧問</a></li>
+      <li class="list-group-item clickable"><a href="#">安全顧問</a></li>
+      <li class="list-group-item clickable"><a href="#">行銷顧問</a></li>
+      <li class="list-group-item clickable"><a href="#">業務顧問</a></li>
+      <li class="list-group-item clickable"><a href="#">商業顧問</a></li>
+      <li class="list-group-item clickable"><a href="#">顧問分析</a></li>
+      <li class="list-group-item clickable"><a href="#">服務顧問</a></li>
+      <li class="list-group-item clickable"><a href="#">其他 &ndash; 顧問</a></li>
+  </ul>
+</div>
+</div>
+</div> <!--END 樹狀圖 ROW 02-->
+</div>
+<div class=""><!--樹狀圖 保留空間-->
+</div>
+</div>
+
+</div>
+<div class="tab-pane fade" id="four">
+
+  <div class="row" style="margin:auto 3px;"> <!--Begin row-->
+    <div class="col-sm-9">
+      <div class=""> <!--會員資料-->
+        <div class="media">
+
+          <a class="pull-left" href="#">
+            <img class="media-object dp img-rounded" src="/img/default-pic.png" style="width: 100px;height:100px;" alt="img">
+        </a>
+
+        <div class="media-body">
+            <div class="media-heading"><a style="color: #319ACA;" href="hire-list-f.html"><h4 style="display: inline;">Hardik Sondagar</h4></a>
+              <p  class=" hidden-xs" style="display: inline;"><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star-o"></span><strong>(4.95)</strong></p></div>
+              <h5 class="color-grey hidden-xs "><i class="fa fa-map-marker fa-lg" ></i> 來自台灣 &nbsp;
+                <span class=""><i class="fa fa-check-square-o fa-lg" ></i> 已通過帳戶認證 &nbsp;</span>
+                <span class="">
+                  <i class="fa fa-credit-card fa-lg" ></i> 有效的金融帳戶
+              </span> 
+          </h5>
+          <ul class="color-grey visible-xs">
+            <li><i class="fa fa-map-marker fa-lg" ></i> 來自台灣</li>
+            <li><i class="fa fa-check-square-o fa-lg" ></i> 已通過帳戶認證</li>
+            <li><i class="fa fa-credit-card fa-lg" ></i> 有效的金融帳戶</li>
+        </ul>
+        <h5>八年的軟體工作經驗</h5>
+        <div class="" >
+           <button type="button" class="btn btn-danger btn-sm btn-circle "><i class="fa fa-times"> 刪除</i></button>
+
+           <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 雇用</i></button>
+
+           <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 聯絡</i></button>
+       </div>
+       <hr style="margin:8px auto" class=" clear">
+       <p>名性活斯度全，再足生的把何，這委精業學通時此由，化廣三題小全操通照思在知有著物裝會！事制保國樂，而響生來、賣發總身球的你書狀有也生有獨車像無雖單口裡麼是位這卻提絕自說只現的來生令定生種臺這，片張以國子日得那已寫。身單陽定一飛自子。</p>
+       <div>
+           <span class="label label-default">HTML5/CSS3</span>
+           <span class="label label-default">jQuery</span>
+           <span class="label label-default">CakePHP</span>
+           <span class="label label-default">Android</span>
+           <a href="#">More..(15)</a>
+       </div>
+       <div class="profolio-info" >
+          <ul>
+            <li>每小時30美金</li>
+            <li>已做過2個案件/共150小時</li>
+        </ul>
+        <ul>
+            <li>上次登入 2014/04/08</li> 
+            <li>共12項作品</li>
+            <li>通過5項測驗</li>
+        </ul>
+    </div>
+</div>
+</div> 
+</div> <!--END 會員資料-->
+</div>
+<div class="col-sm-3">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row"> 
+        <div class="col-xs-4"><h4>備註</h4></div>
+        <div class="col-xs-8 marpad text-right" ><button class="btn btn-link">編輯備註</button></div>
+    </div>
+</div>
+<div class="panel-body">
+  沒手黨離全上及科人、合全說謝媽像可們客然還推如阿以得區情費學？地成訴總所新保無：人二個不心從的年，衣就清己魚最不分山後不坐心便全可力度境是。校都了南的紀些有話路多南。
+</div>
+</div>
+</div>
+</div><!--END ROW-->
+<hr>
+<div class="row" style="margin:auto 3px;"> <!--Begin row-->
+    <div class="col-sm-9">
+      <div class=""> <!--會員資料-->
+        <div class="media">
+
+          <a class="pull-left" href="#">
+            <img class="media-object dp img-rounded" src="/img/default-pic.png" style="width: 100px;height:100px;" alt="img">
+        </a>
+
+
+        <div class="media-body">
+            <div class="media-heading"><a style="color: #319ACA;" href="hire-list-f.html"><h4 style="display: inline;">Hardik Sondagar</h4></a>
+              <p  class=" hidden-xs" style="display: inline;"><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star-o"></span><strong>(4.95)</strong></p></div>
+              <h5 class="color-grey hidden-xs "><i class="fa fa-map-marker fa-lg" ></i> 來自台灣 &nbsp;
+                <span class=""><i class="fa fa-check-square-o fa-lg" ></i> 已通過帳戶認證 &nbsp;</span>
+                <span class="">
+                  <i class="fa fa-credit-card fa-lg" ></i> 有效的金融帳戶
+              </span> 
+          </h5>
+          <ul class="color-grey visible-xs">
+            <li><i class="fa fa-map-marker fa-lg" ></i> 來自台灣</li>
+            <li><i class="fa fa-check-square-o fa-lg" ></i> 已通過帳戶認證</li>
+            <li><i class="fa fa-credit-card fa-lg" ></i> 有效的金融帳戶</li>
+        </ul>
+        <h5>八年的軟體工作經驗</h5>
+        <div class="" >
+           <button type="button" class="btn btn-danger btn-sm btn-circle "><i class="fa fa-times"> 刪除</i></button>
+
+           <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 雇用</i></button>
+
+           <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 聯絡</i></button>
+       </div>
+       <hr style="margin:8px auto" class=" clear">
+       <p>名性活斯度全，再足生的把何，這委精業學通時此由，化廣三題小全操通照思在知有著物裝會！事制保國樂，而響生來、賣發總身球的你書狀有也生有獨車像無雖單口裡麼是位這卻提絕自說只現的來生令定生種臺這，片張以國子日得那已寫。身單陽定一飛自子。</p>
+       <div>
+           <span class="label label-default">HTML5/CSS3</span>
+           <span class="label label-default">jQuery</span>
+           <span class="label label-default">CakePHP</span>
+           <span class="label label-default">Android</span>
+           <a href="#">More..(15)</a>
+       </div>
+       <div class="profolio-info" >
+          <ul>
+            <li>每小時30美金</li>
+            <li>已做過2個案件/共150小時</li>
+        </ul>
+        <ul>
+            <li>上次登入 2014/04/08</li> 
+            <li>共12項作品</li>
+            <li>通過5項測驗</li>
+        </ul>
+    </div>
+</div>
+</div> 
+</div> <!--END 會員資料-->
+</div>
+<div class="col-sm-3">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row"> 
+        <div class="col-xs-4"><h4>備註</h4></div>
+        <div class="col-xs-8 marpad text-right" ><button class="btn btn-link">編輯備註</button></div>
+    </div>
+</div>
+<div class="panel-body">
+  沒手黨離全上及科人、合全說謝媽像可們客然還推如阿以得區情費學？地成訴總所新保無：人二個不心從的年，衣就清己魚最不分山後不坐心便全可力度境是。校都了南的紀些有話路多南。
+</div>
+</div>
+</div>
+</div><!--END ROW-->
+</div>
+</div>
+</div>
+</div>
+<!-- END PAGE --> 
 <!-- BEGIN FOOTER -->
-<div class="footer"><img class="footer-logo" src="/img/logo103.png" alt="">
-    <div class="footer-nav">
-        <%= link_to I18n.t("page.footer.about"), index_about_path %>
-        <span class="bar">|</span>
-        <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
-        <span class="bar">|</span>
-        <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
-        <span class="bar">|</span>
-        <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
-    </div>
-    <div style="margin-top:12px;">
-        <span id="siteseal">
-            <script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=6EabjzhFVsN0Ek7Z9eGWGUwWv7uWRVt7AtmVMPmKs7pzCryNcCDdV"></script>
-        </span>
-    </div>
-</div>
-<!-- END FOOTER -->
+<script language="javascript" type="text/javascript" 
+src="/masterpage/footer.txt"></script>
+<!-- END FOOTER --> 
 
-<!-- BEGIN JAVASCRIPTS -->
-<!-- BEGIN 核心插件 -->
-        <!--[if lt IE 9]>
-            <script src="/plugins/html5shiv.min.js"></script>
-            <script src="/plugins/respond.min.js"></script>
-            <![endif]-->
+<!-- BEGIN JAVASCRIPTS --> 
+<!-- BEGIN 核心插件 --> 
+<!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+            <![endif]--> 
 
-            <script src="/plugins/jquery-1.11.0.min.js"></script>
-            <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
-            <!-- END 核心插件 -->
+            <script src="/plugins/jquery-1.11.0.min.js"></script> 
+            <script src="/plugins/bootstrap/js/bootstrap.min.js"></script> 
+            <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+
+            <!-- END 核心插件 --> 
             <!-- BEGIN 頁面插件 -->
-            <script src="/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-            <script src="/plugins/select2/select2.min.js"></script>
-            <script type="text/javascript" src="/plugins/jquery-validation/dist/jquery.validate.js"></script>
-            <script type="text/javascript" src="/plugins/jquery-validation/dist/myMethods.js"></script>
-            <script src="/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
-            <script src="/plugins/bootbox/bootbox.min.js"></script>
-            <!-- END 頁面插件 -->
-            <script type="text/javascript" src="/js/script.js"></script>
-            <script type="text/javascript" src="/js/page/create_profile.js"></script>
-            <script type="text/javascript" src="/js/element.js"></script>
-            <script type="text/javascript" src="/js/google_analytics.js"></script>
+            <script src="/plugins/bootstrap-datetimepicker-master/build/js/moment.js"></script>
+            <script src="/plugins/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.js"></script>
+            <!-- END 頁面插件 --> 
+            <script type="text/javascript" src="/js/script.js"></script> 
+            <script type="text/javascript" src="/js/loginmain.js"></script>
+            <script type="text/javascript" src="/js/element.js"></script> 
+            <script type="text/javascript" src="/js/expanding_list.js"></script>
+            <!--<script type="text/javascript" src="js/page/index.js"></script>--> 
             <script>
-                jQuery(document).ready(function() {
-                   Web.init();
-                   CreateProfile.init();
-               });
+            jQuery(document).ready(function() {    
+               Web.init();
+               //Index.init();
+           });
+            </script> 
+            <script type="text/javascript" src="/js/bootstrap-tabcollapse-yellow.js"></script> 
+            <script type="text/javascript">
+            $('#myTab').tabCollapse();
+            $('#testTabs').tabCollapse();
+            $('#testTabs01').tabCollapse();
+            </script> 
 
-                function readURL(input) {
-                    if (input.files && input.files[0]) {
-                        var reader = new FileReader();
-                        reader.onload = function (e) {
-                            $(".avatar").attr('src', e.target.result);
-                        };
-                        reader.readAsDataURL(input.files[0]);
-                    }
-                }
+            <script type="text/javascript">
+            $(document).ready(function() {
+              $("input[name$='feetype']").click(function() {
+                var test = $(this).val();
+
+                $("div.desc").hide();
+                $("#feetype" + test).show();
+            });
+          });
             </script>
-            <!-- END JAVASCRIPTS -->
-            <!-- BEGIN PIE -->
-        <!--[if lte IE 9]>
-        <script type="text/javascript" src="/plugins/PIE-1.0.0/PIE.js"></script>
-        <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+            <script type="text/javascript">
+            $(function(){
+              $('#datetimepicker1').datetimepicker({
+                pickTime: false,
+                icons: {
+                  date: "fa fa-calendar",
+              }
+          });
+          });
+            </script>
+
+            <!-- END JAVASCRIPTS --> 
+            <!-- BEGIN PIE --> 
+<!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
         <script>
         $(function() {
             $('input, textarea').placeholder();
@@ -300,8 +1051,7 @@
             });
         });
         </script>
-        <![endif]-->
+        <![endif]--> 
         <!-- END PIE -->
     </body>
     </html>
-
