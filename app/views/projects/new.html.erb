@@ -481,7 +481,7 @@
                   <span class="glyphicon glyphicon-folder-open"></span>
                   <span class="image-preview-input-title">選擇檔案</span>
                   <!-- <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/>  --><!-- rename it -->
-                   <%= f.file_field :file %>
+                  <%= f.file_field :file %>
                 </div>
               </span>
             </div><!-- /input-group image-preview [TO HERE]--> 
@@ -533,11 +533,11 @@
             <div style="margin-top:5px;">
               <select name="project[satisfication]">
                 <option value="0">任何分數</option>
-                <option value="1">60</option>
-                <option value="2">70</option>
-                <option value="3">80</option>
-                <option value="4">90</option>
-                <option value="5">100以上</option>
+                <option value="1">1.0分</option>
+                <option value="2">2.0分</option>
+                <option value="3">3.0分</option>
+                <option value="4">4.0分</option>
+                <option value="5">5.0分</option>
               </select>
             </div>
           </div>
@@ -553,11 +553,12 @@
             <div style="margin-top:5px;">
               <select name="project[worked_hours]">
                 <option value="0">任何時數</option>
-                <option value="1">1小時</option>
-                <option value="2">5小時</option>
-                <option value="3">10小時</option>
-                <option value="4">20小時</option>
-                <option value="5">30小時以上</option>
+                <option value="1">20小時</option>
+                <option value="2">40小時</option>
+                <option value="3">70小時</option>
+                <option value="4">100小時</option>
+                <option value="5">500小時</option>
+                <option value="5">1500小時以上</option>
               </select>
             </div>
           </div>
@@ -1065,37 +1066,97 @@ src="/masterpage/footer.txt"></script>
             <script type="text/javascript" src="/js/expanding_list.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>--> 
             <script>
-              jQuery(document).ready(function() {    
-               Web.init();
+            jQuery(document).ready(function() {    
+             Web.init();
                //Index.init();
              });
             </script> 
             <script type="text/javascript" src="/js/bootstrap-tabcollapse-yellow.js"></script> 
             <script type="text/javascript">
-              $('#myTab').tabCollapse();
-              $('#testTabs').tabCollapse();
-              $('#testTabs01').tabCollapse();
+            $('#myTab').tabCollapse();
+            $('#testTabs').tabCollapse();
+            $('#testTabs01').tabCollapse();
             </script> 
 
             <script type="text/javascript">
-              $(document).ready(function() {
-                $("input[name$='feetype']").click(function() {
-                  var test = $(this).val();
+            $(document).ready(function() {
+              $("input[name$='feetype']").click(function() {
+                var test = $(this).val();
 
-                  $("div.desc").hide();
-                  $("#feetype" + test).show();
-                });
+                $("div.desc").hide();
+                $("#feetype" + test).show();
               });
+            });
             </script>
             <script type="text/javascript">
-              $(function(){
-                $('#datetimepicker1').datetimepicker({
-                  pickTime: false,
-                  icons: {
-                    date: "fa fa-calendar",
-                  }
-                });
+            $(function(){
+              $('#datetimepicker1').datetimepicker({
+                pickTime: false,
+                icons: {
+                  date: "fa fa-calendar",
+                }
               });
+            });
+            </script>
+            <script type="text/javascript">
+            jQuery(document).ready(function() {
+              Web.init();
+
+              $("#slider").rangeSlider();
+              $("#slider").rangeSlider("bounds", 5, 500);
+              $("#slider").rangeSlider("values", <%= @pay_min == 0? 10:@pay_min %>, <%= @pay_max == 0 ? 100:@pay_max %>);
+
+              $('#search-btn').click(function(){
+                $('#search-form').submit();
+              });
+
+              $("#slider").bind("valuesChanged", function(e, data){
+                $('#pay_min_hidden').val(Math.round(data.values.min));
+                $('#pay_max_hidden').val(Math.round(data.values.max));
+              });
+
+              $('select[name="main"]').change(function(){
+                $('select[name="sub"] :nth-child(0)').attr('selected', true);
+                $('#search-form').submit();
+              });
+
+              $('select[name="sub"]').change(function(){
+                $('#search-form').submit();
+              });
+            });
+
+            var add_to_favorite = function(ele_id, id) {
+              var request_obj = { user_id: id };
+              $.ajax({
+                url: "/users/add_to_favorite",
+                type: "post",
+                dataType: "json",
+                data: JSON.stringify(request_obj),
+                contentType: 'application/json',
+                success: function(data) {
+                // console.log(data);
+                $("#"+ele_id).next().show()
+                $("#"+ele_id).hide()
+              }
+            });
+            }
+
+            var remove_from_favorite = function(ele_id, id) {
+              var request_obj = { user_id: id };
+              $.ajax({
+                url: "/users/remove_from_favorite",
+                type: "delete",
+                dataType: "json",
+                data: JSON.stringify(request_obj),
+                contentType: 'application/json',
+                success: function(data) {
+                // console.log(data);
+                $("#"+ele_id).prev().show()
+                $("#"+ele_id).hide()
+              }
+            });
+            }
+
             </script>
 
             <!-- END JAVASCRIPTS --> 
