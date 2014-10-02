@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
     @sub_skill_id = params[:sub].nil? ? -1 : params[:sub].to_i
     @project = Project.new
   end
-  
+
   def create
     # return render json: params
     params[:project][:file] = open( params[:project][:file].tempfile ).read
