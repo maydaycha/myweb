@@ -115,29 +115,29 @@
                 
                 <div class="row text-center">
                   <div class="col-sm-4">
-                    <img class="img-circle" src="../../img/category-icon/category-icon-09.png" alt="Generic placeholder image" style="width: 50%; height: auto;">
+                    <img class="img-circle pullUp" src="../../img/category-icon/category-icon-09.png" alt="Generic placeholder image" style="width: 65%; height: auto;">
                     <h4 class="Cdarkteal">編寫軟體</h4>
                   </div>
                   <div class="col-sm-4">
-                    <img class="img-circle" src="../../img/category-icon/category-icon-07.png" alt="Generic placeholder image" style="width: 50%; height: auto;">
+                    <img class="img-circle pullUp" src="../../img/category-icon/category-icon-07.png" alt="Generic placeholder image" style="width: 65%; height: auto;">
                     <h4 class="Cdarkteal">內容創作</h4>
                   </div>
                   <div class="col-sm-4">
-                    <img class="img-circle" src="../../img/category-icon/category-icon-10.png" alt="Generic placeholder image" style="width: 50%; height: auto;">
+                    <img class="img-circle pullUp" src="../../img/category-icon/category-icon-10.png" alt="Generic placeholder image" style="width: 65%; height: auto;">
                     <h4 class="Cdarkteal">翻譯<br>內容在地化</h4>
                   </div>
                 </div>
                 <div class="row text-center top30">
                   <div class="col-sm-4">
-                    <img class="img-circle" src="../../img/category-icon/category-icon-11.png" alt="Generic placeholder image" style="width: 50%; height: auto;">
+                    <img class="img-circle pullUp" src="../../img/category-icon/category-icon-11.png" alt="Generic placeholder image" style="width: 65%; height: auto;">
                     <h4 class="Cdarkteal">資料探勘</h4>
                   </div>
                   <div class="col-sm-4">
-                    <img class="img-circle" src="../../img/category-icon/category-icon-12.png" alt="Generic placeholder image" style="width: 50%; height: auto;">
+                    <img class="img-circle pullUp" src="../../img/category-icon/category-icon-12.png" alt="Generic placeholder image" style="width: 65%; height: auto;">
                     <h4 class="Cdarkteal">社群媒體優化</h4>
                   </div>
                   <div class="col-sm-4">
-                    <img class="img-circle" src="../../img/category-icon/category-icon-08.png" alt="Generic placeholder image" style="width: 50%; height: auto;">
+                    <img class="img-circle pullUp" src="../../img/category-icon/category-icon-08.png" alt="Generic placeholder image" style="width: 65%; height: auto;">
                     <h4 class="Cdarkteal">顧客服務</h4>
                   </div>
                 </div>
@@ -220,24 +220,24 @@
                    <!-- Three columns of text below the carousel -->
                    <div class="row text-center top50">
                     <div  class="col-lg-6">
-                      <img id="icon01" class="img-circle" src="../../img/category-icon/team-01.jpg" style="width: 180px; height: 180px;" alt="img">
+                      <img id="icon01" src="../../img/category-icon/icon1-01.png" style="width: 250px; height: 250px;" alt="img">
                       <h3 class="fw8 Cnavy">自由調整案件規模</h3>
                       <h4>讓您事半功倍</h4>
                     </div><!-- /.col-lg-3 -->
                     <div class="col-lg-6">
-                      <img class="img-circle" src="../../img/category-icon/team-02.jpg" alt="img" style="width: 180px; height: 180px;">
+                      <img id="icon02" src="../../img/category-icon/icon1-02.png" alt="img" style="width: 250px; height: 250px;">
                       <h3 class="fw8 Cnavy">人才無國界</h3><h4>更多元的專業人才都在TeleWork</h4>
                     </div><!-- /.col-lg-3 -->
                   </div>
 
                   <div class="row text-center top30">
                     <div class="col-lg-6">
-                      <img class="img-circle" src="../../img/category-icon/team-03.jpg" alt="Generic placeholder image" style="width: 180px; height: 180px;">
+                      <img id="icon03" src="../../img/category-icon/icon1-03.png" alt="Generic placeholder image" style="width: 250px; height: 250px;">
                       <h3 class="fw8 Cnavy">一覽無遺的管理狀態</h3>
                       <h4>輕鬆掌握人才動向</h4>
                     </div><!-- /.col-lg-3 -->
                     <div class="col-lg-6">
-                      <img class="img-circle" src="../../img/category-icon/team-04.jpg" alt="Generic placeholder image" style="width: 180px; height: 180px;">
+                      <img id="icon04" src="../../img/category-icon/icon1-04.png" alt="Generic placeholder image" style="width: 250px; height: 250px;">
                       <h3 class="fw8 Cnavy">最多符合您預算的專業人才</h3>
                       <h4>無須為了預算煩惱</h4>
                     </div><!-- /.col-lg-3 -->
@@ -321,6 +321,42 @@
             <script>
               $(window).scroll(function() {
                 $('#icon01').each(function(){
+                  var imagePos = $(this).offset().top;
+
+                  var topOfWindow = $(window).scrollTop();
+                  if (imagePos < topOfWindow+700) {
+                    $(this).addClass("fadeIn");
+                  }
+                });
+              });
+            </script>
+             <script>
+              $(window).scroll(function() {
+                $('#icon02').each(function(){
+                  var imagePos = $(this).offset().top;
+
+                  var topOfWindow = $(window).scrollTop();
+                  if (imagePos < topOfWindow+700) {
+                    $(this).addClass("fadeIn");
+                  }
+                });
+              });
+            </script>
+             <script>
+              $(window).scroll(function() {
+                $('#icon03').each(function(){
+                  var imagePos = $(this).offset().top;
+
+                  var topOfWindow = $(window).scrollTop();
+                  if (imagePos < topOfWindow+700) {
+                    $(this).addClass("fadeIn");
+                  }
+                });
+              });
+            </script>
+             <script>
+              $(window).scroll(function() {
+                $('#icon04').each(function(){
                   var imagePos = $(this).offset().top;
 
                   var topOfWindow = $(window).scrollTop();
