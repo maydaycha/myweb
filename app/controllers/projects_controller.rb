@@ -44,9 +44,9 @@ class ProjectsController < ApplicationController
 
   def create
     # return render json: params
+    @main_skill_id = params[:main].nil? ? -1 : params[:main].to_i
+    @sub_skill_id = params[:sub].nil? ? -1 : params[:sub].to_i
     params[:project][:file] = open( params[:project][:file].tempfile ).read
-    params[:project][:main_skill] = params[:mainClass]
-    params[:project][:sub_skill] = params[:subClass]
     @project = Project.new(params.permit![:project])
     respond_to do |format|
       if @project.save

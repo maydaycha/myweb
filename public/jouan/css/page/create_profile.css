@@ -1,83 +1,56 @@
-/* line 1, ../../scss/page/create_profile.scss */
 .avatar {
   max-width: 150px;
-  padding: 7px 0;
-}
+  padding: 7px 0; }
 
-/* line 6, ../../scss/page/create_profile.scss */
 .btns {
   clear: both;
-  padding: 0px 25px 20px 25px;
-}
-/* line 9, ../../scss/page/create_profile.scss */
-.btns .right {
-  float: right;
-}
-/* line 12, ../../scss/page/create_profile.scss */
-.btns .left {
-  float: left;
-}
+  padding: 0px 25px 20px 25px; }
+  .btns .right {
+    float: right; }
+  .btns .left {
+    float: left; }
 
-/* line 16, ../../scss/page/create_profile.scss */
 .tab-content {
   width: 100%;
   max-width: 950px;
-  margin: auto;
-}
+  margin: auto; }
 
-/* line 21, ../../scss/page/create_profile.scss */
 .tab-content .tab-pane {
-  padding: 10px;
-}
+  padding: 10px; }
 
-/* line 24, ../../scss/page/create_profile.scss */
 .alert {
-  margin: 10px;
-}
+  margin: 10px; }
 
 /***
 Form wizard
 ***/
-/* line 37, ../../scss/page/create_profile.scss */
 .form-wizard .progress {
-  margin-bottom: 10px;
-}
+  margin-bottom: 10px; }
 
-/* line 41, ../../scss/page/create_profile.scss */
 .form-wizard .steps {
   padding: 10px 0;
-  margin-bottom: 15px;
-}
+  margin-bottom: 15px; }
 
-/* line 46, ../../scss/page/create_profile.scss */
 .form-wizard .steps {
   background-color: white;
   background-image: none;
   filter: none;
   border: 0px;
-  box-shadow: none;
-}
+  box-shadow: none; }
 
-/* line 54, ../../scss/page/create_profile.scss */
 .form-wizard .steps li a {
   background-color: white;
   background-image: none;
   filter: none;
   border: 0px;
-  box-shadow: none;
-}
+  box-shadow: none; }
 
-/* line 62, ../../scss/page/create_profile.scss */
 .form-wizard .steps li a:hover {
-  background: none;
-}
+  background: none; }
 
-/* line 66, ../../scss/page/create_profile.scss */
 .form-wizard .step:hover {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
-/* line 70, ../../scss/page/create_profile.scss */
 .form-wizard .step .number {
   background-color: #eee;
   display: inline-block;
@@ -90,67 +63,44 @@ Form wizard
   width: 45px;
   -webkit-border-radius: 50% !important;
   -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
-}
+  border-radius: 50% !important; }
 
-/* line 85, ../../scss/page/create_profile.scss */
 .form-wizard .step .desc {
   display: inline-block;
   font-size: 16px;
-  font-weight: 300;
-}
+  font-weight: 300; }
 
-/* line 91, ../../scss/page/create_profile.scss */
 .form-wizard .active .step .number {
   background-color: #35aa47;
-  color: #fff;
-}
+  color: #fff; }
 
-/* line 96, ../../scss/page/create_profile.scss */
 .form-wizard .active .step .desc {
   color: #333;
-  font-weight: 400;
-}
+  font-weight: 400; }
 
-/* line 101, ../../scss/page/create_profile.scss */
 .form-wizard .step i {
-  display: none;
-}
+  display: none; }
 
-/* line 105, ../../scss/page/create_profile.scss */
 .form-wizard .done .step .number {
   background-color: #f2ae43;
-  color: #fff;
-}
+  color: #fff; }
 
-/* line 110, ../../scss/page/create_profile.scss */
 .form-wizard .done .step .desc {
-  font-weight: 400;
-}
+  font-weight: 400; }
 
-/* line 114, ../../scss/page/create_profile.scss */
 .form-wizard .done .step i {
   font-size: 12px;
   font-weight: normal;
   color: #999;
-  display: inline-block;
-}
+  display: inline-block; }
 
 @media (min-width: 768px) and (max-width: 1280px) {
-  /* line 123, ../../scss/page/create_profile.scss */
   .form-wizard .step .desc {
     margin-top: 10px;
-    display: block;
-  }
+    display: block; }
 
-  /* line 127, ../../scss/page/create_profile.scss */
   .form-wizard .step .number {
-    margin-right: 0;
-  }
-}
+    margin-right: 0; } }
 @media (max-width: 768px) {
-  /* line 133, ../../scss/page/create_profile.scss */
   .form-wizard .steps > li > a {
-    text-align: left;
-  }
-}
+    text-align: left; } }

@@ -415,6 +415,9 @@ body:after {
 .Cblack {
   color: #111111; }
 
+.Cdarkgray {
+  color: #6b6b6b; }
+
 /*message style*/
 .message-item {
   margin-bottom: 25px;
