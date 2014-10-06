@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
     @sub_skill_id = params[:sub].nil? ? -1 : params[:sub].to_i
     @project = Project.new
   end
-  
+
   def create
     # return render json: params).read
     @project = Project.new(params.permit![:project])

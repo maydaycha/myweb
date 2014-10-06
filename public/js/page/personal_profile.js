@@ -181,6 +181,7 @@ var PersonalProfile = function(){
 	}
 
 	var initSkillTags = function(){
+        console.log("123"+$('#skill-tags'));
 		$('#skill-tags').tagsInput({
 			width: 'auto',
 			defaultText: $('#skill-tags').attr('defaultText'),
@@ -623,25 +624,25 @@ var initAddWorks = function() {
 }
 
 
-return {
-	init:function(){
-		initEditSaveBtnTip();
-		initSkillTags();
-		initSubClassSelect2();
-		initExperienceTable();
-		initAddExperience();
-		initEditExperience();
-		initEducationTable();
-		initAddEducation();
-		initEditEducation();
-		initCertificateTable();
-		initAddCertificate();
-		initEditCertificate()
-		initWorksTable();
-		initAddWorks();
-		formValidation();
-	}
-}
+    return {
+    	init:function() {
+    		initEditSaveBtnTip();
+    		initSkillTags();
+    		initSubClassSelect2();
+    		initExperienceTable();
+    		initAddExperience();
+    		initEditExperience();
+    		initEducationTable();
+    		initAddEducation();
+    		initEditEducation();
+    		initCertificateTable();
+    		initAddCertificate();
+    		initEditCertificate()
+    		initWorksTable();
+    		initAddWorks();
+    		formValidation();
+    	}
+    }
 }();
 
 
