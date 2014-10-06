@@ -610,6 +610,7 @@
                         </div>
 
                         <div class="portlet-body">
+                            <form action="#" id="contact-form1" class="form-horizontal" role="form">
                                 <span id="category-list">
                                     <% @skill_category_first = false %>
                                     <% @skill_main_categoies.each do |s| %>
@@ -667,6 +668,7 @@
                                         <button onclick="update_category()" class="btn btn-default tool-save edit prevent" data-portlet="#profile-portlet2"><%= I18n.t("basic.button.collapse")%></button>
                                     </div>
                                 </div>
+                            </form>
                         </div>
                     </div>
                     <div class="portlet box light-grey show-view" id="profile-portlet3">
