@@ -31,6 +31,7 @@
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <link rel="stylesheet" type="text/css" href="/css/expanding_list.css">
         <link rel="stylesheet" type="text/css" href="/css/alert.css">
+        <link rel="stylesheet" type="text/css" href="/css/page/project_new.css">
         <link rel="stylesheet" type="text/css" href="/css/loginmain.css">
         <link rel="stylesheet" type="text/css" href="/css/pstyle.css">
         <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
@@ -297,24 +298,11 @@
                   <strong>案件技能</strong>
                 </div>
                 <div class="col-md-9">
-                  <div class="form-group lable-group">
+                  <!-- <div class="form-group lable-group"> -->
                     <!-- <input name="skill" type="text" class="form-control" required> -->
-                    <%= f.text_field :require_skills, :required => true, :class => "form-control" %>
-                    <label for="name">請輸入案件需求技能</label>
-                  </div>
-                </div>
-                <div class="portlet-body">
-                  <p class="form-control-static view" id="skill"><%= current_user.user_skills.map{|e| e.name}.join(", ") %></p>
-                  <form action="javascript: return false;" id="contact-form1" class="form-horizontal edit" role="form">
-                    <input id="skill-tags" type="text" name="skill" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>" defaultText="<%= I18n.t("page.profile_show.tabA_segment3_defaulttext")%>" alert-limit="<%= I18n.t("page.profile_show.tabA_segment3_alert_limit")%>" />
-                    <div class="pull-right" style="margin:8px 0px 0 0;">
-                      <button class="btn btn-default tool-save edit" data-original-title="<%= I18n.t("basic.button.collapse") %>" data-portlet="#profile-portlet3" onclick="update_skill()"><%= I18n.t("basic.button.collapse") %></button>
-                    </div>
-                    <p class="help-block">
-                      <%= I18n.t("page.profile_show.tabA_segment3_description")%><br>
-                      <%= I18n.t("page.profile_show.tabA_segment3_description_details")%>
-                    </p>
-                  </form>
+                    <!-- <%= f.text_field :require_skills, :required => true, :class => "form-control" %>-->
+                    <input id="skill-tags" type="text" name="project[require_skills]" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>" defaultText="請輸入案件需求技能" alert-limit="<%= I18n.t("page.profile_show.tabA_segment3_alert_limit")%>" />
+                  <!-- </div> -->
                 </div>
               </div>
               <div class="row">
@@ -1111,7 +1099,10 @@ src="/masterpage/footer.txt"></script>
             <script src="/plugins/select2/select2.min.js"></script>
             <script src="/plugins/bootstrap-datetimepicker-master/build/js/moment.js"></script>
             <script src="/plugins/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.js"></script>
-<script src="/plugins/dropzone/dropzone.js"></script>
+            <script src="/plugins/dropzone/dropzone.js"></script>
+            <!-- END 頁面插件 --> 
+            <script type="text/javascript" src="/js/script.js"></script> 
+            <script src="/plugins/dropzone/dropzone.js"></script>
 
             <!-- END 頁面插件 -->
             <script type="text/javascript" src="/js/script.js"></script>
@@ -1123,9 +1114,9 @@ src="/masterpage/footer.txt"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
             jQuery(document).ready(function() {
-               Web.init();
-               PersonalProfile.init();
-             });
+             Web.init();
+             PersonalProfile.init();
+           });
             </script>
             <script type="text/javascript" src="/js/bootstrap-tabcollapse-yellow.js"></script>
             <script type="text/javascript">
@@ -1194,41 +1185,6 @@ src="/masterpage/footer.txt"></script>
             }
           })
         }
-
-        var update_skill = function() {
-          var obj = {
-            request: "update_skill",
-            skill: $("#contact-form1 input[name='skill']").val(),
-          }
-          $("#loader").show()
-          $.ajax({
-            url: "/users/profiles/ajax_updae",
-            type: "post",
-            dataType: "json",
-            data: obj,
-            success: function(data) {
-              $("#skill").html( obj.skill.replace(/,/g, ", ") )
-              $("#loader").hide()
-              expand_count--
-            }
-          })
-        }
-
-        $(function(){
-          $(".prevent").click(function(event){
-            event.preventDefault()
-          })
-
-          $("#search_skill tr").hover( function() {
-            $(this).css('color','#ffffff')
-          }, function() {
-            $(this).css('color','#000000')
-          })
-
-          $("#search_skill tr").click( function() {
-            $("#search").val($(this).children("td").text())
-          })
-        })
         </script>
 
 
