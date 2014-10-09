@@ -629,14 +629,16 @@
             <hr>
 
             <div class="form-style ">
+              <%= form_for @project_question, url: projects_questions_path(@project), method: :post, html: {class: "form-horizontal go-bottom"} do |g| %>
               <form action="#" class=" form-horizontal go-bottom" role="form">
 
                 <div class="row">
 
                   <div class="col-md-12 marpad" style="padding:5px 8px;">
                     <div class="form-group lable-group">
-                      <input name="question1" type="text" class="form-control" required>
-                      <label for="question">輸入您對於申請者的其他提問。例如：您認為這個案件的最大挑戰是什麼?</label>
+                      <%= g.text_field :description, :class => "form-control", :name => "question1" %>
+                      <!-- <input name="question1" type="text" class="form-control" required> -->
+                      <label for="question1">輸入您對於申請者的其他提問。例如：您認為這個案件的最大挑戰是什麼?</label>
                     </div>
                   </div>
 
@@ -652,9 +654,9 @@
                      <button class="btn btn-link"><i class="fa fa-plus"></i> 新增其他問題</button>
                    </div>
                  </div>
-
                </div>
              </form>
+             <% end %>
            </div>
 
          </div>
