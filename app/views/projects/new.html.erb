@@ -329,12 +329,14 @@
                        <div class="row">
                         <div class="radio-toolbar form-group">
                          <div class="col-sm-3">
-                           <input id="radio1" type="radio" name="feetype" value="2"  checked/>
+                           <%= f.radio_button :payment_type, 1, :id => "radio1", :name => "feetype", checked: true %>
+                           <!-- <input id="radio1" type="radio" name="feetype" value="2"  checked/> -->
                            <label for="radio1" class="btn btn-default">時薪制</label>
                          </div>
 
                          <div class="col-sm-3">
-                           <input type="radio" id="radio2" name="feetype" value="3"/>
+                           <%= f.radio_button :payment_type, 2, :id => "radio2", :name => "feetype" %>
+                           <!-- <input type="radio" id="radio2" name="feetype" value="3"/> -->
                            <label class="btn btn-default" for="radio2">固定薪資</label>
                          </div>
                        </div>
@@ -344,7 +346,7 @@
                </div>
              </div>
 
-             <div id="feetype2" class="desc"><!--BEGIN 時薪制-->
+             <div id="feetype1" class="desc"><!--BEGIN 時薪制-->
               <%= f.hidden_field :payment_type, checked: true %>
               <div class="row">
                 <div class="col-md-3 text-right-md text-left-sm visible-xs visible-sm"><strong>遠距工作者的經驗程度:</strong></div>
@@ -360,7 +362,7 @@
                             <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
                               <span class="description">具備入門等級的相關經歷，此類案件通常不會執行太過困難的任務。</span>
                               <!-- <input type="radio" name="product" value="mobile_desktop" checked="checked"> -->
-                              <%= f.radio_button :required_user_level, 1, checked: true %>入門
+                              <%= f.radio_button :required_user_level, 1, checked: true %>
                             </div>
                             <div class="clear"></div>
                           </div>
@@ -372,7 +374,7 @@
                             <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
                               <span class="description">處理過類似案件，具備經驗能處理較為進階的任務。</span>
                               <!-- <input type="radio" name="product" value="desktop"> -->
-                              <%= f.radio_button :required_user_level, 2 %>中階
+                              <%= f.radio_button :required_user_level, 2 %>
                             </div>
                             <div class="clear"></div>
                           </div>
@@ -384,7 +386,7 @@
                            <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
                             <span class="description">專家等級，能處理進階任務，替雇主創造價值。</span>
                             <!-- <input type="radio" name="product" value="mobile"> -->
-                            <%= f.radio_button :required_user_level, 3 %>專家
+                            <%= f.radio_button :required_user_level, 3 %>
                           </div>
                           <div class="clear"></div>
                         </div>
@@ -423,7 +425,7 @@
             </div>
           </div><!--END 時薪制-->
         </div><!-- END CASE TYPE -->
-        <div id="feetype3" class="desc" style="display: none;"><!-- BEGIN CASE TYPE 固定薪資 -->
+        <div id="feetype2" class="desc" style="display: none;"><!-- BEGIN CASE TYPE 固定薪資 -->
           <div class="row">
             <div class="col-md-3 text-right-md text-left-sm">
               <strong>案件預算</strong>
