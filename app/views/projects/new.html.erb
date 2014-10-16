@@ -299,9 +299,9 @@
                 </div>
                 <div class="col-md-9">
                   <!-- <div class="form-group lable-group"> -->
-                    <!-- <input name="skill" type="text" class="form-control" required> -->
-                    <!-- <%= f.text_field :require_skills, :required => true, :class => "form-control" %>-->
-                    <input id="skill-tags" type="text" name="project[require_skills]" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>" defaultText="請輸入案件需求技能" alert-limit="<%= I18n.t("page.profile_show.tabA_segment3_alert_limit")%>" />
+                  <!-- <input name="skill" type="text" class="form-control" required> -->
+                  <!-- <%= f.text_field :require_skills, :required => true, :class => "form-control" %>-->
+                  <input id="skill-tags" type="text" name="project[require_skills]" class="form-control tags" value="<%= current_user.user_skills.map{|e| e.name }.join(", ") %>" defaultText="請輸入案件需求技能" alert-limit="<%= I18n.t("page.profile_show.tabA_segment3_alert_limit")%>" />
                   <!-- </div> -->
                 </div>
               </div>
@@ -629,42 +629,55 @@
             <hr>
 
             <div class="form-style ">
-              <%= form_for @project_question, url: projects_questions_path(@project), method: :post, html: {class: "form-horizontal go-bottom"} do |g| %>
+
               <form action="#" class=" form-horizontal go-bottom" role="form">
 
                 <div class="row">
-
                   <div class="col-md-12 marpad" style="padding:5px 8px;">
-                    <div class="form-group lable-group">
-                      <%= g.text_field :description, :class => "form-control", :name => "question1" %>
-                      <!-- <input name="question1" type="text" class="form-control" required> -->
-                      <label for="question1">輸入您對於申請者的其他提問。例如：您認為這個案件的最大挑戰是什麼?</label>
+                      <div class="form-group lable-group">
+                  <div id='TextBoxesGroup'>
+
+                    <div id="TextBoxDiv1">
+                      <%= f.fields_for :project_questions do |g| %>
+                      <!--  -->
+                        <%= g.text_field :description, :class => "form-control", :name => "question[1]" %>
+                        <!-- <input name="question1" type="text" class="form-control" required> -->
+                        <label for="question[1]">輸入您對於申請者的其他提問。例如：您認為這個案件的最大挑戰是什麼?</label>
+                        <!--  -->
+                      <% end %>
                     </div>
+</div>
+                      </div>
                   </div>
 
-                  <div class="col-md-12 marpad" style="padding:5px 8px;">
-                    <div class="form-group lable-group">
-                      <input name="question2" type="text" class="form-control" required>
-                      <label for="question2">輸入您對於申請者的其他提問。例如：您是否通過除了本網站提供之外的認證測驗?</label>
-                    </div>
-                  </div>
 
-                  <div class="col-md-12 marpad">
-                    <div class="form-group">
-                     <button class="btn btn-link"><i class="fa fa-plus"></i> 新增其他問題</button>
-                   </div>
-                 </div>
-               </div>
-             </form>
-             <% end %>
-           </div>
+                  <!-- <div id='TextBoxesGroup'>
+  <div id="TextBoxDiv1">
+    <label>Textbox #1 : </label><input type='textbox' id='textbox1' >
+  </div>
+</div> -->
+<!-- <input type='button' value='Add Button'>
+<input type='button' value='Remove Button' id='removeButton'>
+<input type='button' value='Get TextBox Value' id='getButtonValue'> -->
 
-         </div>
-       </div>
-     </div>
-   </div><!--END PORTLET YELLOW 05-->
+<div class="col-md-12 marpad">
+  <div class="form-group">
+<i class="fa fa-plus"></i><input type='button' class="btn btn-link" value='Add Button' id='addButton'>
+<i class="fa fa-plus"></i><input type='button' class="btn btn-link" value='Remove Button' id='removeButton'>
+   <!-- <button class="btn btn-link" value='addButton'><i class="fa fa-plus"></i> 新增其他問題</button> -->
  </div>
- <div class="text-right">
+</div>
+
+</div>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+</div><!--END PORTLET YELLOW 05-->
+</div>
+<div class="text-right">
   <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg">預覽案件</button>
   <!--<%= f.submit "預覽案件", :class => "btn btn-success btn-lg" %>-->
   <!--<%= f.submit "送出案件", :class => "btn btn-success btn-lg" %>-->
@@ -1191,9 +1204,60 @@ src="/masterpage/footer.txt"></script>
         }
         </script>
 
+        <script type="text/javascript">
 
-        <!-- END JAVASCRIPTS -->
-        <!-- BEGIN PIE -->
+        $(document).ready(function(){
+
+          var counter = 2;
+
+          $("#addButton").click(function () {
+
+            if(counter>10){
+              alert("Only 10 textboxes allow");
+              return false;
+            }   
+
+            var newTextBoxDiv = $(document.createElement('div'))
+            .attr("id", 'TextBoxDiv' + counter);
+
+            newTextBoxDiv.after().html('' +
+              '<input class="form-control" type="text" name="question[' + counter + 
+              ']" id="project_project_questions_description" value="" ><label for="question[' + counter + 
+              ']">輸入您對於申請者的其他提問。</label>');
+
+            newTextBoxDiv.appendTo("#TextBoxesGroup");
+
+
+            counter++;
+          });
+
+          $("#removeButton").click(function () {
+            if(counter==2){
+              alert("您至少需輸入一個問題！");
+              return false;
+            }   
+
+            counter--;
+
+            $("#TextBoxDiv" + counter).remove();
+
+          });
+
+          $("#getButtonValue").click(function () {
+
+            var msg = '';
+            for(i=1; i<counter; i++){
+              msg += "\n Textbox #" + i + " : " + $('#textbox' + i).val();
+            }
+            alert(msg);
+          });
+        });
+</script>
+
+
+
+<!-- END JAVASCRIPTS -->
+<!-- BEGIN PIE -->
 <!--[if lte IE 9]>
         <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
         <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>

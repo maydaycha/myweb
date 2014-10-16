@@ -104,6 +104,8 @@ Sun::Application.routes.draw do
     get 'update_via_project'
   end
 
+  resources :project_questions
+
   get '/message/set_word_count' => 'project_public_messages#set_word_count'
 
   # test maydaycha
