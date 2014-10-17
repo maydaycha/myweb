@@ -276,7 +276,7 @@
                 <div class="col-md-9">
                   <div class="form-group lable-group">
                     <!-- <input name="name" type="text" class="form-control" required> -->
-                    <%= f.text_field :name, :required => true, :class => "form-control" %>
+                    <%= f.text_field :name, :required => true, :class => "form-control", :id => "project_name" %>
                     <label for="name">為您的案件命名</label>
                   </div>
                 </div>
@@ -288,7 +288,7 @@
                 <div class="col-md-9">
                   <div class="form-group lable-group">
                     <!-- <textarea  name="detail" class="form-control" rows="5" required></textarea> -->
-                    <%= f.text_area :description, :required => true, :class => "form-control" %>
+                    <%= f.text_area :description, :required => true, :class => "form-control", :id => "project_description" %>
                     <label for="detail">描述您的案件工作內容</label>
                   </div>
                 </div>
@@ -327,7 +327,7 @@
                       </div>
                       <div class="col-md-9">
                        <div class="row">
-                        <div class="radio-toolbar form-group">
+                        <div class="radio-toolbar form-group" id="payment_type">
                          <div class="col-sm-3">
                            <%= f.radio_button :payment_type, 1, :id => "radio1", :name => "feetype", checked: true %>
                            <!-- <input id="radio1" type="radio" name="feetype" value="2"  checked/> -->
@@ -347,7 +347,6 @@
              </div>
 
              <div id="feetype1" class="desc"><!--BEGIN 時薪制-->
-              <%= f.hidden_field :payment_type, checked: true %>
               <div class="row">
                 <div class="col-md-3 text-right-md text-left-sm visible-xs visible-sm"><strong>遠距工作者的經驗程度:</strong></div>
                 <div class="col-md-3 text-right-md text-left-sm hidden-xs hidden-sm"><strong>遠距工作者的</strong><p><strong>經驗程度:</strong></p></div>
@@ -362,7 +361,7 @@
                             <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
                               <span class="description">具備入門等級的相關經歷，此類案件通常不會執行太過困難的任務。</span>
                               <!-- <input type="radio" name="product" value="mobile_desktop" checked="checked"> -->
-                              <%= f.radio_button :required_user_level, 1, checked: true %>
+                              <%= f.radio_button :required_user_level, 1, :id => "required_user_level_1", checked: true %>
                             </div>
                             <div class="clear"></div>
                           </div>
@@ -374,7 +373,7 @@
                             <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
                               <span class="description">處理過類似案件，具備經驗能處理較為進階的任務。</span>
                               <!-- <input type="radio" name="product" value="desktop"> -->
-                              <%= f.radio_button :required_user_level, 2 %>
+                              <%= f.radio_button :required_user_level, 2, :id => "required_user_level_2" %>
                             </div>
                             <div class="clear"></div>
                           </div>
@@ -386,7 +385,7 @@
                            <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
                             <span class="description">專家等級，能處理進階任務，替雇主創造價值。</span>
                             <!-- <input type="radio" name="product" value="mobile"> -->
-                            <%= f.radio_button :required_user_level, 3 %>
+                            <%= f.radio_button :required_user_level, 3, :id => "required_user_level_3" %>
                           </div>
                           <div class="clear"></div>
                         </div>
@@ -405,11 +404,11 @@
               <div class="col-md-3 text-right-md text-left-sm"><strong>案件預計工期</strong></div>
               <div class="col-md-9">
                 <div class="form-group">
-                  <%= f.radio_button :end_date, 1, checked: true %>3日
-                  <%= f.radio_button :end_date, 2 %>7日
-                  <%= f.radio_button :end_date, 3 %>14日
-                  <%= f.radio_button :end_date, 4 %>1個月
-                  <%= f.radio_button :end_date, 5 %>3個月
+                  <%= f.radio_button :during_time, 1, :id => "during_time_1", checked: true %>3日
+                  <%= f.radio_button :during_time, 2, :id => "during_time_2" %>7日
+                  <%= f.radio_button :during_time, 3, :id => "during_time_3" %>14日
+                  <%= f.radio_button :during_time, 4, :id => "during_time_4" %>1個月
+                  <%= f.radio_button :during_time, 5, :id => "during_time_5" %>3個月
                 </div>
               </div>
             </div>
@@ -418,8 +417,8 @@
               <div class="col-md-3 text-right-md text-left-xs"><strong>全職/兼職</strong></div>
               <div class="col-md-9">
                 <div class="form-group">
-                  <%= f.radio_button :work_type, 1, checked: true %>全職
-                  <%= f.radio_button :work_type, 2 %>兼職
+                  <%= f.radio_button :work_type, 1, :id => "work_type_1", checked: true %>全職
+                  <%= f.radio_button :work_type, 2, :id => "work_type_2" %>兼職
                 </div>
               </div>
             </div>
@@ -433,7 +432,8 @@
             <div class="col-md-9">
               <div class="form-group lable-group">
                 <div class="input-group">
-                  <input type="text" name="butget" class="form-control" required>
+                  <%= f.text_field :budget, :class => "form-control", :id => "budget" %>
+                  <!-- <input type="text" name="butget" class="form-control" required> -->
                   <label for="budget">請輸入案件預算</label>
                   <span class="input-group-addon" style="z-index: 10;
                   position: relative;">
@@ -452,7 +452,7 @@
 
             <div class="form-group">
               <div class="input-group date" id="datetimepicker1">
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" name="project[end_date]" />
                 <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
               </div>
             </div>
@@ -465,9 +465,9 @@
         <div class="col-md-3 text-right-md text-left-sm"><strong>能見度設定</strong></div>
         <div class="col-md-9">
           <div class="form-group">
-            <%= f.radio_button :visibility, 1, checked: true %>開放式
-            <%= f.radio_button :visibility, 2 %>僅限Telework會員
-            <%= f.radio_button :visibility, 3 %>隱藏式
+            <%= f.radio_button :visibility, 1, :id => "visibility_1", checked: true %>開放式
+            <%= f.radio_button :visibility, 2, :id => "visibility_2" %>僅限Telework會員
+            <%= f.radio_button :visibility, 3, :id => "visibility_3" %>隱藏式
           </div>
         </div>
       </div>
@@ -488,7 +488,7 @@
                   <span class="glyphicon glyphicon-folder-open"></span>
                   <span class="image-preview-input-title">選擇檔案</span>
                   <!-- <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/>  --><!-- rename it -->
-                  <%= f.file_field :file %>
+                  <%= f.file_field :file, :id => "file" %>
                 </div>
               </span>
             </div><!-- /input-group image-preview [TO HERE]-->
@@ -634,20 +634,20 @@
 
                 <div class="row">
                   <div class="col-md-12 marpad" style="padding:5px 8px;">
-                      <div class="form-group lable-group">
-                  <div id='TextBoxesGroup'>
+                    <div class="form-group lable-group">
+                      <div id='TextBoxesGroup'>
 
-                    <div id="TextBoxDiv1">
-                      <%= f.fields_for :project_questions do |g| %>
-                      <!--  -->
-                        <%= g.text_field :description, :class => "form-control", :name => "question[1]" %>
-                        <!-- <input name="question1" type="text" class="form-control" required> -->
-                        <label for="question[1]">輸入您對於申請者的其他提問。例如：您認為這個案件的最大挑戰是什麼?</label>
-                        <!--  -->
-                      <% end %>
-                    </div>
-</div>
+                        <div id="TextBoxDiv1">
+                          <%= f.fields_for :project_questions do |g| %>
+                          <!--  -->
+                          <%= g.text_field :description, :class => "form-control", :name => "question[1]" %>
+                          <!-- <input name="question1" type="text" class="form-control" required> -->
+                          <label for="question[1]">輸入您對於申請者的其他提問。例如：您認為這個案件的最大挑戰是什麼?</label>
+                          <!--  -->
+                          <% end %>
+                        </div>
                       </div>
+                    </div>
                   </div>
 
 
@@ -662,10 +662,10 @@
 
 <div class="col-md-12 marpad">
   <div class="form-group">
-<i class="fa fa-plus"></i><input type='button' class="btn btn-link" value='Add Button' id='addButton'>
-<i class="fa fa-plus"></i><input type='button' class="btn btn-link" value='Remove Button' id='removeButton'>
-   <!-- <button class="btn btn-link" value='addButton'><i class="fa fa-plus"></i> 新增其他問題</button> -->
- </div>
+    <i class="fa fa-plus"></i><input type='button' class="btn btn-link" value='Add Button' id='addButton'>
+    <i class="fa fa-plus"></i><input type='button' class="btn btn-link" value='Remove Button' id='removeButton'>
+    <!-- <button class="btn btn-link" value='addButton'><i class="fa fa-plus"></i> 新增其他問題</button> -->
+  </div>
 </div>
 
 </div>
@@ -678,7 +678,7 @@
 </div><!--END PORTLET YELLOW 05-->
 </div>
 <div class="text-right">
-  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg">預覽案件</button>
+  <button id="present" type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg">預覽案件</button>
   <!--<%= f.submit "預覽案件", :class => "btn btn-success btn-lg" %>-->
   <!--<%= f.submit "送出案件", :class => "btn btn-success btn-lg" %>-->
   <!--<%= f.submit "重置", :class => "btn btn-danger btn-lg", :type => "reset" %>-->
@@ -694,21 +694,23 @@
       </div>
       <div class="modal-body modal-body-yellow">
         <h3 class="Corange">案件類別</h3>
-        <p><strong>主類別:</strong> <%= @project.main_skill %></p>
-        <p><strong>子類別:</strong> <%= @project.sub_skill %></p>
+        <p id="mainClass_select_pop"></p>
+        <p id="subClass_select2_pop"></p>
         <hr>
         <h3 class="Corange">案件描述</h3>
-        <p><strong>案件名稱:</strong> <%= @project.name %></p>
-        <p><strong>工作內容:</strong> 雜覺的動樂實是議假主果破外……在以生國子整情先數人下就；來物議定年……際以其得月就以最員最要作品是是以教進當起於容北要我值大，飛不員指，識自花展從爭，覺急角求育一如，如投大情名義次點藥員乎素業認形。</p>
-        <p><strong>案件技能:</strong> SEO </p>
+        <p id="project_name_pop"></p>
+        <p id="project_description_pop"></p>
+        <p id="skill-tags_pop"></p>
         <hr>
         <h3 class="Corange">案件類型</h3>
-        <p><strong>類型:</strong>時薪制</p>
-        <p><strong>遠距工作者經驗程度:</strong>入門</p>
-        <p><strong>案件預計工期:</strong> 7日</p>
-        <p><strong>全職/兼職:</strong> 全職</p>
-        <p><strong>案件能見度:</strong> 開放式</p>
-        <p><strong>上傳檔案:</strong> work.jpg</p>
+        <p id="payment_type_pop"></p>
+        <p id="required_user_level_pop"></p>
+        <p id="during_time_pop"></p>
+        <p id="work_type_pop"></p>
+        <p id="budget_pop"></p>
+        <p id="end_date_pop"></p>
+        <p id="visibility_pop"></p>
+        <p id="file_pop"></p>
         <hr>
         <h3 class="Corange">申請者條件</h3>
         <p><strong>獲得的滿意度最低:</strong> 任何分數</p>
@@ -1254,6 +1256,114 @@ src="/masterpage/footer.txt"></script>
         });
 </script>
 
+<script type="text/javascript">
+
+var main_skill = "<%= t(:main_skill_category) %>".replace(/&quot;/g,'\"').replace(/=&gt;/g, ':');
+var sub_skill = "<%= t(:sub_skill_category) %>".replace(/&quot;/g,'\"').replace(/=&gt;/g, ':');
+
+var main_skill_JSON = JSON.parse(main_skill);
+var sub_skill_JSON = JSON.parse(sub_skill);
+
+$('#present').click(function() {
+  $('#mainClass_select_pop').html("<strong>主類別:</strong> " + main_skill_JSON[$('#mainClass_select').val()].name);
+  $('#subClass_select2_pop').html("<strong>子類別:</strong> " + sub_skill_JSON[$('#mainClass_select').val()][$('#subClass_select2').val()].name);
+
+  $('#project_name_pop').html( "<strong>工作內容:</strong> " + $('#project_name').val());
+  $('#project_name_pop').html( "<strong>工作內容:</strong> " + $('#project_name').val());
+  $('#project_description_pop').html( "<strong>工作內容:</strong> " + $('#project_description').val());
+  $('#skill-tags_pop').html($("<strong>案件技能:</strong>" + '#skill-tags').val());
+
+  if ($('#is_emergency').is(":checked")) {
+   $('#is_emergency_pop').html( "<strong>急件:</strong> 是的！我需要急件處理" );
+ }
+ else{
+   $('#is_emergency_pop').html( "<strong>急件:</strong> 不！我不需要急件處理" );
+ }  
+
+ if (document.getElementById('radio1').checked) {
+  $('#payment_type_pop').html( "<strong>類型:</strong> 時薪制" );
+
+  if (document.getElementById('required_user_level_1').checked) {
+    $('#required_user_level_pop').html( "<strong>遠距工作者經驗程度:</strong> 入門，具備入門等級的相關經歷，此類案件通常不會執行太過困難的任務。" );
+  }
+  else if (document.getElementById('required_user_level_2').checked) {
+    $('#required_user_level_pop').html( "<strong>遠距工作者經驗程度:</strong> 中階，處理過類似案件，具備經驗能處理較為進階的任務。" );
+  }
+  else if (document.getElementById('required_user_level_3').checked) {
+    $('#required_user_level_pop').html( "<strong>遠距工作者經驗程度:</strong> 專家，專家等級，能處理進階任務，替雇主創造價值。" );
+  }
+
+  if (document.getElementById('during_time_1').checked) {
+    $('#during_time_pop').html( "<strong>案件預計工期:</strong> 3日" );
+  }
+  else if (document.getElementById('during_time_2').checked) {
+    $('#during_time_pop').html( "<strong>案件預計工期:</strong> 7日" );
+  }
+  else if (document.getElementById('during_time_3').checked) {
+    $('#during_time_pop').html( "<strong>案件預計工期:</strong> 14日" );
+  }
+  else if (document.getElementById('during_time_4').checked) {
+    $('#during_time_pop').html( "<strong>案件預計工期:</strong> 1個月" );
+  }
+  else if (document.getElementById('during_time_5').checked) {
+    $('#during_time_pop').html( "<strong>案件預計工期:</strong> 3個月" );
+  }
+
+  if (document.getElementById('work_type_1').checked) {
+    $('#work_type_pop').html( "<strong>全職/兼職:</strong> 全職" );
+  }
+  else if (document.getElementById('work_type_2').checked) {
+    $('#work_type_pop').html( "<strong>全職/兼職:</strong> 兼職" );
+  }
+
+  $('#budget_pop').hide;
+  $('#end_date_pop').hide;
+
+}
+else if (document.getElementById('radio2').checked) {
+  $('#payment_type_pop').html( "<strong>類型:</strong> 固定薪資" );
+
+  $('#budget_pop').html( "<strong>案件預算:</strong> " + $('#budget').val());
+  $('#end_date_pop').html( "<strong>案件預算:</strong> " + $('#end_date').val());
+
+  $('#required_user_level_pop').hide;
+  $('#during_time_pop').hide;
+  $('#work_type_pop').hide;
+}
+
+if (document.getElementById('visibility_1').checked) {
+  $('#visibility_pop').html( "<strong>能見度:</strong> 開放式" );
+}
+else if (document.getElementById('visibility_2').checked) {
+  $('#visibility_pop').html( "<strong>能見度:</strong> 僅限Telework會員" );
+}
+else if (document.getElementById('visibility_3').checked) {
+  $('#visibility_pop').html( "<strong>能見度:</strong> 隱藏式" );
+}
+
+$('#file_pop').html( "<strong>上傳附加檔案的檔名:</strong> " + $('#file').val().name);
+
+  // $('#project_name_pop').html($('#project_name').val());
+  // $('#project_name_pop').html($('#project_name').val());
+  // $('#project_name_pop').html($('#project_name').val());
+  // $('#project_name_pop').html($('#project_name').val());
+  // $('#project_name_pop').html($('#project_name').val());
+  // $('#project_name_pop').html($('#project_name').val());
+  // $('#project_name_pop').html($('#project_name').val());
+  $('#sbox').html($('#selectbox').val());
+  if ($('#checkbox').is(":checked")) {
+   $('#cbox').html( "yes" );
+ }
+ else{
+   $('#cbox').html( "No" );
+ }  
+});
+
+$('#submit').click(function(){
+  alert('submitting');
+  $('#formfield').submit();
+});
+</script>
 
 
 <!-- END JAVASCRIPTS -->

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009080334) do
+ActiveRecord::Schema.define(version: 20141017082636) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20141009080334) do
     t.integer  "payment_type",                            default: 1
     t.string   "main_skill"
     t.string   "sub_skill"
+    t.string   "during_time"
   end
 
   create_table "skills", force: true do |t|
