@@ -20,6 +20,7 @@
         <![endif]-->
         <!-- END 核心樣式 -->
         <!-- BEGIN 頁面插件樣式 -->
+        <link rel="stylesheet" href="../../../../plugins/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.min.css">
         <!-- END 頁面插件樣式 -->
         <!-- BEGIN 主題樣式 -->
         <!-- END 主題樣式 -->
@@ -29,21 +30,21 @@
         <link rel="stylesheet" type="text/css" href="../../../../css/loginmain.css"> 
         <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
         <link rel="shortcut icon" href="../../../../favicon.ico"/>
+
+        <!-- END STYLE -->
       </head>
-      <!-- END STYLE -->
-    </head>
-    <body>
-      <!-- BEGIN NAVBAR -->
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="clearfix">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+      <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="clearfix">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
          <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
             <i class="fa fa-search"></i>
           </button> -->
@@ -192,7 +193,18 @@
                           </div>
                         </div>
                       </div>
-
+                      <div class="row">
+                        <div class="col-md-3 text-right-md text-left-xs marpad-left">
+                          <strong>允許自定工作時間(選填)</strong>
+                        </div>
+                        <div class="col-md-9">
+                          <div class="form-group">
+                            <div>
+                              <input type="checkbox"> 允許新增額外工作時間
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       
                       <div id="limit4" class="limit-time"> </div>
                       <div id="limit5" class="limit-time" style="display: none;">
@@ -219,17 +231,16 @@
                         <strong>開始日期</strong>
                       </div>
                       <div class="col-md-9">
+
                         <div class="form-group">
-                          <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                            <input type="text" name="begin-time" class="form-control" placeholder="開始日期" readonly>
-                            <span class="input-group-btn">
-                              <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                            </span>
+                          <div class="input-group date" id="datetimepicker1">
+                            <input type="text" class="form-control" laceholder="開始日期" />
+                            <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
                           </div>
                         </div>
+
                       </div>
                     </div>
-
                   </div><!--END 時薪資-->
 
                   <div id="feetype3" class="desc" style="display: none;"><!-- BEGIN CASE TYPE 固定薪資 -->
@@ -345,7 +356,8 @@ src="../../../../masterpage/footer.txt"></script>
             <script src="../../../../plugins/jquery-placeholder/jquery.placeholder.js"></script> 
             <!-- END 核心插件 --> 
             <!-- BEGIN 頁面插件 -->
-
+            <script src="../../../../plugins/bootstrap-datetimepicker-master/build/js/moment.js"></script>
+            <script src="../../../../plugins/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.js"></script>
             <!-- END 頁面插件 --> 
             <script type="text/javascript" src="../../../../js/script.js"></script> 
             <script type="text/javascript" src="../../../../js/loginmain.js"></script>
@@ -386,9 +398,19 @@ src="../../../../masterpage/footer.txt"></script>
               });
             });
            </script>
+           <script type="text/javascript">
+            $(function(){
+              $('#datetimepicker1').datetimepicker({
+                pickTime: false,
+                icons: {
+                  date: "fa fa-calendar",
+                }
+              });
+            });
+          </script>
 
-           <!-- END JAVASCRIPTS --> 
-           <!-- BEGIN PIE --> 
+          <!-- END JAVASCRIPTS --> 
+          <!-- BEGIN PIE --> 
 <!--[if lte IE 9]>
         <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
         <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>

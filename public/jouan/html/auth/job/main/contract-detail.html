@@ -20,6 +20,7 @@
         <![endif]-->
         <!-- END 核心樣式 -->
         <!-- BEGIN 頁面插件樣式 -->
+        <link rel="stylesheet" href="../../../../plugins/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.min.css">
         <!-- END 頁面插件樣式 -->
         <!-- BEGIN 主題樣式 -->
         <!-- END 主題樣式 -->
@@ -29,21 +30,20 @@
         <link rel="stylesheet" type="text/css" href="../../../../css/loginmain.css"> 
         <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
         <link rel="shortcut icon" href="../../../../favicon.ico"/>
+        <!-- END STYLE -->
       </head>
-      <!-- END STYLE -->
-    </head>
-    <body>
-      <!-- BEGIN NAVBAR -->
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="clearfix">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+      <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="clearfix">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
          <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
             <i class="fa fa-search"></i>
           </button> -->
@@ -114,93 +114,137 @@
                     <h5 class="color-grey">
                       <i class="fa fa-map-marker fa-lg" ></i> 目前當地時間(現在台灣早上8:00)
                     </h5>
-                    <h5 class="color-grey"> 每週工作時數上限 | 預估完成時間 <a href="#">變更</a></h5>
+                    <h5 class="color-grey"> 每週工作時數上限 | 預估完成時間 | 允許自定額外時間
+                      <button class="btn btn-link marpad" data-toggle="modal" data-target="#myModal">
+                        變更
+                      </button>
+                    </h5>
                     <h5 class="color-grey">
-                     時薪制 | 固定薪資 ($金額) <a href="#">變更</a>
-                   </h5>
+                    時薪制 | 固定薪資 ($金額) <button onclick="location.href='fixprice-hourly.html'" class="btn btn-link marpad">
+                     變更成時薪制
+                   </button>
+                 </h5>
 
-                   <hr style="margin:8px auto" class=" clear">
+                 <hr style="margin:8px auto" class=" clear">
 
-                 </div>
-                 <div class="top10">
-                  <button type="button" class="btn btn-default">發送獎勵金</button>
-                  <button type="button" class="btn btn-default">暫停案件合約</button>
-                  <button type="button" class="btn btn-default">提前終止合約</button>
-                  <button type="button" class="btn btn-success">傳送訊息</button>
-                </div>
-              </div>
-            </div> <!--END 會員資料-->
-          </div>
-          <div class="col-xs-12">
-            <!-- BEGIN TABS -->
-            <ul class="nav nav-tabs nav-justified profolio-tab" >
-              <li class="active"><a class="right10" href="#contact" data-toggle="tab"><h4>總攬</h4></a></li>
-              <li><a class="right10" href="#profile" data-toggle="tab"><h4>合約記錄</h4></a></li>
-
-
-            </ul>
-            <!-- END TABS -->
-
-            <!-- BEGIN TAB CONTENT -->
-            <div class="tab-content profolio-tab-content bg-white"  >
-              <div class="tab-pane active" id="contact">
-               <div class="portlet box yellow">
-                 <div class="portlet-title">
-                  <div style=" font-size:1.3em;">
-                    最近工作概況
-                  </div>
-                </div>
-                <div class="portlet-body">
-                  <h4 class="Cblue"><strong>目前工作中</strong></h4>
-                  <div class="row">
-                    <div class="col-sm-6"> 
-
-                      <img class="img-responsive" src="../../../../img/1.png" alt="img">
-
+               </div>
+               <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title">變更</h4>
                     </div>
-                    <div class="col-sm-6" >
-                      <h4 class="Corange">工作項目:工作項目名稱XXXXX</h4>
-                      <p>本週工作XX小時，共$XXX美金</p>
-                      <p>上週工作XX小時，共$XXX美金</p>
-                      <p>自從開案總共工作XX小時，共$XXX美金</p>
-                      <p class="top10"><a href="#">檢視工作日誌 <i class="fa fa-angle-double-right"></i></a></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <hr>
-              <div class="portlet box yellow">
-                <div class="portlet-title">
-                  <div style=" font-size:1.3em;">
-                    最近傳送過的訊息
-                  </div>
-                </div>
-                <div class="portlet-body"> 
-                  <div style="padding:15px;">
-                   <div>
-                    <ul class="chat">
-                      <li class="left clearfix"><span class="chat-img pull-left">
-                        <img src="http://placehold.it/50/39CCCC/fff&text=U" alt="User Avatar" class="img-circle" />
-                      </span>
-                      <div class="chat-body clearfix">
-                        <div class="header">
-                          <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                          <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-md-4"><strong>每週工作上限</strong></div>
+                        <div class="col-md-8">
+                          <div class="form-group">
+                            <input id="radio3" type="radio" name="limit" value="4"  checked/> 沒有限制
+                            <input  type="radio" id="radio4" name="limit" value="5"/> 有限制
+                          </div>
                         </div>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                          dolor, quis ullamcorper ligula sodales.
-                        </p>
                       </div>
-                    </li>
-                    <li class="right clearfix"><span class="chat-img pull-right">
-                      <img src="http://placehold.it/50/FF851B/fff&text=ME" alt="User Avatar" class="img-circle" />
+                      <div class="row">
+                        <div class="col-md-4">
+                          <strong>允許自定工作時間(選填)</strong>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="form-group">
+                            <div>
+                              <input type="checkbox"> 允許新增額外工作時間
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <strong>預計完成日期</strong>
+                        </div>
+                        <div class="col-md-8">
+
+                          <div class="form-group" style="z-index: 3;">
+                            <div class="input-group date" id="datetimepicker1">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                      <button type="button" class="btn btn-primary">變更</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+              <div class="top10">
+                <button type="button" class="btn btn-default">發送獎勵金</button>
+                <button type="button" class="btn btn-default">暫停案件合約</button>
+                <button type="button" class="btn btn-default">提前終止合約</button>
+                <button type="button" class="btn btn-success">傳送訊息</button>
+              </div>
+            </div>
+          </div> <!--END 會員資料-->
+        </div>
+        <div class="col-xs-12">
+          <!-- BEGIN TABS -->
+          <ul class="nav nav-tabs nav-justified profolio-tab" >
+            <li class="active"><a class="right10" href="#contact" data-toggle="tab"><h4>總攬</h4></a></li>
+            <li><a class="right10" href="#profile" data-toggle="tab"><h4>合約記錄</h4></a></li>
+
+
+          </ul>
+          <!-- END TABS -->
+
+          <!-- BEGIN TAB CONTENT -->
+          <div class="tab-content profolio-tab-content bg-white"  >
+            <div class="tab-pane active" id="contact">
+             <div class="portlet box yellow">
+               <div class="portlet-title">
+                <div style=" font-size:1.3em;">
+                  最近工作概況
+                </div>
+              </div>
+              <div class="portlet-body">
+                <h4 class="Cblue"><strong>目前工作中</strong></h4>
+                <div class="row">
+                  <div class="col-sm-6"> 
+
+                    <img class="img-responsive" src="../../../../img/1.png" alt="img">
+
+                  </div>
+                  <div class="col-sm-6" >
+                    <h4 class="Corange">工作項目:工作項目名稱XXXXX</h4>
+                    <p>本週工作XX小時，共$XXX美金</p>
+                    <p>上週工作XX小時，共$XXX美金</p>
+                    <p>自從開案總共工作XX小時，共$XXX美金</p>
+                    <p class="top10"><a href="#">檢視工作日誌 <i class="fa fa-angle-double-right"></i></a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr>
+            <div class="portlet box yellow">
+              <div class="portlet-title">
+                <div style=" font-size:1.3em;">
+                  最近傳送過的訊息
+                </div>
+              </div>
+              <div class="portlet-body"> 
+                <div style="padding:15px;">
+                 <div>
+                  <ul class="chat">
+                    <li class="left clearfix"><span class="chat-img pull-left">
+                      <img src="http://placehold.it/50/39CCCC/fff&text=U" alt="User Avatar" class="img-circle" />
                     </span>
                     <div class="chat-body clearfix">
                       <div class="header">
-                        <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-                        <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                        <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+                        <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
                       </div>
                       <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
@@ -208,13 +252,13 @@
                       </p>
                     </div>
                   </li>
-                  <li class="left clearfix"><span class="chat-img pull-left">
-                    <img src="http://placehold.it/50/39CCCC/fff&text=U" alt="User Avatar" class="img-circle" />
+                  <li class="right clearfix"><span class="chat-img pull-right">
+                    <img src="http://placehold.it/50/FF851B/fff&text=ME" alt="User Avatar" class="img-circle" />
                   </span>
                   <div class="chat-body clearfix">
                     <div class="header">
-                      <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                      <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
+                      <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+                      <strong class="pull-right primary-font">Bhaumik Patel</strong>
                     </div>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
@@ -222,13 +266,13 @@
                     </p>
                   </div>
                 </li>
-                <li class="right clearfix"><span class="chat-img pull-right">
-                  <img src="http://placehold.it/50/FF851B/fff&text=ME" alt="User Avatar" class="img-circle" />
+                <li class="left clearfix"><span class="chat-img pull-left">
+                  <img src="http://placehold.it/50/39CCCC/fff&text=U" alt="User Avatar" class="img-circle" />
                 </span>
                 <div class="chat-body clearfix">
                   <div class="header">
-                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
-                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+                    <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
                   </div>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
@@ -236,83 +280,97 @@
                   </p>
                 </div>
               </li>
-            </ul>
-          </div>
-          <div class="">
-            <div class="input-group">
-              <input id="btn-input" type="text" class="form-control input-sm" placeholder="在這裡輸入你的訊息..." />
-              <span class="input-group-btn">
-                <button class="btn btn-warning btn-sm" id="btn-chat">
-                  Send</button>
-                </span>
-              </div>
-              <div class="row" style="margin-top:10px;">    
-                <div class="col-xs-12">  
-                  <!-- image-preview-filename input [CUT FROM HERE]-->
-                  <div class="input-group image-preview">
-                    <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
-                    <span class="input-group-btn">
-                      <!-- image-preview-clear button -->
-                      <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                        <span class="glyphicon glyphicon-remove"></span> 清除
-                      </button>
-                      <!-- image-preview-input -->
-                      <div class="btn btn-default image-preview-input">
-                        <span class="glyphicon glyphicon-folder-open"></span>
-                        <span class="image-preview-input-title">選擇檔案</span>
-                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
-                      </div>
-                    </span>
-                  </div><!-- /input-group image-preview [TO HERE]--> 
+              <li class="right clearfix"><span class="chat-img pull-right">
+                <img src="http://placehold.it/50/FF851B/fff&text=ME" alt="User Avatar" class="img-circle" />
+              </span>
+              <div class="chat-body clearfix">
+                <div class="header">
+                  <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
+                  <strong class="pull-right primary-font">Bhaumik Patel</strong>
                 </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                  dolor, quis ullamcorper ligula sodales.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="">
+          <div class="input-group">
+            <input id="btn-input" type="text" class="form-control input-sm" placeholder="在這裡輸入你的訊息..." />
+            <span class="input-group-btn">
+              <button class="btn btn-warning btn-sm" id="btn-chat">
+                Send</button>
+              </span>
+            </div>
+            <div class="row" style="margin-top:10px;">    
+              <div class="col-xs-12">  
+                <!-- image-preview-filename input [CUT FROM HERE]-->
+                <div class="input-group image-preview">
+                  <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                  <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                      <span class="glyphicon glyphicon-remove"></span> 清除
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                      <span class="glyphicon glyphicon-folder-open"></span>
+                      <span class="image-preview-input-title">選擇檔案</span>
+                      <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                    </div>
+                  </span>
+                </div><!-- /input-group image-preview [TO HERE]--> 
               </div>
             </div>
           </div>
         </div>
       </div>
-      <hr>
-      <div class="portlet box yellow">
-       <div class="portlet-title">
-        <div style=" font-size:1.3em;">
-          合約記錄
-        </div>
-      </div>
-      <div class="portlet-body">
-       <table class="table">
-        <tr>
-          <td>合約名稱</td>
-          <td>翻譯文件，英文翻譯成中文</td>
-        </tr>
-        <tr class="warning">
-          <td>合約結束日期</td>
-          <td>Jul 2nd,2014</td>
-        </tr>
-        <tr class="warning">
-          <td>總花費</td>
-          <td>$0.01</td>
-        </tr>
-        <tr class="warning">
-          <td>同意的金額</td>
-          <td>$0.01</td>
-        </tr>
-        <tr class="warning">
-          <td>你給(遠距工作者名字)評價</td>
-          <td>$0.01</td>
-        </tr>
-        <tr>
-          <td>合約編號</td>
-          <td>#14203031</td>
-        </tr>
-      </table>
     </div>
+    <hr>
+    <div class="portlet box yellow">
+     <div class="portlet-title">
+      <div style=" font-size:1.3em;">
+        合約記錄 (黃色部分結束後才會出現)
+      </div>
+    </div>
+    <div class="portlet-body">
+     <table class="table">
+      <tr>
+        <td>合約名稱</td>
+        <td>翻譯文件，英文翻譯成中文</td>
+      </tr>
+      <tr class="warning">
+        <td>合約結束日期</td>
+        <td>Jul 2nd,2014</td>
+      </tr>
+      <tr class="warning">
+        <td>總花費</td>
+        <td>$0.01</td>
+      </tr>
+      <tr class="warning">
+        <td>同意的金額</td>
+        <td>$0.01</td>
+      </tr>
+      <tr class="warning">
+        <td>你給(遠距工作者名字)評價</td>
+        <td>$0.01</td>
+      </tr>
+      <tr>
+        <td>合約編號</td>
+        <td>#14203031</td>
+      </tr>
+    </table>
   </div>
+</div>
 
 </div>
 <div class="tab-pane" id="profile">
   <div class="portlet box yellow">
    <div class="portlet-title">
     <div style=" font-size:1.3em;">
-      合約詳情 (黃色部分結束後才會出現)
+      合約詳情 
     </div>
   </div>
   <div class="portlet-body">
@@ -408,7 +466,8 @@ src="../../../../masterpage/footer.txt"></script>
             <script src="../../../../plugins/jquery-placeholder/jquery.placeholder.js"></script> 
             <!-- END 核心插件 --> 
             <!-- BEGIN 頁面插件 -->
-
+            <script src="../../../../plugins/bootstrap-datetimepicker-master/build/js/moment.js"></script>
+            <script src="../../../../plugins/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.js"></script>
             <!-- END 頁面插件 --> 
             <script type="text/javascript" src="../../../../js/script.js"></script> 
             <script type="text/javascript" src="../../../../js/loginmain.js"></script>
@@ -422,25 +481,20 @@ src="../../../../masterpage/footer.txt"></script>
              });
             </script> 
             <script type="text/javascript" src="../../../../js/bootstrap-tabcollapse-yellow.js"></script> 
-            <script type="text/javascript">
-              $('#myTab').tabCollapse();
-              $('#testTabs').tabCollapse();
-              $('#testTabs01').tabCollapse();
-            </script> 
 
             <script type="text/javascript">
-             $(document).ready(function() {
-              $("input[name$='feetype']").click(function() {
-                var test = $(this).val();
-
-                $("div.desc").hide();
-                $("#feetype" + test).show();
+              $(function(){
+                $('#datetimepicker1').datetimepicker({
+                  pickTime: false,
+                  icons: {
+                    date: "fa fa-calendar",
+                  }
+                });
               });
-            });
-           </script>
+            </script>
 
-           <!-- END JAVASCRIPTS --> 
-           <!-- BEGIN PIE --> 
+            <!-- END JAVASCRIPTS --> 
+            <!-- BEGIN PIE --> 
 <!--[if lte IE 9]>
         <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
         <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>

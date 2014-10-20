@@ -126,76 +126,92 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div>
               <div class="col-md-3 text-right-md text-left-sm marpad-left">
-                <strong> 意願 </strong>
+                <strong> 類別 </strong>
               </div>
               <div class="col-md-9">
                 <div class="form-group lable-group">
-                  <input type="checkbox" name="checkbox" id="checkbox"> 如果同意請打勾
-                </div>
+                <input type="radio" name="feetype" value="時薪制">時薪制<br>
+                 <input type="radio" name="feetype" value="固定薪資">固定薪資
+               </div>
+             </div>
+
+           </div>
+           <div class="row">
+            <div class="col-md-3 text-right-md text-left-sm marpad-left">
+              <strong> 意願 </strong>
+            </div>
+            <div class="col-md-9">
+              <div class="form-group lable-group">
+                <input type="checkbox" name="checkbox" id="checkbox"> 如果同意請打勾
               </div>
             </div>
-            <div class="form-group">
-              <label>Agreement</label>
-              <input type="checkbox" name="checkbox" id="checkbox"> check it
-            </div>
-            <div class="form-group">
-              <label>Agreement</label>
-              <select id="selectbox" class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-
+          </div>
+          <div class="form-group">
+            <label>Agreement</label>
+            <input type="checkbox" name="checkbox" id="checkbox"> check it
+          </div>
+          <div class="form-group">
+            <label>Agreement</label>
+            <select id="selectbox" class="form-control">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
 
-          <input type="button" name="btn" value="Submit" id="submitBtn" data-toggle="modal" data-target="#confirm-submit" class="btn btn-default" />
-          <input type="button" name="btn" value="Reset" onclick="window.location='fillup.php'" class="btn btn-default" data-modal-type="confirm"/>
-        </form>
+        </div>
 
-        <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                預覽確認
-              </div>
-              <div class="modal-body">
-                您確定要傳送嗎?
-                <table class="table">
-                  <tr>
-                    <th>姓氏</th>
-                    <td id="lname"></td>
-                  </tr>
-                  <tr>
-                    <th>名字</th>
-                    <td id="fname"></td>
-                  </tr>
-                  <tr>
-                    <th>意願</th>
-                    <td id="cbox"></td>
-                  </tr>
-                  <tr>
-                    <th>checkbok</th>
-                    <td id="cbox"></td>
-                  </tr>
-                  <tr>
-                    <th>SELECT</th>
-                    <td id="sbox"></td>
-                  </tr>
+        <input type="button" name="btn" value="Submit" id="submitBtn" data-toggle="modal" data-target="#confirm-submit" class="btn btn-default" />
+        <input type="button" name="btn" value="Reset" onclick="window.location='fillup.php'" class="btn btn-default" data-modal-type="confirm"/>
+      </form>
 
-                </table>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <a href="#" id="submit" class="btn btn-success success">傳送</a>
-              </div>
+      <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              預覽確認
+            </div>
+            <div class="modal-body">
+              您確定要傳送嗎?
+              <table class="table">
+                <tr>
+                  <th>姓氏</th>
+                  <td id="lname"></td>
+                </tr>
+                <tr>
+                  <th>名字</th>
+                  <td id="fname"></td>
+                </tr>
+                 <tr>
+                  <th>類別</th>
+                  <td id="rfeetype"></td>
+                </tr>
+                <tr>
+                  <th>意願</th>
+                  <td id="cbox"></td>
+                </tr>
+                <tr>
+                  <th>checkbok</th>
+                  <td id="cbox"></td>
+                </tr>
+                <tr>
+                  <th>SELECT</th>
+                  <td id="sbox"></td>
+                </tr>
+
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+              <a href="#" id="submit" class="btn btn-success success">傳送</a>
             </div>
           </div>
         </div>
+      </div>
         <!--   <div class="form-style">
             <form action="#" class=" form-horizontal go-bottom" role="form">
               <div class="row">
@@ -289,6 +305,7 @@
              $('#lname').html($('#lastname').val());
              $('#fname').html($('#firstname').val());
              $('#sbox').html($('#selectbox').val());
+             $('#rfeetype').html($( "input:radio[name=feetype]:checked" ).val());
              if ($('#checkbox').is(":checked")) {
                $('#cbox').html( "yes" );
              }
