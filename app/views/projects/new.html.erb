@@ -680,9 +680,9 @@
 <div class="text-right">
   <button id="present" type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg">預覽案件</button>
   <!--<%= f.submit "預覽案件", :class => "btn btn-success btn-lg" %>-->
-  <!--<%= f.submit "送出案件", :class => "btn btn-success btn-lg" %>-->
+  <%= f.submit "送出案件", :class => "btn btn-success btn-lg" %>
   <!--<%= f.submit "重置", :class => "btn btn-danger btn-lg", :type => "reset" %>-->
-  <%= submit_tag "Clear form", :class => 'inputsubmit', :type => 'reset' %>
+  <!--<%= submit_tag "Clear form", :class => 'inputsubmit', :type => 'reset' %>-->
 
 </div>
 <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -727,7 +727,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">送出</button>
+        <%= f.submit "送出案件", :class => "btn btn-success btn-lg" %>
       </div>
     </div>
   </div>

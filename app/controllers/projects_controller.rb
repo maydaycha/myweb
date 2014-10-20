@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(params.permit![:project])
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Idea was successfully created.' }
+        format.html { redirect_to @project, notice: 'Successfully created.' }
         format.json { render action: 'show', status: :created, location: @project }
       else
         format.html { render action: 'new' }
