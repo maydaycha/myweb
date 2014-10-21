@@ -838,6 +838,9 @@ Box portlet
 .bg-silver {
   background-color: #dddddd; }
 
+.bg-lsilver {
+  background-color: #E3E3E3; }
+
 .bg-black {
   background-color: #111111; }
 
@@ -1179,6 +1182,9 @@ div.product-chooser div.product-chooser-item {
 
   .fw9-l {
     font-weight: 900; } }
+.bootstrap-datetimepicker-widget {
+  z-index: 100000; }
+
 /*ABOUT COLOR*/
 .Cdarkblue {
   color: #138FBC !important; }

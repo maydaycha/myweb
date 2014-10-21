@@ -1,0 +1,79 @@
+ .owl-img{
+            background-image: url(../../img/BG_Blur_01.jpg);
+            background-size: 100% auto;
+            height: 300px;
+            display: block;
+          }
+          #owl-demo .item img{
+            display: block;
+            width: 100%;
+            height: auto;
+          }
+
+
+
+.s-group{
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+    padding-right:10px !important;
+    padding-left:10px !important;
+}
+.s-container{
+    max-width: 1170px !important;  width: 100% !important;  margin: auto !important;
+    
+
+}
+
+.s-title{
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 55px;
+  
+}
+
+
+
+/****************Pargarphy group*******************/
+.pGroup{
+  margin-bottom: 15px;
+  i{
+    color: #f57773;
+  }
+  h4{
+    color: #08415a;
+    font-weight: 600;
+    margin-bottom:4px;
+    padding-left:7px;
+  }
+  h5{
+    color: #08415a;
+    font-weight: 600;
+    margin-bottom:4px;
+    padding-left:7px;
+  }
+  p{
+    color: #3f5666;
+    padding-left:27px;
+  }
+  .p-h5{
+    color: #3f5666;
+    padding-left:17px !important;
+  }
+  ul{
+    list-style-type: none;
+    padding-left:27px;
+    li{
+      color: #3f5666;
+    }
+    li:before{
+      content: "\f105";
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: inherit;
+      color: #f57773;
+      padding-right:1px;
+    }
+  }
+}
+

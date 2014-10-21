@@ -1,0 +1,54 @@
+/*
+Syntax error: Invalid CSS after "...ar infinite;*\/*": expected identifier, was "/"
+        on line 70 of scss/howitwork.scss
+
+65:     -moz-transition: border 0.6s ease-out, color 0.6s ease 0.9s;
+66:     -ms-transition: border 0.6s ease-out, color 0.6s ease 0.9s; /* IE10 is actually unprefixed *\/
+67:     /*-o-transition: border 0.6s ease-out, color 0.6s ease 0.9s;
+68:     transition: border 0.6s ease-out, color 0.6s ease 0.9s;
+69:     -webkit-animation: pulsate 1.8s linear infinite;
+70:     animation: pulsate 1.8s linear infinite;*\/*\/
+71: }
+72: .btn-nav.active:before {
+73: 	/*content: '';*\/
+74: 	position: absolute;
+75: 	border-style: solid;
+
+Backtrace:
+scss/howitwork.scss:70
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:1312:in `expected'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:1248:in `expected'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:1228:in `expr!'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:972:in `declaration'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:688:in `block in declaration_or_ruleset'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:1288:in `call'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:1288:in `rethrow'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:698:in `declaration_or_ruleset'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:660:in `block_child'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:652:in `block_contents'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:641:in `block'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:634:in `ruleset'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:659:in `block_child'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:652:in `block_contents'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:116:in `stylesheet'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:41:in `parse'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/engine.rb:409:in `_to_tree'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/engine.rb:274:in `render'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:414:in `update_stylesheet'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:186:in `each'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:221:in `watch'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/plugin.rb:108:in `method_missing'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/exec.rb:509:in `watch_or_update'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/exec.rb:346:in `process_result'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/exec.rb:43:in `parse'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/exec.rb:22:in `parse!'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/bin/sass:13:in `<top (required)>'
+C:/Ruby200/bin/sass:23:in `load'
+C:/Ruby200/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"...ar infinite;*/*\": expected identifier, was \"/\"\A         on line 70 of scss/howitwork.scss\A \A 65:     -moz-transition: border 0.6s ease-out, color 0.6s ease 0.9s;\A 66:     -ms-transition: border 0.6s ease-out, color 0.6s ease 0.9s; /* IE10 is actually unprefixed */\A 67:     /*-o-transition: border 0.6s ease-out, color 0.6s ease 0.9s;\A 68:     transition: border 0.6s ease-out, color 0.6s ease 0.9s;\A 69:     -webkit-animation: pulsate 1.8s linear infinite;\A 70:     animation: pulsate 1.8s linear infinite;*/*/\A 71: }\A 72: .btn-nav.active:before {\A 73: 	/*content: '';*/\A 74: 	position: absolute;\A 75: 	border-style: solid;"; }

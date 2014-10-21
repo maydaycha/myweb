@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20141017082636) do
     t.string   "last_name",                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_service"
+    t.boolean  "is_service",          default: false
     t.boolean  "is_translator",       default: false
   end
 

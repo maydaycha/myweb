@@ -605,7 +605,7 @@
             <h3 class="Corange">需填寫自我介紹</h3>
             <hr>
             <div class="form-group">
-              <div style="margin-left:0px; text-align:left;">
+              <div class="marpad-left text-left">
                 <%= f.check_box :required_user_intro, :id => "required_user_intro" %> 需要申請者填寫個人介紹才能申請本工作
               </div>
             </div>
@@ -634,20 +634,22 @@
 
                 <div class="row">
                   <div class="col-md-12 marpad" style="padding:5px 8px;">
-                    <div class="form-group lable-group">
+                  
                       <div id='TextBoxesGroup'>
 
-                        <div id="TextBoxDiv1">
-                          <%= f.fields_for :project_questions do |g| %>
-                          <!--  -->
-                          <%= g.text_field :description, :class => "form-control", :name => "question[1]", :id => "project_questions_description_1" %>
-                          <!-- <input name="question1" type="text" class="form-control" required> -->
-                          <label for="question[1]">輸入您對於申請者的其他提問。例如：您認為這個案件的最大挑戰是什麼?</label>
+                        <div id="TextBoxDiv1" class="form-group lable-group">
+                       
+                            <%= f.fields_for :project_questions do |g| %>
+                            <!--  -->
+                            <%= g.text_field :description, :class => "form-control", :name => "question[1]", :id => "project_questions_description_1" %>
+                            <!-- <input name="question1" type="text" class="form-control" required> -->
+                            <label for="question[1]">輸入您對於申請者的其他提問。例如：您認為這個案件的最大挑戰是什麼?</label>
+                  
                           <!--  -->
                           <% end %>
                         </div>
                       </div>
-                    </div>
+                    
                   </div>
 
 
@@ -1132,45 +1134,45 @@ src="/masterpage/footer.txt"></script>
             <script type="text/javascript" src="/js/page/project_new.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
-            jQuery(document).ready(function() {
-             Web.init();
-             PersonalProfile.init();
-           });
+              jQuery(document).ready(function() {
+               Web.init();
+               PersonalProfile.init();
+             });
             </script>
             <script type="text/javascript" src="/js/bootstrap-tabcollapse-yellow.js"></script>
             <script type="text/javascript">
-            $('#myTab').tabCollapse();
-            $('#testTabs').tabCollapse();
-            $('#testTabs01').tabCollapse();
+              $('#myTab').tabCollapse();
+              $('#testTabs').tabCollapse();
+              $('#testTabs01').tabCollapse();
             </script>
 
             <script type="text/javascript">
-            $(document).ready(function() {
-              $("input[name$='feetype']").click(function() {
-                var test = $(this).val();
+              $(document).ready(function() {
+                $("input[name$='feetype']").click(function() {
+                  var test = $(this).val();
 
-                $("div.desc").hide();
-                $("#feetype" + test).show();
+                  $("div.desc").hide();
+                  $("#feetype" + test).show();
+                });
               });
-            });
             </script>
             <script type="text/javascript">
-            $(function(){
-              $('#datetimepicker1').datetimepicker({
-                pickTime: false,
-                icons: {
-                  date: "fa fa-calendar",
-                }
+              $(function(){
+                $('#datetimepicker1').datetimepicker({
+                  pickTime: false,
+                  icons: {
+                    date: "fa fa-calendar",
+                  }
+                });
               });
-            });
             </script>
             <script>
 
-            $(document).ready(function(){
-              $("#mainClass_select").change(main_class_change);
-            });
+              $(document).ready(function(){
+                $("#mainClass_select").change(main_class_change);
+              });
 
-            var main_class_change = function(){
+              var main_class_change = function(){
               // alert( "Handler for .change() called." );
 
               var main = $("#mainClass_select option:selected").val();
@@ -1204,9 +1206,9 @@ src="/masterpage/footer.txt"></script>
             }
           })
         }
-        </script>
+      </script>
 
-        <script type="text/javascript">
+      <script type="text/javascript">
 
         $(document).ready(function(){
 
@@ -1229,7 +1231,7 @@ src="/masterpage/footer.txt"></script>
               ']">輸入您對於申請者的其他提問。</label>');
 
             newTextBoxDiv.appendTo("#TextBoxesGroup");
-
+            newTextBoxDiv.addClass("bottom7 form-group lable-group");
 
             counter++;
           });
@@ -1259,179 +1261,179 @@ src="/masterpage/footer.txt"></script>
 
 <script type="text/javascript">
 
-var main_skill = "<%= t(:main_skill_category) %>".replace(/&quot;/g,'\"').replace(/=&gt;/g, ':');
-var sub_skill = "<%= t(:sub_skill_category) %>".replace(/&quot;/g,'\"').replace(/=&gt;/g, ':');
+  var main_skill = "<%= t(:main_skill_category) %>".replace(/&quot;/g,'\"').replace(/=&gt;/g, ':');
+  var sub_skill = "<%= t(:sub_skill_category) %>".replace(/&quot;/g,'\"').replace(/=&gt;/g, ':');
 
-var main_skill_JSON = JSON.parse(main_skill);
-var sub_skill_JSON = JSON.parse(sub_skill);
+  var main_skill_JSON = JSON.parse(main_skill);
+  var sub_skill_JSON = JSON.parse(sub_skill);
 
-var satisfication_value;
-var worked_hours_value;
-var worker_location_value;
-var satisfication_value;
+  var satisfication_value;
+  var worked_hours_value;
+  var worker_location_value;
+  var satisfication_value;
 
-$('#present').click(function() {
-  $('#mainClass_select_pop').html("<strong>主類別:</strong> " + main_skill_JSON[$('#mainClass_select').val()].name);
-  $('#subClass_select2_pop').html("<strong>子類別:</strong> " + sub_skill_JSON[$('#mainClass_select').val()][$('#subClass_select2').val()].name);
+  $('#present').click(function() {
+    $('#mainClass_select_pop').html("<strong>主類別:</strong> " + main_skill_JSON[$('#mainClass_select').val()].name);
+    $('#subClass_select2_pop').html("<strong>子類別:</strong> " + sub_skill_JSON[$('#mainClass_select').val()][$('#subClass_select2').val()].name);
 
-  $('#project_name_pop').html( "<strong>工作內容:</strong> " + $('#project_name').val());
-  $('#project_name_pop').html( "<strong>工作內容:</strong> " + $('#project_name').val());
-  $('#project_description_pop').html( "<strong>工作內容:</strong> " + $('#project_description').val());
-  $('#skill-tags_pop').html($("<strong>案件技能:</strong>" + '#skill-tags').val());
+    $('#project_name_pop').html( "<strong>工作內容:</strong> " + $('#project_name').val());
+    $('#project_name_pop').html( "<strong>工作內容:</strong> " + $('#project_name').val());
+    $('#project_description_pop').html( "<strong>工作內容:</strong> " + $('#project_description').val());
+    $('#skill-tags_pop').html($("<strong>案件技能:</strong>" + '#skill-tags').val());
 
-  if ($('#is_emergency').is(":checked")) {
-   $('#is_emergency_pop').html( "<strong>急件:</strong> 是的！我需要急件處理" );
- }
- else{
-   $('#is_emergency_pop').html( "<strong>急件:</strong> 不！我不需要急件處理" );
- }  
+    if ($('#is_emergency').is(":checked")) {
+     $('#is_emergency_pop').html( "<strong>急件:</strong> 是的！我需要急件處理" );
+   }
+   else{
+     $('#is_emergency_pop').html( "<strong>急件:</strong> 不！我不需要急件處理" );
+   }  
 
- if (document.getElementById('radio1').checked) {
-  $('#payment_type_pop').html( "<strong>類型:</strong> 時薪制" );
+   if (document.getElementById('radio1').checked) {
+    $('#payment_type_pop').html( "<strong>類型:</strong> 時薪制" );
 
-  if (document.getElementById('required_user_level_1').checked) {
-    $('#required_user_level_pop').html( "<strong>遠距工作者經驗程度:</strong> 入門，具備入門等級的相關經歷，此類案件通常不會執行太過困難的任務。" );
+    if (document.getElementById('required_user_level_1').checked) {
+      $('#required_user_level_pop').html( "<strong>遠距工作者經驗程度:</strong> 入門，具備入門等級的相關經歷，此類案件通常不會執行太過困難的任務。" );
+    }
+    else if (document.getElementById('required_user_level_2').checked) {
+      $('#required_user_level_pop').html( "<strong>遠距工作者經驗程度:</strong> 中階，處理過類似案件，具備經驗能處理較為進階的任務。" );
+    }
+    else if (document.getElementById('required_user_level_3').checked) {
+      $('#required_user_level_pop').html( "<strong>遠距工作者經驗程度:</strong> 專家，專家等級，能處理進階任務，替雇主創造價值。" );
+    }
+
+    if (document.getElementById('during_time_1').checked) {
+      $('#during_time_pop').html( "<strong>案件預計工期:</strong> 3日" );
+    }
+    else if (document.getElementById('during_time_2').checked) {
+      $('#during_time_pop').html( "<strong>案件預計工期:</strong> 7日" );
+    }
+    else if (document.getElementById('during_time_3').checked) {
+      $('#during_time_pop').html( "<strong>案件預計工期:</strong> 14日" );
+    }
+    else if (document.getElementById('during_time_4').checked) {
+      $('#during_time_pop').html( "<strong>案件預計工期:</strong> 1個月" );
+    }
+    else if (document.getElementById('during_time_5').checked) {
+      $('#during_time_pop').html( "<strong>案件預計工期:</strong> 3個月" );
+    }
+
+    if (document.getElementById('work_type_1').checked) {
+      $('#work_type_pop').html( "<strong>全職/兼職:</strong> 全職" );
+    }
+    else if (document.getElementById('work_type_2').checked) {
+      $('#work_type_pop').html( "<strong>全職/兼職:</strong> 兼職" );
+    }
+
+    $('#budget_pop').hide;
+    $('#end_date_pop').hide;
+
   }
-  else if (document.getElementById('required_user_level_2').checked) {
-    $('#required_user_level_pop').html( "<strong>遠距工作者經驗程度:</strong> 中階，處理過類似案件，具備經驗能處理較為進階的任務。" );
-  }
-  else if (document.getElementById('required_user_level_3').checked) {
-    $('#required_user_level_pop').html( "<strong>遠距工作者經驗程度:</strong> 專家，專家等級，能處理進階任務，替雇主創造價值。" );
-  }
+  else if (document.getElementById('radio2').checked) {
+    $('#payment_type_pop').html( "<strong>類型:</strong> 固定薪資" );
 
-  if (document.getElementById('during_time_1').checked) {
-    $('#during_time_pop').html( "<strong>案件預計工期:</strong> 3日" );
-  }
-  else if (document.getElementById('during_time_2').checked) {
-    $('#during_time_pop').html( "<strong>案件預計工期:</strong> 7日" );
-  }
-  else if (document.getElementById('during_time_3').checked) {
-    $('#during_time_pop').html( "<strong>案件預計工期:</strong> 14日" );
-  }
-  else if (document.getElementById('during_time_4').checked) {
-    $('#during_time_pop').html( "<strong>案件預計工期:</strong> 1個月" );
-  }
-  else if (document.getElementById('during_time_5').checked) {
-    $('#during_time_pop').html( "<strong>案件預計工期:</strong> 3個月" );
+    $('#budget_pop').html( "<strong>案件預算:</strong> " + $('#budget').val());
+    $('#end_date_pop').html( "<strong>案件預算:</strong> " + $('#end_date').val());
+
+    $('#required_user_level_pop').hide;
+    $('#during_time_pop').hide;
+    $('#work_type_pop').hide;
   }
 
-  if (document.getElementById('work_type_1').checked) {
-    $('#work_type_pop').html( "<strong>全職/兼職:</strong> 全職" );
+  if (document.getElementById('visibility_1').checked) {
+    $('#visibility_pop').html( "<strong>能見度:</strong> 開放式" );
   }
-  else if (document.getElementById('work_type_2').checked) {
-    $('#work_type_pop').html( "<strong>全職/兼職:</strong> 兼職" );
+  else if (document.getElementById('visibility_2').checked) {
+    $('#visibility_pop').html( "<strong>能見度:</strong> 僅限Telework會員" );
+  }
+  else if (document.getElementById('visibility_3').checked) {
+    $('#visibility_pop').html( "<strong>能見度:</strong> 隱藏式" );
   }
 
-  $('#budget_pop').hide;
-  $('#end_date_pop').hide;
+  $('#file_pop').html( "<strong>上傳附加檔案的檔名:</strong> " + $('#file').val().name);
 
-}
-else if (document.getElementById('radio2').checked) {
-  $('#payment_type_pop').html( "<strong>類型:</strong> 固定薪資" );
+  satisfication_value = $('#satisfication').val()
+  if ( satisfication_value == 1 ) {
+    $('#satisfication_pop').html( "<strong>獲得的滿意度最低:</strong> 1.0分" );
+  }
+  else if ( satisfication_value == 2 ) {
+    $('#satisfication_pop').html( "<strong>獲得的滿意度最低:</strong> 2.0分" );
+  }
+  else if ( satisfication_value == 3 ) {
+    $('#satisfication_pop').html( "<strong>獲得的滿意度最低:</strong> 3.0分" );
+  }
+  else if ( satisfication_value == 4 ) {
+    $('#satisfication_pop').html( "<strong>獲得的滿意度最低:</strong> 4.0分" );
+  }
+  else if ( satisfication_value == 5 ) {
+    $('#satisfication_pop').html( "<strong>獲得的滿意度最低:</strong> 5.0分" );
+  }
+  else {
+    $('#satisfication_pop').html( "<strong>獲得的滿意度最低:</strong> 任何分數" );
+  }
 
-  $('#budget_pop').html( "<strong>案件預算:</strong> " + $('#budget').val());
-  $('#end_date_pop').html( "<strong>案件預算:</strong> " + $('#end_date').val());
+  worked_hours_value = $('#worked_hours').val()
+  if ( worked_hours_value == 1 ) {
+    $('#worked_hours_pop').html( "<strong>已工作時數最低:</strong> 20小時" );
+  }
+  else if ( worked_hours_value == 2 ) {
+    $('#worked_hours_pop').html( "<strong>已工作時數最低:</strong> 40小時" );
+  }
+  else if ( worked_hours_value == 3 ) {
+    $('#worked_hours_pop').html( "<strong>已工作時數最低:</strong> 100小時" );
+  }
+  else if ( worked_hours_value == 4 ) {
+    $('#worked_hours_pop').html( "<strong>已工作時數最低:</strong> 500小時" );
+  }
+  else if ( worked_hours_value == 5 ) {
+    $('#worked_hours_pop').html( "<strong>已工作時數最低:</strong> 1500小時以上" );
+  }
+  else {
+    $('#worked_hours_pop').html( "<strong>已工作時數最低:</strong> 任何時數" );
+  }
 
-  $('#required_user_level_pop').hide;
-  $('#during_time_pop').hide;
-  $('#work_type_pop').hide;
-}
+  worker_location_value = $('#worker_location').val()
+  if ( worker_location_value == 1 ) {
+    $('#worker_location_pop').html( "<strong>所在地區:</strong> 亞洲" );
+  }
+  else if ( worker_location_value == 2 ) {
+    $('#worker_location_pop').html( "<strong>所在地區:</strong> 歐洲" );
+  }
+  else if ( worker_location_value == 3 ) {
+    $('#worker_location_pop').html( "<strong>所在地區:</strong> 南美洲" );
+  }
+  else if ( worker_location_value == 4 ) {
+    $('#worker_location_pop').html( "<strong>所在地區:</strong> 北美洲" );
+  }
+  else if ( worker_location_value == 5 ) {
+    $('#worker_location_pop').html( "<strong>所在地區:</strong> 大洋洲" );
+  }
+  else {
+    $('#worker_location_pop').html( "<strong>所在地區:</strong> 任何地區" );
+  }
 
-if (document.getElementById('visibility_1').checked) {
-  $('#visibility_pop').html( "<strong>能見度:</strong> 開放式" );
-}
-else if (document.getElementById('visibility_2').checked) {
-  $('#visibility_pop').html( "<strong>能見度:</strong> 僅限Telework會員" );
-}
-else if (document.getElementById('visibility_3').checked) {
-  $('#visibility_pop').html( "<strong>能見度:</strong> 隱藏式" );
-}
+  english_level_value = $('#english_level').val()
+  if ( english_level_value == 1 ) {
+    $('#english_level_pop').html( "<strong>英文程度:</strong> 精通" );
+  }
+  else if ( english_level_value == 2 ) {
+    $('#english_level_pop').html( "<strong>英文程度:</strong> 流暢" );
+  }
+  else if ( english_level_value == 3 ) {
+    $('#english_level_pop').html( "<strong>英文程度:</strong> 普通" );
+  }
+  else if ( english_level_value == 4 ) {
+    $('#english_level_pop').html( "<strong>英文程度:</strong> 略懂" );
+  }
+  else {
+    $('#english_level_pop').html( "<strong>英文程度:</strong> 任何" );
+  }
 
-$('#file_pop').html( "<strong>上傳附加檔案的檔名:</strong> " + $('#file').val().name);
-
-satisfication_value = $('#satisfication').val()
-if ( satisfication_value == 1 ) {
-  $('#satisfication_pop').html( "<strong>獲得的滿意度最低:</strong> 1.0分" );
-}
-else if ( satisfication_value == 2 ) {
-  $('#satisfication_pop').html( "<strong>獲得的滿意度最低:</strong> 2.0分" );
-}
-else if ( satisfication_value == 3 ) {
-  $('#satisfication_pop').html( "<strong>獲得的滿意度最低:</strong> 3.0分" );
-}
-else if ( satisfication_value == 4 ) {
-  $('#satisfication_pop').html( "<strong>獲得的滿意度最低:</strong> 4.0分" );
-}
-else if ( satisfication_value == 5 ) {
-  $('#satisfication_pop').html( "<strong>獲得的滿意度最低:</strong> 5.0分" );
-}
-else {
-  $('#satisfication_pop').html( "<strong>獲得的滿意度最低:</strong> 任何分數" );
-}
-
-worked_hours_value = $('#worked_hours').val()
-if ( worked_hours_value == 1 ) {
-  $('#worked_hours_pop').html( "<strong>已工作時數最低:</strong> 20小時" );
-}
-else if ( worked_hours_value == 2 ) {
-  $('#worked_hours_pop').html( "<strong>已工作時數最低:</strong> 40小時" );
-}
-else if ( worked_hours_value == 3 ) {
-  $('#worked_hours_pop').html( "<strong>已工作時數最低:</strong> 100小時" );
-}
-else if ( worked_hours_value == 4 ) {
-  $('#worked_hours_pop').html( "<strong>已工作時數最低:</strong> 500小時" );
-}
-else if ( worked_hours_value == 5 ) {
-  $('#worked_hours_pop').html( "<strong>已工作時數最低:</strong> 1500小時以上" );
-}
-else {
-  $('#worked_hours_pop').html( "<strong>已工作時數最低:</strong> 任何時數" );
-}
-
-worker_location_value = $('#worker_location').val()
-if ( worker_location_value == 1 ) {
-  $('#worker_location_pop').html( "<strong>所在地區:</strong> 亞洲" );
-}
-else if ( worker_location_value == 2 ) {
-  $('#worker_location_pop').html( "<strong>所在地區:</strong> 歐洲" );
-}
-else if ( worker_location_value == 3 ) {
-  $('#worker_location_pop').html( "<strong>所在地區:</strong> 南美洲" );
-}
-else if ( worker_location_value == 4 ) {
-  $('#worker_location_pop').html( "<strong>所在地區:</strong> 北美洲" );
-}
-else if ( worker_location_value == 5 ) {
-  $('#worker_location_pop').html( "<strong>所在地區:</strong> 大洋洲" );
-}
-else {
-  $('#worker_location_pop').html( "<strong>所在地區:</strong> 任何地區" );
-}
-
-english_level_value = $('#english_level').val()
-if ( english_level_value == 1 ) {
-  $('#english_level_pop').html( "<strong>英文程度:</strong> 精通" );
-}
-else if ( english_level_value == 2 ) {
-  $('#english_level_pop').html( "<strong>英文程度:</strong> 流暢" );
-}
-else if ( english_level_value == 3 ) {
-  $('#english_level_pop').html( "<strong>英文程度:</strong> 普通" );
-}
-else if ( english_level_value == 4 ) {
-  $('#english_level_pop').html( "<strong>英文程度:</strong> 略懂" );
-}
-else {
-  $('#english_level_pop').html( "<strong>英文程度:</strong> 任何" );
-}
-
-if (document.getElementById('required_user_intro').checked) {
-  $('#required_user_intro_pop').html( "<strong>填寫自我介紹:</strong> <i class=\"fa fa-check\"></i> 需要" );
-}
-else {
-  $('#required_user_intro_pop').html( "<strong>填寫自我介紹:</strong> <i class=\"fa fa-times\"></i> 不需要" );
-}
+  if (document.getElementById('required_user_intro').checked) {
+    $('#required_user_intro_pop').html( "<strong>填寫自我介紹:</strong> <i class=\"fa fa-check\"></i> 需要" );
+  }
+  else {
+    $('#required_user_intro_pop').html( "<strong>填寫自我介紹:</strong> <i class=\"fa fa-times\"></i> 不需要" );
+  }
 
 
 
