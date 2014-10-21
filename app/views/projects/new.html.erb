@@ -36,21 +36,29 @@
         <link rel="stylesheet" type="text/css" href="/css/pstyle.css">
         <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
         <link rel="shortcut icon" href="/favicon.ico"/>
+        <style type="text/css">
+          .fa-input {
+            font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          }
+          .btn-link:focus,.btn-link:hover,.btn-link:focus{
+            outline: none !important;
+            outline-style: none;
+          }
+        </style>
+        <!-- END STYLE -->
       </head>
-      <!-- END STYLE -->
-    </head>
-    <body>
-      <!-- BEGIN NAVBAR -->
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="clearfix">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+      <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="clearfix">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
          <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
             <i class="fa fa-search"></i>
           </button> -->
@@ -634,21 +642,21 @@
 
                 <div class="row">
                   <div class="col-md-12 marpad" style="padding:5px 8px;">
-                  
-                      <div id='TextBoxesGroup'>
 
-                        <div id="TextBoxDiv1" class="form-group lable-group">
-                       
-                            <%= f.fields_for :project_questions do |g| %>
-                            <!--  -->
-                            <%= g.text_field :description, :class => "form-control", :name => "question[1]", :id => "project_questions_description_1" %>
-                            <!-- <input name="question1" type="text" class="form-control" required> -->
-                            <label for="question[1]">輸入您對於申請者的其他提問。例如：您認為這個案件的最大挑戰是什麼?</label>
-                  
-                          <!--  -->
-                          <% end %>
-                        </div>
+                    <div id='TextBoxesGroup'>
+
+                      <div id="TextBoxDiv1" class="form-group lable-group">
+
+                        <%= f.fields_for :project_questions do |g| %>
+                        <!--  -->
+                        <%= g.text_field :description, :class => "form-control", :name => "question[1]", :id => "project_questions_description_1" %>
+                        <!-- <input name="question1" type="text" class="form-control" required> -->
+                        <label for="question[1]">輸入您對於申請者的其他提問。例如：您認為這個案件的最大挑戰是什麼?</label>
+
+                        <!--  -->
+                        <% end %>
                       </div>
+                    </div>
                     
                   </div>
 
@@ -664,8 +672,8 @@
 
 <div class="col-md-12 marpad">
   <div class="form-group">
-    <i class="fa fa-plus"></i><input type='button' class="btn btn-link" value='Add Button' id='addButton'>
-    <i class="fa fa-plus"></i><input type='button' class="btn btn-link" value='Remove Button' id='removeButton'>
+    <input type='button' class="btn btn-link fa-input" value='&#xf067; 增加問題' id='addButton'>
+    <input type='button' class="btn btn-link fa-input" value='&#xf068; 移除問題' id='removeButton'>
     <!-- <button class="btn btn-link" value='addButton'><i class="fa fa-plus"></i> 新增其他問題</button> -->
   </div>
 </div>
@@ -1231,7 +1239,7 @@ src="/masterpage/footer.txt"></script>
               ']">輸入您對於申請者的其他提問。</label>');
 
             newTextBoxDiv.appendTo("#TextBoxesGroup");
-            newTextBoxDiv.addClass("bottom7 form-group lable-group");
+            newTextBoxDiv.addClass("form-group lable-group");
 
             counter++;
           });
