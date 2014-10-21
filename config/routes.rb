@@ -80,6 +80,7 @@ Sun::Application.routes.draw do
     get 'excel_download'
     get 'update_budget'
     get 'set_word_count'
+    get 'search'
   end
   resources :projects
 
