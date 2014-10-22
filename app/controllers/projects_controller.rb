@@ -6,7 +6,6 @@ class ProjectsController < ApplicationController
   before_action :set_headers
   before_action :authenticate_user!
 
-
   def index
     @projects = Project.all
     @category = ProjectCategory.all
