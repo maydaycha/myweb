@@ -2,8 +2,10 @@ require 'json'
 require "csv"
 
 class ProjectsController < ApplicationController
-
+  protect_from_forgery except: [:add_to_favorite, :remove_from_favorite]
   before_action :set_headers
+  before_action :authenticate_user!
+
 
   def index
     @projects = Project.all
@@ -72,23 +74,37 @@ class ProjectsController < ApplicationController
     @pay_max = (2**(0.size * 8 -2) -1) if @pay_max == -1
 
     if @main_skill_id == -1 # not specify category
-      @users = User.all
+      @projects = Project.all
       # 移除註冊不完全的使用者
-      @users.delete_if{ |e| e.hourly_pay.nil? }
+      #@projects.delete_if{ |e| e.hourly_pay.nil? }
       # search by keyword
-      @users = User.where("introduction LIKE :keyword", {:keyword => "%#{@keyword}%"}) unless @keyword.blank?
+      @projects = Project.where("introduction LIKE :keyword", {:keyword => "%#{@keyword}%"}) unless @keyword.blank?
     elsif @main_skill_id != -1 and @sub_skill_id == -1 # only specify main_category
-      @users = UserSkillCategory.where(main_skill_id: @main_skill_id).group("user_id").map{ |m| User.find(m.user_id) }
-      @users.delete_if{ |e| not e.introduction.downcase.include? @keyword } unless @keyword.blank?
+      @projects = UserSkillCategory.where(main_skill_id: @main_skill_id).group("user_id").map{ |m| Project.find(m.user_id) }
+      @projects.delete_if{ |e| not e.introduction.downcase.include? @keyword } unless @keyword.blank?
     else # specify main_category and sub_category
-      @users = UserSkillCategory.where(main_skill_id: @main_skill_id, sub_skill_id: @sub_skill_id).map{ |m| User.find(m.user_id) }
-      @users.delete_if{ |e| not e.introduction.downcase.include? @keyword } unless @keyword.blank?
+      @projects = UserSkillCategory.where(main_skill_id: @main_skill_id, sub_skill_id: @sub_skill_id).map{ |m| Project.find(m.user_id) }
+      @projects.delete_if{ |e| not e.introduction.downcase.include? @keyword } unless @keyword.blank?
     end
 
-    @users.delete_if{ |e| e.id == current_user.id or @pay_min > e.hourly_pay or e.hourly_pay > @pay_max }
+    #@users.delete_if{ |e| e.id == current_user.id or @pay_min > e.hourly_pay or e.hourly_pay > @pay_max }
 
-    @total_size = @users.size
-    @users = Kaminari.paginate_array(@users).page(params[:page]).per(5)
+    @total_size = @projects.size
+    @projects = Kaminari.paginate_array(@projects).page(params[:page]).per(5)
+  end
+
+  def add_to_favorite
+    current_user.user_favorite_projects.create!(favorite_project_id: params[:project_id]) unless current_user.user_favorite_projects.exists?(favorite_project_id: params[:project_id])
+    render json: current_user.user_favorite_projects
+  end
+
+  def remove_from_favorite
+    current_user.user_favorite_projects.where(favorite_project_id: params[:project_id]).delete_all
+    render json: current_user.user_favorite_projects
+  end
+
+  def detail
+    @project = User.find(params[:id])
   end
 
   def update_budget

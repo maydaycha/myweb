@@ -80,7 +80,13 @@ Sun::Application.routes.draw do
     get 'excel_download'
     get 'update_budget'
     get 'set_word_count'
-    get 'search'
+    post 'add_to_favorite'
+    delete 'remove_from_favorite'
+  end
+  scope :projects do
+    get 'search' => "projects#search", :as => :projects_search
+    get 'search_category' => "projects#search_category", :as => :project_search_category
+    get 'detail/:id' => "users#detail", :as => :projects_detail
   end
   resources :projects
 

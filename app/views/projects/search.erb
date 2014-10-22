@@ -191,21 +191,17 @@
                         <button  type="button" class="btn btn-info" style="margin-top:20px; text-align:right;"> 我要刊登工作</button>
                     </div>
                     <div class="page-number" style=" margin-top:30px;"> <!--PAGE NUMBER-->
-                        <%= paginate @users %>
+                        <%= paginate @projects %>
                     </div> <!--ENDPAGE NUMBER-->
 
                     <div class="col-md-8"> <!--dRight-->
                         <div> <!--Search Result Data-->
-                            <% @users.each_with_index do |user, index| %>
+                            <% @projects.each_with_index do |project, index| %>
                                 <div class=""> <!--會員資料-->
                                     <div class="media">
 
-                                        <a class="pull-left" href="<%= user.image %>">
-                                            <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => user.id), class: "media-object dp img-circle", style: "width: 100px;height:100px;", alt: "img" %>
-                                        </a>
-
                                         <div class="media-body">
-                                            <h4 class="media-heading"><%= link_to user.first_name+" "+user.last_name, users_detail_path(user) %>
+                                            <h4 class="media-heading"><%= link_to project.name, project_path(project) %>
                                                 <!-- TODO: Future -->
                                                 <!-- <span class=" fa fa-star"></span>
                                                 <span class=" fa fa-star"></span>
@@ -214,38 +210,31 @@
                                                 <span class=" fa fa-star-o"></span>
                                                 <strong>(3.95)</strong> -->
                                             </h4>
-                                            <h5><%= user.introduction %></h5>
                                             <div class="" >
-                                                <% if not current_user.user_favorites.exists?(favorite_user_id: user.id) %>
-                                                    <button id="add<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= user.id %>)"><i class="fa fa-heart"> 儲存</i></button>
-                                                    <button id="remove<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= user.id %>)" style="display:none;"><i class="fa fa-heart"> 移除</i></button>
+                                                <% if not current_user.user_favorite_projects.exists?(favorite_project_id: project.id) %>
+                                                    <button id="add<%= project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= project.id %>)"><i class="fa fa-heart"> 儲存</i></button>
+                                                    <button id="remove<%= project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= project.id %>)" style="display:none;"><i class="fa fa-heart"> 移除</i></button>
                                                 <% else %>
-                                                    <button id="add<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= user.id %>)" style="display:none;"><i class="fa fa-heart"> 儲存</i></button>
-                                                    <button id="remove<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= user.id %>)"><i class="fa fa-heart"> 移除</i></button>
+                                                    <button id="add<%= project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= project.id %>)" style="display:none;"><i class="fa fa-heart"> 儲存</i></button>
+                                                    <button id="remove<%= project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= project.id %>)"><i class="fa fa-heart"> 移除</i></button>
                                                 <% end %>
 
                                                 <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 雇用</i></button>
 
                                                 <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 聯絡</i></button>
                                             </div>
+                                            <p>固定價格 - <strong>預算:$<%= project.budget %></strong>  <%= project.created_at %></p>
                                             <hr style="margin:8px auto" class=" clear">
-                                            <p><%= user.review %></p>
-                                            <% user.user_skills.each do |skill| %>
-                                                <span class="label label-default"><%= skill.name %></span>
-                                            <% end %>
-                                            <div class="profolio-info" >
-                                                <ul>
-                                                    <li>每小時<%= user.hourly_pay %>美金</li>
-                                                    <li></li>
-                                                    <li><%= t("countries."+user.country_code) %></li>
-                                                </ul>
-                                                <ul>
-                                                    <li>上次登入 <%= user.last_sign_in_at %></li>
-                                                    <li>共<%= user.user_portfolios.count %>項作品</li>
-                                                    <!-- TODO: Future -->
-                                                    <!-- <li>通過5項測驗</li> -->
-                                                </ul>
-                                            </div>
+                                            <p><%= project.description %></p>
+
+                                                <span class="label label-default"><%= project.require_skills %></span>
+
+                                                <%= "1,2,3,4,5" %>
+                                                <%= "1,2,3,4,5".split(/,/) %>
+                                                <%= project.require_skills %>
+
+
+                                           
                                         </div>
                                     </div>
                                 </div> <!--END 會員資料-->
@@ -256,7 +245,7 @@
             </div>
 
             <div class="page-number"> <!--PAGE NUMBER-->
-                <%= paginate @users %>
+                <%= paginate @projects %>
             </div> <!--ENDPAGE NUMBER-->
         </div> <!--main-content-->
     </div>

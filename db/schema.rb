@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017082636) do
+ActiveRecord::Schema.define(version: 20141022055708) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20141017082636) do
     t.string   "last_name",                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_service",          default: false
+    t.boolean  "is_service"
     t.boolean  "is_translator",       default: false
   end
 
@@ -230,6 +230,13 @@ ActiveRecord::Schema.define(version: 20141017082636) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "description",  limit: 1000
+  end
+
+  create_table "user_favorate_projects", force: true do |t|
+    t.integer  "favorite_project_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_favorites", force: true do |t|

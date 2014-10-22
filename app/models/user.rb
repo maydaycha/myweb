@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   has_many :user_favorites, dependent: :destroy
   has_many :user_certifications, dependent: :destroy
   has_many :user_portfolios, dependent: :destroy
+  has_many :user_favorite_projects, dependent: :destroy
 
   accepts_nested_attributes_for :user_skill_categories
 
