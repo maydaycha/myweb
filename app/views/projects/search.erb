@@ -211,7 +211,7 @@
                                                 <strong>(3.95)</strong> -->
                                             </h4>
                                             <div class="" >
-                                                <% if not current_user.user_favorite_projects.exists?(favorite_project_id: project.id) %>
+                                                <% if not current_user.user_favorite_projects.exists?(project_id: project.id) %>
                                                     <button id="add<%= project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= project.id %>)"><i class="fa fa-heart"> 儲存</i></button>
                                                     <button id="remove<%= project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= project.id %>)" style="display:none;"><i class="fa fa-heart"> 移除</i></button>
                                                 <% else %>
@@ -234,7 +234,7 @@
                                                 <%= project.require_skills %>
 
 
-                                           
+
                                         </div>
                                     </div>
                                 </div> <!--END 會員資料-->
