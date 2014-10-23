@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022092811) do
+ActiveRecord::Schema.define(version: 20141023085725) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -128,8 +128,8 @@ ActiveRecord::Schema.define(version: 20141022092811) do
     t.integer  "english_level"
     t.boolean  "required_user_intro",                     default: false
     t.integer  "payment_type",                            default: 1
-    t.string   "main_skill"
-    t.string   "sub_skill"
+    t.integer  "main_skill"
+    t.integer  "sub_skill"
     t.string   "during_time"
   end
 

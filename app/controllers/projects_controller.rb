@@ -81,7 +81,7 @@ class ProjectsController < ApplicationController
       @projects = Project.where(main_skill: @main_skill_id)
       @projects.delete_if{ |e| not e.description.downcase.include? @keyword } unless @keyword.blank?
     else # specify main_category and sub_category
-      @projects = Project.where(main_skill: main_skill_id, sub_skill: sub_skill_id)
+      @projects = Project.where(main_skill: @main_skill_id, sub_skill: @sub_skill_id)
       @projects.delete_if{ |e| not e.description.downcase.include? @keyword } unless @keyword.blank?
     end
 

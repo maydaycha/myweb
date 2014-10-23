@@ -240,7 +240,7 @@
                   <div class="form-group">
                     <p>主類別</p>
                     <div class="top5">
-                      <select name="main" id="mainClass_select" class="form-control">
+                      <select name="project[main_skill]" id="mainClass_select" class="form-control">
                         <option value="-1">所有類別</option>
                         <% t(:main_skill_category).each_with_index do |main_one, index| %>
                         <% if index == @main_skill_id %>
@@ -257,7 +257,7 @@
                   <div class="form-group">
                     <p>子類別</p>
                     <div class="top5">
-                      <select name="sub" id="subClass_select2" class="form-control" >
+                      <select name="project[sub_skill]" id="subClass_select2" class="form-control" >
                         <option value="-1">所有類別</option>
                         <% t(:sub_skill_category)[@main_skill_id].each_with_index do |sub_one, index| %>
                         <% if index == @sub_skill_id %>
@@ -552,7 +552,7 @@
                   <option value="3">70小時</option>
                   <option value="4">100小時</option>
                   <option value="5">500小時</option>
-                  <option value="5">1500小時以上</option>
+                  <option value="6">1500小時以上</option>
                 </select>
               </div>
             </div>
@@ -1198,7 +1198,7 @@ src="/masterpage/footer.txt"></script>
 
           // select.attr("disabled", true)
           $.ajax({
-            url: "/users/profiles/get_sub_category",
+            //url: "/users/profiles/get_sub_category",
             type: "post",
             dataType: "json",
             data: JSON.stringify(request_obj),
