@@ -76,13 +76,13 @@ class ProjectsController < ApplicationController
       # 移除註冊不完全的使用者
       #@projects.delete_if{ |e| e.hourly_pay.nil? }
       # search by keyword
-      @projects = Project.where("introduction LIKE :keyword", {:keyword => "%#{@keyword}%"}) unless @keyword.blank?
+      @projects = Project.where("description LIKE :keyword", {:keyword => "%#{@keyword}%"}) unless @keyword.blank?
     elsif @main_skill_id != -1 and @sub_skill_id == -1 # only specify main_category
-      @projects = UserSkillCategory.where(main_skill_id: @main_skill_id).group("user_id").map{ |m| Project.find(m.user_id) }
-      @projects.delete_if{ |e| not e.introduction.downcase.include? @keyword } unless @keyword.blank?
+      @projects = Project.where(main_skill: @main_skill_id)
+      @projects.delete_if{ |e| not e.description.downcase.include? @keyword } unless @keyword.blank?
     else # specify main_category and sub_category
-      @projects = UserSkillCategory.where(main_skill_id: @main_skill_id, sub_skill_id: @sub_skill_id).map{ |m| Project.find(m.user_id) }
-      @projects.delete_if{ |e| not e.introduction.downcase.include? @keyword } unless @keyword.blank?
+      @projects = Project.where(main_skill: main_skill_id, sub_skill: sub_skill_id)
+      @projects.delete_if{ |e| not e.description.downcase.include? @keyword } unless @keyword.blank?
     end
 
     #@users.delete_if{ |e| e.id == current_user.id or @pay_min > e.hourly_pay or e.hourly_pay > @pay_max }
@@ -102,7 +102,7 @@ class ProjectsController < ApplicationController
   end
 
   def detail
-    @project = User.find(params[:id])
+    @project = Project.find(params[:id])
   end
 
   def update_budget

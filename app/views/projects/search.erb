@@ -95,7 +95,7 @@
             <div class=" container-fluid">
                 <div class="row">
                     <div class="col-md-3 hidden-xs"> <!--dLeft Advanced Search-->
-                        <%= form_tag(users_search_path, method: "get", id: "search-form") do %>
+                        <%= form_tag(projects_search_path, method: "get", id: "search-form") do %>
                         <div class="input-group" style="margin-top:20px;">
                             <input type="text" class="form-control" placeholder="搜尋您需要的人才" name="keyword" value="<%= @keyword %>">
                             <span class="input-group-btn">
@@ -227,13 +227,15 @@
                                             <hr style="margin:8px auto" class=" clear">
                                             <p><%= project.description %></p>
 
-                                                <span class="label label-default"><%= project.require_skills %></span>
-
-                                                <%= "1,2,3,4,5" %>
-                                                <%= "1,2,3,4,5".split(/,/) %>
-                                                <%= project.require_skills %>
-
-
+                                            <% if project.require_skills != nil %>
+                                                <% if project.require_skills.split(/,/).size >= 2 %>
+                                                    <% project.require_skills.split(/,/).each do |skill| %>
+                                                    <span class="label label-default"><%= skill %></span>
+                                                    <% end %>
+                                                <% else %>
+                                                    <span class="label label-default"><%= project.require_skills %></span>
+                                                <% end %>
+                                            <% end %>
 
                                         </div>
                                     </div>
@@ -317,7 +319,7 @@
     var add_to_favorite = function(ele_id, id) {
         var request_obj = { user_id: id };
         $.ajax({
-            url: "/users/add_to_favorite",
+            url: "/projects/add_to_favorite",
             type: "post",
             dataType: "json",
             data: JSON.stringify(request_obj),
@@ -333,7 +335,7 @@
     var remove_from_favorite = function(ele_id, id) {
         var request_obj = { user_id: id };
         $.ajax({
-            url: "/users/remove_from_favorite",
+            url: "/projects/remove_from_favorite",
             type: "delete",
             dataType: "json",
             data: JSON.stringify(request_obj),
