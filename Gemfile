@@ -96,7 +96,10 @@ gem 'kaminari'
 gem 'easy_captcha'
 # gem 'rmagick'
 
+gem 'formtastic_i18n', '~> 0.1.1'
+
 # admin
-gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin', github: 'activeadmin'
+# github: 'activeadmin'
 # gem "meta_search",    '>= 1.1.0.pre'
 
