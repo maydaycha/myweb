@@ -44,7 +44,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    # return render json: params).read
     @project = Project.new(params.permit![:project])
     respond_to do |format|
       if @project.save
