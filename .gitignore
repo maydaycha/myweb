@@ -13,7 +13,7 @@ rerun.txt
 pickle-email-*.html
 #config/initializers/secret_token.rb
 config/secrets.yml
-Gemfile.lock
+#Gemfile.lock
 
 ## Environment normalisation:
 /.bundle
