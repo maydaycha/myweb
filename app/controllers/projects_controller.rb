@@ -44,7 +44,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(params.permit![:project])
+    params[:project][:end_date] = Date.strptime(params[:project][:end_date],"%m/%d/%Y") if not params[:project][:end_date].nil?
+    @project = Project.new(params[:project].permit!)
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Successfully created.' }

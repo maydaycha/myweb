@@ -658,7 +658,7 @@
                         <% end %>
                       </div>
                     </div>
-                    
+
                   </div>
 
 
@@ -1130,8 +1130,8 @@ src="/masterpage/footer.txt"></script>
             <script src="/plugins/bootstrap-datetimepicker-master/build/js/moment.js"></script>
             <script src="/plugins/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.js"></script>
             <script src="/plugins/dropzone/dropzone.js"></script>
-            <!-- END 頁面插件 --> 
-            <script type="text/javascript" src="/js/script.js"></script> 
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="/js/script.js"></script>
             <script src="/plugins/dropzone/dropzone.js"></script>
 
             <!-- END 頁面插件 -->
@@ -1228,15 +1228,15 @@ src="/masterpage/footer.txt"></script>
             if(counter>10){
               alert("Only 10 textboxes allow");
               return false;
-            }   
+            }
 
             var newTextBoxDiv = $(document.createElement('div'))
             .attr("id", 'TextBoxDiv' + counter);
 
             newTextBoxDiv.after().html('' +
-              '<input class="form-control" type="text" name="question[' + counter + 
-              ']" id="project_project_questions_description_' + counter + 
-              '" value="" ><label for="question[' + counter + 
+              '<input class="form-control" type="text" name="question[' + counter +
+              ']" id="project_project_questions_description_' + counter +
+              '" value="" ><label for="question[' + counter +
               ']">輸入您對於申請者的其他提問。</label>');
 
             newTextBoxDiv.appendTo("#TextBoxesGroup");
@@ -1249,7 +1249,7 @@ src="/masterpage/footer.txt"></script>
             if(counter==2){
               alert("您至少需輸入一個問題！");
               return false;
-            }   
+            }
 
             counter--;
 
@@ -1295,7 +1295,7 @@ src="/masterpage/footer.txt"></script>
    }
    else{
      $('#is_emergency_pop').html( "<strong>急件:</strong> 不！我不需要急件處理" );
-   }  
+   }
 
    if (document.getElementById('radio1').checked) {
     $('#payment_type_pop').html( "<strong>類型:</strong> 時薪制" );
@@ -1472,7 +1472,7 @@ src="/masterpage/footer.txt"></script>
  }
  else{
    $('#cbox').html( "No" );
- }  
+ }
 });
 
 $('#submit').click(function(){
