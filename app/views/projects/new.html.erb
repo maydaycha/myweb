@@ -647,10 +647,10 @@
                     <div id='TextBoxesGroup'>
 
                       <div id="TextBoxDiv1" class="form-group lable-group">
-
+  
                         <%= f.fields_for :project_questions do |g| %>
                         <!--  -->
-                        <%= g.text_field :description, :class => "form-control", :name => "question[1]", :id => "project_questions_description_1" %>
+                        <%= g.text_field :description, :class => "form-control", :name => "questions[]", :id => "project_questions_description_1" %>
                         <!-- <input name="question1" type="text" class="form-control" required> -->
                         <label for="question[1]">輸入您對於申請者的其他提問。例如：您認為這個案件的最大挑戰是什麼?</label>
 
@@ -1234,8 +1234,7 @@ src="/masterpage/footer.txt"></script>
             .attr("id", 'TextBoxDiv' + counter);
 
             newTextBoxDiv.after().html('' +
-              '<input class="form-control" type="text" name="question[' + counter +
-              ']" id="project_project_questions_description_' + counter +
+              '<input class="form-control" type="text" name="questions[]" id="project_project_questions_description_' + counter +
               '" value="" ><label for="question[' + counter +
               ']">輸入您對於申請者的其他提問。</label>');
 

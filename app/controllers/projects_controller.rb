@@ -42,14 +42,16 @@ class ProjectsController < ApplicationController
     @main_skill_id = params[:main].nil? ? -1 : params[:main].to_i
     @sub_skill_id = params[:sub].nil? ? -1 : params[:sub].to_i
     @project = Project.new
-    @project_questions = project_questions.build
   end
 
   def create
-    params[:project][:end_date] = Date.strptime(params[:project][:end_date],"%m/%d/%Y") if not params[:project][:end_date].nil?
+    # return render json: params
+    params[:project][:end_date] = Date.strptime(params[:project][:end_date],"%m/%d/%Y") if not params[:project][:end_date].nil? and not params[:project][:end_date].empty?
     @project = Project.new(params[:project].permit!)
+    @project_question = ProjectQuestion.new(project: @project)
     respond_to do |format|
       if @project.save
+        params[:questions].each { |q| ProjectQuestion.create!(description: q, project: @project) } if not params[:questions].nil?
         format.html { redirect_to @project, notice: 'Successfully created.' }
         format.json { render action: 'show', status: :created, location: @project }
       else
