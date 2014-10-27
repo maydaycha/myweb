@@ -9,10 +9,9 @@
 
   <!-- BEGIN STYLE -->
   <!-- BEGIN 核心樣式 -->
-  <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/plugins/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.min.css">
-<!--[if gte IE 9]>
+  <link rel="stylesheet" href="../../../plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
         <style type="text/css">
         .gradient {
         filter: none;
@@ -24,694 +23,354 @@
         <!-- END 頁面插件樣式 -->
         <!-- BEGIN 主題樣式 -->
         <!-- END 主題樣式 -->
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
-        <link rel="stylesheet" type="text/css" href="/css/expanding_list.css">
-        <link rel="stylesheet" type="text/css" href="/css/alert.css">
-        <link rel="stylesheet" type="text/css" href="/css/loginmain.css">
-        <link rel="stylesheet" type="text/css" href="/css/pstyle.css"> 
+        <link rel="stylesheet" type="text/css" href="../../../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/alert.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/page/freelancer_description.css"> 
         <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
-        <link rel="shortcut icon" href="/favicon.ico"/>
+        <link rel="shortcut icon" href="../../../favicon.ico"/>
+        <!-- END STYLE -->
     </head>
-    <!-- END STYLE -->
-</head>
-<body>
-  <!-- BEGIN NAVBAR -->
-  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="clearfix">  
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </button>
-         <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
-            <i class="fa fa-search"></i>
-        </button> -->
-        <a class="navbar-brand" href="/index.html"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
+    <body>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+              <i class="fa fa-search"></i>
+          </button>
+          <a class="navbar-brand" href="../../../index.html"><img class="navbar-logo" src="../../../img/logo208.png" alt="快樂工作"></a>
+      </div>
+      <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+        <div class="navbar-search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+          </span>
+      </div>
+  </div>
+</div>
+<div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+    <ul class="nav navbar-nav">
+      <li><a href="../../../login.html">會員登入</a></li>
+      <li><a href="../../../sign_up.html">免費註冊</a></li>
+  </ul>
+</div>
+</div>
+<!-- END NAVBAR -->
+<!-- BEGIN PAGE -->
+<div class="page-content">
+  <!-- BEGIN MAIN CONTENT -->
+  <div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="nav nav-pills nav-justified">
+          <li><a href="#"> <i class="fa fa-pencil-square-o"></i> 編輯工作</a></li>
+          <li><a href="#"> <i class="fa fa fa-ban"></i> 結束案件</a></li>
+          <li><a href="#"> <i class="fa fa-refresh"></i> 重新刊登</a></li>
+          <li><a href="#"> <i class="fa fa-lock"></i> 設定成隱藏案件</a></li>
+          <li><a href="#"> <i class="fa fa-search"></i> 檢視已雇用者</a></li>
+          <li><a href="#"> <i class="fa fa-search"></i> 檢視投標者</a></li>
+      </ul>
+  </div>
+</div>
+<hr>
+<div class="row"><!-- BEGIN ROW -->
+  <div class="col-md-8">
+    <div class=""> <!--會員資料-->
+      <div class="media-job">
+
+        <div class="media-body">
+           <div class="media-heading"><h3 style="display: inline;"><%= @project.name %></h3></div>
+           <p  class=" media-heading hidden-md hidden-sm hidden-lg" style="display: inline;"><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star-o"></span><strong>(4.95)</strong></p>
+
+           <div style="margin:15px 0 10px 0;"  >
+             <% if not current_user.user_favorite_projects.exists?(project_id: @project.id) %>
+             <button id="add<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= @project.id %>)"><i class="fa fa-heart"> 儲存</i></button>
+             <button id="remove<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= @project.id %>)" style="display:none;"><i class="fa fa-heart"> 移除</i></button>
+             <% else %>
+             <button id="add<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= @project.id %>)" style="display:none;"><i class="fa fa-heart"> 儲存</i></button>
+             <button id="remove<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= @project.id %>)"><i class="fa fa-heart"> 移除</i></button>
+             <% end %>
+
+             <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 申請</i></button>
+
+             <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 題問</i></button>
+         </div>
+         <ul class="skill_ul">
+             <li>類別: <a href="#"><%= t(:sub_skill_category)[@project.main_skill][@project.sub_skill]["name"] %></a></li>
+             <li>刊登日期: <span><%= @project.created_at.strftime("%dth %b %Y") %></span></li>
+             <li>案件類型: <span><% if @project.payment_type == 1 %><%= "時薪制" %><% elsif @project.payment_type == 2 %><%= "固定薪資" %><% end %></span></li>
+             <li>雇主預算: <span>$ <%= @project.budget %></span></li>
+         </ul>
+         <hr style="margin:8px auto" class=" clear">
+         <h5>技能需求:</h5>
+         <div class="hidden-xs">
+          <% if @project.require_skills != nil %>
+          <% if @project.require_skills.split(/,/).size >= 2 %>
+          <% @project.require_skills.split(/,/).each do |skill| %>
+          <span class="label label-default"><%= skill %></span>
+          <% end %>
+          <% else %>
+          <span class="label label-default"><%= @project.require_skills %></span>
+          <% end %>
+          <% end %>
+          <!-- <a href="#">More..(15)</a> -->
+      </div>
+  </div>
+  <div class="hidden-md hidden-sm hidden-lg">
+    <% if @project.require_skills != nil %>
+    <% if @project.require_skills.split(/,/).size >= 2 %>
+    <% @project.require_skills.split(/,/).each do |skill| %>
+    <span class="label label-default"><%= skill %></span>
+    <% end %>
+    <% else %>
+    <span class="label label-default"><%= @project.require_skills %></span>
+    <% end %>
+    <% end %>
+    <!-- <a href="#">More..(15)</a> -->
+</div>
+</div> 
+</div> <!--END 會員資料-->
+<!-- BEGIN TABS -->
+<ul class="nav nav-tabs nav-justified profolio-tab" >
+    <li class="active"><a style="padding:0px; margin-right:10px;" href="#contact" data-toggle="tab"><h4>工作描述</h4></a></li>
+    <li><a style="padding:0px; margin-right:10px;"  href="#freelancers" data-toggle="tab"><h4>投標者</h4></a></li>
+    <li><a style="padding:0px margin-right:10px;;"  href="#mark" data-toggle="tab"><h4>雇主評價</h4></a></li>
+
+</ul>
+<!-- END TABS -->
+
+<!-- BEGIN TAB CONTENT -->
+<div class="tab-content profolio-tab-content" style="background-color:#FFF;" >
+    <div class="tab-pane active" id="contact">
+       <div class="portlet box light-grey">
+         <div class="portlet-title">
+            <div style=" font-size:1.3em;">
+              工作標題
+          </div>
+      </div>
+      <div class="portlet-body">
+         <p><%= @project.description %></p>
+     </div>
+ </div> 
+ <div class="portlet box light-grey">
+   <div class="portlet-title">
+      <div style=" font-size:1.3em;">
+        問題
     </div>
-       <!--  <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
-          <div class="navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="搜尋您需要的人才">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-              </span>
+</div>
+<div class="portlet-body">
+    <% @project_questions.each do |q|  %>
+    <p><%= q.description%></p>
+    <% end %>
+</div>
+</div> 
+</div>
+<div class="tab-pane" id="freelancers">
+   <div style="margin:10px 5px; border:lightgrey 1px solid;">
+     <table class="table table-striped">
+       <thead>
+         <tr>
+           <th>名字</th>
+           <th>時間</th>
+           <th>身分</th>
+       </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td><a>Deepak Gupta</a></td>
+       <td>14小時之前</td>
+       <td>自由工作者</td>
+   </tr>
+   <tr>
+       <td><a>Rahul Natu</a></td>
+       <td>16小時之前</td>
+       <td>自由工作者</td>
+   </tr>
+   <tr>
+       <td><a>Bunnu Browne</a></td>
+       <td>20小時之前</td>
+       <td>自由工作者</td>
+   </tr>
+   <tr>
+       <td><a>Jatin Kaushik</a></td>
+       <td>20小時之前</td>
+       <td>自由工作者</td>
+   </tr>
+</tbody>
+</table>
+</div>
+<div style="margin:10px 5px; border:lightgrey 1px solid;">
+ <table class="table">
+   <tbody>
+     <tr>
+       <td>總共人數: 4</td>
+   </tr>
+   <tr>
+       <td>面試過的人數: 2</td>
+   </tr>
+</table>
+</div>
+</div>
+<div class="tab-pane" id="mark">
+  <div class="portlet box light-grey">
+    <div class="portlet-title">
+      <div style=" font-size:1.3em;">
+        雇用歷史&amp;評價
+    </div>
+</div>
+<div class="portlet-body work-history"> <!--HIRE HISTORY01-->
+   <div class="row">
+     <div class="col-md-4 col-sm-4" style="left:-37px;">
+       <ul>
+         <li><strong>網頁設計</strong></li>
+         <li>OCT2013-OCT2013</li>
+         <li>共工作15hr</li>
+         <li>$10.00/hr</li>
+     </ul>
+ </div>
+ <div class="col-md-5 col-sm-5">
+   <p>我很開心這次的合作，希望未來還有合作機會</p>
+</div>
+<div class="col-md-3 rating-align col-sm-3 ">
+   <h2 class="rating-box"><strong>4.95</strong></h2>
+   <p><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star-o fa-star-color"></span></p>
+</div>
+</div>
+</div><!--END HIRE HISTORY01-->
+<div class="portlet-body work-history"> <!--HIRE HISTORY02-->
+   <div class="row">
+     <div class="col-md-4 col-sm-4" style="left:-37px;">
+       <ul>
+         <li><strong>程式設計</strong></li>
+         <li>OCT2013-OCT2013</li>
+         <li>共工作20hr</li>
+         <li>$15.00/hr</li>
+     </ul>
+ </div>
+ <div class="col-md-5 col-sm-5">
+   <p>我很開心這次的合作，希望未來還有合作機會</p>
+</div>
+<div class="col-md-3 rating-align col-sm-3 ">
+   <h2 class="rating-box"><strong>5.00</strong></h2>
+   <p><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span></p>
+</div>
+</div>
+</div><!--END HIRE HISTORY02-->
+</div>
+</div><!--END CV-->
+</div>  
+<!-- BEGIN END CONTENT -->
+</div><!-- END COL-MD-8 -->
+<div class="col-md-4 ">
+   <div class="common-box">
+      <div style="margin-top:30px;"></div>
+          <!-- <div class="row" style=" padding-top: 10px; margin-left: 9px;" >
+           <div class="panel panel-default">
+             <div class="panel-heading">關於雇主</div>
+             <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-12"><h3><strong>David Suasan</strong></h3> 
+                </div>
+              </div>
+              <div class="row color-green" style="padding-top:5px;">
+                <div class="col-sm-12"><i class="fa fa-map-marker fa-lg" ></i> 地區:台灣&nbsp;&nbsp;<i class="fa fa-globe"></i> UTC+8</div>
+              </div>
+              <div class="row" style="padding-top:5px;"><div class="col-sm-12"><span class="color-blue"><i class="fa fa-check"></i> 已通過付款認證</span></div></div>
             </div>
           </div>
       </div> -->
-      <div class="navbar-collapse navbar-collapse-nav collapse navbar-left">
-          <ul class="nav navbar-nav nav-yellow">
-            <li class="myactive"><a href="hire.html" >招募遠距工作者</a></li>
-            <li><a href="team.html">團隊管理</a></li>
-            <li><a href="report.html">報表</a></li>
-            <li><a href="sms_in.html">訊息</a></li>
-        </ul>
-    </div>
-    <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
-      <ul class="nav navbar-nav">
-        <li class="dropdown"> 
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle image-responsive" src="/img/class/class_3.jpg" style="width: 30px;height:30px;" alt="img"> &nbsp;Chris,Chou <b class="caret"></b></a>
-          <ul class="dropdown-menu user-dropdown">
-            <li class="color-blue"><span>Hi,<a href="#">Chris,Chou</a></span></li>
-            <li class="divider"></li>
-            <li><a href="#">切換到(User ID)</a></li>
-            <li><a href="#">個人設定</a></li>
-            <li><a href="#">會員登出</a></li>
-        </ul>
-    </li>
-    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-lg fa-bell"></i></span>&nbsp;<span class="badge">2</span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">(通知訊息內容)<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
-        <li class="divider"></li>
-        <li><a href="#">(通知訊息內容)<span><button type="button" class="close" aria-hidden="true">&times;</button></span></a></li>
-    </ul>
-</li>
-<li><a href="#"><span><i class="fa fa-lg fa-refresh"></i></span></a></li>
-</ul>
+      <div class="row icon-layout" >
+       <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-user fa-lg" ></i></div>
+       <div class="col-md-9 col-sm-9 col-xs-9 icon-text-job">
+         <p>David Suasan</p>
+         <p class="color-green" style=" font-size: 0.7em;"><i class="fa fa-map-marker fa-lg" ></i> 地區:台灣&nbsp;&nbsp;<i class="fa fa-globe"></i> UTC+8</p>
+         <p class="color-blue" style=" font-size: 0.7em;"><i class="fa fa-check"></i> 已通過付款認證</p>
+     </div>
+ </div>
+ <hr>
+ <div class="row icon-layout" >
+   <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-bar-chart-o fa-lg" ></i></div>
+   <div class="col-md-9 col-sm-9 col-xs-9 icon-text-job">
+     <p>總花費1,527美金</p>
+     <span>雇用次數</span>
+ </div>
 </div>
+<hr>
+<div class="row icon-layout" >
+   <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-folder-open fa-lg" ></i></div>
+   <div class="col-md-9 col-sm-9 col-xs-9 icon-text-job">
+     <p>3個案件進行中</p>
+     <span>1個開放申請</span>
+ </div>
 </div>
-<div class="nav-border-yellow"></div>
+<hr>
+<div class="row icon-layout" >
+   <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-map-marker fa-lg" ></i></div>
+   <div class="col-md-9 col-sm-9 col-xs-9 icon-text-job">
+     <p>美國</p>
+     <span>內華達 10:25 PM</span>
+ </div>
 </div>
+<hr>
 
-<!-- END NAVBAR --> 
-<!-- BEGIN PAGE -->
-<div class="page-content page-yellow bottom50">
-  <div class="container" style="margin-top: 50px;">
-    <div class="modal-body modal-body-yellow">
-        <h3 class="Corange">案件類別</h3>
-        <p><strong>主類別:</strong> <%= t(:main_skill_category)[@project.main_skill]['name'] %></p>
-        <p><strong>子類別:</strong> <%= t(:sub_skill_category)[@project.main_skill][@project.sub_skill]['name'] %></p>
-        <hr>
-        <h3 class="Corange">案件描述</h3>
-        <p><strong>案件名稱:</strong> <%= @project.name %></p>
-        <p><strong>工作內容:</strong> <%= @project.description %></p>
-        <p><strong>案件技能:</strong> <%= @project.require_skills %> </p>
-        <hr>
-        <h3 class="Corange">案件類型</h3>
-        <p><strong>類型:</strong>時薪制</p>
-        <p><strong>遠距工作者經驗程度:</strong><%= @project.required_user_level %></p>
-        <p><strong>案件預計工期:</strong> <%= @project.end_date %></p>
-        <p><strong>全職/兼職:</strong> <%= @project.work_type %></p>
-        <p><strong>案件能見度:</strong> <%= @project.visibility %></p>
-        <p><strong>上傳檔案:</strong> 123.jpg</p>
-        <hr>
-        <h3 class="Corange">申請者條件</h3>
-        <p><strong>獲得的滿意度最低:</strong> <%= @project.satisfication %></p>
-        <p><strong>已工作時數最低:</strong> <%= @project.worked_hours %></p>
-        <p><strong>所在地區:</strong> <%= @project.worker_location %></p>
-        <p><strong>英文程度:</strong> <%= @project.english_level %></p>
-        <hr>
-        <h3 class="Corange">需要申請者填寫自我介紹</h3>
-        <p><strong>填寫自我介紹:</strong> <i class="fa fa-check"></i> <%= @project.required_user_intro %></p>
-        <hr>
-        <h3 class="Corange">問題</h3>
-        <p><strong>問題1:</strong> 您認為這個案件的最大挑戰是什麼?</p>
-        <p><strong>問題2:</strong> 您是否通過除了本網站提供之外的認證測驗?</p>
+      <!--  <div class="input-group" style="margin-top:40px;">
+        <input type="text" class="form-control" placeholder="搜尋類似的工作">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+        </span>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">送出</button>
-      </div>
-</div>
+      <div class="" style="margin-top:60px;" >
+        <button type="button" class="btn btn-danger btn-lg btn-block"><i class="fa fa-heart"> 儲存</i></button>
+        <div style="margin-top:15px;"></div>
+        <button type="button" class="btn btn-warning btn-lg btn-block"><i class="fa fa-check"> 申請</i></button>
+        <div style="margin-top:15px;"></div>
+        <button type="button" class="btn btn-primary btn-lg btn-block"><i class="fa fa-comment"> 提問</i></button>
+    </div> -->
 
 </div>
-<!-- END PAGE --> 
+</div>
+</div><!-- END ROW -->
+</div>
+<!-- END MAIN CONTENT -->
+</div>
+<!-- END PAGE -->
 <!-- BEGIN FOOTER -->
 <script language="javascript" type="text/javascript" 
-src="/masterpage/footer.txt"></script>
-<!-- END FOOTER --> 
+src="../../../masterpage/footer.txt"></script>
+<!-- END FOOTER -->
 
-<!-- BEGIN JAVASCRIPTS --> 
-<!-- BEGIN 核心插件 --> 
-<!--[if lt IE 9]>
+<!-- BEGIN JAVASCRIPTS -->
+<!-- BEGIN 核心插件 -->
+        <!--[if lt IE 9]>
             <script src="plugins/html5shiv.min.js"></script>
             <script src="plugins/respond.min.js"></script>
-            <![endif]--> 
+            <![endif]-->
 
-            <script src="/plugins/jquery-1.11.0.min.js"></script> 
-            <script src="/plugins/bootstrap/js/bootstrap.min.js"></script> 
-            <script src="/plugins/jquery-placeholder/jquery.placeholder.js"></script>
-
-            <!-- END 核心插件 --> 
+            <script src="../../../plugins/jquery-1.11.0.min.js"></script>
+            <script src="../../../plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="../../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
+            <!-- END 核心插件 -->
             <!-- BEGIN 頁面插件 -->
-            <script src="/plugins/bootstrap-datetimepicker-master/build/js/moment.js"></script>
-            <script src="/plugins/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.js"></script>
-            <!-- END 頁面插件 --> 
-            <script type="text/javascript" src="/js/script.js"></script> 
-            <script type="text/javascript" src="/js/loginmain.js"></script>
-            <script type="text/javascript" src="/js/element.js"></script> 
-            <script type="text/javascript" src="/js/expanding_list.js"></script>
-            <!--<script type="text/javascript" src="js/page/index.js"></script>--> 
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="../../../js/script.js"></script>
+            <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
             jQuery(document).ready(function() {    
              Web.init();
                //Index.init();
            });
-            </script> 
-            <script type="text/javascript" src="/js/bootstrap-tabcollapse-yellow.js"></script> 
-            <script type="text/javascript">
-            $('#myTab').tabCollapse();
-            $('#testTabs').tabCollapse();
-            $('#testTabs01').tabCollapse();
-            </script> 
-
-            <script type="text/javascript">
-            $(document).ready(function() {
-              $("input[name$='feetype']").click(function() {
-                var test = $(this).val();
-
-                $("div.desc").hide();
-                $("#feetype" + test).show();
-            });
-          });
             </script>
-            <script type="text/javascript">
-            $(function(){
-              $('#datetimepicker1').datetimepicker({
-                pickTime: false,
-                icons: {
-                  date: "fa fa-calendar",
-              }
-          });
-          });
-            </script>
-            <script>
-    // Dropzone.autoDiscover = false;
-
-
-    var warn_on_unload = $('#warning_on_load').html();
-    var expand_count = 0
-
-    jQuery(document).ready(function() {
-       Web.init();
-       PersonalProfile.init();
-
-
-       // clean all form data while user click next page to arrive here
-       $("form")[0].reset();
-
-       for(var i = 1; i < 8; i++) {
-        $(".control_sub_calss"+i).hide();
-    }
-
-    window.onbeforeunload = function(e) {
-        if( expand_count > 0 && warn_on_unload != '') return warn_on_unload
-    }
-
-history.pushState("trick", null, null)
-
-window.onpopstate = function(e) {
-    history.back()
-}
-
-$(".main_class").change(main_class_change);
-
-$("#work_main_class").change( function() {
-    if ($(this).val() < 0) {
-        $("#work_subClass_select2 option").remove();
-        $("#work_subClass_select2").append($("<option></option>").attr("value", -1).text($('#sub_category').val()));
-        return;
-    }
-
-    var request_obj = {
-        main_category_id: $(this).val()
-    };
-
-    $('#work_subClass_select2').attr('disabled', true);
-
-    $.ajax({
-        url: "/users/profiles/get_sub_category",
-        type: "post",
-        dataType: "json",
-        data: JSON.stringify(request_obj),
-        contentType: 'application/json',
-        success: function(data) {
-            $("#work_subClass_select2 option").remove();
-            var select = $("#work_subClass_select2");
-            for(var key in data) {
-                select.append($("<option></option>").attr("value", key).text(data[key].name));
-            }
-            $('#work_subClass_select2').attr('disabled', false);
-        }
-    });
-});
-
-Dropzone.autoDiscover = true;
-Dropzone.options.addWorksfile = {
-    init: function () {
-        addWorksfile = this;
-        myDropzone = this;
-        $(".removeAllImages").click(function () {
-            addWorksfile.removeAllFiles()
-        });
-        this.on("sendingmultiple", function(file, xhr, formData) {
-            $("#loader").show()
-            if( typeof $("#works-modal input[name=thumbnail]")[0].files[0] != 'undefined' ) {
-                formData.append('document_name', $("#works-modal input[name=thumbnail]")[0].files[0].name)
-                formData.append('document_content', $("#works-modal input[name=thumbnail]")[0].files[0])
-            }
-            formData.append('name', $("#works-modal input[name=title]").val())
-            formData.append('description', $("#works-modal textarea[name=description]").val())
-            formData.append('main_skill_id', $("#work_main_class").val())
-            formData.append('sub_skill_id', $("#work_subClass_select2").val())
-            formData.append('date', $("#works-modal input[name=start]").val())
-            formData.append('skill', $("#works-modal input[name=skill]").val())
-            formData.append('request', "add_portfolio");
-            warn_on_unload = ''
-        });
-
-        this.on("processing", function() {
-                // location.reload()
-            })
-
-        this.on("successmultiple", function(file, foo) {
-            location.reload()
-        })
-    },
-    paramName: "file",
-    maxFilesize: 0.5,
-    maxFiles: 1,
-    autoProcessQueue: false,
-    addRemoveLinks: true,
-    uploadMultiple: true,
-    acceptedFiles: "image/jpeg, image/png"
-};
-
-
-});
-
-</script>
-
-<script>
-
-$(function(){
-    $(".prevent").click(function(event){
-        event.preventDefault()
-    })
-
-    $("#search_skill tr").hover( function() {
-        $(this).css('color','#ffffff')
-    }, function() {
-      $(this).css('color','#000000')
-  })
-
-    $("#search_skill tr").click( function() {
-        $("#search").val($(this).children("td").text())
-    })
-})
-
-function constrain_Eng_and_num(e) {
-    var keynum, keychar, check
-         // IE
-         if(window.event) {
-            keynum = e.keyCode
-        } else if(e.which) {  // Netscape/Firefox/Opera
-            keynum = e.which
-        }
-        if( keynum == 8 || keynum == 9 || keynum == 13 || keynum == 189 || keynum == 229) return true
-            keychar = String.fromCharCode(keynum)
-        check = /\w/
-        check_digital = /[0-9]/
-        return check.test(keychar) && !check_digital.test(keychar)
-    }
-
-
-    var readURL = function(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader()
-            reader.onload = function (e) {
-                var img = $("#"+input.id).prev()
-                $("#"+img[0].id).attr('src', e.target.result)
-            }
-            reader.readAsDataURL(input.files[0])
-        }
-    }
-
-    function upload_img(form_num) {
-        var profile_img = document.getElementById("profile_img"+ form_num)
-        var file = profile_img.files[0]
-        var fd = new FormData()
-        fd.append('profile_img', file)
-
-        var xhr = new XMLHttpRequest()
-        xhr.open('post', '/users/profiles/ajax_upload_img', true)
-
-        xhr.setRequestHeader("X-File-Name", file.name)
-        xhr.setRequestHeader("X-File-Size", file.size)
-        xhr.setRequestHeader("X-File-Type", file.type)
-        xhr.onload = function() {
-            if (this.status == 200) {
-                $("#loader").hide()
-            }
-        }
-        xhr.send(fd)
-    }
-
-
-
-    var update_basic_info = function(form_num) {
-        if( $(".has-error").length > 0 ) {
-            $("body").animate({scrollTop: "300px"})
-            return
-        }
-        var double_check = 2
-        if( $("#contact-form" + form_num + " input[name='first_name']").val() == '' ) {
-            $("#contact-form" + form_num + " input[name='first_name']").focus()
-            $("#contact-form" + form_num + " input[name='first_name']").css("border-color", "red")
-        } else {
-            double_check--
-        }
-        if( $("#contact-form" + form_num + " input[name='last_name']").val() == '' ) {
-            $("#contact-form" + form_num + " input[name='last_name']").focus()
-            $("#contact-form" + form_num + " input[name='last_name']").css("border-color", "red")
-        } else {
-            double_check--
-        }
-        if(double_check == 0) {
-            var portlet = $("#profile-portlet1")
-            portlet.removeClass('show-edit')
-            portlet.addClass('show-view')
-        } else {
-            $("body").animate({scrollTop: "300px"})
-            return
-        }
-
-        var obj = {
-            request: "update_basic_info",
-            brief_introduction: $("#contact-form" + form_num + " input[name='brief_introduction']").val(),
-            introduction: $("#contact-form" + form_num + " textarea[name='introduction']").val(),
-            first_name: $("#contact-form" + form_num + " input[name='first_name']").val(),
-            last_name: $("#contact-form" + form_num + " input[name='last_name']").val(),
-            money: $("#contact-form" + form_num + " input[name='money']").val()
-        }
-        $("#loader").show()
-        $.ajax({
-            url: "/users/profiles/ajax_updae",
-            type: "post",
-            dataType: "json",
-            data: obj,
-            success: function(data) {
-                $("#brief_introduction").text(data.brief_introduction)
-                $("#introduction").text(data.introduction)
-                $("#first_name").text(data.first_name)
-                $("#last_name").text(data.last_name)
-                $("#money2").text('$' + data.hourly_pay + ' USD/HR')
-                if( typeof document.getElementById("profile_img"+ form_num).files[0] != 'undefined' ) upload_img(form_num)
-                    else $("#loader").hide()
-                        expand_count--
-                }
-            });
-    }
-
-    var addCategoryList = function(){
-        if ($('.category_delete_container').size() > 3)
-            return 0;
-
-        var span = $('<span class="category_delete_container"><span>');
-        var div1 = $('<div class="form-group"><label class="col-md-2 control-label">'+$('#main_category').val()+'</label><div>');
-        var div1_div1 = $('<div class="col-md-9"></div>')
-        var p = $('<p class="form-control-static view main_category"><%= t(:main_skill_category)[0]["name"] %></p>')
-        var div_main = $('<div class="edit" class="input-group"></div>');
-        var main_select = $('<select name="mainClass" class="form-control main_class"><select>');
-        <% t(:main_skill_category).each_with_index do |e, index| %>
-        main_select.append('<option value="<%= index %>"><%= e['name'] %></option>');
-        <% end %>
-        div_main.append(main_select);
-        div1_div1.append(p);
-        div1_div1.append(div_main);
-        var div1_div2 = $('<div class="col-md-1"><div class="edit"><button type="button" class="btn btn-danger btn-xs btn-delete"onclick="$(this).parent().parent().parent().parent().remove();">'+$('.btn-delete:first').html()+'</button></div></div>');
-        div1.append(div1_div1);
-        div1.append(div1_div2);
-
-        var div2 = $('<div class="form-group"><div>');
-        var div2_label = $('<label class="col-md-2 control-label">'+$('#sub_category').val()+'</label>');
-        var div2_div = $('<div class="col-md-10"></div>');
-        var div2_p = $('<p class="form-control-static view sub_category"><%= t(:sub_skill_category)[0][0]['name'] %></p>');
-        var div2_sub = $('<div class="edit"><div>');
-        var sub_select = $('<select name="subClass" class="form-control select2 subClass_select2" multiple></select');
-
-        <% t(:sub_skill_category)[0].each_with_index do |x, i|%>
-        sub_select.append('<option value="<%= i %>"><%= x['name'] %></option>');
-        <% end %>
-
-        div2_sub.append(sub_select)
-        div2_div.append(div2_p)
-        div2_div.append(div2_sub)
-        div2.append(div2_label)
-        div2.append(div2_div)
-
-        span.append(div1)
-        span.append(div2)
-
-        $('#category-list').append(span)
-
-        sub_select.select2({
-            placeholder: "",
-            allowClear: true
-        })
-
-        main_select.change(main_class_change)
-    }
-
-
-    var main_class_change = function(){
-        var parent = $(this).parent().parent().parent().parent()
-        var request_obj = {
-            // request: "get_sub_category",
-            main_category_id: $(this).val()
-        }
-        $(parent).find(".select2-search-choice").remove()
-
-        var select = $(parent).find('select.subClass_select2')
-
-        select.attr("disabled", true)
-        $.ajax({
-            url: "/users/profiles/get_sub_category",
-            type: "post",
-            dataType: "json",
-            data: JSON.stringify(request_obj),
-            contentType: 'application/json',
-            async: false,
-            success: function(data) {
-                $(parent).find('select.subClass_select2 option').remove()
-
-                for(var key in data) {
-                   select.append($("<option></option>").attr("value", key).text(data[key].name))
-               }
-               select.attr("disabled", false)
-           }
-       })
-    }
-
-    var cancel_basic_info = function(){
-        $('#blah1').attr("src", "<%= image_path url_for(:controller => "users/profiles", :action => "show_image", :id => current_user.id) %>")
-    }
-
-    var update_location = function() {
-        var obj = {
-            request: "update_location",
-            timeZone: $("#contact-form2 select[name='timeZone']").val(),
-            country: $("#contact-form2 select[name='country']").val(),
-        }
-        $.ajax({
-            url: "/users/profiles/ajax_updae",
-            type: "post",
-            dataType: "json",
-            data: obj,
-            success: function(data) {
-                $("#time_zone").html(obj.timeZone)
-                $("#country").html(obj.country)
-            }
-        })
-
-    }
-
-
-    var update_category = function() {
-        var obj = {
-            request: "update_category",
-            data: []
-        }
-
-        $(".main_class").each(function( index ) {
-            var parent = $(this).parent().parent().parent().parent()
-
-            obj.data.push({
-                main_category: $(this).val(),
-                sub_category: parent.find('select.subClass_select2').val()
-            })
-
-            var str = ""
-            parent.find('select.subClass_select2 option:selected').each(function () {
-                str += $(this).text() + ", "
-            })
-            str = str.substring(0, str.length - 2)
-            parent.find('.main_category').html($(this).find('option:selected').text())
-            parent.find('.sub_category').html(str)
-        })
-        $("#loader").show()
-        $.ajax({
-            url: "/users/profiles/ajax_updae",
-            type: "post",
-            dataType: "json",
-            data: obj,
-            success: function(data) {
-                $("#loader").hide()
-                expand_count--
-            }
-        })
-    }
-
-    var update_skill = function() {
-        var obj = {
-            request: "update_skill",
-            skill: $("#contact-form1 input[name='skill']").val(),
-        }
-        $("#loader").show()
-        $.ajax({
-            url: "/users/profiles/ajax_updae",
-            type: "post",
-            dataType: "json",
-            data: obj,
-            success: function(data) {
-                $("#skill").html( obj.skill.replace(/,/g, ", ") )
-                $("#loader").hide()
-                expand_count--
-            }
-        })
-    }
-
-    var delete_experience = function(id) {
-        var request_obj = {
-         request: "delete_experience",
-         id: id
-     }
-     $("#loader").show()
-     $.ajax({
-        url: "/users/profiles/ajax_updae",
-        type: "post",
-        dataType: "json",
-        data: JSON.stringify(request_obj),
-        contentType: 'application/json',
-        success: function(data) {
-            $("#loader").hide()
-        }
-    })
- }
-
- var delete_education = function(id) {
-    var request_obj = {
-        request: "delete_education",
-        id: id
-    }
-    $("#loader").show()
-    $.ajax({
-        url: "/users/profiles/ajax_updae",
-        type: "post",
-        dataType: "json",
-        data: JSON.stringify(request_obj),
-        contentType: 'application/json',
-        success: function(data) {
-            $("#loader").hide()
-        }
-    })
-}
-
-var add_portfolio = function() {
-    if( addWorksfile.getQueuedFiles().length > 0) addWorksfile.processQueue()
-        else add_portfolio_without_thumbnail()
-    }
-
-var add_portfolio_without_thumbnail = function() {
-    $("#loader").show()
-    var fd = new FormData()
-    if( typeof $("#works-modal input[name=thumbnail]")[0].files[0] != 'undefined' ) {
-        fd.append('document_name', $("#works-modal input[name=thumbnail]")[0].files[0].name)
-        fd.append('document_content', $("#works-modal input[name=thumbnail]")[0].files[0])
-    }
-    fd.append('name', $("#works-modal input[name=title]").val())
-    fd.append('description', $("#works-modal textarea[name=description]").val())
-    fd.append('main_skill_id', $("#work_main_class").val())
-    fd.append('sub_skill_id', $("#work_subClass_select2").val())
-    fd.append('date', $("#works-modal input[name=start]").val())
-    fd.append('skill', $("#works-modal input[name=skill]").val())
-    fd.append('request', "add_portfolio")
-    warn_on_unload = ''
-
-    var xhr = new XMLHttpRequest()
-    xhr.open('post', '/users/profiles/ajax_updae', true)
-
-    xhr.onload = function() {
-        if (this.status == 200) {
-                // $("#loader").hide()
-                location.reload()
-            } else {
-                alert($("#works-modal").attr('data-isError'))
-                location.reload()
-            }
-        }
-        xhr.send(fd)
-    }
-
-    var delete_portfolio = function (id) {
-        var request_obj = {
-            request: "delete_portfolio",
-            id: id
-        }
-        $.ajax({
-            url: "/users/profiles/ajax_updae",
-            type: "post",
-            dataType: "json",
-            data: JSON.stringify(request_obj),
-            contentType: 'application/json',
-            success: function(data) {
-            }
-        })
-    }
-
-    var check_document_size = function() {
-        var file_size = $("#works-modal input[name=thumbnail]")[0].files[0].size
-        if( file_size / Math.pow(10,6) > 2 ) {
-            alert($("#works-modal input[name=thumbnail]").attr('data-isError'))
-            $("#works-modal input[name=thumbnail]").val('')
-            $("#btn-addWorks").attr('disabled', true)
-        } else {
-            $("#btn-addWorks").attr('disabled', false)
-        }
-    }
-
-
-
-    var delete_certification = function(id) {
-        var request_obj = {
-            request: "delete_certification",
-            id: id
-        }
-        $("#loader").show()
-        $.ajax({
-            url: "/users/profiles/ajax_updae",
-            type: "post",
-            dataType: "json",
-            data: JSON.stringify(request_obj),
-            contentType: 'application/json',
-            success: function(data) {
-                $("#loader").hide()
-            }
-        })
-    }
-
-    var hide_message = function() {
-        $("#error_message").hide()
-    }
-
-
-    </script>
-
-    <!-- END JAVASCRIPTS --> 
-    <!-- BEGIN PIE --> 
-<!--[if lte IE 9]>
+            <!-- END JAVASCRIPTS -->
+            <!-- BEGIN PIE -->
+        <!--[if lte IE 9]>
         <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
         <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
         <script>
@@ -722,7 +381,7 @@ var add_portfolio_without_thumbnail = function() {
             });
         });
         </script>
-        <![endif]--> 
+        <![endif]-->
         <!-- END PIE -->
     </body>
     </html>

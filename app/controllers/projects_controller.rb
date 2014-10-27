@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @project_questions = @project.project_questions.all
   end
 
   def edit
@@ -41,6 +42,7 @@ class ProjectsController < ApplicationController
     @main_skill_id = params[:main].nil? ? -1 : params[:main].to_i
     @sub_skill_id = params[:sub].nil? ? -1 : params[:sub].to_i
     @project = Project.new
+    @project_questions = project_questions.build
   end
 
   def create
