@@ -233,13 +233,6 @@ ActiveRecord::Schema.define(version: 20141027095929) do
     t.string   "description",  limit: 1000
   end
 
-  create_table "user_favorate_projects", force: true do |t|
-    t.integer  "favorite_project_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "user_favorite_projects", force: true do |t|
     t.integer  "project_id"
     t.integer  "user_id"
