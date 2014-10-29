@@ -14,4 +14,7 @@ class IndexController < ApplicationController
 
   def contact
   end
+
+  def project_category
+  end
 end

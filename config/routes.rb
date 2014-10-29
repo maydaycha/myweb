@@ -173,6 +173,7 @@ Sun::Application.routes.draw do
   get 'about' => 'index#about', :as => :index_about
   get 'rule' => 'index#rule', :as => :index_rule
   get 'contact' => 'index#contact', :as => :index_contact
+  get 'project_category' => 'index#project_category', :as => :index_project_category
 
   namespace :users do
     post 'add_to_favorite'
