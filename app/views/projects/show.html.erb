@@ -25,7 +25,7 @@
         <!-- END 主題樣式 -->
         <link rel="stylesheet" type="text/css" href="../../../css/style.css">
         <link rel="stylesheet" type="text/css" href="../../../css/alert.css">
-        <link rel="stylesheet" type="text/css" href="../../../css/page/freelancer_description.css"> 
+        <link rel="stylesheet" type="text/css" href="../../../css/page/freelancer_description.css">
         <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
         <link rel="shortcut icon" href="../../../favicon.ico"/>
         <!-- END STYLE -->
@@ -72,7 +72,7 @@
       <div class="col-md-12">
         <ul class="nav nav-pills nav-justified">
           <!-- <li><a href="#"> <i class="fa fa-pencil-square-o"></i> 編輯工作</a></li> -->
-          <%= link_to '<i class="fa fa-pencil-square-o"></i> 編輯工作', edit_project_path(project), :class => "btn btn-info btn-xs" %>
+          <%= link_to '<i class="fa fa-pencil-square-o"></i> 編輯工作', edit_project_path(@project), :class => "btn btn-info btn-xs" %>
           <li><a href="#"> <i class="fa fa fa-ban"></i> 結束案件</a></li>
           <li><a href="#"> <i class="fa fa-refresh"></i> 重新刊登</a></li>
           <li><a href="#"> <i class="fa fa-lock"></i> 設定成隱藏案件</a></li>
@@ -137,7 +137,7 @@
     <% end %>
     <!-- <a href="#">More..(15)</a> -->
 </div>
-</div> 
+</div>
 </div> <!--END 會員資料-->
 <!-- BEGIN TABS -->
 <ul class="nav nav-tabs nav-justified profolio-tab" >
@@ -160,7 +160,7 @@
       <div class="portlet-body">
          <p><%= @project.description %></p>
      </div>
- </div> 
+ </div>
  <div class="portlet box light-grey">
    <div class="portlet-title">
       <div style=" font-size:1.3em;">
@@ -172,7 +172,7 @@
     <p><%= q.description%></p>
     <% end %>
 </div>
-</div> 
+</div>
 </div>
 <div class="tab-pane" id="freelancers">
    <div style="margin:10px 5px; border:lightgrey 1px solid;">
@@ -267,7 +267,7 @@
 </div><!--END HIRE HISTORY02-->
 </div>
 </div><!--END CV-->
-</div>  
+</div>
 <!-- BEGIN END CONTENT -->
 </div><!-- END COL-MD-8 -->
 <div class="col-md-4 ">
@@ -278,7 +278,7 @@
              <div class="panel-heading">關於雇主</div>
              <div class="panel-body">
               <div class="row">
-                <div class="col-sm-12"><h3><strong>David Suasan</strong></h3> 
+                <div class="col-sm-12"><h3><strong>David Suasan</strong></h3>
                 </div>
               </div>
               <div class="row color-green" style="padding-top:5px;">
@@ -344,7 +344,7 @@
 </div>
 <!-- END PAGE -->
 <!-- BEGIN FOOTER -->
-<script language="javascript" type="text/javascript" 
+<script language="javascript" type="text/javascript"
 src="../../../masterpage/footer.txt"></script>
 <!-- END FOOTER -->
 
@@ -364,7 +364,7 @@ src="../../../masterpage/footer.txt"></script>
             <script type="text/javascript" src="../../../js/script.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
-            jQuery(document).ready(function() {    
+            jQuery(document).ready(function() {
              Web.init();
                //Index.init();
            });

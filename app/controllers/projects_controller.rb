@@ -47,7 +47,8 @@ class ProjectsController < ApplicationController
   def create
     # return render json: params
     params[:project][:end_date] = Date.strptime(params[:project][:end_date],"%m/%d/%Y") if not params[:project][:end_date].nil? and not params[:project][:end_date].empty?
-    @project = Project.new(params[:project].permit!)
+    @project = Project.new(params.permit![:project])
+    @project.user = current_user
     @project_question = ProjectQuestion.new(project: @project)
     respond_to do |format|
       if @project.save
