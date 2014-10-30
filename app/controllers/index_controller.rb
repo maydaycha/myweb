@@ -17,4 +17,7 @@ class IndexController < ApplicationController
 
   def project_category
   end
+
+  def user_category
+  end
 end
