@@ -29,8 +29,8 @@
         <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
         <link rel="shortcut icon" href="../../../favicon.ico"/>
         <!-- END STYLE -->
-    </head>
-    <body>
+      </head>
+      <body>
         <!-- BEGIN NAVBAR -->
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
           <div class="navbar-header">
@@ -40,239 +40,243 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-          </button>
-          <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+            </button>
+            <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
               <i class="fa fa-search"></i>
-          </button>
-          <a class="navbar-brand" href="../../../index.html"><img class="navbar-logo" src="../../../img/logo208.png" alt="快樂工作"></a>
-      </div>
-      <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
-        <div class="navbar-search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="搜尋您需要的人才">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-          </span>
-      </div>
-  </div>
-</div>
-<div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
-    <ul class="nav navbar-nav">
-      <li><a href="../../../login.html">會員登入</a></li>
-      <li><a href="../../../sign_up.html">免費註冊</a></li>
-  </ul>
-</div>
-</div>
-<!-- END NAVBAR -->
-<!-- BEGIN PAGE -->
-<div class="page-content">
-  <!-- BEGIN MAIN CONTENT -->
-  <div class="main-content">
-    <div class="row">
-      <div class="col-md-12">
-        <ul class="nav nav-pills nav-justified">
-          <!-- <li><a href="#"> <i class="fa fa-pencil-square-o"></i> 編輯工作</a></li> -->
-          <%= link_to '<i class="fa fa-pencil-square-o"></i> 編輯工作', edit_project_path(@project), :class => "btn btn-info btn-xs" %>
-          <li><a href="#"> <i class="fa fa fa-ban"></i> 結束案件</a></li>
-          <li><a href="#"> <i class="fa fa-refresh"></i> 重新刊登</a></li>
-          <li><a href="#"> <i class="fa fa-lock"></i> 設定成隱藏案件</a></li>
-          <li><a href="#"> <i class="fa fa-search"></i> 檢視已雇用者</a></li>
-          <li><a href="#"> <i class="fa fa-search"></i> 檢視投標者</a></li>
-      </ul>
-  </div>
-</div>
-<hr>
-<div class="row"><!-- BEGIN ROW -->
-  <div class="col-md-8">
-    <div class=""> <!--會員資料-->
-      <div class="media-job">
-
-        <div class="media-body">
-           <div class="media-heading"><h3 style="display: inline;"><%= @project.name %></h3></div>
-           <p  class=" media-heading hidden-md hidden-sm hidden-lg" style="display: inline;"><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star-o"></span><strong>(4.95)</strong></p>
-
-           <div style="margin:15px 0 10px 0;"  >
-             <% if not current_user.user_favorite_projects.exists?(project_id: @project.id) %>
-             <button id="add<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= @project.id %>)"><i class="fa fa-heart"> 儲存</i></button>
-             <button id="remove<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= @project.id %>)" style="display:none;"><i class="fa fa-heart"> 移除</i></button>
-             <% else %>
-             <button id="add<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= @project.id %>)" style="display:none;"><i class="fa fa-heart"> 儲存</i></button>
-             <button id="remove<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= @project.id %>)"><i class="fa fa-heart"> 移除</i></button>
-             <% end %>
-
-             <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 申請</i></button>
-
-             <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 題問</i></button>
-         </div>
-         <ul class="skill_ul">
-             <li>類別: <a href="#"><%= t(:sub_skill_category)[@project.main_skill][@project.sub_skill]["name"] %></a></li>
-             <li>刊登日期: <span><%= @project.created_at.strftime("%dth %b %Y") %></span></li>
-             <li>案件類型: <span><% if @project.payment_type == 1 %><%= "時薪制" %><% elsif @project.payment_type == 2 %><%= "固定薪資" %><% end %></span></li>
-             <li>雇主預算: <span>$ <%= @project.budget %></span></li>
-         </ul>
-         <hr style="margin:8px auto" class=" clear">
-         <h5>技能需求:</h5>
-         <div class="hidden-xs">
-          <% if @project.require_skills != nil %>
-          <% if @project.require_skills.split(/,/).size >= 2 %>
-          <% @project.require_skills.split(/,/).each do |skill| %>
-          <span class="label label-default"><%= skill %></span>
-          <% end %>
-          <% else %>
-          <span class="label label-default"><%= @project.require_skills %></span>
-          <% end %>
-          <% end %>
-          <!-- <a href="#">More..(15)</a> -->
-      </div>
-  </div>
-  <div class="hidden-md hidden-sm hidden-lg">
-    <% if @project.require_skills != nil %>
-    <% if @project.require_skills.split(/,/).size >= 2 %>
-    <% @project.require_skills.split(/,/).each do |skill| %>
-    <span class="label label-default"><%= skill %></span>
-    <% end %>
-    <% else %>
-    <span class="label label-default"><%= @project.require_skills %></span>
-    <% end %>
-    <% end %>
-    <!-- <a href="#">More..(15)</a> -->
-</div>
-</div>
-</div> <!--END 會員資料-->
-<!-- BEGIN TABS -->
-<ul class="nav nav-tabs nav-justified profolio-tab" >
-    <li class="active"><a style="padding:0px; margin-right:10px;" href="#contact" data-toggle="tab"><h4>工作描述</h4></a></li>
-    <li><a style="padding:0px; margin-right:10px;"  href="#freelancers" data-toggle="tab"><h4>投標者</h4></a></li>
-    <li><a style="padding:0px margin-right:10px;;"  href="#mark" data-toggle="tab"><h4>雇主評價</h4></a></li>
-
-</ul>
-<!-- END TABS -->
-
-<!-- BEGIN TAB CONTENT -->
-<div class="tab-content profolio-tab-content" style="background-color:#FFF;" >
-    <div class="tab-pane active" id="contact">
-       <div class="portlet box light-grey">
-         <div class="portlet-title">
-            <div style=" font-size:1.3em;">
-              工作標題
+            </button>
+            <a class="navbar-brand" href="../../../index.html"><img class="navbar-logo" src="../../../img/logo208.png" alt="快樂工作"></a>
           </div>
-      </div>
-      <div class="portlet-body">
-         <p><%= @project.description %></p>
-     </div>
- </div>
- <div class="portlet box light-grey">
-   <div class="portlet-title">
-      <div style=" font-size:1.3em;">
-        問題
-    </div>
-</div>
-<div class="portlet-body">
-    <% @project_questions.each do |q|  %>
-    <p><%= q.description%></p>
-    <% end %>
-</div>
-</div>
-</div>
-<div class="tab-pane" id="freelancers">
-   <div style="margin:10px 5px; border:lightgrey 1px solid;">
-     <table class="table table-striped">
-       <thead>
-         <tr>
-           <th>名字</th>
-           <th>時間</th>
-           <th>身分</th>
-       </tr>
-   </thead>
-   <tbody>
-     <tr>
-       <td><a>Deepak Gupta</a></td>
-       <td>14小時之前</td>
-       <td>自由工作者</td>
-   </tr>
-   <tr>
-       <td><a>Rahul Natu</a></td>
-       <td>16小時之前</td>
-       <td>自由工作者</td>
-   </tr>
-   <tr>
-       <td><a>Bunnu Browne</a></td>
-       <td>20小時之前</td>
-       <td>自由工作者</td>
-   </tr>
-   <tr>
-       <td><a>Jatin Kaushik</a></td>
-       <td>20小時之前</td>
-       <td>自由工作者</td>
-   </tr>
-</tbody>
-</table>
-</div>
-<div style="margin:10px 5px; border:lightgrey 1px solid;">
- <table class="table">
-   <tbody>
-     <tr>
-       <td>總共人數: 4</td>
-   </tr>
-   <tr>
-       <td>面試過的人數: 2</td>
-   </tr>
-</table>
-</div>
-</div>
-<div class="tab-pane" id="mark">
-  <div class="portlet box light-grey">
-    <div class="portlet-title">
-      <div style=" font-size:1.3em;">
-        雇用歷史&amp;評價
-    </div>
-</div>
-<div class="portlet-body work-history"> <!--HIRE HISTORY01-->
-   <div class="row">
-     <div class="col-md-4 col-sm-4" style="left:-37px;">
-       <ul>
-         <li><strong>網頁設計</strong></li>
-         <li>OCT2013-OCT2013</li>
-         <li>共工作15hr</li>
-         <li>$10.00/hr</li>
-     </ul>
- </div>
- <div class="col-md-5 col-sm-5">
-   <p>我很開心這次的合作，希望未來還有合作機會</p>
-</div>
-<div class="col-md-3 rating-align col-sm-3 ">
-   <h2 class="rating-box"><strong>4.95</strong></h2>
-   <p><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star-o fa-star-color"></span></p>
-</div>
-</div>
-</div><!--END HIRE HISTORY01-->
-<div class="portlet-body work-history"> <!--HIRE HISTORY02-->
-   <div class="row">
-     <div class="col-md-4 col-sm-4" style="left:-37px;">
-       <ul>
-         <li><strong>程式設計</strong></li>
-         <li>OCT2013-OCT2013</li>
-         <li>共工作20hr</li>
-         <li>$15.00/hr</li>
-     </ul>
- </div>
- <div class="col-md-5 col-sm-5">
-   <p>我很開心這次的合作，希望未來還有合作機會</p>
-</div>
-<div class="col-md-3 rating-align col-sm-3 ">
-   <h2 class="rating-box"><strong>5.00</strong></h2>
-   <p><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span></p>
-</div>
-</div>
-</div><!--END HIRE HISTORY02-->
-</div>
-</div><!--END CV-->
-</div>
-<!-- BEGIN END CONTENT -->
-</div><!-- END COL-MD-8 -->
-<div class="col-md-4 ">
-   <div class="common-box">
-      <div style="margin-top:30px;"></div>
+          <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+            <div class="navbar-search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+            <ul class="nav navbar-nav">
+              <li><a href="../../../login.html">會員登入</a></li>
+              <li><a href="../../../sign_up.html">免費註冊</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- END NAVBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+          <!-- BEGIN MAIN CONTENT -->
+          <div class="main-content">
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="nav nav-pills nav-justified">
+                  <!-- <li><a href="#"> <i class="fa fa-pencil-square-o"></i> 編輯工作</a></li> -->
+                  <li>
+                  <%= link_to edit_project_path(@project) do %>
+                  <i class="fa fa-pencil-square-o"></i> <%= '編輯工作' %>
+                  <% end %>
+                  </li>
+                  <li><a href="#"> <i class="fa fa fa-ban"></i> 結束案件</a></li>
+                  <li><a href="#"> <i class="fa fa-refresh"></i> 重新刊登</a></li>
+                  <li><a href="#"> <i class="fa fa-lock"></i> 設定成隱藏案件</a></li>
+                  <li><a href="#"> <i class="fa fa-search"></i> 檢視已雇用者</a></li>
+                  <li><a href="#"> <i class="fa fa-search"></i> 檢視投標者</a></li>
+                </ul>
+              </div>
+            </div>
+            <hr>
+            <div class="row"><!-- BEGIN ROW -->
+              <div class="col-md-8">
+                <div class=""> <!--會員資料-->
+                  <div class="media-job">
+
+                    <div class="media-body">
+                     <div class="media-heading"><h3 style="display: inline;"><%= @project.name %></h3></div>
+                     <p  class=" media-heading hidden-md hidden-sm hidden-lg" style="display: inline;"><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star-o"></span><strong>(4.95)</strong></p>
+
+                     <div style="margin:15px 0 10px 0;"  >
+                       <% if not current_user.user_favorite_projects.exists?(project_id: @project.id) %>
+                       <button id="add<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= @project.id %>)"><i class="fa fa-heart"> 儲存</i></button>
+                       <button id="remove<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= @project.id %>)" style="display:none;"><i class="fa fa-heart"> 移除</i></button>
+                       <% else %>
+                       <button id="add<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= @project.id %>)" style="display:none;"><i class="fa fa-heart"> 儲存</i></button>
+                       <button id="remove<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= @project.id %>)"><i class="fa fa-heart"> 移除</i></button>
+                       <% end %>
+
+                       <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 申請</i></button>
+
+                       <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 題問</i></button>
+                     </div>
+                     <ul class="skill_ul">
+                       <li>類別: <a href="#"><%= t(:sub_skill_category)[@project.main_skill][@project.sub_skill]["name"] %></a></li>
+                       <li>刊登日期: <span><%= @project.created_at.strftime("%dth %b %Y") %></span></li>
+                       <li>案件類型: <span><% if @project.payment_type == 1 %><%= "時薪制" %><% elsif @project.payment_type == 2 %><%= "固定薪資" %><% end %></span></li>
+                       <li>雇主預算: <span>$ <%= @project.budget %></span></li>
+                     </ul>
+                     <hr style="margin:8px auto" class=" clear">
+                     <h5>技能需求:</h5>
+                     <div class="hidden-xs">
+                      <% if @project.require_skills != nil %>
+                      <% if @project.require_skills.split(/,/).size >= 2 %>
+                      <% @project.require_skills.split(/,/).each do |skill| %>
+                      <span class="label label-default"><%= skill %></span>
+                      <% end %>
+                      <% else %>
+                      <span class="label label-default"><%= @project.require_skills %></span>
+                      <% end %>
+                      <% end %>
+                      <!-- <a href="#">More..(15)</a> -->
+                    </div>
+                  </div>
+                  <div class="hidden-md hidden-sm hidden-lg">
+                    <% if @project.require_skills != nil %>
+                    <% if @project.require_skills.split(/,/).size >= 2 %>
+                    <% @project.require_skills.split(/,/).each do |skill| %>
+                    <span class="label label-default"><%= skill %></span>
+                    <% end %>
+                    <% else %>
+                    <span class="label label-default"><%= @project.require_skills %></span>
+                    <% end %>
+                    <% end %>
+                    <!-- <a href="#">More..(15)</a> -->
+                  </div>
+                </div>
+              </div> <!--END 會員資料-->
+              <!-- BEGIN TABS -->
+              <ul class="nav nav-tabs nav-justified profolio-tab" >
+                <li class="active"><a style="padding:0px; margin-right:10px;" href="#contact" data-toggle="tab"><h4>工作描述</h4></a></li>
+                <li><a style="padding:0px; margin-right:10px;"  href="#freelancers" data-toggle="tab"><h4>投標者</h4></a></li>
+                <li><a style="padding:0px margin-right:10px;;"  href="#mark" data-toggle="tab"><h4>雇主評價</h4></a></li>
+
+              </ul>
+              <!-- END TABS -->
+
+              <!-- BEGIN TAB CONTENT -->
+              <div class="tab-content profolio-tab-content" style="background-color:#FFF;" >
+                <div class="tab-pane active" id="contact">
+                 <div class="portlet box light-grey">
+                   <div class="portlet-title">
+                    <div style=" font-size:1.3em;">
+                      工作標題
+                    </div>
+                  </div>
+                  <div class="portlet-body">
+                   <p><%= @project.description %></p>
+                 </div>
+               </div>
+               <div class="portlet box light-grey">
+                 <div class="portlet-title">
+                  <div style=" font-size:1.3em;">
+                    問題
+                  </div>
+                </div>
+                <div class="portlet-body">
+                  <% @project_questions.each do |q|  %>
+                  <p><%= q.description%></p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="freelancers">
+             <div style="margin:10px 5px; border:lightgrey 1px solid;">
+               <table class="table table-striped">
+                 <thead>
+                   <tr>
+                     <th>名字</th>
+                     <th>時間</th>
+                     <th>身分</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td><a>Deepak Gupta</a></td>
+                     <td>14小時之前</td>
+                     <td>自由工作者</td>
+                   </tr>
+                   <tr>
+                     <td><a>Rahul Natu</a></td>
+                     <td>16小時之前</td>
+                     <td>自由工作者</td>
+                   </tr>
+                   <tr>
+                     <td><a>Bunnu Browne</a></td>
+                     <td>20小時之前</td>
+                     <td>自由工作者</td>
+                   </tr>
+                   <tr>
+                     <td><a>Jatin Kaushik</a></td>
+                     <td>20小時之前</td>
+                     <td>自由工作者</td>
+                   </tr>
+                 </tbody>
+               </table>
+             </div>
+             <div style="margin:10px 5px; border:lightgrey 1px solid;">
+               <table class="table">
+                 <tbody>
+                   <tr>
+                     <td>總共人數: 4</td>
+                   </tr>
+                   <tr>
+                     <td>面試過的人數: 2</td>
+                   </tr>
+                 </table>
+               </div>
+             </div>
+             <div class="tab-pane" id="mark">
+              <div class="portlet box light-grey">
+                <div class="portlet-title">
+                  <div style=" font-size:1.3em;">
+                    雇用歷史&amp;評價
+                  </div>
+                </div>
+                <div class="portlet-body work-history"> <!--HIRE HISTORY01-->
+                 <div class="row">
+                   <div class="col-md-4 col-sm-4" style="left:-37px;">
+                     <ul>
+                       <li><strong>網頁設計</strong></li>
+                       <li>OCT2013-OCT2013</li>
+                       <li>共工作15hr</li>
+                       <li>$10.00/hr</li>
+                     </ul>
+                   </div>
+                   <div class="col-md-5 col-sm-5">
+                     <p>我很開心這次的合作，希望未來還有合作機會</p>
+                   </div>
+                   <div class="col-md-3 rating-align col-sm-3 ">
+                     <h2 class="rating-box"><strong>4.95</strong></h2>
+                     <p><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star-o fa-star-color"></span></p>
+                   </div>
+                 </div>
+               </div><!--END HIRE HISTORY01-->
+               <div class="portlet-body work-history"> <!--HIRE HISTORY02-->
+                 <div class="row">
+                   <div class="col-md-4 col-sm-4" style="left:-37px;">
+                     <ul>
+                       <li><strong>程式設計</strong></li>
+                       <li>OCT2013-OCT2013</li>
+                       <li>共工作20hr</li>
+                       <li>$15.00/hr</li>
+                     </ul>
+                   </div>
+                   <div class="col-md-5 col-sm-5">
+                     <p>我很開心這次的合作，希望未來還有合作機會</p>
+                   </div>
+                   <div class="col-md-3 rating-align col-sm-3 ">
+                     <h2 class="rating-box"><strong>5.00</strong></h2>
+                     <p><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span></p>
+                   </div>
+                 </div>
+               </div><!--END HIRE HISTORY02-->
+             </div>
+           </div><!--END CV-->
+         </div>
+         <!-- BEGIN END CONTENT -->
+       </div><!-- END COL-MD-8 -->
+       <div class="col-md-4 ">
+         <div class="common-box">
+          <div style="margin-top:30px;"></div>
           <!-- <div class="row" style=" padding-top: 10px; margin-left: 9px;" >
            <div class="panel panel-default">
              <div class="panel-heading">關於雇主</div>
@@ -287,40 +291,40 @@
               <div class="row" style="padding-top:5px;"><div class="col-sm-12"><span class="color-blue"><i class="fa fa-check"></i> 已通過付款認證</span></div></div>
             </div>
           </div>
-      </div> -->
-      <div class="row icon-layout" >
-       <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-user fa-lg" ></i></div>
-       <div class="col-md-9 col-sm-9 col-xs-9 icon-text-job">
-         <p>David Suasan</p>
-         <p class="color-green" style=" font-size: 0.7em;"><i class="fa fa-map-marker fa-lg" ></i> 地區:台灣&nbsp;&nbsp;<i class="fa fa-globe"></i> UTC+8</p>
-         <p class="color-blue" style=" font-size: 0.7em;"><i class="fa fa-check"></i> 已通過付款認證</p>
-     </div>
- </div>
- <hr>
- <div class="row icon-layout" >
-   <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-bar-chart-o fa-lg" ></i></div>
-   <div class="col-md-9 col-sm-9 col-xs-9 icon-text-job">
-     <p>總花費1,527美金</p>
-     <span>雇用次數</span>
- </div>
-</div>
-<hr>
-<div class="row icon-layout" >
-   <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-folder-open fa-lg" ></i></div>
-   <div class="col-md-9 col-sm-9 col-xs-9 icon-text-job">
-     <p>3個案件進行中</p>
-     <span>1個開放申請</span>
- </div>
-</div>
-<hr>
-<div class="row icon-layout" >
-   <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-map-marker fa-lg" ></i></div>
-   <div class="col-md-9 col-sm-9 col-xs-9 icon-text-job">
-     <p>美國</p>
-     <span>內華達 10:25 PM</span>
- </div>
-</div>
-<hr>
+        </div> -->
+        <div class="row icon-layout" >
+         <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-user fa-lg" ></i></div>
+         <div class="col-md-9 col-sm-9 col-xs-9 icon-text-job">
+           <p>David Suasan</p>
+           <p class="color-green" style=" font-size: 0.7em;"><i class="fa fa-map-marker fa-lg" ></i> 地區:台灣&nbsp;&nbsp;<i class="fa fa-globe"></i> UTC+8</p>
+           <p class="color-blue" style=" font-size: 0.7em;"><i class="fa fa-check"></i> 已通過付款認證</p>
+         </div>
+       </div>
+       <hr>
+       <div class="row icon-layout" >
+         <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-bar-chart-o fa-lg" ></i></div>
+         <div class="col-md-9 col-sm-9 col-xs-9 icon-text-job">
+           <p>總花費1,527美金</p>
+           <span>雇用次數</span>
+         </div>
+       </div>
+       <hr>
+       <div class="row icon-layout" >
+         <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-folder-open fa-lg" ></i></div>
+         <div class="col-md-9 col-sm-9 col-xs-9 icon-text-job">
+           <p>3個案件進行中</p>
+           <span>1個開放申請</span>
+         </div>
+       </div>
+       <hr>
+       <div class="row icon-layout" >
+         <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-map-marker fa-lg" ></i></div>
+         <div class="col-md-9 col-sm-9 col-xs-9 icon-text-job">
+           <p>美國</p>
+           <span>內華達 10:25 PM</span>
+         </div>
+       </div>
+       <hr>
 
       <!--  <div class="input-group" style="margin-top:40px;">
         <input type="text" class="form-control" placeholder="搜尋類似的工作">
@@ -334,10 +338,10 @@
         <button type="button" class="btn btn-warning btn-lg btn-block"><i class="fa fa-check"> 申請</i></button>
         <div style="margin-top:15px;"></div>
         <button type="button" class="btn btn-primary btn-lg btn-block"><i class="fa fa-comment"> 提問</i></button>
-    </div> -->
+      </div> -->
 
-</div>
-</div>
+    </div>
+  </div>
 </div><!-- END ROW -->
 </div>
 <!-- END MAIN CONTENT -->
@@ -367,7 +371,7 @@ src="../../../masterpage/footer.txt"></script>
             jQuery(document).ready(function() {
              Web.init();
                //Index.init();
-           });
+             });
             </script>
             <!-- END JAVASCRIPTS -->
             <!-- BEGIN PIE -->
@@ -384,5 +388,5 @@ src="../../../masterpage/footer.txt"></script>
         </script>
         <![endif]-->
         <!-- END PIE -->
-    </body>
-    </html>
+      </body>
+      </html>

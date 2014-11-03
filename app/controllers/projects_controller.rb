@@ -25,6 +25,8 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @main_skill_id = params[:main].nil? ? -1 : params[:main].to_i
+    @sub_skill_id = params[:sub].nil? ? -1 : params[:sub].to_i
     @project = Project.find(params[:id])
     respond_to do |format|
       format.html
