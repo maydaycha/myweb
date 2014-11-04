@@ -94,7 +94,6 @@ gem 'kaminari'
 
 # Captcha
 gem 'easy_captcha'
-# gem 'rmagick'
 
 gem 'formtastic_i18n', '~> 0.1.1'
 
