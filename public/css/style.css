@@ -560,6 +560,115 @@ Box portlet
   .marpad-left-md {
     margin-left: 0px;
     padding-left: 0px; } }
+/***************Margin TOOL******************/
+.bottom5-xs {
+  margin-bottom: 5px; }
+
+.bottom7-xs {
+  margin-bottom: 7px; }
+
+.bottom10-xs {
+  margin-bottom: 10px; }
+
+.bottom15-xs {
+  margin-bottom: 15px; }
+
+.bottom17-xs {
+  margin-bottom: 17px; }
+
+.bottom30-xs {
+  margin-bottom: 30px; }
+
+.bottom50-xs {
+  margin-bottom: 50px; }
+
+.bottom100-xs {
+  margin-bottom: 100px; }
+
+.bottom150-xs {
+  margin-bottom: 150px; }
+
+@media (min-width: 768px) {
+  .bottom5-sm {
+    margin-bottom: 5px; }
+
+  .bottom7-sm {
+    margin-bottom: 7px; }
+
+  .bottom10-sm {
+    margin-bottom: 10px; }
+
+  .bottom15-sm {
+    margin-bottom: 15px; }
+
+  .bottom17-sm {
+    margin-bottom: 17px; }
+
+  .bottom30-sm {
+    margin-bottom: 30px; }
+
+  .bottom50-sm {
+    margin-bottom: 50px; }
+
+  .bottom100-sm {
+    margin-bottom: 100px; }
+
+  .bottom150-sm {
+    margin-bottom: 150px; } }
+@media (min-width: 992px) {
+  .bottom5-md {
+    margin-bottom: 5px; }
+
+  .bottom7-md {
+    margin-bottom: 7px; }
+
+  .bottom10-md {
+    margin-bottom: 10px; }
+
+  .bottom15-md {
+    margin-bottom: 15px; }
+
+  .bottom17-md {
+    margin-bottom: 17px; }
+
+  .bottom30-md {
+    margin-bottom: 30px; }
+
+  .bottom50-md {
+    margin-bottom: 50px; }
+
+  .bottom100-md {
+    margin-bottom: 100px; }
+
+  .bottom150-md {
+    margin-bottom: 150px; } }
+@media (min-width: 1200px) {
+  .bottom5-lg {
+    margin-bottom: 5px; }
+
+  .bottom7-lg {
+    margin-bottom: 7px; }
+
+  .bottom10-lg {
+    margin-bottom: 10px; }
+
+  .bottom15-lg {
+    margin-bottom: 15px; }
+
+  .bottom17-lg {
+    margin-bottom: 17px; }
+
+  .bottom30-lg {
+    margin-bottom: 30px; }
+
+  .bottom50-lg {
+    margin-bottom: 50px; }
+
+  .bottom100-lg {
+    margin-bottom: 100px; }
+
+  .bottom150-lg {
+    margin-bottom: 150px; } }
 .top5 {
   margin-top: 5px; }
 
@@ -796,11 +905,17 @@ Box portlet
 .bg-blue {
   background-color: #0074d9; }
 
+.bg-darkblue {
+  background-color: #3d4b5e; }
+
 .bg-aqua {
   background-color: #7fdbff; }
 
 .bg-teal {
   background-color: #39cccc; }
+
+.bg-darkteal {
+  background-color: #148496; }
 
 .bg-olive {
   background-color: #3d9970; }
@@ -810,6 +925,9 @@ Box portlet
 
 .bg-lime {
   background-color: #01ff70; }
+
+.bg-lightlime {
+  background-color: #c7d1c0; }
 
 .bg-yellow {
   background-color: #ffdc00; }
@@ -826,8 +944,14 @@ Box portlet
 .bg-purple {
   background-color: #b10dc9; }
 
+.bg-darkpurple {
+  background-color: #836f8d; }
+
 .bg-maroon {
   background-color: #85144b; }
+
+.bg-brown {
+  background-color: #494039; }
 
 .bg-white {
   background-color: white; }
@@ -835,8 +959,14 @@ Box portlet
 .bg-gray {
   background-color: #aaaaaa; }
 
+.bg-darkgray {
+  background-color: #6b6b6b; }
+
 .bg-silver {
   background-color: #dddddd; }
+
+.bg-lsilver {
+  background-color: #e3e3e3; }
 
 .bg-black {
   background-color: #111111; }
@@ -847,6 +977,9 @@ Box portlet
 
 .Cblue {
   color: #0074d9; }
+
+.Cdarkblue {
+  color: #3d4b5e; }
 
 .Caqua {
   color: #7fdbff; }
@@ -881,14 +1014,23 @@ Box portlet
 .Cpurple {
   color: #b10dc9; }
 
+.Cdarkpurple {
+  color: #836f8d; }
+
 .Cmaroon {
   color: #85144b; }
+
+.Cbrown {
+  color: #494039; }
 
 .Cwhite {
   color: white; }
 
 .Csilver {
   color: #dddddd; }
+
+.Clsliver {
+  color: #e3e3e3; }
 
 .Cgray {
   color: #aaaaaa; }
@@ -1179,6 +1321,9 @@ div.product-chooser div.product-chooser-item {
 
   .fw9-l {
     font-weight: 900; } }
+.bootstrap-datetimepicker-widget {
+  z-index: 100000; }
+
 /*ABOUT COLOR*/
 .Cdarkblue {
   color: #138FBC !important; }
