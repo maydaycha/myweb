@@ -840,7 +840,7 @@
 
 </div>
 <div class="tab-pane fade" id="four">
-  <% @user_favorite_list.each do |list| %>
+  <% @user_favorite_list.each_with_index do |list, index| %>
   <div class="row" style="margin:auto 3px;"> <!--Begin row-->
     <div class="col-sm-9">
       <div class=""> <!--會員資料-->
@@ -910,8 +910,7 @@
       </div>
     </div>
   </div><!--END ROW-->
-  <% if @user_favorite_list.last %>
-  <% else %>
+  <% if @user_favorite_list.size != index+1 %>
   <hr>
   <% end %>
   <% end %>
