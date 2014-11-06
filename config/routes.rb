@@ -85,7 +85,7 @@ Sun::Application.routes.draw do
   end
   scope :projects do
     get 'search' => "projects#search", :as => :projects_search
-    get 'search_category' => "projects#search_category", :as => :project_search_category
+    get 'applying/:id' => "projects#applying", :as => :projects_applying
     get 'detail/:id' => "users#detail", :as => :projects_detail
   end
   resources :projects

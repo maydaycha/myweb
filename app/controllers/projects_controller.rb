@@ -34,6 +34,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def applying
+    @project = Project.find(params[:id])
+  end
+
   def update
     @project = Project.find(params[:id])
     @project.update(params.permit![:project])

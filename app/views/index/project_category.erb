@@ -81,7 +81,7 @@
                                 </div>
                                 <ul class="panel-body list-group" style="display: block;">
                                     <% t(:sub_skill_category)[index_main].each_with_index do |sub_one, index_sub| %>
-                                    <li class="list-group-item clickable"><a href="#"><%= sub_one['name'] %></a></li>
+                                    <li class="list-group-item clickable"><a href="/projects/search?utf8=✓&main=<%= index_main %>&sub=<%= index_sub %>"><%= sub_one['name'] %></a></li>
                                     <% end %>
                                 </ul>
                             </div>

@@ -115,7 +115,7 @@
       <div class="container" style="margin-top: 50px;">
         <ul id="myTab" class="nav nav-tabs navmargin">
           <li class="active"><a id="tab-1" href="#one" data-toggle="tab">開放申請案件</a></li>
-          <li ><a id="tab-2" href="#two" data-toggle="tab">新增案件 </a></li>
+          <li><a id="tab-2" href="#two" data-toggle="tab">新增案件 </a></li>
           <li><a id="tab-3" href="#three" data-toggle="tab">瀏覽遠距工作者</a></li>
           <li><a id="tab-4" href="#four" data-toggle="tab">我儲存的遠距工作者<span class="badge">2</span></a></li>
         </ul>
@@ -134,7 +134,7 @@
                     </div>
                   </div>
                   <div class="col-xs-3">
-                    <button type="button" class="btn btn-success btn-block">刊登案件</button>
+                    <button type="button" class="btn btn-success btn-block"><a href="#" data-tab-destination="tab-2">刊登案件</a></button>
                   </div>
                 </div>
                 <div class="row">
@@ -759,198 +759,33 @@
       </div>
     </div>
     <div class="col-sm-12">
+
+      <% t(:main_skill_category).each_with_index do |main_one, index_main| %>
+      <% if index_main == 0 || index_main == 4 %>
       <div class="row panel-box" ><!--樹狀圖 ROW 01 Expanding list-->
-        <div class="col-md-3"> <!--樹狀圖 01 Expanding list 01 IT、軟體-->
+        <% end %>
+        <div class="col-md-3">
           <div class="panel panel-warning" >
-            <div class="panel-heading clickable ">
-              <h3 class="panel-title" >IT 、 軟體</h3>
-              <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
-            </div>
-            <ul class="panel-body list-group" style="display: block;">
-              <li class="list-group-item clickable"><a href="#">所有類別</a></li>
-              <li class="list-group-item clickable"><a href="#">程式設計</a></li>
-              <li class="list-group-item clickable"><a href="#">程式測試/除錯</a></li>
-              <li class="list-group-item clickable"><a href="#">電子商務平台</a></li>
-              <li class="list-group-item clickable"><a href="#">網站開發</a></li>
-              <li class="list-group-item clickable"><a href="#">網站企劃</a></li>
-              <li class="list-group-item clickable"><a href="#">網站驗收</a></li>
-              <li class="list-group-item clickable"><a href="#">網頁應用程式</a></li>
-              <li class="list-group-item clickable"><a href="#">手機應用程式</a></li>
-              <li class="list-group-item clickable"><a href="#">軟體介面程式</a></li>
-              <li class="list-group-item clickable"><a href="#">工具軟體 </a></li>
-              <li class="list-group-item clickable"><a href="#">娛樂及遊戲應用程式</a></li>
-              <li class="list-group-item clickable"><a href="#">腳本語言 (Scripting)</a></li>
-              <li class="list-group-item clickable"><a href="#">外掛程式 </a></li>
-              <li class="list-group-item clickable"><a href="#">資訊計劃管理</a></li>
-              <li class="list-group-item clickable"><a href="#">網路電話 (VoIP)發</a></li>
-              <li class="list-group-item clickable"><a href="#">資訊系統架構</a></li>
-              <li class="list-group-item clickable"><a href="#">資訊系統管理</a></li>
-              <li class="list-group-item clickable"><a href="#">資訊系統佈建</a></li>
-              <li class="list-group-item clickable"><a href="#">企業資訊系統管理</a></li>
-              <li class="list-group-item clickable"><a href="#">其他 &ndash; 資訊科技及軟體</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3"> <!--樹狀圖 02 Expanding list 02 工程與科學-->
-          <div class="panel panel-warning">
             <div class="panel-heading clickable">
-              <h3 class="panel-title">工程與科學</h3>
+              <h3 class="panel-title" ><%= main_one['name'] %></h3> 
               <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
             </div>
             <ul class="panel-body list-group" style="display: block;">
-              <li class="list-group-item clickable"><a href="#">所有類別</a></li>
-              <li class="list-group-item clickable"><a href="#">資料探勘 &amp; 分析</a></li>
-              <li class="list-group-item clickable"><a href="#">CAD &frasl; CAM 工程開發</a></li>
-              <li class="list-group-item clickable"><a href="#">生產工程</a></li>
-              <li class="list-group-item clickable"><a href="#">生產開發</a></li>
-              <li class="list-group-item clickable"><a href="#">工業工程</a></li>
-              <li class="list-group-item clickable"><a href="#">化學工程</a></li>
-              <li class="list-group-item clickable"><a href="#">材料工程</a></li>
-              <li class="list-group-item clickable"><a href="#">電子工程</a></li>
-              <li class="list-group-item clickable"><a href="#">機械工程</a></li>
-              <li class="list-group-item clickable"><a href="#">生物工程</a></li>
-              <li class="list-group-item clickable"><a href="#">數理統計</a></li>
-              <li class="list-group-item clickable"><a href="#">設計工程</a></li>
-              <li class="list-group-item clickable"><a href="#">品質控制分析</a></li>
-              <li class="list-group-item clickable"><a href="#">工程專案管理</a></li>
-              <li class="list-group-item clickable"><a href="#">數學</a></li>
-              <li class="list-group-item clickable"><a href="#">物理</a></li>
-              <li class="list-group-item clickable"><a href="#">化學</a></li>
-              <li class="list-group-item clickable"><a href="#">其他 &ndash; 工程與科學</a></li>
+              <% t(:sub_skill_category)[index_main].each_with_index do |sub_one, index_sub| %>
+              <li class="list-group-item clickable"><a href="/users/search?utf8=✓&main=<%= index_main %>&sub=<%= index_sub %>"><%= sub_one['name'] %></a></li>
+              <% end %>
             </ul>
           </div>
         </div>
-        <div class="col-md-3"> <!--樹狀圖 03 Expanding list 03-->
-          <div class="panel panel-warning">
-            <div class="panel-heading clickable">
-              <h3 class="panel-title">設計 、 創意</h3>
-              <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
-            </div>
-            <ul class="panel-body list-group" style="display: block;">
-              <li class="list-group-item clickable"><a href="#">所有類別</a></li>
-              <li class="list-group-item clickable"><a href="#">圖像設計</a></li>
-              <li class="list-group-item clickable"><a href="#">Logo 設計</a></li>
-              <li class="list-group-item clickable"><a href="#">繪圖</a></li>
-              <li class="list-group-item clickable"><a href="#">印刷設計</a></li>
-              <li class="list-group-item clickable"><a href="#">3D 建模</a></li>
-              <li class="list-group-item clickable"><a href="#">音效設計</a></li>
-              <li class="list-group-item clickable"><a href="#">影音設計</a></li>
-              <li class="list-group-item clickable"><a href="#">Voice Talent</a></li>
-              <li class="list-group-item clickable"><a href="#">動畫設計</a></li>
-              <li class="list-group-item clickable"><a href="#">簡報設計</a></li>
-              <li class="list-group-item clickable"><a href="#">網站設計</a></li>
-              <li class="list-group-item clickable"><a href="#">UI設計</a></li>
-              <li class="list-group-item clickable"><a href="#">其他 &ndash; 設計 &amp; 多媒體</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3"> <!--樹狀圖 04 Expanding list 04-->
-          <div class="panel panel-warning">
-            <div class="panel-heading clickable">
-              <h3 class="panel-title">業務 、 行銷</h3>
-              <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
-            </div>
-            <ul class="panel-body list-group" style="display: block;">
-              <li class="list-group-item clickable"><a href="#">所有類別</a></li>
-              <li class="list-group-item clickable"><a href="#">廣告</a></li>
-              <li class="list-group-item clickable"><a href="#">電子郵件行銷</a></li>
-              <li class="list-group-item clickable"><a href="#">SEO &ndash; 搜尋引擎優化</a></li>
-              <li class="list-group-item clickable"><a href="#">SEM &ndash;  搜尋引擎行銷</a></li>
-              <li class="list-group-item clickable"><a href="#">SMM &ndash;  社群行銷</a></li>
-              <li class="list-group-item clickable"><a href="#">PR &ndash;  公關</a></li>
-              <li class="list-group-item clickable"><a href="#">電話行銷</a></li>
-              <li class="list-group-item clickable"><a href="#">商業計畫、行銷策略</a></li>
-              <li class="list-group-item clickable"><a href="#">行銷研究</a></li>
-              <li class="list-group-item clickable"><a href="#">銷售</a></li>
-              <li class="list-group-item clickable"><a href="#">其他 &ndash;  業務 &amp; 行銷</a></li>
-            </ul>
-          </div>
-        </div>
+        <% if index_main == 3 || index_main == 7 %>
       </div> <!--END 樹狀圖 ROW 01-->
-      <div class="row panel-box"><!--樹狀圖 ROW 02 Expanding list-->
-        <div class="col-md-3"> <!--樹狀圖 05 Expanding list 05-->
-          <div class="panel panel-warning">
-            <div class="panel-heading clickable">
-              <h3 class="panel-title" style="font-size:1.1em">行政總務、客戶支援</h3>
-              <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
-            </div>
-            <ul class="panel-body list-group" style="display: block;">
-              <li class="list-group-item clickable"><a href="#">所有類別</a></li>
-              <li class="list-group-item clickable"><a href="#">數據輸入</a></li>
-              <li class="list-group-item clickable"><a href="#">個人助理</a></li>
-              <li class="list-group-item clickable"><a href="#">網路調查</a></li>
-              <li class="list-group-item clickable"><a href="#">電子郵件回覆助理</a></li>
-              <li class="list-group-item clickable"><a href="#">聽譯、逐字稿</a></li>
-              <li class="list-group-item clickable"><a href="#">其他 &ndash; 行政支援</a></li>
-              <li class="list-group-item clickable"><a href="#">客戶服務 &amp; 支援</a></li>
-              <li class="list-group-item clickable"><a href="#">技術支援</a></li>
-              <li class="list-group-item clickable"><a href="#">電話支援</a></li>
-              <li class="list-group-item clickable"><a href="#">訂單處理</a></li>
-              <li class="list-group-item clickable"><a href="#">其他 &ndash; 客戶服務</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3"> <!--樹狀圖 06 Expanding list 06 -->
-          <div class="panel panel-warning ">
-            <div class="panel-heading clickable">
-              <h3 class="panel-title">商業、會計、法務</h3>
-              <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
-            </div>
-            <ul class="panel-body list-group" style="display: block;">
-              <li class="list-group-item clickable"><a href="#">所有類別</a></li>
-              <li class="list-group-item clickable"><a href="#">會計</a></li>
-              <li class="list-group-item clickable"><a href="#">帳務</a></li>
-              <li class="list-group-item clickable"><a href="#">HR</a></li>
-              <li class="list-group-item clickable"><a href="#">財經計劃</a></li>
-              <li class="list-group-item clickable"><a href="#">付款</a></li>
-              <li class="list-group-item clickable"><a href="#">法務</a></li>
-              <li class="list-group-item clickable"><a href="#">專案管理</a></li>
-              <li class="list-group-item clickable"><a href="#">人員招募</a></li>
-              <li class="list-group-item clickable"><a href="#">數據分析</a></li>
-              <li class="list-group-item clickable"><a href="#">其他 &ndash; 商業服務</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3"> <!--樹狀圖 07 Expanding list 07-->
-          <div class="panel panel-warning">
-            <div class="panel-heading clickable">
-              <h3 class="panel-title">寫作、翻譯</h3>
-              <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
-            </div>
-            <ul class="panel-body list-group" style="display: block;">
-              <li class="list-group-item clickable"><a href="#">所有類別</a></li>
-              <li class="list-group-item clickable"><a href="#">技術文件寫作</a></li>
-              <li class="list-group-item clickable"><a href="#">網頁內容寫作</a></li>
-              <li class="list-group-item clickable"><a href="#">部落格專文寫作</a></li>
-              <li class="list-group-item clickable"><a href="#">文宣寫作</a></li>
-              <li class="list-group-item clickable"><a href="#">翻譯</a></li>
-              <li class="list-group-item clickable"><a href="#">創意寫作</a></li>
-              <li class="list-group-item clickable"><a href="#">其他 &ndash; 寫作&amp;翻譯</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3"> <!--樹狀圖 08 Expanding list 08-->
-          <div class="panel panel-warning">
-            <div class="panel-heading clickable">
-              <h3 class="panel-title">專業諮詢</h3>
-              <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
-            </div>
-            <ul class="panel-body list-group" style="display: block;">
-              <li class="list-group-item clickable"><a href="#">所有類別</a></li>
-              <li class="list-group-item clickable"><a href="#">助理顧問</a></li>
-              <li class="list-group-item clickable"><a href="#">溝通顧問</a></li>
-              <li class="list-group-item clickable"><a href="#">安全顧問</a></li>
-              <li class="list-group-item clickable"><a href="#">行銷顧問</a></li>
-              <li class="list-group-item clickable"><a href="#">業務顧問</a></li>
-              <li class="list-group-item clickable"><a href="#">商業顧問</a></li>
-              <li class="list-group-item clickable"><a href="#">顧問分析</a></li>
-              <li class="list-group-item clickable"><a href="#">服務顧問</a></li>
-              <li class="list-group-item clickable"><a href="#">其他 &ndash; 顧問</a></li>
-            </ul>
-          </div>
-        </div>
-      </div> <!--END 樹狀圖 ROW 02-->
+      <% end %>
+      <% end %>
+
+      <div class=""><!--樹狀圖 保留空間-->
+      </div>
     </div>
+    
     <div class=""><!--樹狀圖 保留空間-->
     </div>
   </div>

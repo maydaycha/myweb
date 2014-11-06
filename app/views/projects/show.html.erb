@@ -73,9 +73,9 @@
                 <ul class="nav nav-pills nav-justified">
                   <!-- <li><a href="#"> <i class="fa fa-pencil-square-o"></i> 編輯工作</a></li> -->
                   <li>
-                  <%= link_to edit_project_path(@project) do %>
-                  <i class="fa fa-pencil-square-o"></i> <%= '編輯工作' %>
-                  <% end %>
+                    <%= link_to edit_project_path(@project) do %>
+                    <i class="fa fa-pencil-square-o"></i> <%= '編輯工作' %>
+                    <% end %>
                   </li>
                   <li><a href="#"> <i class="fa fa fa-ban"></i> 結束案件</a></li>
                   <li><a href="#"> <i class="fa fa-refresh"></i> 重新刊登</a></li>
@@ -104,8 +104,10 @@
                        <button id="remove<%= @project.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(this.id, <%= @project.id %>)"><i class="fa fa-heart"> 移除</i></button>
                        <% end %>
 
-                       <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 申請</i></button>
-
+                       <!-- <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 申請</i></button> -->
+                       <%= link_to controller: "projects", action: "applying" do %>
+                       <div class="btn btn-warning btn-sm btn-circle" type="button"><i class="fa fa-check"></i> <%= '申請' %></div>
+                       <% end %>
                        <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 題問</i></button>
                      </div>
                      <ul class="skill_ul">
