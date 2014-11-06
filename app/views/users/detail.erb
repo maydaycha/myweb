@@ -83,7 +83,7 @@
                                         <p  class=" hidden-xs" style="display: inline;"><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star-o"></span><strong>(4.95)</strong></p></div>
                                         <p  class=" media-heading hidden-md hidden-sm hidden-lg" style="display: inline;"><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star-o"></span><strong>(4.95)</strong></p>
                                         <h5 class="color-grey"><i class="fa fa-map-marker fa-lg" ></i> 來自 <%= t("countries."+@user.country_code) %></h5>
-                                        <h4><%= @user.introduction %></h4>
+                                        <h4><%= @user.brief_introduction %></h4>
                                         <div class="" >
                                         <% if not current_user.user_favorites.exists?(favorite_user_id: @user.id) %>
                                             <button type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(<%= @user.id %>)"><i class="fa fa-heart"> 儲存</i></button>
@@ -132,7 +132,7 @@
                             </div>
                             <div class="portlet-body">
                              <!-- <p>利象見面意食來因，子子天引。通大無。開種選我他空天多春則四明看之元哥化角都苦小經告而分，動什小；有多也數此個病弟北條演等角北吃條沒上字利不媽。沒聲坐為到河詩個不人像做。不怎應了裝、工消雙種，她調沒故！政人不多；生地軍門會。兒西面而最畫一之的者臺時買什器一會可成的適空面。</p> -->
-                             <p><%= @user.review %></p>
+                             <p><%= @user.introduction %></p>
                          </div>
                      </div>
 

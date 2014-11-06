@@ -214,7 +214,7 @@
                                                 <span class=" fa fa-star-o"></span>
                                                 <strong>(3.95)</strong> -->
                                             </h4>
-                                            <h5><%= user.introduction %></h5>
+                                            <h5><%= user.brief_introduction %></h5>
                                             <div class="" >
                                                 <% if not current_user.user_favorites.exists?(favorite_user_id: user.id) %>
                                                     <button id="add<%= user.id %>" type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(this.id, <%= user.id %>)"><i class="fa fa-heart"> 儲存</i></button>
@@ -229,7 +229,7 @@
                                                 <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 聯絡</i></button>
                                             </div>
                                             <hr style="margin:8px auto" class=" clear">
-                                            <p><%= user.review %></p>
+                                            <p><%= user.introduction %></p>
                                             <% user.user_skills.each do |skill| %>
                                                 <span class="label label-default"><%= skill.name %></span>
                                             <% end %>
