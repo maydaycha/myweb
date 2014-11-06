@@ -48,6 +48,10 @@ class ProjectsController < ApplicationController
     @main_skill_id = params[:main].nil? ? -1 : params[:main].to_i
     @sub_skill_id = params[:sub].nil? ? -1 : params[:sub].to_i
     @project = Project.new
+    @user_favorite_list = []
+    current_user.user_favorites.each {
+      |u| @user_favorite_list << User.find( u.user_id )
+    }
   end
 
   def create
