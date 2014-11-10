@@ -206,6 +206,6 @@ Sun::Application.routes.draw do
     get 'users/edit_error', to: 'users/passwords#edit_error', :as => :edit_passwords_error
   end
 
-
+  resources :users
 
 end
