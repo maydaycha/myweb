@@ -86,7 +86,7 @@ Sun::Application.routes.draw do
   scope :projects do
     get 'search' => "projects#search", :as => :projects_search
     get 'applying/:id' => "projects#applying", :as => :projects_applying
-    get 'detail/:id' => "users#detail", :as => :projects_detail
+    get 'detail/:id' => "projects#detail", :as => :projects_detail
   end
   resources :projects
 
@@ -163,6 +163,8 @@ Sun::Application.routes.draw do
   get 'skills/exist' => 'skills#exist'
   get 'skills/autocomplete' => 'skills#autocomplete'
 
+  #get 'project_find/find' => 'project_find#freelencer_find'
+
 
 
   namespace :index do
@@ -187,6 +189,8 @@ Sun::Application.routes.draw do
     get 'search' => "users#search", :as => :users_search
     get 'search_category' => "users#search_category", :as => :user_search_category
     get 'detail/:id' => "users#detail", :as => :users_detail
+    get 'find/:id' => "users#freelencer_find", :as => :users_find
+    get 'my_job/:id' => "users#freelencer_job", :as => :job
   end
 
   devise_for :users, :controllers => {

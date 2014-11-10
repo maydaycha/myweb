@@ -18,6 +18,13 @@ class UsersController < ApplicationController
   def search_category
   end
 
+  def freelencer_find
+    @user = User.find(params[:id])
+  end
+
+  def freelencer_job
+    @user = User.find(params[:id])
+  end
 
   def search
     # params[:main], params[:sub]
