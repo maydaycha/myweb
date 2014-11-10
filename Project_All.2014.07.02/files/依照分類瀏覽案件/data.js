@@ -1,0 +1,66 @@
+﻿$axure.loadCurrentPage({
+  "url":"依照分類瀏覽案件.html",
+  "generationDate":new Date(1404292433806.12),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable",
+"NewVariable"],
+  "page":{
+    "packageId":"bbbfd5f69a934f1484b834733004a4c3",
+    "type":"Axure:Page",
+    "name":"依照分類瀏覽案件",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFFFFFFF},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"Applied Font",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[{
+          "id":"e91dfc2cef7e4523af74cc525319d06a",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "size":{
+              "width":2048,
+              "height":1134}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"c6c364966c1e4562b8793e0d5ac97e65",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "size":{
+                  "width":2048,
+                  "height":1134}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/依照分類瀏覽案件/u0.png"}}]}},
+  "masters":{
+},
+  "objectPaths":{
+    "e91dfc2cef7e4523af74cc525319d06a":{
+      "scriptId":"u0"},
+    "c6c364966c1e4562b8793e0d5ac97e65":{
+      "scriptId":"u1"}}});

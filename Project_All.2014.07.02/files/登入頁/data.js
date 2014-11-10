@@ -1,0 +1,194 @@
+﻿$axure.loadCurrentPage({
+  "url":"登入頁.html",
+  "generationDate":new Date(1404292431856.01),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable",
+"NewVariable"],
+  "page":{
+    "packageId":"c5a8d9429fb84b7ea6401d635fb01fe6",
+    "type":"Axure:Page",
+    "name":"登入頁",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFFFFFFF},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"Applied Font",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[{
+          "id":"1f48ab8530a54cc880a4f50edcb525de",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "size":{
+              "width":1920,
+              "height":979}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"4eef3c3adad74eeebea76203ab6f8054",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "size":{
+                  "width":1920,
+                  "height":979}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/登入頁/u0.png"}},
+{
+          "id":"40d2114700884c7c83e821c3b82331ed",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFFFFFF},
+            "location":{
+              "x":690,
+              "y":540},
+            "size":{
+              "width":540,
+              "height":40},
+            "borderFill":{
+              "fillType":"solid",
+              "color":0xFFFFFF}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"876b7819808f400485442721355ccea3",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFFFFFF},
+                "location":{
+                  "x":690,
+                  "y":540},
+                "size":{
+                  "width":540,
+                  "height":40},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFFFFFF}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"Case 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open 遠距工作者詳細資料 in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"遠距工作者詳細資料.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"5d0708a0d34d447aa8800c4e6b3d5c62",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0xFFFFFF},
+            "location":{
+              "x":865,
+              "y":583},
+            "size":{
+              "width":200,
+              "height":30},
+            "borderFill":{
+              "fillType":"solid",
+              "color":0xFFFFFF}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"a644c3d7fbf14300aa3db8705f45f89c",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0xFFFFFF},
+                "location":{
+                  "x":865,
+                  "y":583},
+                "size":{
+                  "width":200,
+                  "height":30},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFFFFFF}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"Case 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open 註冊頁 in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"註冊頁.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"resources/images/transparent.gif"}}]}},
+  "masters":{
+},
+  "objectPaths":{
+    "1f48ab8530a54cc880a4f50edcb525de":{
+      "scriptId":"u0"},
+    "4eef3c3adad74eeebea76203ab6f8054":{
+      "scriptId":"u1"},
+    "40d2114700884c7c83e821c3b82331ed":{
+      "scriptId":"u2"},
+    "876b7819808f400485442721355ccea3":{
+      "scriptId":"u3"},
+    "5d0708a0d34d447aa8800c4e6b3d5c62":{
+      "scriptId":"u4"},
+    "a644c3d7fbf14300aa3db8705f45f89c":{
+      "scriptId":"u5"}}});

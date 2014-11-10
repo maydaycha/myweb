@@ -190,7 +190,7 @@ Sun::Application.routes.draw do
     get 'search_category' => "users#search_category", :as => :user_search_category
     get 'detail/:id' => "users#detail", :as => :users_detail
     get 'find/:id' => "users#freelencer_find", :as => :users_find
-    get 'my_job/:id' => "users#freelencer_job", :as => :job
+    get 'my_job/:id' => "users#freelencer_job", :as => :my_job
   end
 
   devise_for :users, :controllers => {
