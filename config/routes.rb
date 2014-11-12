@@ -82,6 +82,7 @@ Sun::Application.routes.draw do
     get 'set_word_count'
     post 'add_to_favorite'
     delete 'remove_from_favorite'
+    post 'messages_of_project'
   end
   scope :projects do
     get 'search' => "projects#search", :as => :projects_search
@@ -191,6 +192,7 @@ Sun::Application.routes.draw do
     get 'detail/:id' => "users#detail", :as => :users_detail
     get 'find/:id' => "users#freelencer_find", :as => :users_find
     get 'my_job/:id' => "users#freelencer_job", :as => :my_job
+    # get 'my_job/:id' => "users#freelencer_job", :as => :my_job
   end
 
   devise_for :users, :controllers => {

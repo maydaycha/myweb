@@ -119,6 +119,9 @@ class ProjectsController < ApplicationController
 
   def detail
     @project = Project.find(params[:id])
+    @project.user = current_user
+    @project_message = MessagesOfProject.all
+    @project_message = MessagesOfProject.new(project: @project)
   end
 
   def update_budget
