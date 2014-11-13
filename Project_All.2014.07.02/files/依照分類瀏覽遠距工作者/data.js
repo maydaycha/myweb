@@ -1,0 +1,130 @@
+﻿$axure.loadCurrentPage({
+  "url":"依照分類瀏覽遠距工作者.html",
+  "generationDate":new Date(1404292430746.94),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable",
+"NewVariable"],
+  "page":{
+    "packageId":"79bf098263b944a5a9a723b05d1a69dc",
+    "type":"Axure:Page",
+    "name":"依照分類瀏覽遠距工作者",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFFFFFFF},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"Applied Font",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[{
+          "id":"f109f88dd678456191aa44024037daa6",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "size":{
+              "width":2048,
+              "height":1134}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"11db52bc26d043f1bef94987dc8bc119",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "size":{
+                  "width":2048,
+                  "height":1134}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/依照分類瀏覽遠距工作者/u0.png"}},
+{
+          "id":"a89268e3bbcc4fc6a20a354ba8c6333a",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "fill":{
+              "fillType":"solid",
+              "color":0x1CFF0000},
+            "location":{
+              "x":570,
+              "y":456},
+            "size":{
+              "width":190,
+              "height":34},
+            "borderFill":{
+              "fillType":"solid",
+              "color":0xFFFFFF}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"837315c5614946a6878c8543e735c0cd",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fill":{
+                  "fillType":"solid",
+                  "color":0x1CFF0000},
+                "location":{
+                  "x":570,
+                  "y":456},
+                "size":{
+                  "width":190,
+                  "height":34},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFFFFFF}},
+              "adaptiveStyles":{
+}}],
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"Case 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"Open 搜尋遠距工作者 in Current Window",
+                      "target":{
+                        "targetType":"page",
+                        "url":"搜尋遠距工作者.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "images":{
+            "normal~":"images/依照分類瀏覽遠距工作者/u2.png"}}]}},
+  "masters":{
+},
+  "objectPaths":{
+    "f109f88dd678456191aa44024037daa6":{
+      "scriptId":"u0"},
+    "11db52bc26d043f1bef94987dc8bc119":{
+      "scriptId":"u1"},
+    "a89268e3bbcc4fc6a20a354ba8c6333a":{
+      "scriptId":"u2"},
+    "837315c5614946a6878c8543e735c0cd":{
+      "scriptId":"u3"}}});

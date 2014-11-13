@@ -100,15 +100,12 @@
                                         <% @user.user_skills.each do |e| %>
                                             <span class="label label-default"><%= e.name %></span>
                                         <% end %>
-                                        <a href="#">More..(15)</a>
                                     </div>
                                 </div>
                                 <div class="hidden-md hidden-sm hidden-lg">
-                                    <span class="label label-default">HTML5/CSS3</span>
-                                    <span class="label label-default">jQuery</span>
-                                    <span class="label label-info">CakePHP</span>
-                                    <span class="label label-default">Android</span>
-                                    <a href="/#">More..(15)</a>
+                                    <% @user.user_skills.each do |e| %>
+                                            <span class="label label-default"><%= e.name %></span>
+                                        <% end %>
                                 </div>
                             </div>
                         </div> <!--END 會員資料-->

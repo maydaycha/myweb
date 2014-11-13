@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+  <title>快樂工作</title>
+
+  <!-- BEGIN STYLE -->
+  <!-- BEGIN 核心樣式 -->
+  <link rel="stylesheet" href="../../../../plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../plugins/font-awesome/css/font-awesome.min.css">
+<!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="../../../../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/alert.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/loginmain.css">
+        <link rel="stylesheet" type="text/css" href="../../../../css/pstyle.css"> 
+        <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
+        <link rel="shortcut icon" href="../../../../favicon.ico"/>
+      </head>
+      <!-- END STYLE -->
+      <body>
+       <!-- BEGIN NAVBAR -->
+       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="clearfix">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+         <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+            <i class="fa fa-search"></i>
+          </button> -->
+          <a class="navbar-brand" href="../../../../index.html"><img class="navbar-logo" src="../../../../img/logo208.png" alt="快樂工作"></a>
+        </div>
+       <!--  <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+          <div class="navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </div>
+        </div> -->
+        <div class="navbar-collapse navbar-collapse-nav collapse navbar-left">
+          <ul class="nav navbar-nav nav-blue">
+           <li class="myactive"><a href="freelancer_find.html" >找案件</a></li>
+           <li><a href="freelancer_job.html">我的案件</a></li>
+           <li><a href="freelancer_report.html">案件報表</a></li>
+           <li><a href="sms_in.html">訊息</a></li>
+           <li><a href="freelancer_test.html">測驗</a></li>
+         </ul>
+       </div>
+       <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+        <ul class="nav navbar-nav">
+          <li class="dropdown"> 
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle" src="../../../../img/class/class_3.jpg" style="width: 30px;height:30px;" alt="img"> &nbsp;Chris,Chou <b class="caret"></b></a>
+            <ul class="dropdown-menu user-dropdown">
+              <li class="color-blue"><span>Hi,<a href="#">Chris,Chou</a></span></li>
+              <li class="divider"></li>
+              <li><a href="#">個人設定</a></li>
+              <li><a href="#">會員登出</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-lg fa-bell"></i></span>&nbsp;<span class="badge">2</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">(通知的訊息)</a></li>
+              <li class="divider"></li>
+              <li><a href="#">(通知的訊息)</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-lg fa-refresh"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">新台幣</a></li>
+              <li class="divider"></li>
+              <li><a href="#">美金</a></li>
+              <li class="divider"></li>
+              <li><a href="#">日幣</a></li>
+              <li class="divider"></li>
+              <li><a href="#">人民幣</a></li>
+              <li class="divider"></li>
+              <li><a href="#">歐元</a></li>
+            </ul>
+          </li> 
+        </ul>
+      </div>
+    </div>
+    <div class="nav-border-blue"></div>
+  </div>
+  
+  <!-- END NAVBAR --> 
+  <!-- BEGIN PAGE -->
+  <div class="page-content" style="margin-bottom:50px;">
+    <div class="container" style="margin-top: 50px;">
+      <ul id="myTab" class="nav nav-tabs navmargin">
+        <li class="active"><a href="#joblist" data-toggle="tab">案件列表</a></li>
+        <li ><a href="#jobapply" data-toggle="tab">申請的案件 <span class="badge">6</span></a></li>
+        <li><a href="#myprofile" data-toggle="tab">我的個人資料</a></li>
+      </ul>
+      <div id="myTabContent" class="tab-content myTabs" >
+        <div class="tab-pane fade in active" id="joblist">
+          <div class="row pLeftRight7">
+            <div class="col-sm-2 text-center">
+              <h3><strong>案件列表</strong></h3>
+              <div class="input-group hidden-lg hidden-md hidden-sm" style="margin:20px 0;">
+                <input type="text" class="form-control" placeholder="搜尋更多案件">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+              <nav class="nav-sidebar">
+                <ul id="testTabs" class="nav tabs">
+                  <li class="active"><a href="#tab1" data-toggle="tab"><i class="glyphicon glyphicon-plus-sign"></i> 儲存的案件</a></li>
+                  <li><a href="#tab2" data-toggle="tab"><i class="glyphicon glyphicon-thumbs-up"></i> 推薦的案件</a></li>
+                </ul>
+              </nav>
+              <div class="portlet box light-grey text-center">
+                <div class="portlet-title">
+                  <div style="font-size:1.2em;"> 我的專長 </div>
+                </div>
+                <div class="portlet-body">
+                  <div class="">
+                    <ul  id="testTabs01"class="nav tabs">
+                      <li class=""><a href="#tab3" data-toggle="tab">搜尋引擎優化</a></li>
+                      <li class=""><a href="#tab4" data-toggle="tab">社群網站經營</a></li>
+                    </ul>
+                  </div>
+                  <hr>
+
+                  <button class="btn btn-info img-responsive"><i class="glyphicon glyphicon-plus-sign"></i> 新增類別</button>
+
+                </div>
+              </div>
+            </div>
+            <!-- tab content -->
+            <div class="tab-content col-sm-8">
+              <div class="input-group hidden-xs" style="margin:20px 0;">
+                <input type="text" class="form-control" placeholder="搜尋更多案件">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+
+              <div class="tab-pane active text-style" id="tab1">
+                <h3>我儲存的案件</h3>
+                <hr>
+                <div class="alert alert-danger">
+                  <p>您還沒有儲存任何案件</p>
+                </div>
+              </div>
+              <div class="tab-pane text-style" id="tab2">
+                <h3>推薦的案件</h3>
+                <hr>
+                <div class=""> <!--工作資料-->
+                  <div class="media">
+                    <div class="media-body">
+                      <h4 class="media-heading"><a href="#">網頁製作</a></h4>
+                      <div style="margin:15px 0 10px 0;"  >
+                        <button type="button" class="btn btn-danger btn-sm btn-circle "><i class="fa fa-heart"> 儲存</i></button>
+
+                        <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 申請</i></button>
+
+                        <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 提問</i></button>
+                      </div>
+                      <h5>固定價格 &ndash; <strong>預算:$400.00</strong> <span style="color:grey; padding-left:5px; "> 25th Jan 2014</span></h5>
+                      <hr style="margin:8px auto" class=" clear">
+                      <p>Cloud Systems Architect with heavy immersion in all AWS technologies. Member of the AWS Partner Network and AWS Accredited Technology Professional. Prominent member of the Rightscale ecosystem, serving on the Customer Advisory Group. Significant project experience </p>
+                      <span class="label label-default">HTML5/CSS3</span> <span class="label label-default">jQuery</span> <span class="label label-info">CakePHP</span> <span class="label label-default">Android</span>
+                      <div class="profolio-info" > </div>
+                    </div>
+                  </div>
+                </div>
+                <!--END 工作資料-->
+                <div class=""> <!--工作資料-->
+                  <div class="media">
+                    <div class="media-body">
+                      <h4 class="media-heading"><a href="#">網頁製作</a></h4>
+                      <div style="margin:15px 0 10px 0;"  >
+                        <button type="button" class="btn btn-danger btn-sm btn-circle "><i class="fa fa-heart"> 儲存</i></button>
+
+                        <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 申請</i></button>
+
+                        <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 題問</i></button>
+                      </div>
+                      <h5>固定價格 &ndash; <strong>預算:$400.00</strong> <span style="color:grey; padding-left:5px; "> 25th Jan 2014</span></h5>
+                      <hr style="margin:8px auto" class=" clear">
+                      <p>Cloud Systems Architect with heavy immersion in all AWS technologies. Member of the AWS Partner Network and AWS Accredited Technology Professional. Prominent member of the Rightscale ecosystem, serving on the Customer Advisory Group. Significant project experience </p>
+                      <span class="label label-default">HTML5/CSS3</span> <span class="label label-default">jQuery</span> <span class="label label-info">CakePHP</span> <span class="label label-default">Android</span>
+                      <div class="profolio-info" > </div>
+                    </div>
+                  </div>
+                </div>
+                <!--END 工作資料--> 
+              </div>
+              <div class="tab-pane text-style" id="tab3">
+                <h3>與<a>搜尋引擎優化</a>相關案件</h3>
+                <hr>
+                <div class=""> <!--工作資料-->
+                  <div class="media">
+                    <div class="media-body">
+                      <h4 class="media-heading"><a href="#">網頁製作</a></h4>
+                      <div style="margin:15px 0 10px 0;"  >
+                        <button type="button" class="btn btn-danger btn-sm btn-circle "><i class="fa fa-heart"> 儲存</i></button>
+
+                        <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 申請</i></button>
+
+                        <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 題問</i></button>
+                      </div>
+                      <h5>固定價格 &ndash; <strong>預算:$400.00</strong> <span style="color:grey; padding-left:5px; "> 25th Jan 2014</span></h5>
+                      <hr style="margin:8px auto" class=" clear">
+                      <p>Cloud Systems Architect with heavy immersion in all AWS technologies. Member of the AWS Partner Network and AWS Accredited Technology Professional. Prominent member of the Rightscale ecosystem, serving on the Customer Advisory Group. Significant project experience </p>
+                      <span class="label label-default">HTML5/CSS3</span> <span class="label label-default">jQuery</span> <span class="label label-info">CakePHP</span> <span class="label label-default">Android</span>
+                      <div class="profolio-info" > </div>
+                    </div>
+                  </div>
+                </div>
+                <!--END 工作資料--> 
+              </div>
+              <div class="tab-pane text-style" id="tab4">
+                <h3>與<a>社群網站經營</a>相關案件</h3>
+                <hr>
+                <div class=""> <!--工作資料-->
+                  <div class="media">
+                    <div class="media-body">
+                      <h4 class="media-heading"><a href="#">網頁製作</a></h4>
+                      <div style="margin:15px 0 10px 0;"  >
+                        <button type="button" class="btn btn-danger btn-sm btn-circle "><i class="fa fa-heart"> 儲存</i></button>
+
+                        <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 申請</i></button>
+
+                        <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 題問</i></button>
+                      </div>
+                      <h5>固定價格 &ndash; <strong>預算:$400.00</strong> <span style="color:grey; padding-left:5px; "> 25th Jan 2014</span></h5>
+                      <hr style="margin:8px auto" class=" clear">
+                      <p>Cloud Systems Architect with heavy immersion in all AWS technologies. Member of the AWS Partner Network and AWS Accredited Technology Professional. Prominent member of the Rightscale ecosystem, serving on the Customer Advisory Group. Significant project experience </p>
+                      <span class="label label-default">HTML5/CSS3</span> <span class="label label-default">jQuery</span> <span class="label label-info">CakePHP</span> <span class="label label-default">Android</span>
+                      <div class="profolio-info" > </div>
+                    </div>
+                  </div>
+                </div>
+                <!--END 工作資料--> 
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="portlet box blue text-center">
+                <div class="portlet-title">
+                  <div style="font-size:1.2em;"> 我的公開資料 </div>
+                </div>
+                <div class="portlet-body text-center">
+                  <div class="bottom15"> <img class="img-circle" src="../../../../img/staff.png" style="width: 60px;height:60px;" alt="img"> </div>
+                  <div class="progress ">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                      60%
+                    </div>
+                  </div>
+                  <ul class="nav nav-stacked">
+                    <li><a href="../../../../personal_profile.html">-聯絡資訊</a></li>
+                    <li> <a href="../../../../personal_profile.html">-個人資料</a></li>
+                    <!-- <li> <a href="personal_profile.html">-我的團隊</a></li> -->
+                    <li> <a href="../../../../personal_profile.html">-我的測驗</a></li>
+                    <li><a href="../../../../personal_profile.html">-金融帳戶</a></li>
+                  </ul>
+                  <hr>
+                  <a href="../../../../personal_profile.html">檢視我的個人檔案</a> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade in " id="jobapply">
+            <ul id="" class="nav nav-pills navmargin">
+              <li class="active"><a href="#apply" data-toggle="tab">雇主未回覆</a></li>
+              <li ><a href="#save" data-toggle="tab">雇主已回復</a></li>
+            </ul>
+            <div id="" class="tab-content myTabs" >
+              <div class="tab-pane fade in active" id="apply">
+                <div class="row">
+                  <div class="col-sm-12">
+
+                    <div class="alert alert-warning fade in">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>您有 1 個雇主已回覆的案件，
+                      <strong>接受後就可以開始工作</strong> <a href="#">前往確認>></a>
+                    </div>
+                    <div class="portlet box light-grey">
+                      <div class="portlet-title">
+                        <div style="font-size:1.2em;"> 列入候選的案件 </div>
+                      </div>
+                      <div class="portlet-body">
+                        <div style="margin:10px 5px; border:lightgrey 1px solid;">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>通知時間</th>
+                                <th>案件名稱</th>
+                                <th>雇主</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>2014 Jan 1st 10:57am</td>
+                                <td><a href="#">搜尋引擎優化設計</a></td>
+                                <td><a href="#">Sun Information Services</a></td>
+                              </tr>
+                              <tr>
+                                <td>2014 Jan 1st 10:57am</td>
+                                <td><a href="#">搜尋引擎優化設計</a></td>
+                                <td><a href="#">Sun Information Services</a></td>
+                              </tr>
+                              <tr>
+                                <td>2014 Jan 1st 10:57am</td>
+                                <td><a href="#">搜尋引擎優化設計</a></td>
+                                <td><a href="#">Sun Information Services</a></td>
+                              </tr>
+                              <tr>
+                                <td>2014 Jan 1st 10:57am</td>
+                                <td><a href="#">搜尋引擎優化設計</a></td>
+                                <td><a href="#">Sun Information Services</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="portlet box light-grey">
+                      <div class="portlet-title">
+                        <div style="font-size:1.2em;"> 被邀請的案件 </div>
+                      </div>
+                      <div class="portlet-body">
+                        <div style="margin:10px 5px; border:lightgrey 1px solid;">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>通知時間</th>
+                                <th>案件名稱</th>
+                                <th>雇主</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>2014 Jan 1st 10:57am</td>
+                                <td><a href="#">搜尋引擎優化設計</a></td>
+                                <td><a href="#">Sun Information Services</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="portlet box light-grey">
+                      <div class="portlet-title">
+                        <div style="font-size:1.2em;"> 我送出的案件申請 </div>
+                      </div>
+                      <div class="portlet-body">
+                        <div style="margin:10px 5px; border:lightgrey 1px solid;">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>通知時間</th>
+                                <th>案件名稱</th>
+                                <th>雇主</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>2014 Jan 1st 10:57am</td>
+                                <td><a href="#">搜尋引擎優化設計</a></td>
+                                <td><a href="#">Sun Information Services</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade in" id="save">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div style="margin:10px 5px; border:lightgrey 1px solid;">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>通知時間</th>
+                            <th>案件名稱</th>
+                            <th>被封存的原因</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>10:57am</td>
+                            <td><a href="#">搜尋引擎優化設計</a></td>
+                            <td><strong>已雇用</strong><a href="#">檢視案件</a></td>
+                          </tr>
+                          <tr>
+                            <td>10:57am</td>
+                            <td><a href="#">搜尋引擎優化設計</a></td>
+                            <td>未錄取</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="myprofile">
+            <div class="row pLeftRight7"><!-- BEGIN ROW -->
+              <div class="col-md-8">
+                <div class=""> <!--會員資料-->
+                  <div class="media">
+                    <a class="pull-left" >
+                      <!-- <img class="media-object dp img-rounded" src="../../../../img/default-pic.png" style="width: 133px;height:133px;" alt="img"> -->
+                      <%= image_tag url_for(:controller => "users/profiles", :action => "show_image", :id => @user.id), class: "media-object dp img-rounded", style: "width: 133px;height:133px;", alt: "img" %>
+                    </a>
+
+                    <div class="media-body">
+                      <div class="media-heading"><h3 style="display: inline;"><%= @user.first_name %> <%= @user.last_name %></h3>
+                        <p  class=" hidden-xs" style="display: inline;"><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star-o"></span><strong>(4.95)</strong></p></div>
+                        <p  class=" media-heading hidden-md hidden-sm hidden-lg" style="display: inline;"><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star"></span><span class=" fa fa-star-o"></span><strong>(4.95)</strong></p>
+                        <h5 class="color-grey"><i class="fa fa-map-marker fa-lg" ></i> 來自<%= t("countries."+@user.country_code) %> &nbsp;
+                          <span class=""><i class="fa fa-check-square-o fa-lg" ></i> 已通過帳戶認證 &nbsp;</span>
+                          <span class="">
+                            <i class="fa fa-credit-card fa-lg" ></i> 有效的金融帳戶
+                          </span> 
+                        </h5>
+                        <h4>八年的軟體工作經驗</h4>
+                        <div class="" >
+                         <% if not current_user.user_favorites.exists?(favorite_user_id: @user.id) %>
+                         <button type="button" class="btn btn-danger btn-sm btn-circle" onclick="add_to_favorite(<%= @user.id %>)"><i class="fa fa-heart"> 儲存</i></button>
+                         <% else %>
+                         <button type="button" class="btn btn-danger btn-sm btn-circle" onclick="remove_from_favorite(<%= @user.id %>)"><i class="fa fa-heart"> 移除</i></button>
+                         <% end %>
+
+                         <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 雇用</i></button>
+
+                         <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 題問</i></button>
+                       </div>
+                       <hr style="margin:8px auto" class=" clear">
+                       <div class="hidden-xs">
+                        <% @user.user_skills.each do |e| %>
+                        <span class="label label-default"><%= e.name %></span>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="hidden-md hidden-sm hidden-lg">
+                      <% @user.user_skills.each do |e| %>
+                      <span class="label label-default"><%= e.name %></span>
+                      <% end %>
+                    </div>
+                  </div> 
+                </div> <!--END 會員資料-->
+                <!-- BEGIN TABS -->
+                <ul class="nav nav-tabs nav-justified profolio-tab" >
+                  <li class="active"><a style="margin-right:10px;" href="#contact" data-toggle="tab"><h4>概觀</h4></a></li>
+                  <li><a style="margin-right:10px;" href="#profile" data-toggle="tab"><h4>作品集</h4></a></li>
+                  <li><a style="margin-right:10px;" href="#CV" data-toggle="tab"><h4>履歷</h4></a></li>
+                  <li><a style="margin-right:10px;" href="#badge" data-toggle="tab"><h4>勳章</h4></a></li>
+                </ul>
+                <!-- END TABS -->
+
+                <!-- BEGIN TAB CONTENT -->
+                <div class="tab-content profolio-tab-content" style="background-color:#FFF;" >
+                  <div class="tab-pane active" id="contact">
+                   <div class="portlet box light-grey">
+                     <div class="portlet-title">
+                      <div style=" font-size:1.3em;">
+                        關於我
+                      </div>
+                    </div>
+                    <div class="portlet-body">
+                      <p><%= @user.introduction %></p>
+                    </div>
+                  </div>
+
+                  <hr>
+                  <div class="portlet box light-grey">
+                    <div class="portlet-title">
+                      <div style=" font-size:1.3em;">
+                        工作歷史&amp;評價
+                      </div>
+                    </div>
+                    <div class="portlet-body work-history"> <!--工作歷史評價01-->
+                     <div class="row">
+                      <div class="col-md-4 col-sm-4" style="left:-37px;" >
+                        <ul><li><strong>網頁設計</strong></li>
+                          <li>OCT2013-OCT2013</li>
+                          <li>Fixed Price $333</li>
+                        </ul>
+                      </div>
+                      <div class="col-md-5 col-sm-5">
+                        <p>下電高！大等什為有專構又手雜，是顧明中商詩車看西國精務心育那上之之樣上就寫教！手他斯聯，導始海兒傳！</p>
+                      </div>
+                      <div class="col-md-3 text-center col-sm-3 ">
+                        <h2 class="marpad"><strong>4.95</strong></h2>
+                        <p><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star-o fa-star-color"></span></p>
+                      </div>
+                    </div>
+                  </div><!--END 工作歷史評價01-->
+                  <div class="portlet-body work-history"> <!--工作歷史評價02-->
+                   <div class="row">
+                    <div class="col-md-4 col-sm-4" style="left:-37px;" >
+                      <ul><li><strong>程式設計</strong></li>
+                        <li>NOV2013-DEC2013</li>
+                        <li>Fixed Price $333</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                      <p>雙容大辦建以天上此國，書父竟得雨政皮當。一再要處了筆家居。文於氣風可親府的教美空我做來策有費點前食故生才的意辦權我的必富歡需到的正也步有院邊華都。</p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 text-center">
+                      <h2 class="marpad"><strong>5.00</strong></h2>
+                      <p><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span><span class=" fa fa-star fa-star-color"></span></p>
+                    </div>
+                  </div>
+                </div><!--END 工作歷史評價02-->
+              </div>
+            </div>
+            <div class="tab-pane" id="profile">
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 gallery">
+                  <div class="thumbnail">
+                    <div class="caption">
+                      <h4>Thumbnail Headline</h4>
+                      <p>short thumbnail description</p>
+                      <h4>
+                        <div><a class="label label-warning" title="Image 1" href="#"> 放大</a></div>
+                      </h4>
+                    </div>
+                    <img class="thumbnail img-responsive" src="../../../../img/demopage/image-2.jpg">
+                    <div class="thumbnail-title">Thumnail Title</div>
+                  </div>
+                </div>
+
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="thumbnail">
+                    <div class="caption">
+                      <h4>Thumbnail Headline</h4>
+                      <p>short thumbnail description</p>
+                      <h4>
+                        <a class="label label-warning" title="Image 2" href="#"> 放大</a>
+                      </h4>
+                    </div>
+                    <img class="thumbnail img-responsive" src="../../../../img/demopage/image-3.jpg">
+                    <div class="thumbnail-title">Thumnail Title</div>
+                  </div>
+                </div>
+
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                 <div class="thumbnail">
+                  <div class="caption">
+                    <h4>Thumbnail Headline</h4>
+                    <p>short thumbnail description</p>
+                    <h4>
+                      <a class="label label-warning" title="Image 3" href="#"> 放大</a>
+                    </h4>
+                  </div>
+                  <img class="thumbnail img-responsive" src="../../../../img/demopage/image-4.jpg">
+                  <div class="thumbnail-title">Thumnail Title</div>
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+               <div class="thumbnail">
+                <div class="caption">
+                  <h4>Thumbnail Headline</h4>
+                  <p>short thumbnail description</p>
+                  <h4>
+                    <a class="label label-warning" title="Image 5" href="#"> 放大</a>
+                  </h4>
+                </div>
+                <img class="thumbnail img-responsive" src="../../../../img/demopage/image-6.jpg">
+                <div class="thumbnail-title">Thumnail Title</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <a href="http://lokeshdhakar.com/projects/lightbox2/">
+                <img id="licensebutton_slim" alt="Creative Commons License" src="http://i.creativecommons.org/l/by/2.5/80x15.png" style="margin-right:10px;margin-bottom:4px; border: 0;"></a>
+              </div>
+              <div class="col-md-6 text-right">
+                <ul class="pagination marpad">
+                  <li><a href="#">&laquo;</a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="CV">
+            <div class="portlet box light-grey"><!--EXPERIENCE-->
+              <div class="portlet-title">
+                <div style=" font-size:1.3em;">
+                  工作經驗
+                </div>
+              </div>
+              <div class="subtitle row CV-subtitle"><!--EXPERIENCE 01-->
+                <div class="col-md-5 pull-left CV-title">台昕電子</div>
+                <div class="col-md-6 pull-right CV_time"><p>Sep 2013 - Present (1 year)</p></div>
+              </div> 
+              <div class="portlet-body">
+                <p>利象見面意食來因，子子天引。通大無。開種選我他空天多春則四明看之元哥化角都苦小經告而分，動什小；有多也數此個病弟北條演等角北吃條沒上字利不。</p>
+              </div><!--END EXPERIENCE 01-->
+
+              <div class="subtitle row CV-subtitle"><!--EXPERIENCE 02-->
+                <div class="col-md-5 pull-left CV-title">致光數位</div>
+                <div class="col-md-6 pull-right CV_time"><p>Apr 2010-Nov 2010 (7 months)</p></div>
+              </div> 
+              <div class="portlet-body">
+                <p>沒聲坐為到河詩個不人像做。不怎應了裝、工消雙種，她調沒故！政人不多；生地軍門會。兒西面而最畫一之的者臺時買什器一會可成的適空面。</p>
+              </div><!--END EXPERIENCE 02-->
+
+            </div><!--END EXPERIENCE-->
+            <div class="portlet box light-grey" ><!--CERTIFICATIONS-->
+              <div class="portlet-title">
+                <div style=" font-size:1.3em;">
+                  教育
+                </div>
+              </div>
+              <div class="subtitle row CV-subtitle"><!--EDUCATION 01-->
+                <div class="col-md-5 pull-left CV-title">格列佛大學</div>
+                <div class="col-md-6 pull-right CV_time"><p>Oct 2008 - Mar2010 (1 year)</p></div>
+              </div> 
+              <div class="portlet-body">
+                <p><span>研究所</span> &ndash; 心理工程</p>
+              </div><!--END EDUCATION 01-->
+
+              <div class="subtitle row CV-subtitle"><!--EDUCATION 02-->
+                <div class="col-md-5 pull-left CV-title">格列佛大學</div>
+                <div class="col-md-6 pull-right CV_time"><p>2004 - 2008 (4 years)</p></div>
+              </div> 
+              <div class="portlet-body">
+                <p><span>大學部</span> &ndash; 行為心理</p>
+              </div><!--END EDUCATION 02-->
+            </div><!--END EDUCATION-->
+            <div class="portlet box light-grey"><!--CERTIFICATIONS-->
+              <div class="portlet-title">
+                <div style=" font-size:1.3em;">
+                  證書
+                </div>
+              </div>
+              <div class="subtitle row CV-subtitle"><!--CERTIFICATIONS 01-->
+                <div class="col-md-5 pull-left CV-title">網頁設計</div>
+                <div class="col-md-6 pull-right CV_time"><p>2009</p></div>
+              </div> 
+              <div class="portlet-body">
+                <p>描述</p>
+              </div><!--END CERTIFICATIONS 01-->
+
+              <div class="subtitle row CV-subtitle"><!--CERTIFICATIONS 02-->
+                <div class="col-md-5 pull-left" style="margin-left:10px;">程式設計</div>
+                <div class="col-md-6 pull-right CV_time"><p>2010</p></div>
+              </div> 
+              <div class="portlet-body">
+                <p>描述</p>
+              </div><!--END CERTIFICATIONS 02-->
+
+            </div><!--END CERTIFICATIONS-->
+          </div><!--END CV-->
+          <div class="tab-pane" id="badge">
+            <div class="portlet box light-grey">
+
+            </div>
+            <div class="portlet box light-grey">
+
+            </div>
+          </div>
+        </div>  
+        <!-- BEGIN END CONTENT -->
+      </div><!-- END COL-MD-8 -->
+      <div class="col-md-4 ">
+        <div class="common-box">
+          <div class="row icon-layout" >
+            <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-map-marker fa-lg" ></i></div>
+            <div class="col-md-9 col-sm-9 col-xs-9 icon-text"><strong style="color:black;"><%= t("countries."+@user.country_code) %></strong></div>
+          </div>
+          <hr>
+          <div class="row icon-layout" >
+            <div class="col-md-3  col-sm-3 col-xs-3 icon-circle"><i class="fa fa-money fa-lg" ></i></div>
+            <div class="col-md-9 col-sm-9 col-xs-9 icon-text"><p>$<%= @user.hourly_pay %><span>時薪</span></p></div>
+          </div>
+          <hr>
+          <div class="row icon-layout" >
+            <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-briefcase fa-lg" ></i></div>
+            <div class="col-md-9 col-sm-9 col-xs-9 icon-text"><p>13&nbsp;<span>工作件數</span></p></div>
+          </div>
+          <hr>
+          <div class="row icon-layout" >
+            <div class="col-md-3 col-sm-3 col-xs-3 icon-circle"><i class="fa fa-clock-o fa-lg" ></i></div>
+            <div class="col-md-9 col-sm-9 col-xs-9 icon-text"><p>2,579&nbsp;<span>總工作小時</span></p></div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- END ROW -->
+  </div>
+</div>
+</div>
+<div class="modal" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" type="button" data-dismiss="modal">×</button>
+        <h3 class="modal-title"></h3>
+      </div>
+      <div class="modal-body">
+        <div id="modalCarousel" class="carousel">
+
+          <div class="carousel-inner">
+
+          </div>
+          
+          <a class="left carousel-control" href="#modalCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+          <a class=" right carousel-control" href="#modalCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+          <div>
+            <ul class="category_ul">
+              <li class="Cgray">Category <strong class="Cblack">Software Development</strong></li>
+
+              <li class="Cgray">Sub-Category <strong class="Cblack">Software Development</strong></li>
+            </ul>
+            <ul class="category_ul">
+              <li class="Cgray">Used Skills</li>  
+              <li>character-design</li>
+              <li>illustration</li>
+            </ul>
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-link pull-left">Report this project</button>
+        <button class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- END PAGE --> 
+<!-- BEGIN FOOTER -->
+<script language="javascript" type="text/javascript" 
+src="../../../../masterpage/footer.txt"></script>
+<!-- END FOOTER --> 
+
+<!-- BEGIN JAVASCRIPTS --> 
+<!-- BEGIN 核心插件 --> 
+<!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+            <![endif]--> 
+
+            <script src="../../../../plugins/jquery-1.11.0.min.js"></script> 
+            <script src="../../../../plugins/bootstrap/js/bootstrap.min.js"></script> 
+            <script src="../../../../plugins/jquery-placeholder/jquery.placeholder.js"></script> 
+            <!-- END 核心插件 --> 
+            <!-- BEGIN 頁面插件 --> 
+            <!-- END 頁面插件 --> 
+            <script type="text/javascript" src="../../../../js/script.js"></script>
+            <script type="text/javascript" src="../../../../js/loginmain.js"></script>  
+            <script src="../../../../js/lightbox.min.js"></script>
+            <!--<script type="text/javascript" src="js/page/index.js"></script>--> 
+            <script>
+            jQuery(document).ready(function() {    
+             Web.init();
+               //Index.init();
+             });
+            </script> 
+            <script type="text/javascript" src="../../../../js/bootstrap-tabcollapse.js"></script> 
+            <script type="text/javascript">
+            $('#myTab').tabCollapse();
+            $('#testTabs').tabCollapse();
+            $('#testTabs01').tabCollapse();
+            </script> 
+            <script type="text/javascript">
+            /* copy loaded thumbnails into carousel */
+            $('.row .thumbnail').on('load', function() {
+
+            }).each(function(i) {
+              if(this.complete) {
+                var item = $('<div class="item"></div>');
+                var itemDiv = $(this).parents('div');
+                var title = $(this).parent('a').attr("title");
+
+                item.attr("title",title);
+                $(itemDiv.html()).appendTo(item);
+                item.appendTo('.carousel-inner'); 
+    if (i==0){ // set first item active
+     item.addClass('active');
+   }
+ }
+});
+
+            /* activate the carousel */
+            $('#modalCarousel').carousel({interval:false});
+
+            /* change modal title when slide changes */
+            $('#modalCarousel').on('slid.bs.carousel', function () {
+              $('.modal-title').html($(this).find('.active').attr("title"));
+            })
+
+            /* when clicking a thumbnail */
+            $('.row .thumbnail').click(function(){
+              var idx = $(this).parents('div').index();
+              var id = parseInt(idx);
+    $('#myModal').modal('show'); // show the modal
+    $('#modalCarousel').carousel(id); // slide carousel to selected
+    
+  });
+
+            </script>
+
+            <!-- END JAVASCRIPTS --> 
+            <!-- BEGIN PIE --> 
+<!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]--> 
+        <!-- END PIE -->
+      </body>
+      </html>

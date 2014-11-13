@@ -1,0 +1,109 @@
+﻿$axure.loadCurrentPage({
+  "url":"登入頁_2.html",
+  "generationDate":new Date(1404292435679.22),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable",
+"NewVariable"],
+  "page":{
+    "packageId":"0a7a496f0c3947d68250a7e6834f05ce",
+    "type":"Axure:Page",
+    "name":"登入頁",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFFFFFFF},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"Applied Font",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[{
+          "id":"6b0236a4ce234e94949ecd342db0c37b",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "size":{
+              "width":1920,
+              "height":979}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"16841fa41a9c4487b7ce3780ee41384f",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "size":{
+                  "width":1920,
+                  "height":979}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/登入頁/u0.png"}},
+{
+          "id":"164a867a0a8d4ea194bbb570e62fea99",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":870,
+              "y":330},
+            "size":{
+              "width":200,
+              "height":30},
+            "borderFill":{
+              "fillType":"solid",
+              "color":0xFFFFFF}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"bcc410b9fd064f75b2c930d30ecf3b2d",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":870,
+                  "y":330},
+                "size":{
+                  "width":200,
+                  "height":30},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFFFFFF}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/登入頁_2/u2.png"}}]}},
+  "masters":{
+},
+  "objectPaths":{
+    "6b0236a4ce234e94949ecd342db0c37b":{
+      "scriptId":"u0"},
+    "16841fa41a9c4487b7ce3780ee41384f":{
+      "scriptId":"u1"},
+    "164a867a0a8d4ea194bbb570e62fea99":{
+      "scriptId":"u2"},
+    "bcc410b9fd064f75b2c930d30ecf3b2d":{
+      "scriptId":"u3"}}});

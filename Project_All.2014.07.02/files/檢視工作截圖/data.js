@@ -1,0 +1,66 @@
+﻿$axure.loadCurrentPage({
+  "url":"檢視工作截圖.html",
+  "generationDate":new Date(1404292446344.83),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable",
+"NewVariable"],
+  "page":{
+    "packageId":"d93b227ea03941bbb5c5f7ce14d1f905",
+    "type":"Axure:Page",
+    "name":"檢視工作截圖",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFFFFFFF},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"Applied Font",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[{
+          "id":"128c05d761784b9d9e5ff9a0d08c0557",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "size":{
+              "width":1920,
+              "height":1080}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"4ea4be45693448f8b9935b04133c4400",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "size":{
+                  "width":1920,
+                  "height":1080}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/檢視工作截圖/u0.png"}}]}},
+  "masters":{
+},
+  "objectPaths":{
+    "128c05d761784b9d9e5ff9a0d08c0557":{
+      "scriptId":"u0"},
+    "4ea4be45693448f8b9935b04133c4400":{
+      "scriptId":"u1"}}});
