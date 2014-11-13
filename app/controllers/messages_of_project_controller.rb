@@ -1,0 +1,2 @@
+class MessagesOfProjectController < ApplicationController
+end
