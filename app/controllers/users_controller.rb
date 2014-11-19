@@ -11,7 +11,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    # @users = User.all
+    @favourite_list = []
+
+    User.first.user_favorites.each { |f| @favourite_list << User.find(f.user_id) }
+    render json: @favourite_list
   end
 
 
