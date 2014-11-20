@@ -34,8 +34,15 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def applying
-    @project = Project.find(params[:id])
+  def apply_new
+    @apply_project = UserAppyingProjects.new(project: Project.find(params[:id]), user: current_user)
+    # render json: @appy_project.project
+  end
+
+  def apply_create
+    # return render json: params
+    @apply_project = UserAppyingProjects.create!(params.permit![:user_appying_projects])
+    render json: @apply_project
   end
 
   def update

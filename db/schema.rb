@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113103035) do
+ActiveRecord::Schema.define(version: 20141120062109) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -155,6 +155,16 @@ ActiveRecord::Schema.define(version: 20141113103035) do
     t.datetime "updated_at"
     t.string   "name"
     t.integer  "category",   default: 0
+  end
+
+  create_table "user_appying_projects", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.float    "expect_hourly_charge"
+    t.text     "introduction"
+    t.binary   "attachment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_authentications", force: true do |t|
