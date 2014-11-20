@@ -35,14 +35,14 @@ class ProjectsController < ApplicationController
   end
 
   def apply_new
-    @apply_project = UserAppyingProjects.new(project: Project.find(params[:id]), user: current_user)
-    # render json: @appy_project.project
+    @apply_project = UserApplyingProject.new(project: Project.find(params[:id]), user: current_user)
+    # render json: @apply_project.user
   end
 
   def apply_create
     # return render json: params
-    @apply_project = UserAppyingProjects.create!(params.permit![:user_appying_projects])
-    render json: @apply_project
+    @apply_project = UserApplyingProject.create!(params.permit![:user_applying_project])
+    redirect_to project_path(@apply_project.project)
   end
 
   def update

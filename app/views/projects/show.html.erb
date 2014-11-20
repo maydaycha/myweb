@@ -105,8 +105,12 @@
                        <% end %>
 
                        <!-- <button type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-check"> 申請</i></button> -->
-                       <%= link_to controller: "projects", action: "applying" do %>
-                       <div class="btn btn-warning btn-sm btn-circle" type="button"><i class="fa fa-check"></i> <%= '申請' %></div>
+                       <% if UserApplyingProject.exists?(project_id: @project.id, user_id: current_user.id) %>
+                         <div class="btn btn-warning btn-sm btn-circle" type="button"><i class="fa fa-check"></i> <%= '已申請' %></div>
+                        <% else %>
+                         <%= link_to projects_apply_new_path do %>
+                          <div class="btn btn-warning btn-sm btn-circle" type="button"><i class="fa fa-check"></i> <%= '申請' %></div>
+                         <% end %>
                        <% end %>
                        <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 題問</i></button>
                      </div>
