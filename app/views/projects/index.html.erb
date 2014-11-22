@@ -2,7 +2,9 @@
 <% @projects.group_by{|g| g.project_category }.each do |c, project| %>
 <ul style="list-style-type: none;">
   <form action="project/update_budget">
+    <% if not @category[11].nil? %>
     <li><h3><%= c.to_i >= 99 ? @category[11].name : @category[c.to_i-1].name %></h3></li>
+    <% end %>
     <input type="hidden" name="c" value="<%= c.to_i %>">
     <li>
       增加金額：<input type="text" name="new_budget">

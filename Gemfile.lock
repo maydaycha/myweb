@@ -86,9 +86,11 @@ GEM
     execjs (2.2.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    ffi (1.9.6-x86-mingw32)
     formtastic (3.0.0)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.1.1)
+    gli (2.12.2)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -119,6 +121,13 @@ GEM
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    localeapp (0.9.0)
+      gli
+      i18n
+      json
+      rack
+      rest-client
+      ya2yaml
     localized_country_select (0.9.9)
       actionpack (>= 3.0)
     mail (2.5.4)
@@ -129,6 +138,7 @@ GEM
     multi_json (1.10.1)
     multipart-post (2.0.0)
     mysql2 (0.3.16)
+    netrc (0.8.0)
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -192,6 +202,13 @@ GEM
     recaptcha (0.3.6)
     responders (1.0.0)
       railties (>= 3.2, < 5)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    rest-client (1.7.2-x86-mingw32)
+      ffi (~> 1.9)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rmagick (2.13.2)
     rspec-core (2.14.8)
     rspec-expectations (2.14.5)
@@ -248,6 +265,7 @@ GEM
     unicode_utils (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
+    ya2yaml (0.31)
     yard (0.8.7.4)
 
 PLATFORMS
@@ -269,6 +287,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
+  localeapp
   localized_country_select (>= 0.9.8)
   mysql2
   oauth
