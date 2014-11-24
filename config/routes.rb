@@ -215,4 +215,6 @@ Sun::Application.routes.draw do
 
   resources :users
 
+  get 'application/show_image' => 'application#show_image'
+
 end

@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  before_action :get_website
 
   before_action :protect
 
@@ -67,6 +68,19 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def show_image
+    if not params[:model].nil? and not params[:id].nil?
+      @object = params[:model].singularize.classify.constantize.find(params[:id])
+      send_data @object.read_attribute("#{params[:attribute]}"), :type => 'image/jpg', :disposition => 'inline' if not @object.nil?
+    end
+  end
+
+
+  def get_website
+    @website = Website.first
+  end
+
+
 
   protected
 
@@ -83,6 +97,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end
+
 
 
 

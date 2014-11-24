@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120082123) do
+ActiveRecord::Schema.define(version: 20141122160814) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -350,5 +350,20 @@ ActiveRecord::Schema.define(version: 20141120082123) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+
+  create_table "websites", force: true do |t|
+    t.binary   "logo",              limit: 2147483647
+    t.binary   "swiper",            limit: 2147483647
+    t.binary   "it_software",       limit: 2147483647
+    t.binary   "science_engineer",  limit: 2147483647
+    t.binary   "creativity_design", limit: 2147483647
+    t.binary   "sales",             limit: 2147483647
+    t.binary   "service",           limit: 2147483647
+    t.binary   "business",          limit: 2147483647
+    t.binary   "writness",          limit: 2147483647
+    t.binary   "consulting",        limit: 2147483647
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
