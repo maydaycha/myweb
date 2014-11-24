@@ -4,7 +4,7 @@ ActiveAdmin.register Website do
 
 
 
-  form do |f|
+  form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Detail" do
       f.input :logo, :as => :file
       f.input :swiper, :as => :file
@@ -75,18 +75,14 @@ ActiveAdmin.register Website do
     end
 
     def create
-      # params[:website][:logo] = open(params[:website][:logo].tempfile).read if not params[:website][:logo].nil?
       params[:website].each do |key, value|
-        # puts "key: #{key}, value: #{value}"
         params[:website][key] = open(params[:website][key].tempfile).read if not params[:website][key].nil?
       end
       super
     end
 
     def update
-      # params[:website][:logo] = open(params[:website][:logo].tempfile).read if not params[:website][:logo].nil?
       params[:website].each do |key, value|
-        # puts "key: #{key}, value: #{value}"
         params[:website][key] = open(params[:website][key].tempfile).read if not params[:website][key].nil?
       end
       super
