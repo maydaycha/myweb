@@ -102,3 +102,6 @@ gem 'activeadmin', github: 'activeadmin'
 # github: 'activeadmin'
 # gem "meta_search",    '>= 1.1.0.pre'
 
+group :development do
+  gem 'faker'
+end
