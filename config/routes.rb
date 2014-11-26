@@ -215,4 +215,11 @@ Sun::Application.routes.draw do
 
   resources :users
 
+ 
+
+  namespace :meet_rooms do
+    get 'booking'
+  end
+
+ resources :meet_rooms
 end

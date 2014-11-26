@@ -45,4 +45,7 @@ Sun::Application.configure do
 
   config.log_level = :debug
 
+  # guard for development
+  config.middleware.use Rack::LiveReload
+
 end
