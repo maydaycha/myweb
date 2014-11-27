@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125112009) do
+ActiveRecord::Schema.define(version: 20141127053845) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -44,9 +44,28 @@ ActiveRecord::Schema.define(version: 20141125112009) do
     t.datetime "updated_at"
     t.boolean  "is_service",          default: false
     t.boolean  "is_translator",       default: false
+    t.integer  "authority_group_id"
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+
+  create_table "authority_groups", force: true do |t|
+    t.string   "name"
+    t.boolean  "admin_management"
+    t.boolean  "multi_language_management"
+    t.boolean  "banner_management"
+    t.boolean  "menu_management"
+    t.boolean  "category_management"
+    t.boolean  "promotion_page_management"
+    t.boolean  "footer_management"
+    t.boolean  "module_management"
+    t.boolean  "search_management"
+    t.boolean  "user_management"
+    t.boolean  "group_management"
+    t.boolean  "payment_management"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: true do |t|
     t.datetime "created_at"

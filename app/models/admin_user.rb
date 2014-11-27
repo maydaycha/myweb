@@ -3,8 +3,15 @@ class AdminUser < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :trackable, :validatable, :rememberable
 
+  belongs_to :authority_group
+
+
   def is_admin?
     # self.email && ENV['ADMIN_EMAILS'].to_s.include?(self.email)
     return true
   end
+
+
+
+
 end

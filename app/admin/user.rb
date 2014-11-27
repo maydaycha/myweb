@@ -25,6 +25,8 @@ ActiveAdmin.register User do
   filter :last_name
   filter :last_sign_in_at
 
+  menu :if => proc { current_admin_user.authority_group.nil? ? false : current_admin_user.authority_group.user_management }
+
 
   config.clear_action_items!
 

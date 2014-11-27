@@ -1,4 +1,10 @@
 class CreateWebsites < ActiveRecord::Migration
+  def migrate(direction)
+    super
+    # Create a default user
+    Website.create! if direction == :up
+  end
+
   def change
     create_table :websites do |t|
       t.binary :logo, limit: 2147483647
