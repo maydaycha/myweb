@@ -1,4 +1,4 @@
-<h1> Booking book</h1>
+<h1> 線上會議室 租借</h1>
 
 
 <%= bootstrap_form_for(@room) do |f| %>
@@ -16,3 +16,7 @@
   <%= f.submit "送出" %>
 <% end %>
 
+<% @projects.first.project_members.each do |a| %>
+	<li> <%= a.user_id %> </li>
+	<li> <%= User.find(a.user_id).username %> </li>
+<% end %>

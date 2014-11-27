@@ -1,0 +1,17 @@
+<h1> 借用會議室資訊 </h1>
+
+<li> 借用會議室編號: <%= @room.room_number%> </li>
+<li> 租借人:  </li>
+<li> 開始時間: <%= @room.start_time %> </li>
+<li> 結束時間: <%= @room.end_time %> </li>
+<li> 專案名稱: <%= @project.name %> </li>
+<li> 會議主持人: </li>
+<li> 會議參加人員: <li>
+
+<li> 付款資訊: </li>
+
+
+<li> 取消訂單 </li>
+
+
+<%= link_to("Book system", meet_rooms_path) %>

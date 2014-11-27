@@ -5,26 +5,24 @@ class MeetRoomsController < ApplicationController
 
 	def create
 		@room = MeetRoom.new(room_params)
+		@room.ordered_customer = current_user.id
 		if @room.save
-			redirect_to meet_rooms_path
+			render :check_order_information
 		else
 			render :booking
 		end
 	end
 
-	def show
-		
-	end
-
-	def show_status
-		@rooms = MeetRoom.all
-		render "meet_rooms/show_status.html.erb"
-	end
-
 	def booking
 		@room = MeetRoom.new
 		@projects = Project.all
-		@room.ordered_customer = current_user.id
+		
+	end
+
+	def check_order_information
+		@room = MeetRoom.all.find_by_ordered_customer(current_user.id)
+		@project = Project.find(@room.case)
+		
 	end
 
 	private

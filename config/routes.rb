@@ -219,6 +219,7 @@ Sun::Application.routes.draw do
 
   namespace :meet_rooms do
     get 'booking'
+    get 'check_order_information'
   end
 
  resources :meet_rooms
