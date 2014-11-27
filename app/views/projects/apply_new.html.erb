@@ -26,7 +26,7 @@
         <link rel="stylesheet" type="text/css" href="../../../../css/style.css">
         <link rel="stylesheet" type="text/css" href="../../../../css/expanding_list.css">
         <link rel="stylesheet" type="text/css" href="../../../../css/alert.css">
-        <link rel="stylesheet" type="text/css" href="../../../../css/loginmain.css"> 
+        <link rel="stylesheet" type="text/css" href="../../../../css/loginmain.css">
         <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
         <link rel="shortcut icon" href="../../../../favicon.ico"/>
       </head>
@@ -47,7 +47,7 @@
          <!--  <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
             <i class="fa fa-search"></i>
           </button> -->
-          <a class="navbar-brand" href="../../../../index.html"><img class="navbar-logo" src="../../../../img/logo208.png" alt="快樂工作"></a>
+          <a class="navbar-brand" href="/"><img class="navbar-logo" src="../../../../img/logo208.png" alt="快樂工作"></a>
         </div>
        <!--  <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
           <div class="navbar-search">
@@ -70,7 +70,7 @@
        </div>
        <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
         <ul class="nav navbar-nav">
-          <li class="dropdown"> 
+          <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle" src="../../../../img/class/class_3.jpg" style="width: 30px;height:30px;" alt="img"> &nbsp;Chris,Chou <b class="caret"></b></a>
             <ul class="dropdown-menu user-dropdown">
               <li class="color-blue"><span>Hi,<a href="#">Chris,Chou</a></span></li>
@@ -99,14 +99,14 @@
               <li><a href="#">歐元</a></li>
             </ul>
           </li>
-          
+
         </ul>
       </div>
     </div>
     <div class="nav-border-blue"></div>
   </div>
-  
-  <!-- END NAVBAR --> 
+
+  <!-- END NAVBAR -->
     <!-- BEGIN PAGE -->
     <div class="page-content" style="margin-bottom:50px;">
       <div class="container" style="margin-top: 50px;">
@@ -129,7 +129,7 @@
                       <li>-所在地區為X</li>
                     </ul>
                   </div>
-                  
+
                   <div class="portlet box blue">
                    <div class="portlet-title">
                     <div style=" font-size:1.3em;">
@@ -137,8 +137,8 @@
                    </div>
                  </div>
                  <div class="portlet-body">
-                  <h4><strong><%= @project.name %></strong></h4>
-                  <p><%= @project.description %></p>
+                  <h4><strong><%= @apply_project.project.name %></strong></h4>
+                  <p><%= @apply_project.project.description %></p>
                   <a href="#">檢視完整案件</a>
                 </div>
               </div>
@@ -148,7 +148,7 @@
                  雇主期待的相關經歷程度
                </div>
              </div>
-             <% if @project.required_user_level == 1 %>
+             <% if @apply_project.project.required_user_level == 1 %>
              <div class="portlet-body">
                <div class="row product-chooser disabled">
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -185,7 +185,7 @@
               </div>
             </div>
           </div>
-          <% elsif @project.required_user_level == 2 %>
+          <% elsif @apply_project.project.required_user_level == 2 %>
           <div class="portlet-body">
                <div class="row product-chooser disabled">
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -222,7 +222,7 @@
               </div>
             </div>
           </div>
-          <% elsif @project.required_user_level == 3 %>
+          <% elsif @apply_project.project.required_user_level == 3 %>
           <div class="portlet-body">
                <div class="row product-chooser disabled">
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -316,22 +316,25 @@
    </div>
    <div class="portlet-body">
      <div class="form-group form-style">
-       <form action="#" class=" form-horizontal go-bottom " role="form">
+       <!-- <form action="#" class=" form-horizontal go-bottom " role="form"> -->
+       <%= form_for @apply_project, url: projects_apply_create_path, method: :post, multipart: true, html: {class: "form-horizontal go-bottom", role: "form" } do |f| %>
+        <%= f.hidden_field :project_id %>
+        <%= f.hidden_field :user_id %>
         <div class="row">
           <div class="col-md-12">
             <div class="form-group lable-group">
               <div class="input-group">
-                <input type="text" name="butget" class="form-control" required>
+                <!-- <input type="text" name="butget" class="form-control" required> -->
+                <%= f.text_field :expect_hourly_charge, class: "form-control", required: true %>
                 <label for="budget">預算金額</label>
-                <span class="input-group-addon" style="z-index: 10;
-                position: relative;">
+                <span class="input-group-addon" style="z-index: 10; position: relative;">
                 美金
               </span>
             </div>
           </div>
         </div>
       </div>
-    </form>
+    <!-- </form> -->
   </div>
 </div>
 </div>
@@ -343,17 +346,18 @@
 </div>
 <div class="portlet-body">
  <div class="form-group form-style">
-   <form action="#" class=" form-horizontal go-bottom " role="form">
+   <!-- <form action="#" class=" form-horizontal go-bottom " role="form"> -->
      <div class="row">
 
       <div class="col-md-12">
         <div class="form-group lable-group">
-          <textarea rows="3" type="text" class="form-control" required></textarea>
+          <!-- <textarea rows="3" type="text" class="form-control" required></textarea> -->
+          <%= f.text_field :introduction, rows: "3", class: "form-control" %>
           <label for="name">請輸入文字</label>
         </div>
       </div>
     </div>
-  </form>
+  <!-- </form> -->
 </div>
 </div>
 </div>
@@ -365,30 +369,33 @@
 </div>
 <div class="portlet-body">
  <div class="form-group form-style">
-   <form action="#" class=" form-horizontal go-bottom " role="form">
+   <!-- <form action="#" class=" form-horizontal go-bottom " role="form"> -->
      <div class="row">
        <div class="col-md-12">
         <div class="form-group lable-group">
-          <textarea rows="3" type="text" class="form-control" required></textarea>
+          <!-- <textarea rows="3" type="text" class="form-control" required></textarea> -->
+          <%= f.text_area :question1, rows: "3", class: "form-control", required: true %>
           <label for="name">問題一: Which of the required job skills do you feel you are stronget at?</label>
         </div>
       </div>
       <div class="col-md-12">
         <div class="form-group lable-group">
-          <textarea rows="3" type="text" class="form-control" required></textarea>
+          <!-- <textarea rows="3" type="text" class="form-control" required></textarea> -->
+          <%= f.text_area :question2, rows: "3", class: "form-control", required: true %>
           <label for="name">問題二: Which of the required job skills do you feel you are stronget at?</label>
         </div>
       </div>
       <div class="col-md-12">
         <div class="form-group lable-group">
-          <textarea rows="3" type="text" class="form-control" required></textarea>
+          <!-- <textarea rows="3" type="text" class="form-control" required></textarea> -->
+          <%= f.text_area :question3, rows: "3", class: "form-control", required: true %>
           <label for="name">問題三: Which of the required job skills do you feel you are stronget at?</label>
         </div>
       </div>
 
     </div>
   </div>
-</form>
+<!-- </form> -->
 </div>
 </div>
 <div class="portlet box blue">
@@ -400,7 +407,7 @@
 <div class="portlet-body">
   <h5>上傳您相關的文件或作品，提供雇主參考。請不要上傳您的個人履歷，當您送出申請的同時，您的TeleWork個人介紹也會傳送給雇主。</h5>
   <div class="form-group form-style">
-   <form action="#" class=" form-horizontal go-bottom " role="form">
+   <!-- <form action="#" class=" form-horizontal go-bottom " role="form"> -->
      <div class="row ">
       <div class="col-md-12 marpad">
 
@@ -420,11 +427,11 @@
             </div>
           </span>
         </div><!-- /input-group image-preview [TO HERE]-->
-        
+
         <p class="help-block">(注意! 上傳檔案不超過10MB，格式為jpg, png, pdf)</p>
       </div>
     </div>
-  </form>
+  <!-- </form> -->
 </div>
 </div>
 </div>
@@ -434,7 +441,7 @@
 
   <div class="col-md-12 text-left">
     <div class="form-group left10">
-        <input type="checkbox" class="left17"> 申請此案件必須遵守保密協議，同意您才能繼續申請。<a href="#">下載Telework保密協議條款聲明書 >> </a>   
+        <input type="checkbox" class="left17"> 申請此案件必須遵守保密協議，同意您才能繼續申請。<a href="#">下載Telework保密協議條款聲明書 >> </a>
     </div>
   </div>
 </div>
@@ -442,54 +449,57 @@
 
 <div class="text-right">
   <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg"> 預覽案件</button>
-  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg"> 送出案件</button>
+  <button type="submit" class="btn btn-success btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg"> 送出案件</button>
   <button type="button" class="btn btn-danger btn-lg"> 取消</button>
 </div>
 </div>
+
+<!-- </form> -->
+<% end %>
+
 </div><!--END 案件-->
 </div>
-</div><!-- END ROW --> 
+</div><!-- END ROW -->
 
 </div>
 </div>
 </div>
-<!-- END PAGE --> 
+<!-- END PAGE -->
 <!-- BEGIN FOOTER -->
-<script language="javascript" type="text/javascript" 
-src="../../../../masterpage/footer.txt"></script>
-<!-- END FOOTER --> 
+<script language="javascript" type="text/javascript" src="../../../../masterpage/footer.txt"></script>
+<!-- END FOOTER -->
 
-<!-- BEGIN JAVASCRIPTS --> 
-<!-- BEGIN 核心插件 --> 
+<!-- BEGIN JAVASCRIPTS -->
+<!-- BEGIN 核心插件 -->
 <!--[if lt IE 9]>
             <script src="plugins/html5shiv.min.js"></script>
             <script src="plugins/respond.min.js"></script>
-            <![endif]--> 
+            <![endif]-->
 
-            <script src="../../../../plugins/jquery-1.11.0.min.js"></script> 
-            <script src="../../../../plugins/bootstrap/js/bootstrap.min.js"></script> 
-            <script src="../../../../plugins/jquery-placeholder/jquery.placeholder.js"></script> 
-            <!-- END 核心插件 --> 
+            <script src="../../../../plugins/jquery-1.11.0.min.js"></script>
+            <script src="../../../../plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="../../../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
+            <!-- END 核心插件 -->
             <!-- BEGIN 頁面插件 -->
 
-            <!-- END 頁面插件 --> 
-            <script type="text/javascript" src="../../../../js/script.js"></script> 
+            <!-- END 頁面插件 -->
+            <script type="text/javascript" src="../../../../js/script.js"></script>
             <script type="text/javascript" src="../../../../js/loginmain.js"></script>
-            <script type="text/javascript" src="../../../../js/element.js"></script> 
+            <script type="text/javascript" src="../../../../js/element.js"></script>
             <script type="text/javascript" src="../../../../js/expanding_list.js"></script>
-            <!--<script type="text/javascript" src="js/page/index.js"></script>--> 
+            <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
-              jQuery(document).ready(function() {    
+              jQuery(document).ready(function() {
                Web.init();
                //Index.init();
              });
-            </script> 
-            <script type="text/javascript" src="../../../../js/bootstrap-tabcollapse.js"></script> 
+            </script>
+            <script type="text/javascript" src="../../../../js/bootstrap-tabcollapse.js"></script>
             <script type="text/javascript">
               $('#myTab').tabCollapse();
               $('#testTabs').tabCollapse();
               $('#testTabs01').tabCollapse();
-            </script> 
+            </script>
 
             <script type="text/javascript">
              $(document).ready(function() {
@@ -507,8 +517,8 @@ src="../../../../masterpage/footer.txt"></script>
             $('#myCheckbox').attr('checked', false); // Unchecks it
            </script>
 
-           <!-- END JAVASCRIPTS --> 
-           <!-- BEGIN PIE --> 
+           <!-- END JAVASCRIPTS -->
+           <!-- BEGIN PIE -->
 <!--[if lte IE 9]>
         <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
         <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
@@ -520,7 +530,7 @@ src="../../../../masterpage/footer.txt"></script>
             });
         });
         </script>
-        <![endif]--> 
+        <![endif]-->
         <!-- END PIE -->
       </body>
       </html>

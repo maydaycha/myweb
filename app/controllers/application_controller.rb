@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  before_action :get_website
 
   before_action :protect
 
@@ -67,6 +68,19 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def show_image
+    if not params[:model].nil? and not params[:id].nil?
+      @object = params[:model].singularize.classify.constantize.find(params[:id])
+      send_data @object.read_attribute("#{params[:attribute]}"), :type => 'image/jpg', :disposition => 'inline' if not @object.nil?
+    end
+  end
+
+
+  def get_website
+    @website = Website.first
+  end
+
+
 
   protected
 
@@ -86,6 +100,7 @@ class ApplicationController < ActionController::Base
 
 
 
+
   private
 
   def extract_locale_from_accept_language_header
@@ -94,7 +109,7 @@ class ApplicationController < ActionController::Base
   end
 
   def protect
-    @ips = ['125.227.181.61', '140.113.73.55', '127.0.0.1', '140.113.73.40', '140.113.73.30', '140.113.73.50', '140.113.72.8', '118.166.80.56', '36.226.230.98', '118.163.48.186', '111.253.21.3', '140.113.46.18', '220.129.28.72', '220.136.16.176']
+    @ips = ['125.227.181.61', '140.113.73.55', '127.0.0.1', '140.113.73.40', '140.113.73.30', '140.113.73.50', '140.113.72.8', '118.166.80.56', '36.226.230.98', '118.163.48.186', '111.253.21.3', '140.113.46.18', '220.129.28.72', '220.136.16.176', '140.113.73.35']
     if not @ips.include? request.remote_ip
       # Check for your subnet stuff here, for example
       # if not request.remote_ip.include?('127.0,0')

@@ -103,7 +103,8 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="content-slide">
-                                <img src="img/swiper/swiper4.jpg" alt="img">
+                                <!-- <img src="img/swiper/swiper4.jpg" alt="img"> -->
+                                <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :swiper, :id => @website.id) %>
                                 <div class="text">
                                     <p class="content"><%= I18n.t("page.index.swiper1_title1") %></p>
                                     <p class="content"><%= I18n.t("page.index.swiper1_title2") %></p>
@@ -183,49 +184,57 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <img src="img/class/class_1.jpg" alt="IT & software">
+                            <!-- <img src="img/class/class_1.jpg" alt="IT & software"> -->
+                            <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :it_software, :id => @website.id), alt: "IT & software" %>
                             <p><%= t(:"main_skill_category")[0]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <img src="img/class/class_2.jpg" alt="工程 & 科學">
+                            <!-- <img src="img/class/class_2.jpg" alt="工程 & 科學"> -->
+                            <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :science_engineer, :id => @website.id), alt: "工程 & 科學" %>
                             <p><%= t(:"main_skill_category")[1]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <img src="img/class/class_3.jpg" alt="design">
+                            <!-- <img src="img/class/class_3.jpg" alt="design"> -->
+                            <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :creativity_design, :id => @website.id), alt: "design" %>
                             <p><%= t(:"main_skill_category")[2]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <img src="img/class/class_4.jpg" alt="marketing">
+                            <!-- <img src="img/class/class_4.jpg" alt="marketing"> -->
+                            <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :sales, :id => @website.id), alt: "marketing" %>
                             <p><%= t(:"main_skill_category")[3]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <img src="img/class/class_5.jpg" alt="img">
+                            <!-- <img src="img/class/class_5.jpg" alt="img"> -->
+                            <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :service, :id => @website.id), alt: "img" %>
                             <p><%= t(:"main_skill_category")[4]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <img src="img/class/class_6.jpg" alt="accounting">
+                            <!-- <img src="img/class/class_6.jpg" alt="accounting"> -->
+                            <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :business, :id => @website.id), alt: "accounting" %>
                             <p><%= t(:"main_skill_category")[5]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <img src="img/class/class_7.jpg" alt="writing">
+                            <!-- <img src="img/class/class_7.jpg" alt="writing"> -->
+                            <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :writness, :id => @website.id), alt: "writing" %>
                             <p><%= t(:"main_skill_category")[6]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <img src="img/class/class_8.jpg" alt="img">
+                            <!-- <img src="img/class/class_8.jpg" alt="img"> -->
+                            <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :consulting, :id => @website.id), alt: "img" %>
                             <p><%= t(:"main_skill_category")[7]['name'] %></p>
                         </a>
                     </div>

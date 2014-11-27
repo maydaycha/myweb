@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113103035) do
+ActiveRecord::Schema.define(version: 20141127053845) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -44,9 +44,28 @@ ActiveRecord::Schema.define(version: 20141113103035) do
     t.datetime "updated_at"
     t.boolean  "is_service"
     t.boolean  "is_translator",       default: false
+    t.integer  "authority_group_id"
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+
+  create_table "authority_groups", force: true do |t|
+    t.string   "name"
+    t.boolean  "admin_management"
+    t.boolean  "multi_language_management"
+    t.boolean  "banner_management"
+    t.boolean  "menu_management"
+    t.boolean  "category_management"
+    t.boolean  "promotion_page_management"
+    t.boolean  "footer_management"
+    t.boolean  "module_management"
+    t.boolean  "search_management"
+    t.boolean  "user_management"
+    t.boolean  "group_management"
+    t.boolean  "payment_management"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: true do |t|
     t.datetime "created_at"
@@ -140,6 +159,7 @@ ActiveRecord::Schema.define(version: 20141113103035) do
     t.integer  "sub_skill"
     t.string   "during_time"
     t.integer  "user_id"
+    t.text     "public_message_chinese"
   end
 
   create_table "skills", force: true do |t|
@@ -155,6 +175,19 @@ ActiveRecord::Schema.define(version: 20141113103035) do
     t.datetime "updated_at"
     t.string   "name"
     t.integer  "category",   default: 0
+  end
+
+  create_table "user_applying_projects", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.float    "expect_hourly_charge"
+    t.text     "introduction"
+    t.text     "question1"
+    t.text     "question2"
+    t.text     "question3"
+    t.binary   "attachment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_authentications", force: true do |t|
@@ -344,5 +377,20 @@ ActiveRecord::Schema.define(version: 20141113103035) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+
+  create_table "websites", force: true do |t|
+    t.binary   "logo",              limit: 2147483647
+    t.binary   "swiper",            limit: 2147483647
+    t.binary   "it_software",       limit: 2147483647
+    t.binary   "science_engineer",  limit: 2147483647
+    t.binary   "creativity_design", limit: 2147483647
+    t.binary   "sales",             limit: 2147483647
+    t.binary   "service",           limit: 2147483647
+    t.binary   "business",          limit: 2147483647
+    t.binary   "writness",          limit: 2147483647
+    t.binary   "consulting",        limit: 2147483647
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
