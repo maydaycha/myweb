@@ -7,7 +7,7 @@ class MeetRoomsController < ApplicationController
 		@room = MeetRoom.new(room_params)
 		@room.ordered_customer = current_user.id
 		if @room.save
-			render :check_order_information
+			redirect_to meet_rooms_check_order_information_path
 		else
 			render :booking
 		end
