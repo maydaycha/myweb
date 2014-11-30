@@ -16,7 +16,6 @@ class MeetRoomsController < ApplicationController
 	def booking
 		@room = MeetRoom.new
 		@projects = Project.all
-		
 	end
 
 	def check_order_information
@@ -25,10 +24,15 @@ class MeetRoomsController < ApplicationController
 		
 	end
 
+	def participant
+		@room = MeetRoom.all.find_by_ordered_customer(current_user.id)
+		@project = Project.find(@room.case)
+		@member = @room.project_members.build
+	end
+
 	private
 
 	def room_params
 		params.require(:meet_room).permit(:room_number, :start_time, :end_time, :case, :ordered_customer)
 	end
 end
-
