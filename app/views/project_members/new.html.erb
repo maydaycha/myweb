@@ -1,0 +1,22 @@
+<h1> 增加與會人員 </h1>
+
+
+
+
+
+<%= @project.name %>
+
+<%= @project.user %>
+<%= bootstrap_form_for ([@room, @member]) do |f| %>
+
+  <%= f.form_group :user_id, label: { text: "選擇會議參與人員" } do %>
+    <% @project.project_members.each do |a| %>
+      <%= f.radio_button :user_id, a.user_id, label: User.find(a.user_id).username%>
+    <% end %>
+  <% end %>
+
+
+  <%= f.submit "Send" %>
+<% end %>
+
+

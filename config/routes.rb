@@ -222,5 +222,7 @@ Sun::Application.routes.draw do
     get 'check_order_information'
   end
 
- resources :meet_rooms
+  resources :meet_rooms do
+    resources :project_members
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129065551) do
+ActiveRecord::Schema.define(version: 20141130064953) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -59,6 +59,12 @@ ActiveRecord::Schema.define(version: 20141129065551) do
     t.datetime "updated_at"
   end
 
+  create_table "meet_room_members", force: true do |t|
+    t.integer  "user"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "meet_rooms", force: true do |t|
     t.integer  "room_number"
     t.datetime "start_time"
@@ -67,6 +73,7 @@ ActiveRecord::Schema.define(version: 20141129065551) do
     t.integer  "ordered_customer"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "meet_room_id"
   end
 
   create_table "messages_of_projects", force: true do |t|
@@ -93,11 +100,10 @@ ActiveRecord::Schema.define(version: 20141129065551) do
   end
 
   create_table "project_members", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "user"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "meet_room_id"
   end
 
   create_table "project_public_messages", force: true do |t|

@@ -12,14 +12,13 @@ NB_USERS = 10
 NB_PROJECTS = 10
 NB_MEMBER = 3
 
-
-
-NB_MEMBER.times do |n|
-	ProjectMember.create! do |a|
-		a.user_id = n + 4
-		a.project_id = 1
+NB_PROJECTS.times do |n|
+	Project.create! do |a|
+	  a.name = 'project' + '-' + n.to_s
 	end
 end
+
+
 
 NB_USERS.times do |n|
 	User.create! do |a|
@@ -34,10 +33,12 @@ NB_USERS.times do |n|
 	end
 end
 
-NB_PROJECTS.times do |n|
-	Project.create! do |a|
-	  a.name = 'project' + '-' + n.to_s
+
+
+
+NB_MEMBER.times do |n|
+	ProjectMember.create! do |a|
+		a.user = n
+		a.project_id = 1
 	end
 end
-
-

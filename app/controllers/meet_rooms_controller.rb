@@ -13,22 +13,20 @@ class MeetRoomsController < ApplicationController
 		end
 	end
 
+
 	def booking
 		@room = MeetRoom.new
-		@projects = Project.all
+		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
 	end
 
 	def check_order_information
 		@room = MeetRoom.all.find_by_ordered_customer(current_user.id)
+		@ordered_customer = User.find(@room.ordered_customer)
 		@project = Project.find(@room.case)
-		
+		@member = @room.project_members
 	end
 
-	def participant
-		@room = MeetRoom.all.find_by_ordered_customer(current_user.id)
-		@project = Project.find(@room.case)
-		@member = @room.project_members.build
-	end
+
 
 	private
 
