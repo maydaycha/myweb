@@ -38,7 +38,7 @@ end
 
 NB_MEMBER.times do |n|
 	ProjectMember.create! do |a|
-		a.user = n
+		a.user = n + 1
 		a.project_id = 1
 	end
 end

@@ -23,7 +23,7 @@ class MeetRoomsController < ApplicationController
 		@room = MeetRoom.all.find_by_ordered_customer(current_user.id)
 		@ordered_customer = User.find(@room.ordered_customer)
 		@project = Project.find(@room.case)
-		@member = @room.project_members
+		
 	end
 
 

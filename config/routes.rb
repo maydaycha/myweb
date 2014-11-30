@@ -223,6 +223,6 @@ Sun::Application.routes.draw do
   end
 
   resources :meet_rooms do
-    resources :project_members
+    resources :meet_room_members
   end
 end
