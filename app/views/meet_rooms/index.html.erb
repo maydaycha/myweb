@@ -1,3 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0">
+    <title><%= I18n.t("page.title") %></title>
+
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
+        <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+        <!-- END 核心樣式 -->
+        <!-- BEGIN 頁面插件樣式 -->
+        <link rel="stylesheet" href="/plugins/jquery-autocomplete/jquery.autocomplete.css">
+        <link rel="stylesheet" href="/plugins/jquery-tags-input/jquery.tagsinput.css">
+        <link rel="stylesheet" href="/plugins/select2/select2.css">
+        <link rel="stylesheet" href="/plugins/select2/select2-metronic.css">
+        <link rel="stylesheet" href="/plugins/bootstrap-datepicker/css/datepicker.css">
+        <link rel="stylesheet" href="/plugins/dropzone/css/dropzone.css">
+        <!-- END 頁面插件樣式 -->
+        <!-- BEGIN 主題樣式 -->
+        <!-- END 主題樣式 -->
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/alert.css">
+        <link rel="stylesheet" type="text/css" href="/css/page/personal_profile.css">
+        <link rel="stylesheet" type="text/css" href="/css/progress_bar.css">
+        <link rel="shortcut icon" href="/favicon.ico"/>
+        <!-- END STYLE -->
+        <!-- JQuery Datepicker style -->
+        <style type="text/css">
+        th.datepicker-switch{
+            background-color: gray;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="loader" style="z-index:10; position:fixed; width:100%; height:100%; display: none;" align="center">
+            <img style="-webkit-opacity: 0.4; -moz-opacity: 0.4; filter:alpha(opacity=40);" src="/img/spinner.gif">
+        </div>
+        <!-- BEGIN NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+<!--                 <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                    <i class="fa fa-search"></i>
+                </button> -->
+                <a class="navbar-brand" href="/"><img class="navbar-logo" src="/img/logo208.png" alt="快樂工作"></a>
+            </div>
+            <!-- <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+                <div class="navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div> -->
+            <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <% if user_signed_in? %>
+                    <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                    <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
+                    <% else %>
+                    <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                    <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <!-- END NAVBAR -->
 <h1> Booking system </h1>
 
 
@@ -5,11 +94,15 @@
 
 
 <h2> 選取服務 </h2>
-	<li> <%=link_to("線上會議室", meet_rooms_booking_path) %> </li>
+	<li> <%=link_to("一般計劃會議室", meet_rooms_booking_path) %> </li>
+	<li> 企業方案會議室 </li>
 	<li> BYOT會議室 </li>
-	<li> 企業方案會議 </li>
 	<li> 線上面試 </li>
 
 
 <h2> 會議室使用狀況 </h2>
 	<li> <%= link_to("租借資訊", meet_rooms_check_order_information_path) %> </li>
+
+    </body>
+    </html>
+

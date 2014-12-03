@@ -1,12 +1,14 @@
 
-<%= @project.name %>
+<p>已加入會議的人員</p>
+<% @room.meet_room_members.each do |m| %>
+  <li> <%= m.user %> </li>
+<% end %>
 
-<%= @project.user %>
 <%= bootstrap_form_for ([@room, @member]) do |f| %>
 
   <%= f.form_group :user, label: { text: "選擇會議參與人員" } do %>
-    <% @project.project_members.each do |a| %>
-      <%= f.radio_button :user, a.user, label: User.find(a.user).username %>
+    <% @project_members.each do |a| %>
+    	<%= f.radio_button :user, a.user, label: User.find(a.user).username %>
     <% end %>
   <% end %>
 

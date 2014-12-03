@@ -1,0 +1,18 @@
+
+<%= link_to("增加會議人員", new_meet_room_meet_room_member_path(@room)) %>
+<br>
+<table>
+	<thead>
+		已加入會議的人員
+	</thead>
+	
+	<% @room.meet_room_members.each do |m| %>
+	  <tr>
+	  	<td><li> <%= User.find(m.user).username %></li></td>
+	  	<td> <%= link_to("移除", meet_room_meet_room_member_path(@room, m), :method => :DELETE) %></td>
+	  </tr>
+	<% end %>
+	
+</table>
+
+

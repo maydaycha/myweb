@@ -1,4 +1,7 @@
 class MeetRoomsController < ApplicationController
+	before_action :authenticate_user!
+
+
 	def index
 		@rooms = MeetRoom.all
 	end
@@ -7,11 +10,13 @@ class MeetRoomsController < ApplicationController
 		@room = MeetRoom.new(room_params)
 		@room.ordered_customer = current_user.id
 		if @room.save
-			redirect_to meet_rooms_check_order_information_path
+			redirect_to new_meet_room_meet_room_member_path(@room)
 		else
 			render :booking
 		end
 	end
+
+	
 
 
 	def booking
