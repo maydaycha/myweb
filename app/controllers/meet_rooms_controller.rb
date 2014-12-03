@@ -17,7 +17,19 @@ class MeetRoomsController < ApplicationController
 	end
 
 	
+	def edit
+		@room = MeetRoom.find(params[:id])
+		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
+	end
 
+	def update
+		@room = MeetRoom.find(params[:id])
+		if @room.update(room_params)
+			redirect_to meet_rooms_check_order_information_path
+		else
+			render :edit
+		end
+	end
 
 	def booking
 		@room = MeetRoom.new
@@ -26,7 +38,6 @@ class MeetRoomsController < ApplicationController
 
 	def check_order_information
 		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
-		
 	end
 
 

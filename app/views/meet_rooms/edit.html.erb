@@ -1,0 +1,23 @@
+<h1> 一般線上會議室 更改</h1>
+
+<h2> Step One </h1>
+
+<p>判斷為僱主或者是雇員</p>
+
+<%= bootstrap_form_for(@room) do |f| %>
+  <%= f.select :room_number, [["Meet Room 1", 1], ["Meet Room 2", 2]], { label: "選擇會議室:" }, { class: "selectpicker" } %>
+
+  <%= f.datetime_field :start_time %>
+  <%= f.datetime_field :end_time %>
+
+        <!-- 選擇會議室所要開的專案 -->
+  <%= f.form_group :case, label: { text: "選擇專案" } do %>
+    <% @projects.each do |p| %>
+  	  <%= f.radio_button :case, p.id, label: p.name%>
+  	<% end %>
+	<% end %>
+  
+  <%= f.submit "Send" %>
+<% end %>
+
+

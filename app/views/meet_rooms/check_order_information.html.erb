@@ -2,6 +2,7 @@
 <div class="main-content">
 
 	<h1> 已借用會議室資訊 </h1>
+	<%= link_to("Book system", meet_rooms_path) %>
 
 	<h2> <%= current_user.username %> 你好</h2>
 
@@ -19,7 +20,7 @@
 				<li> 會議主持人: </li>
 				<li> 會議參加人員: 
 					<ul><% room.meet_room_members.each do |m|%>
-						<li><%= m.user %></li>
+						<li><%= User.find(m.user).username %></li>
 					<% end %></ul>
 				</li>
 
@@ -27,8 +28,7 @@
 				<li> 取消訂單 </li>
 
 				<%= link_to("會議人員變動", meet_room_meet_room_members_path(room)) %>
-				<p> 會議室變更 </p>
-				<%= link_to("Book system", meet_rooms_path) %>
+				<%= link_to("會議室變更", edit_meet_room_path(room))%>
 			</div>
 		</div>
 	<% end %>
