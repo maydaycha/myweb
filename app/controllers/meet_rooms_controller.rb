@@ -1,6 +1,6 @@
 class MeetRoomsController < ApplicationController
 	before_action :authenticate_user!
-
+	layout "meet_room"
 
 	def index
 		@rooms = MeetRoom.all
@@ -25,9 +25,7 @@ class MeetRoomsController < ApplicationController
 	end
 
 	def check_order_information
-		@room = MeetRoom.all.find_by_ordered_customer(current_user.id)
-		@ordered_customer = User.find(@room.ordered_customer)
-		@project = Project.find(@room.case)
+		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
 		
 	end
 
