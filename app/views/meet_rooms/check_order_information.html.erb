@@ -5,7 +5,7 @@
 	<%= link_to("Book system", meet_rooms_path) %>
 
 	<h2> <%= current_user.username %> 你好</h2>
-
+	<%= @projects.id %>
 	<% @rooms.each do |room| %>
 		<div class="tab-content">
 			<div class="portlet box light-grey show-view">
@@ -26,9 +26,9 @@
 
 				<li> 付款資訊: </li>
 				<li> 取消訂單 </li>
-
-				<%= link_to("會議人員變動", meet_room_meet_room_members_path(room)) %>
 				<%= link_to("會議室變更", edit_meet_room_path(room))%>
+				<%= link_to("會議人員變動", meet_room_meet_room_members_path(room)) %>
+				
 			</div>
 		</div>
 	<% end %>

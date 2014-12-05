@@ -31,6 +31,7 @@ class MeetRoomsController < ApplicationController
 		end
 	end
 
+
 	def booking
 		@room = MeetRoom.new
 		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
@@ -38,6 +39,10 @@ class MeetRoomsController < ApplicationController
 
 	def check_order_information
 		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
+		@projects = []
+		@rooms.each do |room|
+			@projects << Project.find(room.case)
+		end
 	end
 
 
