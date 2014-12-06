@@ -20,8 +20,9 @@
 	        </div>
 	      </div>
 				<li> 會議室編號: <%= room.room_number%> </li>
-				<li> 開始時間: <%= room.start_time %> </li>
-				<li> 結束時間: <%= room.end_time %> </li>
+				<li> 會議日期: <%= room.target_date %> </li>
+				<li> 開始時間: <%= room.start_time.strftime('%H:%M:%S') %> </li>
+				<li> 結束時間: <%= room.end_time.strftime('%H:%M:%S') %> </li>
 				<li> 專案名稱: <%= @projects[i].name %></li>
 				<li> 會議主持人: </li>
 				

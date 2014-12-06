@@ -55,6 +55,6 @@ class MeetRoomsController < ApplicationController
 	private
 
 	def room_params
-		params.require(:meet_room).permit(:room_number, :start_time, :end_time, :case, :ordered_customer)
+		params.require(:meet_room).permit(:room_number, :start_time, :end_time, :case, :ordered_customer, :target_date)
 	end
 end

@@ -10,8 +10,55 @@
   <%= bootstrap_form_for(@room) do |f| %>
     <%= f.select :room_number, [["Meet Room 1", 1], ["Meet Room 2", 2]], { label: "選擇會議室:" }, { class: "selectpicker" } %>
 
-    <%= f.datetime_field :start_time %>
-    <%= f.datetime_field :end_time %>
+        <!-- select target date -->
+    <div class="container">
+      <div class="row">
+        <div class='col-sm-6'>
+          <div class="form-group">
+            <label for="meet_room_target_date">選擇會議日期</label>
+            <div class='input-group date' id='datetimepicker1'>
+              <input type='text' class="form-control" name="meet_room[target_date]" data-date-format="YYYY/MM/DD"/>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- select start time -->
+    <div class="container">
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                  <label for="meet_room_start_time">開始時間</label>
+                  <div class='input-group date' id='datetimepicker2'>
+                      <input type='text' class="form-control" name="meet_room[start_time]"/>
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
+                      </span>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+          <!-- select end time -->
+    <div class="container">
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <label for="meet_room_end_time">結束時間</label>
+                    <div class='input-group date' id='datetimepicker3'>
+                        <input type='text' class="form-control" name="meet_room[end_time]"/>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+
 
           <!-- 選擇會議室所要開的專案 -->
     <%= f.form_group :case, label: { text: "選擇專案" } do %>
@@ -20,9 +67,38 @@
     	<% end %>
   	<% end %>
     
+
+
+      <!-- Button trigger modal -->
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+      會議室內容協議
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">會議室使用規則</h4>
+          </div>
+          <div class="modal-body">
+            關於會議室使用規則
+             <p>1. XXXXXX </p>
+             <p>2. XXXXXX </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Agree</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <%= f.submit "Next step" %>
   <% end %>
 
-  <p> 會議室內容協議 </p>
 
-</div>
+
+
