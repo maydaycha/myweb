@@ -42,7 +42,12 @@ class MeetRoomsController < ApplicationController
 		@projects = []
 		@rooms.each do |room|
 			@projects << Project.find(room.case)
+			@unconfirmed = room.meet_room_members.where("confirmed = ?", 0).count
+			#@join = 
+			#not_joined = 
 		end
+
+
 	end
 
 

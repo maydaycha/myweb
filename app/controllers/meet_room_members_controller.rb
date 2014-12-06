@@ -1,5 +1,7 @@
 class MeetRoomMembersController < ApplicationController
 	before_action :authenticate_user!
+	layout "meet_room"
+
 	
 	def index
 		@room = MeetRoom.all.find_by_ordered_customer(current_user.id)

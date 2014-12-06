@@ -1,4 +1,3 @@
-
 <p>已加入會議的人員</p>
 <% @room.meet_room_members.each do |m| %>
   <li> <%= m.user %> </li>
@@ -15,5 +14,3 @@
 
   <%= f.submit "Send" %>
 <% end %>
-
-

@@ -5,27 +5,36 @@
 	<%= link_to("Book system", meet_rooms_path) %>
 
 	<h2> <%= current_user.username %> 你好</h2>
-	<%= @projects.id %>
-	<% @rooms.each do |room| %>
+	
+
+	<% @rooms.each_with_index do |room, i| %>
 		<div class="tab-content">
 			<div class="portlet box light-grey show-view">
 				<div class="portlet-title">
 	        <div class="caption">
-	          預定的會議室
+	          <% if @unconfirmed > 0 %>
+	          	<p>參與人員尚未全部確定</p>
+	          <% else %>
+	          	<p>預定的會議室 </p>
+	          <% end %>
 	        </div>
 	      </div>
 				<li> 會議室編號: <%= room.room_number%> </li>
 				<li> 開始時間: <%= room.start_time %> </li>
 				<li> 結束時間: <%= room.end_time %> </li>
+				<li> 專案名稱: <%= @projects[i].name %></li>
 				<li> 會議主持人: </li>
-				<li> 會議參加人員: 
+				
+				<li> 邀請參加人員: 
 					<ul><% room.meet_room_members.each do |m|%>
 						<li><%= User.find(m.user).username %></li>
 					<% end %></ul>
 				</li>
-
+				<% if @unconfirmed > 0 %>
+					<li> 參與狀態: 尚未確定人員<%= @unconfirmed %></li>
+				<% end %>
 				<li> 付款資訊: </li>
-				<li> 取消訂單 </li>
+				<li> 取消會議室 </li>
 				<%= link_to("會議室變更", edit_meet_room_path(room))%>
 				<%= link_to("會議人員變動", meet_room_meet_room_members_path(room)) %>
 				
