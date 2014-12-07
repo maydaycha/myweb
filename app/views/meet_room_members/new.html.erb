@@ -1,16 +1,31 @@
-<p>已加入會議的人員</p>
-<% @room.meet_room_members.each do |m| %>
-  <li> <%= m.user %> </li>
-<% end %>
+<div class="main-content">
 
-<%= bootstrap_form_for ([@room, @member]) do |f| %>
+	<table class="table">
+	<th>已加入會議的人員</th>
+	<tr>
+		<% @room.meet_room_members.each do |m| %>
+		  <td> <%= m.user %> </td>
+		<% end %>
+	</tr>
+	</table>
 
-  <%= f.form_group :user, label: { text: "選擇會議參與人員" } do %>
-    <% @project_members.each do |a| %>
-    	<%= f.radio_button :user, a.user, label: User.find(a.user).username %>
-    <% end %>
-  <% end %>
+	<p> 選擇進行會議人數條件 </p>
+	<div class="checkbox">
+	  <label>
+	    <input type="checkbox" value="">
+	    需所有人確認才進行
+	  </label>
+	</div>
+
+	<%= bootstrap_form_for ([@room, @member]) do |f| %>
+
+	  <%= f.form_group :user, label: { text: "選擇會議參與人員" } do %>
+	    <% @project_members.each do |a| %>
+	    	<%= f.radio_button :user, a.user, label: User.find(a.user).username %>
+	    <% end %>
+	  <% end %>
 
 
-  <%= f.submit "Send" %>
-<% end %>
+	  <%= f.submit "Send" %>
+	<% end %>
+</div>

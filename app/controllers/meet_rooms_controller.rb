@@ -1,6 +1,7 @@
 class MeetRoomsController < ApplicationController
 	before_action :authenticate_user!
 	layout "meet_room"
+	WAIT_TIME = (60*60*24*3) #60sec * 60min * 24hr * 3days
 
 	def index
 		@rooms = MeetRoom.all
@@ -35,6 +36,8 @@ class MeetRoomsController < ApplicationController
 	def booking
 		@room = MeetRoom.new
 		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
+		#@meet_room_price = MeetRoomPrice.find(level: user.level)
+		@meet_room_price = MeetRoomPrice.first
 	end
 
 	def check_order_information
@@ -45,11 +48,10 @@ class MeetRoomsController < ApplicationController
 			@unconfirmed = room.meet_room_members.where("confirmed = ?", 0).count
 			#@join = 
 			#not_joined = 
+			@final_datetime = room.created_at + WAIT_TIME
 		end
 
-
 	end
-
 
 
 	private
@@ -57,4 +59,7 @@ class MeetRoomsController < ApplicationController
 	def room_params
 		params.require(:meet_room).permit(:room_number, :start_time, :end_time, :case, :ordered_customer, :target_date)
 	end
+
+
+
 end
