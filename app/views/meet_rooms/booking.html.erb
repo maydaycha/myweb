@@ -17,7 +17,7 @@
 
   <%= bootstrap_form_for(@room) do |f| %>
     <%= f.select :room_number, [["Meet Room 1", 1], ["Meet Room 2", 2]], { label: "選擇會議室:" }, { class: "selectpicker" } %>
-
+    
         <!-- select target date -->
     <div class="container">
       <div class="row">
@@ -25,7 +25,7 @@
           <div class="form-group">
             <label for="meet_room_target_date">選擇會議日期</label>
             <div class='input-group date' id='datetimepicker1'>
-              <input type='text' class="form-control required" name="meet_room[target_date]" data-date-format="YYYY/MM/DD"/>
+              <input type='date' class="form-control required" id="meet_room_target_date" name="meet_room[target_date]"/>
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
               </span>

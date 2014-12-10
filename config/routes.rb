@@ -222,6 +222,10 @@ Sun::Application.routes.draw do
     get 'check_order_information'
   end
 
+  scope :meet_rooms do
+    get 'cancel/:id' => 'meet_rooms#cancel', :as => :meet_rooms_cancel
+  end
+
   resources :meet_rooms do
     resources :meet_room_members
   end

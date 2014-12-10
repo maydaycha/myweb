@@ -2,7 +2,7 @@ class MeetRoomsController < ApplicationController
 	before_action :authenticate_user!
 	layout "meet_room"
 	WAIT_TIME = (60*60*24*3) #60sec * 60min * 24hr * 3days
-
+	REFUND_PERCENT = [[3, 30], [6, 40], [9, 50], [13, 70], [14, 100]]
 	def index
 		@rooms = MeetRoom.all
 	end
@@ -50,9 +50,23 @@ class MeetRoomsController < ApplicationController
 			#not_joined = 
 			@final_datetime = room.created_at + WAIT_TIME
 		end
-
 	end
 
+	# to cancel the meet_room order
+	def cancel
+		@room = MeetRoom.find(params[:id])
+		@diff_day = (@room.target_date).day - (Time.now).day 
+		@refund_percent = 0 
+
+		REFUND_PERCENT.each_with_index do |refund, i|
+			if @diff_day <= refund[0]
+				@refund_percent = refund[1]
+				break
+			end
+
+			@refund_percent = REFUND_PERCENT.last[1]  #mean it the last one in the REFUND_PERCENT
+		end
+	end
 
 	private
 
