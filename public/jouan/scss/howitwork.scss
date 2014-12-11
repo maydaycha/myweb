@@ -1,3 +1,4 @@
+
 /* 
 Inspired by http://dribbble.com/shots/890759-Ui-Kit-Metro/attachments/97174
 */
@@ -163,5 +164,29 @@ Inspired by http://dribbble.com/shots/890759-Ui-Kit-Metro/attachments/97174
     -webkit-box-shadow: none;
     box-shadow: none;
     -webkit-appearance: none;
+  }
+}
+
+
+.img-res {
+  
+  max-width: 100%;
+  height: 300px !important;
+  margin: 0 auto !important;
+  overflow: hidden;
+  background: none;
+    
+  img {
+    position: relative;
+    max-width: 100%;
+  
+    
+    @media(min-width: 800px) {
+      top: -50%;
+      left: 0;
+      max-height: none;
+      width: 100%;
+    
+    }
   }
 }

@@ -1,13 +1,18 @@
-.owl-img {
-  background-image: url(../../img/BG_Blur_01.jpg);
-  background-size: 100% auto;
-  height: 300px;
-  display: block; }
-
-#owl-demo .item img {
-  display: block;
-  width: 100%;
-  height: auto; }
+.img-res {
+  max-width: 100%;
+  height: 300px !important;
+  margin: 0 auto !important;
+  overflow: hidden;
+  background: none; }
+  .img-res img {
+    position: relative;
+    max-width: 100%; }
+    @media (min-width: 800px) {
+      .img-res img {
+        top: -82%;
+        left: 0;
+        max-height: none;
+        width: 100%; } }
 
 .s-group {
   padding-top: 50px !important;

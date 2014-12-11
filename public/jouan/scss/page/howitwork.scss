@@ -251,3 +251,60 @@ https://github.com/marcaube/bootstrap-magnify
   -moz-border-radius: 100%;
   border-radius: 100%
 }
+
+
+.img-res {
+
+  max-width: 100%;
+  height: 300px !important;
+  margin: 0 auto !important;
+  overflow: hidden;
+  background: none;
+
+  img {
+    position: relative;
+    max-width: 100%;
+
+    
+    @media(min-width: 800px) {
+      top: -50%;
+      left: 0;
+      max-height: none;
+      width: 100%;
+
+    }
+  }
+}
+
+#map {
+ display: block;
+ position: relative;
+}
+#map::after {
+
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 110%;
+  height: 110%;
+  z-index: -1;
+  opacity: 0.2;
+  background-image: url('../../img/World_map.png');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+
+}
+
+.partner-lead{
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 1.4;
+}
