@@ -2,7 +2,7 @@ class MeetRoomsController < ApplicationController
 	layout "meet_room"
 
 	before_action :authenticate_user!
-	
+	before_action :set_headers
 
 
 	def index
@@ -34,6 +34,15 @@ class MeetRoomsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@room = MeetRoom.find(params[:id])
+
+		if @room.destroy
+			redirect_to meet_rooms_path
+		else
+			redirect_to meet_rooms_check_order_information_path
+		end
+	end
 
 	def booking
 		@room = MeetRoom.new

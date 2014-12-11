@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20141207044900) do
     t.datetime "updated_at"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
   create_table "admin_users", force: true do |t|
     t.string   "email",               default: "",    null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20141207044900) do
     t.boolean  "is_translator",       default: false
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
 
   create_table "comments", force: true do |t|
     t.datetime "created_at"
@@ -152,28 +152,28 @@ ActiveRecord::Schema.define(version: 20141207044900) do
     t.string   "require_skills_chinese"
     t.text     "description_chinese"
     t.integer  "project_category"
-    t.integer  "is_translation",                          default: 0
-    t.integer  "translators",                             default: 0
-    t.integer  "currency",                                default: 0
+    t.integer  "is_translation",                         default: 0
+    t.integer  "translators",                            default: 0
+    t.integer  "currency",                               default: 0
     t.datetime "start_date"
     t.datetime "end_date"
     t.string   "currency_code"
     t.float    "currency_exchangerate"
     t.text     "public_message"
-    t.integer  "word_count",                              default: 0
-    t.boolean  "is_emergency",                            default: false
-    t.integer  "required_user_level",                     default: 1
+    t.integer  "word_count",                             default: 0
+    t.boolean  "is_emergency",                           default: false
+    t.integer  "required_user_level",                    default: 1
     t.integer  "work_type"
-    t.integer  "visibility",                              default: 1
-    t.binary   "file",                   limit: 16777215
+    t.integer  "visibility",                             default: 1
+    t.binary   "file",                   limit: 5242880
     t.integer  "satisfication"
     t.integer  "worked_hours"
     t.string   "worker_location"
     t.integer  "english_level"
-    t.boolean  "required_user_intro",                     default: false
-    t.integer  "payment_type",                            default: 1
-    t.integer  "main_skill"
-    t.integer  "sub_skill"
+    t.boolean  "required_user_intro",                    default: false
+    t.integer  "payment_type",                           default: 1
+    t.integer  "main_skill",             limit: 255
+    t.integer  "sub_skill",              limit: 255
     t.string   "during_time"
     t.integer  "user_id"
   end
@@ -313,16 +313,16 @@ ActiveRecord::Schema.define(version: 20141207044900) do
     t.datetime "updated_at"
     t.integer  "main_skill_id"
     t.integer  "sub_skill_id"
-    t.binary   "picture1",         limit: 16777215
+    t.binary   "picture1",         limit: 10485760
     t.string   "skill"
-    t.binary   "document_content", limit: 2147483647
+    t.binary   "document_content", limit: 52428800
     t.string   "document_name"
   end
 
   create_table "user_skill_categories", force: true do |t|
     t.integer  "user_id"
     t.integer  "main_skill_id"
-    t.integer  "sub_skill_id"
+    t.integer  "sub_skill_id",  limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -368,7 +368,7 @@ ActiveRecord::Schema.define(version: 20141207044900) do
     t.string   "time_zone",                               default: "UTC"
     t.string   "how_to_know"
     t.boolean  "receive_information"
-    t.binary   "picture",                limit: 16777215
+    t.binary   "picture",                limit: 10485760
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "brief_introduction"
@@ -382,9 +382,9 @@ ActiveRecord::Schema.define(version: 20141207044900) do
     t.string   "current_role"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
 
 end
