@@ -40,7 +40,8 @@
 					<% if @unconfirmed > 0 %>
 						<li class="list-group-item"> 參與狀態： 尚未確定人員<%= @unconfirmed %></li>
 					<% end %>
-					<li class="list-group-item"> 付款資訊： </li>
+					<li class="list-group-item"> 租借時間：<%= @rent_time %> 分鐘 </li> 
+					<li class="list-group-item"> 付款資訊： $ <%= @charge %></li>
 
 					<li class="list-group-item"> 
 						<div class="row">

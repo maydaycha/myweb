@@ -1,8 +1,10 @@
 class MeetRoomsController < ApplicationController
-	before_action :authenticate_user!
 	layout "meet_room"
-	WAIT_TIME = (60*60*24*3) #60sec * 60min * 24hr * 3days
-	REFUND_PERCENT = [[3, 30], [6, 40], [9, 50], [13, 70], [14, 100]]
+
+	before_action :authenticate_user!
+	
+
+
 	def index
 		@rooms = MeetRoom.all
 	end
@@ -40,6 +42,7 @@ class MeetRoomsController < ApplicationController
 		@meet_room_price = MeetRoomPrice.first
 	end
 
+
 	def check_order_information
 		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
 		@projects = []
@@ -49,8 +52,17 @@ class MeetRoomsController < ApplicationController
 			#@join = 
 			#not_joined = 
 			@final_datetime = room.created_at + WAIT_TIME
+			@rent_time = (room.end_time - room.start_time) / 60
+			
+			unit = @rent_time / TIME_UNIT
+			if @rent_time % TIME_UNIT > 0
+				unit += 1
+			end
+			@charge = unit * MeetRoomPrice.first.price
 		end
+
 	end
+
 
 	# to cancel the meet_room order
 	def cancel
@@ -70,6 +82,10 @@ class MeetRoomsController < ApplicationController
 
 	private
 
+
+	WAIT_TIME = (60*60*24*3) 		#60sec * 60min * 24hr * 3days
+	REFUND_PERCENT = [[3, 30], [6, 40], [9, 50], [13, 70], [14, 100]]
+	TIME_UNIT = 30  					  # 30 minute as the one single unit.
 	def room_params
 		params.require(:meet_room).permit(:room_number, :start_time, :end_time, :case, :ordered_customer, :target_date)
 	end
