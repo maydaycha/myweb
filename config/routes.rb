@@ -220,6 +220,8 @@ Sun::Application.routes.draw do
   namespace :meet_rooms do
     get 'booking'
     get 'check_order_information'
+    get 'byot'
+    get 'enterprise'
   end
 
   scope :meet_rooms do

@@ -42,6 +42,20 @@ class MeetRoomsController < ApplicationController
 		@meet_room_price = MeetRoomPrice.first
 	end
 
+	def enterprise
+		@room = MeetRoom.new
+		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
+		#@meet_room_price = MeetRoomPrice.find(level: user.level)
+		@meet_room_price = MeetRoomPrice.first	
+	end
+
+	def byot
+		@room = MeetRoom.new
+		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
+		#@meet_room_price = MeetRoomPrice.find(level: user.level)
+		@meet_room_price = MeetRoomPrice.first
+	end
+
 
 	def check_order_information
 		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
