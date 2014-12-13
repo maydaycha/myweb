@@ -1,21 +1,22 @@
 <div class="main-content">
+	<ul class="nav nav-tabs nav-justified">
+	  <li role="presentation"><%= link_to("已參加會議人員", meet_room_meet_room_members_path(@room)) %></li>
+	  <li role="presentation" class="active">增加會議人員</li>
+	</ul>
 
-	<table class="table">
-	<th>已加入會議的人員</th>
-	<tr>
-		<% @room.meet_room_members.each do |m| %>
-		  <td> <%= m.user %> </td>
-		<% end %>
-	</tr>
-	</table>
 
-	<p> 選擇進行會議人數條件 </p>
+
+	<h3> 選擇進行會議人數條件 </h3>
 	<div class="checkbox">
 	  <label>
 	    <input type="checkbox" value="">
 	    需所有人確認才進行
 	  </label>
 	</div>
+
+
+
+	
 
 	<%= bootstrap_form_for ([@room, @member]) do |f| %>
 

@@ -5,7 +5,7 @@
 <li class="list-group-item"> 開始時間： <%= @room.start_time.strftime('%p %H:%M:%S') %> </li>
 <li class="list-group-item"> 結束時間： <%= @room.end_time.strftime('%p %H:%M:%S') %> </li>
 
-<li class="list-group-item"> 距離會議還有： <%= @diff_day %> </li>
-<li class="list-group-item"> 退還百分比： <%= @refund_percent %> </li>
+<li class="list-group-item"> 距離會議還有： <%= @diff_day %> 天</li>
+<li class="list-group-item"> 退還百分比： <%= @refund_percent %> %</li>
 
 <%= link_to("確認取消", 	meet_room_path(@room), confirm: 'Are you sure?', method: :delete) %>

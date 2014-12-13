@@ -1,21 +1,15 @@
 <div class="main-content">
   <div class="row">
-    <div class="col-md-8"><h1> 一般線上會議室 租借</h1></div>
+    <div class="col-md-8"><h1> BYOT會議室 租借</h1></div>
     <div class="col-md-4">
-      <p> 會員等級 : <%= @meet_room_price.level %></p>
+      <p> BYOT會員等級 : <%= @meet_room_price.level %></p>
       <p> 單位點數餘額 :  </p>
       <p> 單位時間費用 : $<%= @meet_room_price.price %>/0.5hr </p>
     </div>
   </div>
-  
 
-  
-  <h2> Step One </h2>
-
-  <p>判斷為僱主或者是雇員</p>
+  <h1> BYOT方案 </h1>
 
   <%= render partial: "meet_room_form" %>
 
 </div>
-
-

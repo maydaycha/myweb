@@ -16,7 +16,7 @@ ActiveAdmin.register MeetRoomPrice do
 
   controller do
     def permitted_params
-      params.permit meet_room_price: [:level, :price]
+      params.permit meet_room_price: [:level, :price, :scheme]
     end
 
   end

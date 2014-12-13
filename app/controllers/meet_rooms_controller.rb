@@ -1,6 +1,6 @@
 class MeetRoomsController < ApplicationController
-	layout "meet_room"
-
+	
+	layout "meet_room_information"
 	before_action :authenticate_user!
 	before_action :set_headers
 
@@ -28,7 +28,7 @@ class MeetRoomsController < ApplicationController
 	def update
 		@room = MeetRoom.find(params[:id])
 		if @room.update(room_params)
-			redirect_to meet_rooms_check_order_information_path
+			redirect_to meet_rooms_information_path
 		else
 			render :edit
 		end
@@ -51,8 +51,22 @@ class MeetRoomsController < ApplicationController
 		@meet_room_price = MeetRoomPrice.first
 	end
 
+	def enterprise
+		@room = MeetRoom.new
+		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
+		#@meet_room_price = MeetRoomPrice.find(level: user.level)
+		@meet_room_price = MeetRoomPrice.first	
+	end
 
-	def check_order_information
+	def byot
+		@room = MeetRoom.new
+		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
+		#@meet_room_price = MeetRoomPrice.find(level: user.level)
+		@meet_room_price = MeetRoomPrice.first
+	end
+
+
+	def information
 		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
 		@projects = []
 		@rooms.each do |room|
@@ -88,6 +102,11 @@ class MeetRoomsController < ApplicationController
 			@refund_percent = REFUND_PERCENT.last[1]  #mean it the last one in the REFUND_PERCENT
 		end
 	end
+
+	def upcoming_meet
+
+	end
+
 
 	private
 

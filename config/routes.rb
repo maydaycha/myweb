@@ -219,7 +219,13 @@ Sun::Application.routes.draw do
 
   namespace :meet_rooms do
     get 'booking'
-    get 'check_order_information'
+    get 'information'
+    get 'byot'
+    get 'enterprise'
+    get 'contact_person'
+    get 'upcoming_meet'
+    get 'buy'
+    get 'search'
   end
 
   scope :meet_rooms do

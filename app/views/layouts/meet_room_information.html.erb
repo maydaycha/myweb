@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -92,7 +93,24 @@
         <!-- END NAVBAR -->
 
 
-        <%= yield %>
+                
+        <div class="row">
+            <div class="col-md-2">
+            
+            <ul class="nav nav-pills nav-stacked">
+                  <li role="presentation"><%= link_to("會議室預約", meet_rooms_path) %></li>
+                  <li role="presentation"><%= link_to("已預約的會議", meet_rooms_information_path) %> </li>
+                  <li role="presentation"><%= link_to("查詢會議", meet_rooms_search_path) %> </li>
+                  <li role="presentation"><%= link_to("即將開始的會議", meet_rooms_upcoming_meet_path)%></li>
+                  <li role="presentation"><%= link_to("購買會議室時數", meet_rooms_buy_path) %></li>
+                </ul>
+            </div>
+
+            <div class="col-md-10">
+                <%=yield %>
+            </div>
+        </div>
+            
 
 
 <!-- BEGIN JAVASCRIPTS -->
