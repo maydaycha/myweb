@@ -1,6 +1,6 @@
 class MeetRoomMembersController < ApplicationController
 	before_action :authenticate_user!
-	layout "meet_room"
+	layout "meet_room_information"
 
 	
 	def index
@@ -11,7 +11,7 @@ class MeetRoomMembersController < ApplicationController
 		@member = @room.meet_room_members.build(member_params)
 		
 		if @member.save
-			redirect_to meet_rooms_check_order_information_path
+			render :index
 		else
 			render :new
 		end
@@ -25,7 +25,7 @@ class MeetRoomMembersController < ApplicationController
 	def destroy
 		@member = @room.meet_room_members.find(params[:id])
 		@member.destroy
-		redirect_to meet_room_meet_room_members_path
+		render :index
 	end
 
 

@@ -52,17 +52,18 @@
 
 
           <!-- 選擇會議室所要開的專案 -->
-    <%= f.form_group :case, label: { text: "選擇專案" } do %>
+    <%= f.form_group :case, label: { text: "選擇案件名稱" } do %>
       <% @projects.each do |p| %>
     	  <%= f.radio_button :case, p.id, label: p.name%>
     	<% end %>
   	<% end %>
     
+    
 
 
       <!-- Button trigger modal -->
     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-      會議室內容協議
+      確認預定並扣款
     </button>
 
     <!-- Modal -->
@@ -71,21 +72,20 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title" id="myModalLabel">會議室使用規則</h4>
+            <h4 class="modal-title" id="myModalLabel">會議室使用時數扣除確認</h4>
           </div>
           <div class="modal-body">
-            關於會議室使用規則
+            親愛的Telework會員您好，
              <p>1. XXXXXX </p>
              <p>2. XXXXXX </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Agree</button>
+            <button type="button" class="btn btn-primary"><%= f.submit "Next step" %></button>
           </div>
         </div>
       </div>
     </div>
 
 
-    <%= f.submit "Next step" %>
   <% end %>
