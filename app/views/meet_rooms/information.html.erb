@@ -13,7 +13,7 @@
 		<div class="portlet box light-grey show-view">
 			<div class="portlet-title">
 	      <div class="caption">
-	        <% if @unconfirmed > 0 %>
+	        <% if @unconfirmed[i] > 0 %>
 	        	<p>參與人員尚未全部確定</p>
 	        <% else %>
 	        	<p>預定的會議室 </p>
@@ -33,19 +33,24 @@
 						<li><%= User.find(m.user).username %></li>
 					<% end %></ul>
 				</li>
-				<% if @unconfirmed > 0 %>
-					<li class="list-group-item"> 參與狀態： 尚未確定人員<%= @unconfirmed %></li>
+				<% if @unconfirmed[i] > 0 %>
+					<li class="list-group-item"> 參與狀態： 尚未確定人數： <%= @unconfirmed[i] %> 人</li>
 				<% end %>
-				<li class="list-group-item"> 租借時間：<%= @rent_time %> 分鐘 </li> 
+				<li class="list-group-item"> 租借時間： <%= room.time_unit_count %> 單位，共 <%= @rent_time %> 分鐘 </li> 
 				<li class="list-group-item"> 付款資訊： $ <%= @charge %></li>
 
 				<li class="list-group-item"> 
 					<div class="row">
-						<div class="col-md-8">會議室允許變動期限：<%= @final_datetime %></div>
-						<div class="col-md-4">
-							<%= link_to("會議室變更", edit_meet_room_path(room))%>
-							<%= link_to("會議人員變動", meet_room_meet_room_members_path(room)) %>
-							<%= link_to("取消會議室", meet_rooms_cancel_path(room))%>
+						<div class="col-md-6">會議室允許變動期限：<%= @final_change_datetime %></div>
+						<div class="col-md-6">
+							<% if Time.now > @final_change_datetime %>  <!-- 表示不能更改 -->
+								<button type="button" class="btn btn-default disabled" ><%= link_to("會議室變更", edit_meet_room_path(room))%></button>
+								<button type="button" class="btn btn-default disabled"><%= link_to("會議人員變動", meet_room_meet_room_members_path(room)) %></button>
+							<% else %> 
+								<button type="button" class="btn btn-default" ><%= link_to("會議室變更", edit_meet_room_path(room))%></button>
+								<button type="button" class="btn btn-default"><%= link_to("會議人員變動", meet_room_meet_room_members_path(room)) %></button>
+							<% end %>
+							<button type="button" class="btn btn-danger"><%= link_to("取消會議室", meet_rooms_cancel_path(room))%></button>
 						</div>
 					</div>
 				</li>

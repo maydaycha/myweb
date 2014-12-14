@@ -18,6 +18,9 @@ ActiveAdmin.register MeetRoom do
   filter :end_time
   filter :case
   filter :ordered_customer
+  filter :time_unit_count
+  filter :is_changable
+  filter :is_confirmed
 end
 
 

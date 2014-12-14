@@ -1,9 +1,9 @@
 <div class="main-content">
-  <h1> 一般線上會議室 更改</h1>
-
-  <h2> Step One </h1>
-
-  <p>判斷為僱主或者是雇員</p>
+  <ul class="nav nav-tabs nav-justified">
+    <li role="presentation" class="active"><h3>會議室更改</h3></li>
+    <li role="presentation" ><h3>會議人員更改</h3></li>
+    <li role="presentation"><h3>會議室詳情更改</h3></li>
+  </ul>
 
   <%= bootstrap_form_for(@room) do |f| %>
     <%= f.select :room_number, [["Meet Room 1", 1], ["Meet Room 2", 2]], { label: "選擇會議室:" }, { class: "selectpicker" } %>
