@@ -1,6 +1,8 @@
 <%= bootstrap_form_for(@room) do |f| %>
     <%= f.select :room_number, [["Meet Room 1", 1], ["Meet Room 2", 2]], { label: "選擇會議室:" }, { class: "selectpicker" } %>
-    
+
+    <%= f.select :meet_type, [["案件會議", 1], ["面試會議", 2]], { label: "選擇會議類型:" }, { class: "selectpicker" } %>
+
         <!-- select target date -->
     <div class="container">
       <div class="row">
@@ -33,7 +35,10 @@
         </div>
     </div>
  
-          <!-- select end time -->
+
+    <%= f.number_field(:time_unit_count, in: 1..20, label: "單位時數 (30min/unit)") %>
+
+          <!-- select end time
     <div class="container">
         <div class="row">
             <div class='col-sm-6'>
@@ -48,7 +53,7 @@
             </div>
         </div>
     </div>
-            
+             -->
 
 
           <!-- 選擇會議室所要開的專案 -->
@@ -61,9 +66,9 @@
     
 
 
-      <!-- Button trigger modal -->
-    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-      確認預定並扣款
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      送出
     </button>
 
     <!-- Modal -->
@@ -81,7 +86,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary"><%= f.submit "Next step" %></button>
+            <button type="button" class="btn btn-primary"><%= f.submit "送出預約並扣款" %></button>
           </div>
         </div>
       </div>

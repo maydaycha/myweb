@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141213021758) do
+ActiveRecord::Schema.define(version: 20141214053326) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -87,6 +87,8 @@ ActiveRecord::Schema.define(version: 20141213021758) do
     t.date     "target_date"
     t.boolean  "is_changable",     default: true
     t.boolean  "is_confirmed",     default: false
+    t.integer  "meet_type"
+    t.integer  "time_unit_count"
   end
 
   create_table "messages_of_projects", force: true do |t|

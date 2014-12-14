@@ -12,6 +12,8 @@ class MeetRoomsController < ApplicationController
 	def create
 		@room = MeetRoom.new(room_params)
 		@room.ordered_customer = current_user.id
+		@room.end_time = @room.start_time + (@room.time_unit_count * 30 * 60)
+		
 		if @room.save
 			redirect_to new_meet_room_meet_room_member_path(@room)
 		else
@@ -48,40 +50,37 @@ class MeetRoomsController < ApplicationController
 		@room = MeetRoom.new
 		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
 		#@meet_room_price = MeetRoomPrice.find(level: user.level)
-		@meet_room_price = MeetRoomPrice.first
+		@meet_room_price = MeetRoomPrice.find_by_scheme(:general)  # todo: different user level will change the price
 	end
 
 	def enterprise
 		@room = MeetRoom.new
 		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
 		#@meet_room_price = MeetRoomPrice.find(level: user.level)
-		@meet_room_price = MeetRoomPrice.first	
+		@meet_room_price = MeetRoomPrice.find_by_scheme(:enterprise)	
 	end
 
 	def byot
 		@room = MeetRoom.new
 		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
 		#@meet_room_price = MeetRoomPrice.find(level: user.level)
-		@meet_room_price = MeetRoomPrice.first
+		@meet_room_price = MeetRoomPrice.find_by_scheme(:byot)
 	end
 
 
 	def information
 		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
 		@projects = []
+		@unconfirmed = []
+
 		@rooms.each do |room|
 			@projects << Project.find(room.case)
-			@unconfirmed = room.meet_room_members.where("confirmed = ?", 0).count
+			@unconfirmed << room.meet_room_members.where("confirmed = ?", 0).count
 			#@join = 
 			#not_joined = 
-			@final_datetime = room.created_at + WAIT_TIME
-			@rent_time = (room.end_time - room.start_time) / 60
-			
-			unit = @rent_time / TIME_UNIT
-			if @rent_time % TIME_UNIT > 0
-				unit += 1
-			end
-			@charge = unit * MeetRoomPrice.first.price
+			@final_change_datetime = room.target_date - BEFORE_TARGET_DATE
+			@rent_time = room.time_unit_count * TIME_UNIT
+			@charge = room.time_unit_count * MeetRoomPrice.first.price
 		end
 
 	end
@@ -110,12 +109,18 @@ class MeetRoomsController < ApplicationController
 
 	private
 
-
-	WAIT_TIME = (60*60*24*3) 		#60sec * 60min * 24hr * 3days
+	TIME_UNIT = 30  # 30min per unit
+	BEFORE_TARGET_DATE = 3 		#60sec * 60min * 24hr * 3days
 	REFUND_PERCENT = [[3, 30], [6, 40], [9, 50], [13, 70], [14, 100]]
-	TIME_UNIT = 30  					  # 30 minute as the one single unit.
 	def room_params
-		params.require(:meet_room).permit(:room_number, :start_time, :end_time, :case, :ordered_customer, :target_date)
+		params.require(:meet_room).permit(:room_number, 
+																			:start_time, 
+																			:end_time, 
+																			:case, 
+																			:ordered_customer, 
+																			:target_date,
+																			:meet_type, 
+																			:time_unit_count)
 	end
 
 
