@@ -1,0 +1,53 @@
+/*
+Syntax error: Invalid CSS after "...ar infinite;*\/*": expected identifier, was "/"
+        on line 71 of scss/howitwork.scss
+
+66:     -moz-transition: border 0.6s ease-out, color 0.6s ease 0.9s;
+67:     -ms-transition: border 0.6s ease-out, color 0.6s ease 0.9s; /* IE10 is actually unprefixed *\/
+68:     /*-o-transition: border 0.6s ease-out, color 0.6s ease 0.9s;
+69:     transition: border 0.6s ease-out, color 0.6s ease 0.9s;
+70:     -webkit-animation: pulsate 1.8s linear infinite;
+71:     animation: pulsate 1.8s linear infinite;*\/*\/
+72: }
+73: .btn-nav.active:before {
+74: 	/*content: '';*\/
+75: 	position: absolute;
+76: 	border-style: solid;
+
+Backtrace:
+scss/howitwork.scss:71
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:1312:in `expected'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:1248:in `expected'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:1228:in `expr!'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:972:in `declaration'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:688:in `block in declaration_or_ruleset'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:1288:in `call'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:1288:in `rethrow'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:698:in `declaration_or_ruleset'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:660:in `block_child'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:652:in `block_contents'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:641:in `block'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:634:in `ruleset'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:659:in `block_child'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:652:in `block_contents'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:116:in `stylesheet'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/scss/parser.rb:41:in `parse'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/engine.rb:409:in `_to_tree'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/engine.rb:274:in `render'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:414:in `update_stylesheet'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:186:in `each'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:393:in `on_file_changed'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:248:in `block in watch'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/vendor/listen/lib/listen/listener.rb:252:in `call'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"...ar infinite;*/*\": expected identifier, was \"/\"\A         on line 71 of scss/howitwork.scss\A \A 66:     -moz-transition: border 0.6s ease-out, color 0.6s ease 0.9s;\A 67:     -ms-transition: border 0.6s ease-out, color 0.6s ease 0.9s; /* IE10 is actually unprefixed */\A 68:     /*-o-transition: border 0.6s ease-out, color 0.6s ease 0.9s;\A 69:     transition: border 0.6s ease-out, color 0.6s ease 0.9s;\A 70:     -webkit-animation: pulsate 1.8s linear infinite;\A 71:     animation: pulsate 1.8s linear infinite;*/*/\A 72: }\A 73: .btn-nav.active:before {\A 74: 	/*content: '';*/\A 75: 	position: absolute;\A 76: 	border-style: solid;"; }
