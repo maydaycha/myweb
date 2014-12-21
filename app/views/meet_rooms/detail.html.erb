@@ -1,0 +1,24 @@
+<h1> 會議詳情 </h1>
+
+<ul class="list-group">
+	<li class="list-group-item"> 會議室編號： <%= @room.room_number%> </li>
+	<li class="list-group-item"> 會議日期： <%= @room.target_date %> </li>
+	<li class="list-group-item"> 開始時間： <%= @room.start_time.strftime('%p %H:%M:%S') %> </li>
+	<li class="list-group-item"> 結束時間： <%= @room.end_time.strftime('%p %H:%M:%S') %> </li>
+	<li class="list-group-item"> 案件名稱： <%= @projects.name %></li>
+	
+	<li class="list-group-item"> 邀請參加人員： 
+		<ul>
+			<% @room.meet_room_members.each do |m|%>
+				<li><%= User.find(m.user).username %></li>
+			<% end %>
+		</ul>
+	</li>
+	
+</ul>
+
+<%= bootstrap_form_for(@room) do |f| %>
+  <%= f.text_field :subject %>
+  <%= f.text_area :description %>
+  <%= f.submit "送出" %>
+<% end %>

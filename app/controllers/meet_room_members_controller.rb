@@ -7,19 +7,21 @@ class MeetRoomMembersController < ApplicationController
 		@room = MeetRoom.all.find_by_ordered_customer(current_user.id)
 	end
 	def create
-		@room = MeetRoom.all.find_by_ordered_customer(current_user.id)
+		@room = MeetRoom.find(params[:meet_room_id]) 
 		@member = @room.meet_room_members.build(member_params)
 		
 		if @member.save
-			render :index
+			redirect_to meet_rooms_detail_path(@room)
 		else
 			render :new
 		end
 	end
 
 	def new
-		select_member
+		@room = MeetRoom.find_by_id(params[:meet_room_id])
 		@member = @room.meet_room_members.build
+		@project = Project.find(@room.case)
+		@project_members = @project.project_members
 	end
 
 	def destroy

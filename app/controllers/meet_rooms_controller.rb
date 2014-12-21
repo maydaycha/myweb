@@ -97,6 +97,11 @@ class MeetRoomsController < ApplicationController
 
 	end
 
+	def detail
+		@room = MeetRoom.find(params[:id])
+		@projects = Project.find(@room.case)
+	end
+
 
 	private
 
@@ -111,7 +116,9 @@ class MeetRoomsController < ApplicationController
 																			:ordered_customer, 
 																			:target_date,
 																			:meet_type, 
-																			:time_unit_count)
+																			:time_unit_count,
+																			:subject,
+																			:description)
 	end
 
 
