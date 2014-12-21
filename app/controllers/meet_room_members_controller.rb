@@ -30,6 +30,17 @@ class MeetRoomMembersController < ApplicationController
 		render :index
 	end
 
+	def project_contact
+		@project = current_user.projects.first #todo : pick all member in the all projects
+		@project_members = @project.project_members
+	end
+
+	def interview_contact
+		#user.project.user_applying_project
+	end
+
+
+
 
 	def select_member
 		#if currrent_user.current_role == null 代表為受雇者

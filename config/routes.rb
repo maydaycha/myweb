@@ -233,9 +233,15 @@ Sun::Application.routes.draw do
     get 'detail/:id' => 'meet_rooms#detail', :as => :meet_rooms_detail
   end
 
+  namespace :meet_room_members do
+    get 'interview_contact'
+    get 'project_contact'
+  end
+
   resources :meet_rooms do
     resources :meet_room_members
   end
+
 
   
 end
