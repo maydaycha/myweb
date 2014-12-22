@@ -15,6 +15,7 @@ NB_MEMBER = 3
 NB_PROJECTS.times do |n|
 	Project.create! do |a|
 	  a.name = 'project' + '-' + n.to_s
+	  a.user_id = n + 1
 	end
 end
 
@@ -39,7 +40,7 @@ end
 NB_MEMBER.times do |n|
 	ProjectMember.create! do |a|
 		a.user = n + 1
-		a.project_id = 1
+		a.project_id = Project.first.id
 	end
 end
 

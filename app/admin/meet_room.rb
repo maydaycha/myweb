@@ -13,14 +13,7 @@ ActiveAdmin.register MeetRoom do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  filter :room_number
-  filter :start_time
-  filter :end_time
-  filter :case
-  filter :ordered_customer
-  filter :time_unit_count
-  filter :is_changable
-  filter :is_confirmed
+  
 end
 
 

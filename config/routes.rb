@@ -230,11 +230,18 @@ Sun::Application.routes.draw do
 
   scope :meet_rooms do
     get 'cancel/:id' => 'meet_rooms#cancel', :as => :meet_rooms_cancel
+    get 'detail/:id' => 'meet_rooms#detail', :as => :meet_rooms_detail
+  end
+
+  namespace :meet_room_members do
+    get 'interview_contact'
+    get 'project_contact'
   end
 
   resources :meet_rooms do
     resources :meet_room_members
   end
+
 
   
 end
