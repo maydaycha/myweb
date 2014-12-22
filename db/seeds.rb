@@ -42,3 +42,22 @@ NB_MEMBER.times do |n|
 		a.project_id = 1
 	end
 end
+
+
+MeetRoomPrice.create! do |a|
+	a.level = 1
+	a.price = 30
+	a.scheme = "general"
+end
+
+MeetRoomPrice.create! do |a|
+	a.level = 1
+	a.price = 20
+	a.scheme = "enterprise"
+end
+
+MeetRoomPrice.create! do |a|
+	a.level = 1
+	a.price = 10
+	a.scheme = "byot"
+end

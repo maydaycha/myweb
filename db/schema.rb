@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20141214053326) do
     t.date     "target_date"
     t.boolean  "is_changable",     default: true
     t.boolean  "is_confirmed",     default: false
+    t.integer  "charge",           default: 0
     t.integer  "meet_type"
     t.integer  "time_unit_count"
   end

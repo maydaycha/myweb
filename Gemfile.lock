@@ -113,10 +113,15 @@ GEM
       lumberjack (~> 1.0)
       pry (>= 0.9.12)
       thor (>= 0.18.1)
+    guard-compat (1.1.0)
     guard-livereload (2.4.0)
       em-websocket (~> 0.5)
       guard (~> 2.8)
       multi_json (~> 1.8)
+    guard-rspec (4.5.0)
+      guard (~> 2.1)
+      guard-compat (~> 1.1)
+      rspec (>= 2.99.0, < 4.0)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -243,6 +248,10 @@ GEM
     responders (1.0.0)
       railties (>= 3.2, < 5)
     rmagick (2.13.2)
+    rspec (3.1.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -326,6 +335,7 @@ DEPENDENCIES
   formtastic_i18n (~> 0.1.1)
   guard
   guard-livereload
+  guard-rspec
   i18n-country-translations
   i18n-timezones
   jbuilder (~> 1.2)

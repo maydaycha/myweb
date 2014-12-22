@@ -102,15 +102,18 @@ gem 'activeadmin', github: 'activeadmin'
 # github: 'activeadmin'
 # gem "meta_search",    '>= 1.1.0.pre'
 
-group :development do
+group :development, :test do
   gem 'faker'
 end
 
-group :development do
+group :development, :test do
   gem 'guard'
+  gem 'guard-rspec', require: false
 end
 
-group :development do
+
+
+group :development, :test do
   gem 'guard-livereload', require: false
   gem "rack-livereload"
 end

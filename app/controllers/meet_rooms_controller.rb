@@ -80,7 +80,7 @@ class MeetRoomsController < ApplicationController
 			#not_joined = 
 			@final_change_datetime = room.target_date - BEFORE_TARGET_DATE
 			@rent_time = room.time_unit_count * TIME_UNIT
-			@charge = room.time_unit_count * MeetRoomPrice.first.price
+			@charge = room.time_unit_count * MeetRoomPrice.first.price # to-do : modify by different scheme
 		end
 
 	end
