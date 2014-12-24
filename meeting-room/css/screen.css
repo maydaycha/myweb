@@ -1,8 +1,8 @@
 /*
 Syntax error: File to import not found or unreadable: compass/reset.
               Load paths:
-                C:/Users/User/Documents/GitHub/meeting-room (DEPRECATED)
-                C:/Users/User/Documents/GitHub/meeting-room/scss
+                C:/Users/User/Documents/GitHub/Telework-project/meeting-room (DEPRECATED)
+                C:/Users/User/Documents/GitHub/Telework-project/meeting-room/scss
         on line 6 of scss/screen.scss
 
 1: /* Welcome to Compass.
@@ -55,4 +55,4 @@ C:/Ruby200/lib/ruby/gems/2.0.0/gems/sass-3.3.7/vendor/listen/lib/listen/adapter.
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: File to import not found or unreadable: compass/reset.\A               Load paths:\A                 C:/Users/User/Documents/GitHub/meeting-room (DEPRECATED)\A                 C:/Users/User/Documents/GitHub/meeting-room/scss\A         on line 6 of scss/screen.scss\A \A 1: /* Welcome to Compass.\A 2:  * In this file you should write your main styles. (or centralize your imports)\A 3:  * Import this file using the following HTML or equivalent:\A 4:  * <link href=\"/stylesheets/screen.css\" media=\"screen, projection\" rel=\"stylesheet\" type=\"text/css\" /> */\A 5: \A 6: @import \"compass/reset\";"; }
+  content: "Syntax error: File to import not found or unreadable: compass/reset.\A               Load paths:\A                 C:/Users/User/Documents/GitHub/Telework-project/meeting-room (DEPRECATED)\A                 C:/Users/User/Documents/GitHub/Telework-project/meeting-room/scss\A         on line 6 of scss/screen.scss\A \A 1: /* Welcome to Compass.\A 2:  * In this file you should write your main styles. (or centralize your imports)\A 3:  * Import this file using the following HTML or equivalent:\A 4:  * <link href=\"/stylesheets/screen.css\" media=\"screen, projection\" rel=\"stylesheet\" type=\"text/css\" /> */\A 5: \A 6: @import \"compass/reset\";"; }
