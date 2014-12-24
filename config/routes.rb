@@ -179,6 +179,16 @@ Sun::Application.routes.draw do
   get 'contact' => 'index#contact', :as => :index_contact
   get 'project_category' => 'index#project_category', :as => :index_project_category
   get 'user_category' => 'index#user_category', :as => :index_user_category
+  get 'byot' => 'index#byot', :as => :index_byot
+  get 'group' => 'index#group', :as => :index_group
+  get 'groupIns' => 'index#groupIns', :as => :index_groupIns
+  get 'howitwork' => 'index#howitwork', :as => :index_howitwork
+  get 'howitworkP2' => 'index#howitworkP2', :as => :index_howitworkP2
+  get 'howitworkP3_f' => 'index#howitworkP3_f', :as => :index_howitworkP3_f
+  get 'howitworkP3' => 'index#howitworkP3', :as => :index_howitworkP3
+  get 'howitworkP5' => 'index#howitworkP5', :as => :index_howitworkP5
+  get 'partners' => 'index#partners', :as => :index_partners
+  get 'solutions' => 'index#solutions', :as => :index_solutions
 
   namespace :users do
     post 'add_to_favorite'
