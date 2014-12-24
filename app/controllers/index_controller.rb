@@ -39,6 +39,9 @@ class IndexController < ApplicationController
   def howitworkP3_f
   end
 
+  def howitworkP3_other
+  end
+
   def howitworkP3
   end
 

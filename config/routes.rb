@@ -185,6 +185,7 @@ Sun::Application.routes.draw do
   get 'howitwork' => 'index#howitwork', :as => :index_howitwork
   get 'howitworkP2' => 'index#howitworkP2', :as => :index_howitworkP2
   get 'howitworkP3_f' => 'index#howitworkP3_f', :as => :index_howitworkP3_f
+  get 'howitworkP3_other' => 'index#howitworkP3_other', :as => :index_howitworkP3_other
   get 'howitworkP3' => 'index#howitworkP3', :as => :index_howitworkP3
   get 'howitworkP5' => 'index#howitworkP5', :as => :index_howitworkP5
   get 'partners' => 'index#partners', :as => :index_partners
