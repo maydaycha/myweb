@@ -1,0 +1,66 @@
+.img-res {
+  max-width: 100%;
+  height: 300px !important;
+  margin: 0 auto !important;
+  overflow: hidden;
+  background: none; }
+  .img-res img {
+    position: relative;
+    max-width: 100%; }
+    @media (min-width: 800px) {
+      .img-res img {
+        top: -82%;
+        left: 0;
+        max-height: none;
+        width: 100%; } }
+
+.s-group {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+  padding-right: 10px !important;
+  padding-left: 10px !important; }
+
+.s-container {
+  max-width: 1170px !important;
+  width: 100% !important;
+  margin: auto !important; }
+
+.s-title {
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 55px; }
+
+/****************Pargarphy group*******************/
+.pGroup {
+  margin-bottom: 15px; }
+  .pGroup i {
+    color: #f57773; }
+  .pGroup h4 {
+    color: #08415a;
+    font-weight: 600;
+    margin-bottom: 4px;
+    padding-left: 7px; }
+  .pGroup h5 {
+    color: #08415a;
+    font-weight: 600;
+    margin-bottom: 4px;
+    padding-left: 7px; }
+  .pGroup p {
+    color: #3f5666;
+    padding-left: 27px; }
+  .pGroup .p-h5 {
+    color: #3f5666;
+    padding-left: 17px !important; }
+  .pGroup ul {
+    list-style-type: none;
+    padding-left: 27px; }
+    .pGroup ul li {
+      color: #3f5666; }
+    .pGroup ul li:before {
+      content: "\f105";
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: inherit;
+      color: #f57773;
+      padding-right: 1px; }
