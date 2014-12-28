@@ -219,11 +219,15 @@ Sun::Application.routes.draw do
 
   namespace :meet_rooms do
     get 'booking'
-    get 'information'
     get 'byot'
     get 'enterprise'
-    get 'contact_person'
+    get 'waiting_meet'
+    get 'get_waiting'
     get 'upcoming_meet'
+    get 'get_upcoming'
+    get 'finished_meet'
+    get 'get_finished'
+    get 'contact_person'
     get 'buy'
     get 'search'
   end

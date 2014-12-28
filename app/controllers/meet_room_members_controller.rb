@@ -1,6 +1,6 @@
 class MeetRoomMembersController < ApplicationController
 	before_action :authenticate_user!
-	layout "meet_room_information"
+	#layout "meet_room_information"
 
 	
 	def index
@@ -31,6 +31,10 @@ class MeetRoomMembersController < ApplicationController
 	end
 
 	def project_contact
+		#case_contact
+		#enterprise_contact
+		#BYOT_contact
+		#interview_contact
 		@project = current_user.projects.first #todo : pick all member in the all projects
 		@project_members = @project.project_members
 	end

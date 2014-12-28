@@ -1,6 +1,6 @@
 class MeetRoomsController < ApplicationController
 	
-	layout "meet_room_information"
+	
 	before_action :authenticate_user!
 	before_action :set_headers
 
@@ -68,11 +68,11 @@ class MeetRoomsController < ApplicationController
 	end
 
 
-	def information
+	def waiting_meet
 		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
 		@projects = []
 		@unconfirmed = []
-
+		events = []
 		@rooms.each do |room|
 			@projects << Project.find(room.case)
 			@unconfirmed << room.meet_room_members.where("confirmed = ?", 0).count
@@ -83,10 +83,134 @@ class MeetRoomsController < ApplicationController
 			@charge = room.time_unit_count * MeetRoomPrice.first.price # to-do : modify by different scheme
 		end
 
+		@rooms.each do |room|
+			@projects << Project.find(room.case)
+			@unconfirmed << room.meet_room_members.where("confirmed = ?", 0).count
+			#@join = 
+			#not_joined = 
+			@final_change_datetime = room.target_date - BEFORE_TARGET_DATE
+			@rent_time = room.time_unit_count * TIME_UNIT
+			@charge = room.time_unit_count * MeetRoomPrice.first.price # to-do : modify by different scheme
+			events << {:id => room.id, :title => room.subject, :start => "2014-12-28 10:00:00", :end => "2014-12-28 12:00:00"}
+		end
 	end
 
+	def get_waiting
+		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
+		@projects = []
+		@unconfirmed = []
+		events = []
 
-	# to cancel the meet_room order
+		@rooms.each do |room|
+			@projects << Project.find(room.case)
+			@unconfirmed << room.meet_room_members.where("confirmed = ?", 0).count
+			#@join = 
+			#not_joined = 
+			@final_change_datetime = room.target_date - BEFORE_TARGET_DATE
+			@rent_time = room.time_unit_count * TIME_UNIT
+			@charge = room.time_unit_count * MeetRoomPrice.first.price # to-do : modify by different scheme
+			events << {:id => room.id, :title => room.subject, :start => "2014-12-28 10:00:00", :end => "2014-12-28 12:00:00"}
+		end
+		render :text => events.to_json
+	end
+
+	
+
+	
+
+	def upcoming_meet
+		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
+		@projects = []
+		@unconfirmed = []
+		events = []
+		@rooms.each do |room|
+			@projects << Project.find(room.case)
+			@unconfirmed << room.meet_room_members.where("confirmed = ?", 0).count
+			#@join = 
+			#not_joined = 
+			@final_change_datetime = room.target_date - BEFORE_TARGET_DATE
+			@rent_time = room.time_unit_count * TIME_UNIT
+			@charge = room.time_unit_count * MeetRoomPrice.first.price # to-do : modify by different scheme
+		end
+
+		@rooms.each do |room|
+			@projects << Project.find(room.case)
+			@unconfirmed << room.meet_room_members.where("confirmed = ?", 0).count
+			#@join = 
+			#not_joined = 
+			@final_change_datetime = room.target_date - BEFORE_TARGET_DATE
+			@rent_time = room.time_unit_count * TIME_UNIT
+			@charge = room.time_unit_count * MeetRoomPrice.first.price # to-do : modify by different scheme
+			events << {:id => room.id, :title => room.subject, :start => "2014-12-28 10:00:00", :end => "2014-12-28 12:00:00"}
+		end
+	end
+
+	def get_upcoming
+		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
+		@projects = []
+		@unconfirmed = []
+		events = []
+
+		@rooms.each do |room|
+			@projects << Project.find(room.case)
+			@unconfirmed << room.meet_room_members.where("confirmed = ?", 0).count
+			#@join = 
+			#not_joined = 
+			@final_change_datetime = room.target_date - BEFORE_TARGET_DATE
+			@rent_time = room.time_unit_count * TIME_UNIT
+			@charge = room.time_unit_count * MeetRoomPrice.first.price # to-do : modify by different scheme
+			events << {:id => room.id, :title => room.subject, :start => "2014-12-28 10:00:00", :end => "2014-12-28 12:00:00"}
+		end
+		render :text => events.to_json
+	end
+
+	def finished_meet
+		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
+		@projects = []
+		@unconfirmed = []
+		events = []
+		@rooms.each do |room|
+			@projects << Project.find(room.case)
+			@unconfirmed << room.meet_room_members.where("confirmed = ?", 0).count
+			#@join = 
+			#not_joined = 
+			@final_change_datetime = room.target_date - BEFORE_TARGET_DATE
+			@rent_time = room.time_unit_count * TIME_UNIT
+			@charge = room.time_unit_count * MeetRoomPrice.first.price # to-do : modify by different scheme
+		end
+
+		@rooms.each do |room|
+			@projects << Project.find(room.case)
+			@unconfirmed << room.meet_room_members.where("confirmed = ?", 0).count
+			#@join = 
+			#not_joined = 
+			@final_change_datetime = room.target_date - BEFORE_TARGET_DATE
+			@rent_time = room.time_unit_count * TIME_UNIT
+			@charge = room.time_unit_count * MeetRoomPrice.first.price # to-do : modify by different scheme
+			events << {:id => room.id, :title => room.subject, :start => "2014-12-28 10:00:00", :end => "2014-12-28 12:00:00"}
+		end
+	end
+
+	def get_finished
+		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
+		@projects = []
+		@unconfirmed = []
+		events = []
+
+		@rooms.each do |room|
+			@projects << Project.find(room.case)
+			@unconfirmed << room.meet_room_members.where("confirmed = ?", 0).count
+			#@join = 
+			#not_joined = 
+			@final_change_datetime = room.target_date - BEFORE_TARGET_DATE
+			@rent_time = room.time_unit_count * TIME_UNIT
+			@charge = room.time_unit_count * MeetRoomPrice.first.price # to-do : modify by different scheme
+			events << {:id => room.id, :title => room.subject, :start => "2014-12-28 10:00:00", :end => "2014-12-28 12:00:00"}
+		end
+		render :text => events.to_json
+	end
+
+# to cancel the meet_room order
 	def cancel
 		@room = MeetRoom.find(params[:id])
 		@diff_day = (@room.target_date).day - (Time.now).day 
@@ -100,10 +224,6 @@ class MeetRoomsController < ApplicationController
 
 			@refund_percent = REFUND_PERCENT.last[1]  #mean it the last one in the REFUND_PERCENT
 		end
-	end
-
-	def upcoming_meet
-
 	end
 
 	def detail
