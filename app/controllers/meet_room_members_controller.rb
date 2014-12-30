@@ -35,7 +35,7 @@ class MeetRoomMembersController < ApplicationController
 		#enterprise_contact
 		#BYOT_contact
 		#interview_contact
-		@project = current_user.projects.first #todo : pick all member in the all projects
+		@project = Project.all.first #todo : pick all member in the all projects
 		@project_members = @project.project_members
 	end
 
