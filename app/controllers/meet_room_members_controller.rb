@@ -9,6 +9,7 @@ class MeetRoomMembersController < ApplicationController
 	def create
 		@room = MeetRoom.find(params[:meet_room_id]) 
 		@member = @room.meet_room_members.build(member_params)
+		# todo : save to contact_person
 		
 		if @member.save
 			redirect_to meet_rooms_detail_path(@room)
@@ -30,19 +31,14 @@ class MeetRoomMembersController < ApplicationController
 		render :index
 	end
 
-	def project_contact
+	def get_contact_person
 		#case_contact
 		#enterprise_contact
 		#BYOT_contact
 		#interview_contact
-		@project = Project.all.first #todo : pick all member in the all projects
+		@project = Project.all.first #todo : pick all member in the all projects    
 		@project_members = @project.project_members
 	end
-
-	def interview_contact
-		#user.project.user_applying_project
-	end
-
 
 
 

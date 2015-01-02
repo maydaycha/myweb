@@ -240,8 +240,7 @@ Sun::Application.routes.draw do
   end
 
   namespace :meet_room_members do
-    get 'interview_contact'
-    get 'project_contact'
+    get 'get_contact_person'
   end
 
   resources :meet_rooms do

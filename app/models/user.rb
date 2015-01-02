@@ -28,7 +28,8 @@ class User < ActiveRecord::Base
   has_many :user_portfolios, dependent: :destroy
   has_many :user_favorite_projects, dependent: :destroy
   has_many :projects, dependent: :destroy
-  has_many :user_applying_projects
+  has_many :user_applying_projects, dependent: :destroy
+  has_many :user_contact_persons, dependent: :destroy
 
   accepts_nested_attributes_for :user_skill_categories
 

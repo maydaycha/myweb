@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141225210727) do
+ActiveRecord::Schema.define(version: 20141230212706) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -227,6 +227,17 @@ ActiveRecord::Schema.define(version: 20141225210727) do
     t.string   "get_time"
     t.string   "description", limit: 1000
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_contact_people", force: true do |t|
+    t.integer  "contact_person"
+    t.string   "contact_person_name"
+    t.integer  "project_id"
+    t.string   "project_name"
+    t.integer  "interview_time"
+    t.integer  "contact_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -393,16 +393,13 @@
                 }
                 calendar.fullCalendar('unselect');
             },
-            editable: true,
+            editable: false,
             events: {
                 url: "/meet_rooms/get_all_meet",
                 backgroundColor: '#F34F55',
                 borderColor: '#D8303D',
                 textColor: 'white'
-            },
-            eventClick: function(event, jsEvent, view){
-              showEventDetails(event);
-            },
+            }
         });
     });
     
