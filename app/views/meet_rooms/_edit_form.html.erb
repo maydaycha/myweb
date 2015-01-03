@@ -1,0 +1,95 @@
+<div id="fullCalModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span>
+                    </button>
+                    <h4 id="modalTitle" class="modal-title"><h4 id="modalDate" class="text-center"></h4></h4>
+                </div>
+                <%=bootstrap_form_for(@room) do |f| %>
+                    <div id="modalBody" class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <strong> 選擇會議類型 </strong>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <input id="meet_type_1" name="meet_room[meet_type]" type="radio" value="1"> 案件會議
+                                            <input id="meet_type_2" name="meet_room[meet_type]" type="radio" value="2"> 面試會議
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row  bottom17">
+                                    <div class="col-md-3"><strong>會議時間</strong>
+                                    </div>
+                                    <div class="col-md-9 marpad-left">
+                                        <div class="col-md-3">
+                                            <input type='text' class="form-control" id="meet_room_start" name="meet_room[start_time]" value="<%=@room.start_time%>"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type='text' class="form-control" id="meet_room_end" name="meet_room[end_time]" value="<%=@room.end_time%>"/>
+                                        </div>
+                                        <div id="meetingTime"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <strong> 案件名稱</strong>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <select class="form-control" name="meet_room[case]">
+                                                <% @projects.each do |p| %>
+                                                    <option value=<%=p.id %>>
+                                                        <%=p.name %>
+                                                    </option>
+                                                    <% end %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3"><strong>與會人員</strong>
+                                    </div>
+                                    <div class="col-md-9 marpad-left">
+                                        <div class="bootstrap-tagsinput"><span class="tag label label-info">Tom<span data-role="remove"></span></span> <span class="tag label label-info">Washington<span data-role="remove"></span></span> <span class="tag label label-info">Amy<span data-role="remove"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="bottom50 top50">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <strong>主旨</strong>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <input id="modaltext" type="text" class="form-control" placeholder="請輸入會議主旨" name="meet_room[subject]" value="<%=@room.subject%>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <strong>會議說明</strong>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <textarea type="text" class="form-control" rows="10" placeholder="請輸入您的會議說明" name="meet_room[description]"><%=@room.description%></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="Cred"> *會議變更送出後，系統將自動發送會議通知給所有與會成員。</p>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <%=f.submit "變更", class: "btn btn-danger" %>
+
+                    </div>
+                    <% end %>
+            </div>
+        </div>
+    </div>

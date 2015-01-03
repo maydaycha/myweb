@@ -25,12 +25,13 @@ class MeetRoomsController < ApplicationController
 	def edit
 		@room = MeetRoom.find(params[:id])
 		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
+		render :json => { :form => render_to_string(:partial => 'edit_form')}
 	end
 
 	def update
 		@room = MeetRoom.find(params[:id])
 		if @room.update(room_params)
-			redirect_to meet_rooms_information_path
+			render :waiting_meet
 		else
 			render :edit
 		end

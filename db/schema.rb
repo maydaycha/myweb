@@ -86,11 +86,11 @@ ActiveRecord::Schema.define(version: 20141230212706) do
     t.integer  "meet_room_id"
     t.boolean  "is_changable",     default: true
     t.boolean  "is_confirmed",     default: false
-    t.integer  "charge",           default: 0
     t.integer  "meet_type"
     t.integer  "time_unit_count"
     t.string   "subject"
     t.text     "description"
+    t.integer  "charge",           default: 0
   end
 
   create_table "messages_of_projects", force: true do |t|

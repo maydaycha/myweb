@@ -125,98 +125,10 @@
             </div>
         </section>
     </div>
-    <div id="fullCalModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span>
-                    </button>
-                    <h4 id="modalTitle" class="modal-title"><h4 id="modalDate" class="text-center"></h4></h4>
-                </div>
-                <form method="get" action="" id="createAppointmentForm" class="form-horizontal">
-                    <div id="modalBody" class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-10 col-sm-offset-1">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <strong> 選擇會議類型 </strong>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="form-group">
-                                            <input type="radio" name="meeting"> 案件會議
-                                            <input type="radio" name="meeting"> 面試會議
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row  bottom17">
-                                    <div class="col-md-3"><strong>會議時間</strong>
-                                    </div>
-                                    <div class="col-md-9 marpad-left">
-                                        <div id="meetingTime"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <strong> 案件名稱</strong>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option>翻譯案件，將中文翻譯成英文、德文、法文、俄文 <span class="Cgray">#AS256401</span>
-                                                </option>
-                                                <option>網頁設計 <span class="Cgray">#AS256401</span>
-                                                </option>
-                                                <option>搜尋引擎優化 <span class="Cgray">#AS256401</span>
-                                                </option>
-                                                <option>UI 設計 <span class="Cgray">#AS256401</span>
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3"><strong>與會人員</strong>
-                                    </div>
-                                    <div class="col-md-9 marpad-left">
-                                        <div class="bootstrap-tagsinput"><span class="tag label label-info">Tom<span data-role="remove"></span></span> <span class="tag label label-info">Washington<span data-role="remove"></span></span> <span class="tag label label-info">Amy<span data-role="remove"></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="bottom50 top50">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <strong>主旨</strong>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="form-group">
-                                            <input id="modaltext" type="text" class="form-control" placeholder="請輸入會議主旨">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <strong>會議說明</strong>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="form-group">
-                                            <textarea type="text" class="form-control" rows="10" placeholder="請輸入您的會議說明"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <p class="Cred"> *會議預約送出後，系統將自動發送會議通知給所有與會成員。</p>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
-                        <a class="btn btn-danger" href="meetingroom1.html">變更</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    
 
-
+    <div id = "event_desc">
+      </div>
     <!-- END PAGE -->
     <!-- BEGIN FOOTER -->
     <div class="footer top150"><img class="footer-logo" src="img/logo103.png" alt="">
@@ -257,7 +169,7 @@
     <script>
     $(document).ready(function() {
         $('#calendar').fullCalendar({
-            editable: false,
+            editable: true,
             header: {
                 left: 'prev,next today',
                 center: 'title',
@@ -283,7 +195,11 @@
                     backgroundColor: '#40B8A0',
                     borderColor: '#3A5073'
                 }
-            ]
+            ],
+            eventClick: function(event, jsEvent, view){
+              //showEventDetails(event);
+              editEvent(event.id);
+            }
 
         });
 
@@ -291,7 +207,21 @@
     });
     </script>
 
-
+    <script>
+        function showEventDetails(event){
+        
+                $('#edit_event').html("<a href = 'javascript:void(0);' onclick ='editEvent(" + event.id + ")'>Edit</a>");
+                $('#modalTitle').html(event.title);
+                $('#meetingTime').html([event.start.format(' H:mm ') + ('~'),
+                    event.end.format('h:mm'),
+                ].join("\n"));
+                
+                $('#fullCalModal').modal();
+                var title = $("#fullCalModal").prompt('Event Title:');
+                
+            
+        }
+    </script>
 
     <!--END RANG BAR JS-->
 
@@ -311,6 +241,17 @@
         </script>
         <![endif]-->
     <!-- END PIE -->
+    <script>
+        function editEvent(event_id){
+            jQuery.ajax({
+              url: "/meet_rooms/" + event_id + "/edit",
+              success: function(data) {
+                $('#event_desc').html(data['form']);
+                $('#fullCalModal').modal();
+              } 
+            });
+        }
+    </script>
 </body>
 
 </html>
