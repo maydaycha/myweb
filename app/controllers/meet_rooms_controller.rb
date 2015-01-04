@@ -27,7 +27,6 @@ class MeetRoomsController < ApplicationController
 		end
 	end
 
-	
 	def edit
 		@room = MeetRoom.find(params[:id])
 		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
@@ -149,7 +148,7 @@ class MeetRoomsController < ApplicationController
 
 		@rooms.each do |room|
 			@projects << Project.find(room.case)
-			events << {:id => room.id, :title => room.subject, :start => "#{room.start_time}", :end => "#{room.end_time}"}
+			events << {:id => room.id, :title => "已佔用", :start => "#{room.start_time}", :end => "#{room.end_time}"}
 		end
 		render :text => events.to_json
 	end
@@ -159,7 +158,7 @@ class MeetRoomsController < ApplicationController
 	end
 
 	def get_finished
-		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
+		@rooms = MeetRoom.where("end_time < ?", Time.now)
 		@projects = []
 		@unconfirmed = []
 		events = []
@@ -195,7 +194,7 @@ class MeetRoomsController < ApplicationController
 
 	def detail
 		@room = MeetRoom.find(params[:id])
-		@projects = Project.find(@room.case)
+		render :json => @room.to_json
 	end
 
 

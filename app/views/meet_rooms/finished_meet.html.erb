@@ -120,9 +120,8 @@
                              <strong> 選擇會議類型 </strong>
                            </div>
                            <div class="col-md-9">
-                             <div class="form-group">
-                              <input type="radio" name="meeting"> 案件會議
-                              <input type="radio" name="meeting"> 面試會議               
+                             <div id="meet_type">
+                                            
                             </div>
                           </div>
                         </div>
@@ -135,14 +134,7 @@
                           <strong> 案件名稱</strong>
                         </div>
                         <div class="col-md-9">
-                          <div class="form-group">
-                            <select class="form-control">
-                              <option>翻譯案件，將中文翻譯成英文、德文、法文、俄文 <span class="Cgray">#AS256401</span></option>
-                              <option>網頁設計 <span class="Cgray">#AS256401</span></option>
-                              <option>搜尋引擎優化 <span class="Cgray">#AS256401</span></option>
-                              <option>UI 設計 <span class="Cgray">#AS256401</span></option>
-                            </select>
-                          </div>
+                          <div id="meet_case"></div>
                         </div>
                       </div>
                       <div class="row">
@@ -156,13 +148,13 @@
                         <div class="col-md-3">                      
                           <strong>主旨</strong>              
                         </div>
-                        <div class="col-md-9"><div class="form-group"><input id="modaltext" type="text" class="form-control" placeholder="請輸入會議主旨"></div></div>
+                        <div class="col-md-9" ><div id="meet_subject"></div></div>
                       </div>
                       <div class="row">
                         <div class="col-md-3">                      
                           <strong>會議說明</strong>              
                         </div>
-                        <div class="col-md-9"><div class="form-group"><textarea type="text" class="form-control" rows="10" placeholder="請輸入您的會議說明"></textarea> </div></div>
+                        <div class="col-md-9"><div id="meet_description"></div></div>
                       </div>
                     </div>
                   </div>
@@ -212,220 +204,62 @@
             </script>
             <script>
               $(document).ready(function() {
+                  $('#calendar').fullCalendar({
+                      editable: true,
+                      header: {
+                          left: 'prev,next today',
+                          center: 'title',
+                          right: 'month,agendaWeek,agendaDay'
+                      },
+                      defaultView: 'agendaWeek',
+                      height: 500,
+                      slotMinutes: 15,
+                      loading: function(bool) {
+                          if (bool)
+                              $('#loading').show();
+                          else
+                              $('#loading').hide();
+                      },
+                      eventSources: [
+                          {
+                              url: "/meet_rooms/get_finished",
+                              backgroundColor: '#bfbfbf',
+                              borderColor: '#b5b5b5',
+                              textColor: '#white'
+                          }
+                      ],
+                      eventClick: function(event, jsEvent, view){
+                        showEventDetails(event.id, event);
+                      },
 
-                var date = new Date();
-                var d = date.getDate();
-                var m = date.getMonth();
-                var y = date.getFullYear();
-                
-
-                var calendar = $('#calendar').fullCalendar({
-                  header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay'
-                  },
-                  defaultView: 'agendaWeek',
-                  slotDuration: '00:30:00', 
-                  Duration: '00:25:00',
-                  allDaySlot: false,
-                  editable: true,
-                  selectable: true,
-                  select: function(start, end, event, jsEvent, view) {
-         // start contains the date you have selected
-         // end contains the end date. 
-         // Caution: the end date is exclusive (new since v2).
-         var allDay = !start.hasTime() && !end.hasTime();
-
-         // alert(["Event Start date: " + moment(start).format(),
-         //  "Event End date: " + moment(end).format(),
-         //  "AllDay: " + allDay].join("\n"));
-
-$('#modalTitle').html(event.title);
-$('#modalDate').html([ moment(start).format("YYYY-MMM-DD") +(' 會議詳情')].join("\n"));
-$('#meetingTime').html([moment(start).format(' h:mm ') +('~'),
- moment(end).format('h:mm'),
- ].join("\n"));
-$('#meetingTime2').html([moment(start).format(' h:mm ') +('~'),
- moment(end).format('h:mm'),
- ].join("\n"));
-$('#eventUrl').attr('href',event.url);
-$('#fullCalModal').modal();
-
-var title = $("#fullCalModal").prompt('Event Title:');
-
-if (title) {
-  calendar.fullCalendar('renderEvent',
-  {
-    title: title,
-    start: start,
-    end: end,
-    allDay: allDay
-  },
-            true // make the event "stick"
-            );
-}
-calendar.fullCalendar('unselect');
-},
-
-            //       selectable: true,
-            //       selectHelper: true,
-            //       select: function(start, end, allDay) {
-            //         var title = prompt('Event Title:');
-            //         if (title) {
-            //           calendar.fullCalendar('renderEvent',
-            //           {
-            //             title: title,
-            //             start: start,
-            //             end: end,
-            //             allDay: allDay
-            //           },
-            // true // make the event "stick"
-            // );
-            //         }
-            //         calendar.fullCalendar('unselect');
-            //       },
-            editable: true,
-
-            eventSources: [
-    //a full blown EventSource-Object with custom coloring
+                  });
 
 
-    {
-      events: [  
-      {
-        title     : '已經結束',
-        start     : new Date(y, m, d-3, 16, 0),
-      }
-      ],
-      backgroundColor: '#bfbfbf',
-      borderColor: '#b5b5b5',
-      textColor: '#white'
-    },
-    //a normal events-array with the default colors used
-    [
-    {
-      title  : 'event2',
-      start  : '2012-06-05',
-      end    : '2012-06-07'
-    },
-    {
-      title  : 'event3',
-      start  : '2012-06-09 12:30:00',
-      allDay : false
-    }
-    ]
-    ],
-                  // dayClick:  function(event, jsEvent, view) {
-                  //   $('#modalTitle').html(event.title);
-                  //   $('#modalBody').html(Date);
-                  //   $('#eventUrl').attr('href',event.url);
-                  //   $('#fullCalModal').modal();
-                  // }
-                });
+              });
+              </script>
 
-});
+               <script>
+                  function showEventDetails(event_id, event){
+                          jQuery.ajax({
+                            url: "/meet_rooms/detail/" + event_id,
+                            success: function(data) {
+                              $('#meetingTime').html([event.start.format(' H:mm ') + ('~'),
+                                  event.end.format('h:mm'),
+                              ].join("\n"));
+                              $('#meet_type').html(data['meet_type']);
+                              $('#meet_case').html(data['case']);
+                              $('#meet_subject').html(data['subject']);
+                              $('#meet_description').html(data['description']);
+                            } 
+                          });
 
+                          
+                          $('#fullCalModal').modal();
 
-
-// $('#calendar').fullCalendar({
-//   selectable: true,
-//   select: function(start, end, event, jsEvent, view) {
-//          // start contains the date you have selected
-//          // end contains the end date. 
-//          // Caution: the end date is exclusive (new since v2).
-//          var allDay = !start.hasTime() && !end.hasTime();
-
-//          // alert(["Event Start date: " + moment(start).format(),
-//          //  "Event End date: " + moment(end).format(),
-//          //  "AllDay: " + allDay].join("\n"));
-
-//          $('#modalTitle').html(event.title);
-//          $('#modalBody').html(["Event Start date: " + moment(start).format(),
-//           "Event End date: " + moment(end).format(),
-//           "AllDay: " + allDay].join("\n"));
-//          $('#eventUrl').attr('href',event.url);
-//          $('#fullCalModal').modal();
-//        },
-
-//      });
-
-// $(document).ready(function() {
-
-//   $('#calendar').fullCalendar({
-//     defaultDate: '2014-11-12',
-//     editable: true,
-//       eventLimit: true, // allow "more" link when too many events
-//       events: [
-//       {
-//         title: 'All Day Event',
-//         start: '2014-11-01'
-//       },
-//       {
-//         title: 'Long Event',
-//         start: '2014-11-07',
-//         end: '2014-11-10'
-//       },
-//       {
-//         id: 999,
-//         title: 'Repeating Event',
-//         start: '2014-11-09T16:00:00'
-//       },
-//       {
-//         id: 999,
-//         title: 'Repeating Event',
-//         start: '2014-11-16T16:00:00'
-//       },
-//       {
-//         title: 'Conference',
-//         start: '2014-11-11',
-//         end: '2014-11-13'
-//       },
-//       {
-//         title: 'Meeting',
-//         start: '2014-11-12T10:30:00',
-//         end: '2014-11-12T12:30:00'
-//       },
-//       {
-//         title: 'Lunch',
-//         start: '2014-11-12T12:00:00'
-//       },
-//       {
-//         title: 'Meeting',
-//         start: '2014-11-12T14:30:00'
-//       },
-//       {
-//         title: 'Happy Hour',
-//         start: '2014-11-12T17:30:00'
-//       },
-//       {
-//         title: 'Dinner',
-//         start: '2014-11-12T20:00:00'
-//       },
-//       {
-//         title: 'Birthday Party',
-//         start: '2014-11-13T07:00:00'
-//       },
-//       {
-//         title: 'Click for Google',
-//         url: 'http://google.com/',
-//         start: '2014-11-28'
-//       }
-//       ],
-//        dayClick:  function(event, jsEvent, view) {
-//         $('#modalTitle').html(event.title);
-//         $('#modalBody').html(event.description);
-//         $('#eventUrl').attr('href',event.url);
-//         $('#fullCalModal').modal();
-//       }
-//     });
-
-// });
-
-
-</script>
-
-
+                          
+                      
+                  }
+              </script>
 
 <!--END RANG BAR JS-->
 
