@@ -14,8 +14,14 @@ class MeetRoomsController < ApplicationController
 		@room.ordered_customer = current_user.id
 		@room.room_number = 1 # should be modified
 		
-		if @room.save!
-			redirect_to new_meet_room_meet_room_member_path(@room)
+		@project = Project.find(room_params[:case])
+
+		@project.project_members.each do |p|  #save all project_member to meet_room_member  => default
+			@members = @room.meet_room_members.build(user: p.user)
+		end
+
+		if @room.save! && @members.save!
+			redirect_to meet_rooms_booking_path
 		else
 			render :booking, status: :create_success
 		end
@@ -28,7 +34,12 @@ class MeetRoomsController < ApplicationController
 		
 		@project = Project.find(@room.case)
 		@project_members = @project.project_members
-		
+
+		if @room.meet_room_members
+			@meet_room_members = @room.meet_room_members
+		else
+			@meet_room_members = nil
+		end
 		render :json => { :form => render_to_string(:partial => 'edit_form')}
 
 	end
@@ -75,7 +86,7 @@ class MeetRoomsController < ApplicationController
 
 
 	def waiting_meet
-
+		
 	end
 
 	def get_waiting_case
@@ -189,8 +200,10 @@ class MeetRoomsController < ApplicationController
 
 
 	def update_members
+		#@room = meet_room_id
 		@project = Project.find(params[:project_id])
 		@project_members = @project.project_members
+
 		render :json => { :form => render_to_string(:partial => 'update_members')}
 	end
 

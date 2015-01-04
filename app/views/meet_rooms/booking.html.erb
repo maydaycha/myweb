@@ -158,7 +158,8 @@
                                     </div>
                                     <div class="col-md-9">
                                         <div class="form-group">
-                                            <select class="form-control" name="meet_room[case]" id="meet_room_case">
+                                            <select class="form-control" name="meet_room[case]" id="meet_room_case" >
+                                                <option value>選擇一項案件</option>
                                                 <% @projects.each do |p| %>
                                                     <option value="<%=p.id %>">
                                                         <%=p.name %>
@@ -168,7 +169,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
                                 
                                 <div class="row">
                                     <div class="col-md-3"><strong>與會人員</strong>

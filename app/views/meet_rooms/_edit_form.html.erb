@@ -56,8 +56,8 @@
                                     
                                     <div class="col-md-9 marpad-left">
                                         <div class="bootstrap-tagsinput">
-                                            <%@project_members.each do |project_member| %>
-                                                <span class="tag label label-info"><%= User.find(project_member.user).username%><span data-role="remove"></span></span> 
+                                            <%@meet_room_members.each do |meet_room_member| %>
+                                                <span class="tag label label-info"><%= User.find(meet_room_member.user).username%><span data-role="remove"></span></span> 
                                             <% end %>
                                         </div>
                                     </div>
