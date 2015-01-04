@@ -314,11 +314,11 @@ zh-TW:
   page:
     title: 快樂工作
     header:
-      settings: 個人設定
-      logout: 會員登出
-      login: 會員登入
-      signup: 免費註冊
-      add_project: 
+      settings: "個人設定"
+      logout: "會員登出"
+      login: "會員登入"
+      signup: "免費註冊"
+      add_value_service: "加值服務"
     footer:
       about: 關於我們
       privacy: 隱私條款

@@ -1,6 +1,6 @@
 var SingUp = function(){
 	var formValidation = function() {
-        var recommendIcon = $("#signUp-form input[name='user[how_to_know]']").parent('.input-icon').children('i');
+        var recommendIcon = $('#signUp-form input[name=recommend]').parent('.input-icon').children('i');
         recommendIcon.tooltip({'container': 'body'});
 
 
@@ -13,41 +13,29 @@ var SingUp = function(){
             focusInvalid: false, // do not focus the last invalid input
             ignore: "",
             rules: {
-            	"user[first_name]": {
+            	surname: {
                     required: true
             	},
-                "user[last_name]": {
-                    required: true
-                },
-                "user[email]": {
+                email: {
                     required: true,
-                    email: true,
-                    myEmail: true
+                    email: true
                 },
-                "user[country_code]": {
-                    required: true
-                },
-                "user[time_zone]": {
-                    required: true
-                },
-                "user[username]": {
+                username: {
                 	minlength: 6,
                     required: true,
                     myUsername: true
                 },
-                "user[password]": {
-                	minlength: 8,
-                    required: true,
-                    myPasswordAllow: true
+                password: {
+                	minlength: 6,
+                    required: true
                 },
-                "user[password_confirmation]": {
-                    minlength: 8,
+                verification: {
                     required: true,
-                    myPasswordMatch: true
-                }
+                    myImgVerification: true
+                },
             },
 
-            invalidHandler: function (event, validator) { //display error alert on form submit
+            invalidHandler: function (event, validator) { //display error alert on form submit              
                 error.show();
                 Web.scrollTo(error, -200);
             },
@@ -55,28 +43,25 @@ var SingUp = function(){
             errorPlacement: function (error, element) { // render error placement for each input type
             	var text;
             	if(error.text()=='This field is required.'){
-            		text = form.find('input[id='+error.attr('for')+']').attr('data-isempty');
+            		text = form.find('input[name='+error.attr('for')+']').attr('data-isEmpty');
             		error.text(text);
             	}
-            	else if(error.text()=='This field has already existed'){
-            		text = form.find('input[id='+error.attr('for')+']').attr('data-isExists');
+            	else if(error.text()=='Account already exists'){
+            		text = form.find('input[name='+error.attr('for')+']').attr('data-isExists');
             		error.text(text);
             	}
-                else if(error.text()=='This field has isInconsistent data'){
-                    text = form.find('input[id='+error.attr('for')+']').attr('data-isInconsistent');
-                    error.text(text);
-                }else if(error.text()!=''){
-            		text = form.find('input[id='+error.attr('for')+']').attr('data-isError');
+            	else if(error.text()!=''){
+            		text = form.find('input[name='+error.attr('for')+']').attr('data-isError');
             		error.text(text);
             	}
                 var icon = $(element).parent('.input-icon').children('i');
-                icon.removeClass('fa-check').addClass("fa-warning");
+                icon.removeClass('fa-check').addClass("fa-warning");  
                 icon.attr("data-original-title", error.text()).tooltip({'container': 'body'});
             },
 
             highlight: function (element) { // hightlight error inputs
                 $(element)
-                    .closest('.form-group').addClass('has-error'); // set error class to the control group
+                    .closest('.form-group').addClass('has-error'); // set error class to the control group   
             },
 
             unhighlight: function (element) { // revert the change done by hightlight
@@ -90,11 +75,11 @@ var SingUp = function(){
                 icon.removeClass("fa-warning").addClass("fa-check");
             },
 
-            // submitHandler: function (form) {
-            //     error.hide();
-            //     form.off('submit');
-            //     form.submit();
-            // }
+            submitHandler: function (form) {
+                error.hide();
+                form.off('submit');
+                form.submit();
+            }
         });
     }
 

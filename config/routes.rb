@@ -226,6 +226,39 @@ Sun::Application.routes.draw do
 
   resources :users
 
+
   get 'application/show_image' => 'application#show_image'
+
+ 
+
+  namespace :meet_rooms do
+    get 'booking'
+    get 'byot'
+    get 'enterprise'
+    get 'waiting_meet'
+    get 'get_waiting_case'
+    get 'get_waiting_interview'
+    get 'upcoming_meet'
+    get 'get_upcoming'
+    get 'finished_meet'
+    get 'get_finished'
+    get 'get_all_meet'
+    get 'contact_person'
+    get 'buy'
+    get 'update_members'
+  end
+
+  scope :meet_rooms do
+    get 'cancel/:id' => 'meet_rooms#cancel', :as => :meet_rooms_cancel
+    get 'detail/:id' => 'meet_rooms#detail', :as => :meet_rooms_detail
+  end
+
+  namespace :meet_room_members do
+    get 'get_contact_person'
+  end
+
+  resources :meet_rooms do
+    resources :meet_room_members
+  end
 
 end

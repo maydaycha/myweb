@@ -1,0 +1,32 @@
+<div class="main-content">
+	<ul class="nav nav-tabs nav-justified">
+	  <li role="presentation"><%= link_to("已參加會議人員", meet_room_meet_room_members_path(@room)) %></li>
+	  <li role="presentation" class="active">增加會議人員</li>
+	</ul>
+
+
+
+	<h3> 選擇進行會議人數條件 </h3>
+	<div class="checkbox">
+	  <label>
+	    <input type="checkbox" value="">
+	    需所有人確認才進行
+	  </label>
+	</div>
+
+
+
+	
+
+	<%= bootstrap_form_for ([@room, @member]) do |f| %>
+
+	  <%= f.form_group :user, label: { text: "選擇會議參與人員" } do %>
+	    <% @project_members.each do |a| %>
+	    	<%= f.radio_button :user, a.user, label: User.find(a.user).username %>
+	    <% end %>
+	  <% end %>
+
+
+	  <%= f.submit "Send" %>
+	<% end %>
+</div>

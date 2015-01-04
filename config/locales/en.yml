@@ -314,11 +314,12 @@ en:
   page:
     title: Telework
     header:
-      settings: Personal settings
-      logout: Log out
-      login: Log in
-      signup: Sign up
-      add_project: Add Project
+      settings: "Personal settings"
+      logout: "Log out"
+      login: "Log in"
+      signup: "Sign up"
+      add_project: "Add Project"
+      add_value_service: "Added Value Service"
     footer:
       about: About Us
       privacy: Privacy Policy

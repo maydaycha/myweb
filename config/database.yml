@@ -35,4 +35,4 @@ production:
   host: telework.c3hdqvev57qg.ap-northeast-1.rds.amazonaws.com
   encoding: utf8
   port: 5566
-  socket: /var/run/mysqld/mysqld.sock
+  socket: /tmp/mysqld.sock

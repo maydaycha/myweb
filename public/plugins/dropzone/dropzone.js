@@ -869,7 +869,6 @@ require.register("dropzone/lib/dropzone.js", function(exports, require, module){
     };
 
     Dropzone.prototype.getFallbackForm = function() {
-      alert("XX");
       var existingFallback, fields, fieldsString, form;
       if (existingFallback = this.getExistingFallback()) {
         return existingFallback;

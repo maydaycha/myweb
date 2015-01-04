@@ -1,0 +1,44 @@
+ @mixin media($margin, $padding) {
+    margin: $margin;
+    padding: $padding;
+}
+
+ /*profolio style*/
+
+.media-heading{
+	color:#319ACA;
+	a{
+	text-decoration:none;
+	}
+	}
+
+/* profolio col*/
+.media
+    {
+    	@include media(50px 0px, 0px)
+        
+        /*box-shadow:0px 0px 4px -2px #000;*/
+		/*padding:30px*/
+    }
+    
+	.dp
+    {
+        border:6px solid rgba(200, 200, 200,0.5);
+        transition: all 0.2s ease-in-out;
+        &:hover{
+        border:2px solid rgba(200, 200, 200,0.5);
+        transform:scale(110%,110%);
+        -ms-transform:scale(110%,110%);  
+        -webkit-transform: scale(110%,110%); 
+        }
+    }
+	
+	
+.panel-title > a{ /*color:#428BCA;*/}
+
+
+
+/*Tabs style*/
+
+.myTabs{background-color:hsla(0,0%,100%,1.00); padding: 30px 10px; border-radius: 25px;}
+.navmargin{margin:0 0 0 30px;}

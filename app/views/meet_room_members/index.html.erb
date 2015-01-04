@@ -1,0 +1,29 @@
+<div class="main-content">
+			<ul class="nav nav-tabs nav-justified">
+			  <li role="presentation" class="active">已參加會議人員</li>
+			  <li role="presentation"><%= link_to("增加會議人員", new_meet_room_meet_room_member_path(@room)) %></li>
+			</ul>
+
+			
+			<br>
+
+			<h1> 案件名稱 </h1>
+
+			<div class="row">
+				<% @room.meet_room_members.each do |m| %>
+				  <div class="col-sm-6 col-md-4">
+				    <div class="thumbnail">
+				      <img src="/img/staff.png" alt="..." class="img-circle">
+				      <div class="caption">
+				        <h3><%= User.find(m.user).username %></h3>
+				        <p>執行過的案件: project1</p>
+				        <p><%= link_to("移除", meet_room_meet_room_member_path(@room, m), :method => :DELETE) %></p>
+				      </div>
+				    </div>
+				  </div>
+				<% end %>
+			</div>
+
+
+
+</div>

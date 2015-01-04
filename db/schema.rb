@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127053845) do
+
+ActiveRecord::Schema.define(version: 20141230212706) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -78,6 +79,40 @@ ActiveRecord::Schema.define(version: 20141127053845) do
     t.datetime "updated_at"
   end
 
+  create_table "meet_room_members", force: true do |t|
+    t.integer  "user"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "meet_room_id"
+    t.integer  "confirmed",    default: 0
+  end
+
+  create_table "meet_room_prices", force: true do |t|
+    t.integer  "level"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "scheme"
+  end
+
+  create_table "meet_rooms", force: true do |t|
+    t.integer  "room_number"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "case"
+    t.integer  "ordered_customer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "meet_room_id"
+    t.boolean  "is_changable",     default: true
+    t.boolean  "is_confirmed",     default: false
+    t.integer  "meet_type"
+    t.integer  "time_unit_count"
+    t.string   "subject"
+    t.text     "description"
+    t.integer  "charge",           default: 0
+  end
+
   create_table "messages_of_projects", force: true do |t|
     t.integer  "project_id"
     t.text     "body"
@@ -97,6 +132,13 @@ ActiveRecord::Schema.define(version: 20141127053845) do
 
   create_table "project_categories", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_members", force: true do |t|
+    t.integer  "user"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -206,6 +248,17 @@ ActiveRecord::Schema.define(version: 20141127053845) do
     t.string   "get_time"
     t.string   "description", limit: 1000
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_contact_people", force: true do |t|
+    t.integer  "contact_person"
+    t.string   "contact_person_name"
+    t.integer  "project_id"
+    t.string   "project_name"
+    t.integer  "interview_time"
+    t.integer  "contact_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
