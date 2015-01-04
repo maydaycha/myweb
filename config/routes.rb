@@ -231,7 +231,7 @@ Sun::Application.routes.draw do
     get 'get_all_meet'
     get 'contact_person'
     get 'buy'
-    get 'search'
+    get 'update_members'
   end
 
   scope :meet_rooms do

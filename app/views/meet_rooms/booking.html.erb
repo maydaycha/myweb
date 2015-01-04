@@ -102,7 +102,7 @@
                             </li>
                             <li><a href="finished_meet">已經結束的會議  <span class="badge">2</span></a>
                             </li>
-                            <li><a href="/meet_room_members/project_contact">我的連絡人</a>
+                            <li><a href="/meet_room_members/get_contact_person">我的連絡人</a>
                             </li>
                             <li><a href="buy">購買記錄</a>
                             </li>
@@ -115,6 +115,7 @@
             </div>
         </section>
     </div>
+    <%=bootstrap_form_for(@room) do |f| %>
     <div id="fullCalModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -123,7 +124,7 @@
                     </button>
                     <h4 id="modalTitle" class="modal-title"><h4 id="modalDate" class="text-center"></h4></h4>
                 </div>
-                <%=bootstrap_form_for(@room) do |f| %>
+                
                     <div id="modalBody" class="modal-body">
                         <div class="row">
                             <div class="col-sm-10 col-sm-offset-1">
@@ -157,21 +158,23 @@
                                     </div>
                                     <div class="col-md-9">
                                         <div class="form-group">
-                                            <select class="form-control" name="meet_room[case]">
+                                            <select class="form-control" name="meet_room[case]" id="meet_room_case">
                                                 <% @projects.each do |p| %>
-                                                    <option value=<%=p.id %>>
+                                                    <option value="<%=p.id %>">
                                                         <%=p.name %>
                                                     </option>
-                                                    <% end %>
+                                                <% end %>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
+                                
+                                
                                 <div class="row">
                                     <div class="col-md-3"><strong>與會人員</strong>
                                     </div>
                                     <div class="col-md-9 marpad-left">
-                                        <div class="bootstrap-tagsinput"><span class="tag label label-info">Tom<span data-role="remove"></span></span> <span class="tag label label-info">Washington<span data-role="remove"></span></span> <span class="tag label label-info">Amy<span data-role="remove"></span></span>
+                                        <div id="member_select">
                                         </div>
                                     </div>
                                 </div>
@@ -202,9 +205,9 @@
                     <div class="modal-footer">
                         <p class="Cred"> *會議預約送出後，系統將自動發送會議通知給所有與會成員。</p>
                         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                        <%=f .submit "送出預約並扣款" %>
+                        <button class="btn btn-info" data-toggle="modal" data-target="#myModal" data-dismiss="modal">下一步</button>
                     </div>
-                    <% end %>
+                    
             </div>
         </div>
     </div>
@@ -219,18 +222,19 @@
                 <div class="modal-body">
                     <p>親愛的TeleWork會員您好，</p>
 
-                    <p>您即將 預約 <span class="Cred">09:30 – 10:00, 2014/12/02</span> ，共 <span class="Cred">0.5 </span>小時的會議室時間，這個動作將從您已經購買的會議室使用時數中扣除，扣除後您的會議室使用時數將剩下 <span class="Cred">9.5</span> 。 確認無誤後請按下下方的 確認預約，欲修改會議內容請按下 回上一步，或按下取消，終止 會議室預約。 如果您有疑問，相關會議室使用規則請見 此連結。 TeleWork Team.
+                    <p>您即將 預約 <span class="Cred" id="meetingTime2"></span> ，共 <span class="Cred">0.5 </span>小時的會議室時間，這個動作將從您已經購買的會議室使用時數中扣除，扣除後您的會議室使用時數將剩下 <span class="Cred">9.5</span> 。 確認無誤後請按下下方的 確認預約，欲修改會議內容請按下 回上一步，或按下取消，終止 會議室預約。 如果您有疑問，相關會議室使用規則請見 此連結。 TeleWork Team.
                     </p>
                 </div>
                 <div class="modal-footer">
 
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#fullCalModal" data-dismiss="modal">上一步</button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2" data-dismiss="modal">送出</button>
+                    <%=f.submit "送出預約並扣款" %>
                 </div>
             </div>
         </div>
     </div>
+    <% end %>
     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -256,7 +260,7 @@
                                 <div class="col-md-3"><strong>會議時間</strong>
                                 </div>
                                 <div class="col-md-9 ">
-                                    <div id="meetingTime2"></div>
+                                    <div id="meetingTime3"></div>
                                 </div>
                             </div>
                             <div class="row">
@@ -371,11 +375,14 @@
                 $('#meet_room_start').val(moment(start).format('MMMM D, YYYY h:mm:ss'));
                 $('#meet_room_end').val(moment(end).format('MMMM D, YYYY h:mm:ss'));
                 $('#modalTitle').html(event.title);
-                $('#modalDate').html([moment(start).format("YYYY-MMM-DD") + (' 會議詳情')].join("\n"));
+                $('#modalDate').html([moment(start).format("YYYY-MM-DD") + (' 會議詳情')].join("\n"));
                 $('#meetingTime').html([moment(start).format(' H:mm ') + ('~'),
                     moment(end).format('h:mm'),
                 ].join("\n"));
                 $('#meetingTime2').html([moment(start).format(' H:mm ') + ('~'),
+                    moment(end).format('h:mm'), moment(start).format("YYYY-MM-DD")
+                ].join("\n"));
+                $('#meetingTime3').html([moment(start).format(' H:mm ') + ('~'),
                     moment(end).format('h:mm'),
                 ].join("\n"));
                 $('#eventUrl').attr('href', event.url);
@@ -406,7 +413,23 @@
     
     </script>
 
-    
+    <script>
+    $(document).ready(function() {
+        $('#meet_room_case').change(function() {
+            $.ajax({
+                url: "/meet_rooms/update_members",
+                data: {
+                    project_id: $('#meet_room_case').val(),
+                },
+                success: function(data) {
+                    $('#member_select').html(data['form']);
+                }
+            });
+
+        });
+
+    });
+    </script>
 
     <!--END RANG BAR JS-->
 
@@ -429,3 +452,6 @@
 </body>
 
 </html>
+
+
+

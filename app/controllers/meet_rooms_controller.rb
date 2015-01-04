@@ -17,7 +17,7 @@ class MeetRoomsController < ApplicationController
 		if @room.save!
 			redirect_to new_meet_room_meet_room_member_path(@room)
 		else
-			render :booking
+			render :booking, status: :create_success
 		end
 	end
 
@@ -25,7 +25,12 @@ class MeetRoomsController < ApplicationController
 	def edit
 		@room = MeetRoom.find(params[:id])
 		@projects = Project.all #暫時先抓出所有project，之後要修改成該user所建立的project
+		
+		@project = Project.find(@room.case)
+		@project_members = @project.project_members
+		
 		render :json => { :form => render_to_string(:partial => 'edit_form')}
+
 	end
 
 	def update
@@ -70,7 +75,7 @@ class MeetRoomsController < ApplicationController
 
 
 	def waiting_meet
-		
+
 	end
 
 	def get_waiting_case
@@ -104,30 +109,7 @@ class MeetRoomsController < ApplicationController
 	
 
 	def upcoming_meet
-		@rooms = MeetRoom.where("ordered_customer = ?", current_user.id)
-		@projects = []
-		@unconfirmed = []
-		events = []
-		@rooms.each do |room|
-			@projects << Project.find(room.case)
-			@unconfirmed << room.meet_room_members.where("confirmed = ?", 0).count
-			#@join = 
-			#not_joined = 
-			#@final_change_datetime = room.target_date - BEFORE_TARGET_DATE
-			#@rent_time = room.time_unit_count * TIME_UNIT
-			#@charge = room.time_unit_count * MeetRoomPrice.first.price # to-do : modify by different scheme
-		end
-
-		@rooms.each do |room|
-			@projects << Project.find(room.case)
-			@unconfirmed << room.meet_room_members.where("confirmed = ?", 0).count
-			#@join = 
-			#not_joined = 
-			#@final_change_datetime = room.target_date - BEFORE_TARGET_DATE
-			#@rent_time = room.time_unit_count * TIME_UNIT
-			#@charge = room.time_unit_count * MeetRoomPrice.first.price # to-do : modify by different scheme
-			events << {:id => room.id, :title => room.subject, :start => "#{room.start_time}", :end => "#{room.end_time}"}
-		end
+		
 	end
 
 	def get_upcoming
@@ -206,6 +188,12 @@ class MeetRoomsController < ApplicationController
 	end
 
 
+	def update_members
+		@project = Project.find(params[:project_id])
+		@project_members = @project.project_members
+		render :json => { :form => render_to_string(:partial => 'update_members')}
+	end
+
 	private
 	CASE_MEET = 1
 	INTERVIEW_MEET = 2
@@ -221,9 +209,11 @@ class MeetRoomsController < ApplicationController
 																			:meet_type, 
 																			:time_unit_count,
 																			:subject,
-																			:description)
+																			:description, 
+																			meet_room_members_attribute: [:id, :user, :meet_room_id, :confirmed])
 	end
 
 
 
 end
+
