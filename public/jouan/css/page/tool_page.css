@@ -1,0 +1,30 @@
+.tool-cap {
+  min-height: 450px;
+  background-image: url("../../img/World_map1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white; }
+
+.tool-container {
+  max-width: 1200px !important;
+  width: 100% !important;
+  margin: auto !important; }
+
+.tool-box {
+  overflow: hidden;
+  position: relative;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
+  margin-top: 10px; }
+  .tool-box img {
+    box-shadow: 2px 2px 8px #d8d8d8;
+    border-radius: 10px; }
+
+.subTorso {
+  background-color: #dcebf9;
+  height: 80px;
+  width: 100%;
+  color: #444451;
+  margin-top: 0;
+  padding-top: 20px; }

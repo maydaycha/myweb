@@ -1,35 +1,26 @@
 /***
 Social Icons(new in v1.2.2)
 ***/
-/* line 4, ../scss/socialIcons.scss */
 .social-icons {
   padding: 0;
-  margin: 0;
-}
+  margin: 0; }
 
-/* line 10, ../scss/socialIcons.scss */
 .social-icons:after,
 .social-icons:before {
   content: "";
-  display: table;
-}
+  display: table; }
 
-/* line 15, ../scss/socialIcons.scss */
 .social-icons:after {
-  clear: both;
-}
+  clear: both; }
 
-/* line 19, ../scss/socialIcons.scss */
 .social-icons li {
   float: left;
   display: inline;
   list-style: none;
   margin-right: 5px;
   margin-bottom: 5px;
-  text-indent: -9999px;
-}
+  text-indent: -9999px; }
 
-/* line 27, ../scss/socialIcons.scss */
 .social-icons li a, a.social-icon {
   width: 28px;
   height: 28px;
@@ -40,214 +31,132 @@ Social Icons(new in v1.2.2)
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-}
+  -webkit-transition: all 0.3s ease-in-out; }
 
-/* line 39, ../scss/socialIcons.scss */
 .social-icons li:hover a {
-  background-position: 0 -38px;
-}
+  background-position: 0 -38px; }
 
-/* line 43, ../scss/socialIcons.scss */
 .social-icons-color li a {
   opacity: 0.7;
-  background-position: 0 -38px !important;
-}
+  background-position: 0 -38px !important; }
 
-/* line 48, ../scss/socialIcons.scss */
 .social-icons-color li a:hover {
-  opacity: 1;
-}
+  opacity: 1; }
 
-/* line 52, ../scss/socialIcons.scss */
 .social-icons .amazon {
-  background: url(../img/social/amazon.png) no-repeat;
-}
+  background: url(../img/social/amazon.png) no-repeat; }
 
-/* line 53, ../scss/socialIcons.scss */
 .social-icons .behance {
-  background: url(../img/social/behance.png) no-repeat;
-}
+  background: url(../img/social/behance.png) no-repeat; }
 
-/* line 54, ../scss/socialIcons.scss */
 .social-icons .blogger {
-  background: url(../img/social/blogger.png) no-repeat;
-}
+  background: url(../img/social/blogger.png) no-repeat; }
 
-/* line 55, ../scss/socialIcons.scss */
 .social-icons .deviantart {
-  background: url(../img/social/deviantart.png) no-repeat;
-}
+  background: url(../img/social/deviantart.png) no-repeat; }
 
-/* line 56, ../scss/socialIcons.scss */
 .social-icons .dribbble {
-  background: url(../img/social/dribbble.png) no-repeat;
-}
+  background: url(../img/social/dribbble.png) no-repeat; }
 
-/* line 57, ../scss/socialIcons.scss */
 .social-icons .dropbox {
-  background: url(../img/social/dropbox.png) no-repeat;
-}
+  background: url(../img/social/dropbox.png) no-repeat; }
 
-/* line 58, ../scss/socialIcons.scss */
 .social-icons .evernote {
-  background: url(../img/social/evernote.png) no-repeat;
-}
+  background: url(../img/social/evernote.png) no-repeat; }
 
-/* line 59, ../scss/socialIcons.scss */
 .social-icons .facebook {
-  background: url(../img/social/facebook.png) no-repeat;
-}
+  background: url(../img/social/facebook.png) no-repeat; }
 
-/* line 60, ../scss/socialIcons.scss */
 .social-icons .forrst {
-  background: url(../img/social/forrst.png) no-repeat;
-}
+  background: url(../img/social/forrst.png) no-repeat; }
 
-/* line 61, ../scss/socialIcons.scss */
 .social-icons .github {
-  background: url(../img/social/github.png) no-repeat;
-}
+  background: url(../img/social/github.png) no-repeat; }
 
-/* line 62, ../scss/socialIcons.scss */
 .social-icons .googleplus {
-  background: url(../img/social/googleplus.png) no-repeat;
-}
+  background: url(../img/social/googleplus.png) no-repeat; }
 
-/* line 63, ../scss/socialIcons.scss */
 .social-icons .jolicloud {
-  background: url(../img/social/jolicloud.png) no-repeat;
-}
+  background: url(../img/social/jolicloud.png) no-repeat; }
 
-/* line 64, ../scss/socialIcons.scss */
 .social-icons .last-fm {
-  background: url(../img/social/last-fm.png) no-repeat;
-}
+  background: url(../img/social/last-fm.png) no-repeat; }
 
-/* line 65, ../scss/socialIcons.scss */
 .social-icons .linkedin {
-  background: url(../img/social/linkedin.png) no-repeat;
-}
+  background: url(../img/social/linkedin.png) no-repeat; }
 
-/* line 66, ../scss/socialIcons.scss */
 .social-icons .picasa {
-  background: url(../img/social/picasa.png) no-repeat;
-}
+  background: url(../img/social/picasa.png) no-repeat; }
 
-/* line 67, ../scss/socialIcons.scss */
 .social-icons .pintrest {
-  background: url(../img/social/pintrest.png) no-repeat;
-}
+  background: url(../img/social/pintrest.png) no-repeat; }
 
-/* line 68, ../scss/socialIcons.scss */
 .social-icons .rss {
-  background: url(../img/social/rss.png) no-repeat;
-}
+  background: url(../img/social/rss.png) no-repeat; }
 
-/* line 69, ../scss/socialIcons.scss */
 .social-icons .skype {
-  background: url(../img/social/skype.png) no-repeat;
-}
+  background: url(../img/social/skype.png) no-repeat; }
 
-/* line 70, ../scss/socialIcons.scss */
 .social-icons .spotify {
-  background: url(../img/social/spotify.png) no-repeat;
-}
+  background: url(../img/social/spotify.png) no-repeat; }
 
-/* line 71, ../scss/socialIcons.scss */
 .social-icons .stumbleupon {
-  background: url(../img/social/stumbleupon.png) no-repeat;
-}
+  background: url(../img/social/stumbleupon.png) no-repeat; }
 
-/* line 72, ../scss/socialIcons.scss */
 .social-icons .tumblr {
-  background: url(../img/social/tumblr.png) no-repeat;
-}
+  background: url(../img/social/tumblr.png) no-repeat; }
 
-/* line 73, ../scss/socialIcons.scss */
 .social-icons .twitter {
-  background: url(../img/social/twitter.png) no-repeat;
-}
+  background: url(../img/social/twitter.png) no-repeat; }
 
-/* line 74, ../scss/socialIcons.scss */
 .social-icons .vimeo {
-  background: url(../img/social/vimeo.png) no-repeat;
-}
+  background: url(../img/social/vimeo.png) no-repeat; }
 
-/* line 75, ../scss/socialIcons.scss */
 .social-icons .wordpress {
-  background: url(../img/social/wordpress.png) no-repeat;
-}
+  background: url(../img/social/wordpress.png) no-repeat; }
 
-/* line 76, ../scss/socialIcons.scss */
 .social-icons .xing {
-  background: url(../img/social/xing.png) no-repeat;
-}
+  background: url(../img/social/xing.png) no-repeat; }
 
-/* line 77, ../scss/socialIcons.scss */
 .social-icons .yahoo {
-  background: url(../img/social/yahoo.png) no-repeat;
-}
+  background: url(../img/social/yahoo.png) no-repeat; }
 
-/* line 78, ../scss/socialIcons.scss */
 .social-icons .youtube {
-  background: url(../img/social/youtube.png) no-repeat;
-}
+  background: url(../img/social/youtube.png) no-repeat; }
 
-/* line 79, ../scss/socialIcons.scss */
 .social-icons .vk {
-  background: url(../img/social/vk.png) no-repeat;
-}
+  background: url(../img/social/vk.png) no-repeat; }
 
-/* line 80, ../scss/socialIcons.scss */
 .social-icons .instagram {
-  background: url(../img/social/instagram.png) no-repeat;
-}
+  background: url(../img/social/instagram.png) no-repeat; }
 
-/* line 81, ../scss/socialIcons.scss */
 .social-icons .reddit {
-  background: url(../img/social/reddit.png) no-repeat;
-}
+  background: url(../img/social/reddit.png) no-repeat; }
 
-/* line 82, ../scss/socialIcons.scss */
 .social-icons .aboutme {
-  background: url(../img/social/aboutme.png) no-repeat;
-}
+  background: url(../img/social/aboutme.png) no-repeat; }
 
-/* line 83, ../scss/socialIcons.scss */
 .social-icons .flickr {
-  background: url(../img/social/flickr.png) no-repeat;
-}
+  background: url(../img/social/flickr.png) no-repeat; }
 
-/* line 84, ../scss/socialIcons.scss */
 .social-icons .foursquare {
-  background: url(../img/social/foursquare.png) no-repeat;
-}
+  background: url(../img/social/foursquare.png) no-repeat; }
 
-/* line 85, ../scss/socialIcons.scss */
 .social-icons .gravatar {
-  background: url(../img/social/gravatar.png) no-repeat;
-}
+  background: url(../img/social/gravatar.png) no-repeat; }
 
-/* line 86, ../scss/socialIcons.scss */
 .social-icons .klout {
-  background: url(../img/social/klout.png) no-repeat;
-}
+  background: url(../img/social/klout.png) no-repeat; }
 
-/* line 87, ../scss/socialIcons.scss */
 .social-icons .myspace {
-  background: url(../img/social/myspace.png) no-repeat;
-}
+  background: url(../img/social/myspace.png) no-repeat; }
 
-/* line 88, ../scss/socialIcons.scss */
 .social-icons .quora {
-  background: url(../img/social/quora.png) no-repeat;
-}
+  background: url(../img/social/quora.png) no-repeat; }
 
 /***
 Inline Social Icons
 ***/
-/* line 94, ../scss/socialIcons.scss */
 .social-icon {
   display: inline-block !important;
   width: 28px;
@@ -258,206 +167,125 @@ Inline Social Icons
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-}
+  -webkit-transition: all 0.3s ease-in-out; }
 
-/* line 107, ../scss/socialIcons.scss */
 .social-icon.amazon {
-  background: url(../img/social/amazon.png) no-repeat;
-}
+  background: url(../img/social/amazon.png) no-repeat; }
 
-/* line 108, ../scss/socialIcons.scss */
 .social-icon.behance {
-  background: url(../img/social/behance.png) no-repeat;
-}
+  background: url(../img/social/behance.png) no-repeat; }
 
-/* line 109, ../scss/socialIcons.scss */
 .social-icon.blogger {
-  background: url(../img/social/blogger.png) no-repeat;
-}
+  background: url(../img/social/blogger.png) no-repeat; }
 
-/* line 110, ../scss/socialIcons.scss */
 .social-icon.deviantart {
-  background: url(../img/social/deviantart.png) no-repeat;
-}
+  background: url(../img/social/deviantart.png) no-repeat; }
 
-/* line 111, ../scss/socialIcons.scss */
 .social-icon.dribbble {
-  background: url(../img/social/dribbble.png) no-repeat;
-}
+  background: url(../img/social/dribbble.png) no-repeat; }
 
-/* line 112, ../scss/socialIcons.scss */
 .social-icon.dropbox {
-  background: url(../img/social/dropbox.png) no-repeat;
-}
+  background: url(../img/social/dropbox.png) no-repeat; }
 
-/* line 113, ../scss/socialIcons.scss */
 .social-icon.evernote {
-  background: url(../img/social/evernote.png) no-repeat;
-}
+  background: url(../img/social/evernote.png) no-repeat; }
 
-/* line 114, ../scss/socialIcons.scss */
 .social-icon.facebook {
-  background: url(../img/social/facebook.png) no-repeat;
-}
+  background: url(../img/social/facebook.png) no-repeat; }
 
-/* line 115, ../scss/socialIcons.scss */
 .social-icon.forrst {
-  background: url(../img/social/forrst.png) no-repeat;
-}
+  background: url(../img/social/forrst.png) no-repeat; }
 
-/* line 116, ../scss/socialIcons.scss */
 .social-icon.github {
-  background: url(../img/social/github.png) no-repeat;
-}
+  background: url(../img/social/github.png) no-repeat; }
 
-/* line 117, ../scss/socialIcons.scss */
 .social-icon.googleplus {
-  background: url(../img/social/googleplus.png) no-repeat;
-}
+  background: url(../img/social/googleplus.png) no-repeat; }
 
-/* line 118, ../scss/socialIcons.scss */
 .social-icon.jolicloud {
-  background: url(../img/social/jolicloud.png) no-repeat;
-}
+  background: url(../img/social/jolicloud.png) no-repeat; }
 
-/* line 119, ../scss/socialIcons.scss */
 .social-icon.last-fm {
-  background: url(../img/social/last-fm.png) no-repeat;
-}
+  background: url(../img/social/last-fm.png) no-repeat; }
 
-/* line 120, ../scss/socialIcons.scss */
 .social-icon.linkedin {
-  background: url(../img/social/linkedin.png) no-repeat;
-}
+  background: url(../img/social/linkedin.png) no-repeat; }
 
-/* line 121, ../scss/socialIcons.scss */
 .social-icon.picasa {
-  background: url(../img/social/picasa.png) no-repeat;
-}
+  background: url(../img/social/picasa.png) no-repeat; }
 
-/* line 122, ../scss/socialIcons.scss */
 .social-icon.pintrest {
-  background: url(../img/social/pintrest.png) no-repeat;
-}
+  background: url(../img/social/pintrest.png) no-repeat; }
 
-/* line 123, ../scss/socialIcons.scss */
 .social-icon.rss {
-  background: url(../img/social/rss.png) no-repeat;
-}
+  background: url(../img/social/rss.png) no-repeat; }
 
-/* line 124, ../scss/socialIcons.scss */
 .social-icon.skype {
-  background: url(../img/social/skype.png) no-repeat;
-}
+  background: url(../img/social/skype.png) no-repeat; }
 
-/* line 125, ../scss/socialIcons.scss */
 .social-icon.spotify {
-  background: url(../img/social/spotify.png) no-repeat;
-}
+  background: url(../img/social/spotify.png) no-repeat; }
 
-/* line 126, ../scss/socialIcons.scss */
 .social-icon.stumbleupon {
-  background: url(../img/social/stumbleupon.png) no-repeat;
-}
+  background: url(../img/social/stumbleupon.png) no-repeat; }
 
-/* line 127, ../scss/socialIcons.scss */
 .social-icon.tumblr {
-  background: url(../img/social/tumblr.png) no-repeat;
-}
+  background: url(../img/social/tumblr.png) no-repeat; }
 
-/* line 128, ../scss/socialIcons.scss */
 .social-icon.twitter {
-  background: url(../img/social/twitter.png) no-repeat;
-}
+  background: url(../img/social/twitter.png) no-repeat; }
 
-/* line 129, ../scss/socialIcons.scss */
 .social-icon.vimeo {
-  background: url(../img/social/vimeo.png) no-repeat;
-}
+  background: url(../img/social/vimeo.png) no-repeat; }
 
-/* line 130, ../scss/socialIcons.scss */
 .social-icon.wordpress {
-  background: url(../img/social/wordpress.png) no-repeat;
-}
+  background: url(../img/social/wordpress.png) no-repeat; }
 
-/* line 131, ../scss/socialIcons.scss */
 .social-icon.xing {
-  background: url(../img/social/xing.png) no-repeat;
-}
+  background: url(../img/social/xing.png) no-repeat; }
 
-/* line 132, ../scss/socialIcons.scss */
 .social-icon.yahoo {
-  background: url(../img/social/yahoo.png) no-repeat;
-}
+  background: url(../img/social/yahoo.png) no-repeat; }
 
-/* line 133, ../scss/socialIcons.scss */
 .social-icon.youtube {
-  background: url(../img/social/youtube.png) no-repeat;
-}
+  background: url(../img/social/youtube.png) no-repeat; }
 
-/* line 134, ../scss/socialIcons.scss */
 .social-icon.vk {
-  background: url(../img/social/vk.png) no-repeat;
-}
+  background: url(../img/social/vk.png) no-repeat; }
 
-/* line 135, ../scss/socialIcons.scss */
 .social-icon.instagram {
-  background: url(../img/social/instagram.png) no-repeat;
-}
+  background: url(../img/social/instagram.png) no-repeat; }
 
-/* line 136, ../scss/socialIcons.scss */
 .social-icon.reddit {
-  background: url(../img/social/reddit.png) no-repeat;
-}
+  background: url(../img/social/reddit.png) no-repeat; }
 
-/* line 137, ../scss/socialIcons.scss */
 .social-icon.aboutme {
-  background: url(../img/social/aboutme.png) no-repeat;
-}
+  background: url(../img/social/aboutme.png) no-repeat; }
 
-/* line 138, ../scss/socialIcons.scss */
 .social-icon.flickr {
-  background: url(../img/social/flickr.png) no-repeat;
-}
+  background: url(../img/social/flickr.png) no-repeat; }
 
-/* line 139, ../scss/socialIcons.scss */
 .social-icon.foursquare {
-  background: url(../img/social/foursquare.png) no-repeat;
-}
+  background: url(../img/social/foursquare.png) no-repeat; }
 
-/* line 140, ../scss/socialIcons.scss */
 .social-icon.gravatar {
-  background: url(../img/social/gravatar.png) no-repeat;
-}
+  background: url(../img/social/gravatar.png) no-repeat; }
 
-/* line 141, ../scss/socialIcons.scss */
 .social-icon.klout {
-  background: url(../img/social/klout.png) no-repeat;
-}
+  background: url(../img/social/klout.png) no-repeat; }
 
-/* line 142, ../scss/socialIcons.scss */
 .social-icon.myspace {
-  background: url(../img/social/myspace.png) no-repeat;
-}
+  background: url(../img/social/myspace.png) no-repeat; }
 
-/* line 143, ../scss/socialIcons.scss */
 .social-icon.quora {
-  background: url(../img/social/quora.png) no-repeat;
-}
+  background: url(../img/social/quora.png) no-repeat; }
 
-/* line 145, ../scss/socialIcons.scss */
 .social-icon:hover {
-  background-position: 0 -38px;
-}
+  background-position: 0 -38px; }
 
-/* line 149, ../scss/socialIcons.scss */
 .social-icon-color {
   opacity: 0.7;
-  background-position: 0 -38px !important;
-}
+  background-position: 0 -38px !important; }
 
-/* line 154, ../scss/socialIcons.scss */
 .social-icon-color:hover {
-  opacity: 1;
-}
+  opacity: 1; }
