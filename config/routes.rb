@@ -192,6 +192,7 @@ Sun::Application.routes.draw do
   get 'howitworkP5_other' => 'index#howitworkP5_other', :as => :index_howitworkP5_other
   get 'partners' => 'index#partners', :as => :index_partners
   get 'solutions' => 'index#solutions', :as => :index_solutions
+  get 'SandBYOT' => 'index#SandBYOT', :as => :index_SandBYOT
 
   namespace :users do
     post 'add_to_favorite'
