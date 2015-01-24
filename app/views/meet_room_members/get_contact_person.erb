@@ -559,9 +559,15 @@
             var listrap = this;
             listrap.getSelection = function() {
                 var selection = new Array();
-                listrap.children("article.active").each(function(ix, el) {
-                    selection.push($(el)[0]);
+                //listrap.children("article.active").each(function(ix, el) {
+                //    alert(this.html());
+                //    selection.push($("h3").html());
+                //});
+                listrap.children().children().children("article.active").each(function (ix, el) {
+                  var name = $(el).children().find("h3").text();
+                  selection.push(name[0]);
                 });
+                
                 return selection;
             }
             var toggle = "article .list-group ";

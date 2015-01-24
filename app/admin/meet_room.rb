@@ -13,7 +13,8 @@ ActiveAdmin.register MeetRoom do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  
+
+ 
 end
 
 

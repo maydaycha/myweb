@@ -1,3 +1,5 @@
+<script src="../../plugins/jquery-1.11.0.min.js"></script>
+
 <div class="main-content">
 	<div class="row">
     <div class="col-md-8"><h1> 會議室預約 </h1></div>
@@ -14,5 +16,19 @@
 		<li> <%=link_to("企業方案會議室", meet_rooms_enterprise_path) %> </li>
 		<li> <%=link_to("BYOT會議室", meet_rooms_byot_path) %> </li>
 
-
 </div>
+
+
+
+<ul class="test">
+  <li>foo <p> test </p></li>
+  <li>bar</li>
+</ul>
+
+
+<script>
+
+	$( ".test" ).children().each(function( index, value ) {
+  	console.log( index + ": " + $( this ).text() + $(value));
+	});
+</script>

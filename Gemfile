@@ -102,6 +102,7 @@ gem 'activeadmin', github: 'activeadmin'
 # github: 'activeadmin'
 # gem "meta_search",    '>= 1.1.0.pre'
 
+gem 'localeapp'
 
 group :development, :test do
   gem 'faker'
