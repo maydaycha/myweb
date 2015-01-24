@@ -261,4 +261,6 @@ Sun::Application.routes.draw do
     resources :meet_room_members
   end
 
+  # for api 
+  mount API::Base => '/'
 end
