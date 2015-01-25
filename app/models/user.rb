@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   # validates :password, :presence => true, :format => { :with  => /(?=.*\d)(?=.*[a-zA-Z])/, :allow_blank => false, :message => "must include at least one letter, and one digit" }
 
+  before_save :ensure_authentication_token
 
   validates_presence_of :first_name, :message => "姓氏未填寫"
   validates_presence_of :last_name, :message => "名字未填寫"
@@ -83,6 +84,19 @@ class User < ActiveRecord::Base
   end
 
 
+  def ensure_authentication_token
+    self.authentication_token ||= generate_authentication_token
+  end
+
+
+  private
+
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).first
+    end
+  end
 
 
 

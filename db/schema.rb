@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230212706) do
+ActiveRecord::Schema.define(version: 20150125005230) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -416,8 +416,10 @@ ActiveRecord::Schema.define(version: 20141230212706) do
     t.integer  "zip"
     t.integer  "step"
     t.string   "current_role"
+    t.string   "authentication_token"
   end
 
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
