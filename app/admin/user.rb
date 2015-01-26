@@ -1,23 +1,8 @@
 # encoding: utf-8
 ActiveAdmin.register User do
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :id, :useranme, :picture
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
 
-  # if current_admin_user.is_service?
-  #   actions :all, :except => [:destroy, :create]
-  # else
-  #   actions :all
-  # end
+  # permit_params :id, :useranme, :picture
+
 
   filter :email
   filter :username
@@ -33,7 +18,6 @@ ActiveAdmin.register User do
   action_item :only => [:index] do
     link_to t("active_admin.new_model", model: :User), url: new_admin_user_path unless current_admin_user.is_service?
   end
-
 
 
 

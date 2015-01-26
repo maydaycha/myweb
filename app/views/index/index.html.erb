@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <%
+        @seos.each do |seo|
+          case seo.key
+          when "title"
+              meta_title seo.content
+          when "keywords"
+              meta_keywords seo.content
+          when "description"
+              meta_description seo.content
+          when "author"
+              meta_author seo.content
+          end
+        end
+    %>
+
+    <title><%= yield(:title).presence || "Default title" %></title>
+    <meta name="keywords" content="<%= yield(:meta_keywords).presence || "default, keywords" %>" />
+    <meta name="description" content="<%= yield(:meta_description).presence || "Default description" %>" />
+    <meta name="author" content="<%= yield(:meta_author).presence || "Default Author" %>" />
+
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta content="" name="description"/>
-    <meta content="" name="author"/>
     <meta property="wb:webmaster" content="736797a53036d683" />
-    <title><%= I18n.t("page.title") %></title>
+
+    <!-- <title><%= I18n.t("page.title") %></title> -->
 
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
@@ -449,8 +469,16 @@
                                             <div class="col-md-3 col-xs-3 hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework01.jpg"></div>
                                             <div class="col-xs-3 hidden-lg hidden-md marpad img-dark"><img src="img/teleworklife/telework01.jpg" style="position:relative; margin-left: -160px;"></div>
                                             <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
-                                                <div class="tab-slider-tex hidden-sm hidden-xs"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
-                                                <div class="tab-slider-tex02 hidden-lg hidden-md"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
+                                                <div class="tab-slider-tex hidden-sm hidden-xs">
+                                                    <p><%= I18n.t("page.index.tabB1_content1") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content2") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content3") %></p>
+                                                </div>
+                                                <div class="tab-slider-tex02 hidden-lg hidden-md">
+                                                    <p><%= I18n.t("page.index.tabB1_content1") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content2") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content3") %></p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -462,24 +490,40 @@
                                             <div class="col-xs-3 hidden-lg hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework02.jpg" style="position:relative; margin-left: -360px;"></div>
                                             <div class="col-xs-3 hidden-lg hidden-md img-dark marpad"><img src="img/teleworklife/telework02.jpg" style="position:relative; margin-left: -360px;"></div>
                                             <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
-                                                <div class="tab-slider-tex hidden-sm hidden-xs "><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
-                                                <div class="tab-slider-tex02 hidden-lg hidden-md"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
+                                                <div class="tab-slider-tex hidden-sm hidden-xs ">
+                                                    <p><%= I18n.t("page.index.tabB1_content1") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content2") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content3") %></p>
+                                                </div>
+                                                <div class="tab-slider-tex02 hidden-lg hidden-md">
+                                                    <p><%= I18n.t("page.index.tabB1_content1") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content2") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content3") %></p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="container-fluid">
-                                     <div class="row">
-                                        <div class="col-md-3 col-xs-3 hidden-md hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework03.jpg"></div>
-                                        <div class="col-xs-3 hidden-lg  marpad img-dark"><img src="img/teleworklife/telework03.jpg" style="position:relative; margin-left: -360px;"></div>
-                                        <div class="col-md-5 col-xs-9 pull-right">
-                                           <div class="tab-slider-tex hidden-sm hidden-xs"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
-                                           <div class="tab-slider-tex02 hidden-lg hidden-md"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
+                                         <div class="row">
+                                            <div class="col-md-3 col-xs-3 hidden-md hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework03.jpg"></div>
+                                            <div class="col-xs-3 hidden-lg  marpad img-dark"><img src="img/teleworklife/telework03.jpg" style="position:relative; margin-left: -360px;"></div>
+                                            <div class="col-md-5 col-xs-9 pull-right">
+                                               <div class="tab-slider-tex hidden-sm hidden-xs">
+                                                <p><%= I18n.t("page.index.tabB1_content1") %></p>
+                                                <p><%= I18n.t("page.index.tabB1_content2") %></p>
+                                                <p><%= I18n.t("page.index.tabB1_content3") %></p>
+                                            </div>
+                                            <div class="tab-slider-tex02 hidden-lg hidden-md">
+                                                <p><%= I18n.t("page.index.tabB1_content1") %></p>
+                                                <p><%= I18n.t("page.index.tabB1_content2") %></p>
+                                                <p><%= I18n.t("page.index.tabB1_content3") %></p>
+                                            </div>
+                                           </div>
                                        </div>
-                                   </div>
-                               </div>
-                           </div>
+                                    </div>
+                                </div>
                            <div class="item">
                             <div class="container-fluid">
                              <div class="row">
