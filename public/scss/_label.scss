@@ -1019,6 +1019,15 @@ a.ui.yellow.label:hover:before {
   }
 }
 
+.inter:before{
+  content: "\f0ac ";
+  font-family: "FontAwesome"; 
+  font-size:1.2em;
+  font-style: normal; 
+  font-weight: normal; 
+  text-decoration: inherit;
+}
+
 /*-------------------
        Fluid
 --------------------*/

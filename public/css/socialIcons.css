@@ -42,12 +42,15 @@ Social Icons(new in v1.2.2)
 
 .social-icons-color li a:hover {
   opacity: 1; }
+<<<<<<< HEAD
 
 .social-icons .qq {
   background: url(../img/social/qq.png) no-repeat; }
 
 .social-icons .weibo {
   background: url(../img/social/weibo.png) no-repeat; }
+=======
+>>>>>>> Suninnovation/master
 
 .social-icons .amazon {
   background: url(../img/social/amazon.png) no-repeat; }
@@ -175,12 +178,6 @@ Inline Social Icons
   -moz-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out; }
 
-.social-icon.qq {
-  background: url(../img/social/qq.png) no-repeat; }
-
-.social-icon.weibo {
-  background: url(../img/social/weibo.png) no-repeat; }
-  
 .social-icon.amazon {
   background: url(../img/social/amazon.png) no-repeat; }
 

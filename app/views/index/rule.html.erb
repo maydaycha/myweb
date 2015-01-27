@@ -72,7 +72,19 @@
             <!-- BEGIN MAIN CONTENT -->
             <div class="main-content">
                 <pre>
-<%= t(:rule)%>
+                    <%=
+                        case I18n.locale
+                        when 'zh-TW'
+                          @website.footer_privacy_tw
+                        when 'zh-CN'
+                          @website.footer_privacy_cn
+                        when 'en'
+                          @website.footer_privacy_en
+                        else
+                          @website.footer_privacy_tw
+                        end
+                    %>
+                    <!-- <%= t(:rule)%> -->
                 </pre>
             </div>
             <!-- END MAIN CONTENT -->

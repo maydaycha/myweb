@@ -1,6 +1,6 @@
 ActiveAdmin.register Website do
 
-  permit_params :logo, :swiper, :it_software, :science_engineer, :creativity_design, :sales, :service, :business, :writness, :consulting
+  permit_params :logo, :swiper, :it_software, :science_engineer, :creativity_design, :sales, :service, :business, :writness, :consulting, :footer_about_en, :footer_about_tw, :footer_about_cn, :footer_privacy_en, :footer_privacy_tw, :footer_privacy_cn, :footer_termofuse_en, :footer_termofuse_tw, :footer_termofuse_cn, :footer_contact_en, :footer_contact_tw, :footer_contact_cn
 
 
 
@@ -16,6 +16,22 @@ ActiveAdmin.register Website do
       f.input :business, :as => :file
       f.input :writness, :as => :file
       f.input :consulting, :as => :file
+
+      f.input :footer_about_en
+      f.input :footer_about_tw
+      f.input :footer_about_cn
+
+      f.input :footer_privacy_en
+      f.input :footer_privacy_tw
+      f.input :footer_privacy_cn
+
+      f.input :footer_termofuse_en
+      f.input :footer_termofuse_tw
+      f.input :footer_termofuse_cn
+
+      f.input :footer_contact_en
+      f.input :footer_contact_tw
+      f.input :footer_contact_cn
     end
     f.actions
   end
@@ -62,6 +78,22 @@ ActiveAdmin.register Website do
         image_tag url_for(:controller => "/application", :action => "show_image", :model => website.class.name, :attribute => :consulting, :id => website.id), class: "img-thumbnail img-responsive", width: "113", height: "113"
       end
 
+      row :footer_about_en
+      row :footer_about_tw
+      row :footer_about_cn
+
+      row :footer_privacy_en
+      row :footer_privacy_tw
+      row :footer_privacy_cn
+
+      row :footer_termofuse_en
+      row :footer_termofuse_tw
+      row :footer_termofuse_cn
+
+      row :footer_contact_en
+      row :footer_contact_tw
+      row :footer_contact_cn
+
     end
 
   end
@@ -76,14 +108,18 @@ ActiveAdmin.register Website do
 
     def create
       params[:website].each do |key, value|
-        params[:website][key] = open(params[:website][key].tempfile).read if not params[:website][key].nil?
+        if value.class != String
+          params[:website][key] = open(params[:website][key].tempfile).read if not params[:website][key].nil?
+        end
       end
       super
     end
 
     def update
       params[:website].each do |key, value|
-        params[:website][key] = open(params[:website][key].tempfile).read if not params[:website][key].nil?
+        if value.class != String
+          params[:website][key] = open(params[:website][key].tempfile).read if not params[:website][key].nil?
+        end
       end
       super
     end

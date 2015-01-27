@@ -2023,6 +2023,14 @@ a.ui.yellow.label:hover:before {
 .ui.massive.labels .label, .ui.massive.label {
   font-size: 1.4285rem; }
 
+.inter:before {
+  content: "\f0ac ";
+  font-family: "FontAwesome";
+  font-size: 1.2em;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit; }
+
 /*-------------------
        Fluid
 --------------------*/

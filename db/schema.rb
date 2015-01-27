@@ -12,7 +12,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 20141230212706) do
+ActiveRecord::Schema.define(version: 20150126145719) do
+
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(version: 20141230212706) do
     t.string   "last_name",                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_service"
+    t.boolean  "is_service",          default: false
     t.boolean  "is_translator",       default: false
     t.integer  "authority_group_id"
   end
@@ -204,6 +205,13 @@ ActiveRecord::Schema.define(version: 20141230212706) do
     t.text     "public_message_chinese"
   end
 
+  create_table "seos", force: true do |t|
+    t.string   "key"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "skills", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -327,13 +335,6 @@ ActiveRecord::Schema.define(version: 20141230212706) do
     t.string   "description",  limit: 1000
   end
 
-  create_table "user_favorate_projects", force: true do |t|
-    t.integer  "favorite_project_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "user_favorite_projects", force: true do |t|
     t.integer  "project_id"
     t.integer  "user_id"
@@ -432,18 +433,30 @@ ActiveRecord::Schema.define(version: 20141230212706) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   create_table "websites", force: true do |t|
-    t.binary   "logo",              limit: 2147483647
-    t.binary   "swiper",            limit: 2147483647
-    t.binary   "it_software",       limit: 2147483647
-    t.binary   "science_engineer",  limit: 2147483647
-    t.binary   "creativity_design", limit: 2147483647
-    t.binary   "sales",             limit: 2147483647
-    t.binary   "service",           limit: 2147483647
-    t.binary   "business",          limit: 2147483647
-    t.binary   "writness",          limit: 2147483647
-    t.binary   "consulting",        limit: 2147483647
+    t.binary   "logo",                limit: 2147483647
+    t.binary   "swiper",              limit: 2147483647
+    t.binary   "it_software",         limit: 2147483647
+    t.binary   "science_engineer",    limit: 2147483647
+    t.binary   "creativity_design",   limit: 2147483647
+    t.binary   "sales",               limit: 2147483647
+    t.binary   "service",             limit: 2147483647
+    t.binary   "business",            limit: 2147483647
+    t.binary   "writness",            limit: 2147483647
+    t.binary   "consulting",          limit: 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "footer_about_en"
+    t.text     "footer_about_tw"
+    t.text     "footer_about_cn"
+    t.text     "footer_privacy_en"
+    t.text     "footer_privacy_tw"
+    t.text     "footer_privacy_cn"
+    t.text     "footer_termofuse_en"
+    t.text     "footer_termofuse_tw"
+    t.text     "footer_termofuse_cn"
+    t.text     "footer_contact_en"
+    t.text     "footer_contact_tw"
+    t.text     "footer_contact_cn"
   end
 
 end

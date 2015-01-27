@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <%
+        @seos.each do |seo|
+          case seo.key
+          when "title"
+              meta_title seo.content
+          when "keywords"
+              meta_keywords seo.content
+          when "description"
+              meta_description seo.content
+          when "author"
+              meta_author seo.content
+          end
+        end
+    %>
+
+    <title><%= yield(:title).presence || "Default title" %></title>
+    <meta name="keywords" content="<%= yield(:meta_keywords).presence || "default, keywords" %>" />
+    <meta name="description" content="<%= yield(:meta_description).presence || "Default description" %>" />
+    <meta name="author" content="<%= yield(:meta_author).presence || "Default Author" %>" />
+
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta content="" name="description"/>
-    <meta content="" name="author"/>
-	<meta property="wb:webmaster" content="736797a53036d683" />
-    <title><%= I18n.t("page.title") %></title>
+    <meta property="wb:webmaster" content="736797a53036d683" />
+
+    <!-- <title><%= I18n.t("page.title") %></title> -->
 
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
@@ -62,109 +82,116 @@
             <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
-                        <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
-                        <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
-                        <li><%= link_to I18n.t("page.header.add_value_service"), meet_rooms_path(current_user)  %></li>
-                    <% else %>
-                        <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
-                        <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
-                    <% end %>
-                </ul>
+                    <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
+                    <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">請選擇你的語言 <i class="fa fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu user-dropdown">
+                          <li><a href="#">繁體中文</a></li>
+                          <li><a href="#">简体中文</a></li>
+                          <li><a href="#">English</a></li>
+                      </ul>
+                  </li>
+                  <% else %>
+                  <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
+                  <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
+                  <% end %>
+              </ul>
+          </div>
+      </div>
+      <!-- END NAVBAR -->
+      <!-- BEGIN PAGE -->
+      <div class="page-content">
+        <!-- BEGIN MODAL -->
+        <div class="modal fade" id="class-lightbox" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <%= link_to I18n.t("page.index.button_indialog_link1"), new_user_registration_path, class: "btn btn-primary btn-lg" %>
+                        </div>
+                        <div class="form-group">
+                            <%= link_to I18n.t("page.index.button_indialog_link2"), new_user_registration_path, class: "btn btn-success btn-lg" %>
+                        </div>
+                        <div class="form-group">
+                            <%= link_to I18n.t("page.index.button_indialog_link3"), new_user_registration_path, class: "btn btn-info btn-lg disabled" %>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
             </div>
+            <!-- /.modal-dialog -->
         </div>
-        <!-- END NAVBAR -->
-        <!-- BEGIN PAGE -->
-        <div class="page-content">
-            <!-- BEGIN MODAL -->
-            <div class="modal fade" id="class-lightbox" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <%= link_to I18n.t("page.index.button_indialog_link1"), new_user_registration_path, class: "btn btn-primary btn-lg" %>
-                            </div>
-                            <div class="form-group">
-                                <%= link_to I18n.t("page.index.button_indialog_link2"), new_user_registration_path, class: "btn btn-success btn-lg" %>
-                            </div>
-                            <div class="form-group">
-                                <%= link_to I18n.t("page.index.button_indialog_link3"), new_user_registration_path, class: "btn btn-info btn-lg disabled" %>
+        <!-- END MODAL -->
+        <!-- BEGIN SWIPER -->
+        <div class="swiper-1">
+            <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a>
+            <a class="arrow-right arrow " href="#"><i class="fa fa-angle-right"></i></a>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="content-slide">
+                            <!-- <img src="img/swiper/swiper4.jpg" alt="img"> -->
+                            <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :swiper, :id => @website.id) %>
+                            <div class="text">
+                                <p class="content"><%= I18n.t("page.index.swiper1_title1") %></p>
+                                <p class="content"><%= I18n.t("page.index.swiper1_title2") %></p>
                             </div>
                         </div>
                     </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
-            </div>
-            <!-- END MODAL -->
-            <!-- BEGIN SWIPER -->
-            <div class="swiper-1">
-                <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a>
-                <a class="arrow-right arrow " href="#"><i class="fa fa-angle-right"></i></a>
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="content-slide">
-                                <!-- <img src="img/swiper/swiper4.jpg" alt="img"> -->
-                                <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :swiper, :id => @website.id) %>
-                                <div class="text">
-                                    <p class="content"><%= I18n.t("page.index.swiper1_title1") %></p>
-                                    <p class="content"><%= I18n.t("page.index.swiper1_title2") %></p>
-                                </div>
+                    <div class="swiper-slide">
+                        <div class="content-slide">
+                            <img src="img/swiper/swiper3.jpg" alt="img">
+                            <div class="text">
+                                <p class="title" style="color:black;"><strong><%= I18n.t("page.index.swiper2_title1") %></strong></p>
+                                <p class="content"><%= I18n.t("page.index.swiper2_title2") %></p>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="content-slide">
-                                <img src="img/swiper/swiper3.jpg" alt="img">
-                                <div class="text">
-                                    <p class="title" style="color:black;"><strong><%= I18n.t("page.index.swiper2_title1") %></strong></p>
-                                    <p class="content"><%= I18n.t("page.index.swiper2_title2") %></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="content-slide">
-                                <img src="img/swiper/swiper2.jpg" alt="img">
-                                <div class="text">
-                                    <p class="title" style="color:black;"><strong><%= I18n.t("page.index.swiper3_title1") %></strong></p>
-                                    <p class="content"><%= I18n.t("page.index.swiper3_title2") %></p>
-                                </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="content-slide">
+                            <img src="img/swiper/swiper2.jpg" alt="img">
+                            <div class="text">
+                                <p class="title" style="color:black;"><strong><%= I18n.t("page.index.swiper3_title1") %></strong></p>
+                                <p class="content"><%= I18n.t("page.index.swiper3_title2") %></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="pagination"></div>
             </div>
-            <!-- END SWIPER -->
-            <!-- BEGIN LOGIN -->
-            <% if not current_user %>
-            <div class="login">
-                <p class="title"><%= I18n.t("page.index.frame_login_title") %></p>
-                <%= form_for :user, url: new_user_registration_path, method: :get, html: {class: "login-form"} do |f|%>
-                    <% if alert %>
-                        <p class="alert form-group alert-danger"><%= alert %></p>
-                    <% end %>
-                    <div class="input-icon">
-                        <i class="fa fa-user"></i>
-                        <%= f.text_field :username, name: "username", class: "form-control", placeholder: I18n.t("page.index.input_placeholder_username"), onkeydown: "return constrain_Eng_and_num(event)", required: true %>
-                    </div>
-                    <div class="input-icon">
-                        <i class="fa fa-envelope"></i>
-                        <%= f.email_field :email, name: "email", class: "form-control", placeholder: I18n.t("page.index.input_placeholder_email"), required: true %>
-                    </div>
-                    <input type="submit" class="btn" value="<%= I18n.t("page.index.frame_login_button") %>">
-                <% end %>
-                <!-- </form> -->
-                <div class="social">
-                    <p class="social-text"><%= I18n.t("page.index.frame_login_social") %></p>
-                    <ul class="social-icons">
-                        <li>
-                            <!-- <a class="facebook" data-original-title="facebook" href="#"></a> -->
-                            <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "facebook", data:{original:{title:"facebook"}} %>
-                        </li>
-                        <li>
-                            <!-- <a class="googleplus" data-original-title="Goole Plus" href="#"></a> -->
-                            <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
-                        </li>
+            <div class="pagination"></div>
+        </div>
+        <!-- END SWIPER -->
+        <!-- BEGIN LOGIN -->
+        <% if not current_user %>
+        <div class="login">
+            <p class="title"><%= I18n.t("page.index.frame_login_title") %></p>
+            <%= form_for :user, url: new_user_registration_path, method: :get, html: {class: "login-form"} do |f|%>
+            <% if alert %>
+            <p class="alert form-group alert-danger"><%= alert %></p>
+            <% end %>
+            <div class="input-icon">
+                <i class="fa fa-user"></i>
+                <%= f.text_field :username, name: "username", class: "form-control", placeholder: I18n.t("page.index.input_placeholder_username"), onkeydown: "return constrain_Eng_and_num(event)", required: true %>
+            </div>
+            <div class="input-icon">
+                <i class="fa fa-envelope"></i>
+                <%= f.email_field :email, name: "email", class: "form-control", placeholder: I18n.t("page.index.input_placeholder_email"), required: true %>
+            </div>
+            <input type="submit" class="btn" value="<%= I18n.t("page.index.frame_login_button") %>">
+            <% end %>
+            <!-- </form> -->
+            <div class="social">
+                <p class="social-text"><%= I18n.t("page.index.frame_login_social") %></p>
+                <ul class="social-icons">
+                    <li>
+                        <!-- <a class="facebook" data-original-title="facebook" href="#"></a> -->
+                        <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class: "facebook", data:{original:{title:"facebook"}} %>
+                    </li>
+                    <li>
+                        <!-- <a class="googleplus" data-original-title="Goole Plus" href="#"></a> -->
+                        <%= link_to "Google", user_omniauth_authorize_path(:google_oauth2), class: "googleplus",  data:{original:{title:"Goole Plus"}} %>
+                    </li>
                         <!-- <li>
                             <a class="yahoo" data-original-title="Yahoo!" href="#">
                             </a>
@@ -309,247 +336,271 @@
                                         <div class="text hidden-xs hidden-sm" style="position:relative; float:left; padding-left:60px;">
                                             <p class="step"><%= I18n.t("page.index.tabA1_step2_cotent1") %></p>
                                             <p class="title"><%= I18n.t("page.index.tabA1_step2_cotent2") %>/p>
-                                            <p class="content"><%= I18n.t("page.index.tabA1_step2_cotent3") %></p>
+                                                <p class="content"><%= I18n.t("page.index.tabA1_step2_cotent3") %></p>
+                                            </div>
+                                            <div class="text hidden-md hidden-lg">
+                                                <p class="step"><%= I18n.t("page.index.tabA1_step2_cotent1") %></p>
+                                                <p class="title"><%= I18n.t("page.index.tabA1_step2_cotent2") %>/p>
+                                                    <p class="content"><%= I18n.t("page.index.tabA1_step2_cotent3") %></p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="text hidden-md hidden-lg">
-                                            <p class="step"><%= I18n.t("page.index.tabA1_step2_cotent1") %></p>
-                                            <p class="title"><%= I18n.t("page.index.tabA1_step2_cotent2") %>/p>
-                                            <p class="content"><%= I18n.t("page.index.tabA1_step2_cotent3") %></p>
+                                        <div class="swiper-slide">
+                                            <div class="content-slide">
+                                                <img class="back" src="img/works/works_1_2.jpg" alt="img">
+                                                <img class="back_min" src="img/works/works_min_1_2.jpg" alt="img">
+                                                <div class="text hidden-xs hidden-sm" style="position:relative; float:left; padding-left:60px;">
+                                                    <p class="step"><%= I18n.t("page.index.tabA1_step3_cotent1") %></p>
+                                                    <p class="title"><%= I18n.t("page.index.tabA1_step3_cotent2") %></p>
+                                                    <p class="content"><%= I18n.t("page.index.tabA1_step3_cotent3") %></p>
+                                                </div>
+                                                <div class="text hidden-md hidden-lg">
+                                                    <p class="step"><%= I18n.t("page.index.tabA1_step3_cotent1") %></p>
+                                                    <p class="title"><%= I18n.t("page.index.tabA1_step3_cotent2") %></p>
+                                                    <p class="content"><%= I18n.t("page.index.tabA1_step3_cotent3") %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="content-slide">
+                                                <img class="back" src="img/works/works_1_2.jpg" alt="img">
+                                                <img class="back_min" src="img/works/works_min_1_2.jpg" alt="img">
+                                                <div class="text hidden-xs hidden-sm" style="position:relative; float:left; padding-left:60px;">
+                                                    <p class="step"><%= I18n.t("page.index.tabA1_step4_cotent1") %></p>
+                                                    <p class="title"><%= I18n.t("page.index.tabA1_step4_cotent2") %></p>
+                                                    <p class="content"><%= I18n.t("page.index.tabA1_step4_cotent3") %></p>
+                                                </div>
+                                                <div class="text hidden-md hidden-lg">
+                                                    <p class="step"><%= I18n.t("page.index.tabA1_step4_cotent1") %></p>
+                                                    <p class="title"><%= I18n.t("page.index.tabA1_step4_cotent2") %></p>
+                                                    <p class="content"><%= I18n.t("page.index.tabA1_step4_cotent3") %></p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="content-slide">
-                                        <img class="back" src="img/works/works_1_2.jpg" alt="img">
-                                        <img class="back_min" src="img/works/works_min_1_2.jpg" alt="img">
-                                        <div class="text hidden-xs hidden-sm" style="position:relative; float:left; padding-left:60px;">
-                                            <p class="step"><%= I18n.t("page.index.tabA1_step3_cotent1") %></p>
-                                            <p class="title"><%= I18n.t("page.index.tabA1_step3_cotent2") %></p>
-                                            <p class="content"><%= I18n.t("page.index.tabA1_step3_cotent3") %></p>
-                                        </div>
-                                        <div class="text hidden-md hidden-lg">
-                                            <p class="step"><%= I18n.t("page.index.tabA1_step3_cotent1") %></p>
-                                            <p class="title"><%= I18n.t("page.index.tabA1_step3_cotent2") %></p>
-                                            <p class="content"><%= I18n.t("page.index.tabA1_step3_cotent3") %></p>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="tab-pane active" id="work2">
+                                <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a>
+                                <a class="arrow-right arrow " href="#"><i class="fa fa-angle-right"></i></a>
+                                <div class="cover"></div>
+                                <div class="tabs">
+                                    <table>
+                                        <tr>
+                                            <td><a href="#" class="active"><%= I18n.t("page.index.tabA2_step1_title") %></a></td>
+                                            <td><span class="nav_arrow"></span></td>
+                                            <td><a href="#"><%= I18n.t("page.index.tabA2_step2_title") %></a></td>
+                                            <td><span class="nav_arrow"></span></td>
+                                            <td><a href="#"><%= I18n.t("page.index.tabA2_step3_title") %></a></td>
+                                            <td><span class="nav_arrow"></span></td>
+                                            <td><a href="#"><%= I18n.t("page.index.tabA2_step4_title") %></a></td>
+                                        </tr>
+                                    </table>
+                                    <img class="nav_line" src="img/works/nav_line.png" alt="img">
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="content-slide">
-                                        <img class="back" src="img/works/works_1_2.jpg" alt="img">
-                                        <img class="back_min" src="img/works/works_min_1_2.jpg" alt="img">
-                                        <div class="text hidden-xs hidden-sm" style="position:relative; float:left; padding-left:60px;">
-                                            <p class="step"><%= I18n.t("page.index.tabA1_step4_cotent1") %></p>
-                                            <p class="title"><%= I18n.t("page.index.tabA1_step4_cotent2") %></p>
-                                            <p class="content"><%= I18n.t("page.index.tabA1_step4_cotent3") %></p>
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="content-slide">
+                                                <img class="back" src="img/works/works_1_1.jpg" alt="img">
+                                                <img class="back_min" src="img/works/works_min_1_1.jpg" alt="img">
+                                                <div class="text" style=" float:right; padding-right:60px;">
+                                                    <p class="step"><%= I18n.t("page.index.tabA2_step1_cotent1") %></p>
+                                                    <p class="title"><%= I18n.t("page.index.tabA2_step1_cotent2") %></p>
+                                                    <p class="content"><%= I18n.t("page.index.tabA2_step1_cotent3") %></p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="text hidden-md hidden-lg">
-                                            <p class="step"><%= I18n.t("page.index.tabA1_step4_cotent1") %></p>
-                                            <p class="title"><%= I18n.t("page.index.tabA1_step4_cotent2") %></p>
-                                            <p class="content"><%= I18n.t("page.index.tabA1_step4_cotent3") %></p>
+                                        <div class="swiper-slide">
+                                            <div class="content-slide">
+                                                <img class="back" src="img/works/works_1_1.jpg" alt="img">
+                                                <img class="back_min" src="img/works/works_min_1_1.jpg" alt="img">
+                                                <div class="text" style=" float:right; padding-right:60px;">
+                                                    <p class="step"><%= I18n.t("page.index.tabA2_step2_cotent1") %></p>
+                                                    <p class="title"><%= I18n.t("page.index.tabA2_step2_cotent2") %></p>
+                                                    <p class="content"><%= I18n.t("page.index.tabA2_step2_cotent3") %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="content-slide">
+                                                <img class="back" src="img/works/works_1_1.jpg" alt="img">
+                                                <img class="back_min" src="img/works/works_min_1_1.jpg" alt="img">
+                                                <div class="text" style=" float:right; padding-right:60px;">
+                                                    <p class="step"><%= I18n.t("page.index.tabA2_step3_cotent1") %></p>
+                                                    <p class="title"><%= I18n.t("page.index.tabA2_step3_cotent2") %></p>
+                                                    <p class="content"><%= I18n.t("page.index.tabA2_step3_cotent3") %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="content-slide">
+                                                <img class="back" src="img/works/works_1_1.jpg" alt="img">
+                                                <img class="back_min" src="img/works/works_min_1_1.jpg" alt="img">
+                                                <div class="text" style=" float:right; padding-right:60px;">
+                                                    <p class="step"><%= I18n.t("page.index.tabA2_step4_cotent1") %></p>
+                                                    <p class="title"><%= I18n.t("page.index.tabA2_step4_cotent2") %></p>
+                                                    <p class="content"><%= I18n.t("page.index.tabA2_step4_cotent3") %></p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane active" id="work2">
-                        <a class="arrow-left arrow" href="#"><i class="fa fa-angle-left"></i></a>
-                        <a class="arrow-right arrow " href="#"><i class="fa fa-angle-right"></i></a>
-                        <div class="cover"></div>
-                        <div class="tabs">
-                            <table>
-                                <tr>
-                                    <td><a href="#" class="active"><%= I18n.t("page.index.tabA2_step1_title") %></a></td>
-                                    <td><span class="nav_arrow"></span></td>
-                                    <td><a href="#"><%= I18n.t("page.index.tabA2_step2_title") %></a></td>
-                                    <td><span class="nav_arrow"></span></td>
-                                    <td><a href="#"><%= I18n.t("page.index.tabA2_step3_title") %></a></td>
-                                    <td><span class="nav_arrow"></span></td>
-                                    <td><a href="#"><%= I18n.t("page.index.tabA2_step4_title") %></a></td>
-                                </tr>
-                            </table>
-                            <img class="nav_line" src="img/works/nav_line.png" alt="img">
-                        </div>
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="content-slide">
-                                        <img class="back" src="img/works/works_1_1.jpg" alt="img">
-                                        <img class="back_min" src="img/works/works_min_1_1.jpg" alt="img">
-                                        <div class="text" style=" float:right; padding-right:60px;">
-                                            <p class="step"><%= I18n.t("page.index.tabA2_step1_cotent1") %></p>
-                                            <p class="title"><%= I18n.t("page.index.tabA2_step1_cotent2") %></p>
-                                            <p class="content"><%= I18n.t("page.index.tabA2_step1_cotent3") %></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="content-slide">
-                                        <img class="back" src="img/works/works_1_1.jpg" alt="img">
-                                        <img class="back_min" src="img/works/works_min_1_1.jpg" alt="img">
-                                        <div class="text" style=" float:right; padding-right:60px;">
-                                            <p class="step"><%= I18n.t("page.index.tabA2_step2_cotent1") %></p>
-                                            <p class="title"><%= I18n.t("page.index.tabA2_step2_cotent2") %></p>
-                                            <p class="content"><%= I18n.t("page.index.tabA2_step2_cotent3") %></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="content-slide">
-                                        <img class="back" src="img/works/works_1_1.jpg" alt="img">
-                                        <img class="back_min" src="img/works/works_min_1_1.jpg" alt="img">
-                                        <div class="text" style=" float:right; padding-right:60px;">
-                                            <p class="step"><%= I18n.t("page.index.tabA2_step3_cotent1") %></p>
-                                            <p class="title"><%= I18n.t("page.index.tabA2_step3_cotent2") %></p>
-                                            <p class="content"><%= I18n.t("page.index.tabA2_step3_cotent3") %></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="content-slide">
-                                        <img class="back" src="img/works/works_1_1.jpg" alt="img">
-                                        <img class="back_min" src="img/works/works_min_1_1.jpg" alt="img">
-                                        <div class="text" style=" float:right; padding-right:60px;">
-                                            <p class="step"><%= I18n.t("page.index.tabA2_step4_cotent1") %></p>
-                                            <p class="title"><%= I18n.t("page.index.tabA2_step4_cotent2") %></p>
-                                            <p class="content"><%= I18n.t("page.index.tabA2_step4_cotent3") %></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END WORKS -->
+                    <!-- END WORKS -->
 
-            <div class="marpad"> <!--TABBED SLIDER-->
-                <div id="custom_carousel" class="carousel slide" data-ride="carousel" data-interval="2500">
-                    <div class="controls">
-                        <ul class="nav hidden-xs a-color">
-                            <li data-target="#custom_carousel" data-slide-to="0" class="active"><a href="#"><%= I18n.t("page.index.tabB1_title") %></a></li>
-                            <li data-target="#custom_carousel" data-slide-to="1"><a href="#"><%= I18n.t("page.index.tabB2_title") %></a></li>
-                            <li data-target="#custom_carousel" data-slide-to="2"><a href="#"><%= I18n.t("page.index.tabB3_title") %></a></li>
-                            <li data-target="#custom_carousel" data-slide-to="3"><a href="#"><%= I18n.t("page.index.tabB4_title") %></a></li>
-                        </ul>
-                    </div>
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-3 col-xs-3 hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework01.jpg"></div>
-                                    <div class="col-xs-3 hidden-lg hidden-md marpad img-dark"><img src="img/teleworklife/telework01.jpg" style="position:relative; margin-left: -160px;"></div>
-                                    <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
-                                        <div class="tab-slider-tex hidden-sm hidden-xs"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
-                                        <div class="tab-slider-tex02 hidden-lg hidden-md"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
+                    <div class="marpad"> <!--TABBED SLIDER-->
+                        <div id="custom_carousel" class="carousel slide" data-ride="carousel" data-interval="2500">
+                            <div class="controls">
+                                <ul class="nav hidden-xs a-color">
+                                    <li data-target="#custom_carousel" data-slide-to="0" class="active"><a href="#"><%= I18n.t("page.index.tabB1_title") %></a></li>
+                                    <li data-target="#custom_carousel" data-slide-to="1"><a href="#"><%= I18n.t("page.index.tabB2_title") %></a></li>
+                                    <li data-target="#custom_carousel" data-slide-to="2"><a href="#"><%= I18n.t("page.index.tabB3_title") %></a></li>
+                                    <li data-target="#custom_carousel" data-slide-to="3"><a href="#"><%= I18n.t("page.index.tabB4_title") %></a></li>
+                                </ul>
+                            </div>
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-3 hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework01.jpg"></div>
+                                            <div class="col-xs-3 hidden-lg hidden-md marpad img-dark"><img src="img/teleworklife/telework01.jpg" style="position:relative; margin-left: -160px;"></div>
+                                            <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
+                                                <div class="tab-slider-tex hidden-sm hidden-xs">
+                                                    <p><%= I18n.t("page.index.tabB1_content1") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content2") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content3") %></p>
+                                                </div>
+                                                <div class="tab-slider-tex02 hidden-lg hidden-md">
+                                                    <p><%= I18n.t("page.index.tabB1_content1") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content2") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content3") %></p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-3 col-xs-3 hidden-xs hidden-sm hidden-md marpad"><img src="img/teleworklife/telework02.jpg"></div>
-                                    <div class="col-xs-3 hidden-lg hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework02.jpg" style="position:relative; margin-left: -360px;"></div>
-                                    <div class="col-xs-3 hidden-lg hidden-md img-dark marpad"><img src="img/teleworklife/telework02.jpg" style="position:relative; margin-left: -360px;"></div>
-                                    <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
-                                        <div class="tab-slider-tex hidden-sm hidden-xs "><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
-                                        <div class="tab-slider-tex02 hidden-lg hidden-md"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
+                                <div class="item">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-3 hidden-xs hidden-sm hidden-md marpad"><img src="img/teleworklife/telework02.jpg"></div>
+                                            <div class="col-xs-3 hidden-lg hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework02.jpg" style="position:relative; margin-left: -360px;"></div>
+                                            <div class="col-xs-3 hidden-lg hidden-md img-dark marpad"><img src="img/teleworklife/telework02.jpg" style="position:relative; margin-left: -360px;"></div>
+                                            <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
+                                                <div class="tab-slider-tex hidden-sm hidden-xs ">
+                                                    <p><%= I18n.t("page.index.tabB1_content1") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content2") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content3") %></p>
+                                                </div>
+                                                <div class="tab-slider-tex02 hidden-lg hidden-md">
+                                                    <p><%= I18n.t("page.index.tabB1_content1") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content2") %></p>
+                                                    <p><%= I18n.t("page.index.tabB1_content3") %></p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="item">
+                                <div class="item">
+                                    <div class="container-fluid">
+                                         <div class="row">
+                                            <div class="col-md-3 col-xs-3 hidden-md hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework03.jpg"></div>
+                                            <div class="col-xs-3 hidden-lg  marpad img-dark"><img src="img/teleworklife/telework03.jpg" style="position:relative; margin-left: -360px;"></div>
+                                            <div class="col-md-5 col-xs-9 pull-right">
+                                               <div class="tab-slider-tex hidden-sm hidden-xs">
+                                                <p><%= I18n.t("page.index.tabB1_content1") %></p>
+                                                <p><%= I18n.t("page.index.tabB1_content2") %></p>
+                                                <p><%= I18n.t("page.index.tabB1_content3") %></p>
+                                            </div>
+                                            <div class="tab-slider-tex02 hidden-lg hidden-md">
+                                                <p><%= I18n.t("page.index.tabB1_content1") %></p>
+                                                <p><%= I18n.t("page.index.tabB1_content2") %></p>
+                                                <p><%= I18n.t("page.index.tabB1_content3") %></p>
+                                            </div>
+                                           </div>
+                                       </div>
+                                    </div>
+                                </div>
+                           <div class="item">
                             <div class="container-fluid">
-                               <div class="row">
-                                <div class="col-md-3 col-xs-3 hidden-md hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework03.jpg"></div>
-                                <div class="col-xs-3 hidden-lg  marpad img-dark"><img src="img/teleworklife/telework03.jpg" style="position:relative; margin-left: -360px;"></div>
-                                <div class="col-md-5 col-xs-9 pull-right">
-                                 <div class="tab-slider-tex hidden-sm hidden-xs"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
-                                 <div class="tab-slider-tex02 hidden-lg hidden-md"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="item">
-                    <div class="container-fluid">
-                       <div class="row">
-                         <div class="col-md-3 col-xs-3 hidden-md hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework04.jpg"></div>
-                         <div class="col-xs-3 hidden-lg marpad hidden-xs hidden-sm"><img src="img/teleworklife/telework04.jpg" style="position:relative; margin-left: -160px;"></div>
-                         <div class="col-xs-3 hidden-lg hidden-md  marpad img-dark"><img src="img/teleworklife/telework04.jpg" style="position:relative; margin-left: -160px;"></div>
-                         <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
-                            <div class="tab-slider-tex hidden-sm hidden-xs"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
-                            <div class="tab-slider-tex02 hidden-lg hidden-md"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
+                             <div class="row">
+                               <div class="col-md-3 col-xs-3 hidden-md hidden-xs hidden-sm marpad"><img src="img/teleworklife/telework04.jpg"></div>
+                               <div class="col-xs-3 hidden-lg marpad hidden-xs hidden-sm"><img src="img/teleworklife/telework04.jpg" style="position:relative; margin-left: -160px;"></div>
+                               <div class="col-xs-3 hidden-lg hidden-md  marpad img-dark"><img src="img/teleworklife/telework04.jpg" style="position:relative; margin-left: -160px;"></div>
+                               <div class="col-md-5 col-sm-7 col-xs-9 pull-right">
+                                <div class="tab-slider-tex hidden-sm hidden-xs"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
+                                <div class="tab-slider-tex02 hidden-lg hidden-md"><p><%= I18n.t("page.index.tabB1_content1") %></p><p><%= I18n.t("page.index.tabB1_content2") %></p><p><%= I18n.t("page.index.tabB1_content3") %></p></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- End Item -->
             </div>
-            <!-- End Item -->
+            <!-- End Carousel Inner -->
+
         </div>
-        <!-- End Carousel Inner -->
+        <!-- End Carousel -->
+    </div><!--END TABBED SLIDER-->
 
+
+
+
+
+    <!-- BEGIN DOWN -->
+    <div class="row down" style="margin-bottom:0px; padding-bottom:0px;">
+        <div class="box employer">
+            <p class="title">
+                <%= I18n.t("page.index.frame1_title") %>
+                <!--<img src="img/works/title_arrow.png" alt="img">-->
+            </p>
+            <table class="content">
+                <tr>
+                    <td class="padding" rowspan="2"></td>
+                    <td class="item"><img src="img/works/employer_1.png" alt="img"></td>
+                    <td class="arrow"><img src="img/works/employer_arrow.png" alt="img"></td>
+                    <td class="item"><img src="img/works/employer_2.png" alt="img"></td>
+                    <td class="arrow"><img src="img/works/employer_arrow.png" alt="img"></td>
+                    <td class="item"><img src="img/works/employer_3.png" alt="img"></td>
+                    <td class="padding" rowspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="text"><%= I18n.t("page.index.frame1_step1") %></td>
+                    <td></td>
+                    <td class="text"><%= I18n.t("page.index.frame1_step2") %></td>
+                    <td></td>
+                    <td class="text"><%= I18n.t("page.index.frame1_step3") %></td>
+                </tr>
+            </table>
+        </div>
+        <div class="box staff">
+            <p class="title">
+                <%= I18n.t("page.index.frame2_title") %>
+                <!--<img src="img/works/title_arrow.png" alt="img">-->
+            </p>
+            <table class="content">
+                <tr>
+                    <td class="padding" rowspan="2"></td>
+                    <td class="item"><img src="img/works/staff_1.png" alt="img"></td>
+                    <td class="arrow"><img src="img/works/staff_arrow.png" alt="img"></td>
+                    <td class="item"><img src="img/works/staff_2.png" alt="img"></td>
+                    <td class="arrow"><img src="img/works/staff_arrow.png" alt="img"></td>
+                    <td class="item"><img src="img/works/staff_3.png" alt="img"></td>
+                    <td class="padding" rowspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="text"><%= I18n.t("page.index.frame2_step1") %></td>
+                    <td></td>
+                    <td class="text"><%= I18n.t("page.index.frame2_step2") %></td>
+                    <td></td>
+                    <td class="text"><%= I18n.t("page.index.frame2_step3") %></td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <!-- End Carousel -->
-</div><!--END TABBED SLIDER-->
-
-
-
-
-
-<!-- BEGIN DOWN -->
-<div class="row down" style="margin-bottom:0px; padding-bottom:0px;">
-    <div class="box employer">
-        <p class="title">
-            <%= I18n.t("page.index.frame1_title") %>
-            <!--<img src="img/works/title_arrow.png" alt="img">-->
-        </p>
-        <table class="content">
-            <tr>
-                <td class="padding" rowspan="2"></td>
-                <td class="item"><img src="img/works/employer_1.png" alt="img"></td>
-                <td class="arrow"><img src="img/works/employer_arrow.png" alt="img"></td>
-                <td class="item"><img src="img/works/employer_2.png" alt="img"></td>
-                <td class="arrow"><img src="img/works/employer_arrow.png" alt="img"></td>
-                <td class="item"><img src="img/works/employer_3.png" alt="img"></td>
-                <td class="padding" rowspan="2"></td>
-            </tr>
-            <tr>
-                <td class="text"><%= I18n.t("page.index.frame1_step1") %></td>
-                <td></td>
-                <td class="text"><%= I18n.t("page.index.frame1_step2") %></td>
-                <td></td>
-                <td class="text"><%= I18n.t("page.index.frame1_step3") %></td>
-            </tr>
-        </table>
-    </div>
-    <div class="box staff">
-        <p class="title">
-            <%= I18n.t("page.index.frame2_title") %>
-            <!--<img src="img/works/title_arrow.png" alt="img">-->
-        </p>
-        <table class="content">
-            <tr>
-                <td class="padding" rowspan="2"></td>
-                <td class="item"><img src="img/works/staff_1.png" alt="img"></td>
-                <td class="arrow"><img src="img/works/staff_arrow.png" alt="img"></td>
-                <td class="item"><img src="img/works/staff_2.png" alt="img"></td>
-                <td class="arrow"><img src="img/works/staff_arrow.png" alt="img"></td>
-                <td class="item"><img src="img/works/staff_3.png" alt="img"></td>
-                <td class="padding" rowspan="2"></td>
-            </tr>
-            <tr>
-                <td class="text"><%= I18n.t("page.index.frame2_step1") %></td>
-                <td></td>
-                <td class="text"><%= I18n.t("page.index.frame2_step2") %></td>
-                <td></td>
-                <td class="text"><%= I18n.t("page.index.frame2_step3") %></td>
-            </tr>
-        </table>
-    </div>
-</div>
-<!-- END DOWN -->
+    <!-- END DOWN -->
 
 
 
@@ -576,47 +627,47 @@
 <!--[if lt IE 9]>
     <script src="plugins/html5shiv.min.js"></script>
     <script src="plugins/respond.min.js"></script>
-<![endif]-->
+    <![endif]-->
 
-<script src="plugins/jquery-1.11.0.min.js"></script>
-<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
-<!-- END 核心插件 -->
-<!-- BEGIN 頁面插件 -->
-<script src="plugins/swiper-master/dist/idangerous.swiper-2.4.min.js"></script>
-<!-- END 頁面插件 -->
-<script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/page/index.js"></script>
-<script type="text/javascript" src="/js/google_analytics.js"></script>
-<script>
-    jQuery(document).ready(function() {
-       Web.init();
-       Index.init();
-    });
-</script>
+    <script src="plugins/jquery-1.11.0.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+    <!-- END 核心插件 -->
+    <!-- BEGIN 頁面插件 -->
+    <script src="plugins/swiper-master/dist/idangerous.swiper-2.4.min.js"></script>
+    <!-- END 頁面插件 -->
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/page/index.js"></script>
+    <script type="text/javascript" src="/js/google_analytics.js"></script>
+    <script>
+        jQuery(document).ready(function() {
+         Web.init();
+         Index.init();
+     });
+    </script>
 
 
-<script>
+    <script>
     // JavaScript Document
 
-$(document).ready(function(ev){
-    $('#custom_carousel').on('slide.bs.carousel', function (evt) {
-      $('#custom_carousel .controls li.active').removeClass('active');
-      $('#custom_carousel .controls li:eq('+$(evt.relatedTarget).index()+')').addClass('active');
-    })
-});
+    $(document).ready(function(ev){
+        $('#custom_carousel').on('slide.bs.carousel', function (evt) {
+          $('#custom_carousel .controls li.active').removeClass('active');
+          $('#custom_carousel .controls li:eq('+$(evt.relatedTarget).index()+')').addClass('active');
+      })
+    });
 
     function constrain_Eng_and_num(e) {
         var keynum, keychar, check
          // IE
-        if(window.event) {
+         if(window.event) {
             keynum = e.keyCode
         } else if(e.which) {  // Netscape/Firefox/Opera
             keynum = e.which
         }
         console.log(keynum)
         if( keynum == 8 || keynum == 9 || keynum == 13 || keynum == 189 ) return true
-        keychar = String.fromCharCode(keynum)
+            keychar = String.fromCharCode(keynum)
         // console.log(keychar)
         check = /\w/
         // console.log(check.test(keychar))
