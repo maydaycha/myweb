@@ -12,7 +12,7 @@ module API
 				params do
 					requires :email, type: String, desc: "Email"
 					requires :password, type: String, desc: "Password"
-					requires :timeZone, type: time, des:  "localtime"
+					requires :timeZone, type: Time, desc:  "localtime"
 				end
 				
 				post do

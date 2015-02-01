@@ -11,14 +11,20 @@ module API
 				}
 				params do
 					requires :email, type: String, desc: "Email"
+					requires :sessionToken, type: String
 					# requires :sessionToken, type: String, desc: "SessionToken"
 				end
 
 				post do
-					projects = Project.all
-					present :status, "OK"
-					present :message, "hello"
-					present :projects, projects, :with => Entity::ProjectResponseEntity
+					user = User.find_by(email: params[:email])
+					if user && user.ensure_authentication_token == params[:sessionToken]
+						projects = Project.all
+						present :status, "OK"
+						present :message, "hello"
+						present :projects, projects, :with => Entity::ProjectResponseEntity
+					else
+						error! 'Unauthorized, expire token. Please login again', 401
+					end
 				end
 
 			end

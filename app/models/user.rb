@@ -86,6 +86,7 @@ class User < ActiveRecord::Base
 
   def ensure_authentication_token
     self.authentication_token ||= generate_authentication_token
+    # Todo : if token expired, regenerate a new token
   end
 
 
