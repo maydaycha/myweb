@@ -17,7 +17,7 @@ module API
 
 				post do
 					user = User.find_by(email: params[:email])
-					if user && user.ensure_authentication_token == params[:sessionToken]
+					if user && user.ensure_authentication_token === params[:sessionToken]
 						projects = Project.all
 						present :status, "OK"
 						present :message, "hello"

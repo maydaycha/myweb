@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125005230) do
+ActiveRecord::Schema.define(version: 20150201040616) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -110,6 +110,14 @@ ActiveRecord::Schema.define(version: 20150125005230) do
     t.integer  "time_unit_count"
     t.string   "subject"
     t.text     "description"
+  end
+
+  create_table "memos", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.text     "memoContent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "messages_of_projects", force: true do |t|

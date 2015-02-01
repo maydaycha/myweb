@@ -4,6 +4,7 @@ module API
 			mount API::V1::ProjectList
 			mount API::V1::Login
 			mount API::V1::ServerTime
+			mount API::V1::Memo
 		end
 	end
 end

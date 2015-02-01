@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   has_many :projects, dependent: :destroy
   has_many :user_applying_projects, dependent: :destroy
   has_many :user_contact_persons, dependent: :destroy
+  has_many :memos, dependent: :destroy
 
   accepts_nested_attributes_for :user_skill_categories
 
@@ -91,6 +92,7 @@ class User < ActiveRecord::Base
 
 
   private
+
 
   def generate_authentication_token
     loop do
