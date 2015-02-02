@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20150126145719) do
-
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -107,11 +105,11 @@ ActiveRecord::Schema.define(version: 20150126145719) do
     t.integer  "meet_room_id"
     t.boolean  "is_changable",     default: true
     t.boolean  "is_confirmed",     default: false
+    t.integer  "charge",           default: 0
     t.integer  "meet_type"
     t.integer  "time_unit_count"
     t.string   "subject"
     t.text     "description"
-    t.integer  "charge",           default: 0
   end
 
   create_table "messages_of_projects", force: true do |t|

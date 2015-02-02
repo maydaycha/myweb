@@ -91,11 +91,10 @@
             </div>
             <div class="col-sm-6">
                 <div class=" pull-right">
-                    <p class="text-right top17"><a type="button" href="meetingroom.html" class="btn btn-link"><i class="fa fa-plus"></i> 加入會議</a>
+                    <p class="text-right top17"><a type="button" href='javascript:void(0);' onclick ='addToMeet()' class="btn btn-link"><i class="fa fa-plus"></i> 加入會議</a>
                     </p>
                     <p class="Cblue text-right">( 請先勾下方選連絡人，在點擊右上方 +加入會議，可複選 )</p>
                 </div>
-
             </div>
             <div class="clear"></div>
 
@@ -478,7 +477,8 @@
     </div>
 
 
-
+    <div id = "event_desc">
+    </div> 
     <!-- END PAGE -->
     <!-- BEGIN FOOTER -->
     <div class="footer top150"><img class="footer-logo" src="img/logo103.png" alt="">
@@ -559,9 +559,11 @@
             var listrap = this;
             listrap.getSelection = function() {
                 var selection = new Array();
-                listrap.children("article.active").each(function(ix, el) {
-                    selection.push($(el)[0]);
+                listrap.find('article.active').children().each(function(ix, el) {
+                    var tmp = $( this ).find("h3").text();
+                    selection.push(tmp);
                 });
+
                 return selection;
             }
             var toggle = "article .list-group ";
@@ -595,9 +597,35 @@
                 PIE.attach(this);
             });
         });
-        </script>
+        </script>f
         <![endif]-->
     <!-- END PIE -->
+    <script>
+        function editEvent(event_id){
+            jQuery.ajax({
+              url: "/meet_rooms/" + event_id + "/edit",
+              success: function(data) {
+                $('#event_desc').html(data['form']);
+                $('#fullCalModal').modal();
+              } 
+            });
+        }
+    </script>
+
+    <script>
+        function addToMeet(){
+            jQuery.ajax({
+              url: "/meet_rooms/" + 1 + "/edit",
+              data: {
+                selection_id: $('#meet_room_case').val(),
+              },
+              success: function(data) {
+                $('#event_desc').html(data['form']);
+                $('#fullCalModal').modal();
+              } 
+            });
+        }
+    </script>
 </body>
 
 </html>
