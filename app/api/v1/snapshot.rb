@@ -19,9 +19,8 @@ module API
 				end
 				
 				post do
-					# upload process
-					
-					if #upload success
+					user = User.find_by(email: params[:email])
+					if if user && user.ensure_authentication_token === params[:sessionToken]
 						user.ensure_authentication_token
 						present :status, "OK"
 						present :message, ""

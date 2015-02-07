@@ -12,7 +12,6 @@ module API
 				params do
 					requires :email, type: String, desc: "Email"
 					requires :sessionToken, type: String
-					# requires :sessionToken, type: String, desc: "SessionToken"
 				end
 
 				post do
