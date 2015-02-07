@@ -19,7 +19,7 @@ module API
 					# Update working status process
 					user = User.find_by(email: params[:email])
 					if user && user.ensure_authentication_token === params[:sessionToken]
-						memos = user.memos
+						memos = user.memos.last(5)
 						present :status, "OK"
 						present :message, ""
 						present :memos, memos, :with => Entity::MemoResponseEntity
@@ -72,10 +72,9 @@ module API
 				put do
 					# Update working status process
 					user = User.find_by(email: params[:email])
-					memo = Memo.find_by(id: "1")
+					memo = user.memos.where(id: params[:memoID])
 					if user && user.ensure_authentication_token === params[:sessionToken]
-						# memo = Memo.find_by(id: "1")
-						# memo = user.memos.update!({memoContent: params[:memoContent], project_id: params[:projectID]})
+						memo = user.memos.update(params[:memoID], memoContent: params[:memoContent], project_id: params[:projectID])
 						present :status, "OK"
 						present :message, ""
 					else

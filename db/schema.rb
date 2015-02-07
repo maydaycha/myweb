@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207015005) do
+ActiveRecord::Schema.define(version: 20150207043148) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -455,6 +455,20 @@ ActiveRecord::Schema.define(version: 20150207015005) do
     t.binary   "business",          limit: 2147483647
     t.binary   "writness",          limit: 2147483647
     t.binary   "consulting",        limit: 2147483647
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "working_histories", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.integer  "mouseClick"
+    t.integer  "keyboardClick"
+    t.integer  "lastWorkingTimestamp"
+    t.integer  "todayWorkingHours"
+    t.integer  "weekWorkingHours"
+    t.time     "day_start_count_at"
+    t.time     "week_start_count_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

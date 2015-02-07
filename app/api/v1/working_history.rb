@@ -1,6 +1,6 @@
 module API
 	module V1
-		class WorkingStatus < Grape::API
+		class WorkingHistory < Grape::API
 			version 'v1'
 			format :json
 
@@ -12,8 +12,8 @@ module API
 				params do
 					requires :email, type: String, desc: "Email"
 					# requires :sessionToken, type: String, desc: "SessionToken"
-					requires :timestamp, type: integer
-					requires :projectID, type: integer
+					requires :timestamp, type: Integer
+					requires :projectID, type: Integer
 				end
 
 				get do

@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   has_many :user_contact_persons, dependent: :destroy
   has_many :memos, dependent: :destroy
   has_many :snapshots, dependent: :destroy
+  has_many :working_histories, dependent: :destroy
 
   accepts_nested_attributes_for :user_skill_categories
 

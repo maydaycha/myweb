@@ -6,6 +6,8 @@ module API
 			mount API::V1::ServerTime
 			mount API::V1::Memo
 			mount API::V1::Snapshot
+			mount API::V1::WorkingStatus
+			mount API::V1::WorkingHistory
 		end
 	end
 end
