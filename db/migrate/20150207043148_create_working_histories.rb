@@ -10,8 +10,8 @@ class CreateWorkingHistories < ActiveRecord::Migration
     	t.time :weekWorkingHours, default: 0
 
       t.time :work_start_at
-    	t.time :day_start_count_at
-    	t.time :week_start_count_at
+    	t.time :day_start_count_at, default: 0
+    	t.time :week_start_count_at, default: 0
       t.timestamps
     end
   end

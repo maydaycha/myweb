@@ -21,7 +21,7 @@ module API
 						history = user.working_histories.find_by_project_id(params[:projectID])
 						present :status, "OK"
 						present :message, ""
-						present :history, history, :with => Entity::WorkingHistoryResponseEntity
+						present :working_history, history, :with => Entity::WorkingHistoryResponseEntity
 					else
 						present :status, "Not OK"
 						present :message, "?"

@@ -11,7 +11,7 @@ module API
 					if history = user.working_histories.find_by_project_id(projectID)
 						history
 					else
-						history = user.working_histories.create!({project_id: params[:projectID]})
+						history = user.working_histories.create!(project_id: projectID)
 					end
 				end
 			end
