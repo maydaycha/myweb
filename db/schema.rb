@@ -465,8 +465,9 @@ ActiveRecord::Schema.define(version: 20150207043148) do
     t.integer  "mouseClick"
     t.integer  "keyboardClick"
     t.integer  "lastWorkingTimestamp"
-    t.integer  "todayWorkingHours"
-    t.integer  "weekWorkingHours"
+    t.time     "todayWorkingHours",    default: '2000-01-01 00:00:00'
+    t.time     "weekWorkingHours",     default: '2000-01-01 00:00:00'
+    t.time     "work_start_at"
     t.time     "day_start_count_at"
     t.time     "week_start_count_at"
     t.datetime "created_at"

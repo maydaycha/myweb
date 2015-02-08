@@ -6,9 +6,10 @@ class CreateWorkingHistories < ActiveRecord::Migration
     	t.integer :mouseClick
     	t.integer :keyboardClick
     	t.integer :lastWorkingTimestamp
-    	t.integer :todayWorkingHours
-    	t.integer :weekWorkingHours
+    	t.time :todayWorkingHours, default: 0
+    	t.time :weekWorkingHours, default: 0
 
+      t.time :work_start_at
     	t.time :day_start_count_at
     	t.time :week_start_count_at
       t.timestamps

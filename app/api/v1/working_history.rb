@@ -4,22 +4,28 @@ module API
 			version 'v1'
 			format :json
 
-			namespace :working_status do
-				desc "Return list of projects", {
+			namespace :GetWorkingHistory do
+				desc "Return working history ", {
 					
-					notes: 'Get all projects for authenticated user'
+					notes: 'Get working history for authenticated user'
 				}
 				params do
 					requires :email, type: String, desc: "Email"
-					# requires :sessionToken, type: String, desc: "SessionToken"
-					requires :timestamp, type: Integer
+					requires :sessionToken, type: String
 					requires :projectID, type: Integer
 				end
 
 				get do
-					# Update working status process
-					present :status, "OK"
-					present :message, ""
+					user = User.find_by(email: params[:email])
+					if user && user.ensure_authentication_token === params[:sessionToken]
+						history = user.working_histories.find_by_project_id(params[:projectID])
+						present :status, "OK"
+						present :message, ""
+						present :history, history, :with => Entity::WorkingHistoryResponseEntity
+					else
+						present :status, "Not OK"
+						present :message, "?"
+					end
 
 					#present :working_history, working_history
 				end

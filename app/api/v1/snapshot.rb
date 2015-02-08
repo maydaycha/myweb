@@ -26,7 +26,7 @@ module API
 																							keyboardClickCount: params[:keyboardClickCount],
 																							snapshot: params[:snapshot]})
 
-						history = user.working_histories.create!({project_id: params[:projectID]})
+						# history = user.working_histories.create!({project_id: params[:projectID]})
 						if(((Time.now).day - (history.day_start_count_at).day)) >= 1
 							history.day_start_count_at = Time.now
 							histroy.mouseClick = 0

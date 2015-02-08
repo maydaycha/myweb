@@ -1,10 +1,20 @@
 module API
 	module V1
 		class WorkingStatus < Grape::API
-			require 'active_record'
+
 
 			version 'v1'
 			format :json
+
+			helpers do
+				def current_history(user, projectID)
+					if history = user.working_histories.find_by_project_id(projectID)
+						history
+					else
+						history = user.working_histories.create!({project_id: params[:projectID]})
+					end
+				end
+			end
 
 			namespace :UpdateWorkingStatus do
 				desc "Update workging status", {
@@ -19,24 +29,24 @@ module API
 					requires :workingStatus, type: String
 				end
 
-				post do
+				put do
 					user = User.find_by(email: params[:email])
 					if user && user.ensure_authentication_token === params[:sessionToken]
-						history = user.working_histories.where(project_id: params[:projectID])
+						history = current_history(user, params[:projectID])
+
 						if params[:workingStatus] == "STOP"
-							history.todayWorkingHours += Time.now - Time.at(history.lastWorkingTimestamp)
+							WorkingHours = history.todayWorkingHours + (Time.now - history.work_start_at)
+							history.update!(todayWorkingHours: WorkingHours)
 							present :status, "OK"
-							present :message, ""
+							present :message, "Stop Working at #{Time.now}, work: #{WorkingHours.strftime("%H:%M:%S")}"
 						end
 						if params[:workingStatus] == "START"
-							user.working_histories.where(project_id: params[:projectID]).update({
-          		project_id: params[:projectID]
-        			})
+							history.update!(project_id: params[:projectID], 
+															lastWorkingTimestamp: Time.now.to_i, 
+															work_start_at: Time.now)
 							present :status, "OK"
-							present :message, "start at #{Time.now}"
+							present :message, "Start Working at #{Time.now}"
 						end
-
-						
 					else
 						error! 'Upload fialed', 401
 						present :status, "Not OK"
