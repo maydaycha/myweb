@@ -21,6 +21,7 @@ class MeetRoomsController < ApplicationController
 		end
 
 		if @room.save! && @members.save!
+			meet_room_notification(@room, @project.project_members)
 			redirect_to meet_rooms_booking_path
 		else
 			render :booking, status: :create_success
@@ -206,6 +207,15 @@ class MeetRoomsController < ApplicationController
 		render :json => { :form => render_to_string(:partial => 'update_members')}
 	end
 
+	def meet_room_notification(room, member)
+		recipient_emails = "susana0@pollichhilpert.org" # To-do : should be all meet_room_member's email
+		recipients = User.where(email: recipient_emails).all
+
+		conversation = current_user.send_message(recipients, room.description, room.subject).conversation
+
+		
+	end
+
 	private
 	CASE_MEET = 1
 	INTERVIEW_MEET = 2
@@ -225,6 +235,11 @@ class MeetRoomsController < ApplicationController
 																			meet_room_members_attribute: [:id, :user, :meet_room_id, :confirmed])
 	end
 
+	def conversation
+    @conversation ||= mailbox.conversations.find(params[:id])
+  end
+
+  
 
 
 end

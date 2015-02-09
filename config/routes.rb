@@ -264,4 +264,6 @@ Sun::Application.routes.draw do
     resources :meet_room_members
   end
 
+  resources :conversations
+
 end

@@ -58,6 +58,11 @@ GEM
     carmen-rails (1.0.1)
       carmen (~> 1.0.0)
       rails
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     certified (1.0.0)
@@ -102,6 +107,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.6)
     ffi (1.9.6-x86-mingw32)
+    foreigner (1.7.2)
+      activerecord (>= 3.0.0)
     formatador (0.2.5)
     formtastic (3.0.0)
       actionpack (>= 3.2.13)
@@ -165,6 +172,10 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mailboxer (0.12.5)
+      carrierwave (>= 0.5.8)
+      foreigner (>= 0.9.1)
+      rails (>= 3.2.0)
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (4.7.5)
@@ -344,6 +355,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   localized_country_select (>= 0.9.8)
+  mailboxer
   mysql2
   oauth
   omniauth

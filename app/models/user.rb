@@ -33,6 +33,16 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :user_skill_categories
 
+  acts_as_messageable
+
+  def name
+    email
+  end
+
+  def mailboxer_email(object)
+    email
+  end
+
   def self.has_email?(email)
     self.where(:email => email).limit(1).size > 0
   end
