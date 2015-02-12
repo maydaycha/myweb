@@ -293,7 +293,11 @@
                   <div class="col-sm-12">
 
                     <div class="alert alert-warning fade in">
-                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>您有 1 個雇主已回覆的案件，
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> <span class="Cdarkteal right7">2015/02/12</span>  您有 1 個雇主已回覆的<span class="Cdarkteal">案件的名稱</span>案件，
+                      <strong>接受後就可以開始工作</strong> <a href="#">前往確認>></a>
+                    </div>
+                    <div class="alert alert-warning fade in">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> <span class="Cdarkteal right7">2015/02/01</span>  您有 1 個雇主已回覆的<span class="Cdarkteal">案件的名稱</span>案件，
                       <strong>接受後就可以開始工作</strong> <a href="#">前往確認>></a>
                     </div>
                     <div class="portlet box light-grey">
@@ -780,48 +784,48 @@ src="../../../../masterpage/footer.txt"></script>
             <script src="../../../../js/lightbox.min.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>--> 
             <script>
-            jQuery(document).ready(function() {    
-             Web.init();
+              jQuery(document).ready(function() {    
+               Web.init();
                //Index.init();
              });
             </script> 
             <script type="text/javascript" src="../../../../js/bootstrap-tabcollapse.js"></script> 
             <script type="text/javascript">
-            $('#myTab').tabCollapse();
-            $('#testTabs').tabCollapse();
-            $('#testTabs01').tabCollapse();
+              $('#myTab').tabCollapse();
+              $('#testTabs').tabCollapse();
+              $('#testTabs01').tabCollapse();
             </script> 
             <script type="text/javascript">
-            /* copy loaded thumbnails into carousel */
-            $('.row .thumbnail').on('load', function() {
+              /* copy loaded thumbnails into carousel */
+              $('.row .thumbnail').on('load', function() {
 
-            }).each(function(i) {
-              if(this.complete) {
-                var item = $('<div class="item"></div>');
-                var itemDiv = $(this).parents('div');
-                var title = $(this).parent('a').attr("title");
+              }).each(function(i) {
+                if(this.complete) {
+                  var item = $('<div class="item"></div>');
+                  var itemDiv = $(this).parents('div');
+                  var title = $(this).parent('a').attr("title");
 
-                item.attr("title",title);
-                $(itemDiv.html()).appendTo(item);
-                item.appendTo('.carousel-inner'); 
+                  item.attr("title",title);
+                  $(itemDiv.html()).appendTo(item);
+                  item.appendTo('.carousel-inner'); 
     if (i==0){ // set first item active
      item.addClass('active');
    }
  }
 });
 
-            /* activate the carousel */
-            $('#modalCarousel').carousel({interval:false});
+              /* activate the carousel */
+              $('#modalCarousel').carousel({interval:false});
 
-            /* change modal title when slide changes */
-            $('#modalCarousel').on('slid.bs.carousel', function () {
-              $('.modal-title').html($(this).find('.active').attr("title"));
-            })
+              /* change modal title when slide changes */
+              $('#modalCarousel').on('slid.bs.carousel', function () {
+                $('.modal-title').html($(this).find('.active').attr("title"));
+              })
 
-            /* when clicking a thumbnail */
-            $('.row .thumbnail').click(function(){
-              var idx = $(this).parents('div').index();
-              var id = parseInt(idx);
+              /* when clicking a thumbnail */
+              $('.row .thumbnail').click(function(){
+                var idx = $(this).parents('div').index();
+                var id = parseInt(idx);
     $('#myModal').modal('show'); // show the modal
     $('#modalCarousel').carousel(id); // slide carousel to selected
     
