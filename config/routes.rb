@@ -266,4 +266,15 @@ Sun::Application.routes.draw do
 
   resources :conversations
 
+
+  namespace :messages do
+    get 'inbox'
+    get 'sentbox'
+    delete 'trash'
+  end
+
+
+  
+  resources :messages
+
 end

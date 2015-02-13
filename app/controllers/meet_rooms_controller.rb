@@ -208,10 +208,10 @@ class MeetRoomsController < ApplicationController
 	end
 
 	def meet_room_notification(room, member)
-		recipient_emails = "susana0@pollichhilpert.org" # To-do : should be all meet_room_member's email
+		recipient_emails = "troy_collins0@abbott.net" # To-do : should be all meet_room_member's email
 		recipients = User.where(email: recipient_emails).all
 
-		conversation = current_user.send_message(recipients, room.description, room.subject).conversation
+		conversation = current_user.send_message(recipients, room.description, room.subject, true)
 
 		
 	end

@@ -129,7 +129,7 @@
                      <button type="button" class="btn btn-primary btn-sm btn-circle"><i class="fa fa-comment"> 題問</i></button>
                    </div>
                    <ul class="skill_ul">
-                     <li>類別: <a href="#"><%= t(:sub_skill_category)[@project.main_skill][@project.sub_skill]["name"] %></a></li>
+                     <li>類別: <a href="#"></a></li>
                      <li>刊登日期: <span><%= @project.created_at.strftime("%dth %b %Y") %></span></li>
                      <li>案件類型: <span><% if @project.payment_type == 1 %><%= "時薪制" %><% elsif @project.payment_type == 2 %><%= "固定薪資" %><% end %></span></li>
                      <li>雇主預算: <span>$ <%= @project.budget %></span></li>
