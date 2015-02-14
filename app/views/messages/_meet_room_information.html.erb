@@ -1,0 +1,12 @@
+<h3> Hi <%= current_user.username %>您有一個會議邀請</h3>
+
+	<ul class="list-group">
+	  <li class="list-group-item">主旨： <%= message.type %></li>
+	  <li class="list-group-item">發起人：<%= message.sender_id%></li>
+	  <li class="list-group-item">時間：｛會議時間｝</li>
+	  <li class="list-group-item">與會人員：｛ＸＸＸ｝｛ＸＸＸ｝｛ＸＸＸ｝</li>
+	  <li class="list-group-item">會議詳情： <%= message.body %></li>
+	  <li class="list-group-item">接受　不接受　建議改期：請選擇您建議的時間</li>
+	</ul>
+
+Telework Team

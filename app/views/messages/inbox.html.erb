@@ -26,7 +26,7 @@
                                     </a>
                                 </div>
                                 <div class="user-detail">
-                                    <h5 class="handle"><%= message.subject %></h5>
+                                    <h5 class="handle"> <%= link_to(message.subject, message_path(message)) %></h5>
                                     <div class="post-meta">
                                         <div class="asker-meta">
                                             <span class="qa-message-what"></span>
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="qa-message-content">
-                                <%= message.body %>
+                                
                             </div>
                         </div>
                     </div>

@@ -21,7 +21,7 @@ class MeetRoomsController < ApplicationController
 		end
 
 		if @room.save! && @members.save!
-			meet_room_notification(@room, @project.project_members)
+			meet_room_notification(@room, @project.project_members)  #send notification to all meet_room member 
 			redirect_to meet_rooms_booking_path
 		else
 			render :booking, status: :create_success
@@ -208,17 +208,15 @@ class MeetRoomsController < ApplicationController
 	end
 
 	def meet_room_notification(room, member)
-		recipient_emails = "troy_collins0@abbott.net" # To-do : should be all meet_room_member's email
-		recipients = User.where(email: recipient_emails).all
-
+		
+		recipients = User.find_by_id(member)
 		conversation = current_user.send_message(recipients, room.description, room.subject, true)
 
 		
 	end
 
 	private
-	CASE_MEET = 1
-	INTERVIEW_MEET = 2
+
 	TIME_UNIT = 30  # 30min per unit
 	BEFORE_TARGET_DATE = 3 		#60sec * 60min * 24hr * 3days
 	REFUND_PERCENT = [[3, 30], [6, 40], [9, 50], [13, 70], [14, 100]]

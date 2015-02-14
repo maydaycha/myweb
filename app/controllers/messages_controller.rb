@@ -8,10 +8,10 @@ class MessagesController < ApplicationController
 	end
 
 	def show
-
+		@message = current_user.messages.find(params[:id])
 	end
 	def inbox
-		@inbox = current_user.messages
+		@inbox = mailbox.inbox
 	end
 
 	def trash
