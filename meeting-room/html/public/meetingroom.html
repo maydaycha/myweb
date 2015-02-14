@@ -98,7 +98,20 @@
                       </ul>
                     </div>
                     <div class="col-md-9">
-                      <div id='calendar'></div>
+                      <div>
+                        <ul class="nav nav-tabs">
+                          <li role="presentation" class="active"><a id="tab-1" href="#one" data-toggle="tab">會議室一</a></li>
+                          <li role="presentation"><a id="tab-2" href="#two" data-toggle="tab">會議室二</a></li>
+                        </ul>
+                      </div>
+                      <div class="tab-content top50">
+                        <div id="one" class="tab-pane active"><!--tab-1-->
+                          <div id='calendar'></div>
+                        </div>
+                        <div id="two" class="tab-pane"><!--tab-1-->
+                          <div id='other-calendar'></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -470,7 +483,7 @@ calendar.fullCalendar('unselect');
     //   borderColor: '#b5b5b5',
     //   textColor: '#white'
     // },
-   
+
     
     ],
                   // dayClick:  function(event, jsEvent, view) {
@@ -582,6 +595,112 @@ calendar.fullCalendar('unselect');
 
 </script>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+
+
+    var calendar = $('#other-calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      defaultView: 'agendaWeek',
+      slotDuration: '00:30:00', 
+      Duration: '00:25:00',
+      allDaySlot: false,
+      editable: true,
+      selectable: true,
+      select: function(start, end, event, jsEvent, view) {
+         // start contains the date you have selected
+         // end contains the end date. 
+         // Caution: the end date is exclusive (new since v2).
+         var allDay = !start.hasTime() && !end.hasTime();
+
+         // alert(["Event Start date: " + moment(start).format(),
+         //  "Event End date: " + moment(end).format(),
+         //  "AllDay: " + allDay].join("\n"));
+
+$('#modalTitle').html(event.title);
+$('#modalDate').html([ moment(start).format("YYYY-MMM-DD") +(' 會議詳情')].join("\n"));
+$('#meetingTime').html([moment(start).format(' h:mm ') +('~'),
+ moment(end).format('h:mm'),
+ ].join("\n"));
+$('#meetingTime2').html([moment(start).format(' h:mm ') +('~'),
+ moment(end).format('h:mm'),
+ ].join("\n"));
+$('#eventUrl').attr('href',event.url);
+$('#fullCalModal').modal();
+
+var title = $("#fullCalModal").prompt('Event Title:');
+
+if (title) {
+  calendar.fullCalendar('renderEvent',
+  {
+    title: title,
+    start: start,
+    end: end,
+    allDay: allDay
+  },
+            true // make the event "stick"
+            );
+}
+calendar.fullCalendar('unselect');
+},
+
+
+editable: true,
+
+eventSources: [
+
+{
+  events: [  
+  {
+    title     : '已預約',
+    start     : new Date(y, m, d+2, 5, 0),
+  }
+  ],
+  backgroundColor: '#F34F55',
+  borderColor: '#D8303D',
+  textColor: 'white'
+},
+{
+  events: [  
+  {
+    title     : '已預約',
+    start     : new Date(y, m, d+1, 5, 9),
+  }
+  ],
+  backgroundColor: '#F34F55',
+  borderColor: '#D8303D',
+  textColor: 'white'
+},
+{
+  events: [  
+  {
+    title     : '已預約',
+    start     : new Date(y, m, d+5, 16, 5),
+  }
+  ],
+  backgroundColor: '#F34F55',
+  borderColor: '#D8303D',
+  textColor: 'white'
+},
+
+
+],
+});
+
+});
+
+
+
+</script>
 
 
 <!--END RANG BAR JS-->

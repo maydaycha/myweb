@@ -72,7 +72,21 @@
             <!-- BEGIN MAIN CONTENT -->
             <div class="main-content">
                 <pre>
-<%= t(:about)%>
+                    <%=
+                        case I18n.locale
+                        when 'zh-TW'
+                          @website.footer_about_tw
+                        when 'zh-CN'
+                          @website.footer_about_cn
+                        when 'en'
+                          @website.footer_about_en
+                        else
+                          @website.footer_about_tw
+                        end
+                    %>
+
+                    <!-- <%= t(:about)%> -->
+
                 </pre>
             </div>
             <!-- END MAIN CONTENT -->
