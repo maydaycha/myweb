@@ -265,6 +265,22 @@ Sun::Application.routes.draw do
     resources :meet_room_members
   end
 
+
   # for api 
   mount API::Base => '/'
+
+  resources :conversations
+
+
+  namespace :messages do
+    get 'inbox'
+    get 'sentbox'
+    delete 'trash'
+  end
+
+
+  
+  resources :messages
+
+
 end

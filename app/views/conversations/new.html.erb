@@ -1,0 +1,8 @@
+<h1> start conversation </h1>
+
+<%= bootstrap_form_for :conversation, url: :conversations do |f| %>
+	<%= f.email_field :recipients %>
+	<%= f.text_field :subject %>
+	<%= f.text_area :body %>
+	<%= f.button :submit %>
+<% end %>

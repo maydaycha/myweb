@@ -126,6 +126,10 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+<<<<<<< HEAD
 gem 'grape'
 
 gem 'grape-entity'
+
+gem 'mailboxer'
+
