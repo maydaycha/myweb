@@ -674,49 +674,49 @@
       </div>
       <div class="portlet-body">
         <div class="row">
-          <div class="col-md-9 col-md-offset-2"><!--BEGIN COL-SM-10-->
+          <div id="menu" class="col-md-9 col-md-offset-2"><!--BEGIN COL-SM-10-->
             <h3 class="Corange">加值服務選項</h3>
             <hr>
             <div class="form-group">
               <div class="marpad-left text-left">
-                <%= f.check_box :required_user_intro, :id => "required_user_top", :class => "extraBox" %> 搜尋項目置頂
+              <%= f.check_box :required_user_intro, :id => "required_user_top", :class => "extraBox", :rel => "100"  %> 搜尋項目置頂
               </div>
             </div>
             <div class="form-group">
               <div class="marpad-left text-left">
-                <%= f.check_box :required_user_intro, :id => "required_user_nda", :class => "extraBox" %> 遠距工作者接受案件時，必須同意NDA條款才能進行申請案件。
+                <%= f.check_box :required_user_intro, :id => "required_user_nda", :class => "extraBox", :rel => "100" %> 遠距工作者接受案件時，必須同意NDA條款才能進行申請案件。
               </div>
               <a href="#" class="top17 left17">下載TeleWork保密協議條款聲明書>></a>
             </div>
             <div class="form-group">
               <div class="marpad-left text-left">
-                <%= f.check_box :required_user_intro, :id => "required_user_extension", :class => "extraBox"  %> 延長案件曝光時間（延長曝光七天）
+                <%= f.check_box :required_user_intro, :id => "required_user_extension", :class => "extraBox", :rel => "100" %> 延長案件曝光時間（延長曝光七天）
               </div>
             </div>
             <div class="form-group">
               <div class="marpad-left text-left">
-                <%= f.check_box :required_user_intro, :id => "required_user_private", :class => "extraBox"  %> 隱私案件(將案件設定為不公開)
+                <%= f.check_box :required_user_intro, :id => "required_user_private", :class => "extraBox", :rel => "100"  %> 隱私案件(將案件設定為不公開)
               </div>
             </div>
             <div class="form-group">
               <div class="marpad-left text-left">
-                <%= f.check_box :required_user_intro, :id => "required_user_freelancer", :class => "extraBox"  %> 代尋遠距工作者
+                <%= f.check_box :required_user_intro, :id => "required_user_freelancer", :class => "extraBox", :rel => "100"  %> 代尋遠距工作者
               </div>
             </div>
             <div class="form-group">
               <div class="marpad-left text-left">
-                <%= f.check_box :is_emergency, :id => "required_user_emergency", :class => "extraBox"  %> 我需要急件處理
+                <%= f.check_box :is_emergency, :id => "required_user_emergency", :class => "extraBox", :rel => "100"  %> 我需要急件處理
               </div>
             </div>
             <div class="form-group">
               <div class="marpad-left text-left">
-                <%= f.check_box :required_user_intro, :id => "required_user_hide", :class => "extraBox"%> 隱藏投標者
+                <%= f.check_box :required_user_intro, :id => "required_user_hide", :class => "extraBox", :rel => "100" %> 隱藏投標者
               </div>
             </div>
             <hr>
             <div class="row">
               <div class="col-sm-6 Corange"><h4>加值選項收費：</h4></div>
-              <div class="col-sm-3 text-right pull-right Corange "><h4>共：＄２４０</h4></div>
+              <div class="col-sm-3 text-right pull-right Corange "><h4>共：＄<span class="total"></span></h4></div>
             </div>
             
           </div>
@@ -844,6 +844,7 @@
         <p id="required_user_freelancer_pop"></p>
         <p id="required_user_emergency_pop"></p>
         <p id="required_user_hide_pop"></p>
+        <p class="extra" style="display:none;"><strong>共：＄</strong> <span class="total"></span></p>
         <hr class="extra" style="display:none;">
         <h3 class="Corange">智慧財產權轉移聲明(選填)</h3>
         <p id="required_user_ipr_pop"></p>
@@ -1168,6 +1169,29 @@ src="/masterpage/footer.txt"></script>
               });
             });
 </script>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    function recalculate() {
+      var sum = 0;
+
+      $("input[type=checkbox]:checked").each(function() {
+        sum += parseInt($(this).attr("rel"));
+      });
+
+      $(".total").html(sum);
+    }
+
+    $("input[type=checkbox]").change(function() {
+      recalculate();
+    });
+  });
+</script>
+
+
+
 
 <script type="text/javascript">
 

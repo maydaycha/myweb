@@ -322,7 +322,7 @@
                       <th>遠距工作者</th>
                       <th>金額</th>
                       <th>結餘</th>
-                      <th>詳情</th>
+                      <th>案件編號</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -333,7 +333,7 @@
                       <td>Terry White</td>
                       <td>$5.00</td>
                       <td>Pending</td>
-                      <td><a href="#">Detail</a></td>
+                      <td><a href="#" data-toggle="modal" data-target="#report-detail">#案件編號</a></td>
                     </tr>
                   </tbody>
                 </table>
@@ -351,7 +351,7 @@
                       <th>遠距工作者</th>
                       <th>金額</th>
                       <th>結餘</th>
-                      <th>詳情</th>
+                      <th>案件編號</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -362,7 +362,7 @@
                       <td></td>
                       <td>$18.01</td>
                       <td>$0.00</td>
-                      <td><a href="#">Detail</a></td>
+                      <td><a href="#" data-toggle="modal" data-target="#report-detail">#案件編號</a></td>
                     </tr>
                     <tr>
                       <td>Jun 16, 2014</td>
@@ -371,7 +371,7 @@
                       <td>Terry White</td>
                       <td>($8.00)</td>
                       <td>($18.01)</td>
-                      <td><a href="#">Detail</a></td>
+                      <td><a href="#" data-toggle="modal" data-target="#report-detail">#案件編號</a></td>
                     </tr>
                     <tr>
                       <td>Jun 16, 2014</td>
@@ -380,7 +380,7 @@
                       <td>Terry White</td>
                       <td>($8.00)</td>
                       <td>($10.01)</td>
-                      <td><a href="#">Detail</a></td>
+                      <td><a href="#" data-toggle="modal" data-target="#report-detail">#案件編號</a></td>
                     </tr>
                     <tr>
                       <td>Jun 16, 2014</td>
@@ -389,7 +389,7 @@
                       <td>Terry White</td>
                       <td>($2.00)</td>
                       <td>($2.01)</td>
-                      <td><a href="#">Detail</a></td>
+                      <td><a href="#" data-toggle="modal" data-target="#report-detail">#案件編號</a></td>
                     </tr>
                     <tr>
                       <td>Jun 16, 2014</td>
@@ -398,7 +398,7 @@
                       <td>Terry White</td>
                       <td>($0.01)</td>
                       <td>($0.01)</td>
-                      <td><a href="#">Detail</a></td>
+                      <td><a href="#" data-toggle="modal" data-target="#report-detail">#案件編號</a></td>
                     </tr>
                     <tr>
                       <td>Jun 12, 2014</td>
@@ -407,7 +407,7 @@
                       <td></td>
                       <td>($10.00)</td>
                       <td>($0.00)</td>
-                      <td><a href="#">Detail</a></td>
+                      <td><a href="#" data-toggle="modal" data-target="#report-detail">#案件編號</a></td>
                     </tr>
                     <tr>
                       <td>Jun 12, 2014</td>
@@ -416,7 +416,7 @@
                       <td></td>
                       <td>$10.00</td>
                       <td>$10.00</td>
-                      <td><a href="#">Detail</a></td>
+                      <td><a href="#" data-toggle="modal" data-target="#report-detail">#案件編號</a></td>
                     </tr>
                   </tbody>
                 </table>
@@ -457,220 +457,271 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="tab-pane fade" id="work">
-         <div class="row">
-          <div class="col-sm-12">
-            <div class="col-md-12">
-             <div class="well">
-               <div class="row">
-                <div class="col-sm-3">
-                  <div class="form-group">
-                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                      <input type="text" name="" class="form-control" placeholder="開始日" readonly>
-                      <span class="input-group-btn">
-                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                      </span>
+          <div class="modal fade" id="report-detail">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title Corange text-center">案件的名稱 <span class="Cgray">#1234548</span></h4>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                   <div class="col-sm-10 col-sm-offset-1">
+                     <div class="row">
+                       <div class="col-md-3">
+                       <strong> 案件編號 </strong>
+                       </div>
+                       <div class="col-md-9">
+                          <p class="Cdarkblue">#123456 </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                     <div class="col-md-3"><strong>會交易完成日</strong></div>
+                     <div class="col-md-9"><p class="Cdarkblue">2014/02/12</p></div>
+                   </div>
+                   <div class="row">
+                     <div class="col-md-3">
+                      <strong> 類型</strong>
+                    </div>
+                    <div class="col-md-9">
+                      <p class="Cdarkblue"> 時薪制</p>
                     </div>
                   </div>
-                </div>
-                <div class="col-sm-3">
-                  <div class="form-group">
-                    <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
-                      <input type="text" name="" class="form-control" placeholder="結束日" readonly>
-                      <span class="input-group-btn">
-                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                      </span>
+                  <div class="row">
+                    <div class="col-md-3"><strong>金流帳號</strong></div>
+                    <div class="col-md-9">
+                    <p class="Cdarkblue"> paypal</p>
                     </div>
                   </div>
+                   <div class="row">
+                    <div class="col-md-3"><strong>金額</strong></div>
+                    <div class="col-md-9">
+                    <p class="Cdarkblue"> ＄１５６。００</p>
+                    </div>
+                  </div>   
                 </div>
-                 <button class="btn btn-warning hidden-xs">查詢</button>
-                <div class="col-sm-3 visible-xs"><button class="btn btn-warning btn-block">查詢</button></div>
               </div>
             </div>
-            <br>
-            <h4>雇主: (雇主帳號名字)</h4>
-            <h4>時間: (日期區間)</h4>
-            <hr>
-
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>遠距工作者</th>
-                  <th colspan="2">工作描述</th>
-                  
-                  <th>總時數</th>
-                  <th>總金額</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="warning">
-                  <td>遠距工作者1名字</td>
-                  <td colspan="2" >工作日誌上的項目描述</td>
-                  
-                  <td>(項目時數)</td>
-                  <td>(產生的金額)</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td colspan="2" >工作日誌上的項目描述</td>
-                  
-                  <td>(項目時數)</td>
-                  <td>(產生的金額)</td>
-                </tr>
-                <tr class="Corange">
-                  <td></td>
-                  <td ></td>
-                  <td class="text-right"><strong>個人小計</strong></td>
-                  <td><strong>(小計時數)</strong></td>
-                  <td><strong>(小計產生的金額)</strong></td>
-                </tr>
-              </tbody>
-              <br>
-            </table>
-
-            <table class="table table-striped">
-            
-              <tbody>
-                <tr class="warning">
-                  <td>遠距工作者2名字</td>
-                  <td colspan="2" >工作日誌上的項目描述</td>
-                  
-                  <td>(項目時數)</td>
-                  <td>(產生的金額)</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td colspan="2" >工作日誌上的項目描述</td>
-                  
-                  <td>(項目時數)</td>
-                  <td>(產生的金額)</td>
-                </tr>
-                <tr class="Corange">
-                  <td></td>
-                  <td ></td>
-                  <td class="text-right"><strong>個人小計</strong></td>
-                  <td><strong>(小計時數)</strong></td>
-                  <td><strong>(小計產生的金額)</strong></td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td><strong>所有遠距工作者</strong></td>
-                  <td></td>
-                  <td></td>
-                  <td><strong>(總計時數)</strong></td>
-                  <td><strong>(總計產生的金額)</strong></td>
-                </tr>
-              </tfoot>
-            </table>
-
-
-          </div>
-        </div>
-      </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
     </div>
-    <div class="tab-pane fade" id="finish">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="col-md-12">
-            <h3>已完成的案件</h3>
-            <h4>$0.20 USD</h4>
-
-            <div class="form-inline alert alert-info" style="margin:30px auto;">
+    <div class="tab-pane fade" id="work">
+     <div class="row">
+      <div class="col-sm-12">
+        <div class="col-md-12">
+         <div class="well">
+           <div class="row">
+            <div class="col-sm-3">
               <div class="form-group">
-                <label>起</label>
-                <input type="test" class="form-control" placeholder="起">
+                <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                  <input type="text" name="" class="form-control" placeholder="開始日" readonly>
+                  <span class="input-group-btn">
+                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                  </span>
+                </div>
               </div>
+            </div>
+            <div class="col-sm-3">
               <div class="form-group">
-                <label>迄</label>
-                <input type="test" class="form-control" placeholder="迄">
+                <div class="input-group input-medium date date-picker" data-date-format="yyyy/mm/dd">
+                  <input type="text" name="" class="form-control" placeholder="結束日" readonly>
+                  <span class="input-group-btn">
+                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                  </span>
+                </div>
               </div>
-
-              <button class="btn btn-info">Go</button>
             </div>
-            <hr style="margin:60px 0;">
-
-
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>案件名稱</th>
-                  <th>週一</th>
-                  <th>週二</th>
-                  <th>週三</th>
-                  <th>週四</th>
-                  <th class="success">週五</th>
-                  <th>週六</th>
-                  <th>週日</th>
-                  <th>工作時數</th>
-                  <th>每小時收益</th>
-                  <th>總收益</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="col-sm-4"><a href="#">Sun Information/SEO/SMM for New e-commerce website</a></td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td class="success">$0.2</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>5HRs</td>
-                  <td>$1.0/HR</td>
-                  <td>$0.2</td>
-                </tr>
-                <tr>
-                  <td class="col-sm-4"><a href="#">Sun Information/SEO/SMM for New e-commerce website</a></td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td class="success">$0.2</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>$1.0/HR</td>
-                  <td>$0.0</td>
-                </tr>
-                <tr>
-                  <td class="col-sm-4"><a href="#">Sun Information/SEO/SMM for New e-commerce website</a></td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td class="success">$0.2</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>$固定薪資制
-                    $100</td>
-                    <td>$0.0</td>
-                  </tr>
-                  <tr>
-                    <td class="col-sm-4"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>總計</td>
-                    <td>5H/0M/0S</td>
-                    <td>$1.0/HR</td>
-                    <td>$0.2</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <button class="btn btn-warning hidden-xs">查詢</button>
+            <div class="col-sm-3 visible-xs"><button class="btn btn-warning btn-block">查詢</button></div>
           </div>
         </div>
-        <!-- <div id="more"></div> -->
+        <br>
+        <h4>雇主: (雇主帳號名字)</h4>
+        <h4>時間: (日期區間)</h4>
+        <hr>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>遠距工作者</th>
+              <th colspan="2">工作描述</th>
+
+              <th>總時數</th>
+              <th>總金額</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="warning">
+              <td>遠距工作者1名字</td>
+              <td colspan="2" >工作日誌上的項目描述</td>
+
+              <td>(項目時數)</td>
+              <td>(產生的金額)</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td colspan="2" >工作日誌上的項目描述</td>
+
+              <td>(項目時數)</td>
+              <td>(產生的金額)</td>
+            </tr>
+            <tr class="Corange">
+              <td></td>
+              <td ></td>
+              <td class="text-right"><strong>個人小計</strong></td>
+              <td><strong>(小計時數)</strong></td>
+              <td><strong>(小計產生的金額)</strong></td>
+            </tr>
+          </tbody>
+          <br>
+        </table>
+
+        <table class="table table-striped">
+
+          <tbody>
+            <tr class="warning">
+              <td>遠距工作者2名字</td>
+              <td colspan="2" >工作日誌上的項目描述</td>
+
+              <td>(項目時數)</td>
+              <td>(產生的金額)</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td colspan="2" >工作日誌上的項目描述</td>
+
+              <td>(項目時數)</td>
+              <td>(產生的金額)</td>
+            </tr>
+            <tr class="Corange">
+              <td></td>
+              <td ></td>
+              <td class="text-right"><strong>個人小計</strong></td>
+              <td><strong>(小計時數)</strong></td>
+              <td><strong>(小計產生的金額)</strong></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td><strong>所有遠距工作者</strong></td>
+              <td></td>
+              <td></td>
+              <td><strong>(總計時數)</strong></td>
+              <td><strong>(總計產生的金額)</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+
+
       </div>
     </div>
   </div>
+</div>
+<div class="tab-pane fade" id="finish">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-md-12">
+        <h3>已完成的案件</h3>
+        <h4>$0.20 USD</h4>
+
+        <div class="form-inline alert alert-info" style="margin:30px auto;">
+          <div class="form-group">
+            <label>起</label>
+            <input type="test" class="form-control" placeholder="起">
+          </div>
+          <div class="form-group">
+            <label>迄</label>
+            <input type="test" class="form-control" placeholder="迄">
+          </div>
+
+          <button class="btn btn-info">Go</button>
+        </div>
+        <hr style="margin:60px 0;">
+
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>案件名稱</th>
+              <th>週一</th>
+              <th>週二</th>
+              <th>週三</th>
+              <th>週四</th>
+              <th class="success">週五</th>
+              <th>週六</th>
+              <th>週日</th>
+              <th>工作時數</th>
+              <th>每小時收益</th>
+              <th>總收益</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-sm-4"><a href="#">Sun Information/SEO/SMM for New e-commerce website</a></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="success">$0.2</td>
+              <td>-</td>
+              <td>-</td>
+              <td>5HRs</td>
+              <td>$1.0/HR</td>
+              <td>$0.2</td>
+            </tr>
+            <tr>
+              <td class="col-sm-4"><a href="#">Sun Information/SEO/SMM for New e-commerce website</a></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="success">$0.2</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>$1.0/HR</td>
+              <td>$0.0</td>
+            </tr>
+            <tr>
+              <td class="col-sm-4"><a href="#">Sun Information/SEO/SMM for New e-commerce website</a></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="success">$0.2</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>$固定薪資制
+                $100</td>
+                <td>$0.0</td>
+              </tr>
+              <tr>
+                <td class="col-sm-4"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>總計</td>
+                <td>5H/0M/0S</td>
+                <td>$1.0/HR</td>
+                <td>$0.2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- <div id="more"></div> -->
+  </div>
+</div>
+</div>
 </div>
 <!-- END PAGE --> 
 <!-- BEGIN FOOTER -->

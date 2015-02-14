@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+#custom_carousel {
+  .item {
+    color: #000;
+    background-color: #eee;
+  }
+  .controls {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    text-align: center;
+    position: relative;
+    background: #ddd;
+    ul{
+      margin:0;
+      padding-left:0;
+    }
+    li {
+      display: table-cell;
+      width: 1%;
+      max-width: 100px;
+      margin:0;
+      padding-left:0;
+      a{
+        text-decoration: none;
+        color:white;
+      }
+      a:hover{
+        color:#353535;
+      }
+      &.active {
+        background-color: #2BACB5;
+        color: #FFF;
+        border: none;
+        margin:0;
+        padding:10px;
+      }
+    }
+
+  }
+}
+
+
+
+
+
+#custom_carousel .controls a small {
+  overflow: hidden;
+  display: block;
+  font-size: 10px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/*tabbed slider*/
+
+.a-color li a {
+  color: #353535;
+}
+
+.tab-slider-tex {
+  color: #565656;
+}
+
+.tab-slider-tex02 {
+  color: #565656;
+  padding-top: 100px;
+}
+
+.tab-slider-tex {
+  padding-top: 80px;
+  p {
+    font-size: 2.5em;
+  }
+}
+
+.tab-slider-tex02 p {
+  font-size: 2.3em;
+  color: #262626;
+}
+
+.tab-slider-tex03{
+  padding-left:10px;
+  padding-top:40px;
+  h2{
+    
+    font-weight: 700;
+    color: #39AEB7;
+
+  }
+  p{
+   font-size: 1.5em; 
+   color: #485773;
+  }
+}
+
+.tab-slider-img{
+  min-height: 338px;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.img-blur {
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+}
+
+.img-dark {
+  filter: brightness(0.4);
+  -webkit-filter: brightness(0.4);
+  -moz-filter: brightness(0.4);
+  -o-filter: brightness(0.4);
+  -ms-filter: brightness(0.4);
+  opacity: .5;
+}
