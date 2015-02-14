@@ -25,5 +25,11 @@ module Sun
     config.encoding = "utf-8"
 
     config.assets.initialize_on_precompile = false
+
+    # for api setting
+    
+
+    config.paths.add "app", glob: "**/*.rb"
+    config.autoload_paths += Dir["#{Rails.root}/app"]
   end
 end

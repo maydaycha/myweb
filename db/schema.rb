@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150126145719) do
+ActiveRecord::Schema.define(version: 20150207043148) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -111,6 +110,14 @@ ActiveRecord::Schema.define(version: 20150126145719) do
     t.integer  "time_unit_count"
     t.string   "subject"
     t.text     "description"
+  end
+
+  create_table "memos", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.text     "memoContent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "messages_of_projects", force: true do |t|
@@ -213,6 +220,17 @@ ActiveRecord::Schema.define(version: 20150126145719) do
 
   create_table "skills", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "snapshots", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.integer  "mouseClickCount"
+    t.integer  "keyboardClickCount"
+    t.string   "snapshot"
+    t.text     "memoContent"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -424,8 +442,10 @@ ActiveRecord::Schema.define(version: 20150126145719) do
     t.integer  "zip"
     t.integer  "step"
     t.string   "current_role"
+    t.string   "authentication_token"
   end
 
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -456,6 +476,21 @@ ActiveRecord::Schema.define(version: 20150126145719) do
     t.text     "footer_contact_en"
     t.text     "footer_contact_tw"
     t.text     "footer_contact_cn"
+  end
+
+  create_table "working_histories", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.integer  "mouseClick"
+    t.integer  "keyboardClick"
+    t.integer  "lastWorkingTimestamp"
+    t.time     "todayWorkingHours",    default: '2000-01-01 00:00:00'
+    t.time     "weekWorkingHours",     default: '2000-01-01 00:00:00'
+    t.time     "work_start_at"
+    t.time     "day_start_count_at",   default: '2000-01-01 00:00:00'
+    t.time     "week_start_count_at",  default: '2000-01-01 00:00:00'
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
