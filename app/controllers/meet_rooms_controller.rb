@@ -209,7 +209,9 @@ class MeetRoomsController < ApplicationController
 
 	def meet_room_notification(room, member, meet_room)
 		recipients = User.find_by_id(member)
+		@room = MeetRoom.find_by_id(meet_room.id)
 		conversation = current_user.send_message(recipients, room.description, room.subject, true).conversation
+		recipients.notify(room.subject, room.description, @room)
 	end
 
 	private
