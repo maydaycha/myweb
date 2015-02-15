@@ -21,7 +21,7 @@ class MeetRoomsController < ApplicationController
 		end
 
 		if @room.save! && @members.save!
-			meet_room_notification(@room, @project.project_members)  #send notification to all meet_room member 
+			meet_room_notification(@room, @project.project_members, @room)  #send notification to all meet_room member 
 			redirect_to meet_rooms_booking_path
 		else
 			render :booking, status: :create_success
@@ -207,16 +207,14 @@ class MeetRoomsController < ApplicationController
 		render :json => { :form => render_to_string(:partial => 'update_members')}
 	end
 
-	def meet_room_notification(room, member)
-		
+	def meet_room_notification(room, member, meet_room)
 		recipients = User.find_by_id(member)
-		conversation = current_user.send_message(recipients, room.description, room.subject, true)
-
-		
+		conversation = current_user.send_message(recipients, room.description, room.subject, true).conversation
 	end
 
 	private
-
+	CASE_MEET = 1
+	INTERVIEW_MEET = 2
 	TIME_UNIT = 30  # 30min per unit
 	BEFORE_TARGET_DATE = 3 		#60sec * 60min * 24hr * 3days
 	REFUND_PERCENT = [[3, 30], [6, 40], [9, 50], [13, 70], [14, 100]]
