@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
 	end
 
 	def show
-		@message = current_user.messages.find(params[:id])
+		@message = current_user.messages.find_by_conversation_id(params[:id])
 		meet_id = current_user.mailbox.notifications.find_by_subject(@message.subject).notified_object_id
 		@meet = MeetRoom.find(meet_id)
 

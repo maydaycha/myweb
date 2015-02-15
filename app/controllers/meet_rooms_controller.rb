@@ -21,7 +21,7 @@ class MeetRoomsController < ApplicationController
 		end
 
 		if @room.save! && @members.save!
-			meet_room_notification(@room, @project.project_members, @room)  #send notification to all meet_room member 
+			meet_room_notification(@room, @project.project_members)  #send notification to all meet_room member 
 			redirect_to meet_rooms_booking_path
 		else
 			render :booking, status: :create_success
@@ -46,7 +46,9 @@ class MeetRoomsController < ApplicationController
 
 	def update
 		@room = MeetRoom.find(params[:id])
+		@project = Project.find(room_params[:case])
 		if @room.update(room_params)
+			meet_room_update_notification(@room, @project.project_members)
 			render :waiting_meet
 		else
 			render :edit
@@ -207,9 +209,19 @@ class MeetRoomsController < ApplicationController
 		render :json => { :form => render_to_string(:partial => 'update_members')}
 	end
 
-	def meet_room_notification(room, member, meet_room)
+	def meet_room_notification(room, member)
 		recipients = User.find_by_id(member)
-		@room = MeetRoom.find_by_id(meet_room.id)
+		@room = MeetRoom.find_by_id(room.id)
+		room.subject = "您收到一個新的會議邀請  主旨：" + room.subject
+		conversation = current_user.send_message(recipients, room.description, room.subject, true).conversation
+		recipients.notify(room.subject, room.description, @room)
+	end
+
+
+	def meet_room_update_notification(room, member)
+		recipients = User.find_by_id(member)
+		@room = MeetRoom.find_by_id(room.id)
+		room.subject = "您的會議邀請已變更  主旨：" + room.subject
 		conversation = current_user.send_message(recipients, room.description, room.subject, true).conversation
 		recipients.notify(room.subject, room.description, @room)
 	end
