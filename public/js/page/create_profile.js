@@ -23,9 +23,7 @@ var CreateProfile = function(){
                     $(this).html(input.find('option:selected').text());
                 } else if (input.is(":radio") && input.is(":checked")) {
                     $(this).html(input.attr("data-title"));
-                    //console.log("13123");
-                } else if ($(this).attr("data-display") == 'user[hourly_pay]') {
-                    //console.log("1@@@");
+                } else if ($(this).attr("data-display") == 'money') {
                     $(this).html(input.val()+' / HR');
                 }
             });
@@ -45,10 +43,8 @@ var CreateProfile = function(){
 
             if (current == 1) {
                 $('#form_wizard_1').find('.button-previous').hide();
-                $('#form_wizard_1').find('.button-previous﹣page').show();
             } else {
                 $('#form_wizard_1').find('.button-previous').show();
-                $('#form_wizard_1').find('.button-previous﹣page').hide();
             }
 
             if (current >= total) {
@@ -103,55 +99,39 @@ var CreateProfile = function(){
         $('#form_wizard_1 .button-submit').hide();
     }
 
-    var initForm = function(){
+    var initForm = function(){        
         form.validate({
             errorElement: 'span', //default input error message container
             errorClass: 'help-block', // default input error message class
             focusInvalid: false, // do not focus the last invalid input
             rules: {
-                'user[worker_type]': {
+                'money': {
                     required: true
                 },
-                'user[hourly_pay]': {
+                'zip': {
                     required: true
                 },
-                'user[zip]': {
+                'city': {
                     required: true
-                },
-                'user[city]': {
-                    required: true
-                },
-                'user[brief_introduction]': {
-                    maxlength: 20
-                },
-                'user[introduction]': {
-                    maxlength: 1000
-                },
-                'user[website]': {
-                    complete_url: true
-                },
-                'user[vat_number]': {
-                    digits: true,
-                    maxlength: 8
                 }
             },
 
             errorPlacement: function (error, element) { // render error placement for each input type
             	var text;
             	if(error.text()=='This field is required.'){
-            		text = form.find('input[id="'+error.attr('for')+'"]').attr('data-isempty');
+            		text = form.find('input[name='+error.attr('for')+']').attr('data-isEmpty');
             		error.text(text);
             	}
             	else if(error.text()!=''){
-            		text = form.find('input[id="'+error.attr('for')+'"]').attr('data-isError');
+            		text = form.find('input[name='+error.attr('for')+']').attr('data-isError');
             		error.text(text);
             	}
                 var icon = $(element).parent('.input-icon').children('i');
-                icon.removeClass('fa-check').addClass("fa-warning");
+                icon.removeClass('fa-check').addClass("fa-warning");  
                 icon.attr("data-original-title", error.text()).tooltip({'container': 'body'});
             },
 
-            invalidHandler: function (event, validator) { //display error alert on form submit
+            invalidHandler: function (event, validator) { //display error alert on form submit   
                 success.hide();
                 error.show();
                 Web.scrollTo(error, -200);
@@ -181,37 +161,13 @@ var CreateProfile = function(){
 
         });
     }
-
-    var validateSkillExist = function(value){
-        var result = false;
-        $.ajax({
-            url: "/skills/exist",
-            type: "get",
-            dataType: "json",
-            data: {name: value},
-            success: function(data) {
-                result = data.status;
-            },
-            error: function(data) {
-            },
-            async: false
-        });
-        if (result == false)
-            $(this).removeTag(value);
-
-        var skills_arr = $(this).val().split(',');
-        if (skills_arr.length > 5) {
-            alert($('#skill-tags').attr('alert-limit'));
-            $(this).removeTag(value);
-        }
-    }
-
     var initSkillTags = function(){
 		$('#skill-tags').tagsInput({
             width: 'auto',
-            autocomplete_url:'/skills/autocomplete',
-            onAddTag: validateSkillExist
+            defaultText: '技能標籤',
+            placeholderColor: '#999'
         });
+        $('.tagsinput').addClass('form-control');
 	}
     var initShowTip = function(){
     	$('.show-tip').on('click',function(e){

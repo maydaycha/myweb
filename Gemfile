@@ -102,6 +102,33 @@ gem 'activeadmin', github: 'activeadmin'
 # github: 'activeadmin'
 # gem "meta_search",    '>= 1.1.0.pre'
 
-
-
 gem 'localeapp'
+
+group :development, :test do
+  gem 'faker'
+end
+
+group :development, :test do
+  gem 'guard'
+  gem 'guard-rspec', require: false
+end
+
+group :development, :test do
+  gem 'guard-livereload', require: false
+  gem "rack-livereload"
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
+group :development, :test do
+  gem 'factory_girl_rails'
+end
+
+gem 'grape'
+
+gem 'grape-entity'
+
+gem 'mailboxer'
+

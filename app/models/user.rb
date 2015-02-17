@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   # validates :password, :presence => true, :format => { :with  => /(?=.*\d)(?=.*[a-zA-Z])/, :allow_blank => false, :message => "must include at least one letter, and one digit" }
 
+  before_save :ensure_authentication_token
 
   validates_presence_of :first_name, :message => "姓氏未填寫"
   validates_presence_of :last_name, :message => "名字未填寫"
@@ -28,9 +29,23 @@ class User < ActiveRecord::Base
   has_many :user_portfolios, dependent: :destroy
   has_many :user_favorite_projects, dependent: :destroy
   has_many :projects, dependent: :destroy
-  has_many :user_applying_projects
+  has_many :user_applying_projects, dependent: :destroy
+  has_many :user_contact_persons, dependent: :destroy
+  has_many :memos, dependent: :destroy
+  has_many :snapshots, dependent: :destroy
+  has_many :working_histories, dependent: :destroy
 
   accepts_nested_attributes_for :user_skill_categories
+
+  acts_as_messageable
+
+  def name
+    email
+  end
+
+  def mailboxer_email(object)
+    email
+  end
 
   def self.has_email?(email)
     self.where(:email => email).limit(1).size > 0
@@ -82,6 +97,21 @@ class User < ActiveRecord::Base
   end
 
 
+  def ensure_authentication_token
+    self.authentication_token ||= generate_authentication_token
+    # Todo : if token expired, regenerate a new token
+  end
+
+
+  private
+
+
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).first
+    end
+  end
 
 
 

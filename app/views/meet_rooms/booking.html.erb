@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <title>快樂工作</title>
+
+    <!-- BEGIN STYLE -->
+    <!-- BEGIN 核心樣式 -->
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../plugins/bootstrap-tagsinput/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="../../plugins/fullcalendar-2.2.3/fullcalendar.css">
+    <link rel="stylesheet" href="../../plugins/fullcalendar-2.2.3/fullcalendar.print.css" media='print' />
+
+
+
+    <!--[if gte IE 9]>
+        <style type="text/css">
+        .gradient {
+        filter: none;
+        }
+        </style>
+        <![endif]-->
+    <!-- END 核心樣式 -->
+    <!-- BEGIN 頁面插件樣式 -->
+
+    <!-- END 頁面插件樣式 -->
+    <!-- BEGIN 主題樣式 -->
+    <!-- END 主題樣式 -->
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/css-anima.css">
+    <link rel="stylesheet" type="text/css" href="../../css/meetingroom.css">
+    <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
+    <link rel="shortcut icon" href="../../favicon.ico" />
+    <style type="text/css">
+    body {
+        background-color: white !important;
+    }
+    </style>
+    <!-- END STYLE -->
+</head>
+
+<body style="padding-top:0; margin-top:0;">
+    <!-- BEGIN NAVBAR -->
+    <div class="navbar navbar-default" style="" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggle navbar-toggle-search" data-toggle="collapse" data-target=".navbar-collapse-search">
+                <i class="fa fa-search"></i>
+            </button>
+            <a class="navbar-brand" href="../../index.html"><img class="navbar-logo" src="../../img/logo208.png" alt="快樂工作">
+            </a>
+        </div>
+        <!--  <div class="navbar-collapse navbar-collapse-search collapse navbar-right">
+                <div class="navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜尋您需要的人才">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+              </div> -->
+        <div class="navbar-collapse navbar-collapse-nav collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a href="../../login.html">會員登入</a>
+                </li>
+                <li><a href="../../sign_up.html">免費註冊</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- END NAVBAR -->
+    <!-- BEGIN PAGE -->
+    <div class="page-content top50">
+        <section class="meeting-container bottom50">
+            <h2>我的會議室</h2>
+            <p>您尚有會議室使用時數 <span class="Cred">10</span> &nbsp;&nbsp;&nbsp;<span><a href="#"><i class="fa fa-plus"></i> 購買會議室時數</a></span>
+            </p>
+        </section>
+        <hr>
+        <section class="top50">
+            <div class="meeting-container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="booking">查詢會議室</a>
+                            </li>
+                            <li><a href="waiting_meet">等待確認的會議  <span class="badge">2</span></a>
+                            </li>
+                            <li><a href="upcoming_meet">即將開始的會議  <span class="badge">3</span></a>
+                            </li>
+                            <li><a href="finished_meet">已經結束的會議  <span class="badge">2</span></a>
+                            </li>
+                            <li><a href="/meet_room_members/get_contact_person">我的連絡人</a>
+                            </li>
+                            <li><a href="buy">購買記錄</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-9">
+                        <div id='calendar'></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <%=bootstrap_form_for(@room) do |f| %>
+    <div id="fullCalModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span>
+                    </button>
+                    <h4 id="modalTitle" class="modal-title"><h4 id="modalDate" class="text-center"></h4></h4>
+                </div>
+                
+                    <div id="modalBody" class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <strong> 選擇會議類型 </strong>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <input id="meet_type_1" name="meet_room[meet_type]" type="radio" value="1"> 案件會議
+                                            <input id="meet_type_2" name="meet_room[meet_type]" type="radio" value="2"> 面試會議
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row  bottom17">
+                                    <div class="col-md-3"><strong>會議時間</strong>
+                                    </div>
+                                    <div class="col-md-9 marpad-left">
+                                        <div class="col-md-3">
+                                            <input type='text' class="form-control" id="meet_room_start" name="meet_room[start_time]" />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type='text' class="form-control" id="meet_room_end" name="meet_room[end_time]" />
+                                        </div>
+                                        <div id="meetingTime"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <strong> 案件名稱</strong>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <select class="form-control" name="meet_room[case]" id="meet_room_case" >
+                                                <option value>選擇一項案件</option>
+                                                <% @projects.each do |p| %>
+                                                    <option value="<%=p.id %>">
+                                                        <%=p.name %>
+                                                    </option>
+                                                <% end %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-3"><strong>與會人員</strong>
+                                    </div>
+                                    <div class="col-md-9 marpad-left">
+                                        <div id="member_select">
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="bottom50 top50">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <strong>主旨</strong>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <input id="modaltext" type="text" class="form-control" placeholder="請輸入會議主旨" name="meet_room[subject]">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <strong>會議說明</strong>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <textarea type="text" class="form-control" rows="10" placeholder="請輸入您的會議說明" name="meet_room[description]"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="Cred"> *會議預約送出後，系統將自動發送會議通知給所有與會成員。</p>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button class="btn btn-info" data-toggle="modal" data-target="#myModal" data-dismiss="modal">下一步</button>
+                    </div>
+                    
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title Cred" id="myModalLabel">會議室使用時數扣除確認</h4>
+                </div>
+                <div class="modal-body">
+                    <p>親愛的TeleWork會員您好，</p>
+
+                    <p>您即將 預約 <span class="Cred" id="meetingTime2"></span> ，共 <span class="Cred">0.5 </span>小時的會議室時間，這個動作將從您已經購買的會議室使用時數中扣除，扣除後您的會議室使用時數將剩下 <span class="Cred">9.5</span> 。 確認無誤後請按下下方的 確認預約，欲修改會議內容請按下 回上一步，或按下取消，終止 會議室預約。 如果您有疑問，相關會議室使用規則請見 此連結。 TeleWork Team.
+                    </p>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#fullCalModal" data-dismiss="modal">上一步</button>
+                    <%=f.submit "送出預約並扣款" %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% end %>
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">已完成預約</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <strong> 會議類型 </strong>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        案件會議
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  bottom17">
+                                <div class="col-md-3"><strong>會議時間</strong>
+                                </div>
+                                <div class="col-md-9 ">
+                                    <div id="meetingTime3"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <strong> 案件名稱</strong>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <p>網頁設計 <span class="Cgray">#AS256401</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"><strong>與會人員</strong>
+                                </div>
+                                <div class="col-md-9 ">
+                                    <div class="bootstrap-tagsinput"><span class="tag label label-info">Tom</span> <span class="tag label label-info">Washington</span> <span class="tag label label-info">Amy</span> </div>
+                                </div>
+                            </div>
+                            <hr class="bottom50 top50">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <strong>主旨</strong>
+                                </div>
+                                <div class="col-md-9">
+                                    <p>的出的負起</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <strong>會議說明</strong>
+                                </div>
+                                <div class="col-md-9">
+                                    <p>期病便環日，況超酒，下率老以業物切目市朋利風人氣統未血大了氣後北：更給我必運同不高產立？前思食師情性卻生一對以，起助部世當禮爸想所檢出己關了位更而識故。包持備立光和出影斯上配直光的說有以從市轉院拉人推；生神成。讓出考。然此部快人冷紀仍！</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END PAGE -->
+    <!-- BEGIN FOOTER -->
+    <div class="footer top150"><img class="footer-logo" src="img/logo103.png" alt="">
+        <div class="footer-nav"><a href="about.html">關於我們</a><span class="bar">|</span><a href="rule.html">隱私條款</a><span class="bar">|</span><a href="rule.html">使用條款</a><span class="bar">|</span><a href="mailto:service@sun-innovation.com">聯絡客服</a>
+        </div>
+        <div style="margin-top:12px;"><span id="siteseal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=6EabjzhFVsN0Ek7Z9eGWGUwWv7uWRVt7AtmVMPmKs7pzCryNcCDdV"></script></span>
+        </div>
+    </div>
+    <!-- END FOOTER -->
+
+    <!-- BEGIN JAVASCRIPTS -->
+    <!-- BEGIN 核心插件 -->
+    <!--[if lt IE 9]>
+            <script src="plugins/html5shiv.min.js"></script>
+            <script src="plugins/respond.min.js"></script>
+            <![endif]-->
+
+    <script src="../../plugins/jquery-1.11.0.min.js"></script>
+    <script src="../../plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../plugins/jquery-placeholder/jquery.placeholder.js"></script>
+    <script src="../../plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    <script src="../../plugins/fullcalendar-2.2.3/lib/moment.min.js"></script>
+
+    <script src="../../plugins/fullcalendar-2.2.3/fullcalendar.min.js"></script>
+    <!-- END 核心插件 -->
+    <!-- BEGIN 頁面插件 -->
+    <!-- END 頁面插件 -->
+    <script type="text/javascript" src="../../js/script.js"></script>
+    <script type="text/javascript" src="../../js/element.js"></script>
+    <script type="text/javascript" src="../../js/bootbox.js"></script>
+    <!--<script type="text/javascript" src="js/page/index.js"></script>-->
+    <script>
+    jQuery(document).ready(function() {
+        Web.init();
+        //Index.init();
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        var calendar = $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            defaultView: 'agendaWeek',
+            slotDuration: '00:30:00',
+            Duration: '00:25:00',
+            allDaySlot: false,
+            editable: true,
+            selectable: true,
+            select: function(start, end, event, jsEvent, view) {
+                // start contains the date you have selected
+                // end contains the end date. 
+                // Caution: the end date is exclusive (new since v2).
+                var allDay = !start.hasTime() && !end.hasTime();
+                // alert(["Event Start date: " + moment(start).format(),
+                //  "Event End date: " + moment(end).format(),
+                //  "AllDay: " + allDay].join("\n"));
+                $('#meet_room_start').val(moment(start).format('MMMM D, YYYY h:mm:ss'));
+                $('#meet_room_end').val(moment(end).format('MMMM D, YYYY h:mm:ss'));
+                $('#modalTitle').html(event.title);
+                $('#modalDate').html([moment(start).format("YYYY-MM-DD") + (' 會議詳情')].join("\n"));
+                $('#meetingTime').html([moment(start).format(' H:mm ') + ('~'),
+                    moment(end).format('h:mm'),
+                ].join("\n"));
+                $('#meetingTime2').html([moment(start).format(' H:mm ') + ('~'),
+                    moment(end).format('h:mm'), moment(start).format("YYYY-MM-DD")
+                ].join("\n"));
+                $('#meetingTime3').html([moment(start).format(' H:mm ') + ('~'),
+                    moment(end).format('h:mm'),
+                ].join("\n"));
+                $('#eventUrl').attr('href', event.url);
+                $('#fullCalModal').modal();
+                var title = $("#fullCalModal").prompt('Event Title:');
+                if (title) {
+                    calendar.fullCalendar('renderEvent', {
+                            title: title,
+                            start: start,
+                            end: end,
+                            allDay: allDay
+                        },
+                        true // make the event "stick"
+                    );
+                }
+                calendar.fullCalendar('unselect');
+            },
+            editable: false,
+            events: {
+                url: "/meet_rooms/get_all_meet",
+                backgroundColor: '#F34F55',
+                borderColor: '#D8303D',
+                textColor: 'white'
+            },
+            
+        });
+    });
+    
+    </script>
+
+    <script>
+    $(document).ready(function() {
+        $('#meet_room_case').change(function() {
+            $.ajax({
+                url: "/meet_rooms/update_members",
+                data: {
+                    project_id: $('#meet_room_case').val(),
+                },
+                success: function(data) {
+                    $('#member_select').html(data['form']);
+                }
+            });
+
+        });
+
+    });
+    </script>
+
+    <!--END RANG BAR JS-->
+
+
+    <!-- END JAVASCRIPTS -->
+    <!-- BEGIN PIE -->
+    <!--[if lte IE 9]>
+        <script type="text/javascript" src="plugins/PIE-1.0.0/PIE.js"></script>
+        <script src="plugins/jquery-placeholder/jquery.placeholder.js"></script>
+        <script>
+        $(function() {
+            $('input, textarea').placeholder();
+            $('.main-content').each(function() {
+                PIE.attach(this);
+            });
+        });
+        </script>
+        <![endif]-->
+    <!-- END PIE -->
+</body>
+
+</html>
+
+
+

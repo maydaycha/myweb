@@ -1,0 +1,85 @@
+<!-- BEGIN PAGE -->
+<div class="page-content" style="margin-bottom:50px;">
+    <div class="container" style="margin-top: 50px;">
+        <!-- <ul id="" class="nav nav-tabs navmargin">
+                <li ><a href="inboxes.html">收件夾</a></li>
+                <li class="active" ><a href="sendboxes.html">寄件夾</a></li>
+                <li><a href="archive.html">封存</a></li>
+              </ul> -->
+
+        <div class="myTabs">
+            <div class="row">
+                <div class="col-sm-2 text-center">
+                    <h3>寄件夾</h3>
+                    <button class="btn btn-info btn-block" data-toggle="modal" data-target="#sendModal">新增訊息</button>
+                    <a href="/messages/inbox" class="btn btn-default btn-block">收件夾</a>
+                    <a href="/messages/sentbox" class="btn btn-default btn-block">寄件夾</a>
+                    <a href="sms_archive.html" class="btn btn-default btn-block">封存</a>
+                </div>
+                <div class="col-sm-8">
+
+                    
+                    <div class="message-item">
+                        <div class="message-inner">
+                            <div class="message-head clearfix">
+                                <div class="avatar pull-left">
+                                    <a href="sms_detail.html"><img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-rounded" />
+                                    </a>
+                                </div>
+                                <div class="user-detail">
+                                    <h5 class="handle">Oleg Kolesnichenko</h5>
+                                    <div class="post-meta">
+                                        <div class="asker-meta">
+                                            <span class="qa-message-what"></span>
+                                            <span class="qa-message-when">
+                                <span class="qa-message-when-data">Jan 21</span>
+                                            </span>
+                                            <span class="qa-message-who">
+                                <span class="qa-message-who-pad">by </span>
+                                            <span class="qa-message-who-data"><a href="sms_detail.html">Oleg Kolesnichenko</a></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="qa-message-content">
+                                Yo!
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="sendModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">新增訊息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <h4>(自動帶入收件者名稱)</h4>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" class="form-control" placeholder="請輸入主旨">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="detail" class="form-control" rows="6" placeholder="請輸入您的訊息"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="" class="">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal">傳送</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PAGE -->

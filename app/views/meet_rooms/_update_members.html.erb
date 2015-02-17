@@ -1,0 +1,7 @@
+<% @project_members.each do |m| %>
+	<div class="bootstrap-tagsinput">
+		<span class="tag label label-info"><%= User.find(m.user).username %><span data-role="remove"></span></span> 
+	</div>
+
+<% end %>
+

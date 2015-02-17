@@ -1,0 +1,97 @@
+.meeting-container {
+  max-width: 1170px !important;
+  width: 100% !important;
+  margin: auto !important; }
+
+.caseMetting,
+.caseMetting div,
+.caseMetting span {
+  background-color: #5576A8;
+  /* background color */
+  border-color: #3A5073;
+  /* border color */
+  color: white;
+  /* text color */ }
+
+.page-content {
+  background-color: white; }
+
+.fc-unthemed .fc-today {
+  background: #F4F3F2; }
+
+.nonedeco ul {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 0; }
+  .nonedeco ul li {
+    text-decoration: none;
+    color: #43909E; }
+    .nonedeco ul li i {
+      padding-right: 17px; }
+
+	/* 
+// Listrap v1.0, by Gustavo Gondim (http://github.com/ggondim)
+// Licenced under MIT License
+// For updates, improvements and issues, see https://github.com/inosoftbr/listrap
+*/
+.listrap {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  .listrap article {
+    height: 100%;
+    border: 1px #FFFFFF solid;
+    position: relative;
+    z-index: 110;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 0 0 7px 0;
+    box-shadow: 1px 1px 8px #d8d8d8;
+    background-color: #FFFFFF; }
+    .listrap article span {
+      background-color: #428bca;
+      opacity: 0.8;
+      z-index: 100;
+      width: 80px;
+      height: 80px;
+      display: none;
+      position: absolute;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 60px;
+      vertical-align: middle;
+      color: #ffffff; }
+    .listrap article:hover {
+      background-color: #d9edf7; }
+  .listrap .listrap-toggle {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    margin-left: 10px; }
+  .listrap article.active .listrap-toggle span {
+    display: block; }
+
+.listrap .listrap-toggle span:before {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.0em;
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  text-decoration: inherit;
+  content: "\f067"; }
+
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none; }

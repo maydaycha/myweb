@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  room_number: 1
+  target_day: 2014-11-25
+  start_time: 2014-11-25 05:09:02
+  end_time: 2014-11-25 05:09:02
+  case: 1
+
+two:
+  room_number: 1
+  target_day: 2014-11-25
+  start_time: 2014-11-25 05:09:02
+  end_time: 2014-11-25 05:09:02
+  case: 1
