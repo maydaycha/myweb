@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <%
         @seos.each do |seo|
-          case seo.key
-          when "title"
-              meta_title seo.content
-          when "keywords"
-              meta_keywords seo.content
-          when "description"
-              meta_description seo.content
-          when "author"
-              meta_author seo.content
+          if seo.page == "home"
+            case seo.key
+            when "title"
+                meta_title seo.content
+            when "keywords"
+                meta_keywords seo.content
+            when "description"
+                meta_description seo.content
+            when "author"
+                meta_author seo.content
+            end
           end
         end
     %>
@@ -210,62 +211,65 @@
             <div class="class">
                 <h1 style="text-align:center; color:#E05E3E;"><%= I18n.t("page.index.container_title") %></h1>
                 <div class="row">
-                    <div class="col-md-3 col-sm-4 col-xs-6 item">
+                    <!-- <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <!-- <img src="img/class/class_1.jpg" alt="IT & software"> -->
                             <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :it_software, :id => @website.id), alt: "IT & software" %>
                             <p><%= t(:"main_skill_category")[0]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <!-- <img src="img/class/class_2.jpg" alt="工程 & 科學"> -->
                             <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :science_engineer, :id => @website.id), alt: "工程 & 科學" %>
                             <p><%= t(:"main_skill_category")[1]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <!-- <img src="img/class/class_3.jpg" alt="design"> -->
                             <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :creativity_design, :id => @website.id), alt: "design" %>
                             <p><%= t(:"main_skill_category")[2]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <!-- <img src="img/class/class_4.jpg" alt="marketing"> -->
                             <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :sales, :id => @website.id), alt: "marketing" %>
                             <p><%= t(:"main_skill_category")[3]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <!-- <img src="img/class/class_5.jpg" alt="img"> -->
                             <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :service, :id => @website.id), alt: "img" %>
                             <p><%= t(:"main_skill_category")[4]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <!-- <img src="img/class/class_6.jpg" alt="accounting"> -->
                             <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :business, :id => @website.id), alt: "accounting" %>
                             <p><%= t(:"main_skill_category")[5]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <!-- <img src="img/class/class_7.jpg" alt="writing"> -->
                             <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :writness, :id => @website.id), alt: "writing" %>
                             <p><%= t(:"main_skill_category")[6]['name'] %></p>
                         </a>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6 item">
                         <a data-toggle="modal" href="#class-lightbox">
-                            <!-- <img src="img/class/class_8.jpg" alt="img"> -->
                             <%= image_tag url_for(:controller => "/application", :action => "show_image", :model => @website.class.name, :attribute => :consulting, :id => @website.id), alt: "img" %>
                             <p><%= t(:"main_skill_category")[7]['name'] %></p>
                         </a>
-                    </div>
+                    </div> -->
+
+                    <% @main_skill_classes.each do |m| %>
+                        <div class="col-md-3 col-sm-4 col-xs-6 item">
+                            <a data-toggle="modal" href="#class-lightbox">
+                                <!-- <img src="img/class/class_8.jpg" alt="img"> -->
+                                <%= image_tag url_for(:controller => "/application", :action => "show_image", :model =>m.class.name, :attribute => :picture, :id => m.id), alt: "img" %>
+                                <p><%= m.name %></p>
+                            </a>
+                        </div>
+                    <% end %>
+
                 </div>
                <!-- <div class="input-group">
                     <input type="text" class="form-control" placeholder="搜尋您需要的人才">
@@ -611,12 +615,16 @@
 <div class="footer">
     <img class="footer-logo" src="/img/logo103.png" alt="">
     <div class="footer-nav">
-        <%= link_to I18n.t("page.footer.about"), index_about_path %>
+        <!-- <%= link_to I18n.t("page.footer.about"), index_about_path %>
         <span class="bar">|</span>
         <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
         <span class="bar">|</span>
         <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
-        <span class="bar">|</span>
+        <span class="bar">|</span> -->
+        <% @menus.each do |m| %>
+            <%= link_to m.label, m.link %>
+            <span class="bar">|</span>
+        <% end %>
         <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
     </ul>
 </div>

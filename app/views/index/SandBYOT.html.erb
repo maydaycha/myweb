@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <%
+        @seos.each do |seo|
+          if seo.page == "SandBYOT"
+            case seo.key
+            when "title"
+                meta_title seo.content
+            when "keywords"
+                meta_keywords seo.content
+            when "description"
+                meta_description seo.content
+            when "author"
+                meta_author seo.content
+            end
+          end
+        end
+    %>
+
+  <title><%= yield(:title).presence || "Default title" %></title>
+  <meta name="keywords" content="<%= yield(:meta_keywords).presence || "default, keywords" %>" />
+  <meta name="description" content="<%= yield(:meta_description).presence || "Default description" %>" />
+  <meta name="author" content="<%= yield(:meta_author).presence || "Default Author" %>" />
+
   <meta content="text/html; charset=UTF-8" http-equiv="content-type">
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="" name="description"/>
@@ -76,7 +99,7 @@
                   </h1>
                   <div class="img-res">
                     <img class="img-responsive marpad" src="../../img/owl/stock-photo-group-of-business-people-having-meeting-in-office-84404903.jpg">
-                  </div>           
+                  </div>
                 </section>
                 <section >
                   <div class=" s-container s-group">
@@ -122,14 +145,14 @@
 
                    <div class=" top17 bottom30">
                      <a  href="byot.html">  <img class="img-rounded yesno" src="../../img/category-icon/yesno-01.png" width="30%"></a>
-                   </div>  
+                   </div>
                    <h2 class="Cdarkteal"><a href="byot.html">我有自己的團隊</a></h2>
 
                  </div>
                  <div class="col-md-4">
                   <div class=" top17 bottom30">
                   <a href="solutions.html"><img class="img-rounded yesno" src="../../img/category-icon/yesno-02.png" width="30%"></a>
-                  </div>  
+                  </div>
                   <h2 class="Cdarkteal"><a href="solutions.html">我沒有自己的團隊</a></h2>
                 </div>
               </div>
@@ -142,7 +165,7 @@
         </body>
         <!-- END PAGE -->
         <!-- BEGIN FOOTER -->
-        <script language="javascript" type="text/javascript" 
+        <script language="javascript" type="text/javascript"
         src="../../masterpage/footer.txt"></script>
         <!-- END FOOTER -->
 
@@ -163,7 +186,7 @@
             <script type="text/javascript" src="../../js/script.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
-              jQuery(document).ready(function() {    
+              jQuery(document).ready(function() {
                Web.init();
                //Index.init();
              });

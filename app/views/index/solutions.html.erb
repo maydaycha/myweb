@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <%
+        @seos.each do |seo|
+          if seo.page == "solutions"
+            case seo.key
+            when "title"
+                meta_title seo.content
+            when "keywords"
+                meta_keywords seo.content
+            when "description"
+                meta_description seo.content
+            when "author"
+                meta_author seo.content
+            end
+          end
+        end
+    %>
+
+  <title><%= yield(:title).presence || "Default title" %></title>
+  <meta name="keywords" content="<%= yield(:meta_keywords).presence || "default, keywords" %>" />
+  <meta name="description" content="<%= yield(:meta_description).presence || "Default description" %>" />
+  <meta name="author" content="<%= yield(:meta_author).presence || "Default Author" %>" />
+
   <meta content="text/html; charset=UTF-8" http-equiv="content-type">
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="" name="description"/>
@@ -75,7 +98,7 @@
                     <div class="top100 text-center">
 
                       <h1 class="title">
-                        與世界一流的程式開發人員一起工作 
+                        與世界一流的程式開發人員一起工作
                       </h1>
                       <h3 class="top5 Cdarkgray">快速建構您的專案，減少專業技能的隔閡，有效控制您的成本，<br>整合您現有的與來自世界各地專業的程式開發人員。</h3>
                       <h4 class="Cdarkgray">TeleWork專業技術招募提供您高評價，專業品質優秀開發人員，更快且隨時符合您的需求定制工作團隊。<br>藉由這些專業人員的技能您可以更快的完成專案、建構程式原型，擴大您的團隊資源。</h4>
@@ -122,7 +145,7 @@
                       </div>
                     </div>
                     <p class="text-right top17"><a href="SandBYOT.html" title="回到上一頁"><i class="fa fa-arrow-circle-left fa-4x"></i></a></p>
-                    
+
                   </div>
                 </section>
                 <section>
@@ -522,7 +545,7 @@
         </body>
         <!-- END PAGE -->
         <!-- BEGIN FOOTER -->
-        <script language="javascript" type="text/javascript" 
+        <script language="javascript" type="text/javascript"
         src="../../masterpage/footer.txt"></script>
         <!-- END FOOTER -->
 
@@ -543,7 +566,7 @@
             <script type="text/javascript" src="../../js/script.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
-              jQuery(document).ready(function() {    
+              jQuery(document).ready(function() {
                Web.init();
                //Index.init();
              });

@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <%
+        @seos.each do |seo|
+          if seo.page == "howitworkP2"
+            case seo.key
+            when "title"
+                meta_title seo.content
+            when "keywords"
+                meta_keywords seo.content
+            when "description"
+                meta_description seo.content
+            when "author"
+                meta_author seo.content
+            end
+          end
+        end
+    %>
+
+  <title><%= yield(:title).presence || "Default title" %></title>
+  <meta name="keywords" content="<%= yield(:meta_keywords).presence || "default, keywords" %>" />
+  <meta name="description" content="<%= yield(:meta_description).presence || "Default description" %>" />
+  <meta name="author" content="<%= yield(:meta_author).presence || "Default Author" %>" />
+
   <meta content="text/html; charset=UTF-8" http-equiv="content-type">
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="" name="description"/>
@@ -30,7 +53,7 @@
         <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
         <link rel="shortcut icon" href="../../favicon.ico"/>
 
-       
+
       </head>
       <body>
         <!-- BEGIN NAVBAR -->
@@ -103,7 +126,7 @@
                           <p>常見問題</p>
                         </button>
                       </div>
-                      
+
                     </div>
                   </div>
                   <!--/NAV-->
@@ -117,7 +140,7 @@
                  <div class="row text-center">
                    <div class="col-sm-6">
                      <h2 class="Cdarkteal">我是雇主我要找人才</h2>
-                     <div class=" top17 bottom30"><img class="img-rounded" src="../../img/category-icon/user-01.png" width="50%"></div>  
+                     <div class=" top17 bottom30"><img class="img-rounded" src="../../img/category-icon/user-01.png" width="50%"></div>
                      <div class="btn-group ">
                        <a href="#section01" type="button" class="btn btn-user">
                          <p>刊登固定薪資制的案件</p>
@@ -131,7 +154,7 @@
                    </div>
                    <div class="col-sm-6">
                     <h2 class="Cdarkteal">我是遠距工作者我要找案件</h2>
-                    <div class=" top17 bottom30"><img class="img-rounded" src="../../img/category-icon/user-02.png" width="50%"></div>  
+                    <div class=" top17 bottom30"><img class="img-rounded" src="../../img/category-icon/user-02.png" width="50%"></div>
                     <div class="btn-group ">
                      <a href="#section03" type="button" class="btn btn-user">
                        <p>刊登固定薪資制的案件</p>
@@ -613,7 +636,7 @@
 </body>
 <!-- END PAGE -->
 <!-- BEGIN FOOTER -->
-<script language="javascript" type="text/javascript" 
+<script language="javascript" type="text/javascript"
 src="../../masterpage/footer.txt"></script>
 <!-- END FOOTER -->
 
@@ -634,13 +657,13 @@ src="../../masterpage/footer.txt"></script>
             <script type="text/javascript" src="../../js/script.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
-              jQuery(document).ready(function() {    
+              jQuery(document).ready(function() {
                Web.init();
                //Index.init();
              });
             </script>
 
-            
+
             <script src="../../plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
             <script src="../../plugins/owl-carousel/assets/js/google-code-prettify/prettify.js"></script>
             <script src="../../plugins/owl-carousel/assets/js/application.js"></script>

@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <%
+        @seos.each do |seo|
+          if seo.page == "project category"
+            case seo.key
+            when "title"
+                meta_title seo.content
+            when "keywords"
+                meta_keywords seo.content
+            when "description"
+                meta_description seo.content
+            when "author"
+                meta_author seo.content
+            end
+          end
+        end
+    %>
+
+    <title><%= yield(:title).presence || "Default title" %></title>
+    <meta name="keywords" content="<%= yield(:meta_keywords).presence || "default, keywords" %>" />
+    <meta name="description" content="<%= yield(:meta_description).presence || "Default description" %>" />
+    <meta name="author" content="<%= yield(:meta_author).presence || "Default Author" %>" />
+
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <title>快樂工作</title>
-    
+
     <!-- BEGIN STYLE -->
     <!-- BEGIN 核心樣式 -->
     <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.min.css">
@@ -76,7 +98,7 @@
                         <div class="col-md-3">
                             <div class="panel panel-warning" >
                                 <div class="panel-heading ">
-                                    <h3 class="panel-title" ><%= main_one['name'] %></h3> 
+                                    <h3 class="panel-title" ><%= main_one['name'] %></h3>
                                     <span class="pull-right clickable"><i class="fa fa-sort-desc fa-lg"></i></span>
                                 </div>
                                 <ul class="panel-body list-group" style="display: block;">
@@ -98,10 +120,10 @@
     </div>
     <!-- END PAGE -->
     <!-- BEGIN FOOTER -->
-    <script language="javascript" type="text/javascript" 
+    <script language="javascript" type="text/javascript"
     src="../../masterpage/footer.txt"></script>
     <!-- END FOOTER -->
-    
+
     <!-- BEGIN JAVASCRIPTS -->
     <!-- BEGIN 核心插件 -->
         <!--[if lt IE 9]>
@@ -118,7 +140,7 @@
             <script type="text/javascript" src="../../js/script.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
-            jQuery(document).ready(function() {    
+            jQuery(document).ready(function() {
              Web.init();
                //Index.init();
            });

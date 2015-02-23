@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
 
   before_action :get_seo
 
+  before_action :get_menu
+
+  before_action :get_main_skill_class
+
   # layout :layout_by_resource
   layout false
 
@@ -93,6 +97,14 @@ class ApplicationController < ActionController::Base
 
   def get_seo
     @seos = Seo.all
+  end
+
+  def get_menu
+    @menus = Menu.all
+  end
+
+  def get_main_skill_class
+    @main_skill_classes = MainSkillClass.all
   end
 
 

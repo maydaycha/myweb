@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <%
+        @seos.each do |seo|
+          if seo.page == "howitworkP5_j"
+            case seo.key
+            when "title"
+                meta_title seo.content
+            when "keywords"
+                meta_keywords seo.content
+            when "description"
+                meta_description seo.content
+            when "author"
+                meta_author seo.content
+            end
+          end
+        end
+    %>
+
+  <title><%= yield(:title).presence || "Default title" %></title>
+  <meta name="keywords" content="<%= yield(:meta_keywords).presence || "default, keywords" %>" />
+  <meta name="description" content="<%= yield(:meta_description).presence || "Default description" %>" />
+  <meta name="author" content="<%= yield(:meta_author).presence || "Default Author" %>" />
+
   <meta content="text/html; charset=UTF-8" http-equiv="content-type">
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="" name="description"/>
@@ -107,7 +130,7 @@
                           <span class=" glyphicon glyphicon-question-sign"></span>
                           <p>常見問題</p>
                         </button>
-                      </div>  
+                      </div>
                     </div>
                   </div>
                   <!--/NAV-->
@@ -155,7 +178,7 @@
                   <a href="#section05"><i class="fa fa-question fa-lg Corange"></i> 可以詢問同個遠距工作者是否願意承接其他案件?
                   </a>
                 </div>
-              </div>     
+              </div>
             </div>
           </section>
           <section id="section01" class="hiw-group bg-white">
@@ -167,11 +190,11 @@
                 雇主的收費標準?
               </h2>
               <hr class="top50 bottom50">
-              
-              <div class="well"><h2 class="Cblue">回答：</h2><p class="hiw-text">一般的雇主，免費註冊。更多雇主方案詳見: 
+
+              <div class="well"><h2 class="Cblue">回答：</h2><p class="hiw-text">一般的雇主，免費註冊。更多雇主方案詳見:
                 <a href=">http://www.telework.com.tw/membership">http://www.telework.com.tw/membership</a></p>
               </div>
-              
+
               <p class="text-right top17"><a href="#menu01" title="回到雇主指南"><i class="fa fa-chevron-circle-up fa-4x"></i> </a></p>
             </div>
           </section>
@@ -276,7 +299,7 @@
 </body>
 <!-- END PAGE -->
 <!-- BEGIN FOOTER -->
-<script language="javascript" type="text/javascript" 
+<script language="javascript" type="text/javascript"
 src="../../masterpage/footer.txt"></script>
 <!-- END FOOTER -->
 
@@ -298,13 +321,13 @@ src="../../masterpage/footer.txt"></script>
             <script type="text/javascript" src="../../js/element.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
-              jQuery(document).ready(function() {    
+              jQuery(document).ready(function() {
                Web.init();
                //Index.init();
              });
             </script>
 
-            
+
             <script src="../../plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
             <script src="../../plugins/owl-carousel/assets/js/google-code-prettify/prettify.js"></script>
             <script src="../../plugins/owl-carousel/assets/js/application.js"></script>

@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <%
+        @seos.each do |seo|
+          if seo.page == "group"
+            case seo.key
+            when "title"
+                meta_title seo.content
+            when "keywords"
+                meta_keywords seo.content
+            when "description"
+                meta_description seo.content
+            when "author"
+                meta_author seo.content
+            end
+          end
+        end
+    %>
+
+  <title><%= yield(:title).presence || "Default title" %></title>
+  <meta name="keywords" content="<%= yield(:meta_keywords).presence || "default, keywords" %>" />
+  <meta name="description" content="<%= yield(:meta_description).presence || "Default description" %>" />
+  <meta name="author" content="<%= yield(:meta_author).presence || "Default Author" %>" />
+
   <meta content="text/html; charset=UTF-8" http-equiv="content-type">
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="" name="description"/>
@@ -31,7 +54,7 @@
         <link rel="stylesheet" type="text/css" href="../../css/group.css">
         <!--<link rel="stylesheet/less" type="text/css" href="less/page/index.less">-->
         <link rel="shortcut icon" href="../../favicon.ico"/>
-        
+
         <!-- END STYLE -->
       </head>
       <body>
@@ -82,13 +105,13 @@
                       <div class="gCircle">
                        <h4 style="padding-top:25px;">雇主</h4>
                        <p style="padding:20px 20px; ">找到符合您需求的人才，在線上進行預先審視，當然，在社群內的人才通常會是您所需要特定範圍的專業人士。</p>
-                     </div>    
+                     </div>
                    </div>
                    <div class="col-sm-4">
                      <div class="gCircle">
                        <h4 style="padding-top:25px;">遠距工作者</h4>
                        <p style="padding:20px 20px; ">在社群內找到適合您的工作機會。在社群內行銷你自己，加入特殊社群也會在個人資料中曝光，增加專業度。</p>
-                     </div>    
+                     </div>
                    </div>
                    <div class="col-sm-4">
                      <div class="gCircle">
@@ -96,7 +119,7 @@
                        <p style="padding:20px 20px; ">創建屬於您的專屬社群，您就能擁有管理權限。
                          <br>
                          <a href="#">立刻連絡我們，建立社群。</a></p>
-                       </div>    
+                       </div>
                      </div>
                      <div class="col-sm-12 top50">
                       <div class="well">
@@ -168,7 +191,7 @@
                     </div>
                   </div>
                   <div class="card-action-pellet btn-toolbar" role="toolbar">
-                    <div class="btn-group fa fa-plus-square-o"></div>    
+                    <div class="btn-group fa fa-plus-square-o"></div>
                   </div>
                 </div>
               </div>
@@ -185,7 +208,7 @@
                   </div>
                 </div>
                 <div class="card-action-pellet btn-toolbar" role="toolbar">
-                  <div class="btn-group fa fa-plus-square-o"></div>    
+                  <div class="btn-group fa fa-plus-square-o"></div>
                 </div>
               </div>
             </div>
@@ -202,7 +225,7 @@
                 </div>
               </div>
               <div class="card-action-pellet btn-toolbar" role="toolbar">
-                <div class="btn-group fa fa-plus-square-o"></div>   
+                <div class="btn-group fa fa-plus-square-o"></div>
               </div>
             </div>
           </div>
@@ -273,13 +296,13 @@
                         </div>
                       </div>
                     </div>
-                  </div>  
+                  </div>
                 </section>
               </div>
             </body>
             <!-- END PAGE -->
             <!-- BEGIN FOOTER -->
-            <script language="javascript" type="text/javascript" 
+            <script language="javascript" type="text/javascript"
             src="../../masterpage/footer.txt"></script>
             <!-- END FOOTER -->
 
@@ -301,11 +324,11 @@
             <script type="text/javascript" src="../../js/element.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
-              jQuery(document).ready(function() {    
+              jQuery(document).ready(function() {
                Web.init();
                //Index.init();
              });
-            </script>            
+            </script>
             <script>
              var activeEl = 4;
              $(function() {

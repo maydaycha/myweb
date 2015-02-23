@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <%
+        @seos.each do |seo|
+          if seo.page == "byot"
+            case seo.key
+            when "title"
+                meta_title seo.content
+            when "keywords"
+                meta_keywords seo.content
+            when "description"
+                meta_description seo.content
+            when "author"
+                meta_author seo.content
+            end
+          end
+        end
+    %>
+
+  <title><%= yield(:title).presence || "Default title" %></title>
+  <meta name="keywords" content="<%= yield(:meta_keywords).presence || "default, keywords" %>" />
+  <meta name="description" content="<%= yield(:meta_description).presence || "Default description" %>" />
+  <meta name="author" content="<%= yield(:meta_author).presence || "Default Author" %>" />
+
   <meta content="text/html; charset=UTF-8" http-equiv="content-type">
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="" name="description"/>
@@ -75,7 +98,7 @@
                    帶入自己的遠距工作者
                  </h1>
                  <h3 class="text-center">邀請您已經認識，但還沒有在Telework註冊的遠距離工作者前來工作，完成下列表單就能送出申請</h3>
-                 <hr class="top50 bottom50"> 
+                 <hr class="top50 bottom50">
                  <div class="well well-sm">
                   <form>
                     <div class="row">
@@ -88,7 +111,7 @@
                               <input type="text" class="form-control" id="lastname" placeholder="輸入您的姓氏" required="required" />
                             </div>
                           </div>
-                          <div class="col-md-12">                         
+                          <div class="col-md-12">
                             <div class="form-group">
                               <label for="name">
                                 名字</label>
@@ -105,7 +128,7 @@
                                 <input type="email" class="form-control" id="email" placeholder="輸入電子信箱" required="required" /></div>
                               </div>
                             </div>
-                          </div>                 
+                          </div>
                         </div>
 
                         <div class="col-md-7">
@@ -125,8 +148,8 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-sm-3">         
-                                <div id="feetype1" class="desc">                                                 
+                              <div class="col-sm-3">
+                                <div id="feetype1" class="desc">
                                   <div class="form-group">
                                     <label for="name">
                                       每週時數</label>
@@ -134,7 +157,7 @@
                                         <input type="radio" name="timelimit" checked="" value="3"> 無限制
                                         <input type="radio" name="timelimit"  value="4"> 有限制
                                       </div>
-                                    </div>          
+                                    </div>
                                   </div>
                                 </div>
                                 <div class="col-sm-5">
@@ -151,7 +174,7 @@
                                   </div>
                                 </div>
                               </div>
-                            </div>                         
+                            </div>
                             <div id="feetype2" class="desc" style="display:none;">
                               <div class="form-group" >
                                 <label for="name">
@@ -195,7 +218,7 @@
                   </body>
                   <!-- END PAGE -->
                   <!-- BEGIN FOOTER -->
-                  <script language="javascript" type="text/javascript" 
+                  <script language="javascript" type="text/javascript"
                   src="../../masterpage/footer.txt"></script>
                   <!-- END FOOTER -->
 
@@ -217,13 +240,13 @@
             <script type="text/javascript" src="../../js/element.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>-->
             <script>
-              jQuery(document).ready(function() {    
+              jQuery(document).ready(function() {
                Web.init();
                //Index.init();
              });
             </script>
 
-            
+
             <script src="../../plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
             <script src="../../plugins/owl-carousel/assets/js/google-code-prettify/prettify.js"></script>
             <script src="../../plugins/owl-carousel/assets/js/application.js"></script>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207043148) do
+ActiveRecord::Schema.define(version: 20150223183721) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -131,6 +131,13 @@ ActiveRecord::Schema.define(version: 20150207043148) do
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
 
+  create_table "main_skill_classes", force: true do |t|
+    t.string   "name"
+    t.binary   "picture",    limit: 2147483647
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "meet_room_members", force: true do |t|
     t.integer  "user"
     t.datetime "created_at"
@@ -169,6 +176,14 @@ ActiveRecord::Schema.define(version: 20150207043148) do
     t.integer  "user_id"
     t.integer  "project_id"
     t.text     "memoContent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menus", force: true do |t|
+    t.string   "key"
+    t.string   "label"
+    t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -269,6 +284,7 @@ ActiveRecord::Schema.define(version: 20150207043148) do
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "page"
   end
 
   create_table "skills", force: true do |t|
@@ -284,6 +300,13 @@ ActiveRecord::Schema.define(version: 20150207043148) do
     t.integer  "keyboardClickCount"
     t.string   "snapshot"
     t.text     "memoContent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sub_skill_classes", force: true do |t|
+    t.string   "name"
+    t.integer  "main_skill_class_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
