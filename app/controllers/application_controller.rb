@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :get_website
 
-  before_action :protect
+  # before_action :protect
 
   before_action :get_seo
 
