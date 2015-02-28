@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223183721) do
+ActiveRecord::Schema.define(version: 20150228185539) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -68,6 +68,12 @@ ActiveRecord::Schema.define(version: 20150223183721) do
   end
 
   create_table "comments", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "conversations", force: true do |t|
+    t.string   "subject"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -188,12 +194,21 @@ ActiveRecord::Schema.define(version: 20150223183721) do
     t.datetime "updated_at"
   end
 
+  create_table "messages", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "conversation_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "messages_of_projects", force: true do |t|
     t.integer  "project_id"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
   end
 
   create_table "oauths", force: true do |t|
@@ -279,6 +294,14 @@ ActiveRecord::Schema.define(version: 20150223183721) do
     t.text     "public_message_chinese"
   end
 
+  create_table "search_managements", force: true do |t|
+    t.string   "category"
+    t.boolean  "allow_internal"
+    t.boolean  "allow_external"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "seos", force: true do |t|
     t.string   "key"
     t.string   "content"
@@ -360,6 +383,15 @@ ActiveRecord::Schema.define(version: 20150223183721) do
     t.string   "project_name"
     t.integer  "interview_time"
     t.integer  "contact_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_conversations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "conversation_id"
+    t.boolean  "deleted"
+    t.boolean  "read"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

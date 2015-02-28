@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   protect_from_forgery except: [:add_to_favorite, :remove_from_favorite]
-  before_action :authenticate_user!, :except => [:check_email, :check_username]
+  before_action :authenticate_user!, :except => [:check_email, :check_username, :search]
 
   def check_email
     render json: {status: User.has_email?(params[:email])}
@@ -31,6 +31,14 @@ class UsersController < ApplicationController
   end
 
   def search
+    # check if need user login first
+    @searchManagement = SearchManagement.where(category: :freelancer).first
+    if not @searchManagement.nil?
+      if not @searchManagement.allow_external
+        authenticate_user!
+      end
+    end
+
     # params[:main], params[:sub]
     @main_skill_id = params[:main].nil? ? -1 : params[:main].to_i
     @sub_skill_id = params[:sub].nil? ? -1 : params[:sub].to_i
@@ -53,7 +61,7 @@ class UsersController < ApplicationController
       @users.delete_if{ |e| not e.introduction.downcase.include? @keyword } unless @keyword.blank?
     end
 
-    @users.delete_if{ |e| e.id == current_user.id or @pay_min > e.hourly_pay or e.hourly_pay > @pay_max }
+    @users.delete_if{ |e| e.id == current_user.id or @pay_min > e.hourly_pay or e.hourly_pay > @pay_max } if not current_user.nil?
 
     @total_size = @users.size
     @users = Kaminari.paginate_array(@users).page(params[:page]).per(5)

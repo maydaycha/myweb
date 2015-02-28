@@ -84,8 +84,18 @@
                     <li><%= link_to I18n.t("page.header.settings"), users_profile_path(current_user)  %></li>
                     <li><%= link_to I18n.t("page.header.logout"), destroy_user_session_path, method: :delete %></li>
                     <% else %>
-                    <li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>
-                    <li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>
+                    <!--<li><%= link_to I18n.t("page.header.login"), new_user_session_path %></li>-->
+                    <!--<li><%= link_to I18n.t("page.header.signup"), index_sign_up_path %></li>-->
+                      <% @menus.each do |m| %>
+                        <% if ["login"].include?(m.key) %>
+                            <li><%= link_to m.label, m.link %></li>
+                        <% end %>
+                      <% end %>
+                      <% @menus.each do |m| %>
+                        <% if ["sign_up"].include?(m.key) %>
+                            <li><%= link_to m.label, m.link %></li>
+                        <% end %>
+                      <% end %>
                     <% end %>
                 </ul>
             </div>
@@ -93,10 +103,10 @@
         <!-- END NAVBAR -->
 
 
-                
+
         <div class="row">
             <div class="col-md-2">
-            
+
             <ul class="nav nav-pills nav-stacked">
                   <li role="presentation"><%= link_to("會議室預約", meet_rooms_path) %></li>
                   <li role="presentation"><%= link_to("已預約的會議", meet_rooms_information_path) %> </li>
@@ -111,7 +121,7 @@
                 <%=yield %>
             </div>
         </div>
-            
+
 
 
 <!-- BEGIN JAVASCRIPTS -->
@@ -149,9 +159,9 @@
             <script type="text/javascript" src="/js/expanding_list.js"></script>
             <script type="text/javascript" src="/js/page/project_new.js"></script>
             <!--<script type="text/javascript" src="js/page/index.js"></script>-->
-            
-            
-            
+
+
+
 
             <script type="text/javascript">
             $(function () {
@@ -177,8 +187,8 @@
             });
             </script>
 
-        
-        
+
+
 <!-- END JAVASCRIPTS -->
 </body>
 </html>

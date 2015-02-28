@@ -35,6 +35,11 @@ class User < ActiveRecord::Base
   has_many :snapshots, dependent: :destroy
   has_many :working_histories, dependent: :destroy
 
+  has_many :user_conversations
+  has_many :conversations, :through => :user_conversations
+  has_many :messages, :through => :conversations
+
+
   accepts_nested_attributes_for :user_skill_categories
 
   acts_as_messageable

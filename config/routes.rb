@@ -192,7 +192,7 @@ Sun::Application.routes.draw do
   get 'howitworkP5_other' => 'index#howitworkP5_other', :as => :index_howitworkP5_other
   get 'partners' => 'index#partners', :as => :index_partners
   get 'solutions' => 'index#solutions', :as => :index_solutions
-  get 'SandBYOT' => 'index#SandBYOT', :as => :index_SandBYOT   
+  get 'SandBYOT' => 'index#SandBYOT', :as => :index_SandBYOT
   get 'tool_page' => 'index#tool_page', :as => :index_tool_page
 
   namespace :users do
@@ -233,7 +233,7 @@ Sun::Application.routes.draw do
 
   get 'application/show_image' => 'application#show_image'
 
- 
+
 
   namespace :meet_rooms do
     get 'booking'
@@ -265,8 +265,26 @@ Sun::Application.routes.draw do
     resources :meet_room_members
   end
 
+  resources :users do
+    resources :sms_conversations, :controller => "user_conversations"
+    member do
+      post :signin
+    end
+    collection do
+      post :signout
+    end
+  end
 
-  # for api 
+  resources :sms_conversations, :controller => "user_conversations" do
+    resources :messages
+    member do
+      post :mark_as_read
+      post :mark_as_unread
+    end
+  end
+
+
+  # for api
   mount API::Base => '/'
 
   resources :conversations
@@ -279,7 +297,7 @@ Sun::Application.routes.draw do
   end
 
 
-  
+
   resources :messages
 
 

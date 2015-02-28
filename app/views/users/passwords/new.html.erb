@@ -105,12 +105,19 @@
     <div class="footer">
         <img class="footer-logo" src="/img/logo103.png" alt="">
         <div class="footer-nav">
-            <%= link_to I18n.t("page.footer.about"), index_about_path %>
-            <span class="bar">|</span>
-            <%= link_to I18n.t("page.footer.privacy"), index_rule_path %>
-            <span class="bar">|</span>
-            <%= link_to I18n.t("page.footer.termofuse"), index_rule_path %>
-            <span class="bar">|</span>
+<!-- <%= link_to "關於我們", index_about_path %>
+                <span class="bar">|</span>
+                <%= link_to "隱私條款", index_rule_path %>
+                <span class="bar">|</span>
+                <%= link_to "使用條款", index_rule_path %>
+                <span class="bar">|</span> -->
+                <% @menus.each do |m| %>
+                   <% if ["about", "privacy", "termofuse"].include?(m.key) %>
+                      <%= link_to m.label, m.link %>
+                      <span class="bar">|</span>
+                   <% end %>
+                <% end %>
+
             <%= mail_to "service@sun-innovation.com", I18n.t("page.footer.contact") %>
         </div>
     </div>

@@ -4,7 +4,7 @@ require "csv"
 class ProjectsController < ApplicationController
   protect_from_forgery except: [:add_to_favorite, :remove_from_favorite]
   before_action :set_headers
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:search]
 
   def index
     @projects = Project.all
@@ -86,6 +86,14 @@ class ProjectsController < ApplicationController
   end
 
   def search
+    # check if need login first
+    @searchManagement = SearchManagement.where(category: :job).first
+    if not @searchManagement.nil?
+      if not @searchManagement.allow_external
+        authenticate_user!
+      end
+    end
+
     # params[:main], params[:sub]
     @main_skill_id = params[:main].nil? ? -1 : params[:main].to_i
     @sub_skill_id = params[:sub].nil? ? -1 : params[:sub].to_i

@@ -3,10 +3,9 @@ require 'csv'
 class Project < ActiveRecord::Base
   has_many :project_public_message
   has_many :project_questions
-  has_many :messages_of_projects
   has_many :user_applying_projects
   has_many :project_members
-  
+
   belongs_to :user
 
   # attr_accessor :translator_name
