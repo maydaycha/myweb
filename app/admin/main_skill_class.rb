@@ -1,6 +1,4 @@
-ActiveAdmin.register MainSkillClass do
-
-
+ActiveAdmin.register MainSkillClass, :as => "Customize MainSkillClass" do
   permit_params :name, :picture
 
   form :html => { :enctype => "multipart/form-data" } do |f|

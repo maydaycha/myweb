@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150228185539) do
+ActiveRecord::Schema.define(version: 20150228195720) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -80,6 +80,14 @@ ActiveRecord::Schema.define(version: 20150228185539) do
 
   create_table "facebooks", force: true do |t|
     t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locales", force: true do |t|
+    t.string   "name"
+    t.string   "file_name"
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

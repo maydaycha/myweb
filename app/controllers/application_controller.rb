@@ -96,6 +96,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_seo
+    puts "current path" + File.dirname(__FILE__)
     @seos = Seo.all
   end
 
