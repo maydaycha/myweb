@@ -78,6 +78,7 @@ gem 'omniauth-linkedin'
 
 gem 'devise'
 # gem 'devise_security_extension'
+gem 'devise-encryptable'
 gem 'bcrypt'
 
 # gem 'country_select'
